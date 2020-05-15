@@ -1,0 +1,99 @@
+gadgets.register_gadget() is the main function for registering items. Many options can be skipped and the definition
+table doesn't require all of them to be present. Look at other mods in gadgets_modpack for examples of gadget definition.
+
+gadgets.register_gadget({
+    --Mandatory
+    name = "gadgets_potions:potion_speed_01",                   --Id of the item
+    description = "Weak Potion Of Speed",                       --Name displayed in inventory
+    texture = "bottle_cyan.png",                                --Texture of the item
+
+    --Ammo or charge
+    consumable = true,                                          --If item is consumed on use or has a wear bar
+    stack_max = 4,                                              --Maximum stack size for consumables.
+    has_durability = true,                                      --Master switch to toggle durability of the item
+    uses = 8,                                                   --Amount of uses before the wear bar is depleted
+    requires_technic = false,                                   --Instead of mechanical wear, the wear bar represents technic charge
+                                                                --in EUs, and can be recharged at technic stations
+    technic_charge = 100000,                                    --Total amount of technic EUs needed to charge the item
+    custom_charge = false,                                      --Custom charge for item. Instead of breaking it becomes unusuable before
+                                                                --Repaired.
+    mana_per_use = 50,                                          --If defined, the item requires this amount of mana per use. Requires "mana" by Wuzzy.
+    return_item = "vessels:bottle",                             --If defined, returns this item to the inventory if use is successfull.
+    ammo_type = "default:stone",                                --If defined requires this item to be present in inventory and takes on each successfull use
+    ammo_per_use = "1",                                         --How much ammo is needed per use
+
+    --Repair
+    repair_with = "default:stone",                              --Id defined, combining the gadget with this item on the crafting grid will restore
+                                                                --Some of its wear
+    repair_uses = 8,                                            --How much wear in uses restore per repair item
+
+    --Effects
+    conflicting_effects = {"jump_1", "jump_2"},                 --If defined, item can't be used if player has any of the effects from this list active
+    effect = {"gadgets_default_effects_speed_1"},               --If defined, applies this effect to the player. See gadgets.register_effect() or
+                                                                --playereffects.register_effect_type()
+    duration = 120,                                             --Duration of effect
+
+    --Visuals and sounds
+    use_sound = "test_drink",                                   --Sound played on item use
+    use_sound_gain = 1,                                         --Loudness of use sound
+    use_particle = "particle_speed.png",                        --If defined, spawns this particle around the player on use (not effect particle)
+    use_particle_amount = 4,                                    --Amount of particles to spawn
+    use_particle_glow = true,                                   --Should particles glow
+    use_particle_velocity = 0,                                  --Particle velocity in random direction
+    use_particle_gravity = 1,                                   --Particle acceleration on Y axis
+    use_particle_size = 6,                                      --Particle size. Minimum particle size is this value divided by 2
+    use_particle_displacement = 0.5,                            --Displacement of particle origin around the player
+
+    --Custom function
+    custom_wear = true,                                         --If enabled, gadget only consumes ammo and performs other functions if 
+                                                                --custom_on_use() function returned true. Can be used for completely custom gadgets that
+                                                                --Don't apply status effects
+    custom_on_use = function(itemstack, user, pointed_thing),
+        do_something()
+    end,                                                        --Custom function called on item use
+
+    --Recipe
+    shapeless_recipe = true,                                    --Should the recipe be shapeless
+    recipe = {
+        {
+            {"farming:cotton", "default:obsidian_shard", "default:apple"},
+            {"", "magic_materials:magic_root", ""},
+            {"", "gadgets_consumables:water_bottle", ""},
+        }
+    },                                                          --Crafting recipe. The table may contain multiple recipes, all of which will be registered
+    replacements = {
+        {
+            "bucket:bucket_lava",
+            "bucket:bucket_empty"
+        }
+    },                                                          --List of item replacements on crafting grid
+    craft_amount = 1,                                           --How much items to craft
+})
+
+gadgets.register_effect() is a wrapper around playereffects.register_effect_type() with sole point of adding
+visual effects (particles spawning around the player) and managing them (if it's canceled, player disconnected or dead, etc).
+If you don't have any visuals on your effect you can safely use playereffects.register_effect_type() instead of this function.
+Definition table fields correspond to playereffects.register_effect_type() in https://repo.or.cz/minetest_playereffects.git/blob/HEAD:/README.md
+
+gadgets.register_effect({
+    id = "custom_effect_01",                                    --Id of the effect. Must be unique
+    name = "Display Name",                                      --Name displayed on the HUD
+    icon = "effect.png",                                        --Effect icon, displayed on HUD
+    groups = {"custom_effects"},                                --Group for this effect
+    apply = function(player)
+        do_something()
+    end,                                                        --Function called on effect applied
+    cancel = function(effect, player)
+        do_something()
+    end,                                                        --Function called when effect is canceled
+    hidden = false,                                             --Effect doesn't appear on HUD
+    cancel_on_death = true,                                     --Effect is canceled on player death
+    repeat_interval = 1,                                        --If defined, repeats apply() each repeat_interval
+    particle = "particle_speed.png",                            --Particle spawned around the player for the duration of the effect
+    particle_amount = 4,                                        --Amount of particles spawned per effect_interval
+    particle_glow = true,                                       --Should particles glow
+    particle_velocity = 0,                                      --Random velocity of each particle
+    particle_gravity = 1,                                       --Particle acceleration on Y axis
+    particle_size = 6,                                          --Max particle size. Min size is this value/2
+    particle_displacement = 0.5,                                --Particle displacement around the user
+})

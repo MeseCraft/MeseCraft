@@ -1,0 +1,18 @@
+# Please choose your favorite resolution.
+# Allowed resolutions: 16, 32, 64, 128 (pixels).
+# The default value is 16 pixels.
+hidden_doors_res (Resolution in pixels for the textures) int 16
+
+# Here you can set your preferred value for the stone made hidden
+# doors' opening and closing sounds, the default value is 5.0
+hidden_doors_vol (Opening and closing sounds' volume in float) float 5.0
+
+# You can choose to have concealed doors remain slightly visible - wooden 
+# doors which have been painted to match their surroundings.
+# This allows players that pay attention to find concealed doors, as well 
+# as providing decor-matched doors for interior decoration.
+hidden_doors_painted (Painted doors - visible but camouflaged) bool false
+
+# Disable the module's nodes and activate the
+# L.B.M. based module's nodes remover.
+hidden_doors_remover (Disable and remove this mod's nodes) bool false

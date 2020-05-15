@@ -1,0 +1,312 @@
+# ITALIAN LOCALE FOR THE DFCAVERNS MODULE
+# Copyright (C) 2017 FaceDeer <derksenmobile@gmail.com>
+# This file is distributed under the same license as the DFCAVERNS package.
+# Hamlet <h4mlet@riseup.net>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dfcaverns module's Italian locale\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-07 21:33-0600\n"
+"PO-Revision-Date: 2017-08-17 23:01+0100\n"
+"Last-Translator: H4mlet <h4mlet@riseup.net>\n"
+"Language-Team: ITALIANO\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: df_mapitems\castle_coral.lua:6
+msgid "Castle Coral"
+msgstr ""
+
+#: df_mapitems\castle_coral.lua:25
+msgid "Castle Coral Skeleton"
+msgstr ""
+
+#: df_mapitems\cave_coral.lua:6
+#: df_mapitems\cave_coral.lua:18
+#: df_mapitems\cave_coral.lua:30
+#, fuzzy
+msgid "Cave Coral"
+msgstr "Grano di caverna"
+
+#: df_mapitems\cave_pearls.lua:6
+msgid "Cave Pearls"
+msgstr ""
+
+#: df_mapitems\crystals_mese.lua:7
+msgid "Flawless Mese Block"
+msgstr ""
+
+#: df_mapitems\crystals_mese.lua:29
+msgid "Flawless Mese Crystal"
+msgstr ""
+
+#: df_mapitems\crystals_ruby.lua:6
+msgid "Red Crystal Vein"
+msgstr ""
+
+#: df_mapitems\crystals_ruby.lua:16
+#: df_mapitems\crystals_ruby.lua:71
+#: df_mapitems\crystals_ruby.lua:158
+msgid "Giant Red Crystal"
+msgstr ""
+
+#: df_mapitems\crystals_ruby.lua:43
+#: df_mapitems\crystals_ruby.lua:122
+#: df_mapitems\crystals_ruby.lua:195
+msgid "Big Red Crystal"
+msgstr ""
+
+#: df_mapitems\crystals_salt.lua:6
+msgid "Luminous Salt Crystal"
+msgstr ""
+
+#: df_mapitems\crystals_salt.lua:23
+msgid "Salty Cobble"
+msgstr ""
+
+#: df_mapitems\doc.lua:11
+msgid ""
+"Cave moss is technically a form of mold, but fortunately a relatively benign "
+"one given its ubiquity. Its fibers form a tough but springy mat over the "
+"surface of any organic-rich soil that accumulates deep underground."
+msgstr ""
+
+#: df_mapitems\doc.lua:12
+msgid ""
+"Cave moss has no known uses aside from the faint glow it emits. It dies when "
+"exposed to bright light sources such as the Sun."
+msgstr ""
+
+#: df_mapitems\doc.lua:13
+msgid ""
+"Floor fungus produces a thin, slick film that spreads through the cracks of "
+"broken rock. Its ability to subsist on the tiniest traces of nutrients means "
+"it's found in relatively harsh underground environments."
+msgstr ""
+
+#: df_mapitems\doc.lua:14
+msgid ""
+"Floor fungus has no known uses. It can penetrate deeply into cobblestone "
+"constructions if an infestation gets hold, but it is difficult to transport "
+"and is inhibited by light so it hasn't spread beyond the deep caverns."
+msgstr ""
+
+#: df_mapitems\doc.lua:16
+msgid ""
+"Hoar moss is a strange glowing crust that sometimes forms on the surface of "
+"water flowing over ice."
+msgstr ""
+
+#: df_mapitems\doc.lua:17
+msgid ""
+"Hoar moss has no known use aside from providing a faint source of light."
+msgstr ""
+
+#: df_mapitems\doc.lua:19
+msgid ""
+"Glistening strings of silk hang from the ceilings of some of the larger "
+"caverns, lit by the millions of tiny bioluminescent worms that spun them. "
+"Glow worms prey on the insects they lure and entangle with their faux starry "
+"sky - and sometimes the occasional bat or other larger flying beast."
+msgstr ""
+
+#: df_mapitems\doc.lua:20
+msgid ""
+"Glow worms can be harvested and used as a source of light but they die when "
+"exposed to light significantly brighter than themselves or when immersed in "
+"water. A colony of glow worms hung in a hospitable environment will undergo "
+"a modest amount of growth, allowing it to be divided and propagated."
+msgstr ""
+
+#: df_mapitems\doc.lua:22
+msgid ""
+"A nasty kelp-like plant that grows in patches on the floor of the Sunless "
+"Sea. Its reflective patches draw in the unwary and then its prickly barbs "
+"catch and hold small creatures."
+msgstr ""
+
+#: df_mapitems\doc.lua:23
+msgid "Snareweed has no practical use, its fibers disintegrate when they dry."
+msgstr ""
+
+#: df_mapitems\doc.lua:25
+msgid ""
+"A rare form of coral found only deep underground in the Sunless Sea, cave "
+"coral grows hanging from the ceilings of flooded caverns."
+msgstr ""
+
+#: df_mapitems\doc.lua:26
+msgid ""
+"Aside from their aesthetic beauty, cave corals can be harvested for simple "
+"building materials."
+msgstr ""
+
+#: df_mapitems\doc.lua:28
+msgid ""
+"Flowstone is a carbonate-rich rock formation deposited by flowing water. It "
+"consists of minerals that the water dissolved earlier as it widens cracks "
+"and fissures into caves."
+msgstr ""
+
+#: df_mapitems\doc.lua:29
+msgid ""
+"Aside from the aesthetic beauty of its formations flowstone has no special "
+"properties or uses."
+msgstr ""
+
+#: df_mapitems\doc.lua:30
+msgid ""
+"The iconic stalactites and stalagmites found in caverns are composed of "
+"flowstone (or 'dripstone' in the case of these formations). Moist dripstone "
+"is still undergoing growth, whereas dry dripstone is found in 'dead' caverns "
+"once the source of water that created them ceases."
+msgstr ""
+
+#: df_mapitems\doc.lua:31
+msgid ""
+"Although stalagmites are blunter than the stalactites above them, they can "
+"cause extra damage to the unwary caver who falls on them."
+msgstr ""
+
+#: df_mapitems\doc.lua:32
+msgid ""
+"Ice formed by water dripping slowly into a cold environment, icicles tend to "
+"be exceptionally pure and clear."
+msgstr ""
+
+#: df_mapitems\doc.lua:33
+msgid "Falling onto an icicle is particularly damaging."
+msgstr ""
+
+#: df_mapitems\doc.lua:36
+msgid ""
+"Deep in the infernal conditions of the magma sea, over the course of "
+"millions of years, mese crystals grow into flawless blocks that glow bright "
+"with strange energies."
+msgstr ""
+
+#: df_mapitems\doc.lua:37
+msgid ""
+"These blocks can be broken down into a large number of mese crystals, but "
+"cannot be artificially reassembled."
+msgstr ""
+
+#: df_mapitems\doc.lua:39
+msgid ""
+"Large, dry caverns deep underground are well suited to aeons-long processes "
+"that concentrate crystalline substances in their walls. This rock is riddled "
+"with veins of the stuff."
+msgstr ""
+
+#: df_mapitems\doc.lua:40
+msgid "Aside from its aesthetic value this rock has no particular use."
+msgstr ""
+
+#: df_mapitems\doc.lua:42
+msgid ""
+"Monolithic crystals of this size form only over extremely long periods deep "
+"underground, in large long-lived cavities that allow them room to grow. "
+"Water and the life it hosts tend to disrupt the formation process of these "
+"crystals so they're only found in dry environments."
+msgstr ""
+
+#: df_mapitems\doc.lua:43
+msgid "Aside from its aesthetic value this crystal has no particular use."
+msgstr ""
+
+#: df_mapitems\doc.lua:45
+msgid "These nodules are actually calcified bacterial colonies."
+msgstr ""
+
+#: df_mapitems\doc.lua:46
+msgid ""
+"Aside from their soft glow and beauty, cave pearls have no practical use. "
+"Except perhaps as handholds for climbing."
+msgstr ""
+
+#: df_mapitems\doc.lua:48
+msgid ""
+"Deep under the surface of the Sunless Sea are the rare and beautiful Castle "
+"Corals, so named due to their resemblance to small undersea castles."
+msgstr ""
+
+#: df_mapitems\doc.lua:49
+msgid ""
+"Castle Coral has little practical use aside from perhaps as a distinctive-"
+"looking building material."
+msgstr ""
+
+#: df_mapitems\doc.lua:51
+msgid ""
+"A crystal of salt grown from water that percolated through the depths of the "
+"earth, picking up all manner of minerals as it went."
+msgstr ""
+
+#: df_mapitems\doc.lua:52
+msgid ""
+"Traces of Mese must have been dissolved by the water as this crystal has an "
+"inherent glow to it. Not enough Mese to be useful as a reagent, "
+"unfortunately."
+msgstr ""
+
+#: df_mapitems\doc.lua:54
+msgid ""
+"Much water has seeped through the cracks in this rock and then quickly "
+"evaporated, leaving a crust of salt laced throughout."
+msgstr ""
+
+#: df_mapitems\doc.lua:55
+msgid ""
+"Attemping to mine this rock knocks the salt crust away, leaving only base "
+"stone."
+msgstr ""
+
+#: df_mapitems\flowstone.lua:8
+msgid "Dry Dripstone"
+msgstr ""
+
+#: df_mapitems\flowstone.lua:19
+msgid "Dry Flowstone"
+msgstr ""
+
+#: df_mapitems\flowstone.lua:33
+msgid "Wet Dripstone"
+msgstr ""
+
+#: df_mapitems\flowstone.lua:45
+msgid "Wet Flowstone"
+msgstr ""
+
+#: df_mapitems\flowstone.lua:59
+msgid "Icicle"
+msgstr ""
+
+#: df_mapitems\glow_worms.lua:11
+msgid "Glow Worms"
+msgstr "Vermi luminosi"
+
+#: df_mapitems\ground_cover.lua:11
+msgid "Dirt With Cave Moss"
+msgstr "Terra con muschio di caverna"
+
+#: df_mapitems\ground_cover.lua:54
+#: df_mapitems\ground_cover.lua:69
+msgid "Cobblestone With Floor Fungus"
+msgstr "Ciottoli con funghi del terreno"
+
+#: df_mapitems\ground_cover.lua:109
+msgid "Ice With Hoar Moss"
+msgstr ""
+
+#: df_mapitems\snareweed.lua:6
+msgid "Snareweed"
+msgstr ""
+
+#: df_mapitems\veinstone.lua:6
+msgid "Veinstone"
+msgstr ""

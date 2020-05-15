@@ -1,0 +1,5 @@
+dfcaverns_mycelium_min_growth_delay (Minimum mycelium growth delay) int 240
+dfcaverns_mycelium_max_growth_delay (Maximum mycelium growth delay) int 400
+
+dfcaverns_jungle_min_growth_delay (Minimum growth delay for large jungle plants) int 300
+dfcaverns_jungle_max_growth_delay (Maximum growth delay for large jungle plants) int 1500

@@ -1,0 +1,70 @@
+To spawn the lootchests, world is populated by spawn chest markers of corresponding type.
+During the normal gameplay, they are of "airlike" type and are replaced with LBM which replaces them with corresponding chests and fill them with loot.
+If minetest.conf setting "lootchests_debug = true" is active, markers are not replaced and can be taken from the creative inventory.
+This can be used for placing them manually for various purposes, mainly for adding lootchest markers to schematics.
+
+Creating a lootchest consists of two parts: defining the lootchest itself with lootchests.register_lootchest(def)
+and creating a corresponding loot table in lootchests.loot_table[def.name]. Examples are below.
+
+Example of a lootchest definition:
+lootchests.register_lootchest({
+    --Mandatory
+    name = "lootchests:default_chest",                      --ID of the lootchest. A table with corresponding key should be created in tables.loot_table
+    description = "Loot Chest",                             --Name as it appears in inventory, also lootchest infobox
+
+    --Visuals
+    drawtype = "nodebox",                                   --Drawtype of the node. Don't define for default node look
+    node_box = {
+        type = "fixed",
+        fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+    },                                                      --Nodebox def if drawtype is "nodebox"
+    tiles = {
+        "default_chest_top.png",
+        "default_chest_top.png",
+        "default_chest_side.png",
+        "default_chest_side.png",
+        "default_chest_front.png",
+    },                                                      --Node tile definition
+
+    --Sounds and groups
+    sounds = default.node_sound_wood_defaults(),            --Node sound definition
+    groups = {choppy = 2, oddly_breakable_by_hand = 2},     --Node groups
+
+    --Spawning
+    spawn_in = {"default:sand", "default:desert_sand"},     --Spawn in which nodes, may be one itemstring or a list of them
+    spawn_on = {"default:stone", "default:desert_stone"},   --Spawn on which nodes, may be one itemstring or a list of them
+    spawn_in_rarity = 25,                                   --Spawn in rarity, approximate spacing between each node
+    spawn_on_rarity = 1000.                                 --Spawn on rarity, spawns one out of defined value (if default is 1000 then on 1 out of 1000)
+
+    --Height limit
+    ymax = 5,                                               --Max Y limit
+    ymin = -64,                                             --Min Y limit
+
+    --Container parameters
+    slot_spawn_chance = 50,                                 --Chance to spawn something in a container slot. Ranges from 0 to 100
+    slots = 32,                                             --Total amount of slots in the container. Max is 32
+})
+
+
+To actually add loot to your lootchests, you need to define a loot table in lootchests.loot_table. Table must be accessible by the key which equals to
+the lootchest ID.
+
+Example of a loot table definition for "lootchests:default_chest":
+lootchests.loot_table["lootchests:default_chest"] = {
+    {"default:stick", 16},                                  --Each item definition is a table with 2 elements - their itemstring and maximum amount
+    {"default:axe_stone"},                                  --If defined item is a tool, it doesn't need an amount definition, there will always be one anyway
+                                                            --Tools spawn with random wear instead
+    {"default:stone", 64},
+}
+
+Third-party mods can also access and modify loot tables, you can add custom items to them manually, or by using
+lootchests.add_to_loot_table(key, items), where "key" is the lootchest ID and "items" is another table with loot.
+
+Example:
+
+local items = {
+    {"custom_mod:custom_item_01", 15},
+    {"custom_mod:custom_item_02", 32},
+}
+
+lootchests.add_to_loot_table("lootchests:default_chest", items)

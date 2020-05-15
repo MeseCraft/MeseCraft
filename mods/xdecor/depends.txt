@@ -1,0 +1,9 @@
+default
+bucket
+doors
+stairs
+xpanes
+fire?
+oresplus?
+moreblocks?
+mesecons_doors?

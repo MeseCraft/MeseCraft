@@ -1,0 +1,4 @@
+shipwrecks_chance (Chance to spawn a shipwreck in a mapblock, in percent) int 15 0 100
+shipwrecks_horizontal_displacement (Random horizontal displacement of the shipwreck from the center of mapblock) int 16 0 16
+shipwrecks_vertical_displacement (Random negative vertical displacement of the shipwreck in sand) int 5 0 10
+shipwrecks_seed (Seed for shipwreck generation) int 0

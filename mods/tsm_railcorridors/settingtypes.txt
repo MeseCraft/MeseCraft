@@ -1,0 +1,47 @@
+#Probability (0.0 to 1.0) for every newly generated mapchunk to get rail corridors.
+tsm_railcorridors_probability_railcaves_in_mapchunk (Rail corridor probability) float 0.33333 0.0 1.0
+
+#Minimum rail corridor path length (excludes forks).
+tsm_railcorridors_way_min (Minimum rail corridor length) int 4 1
+
+#Maximum rail corridor path length (excludes forks).
+tsm_railcorridors_way_max (Maximum rail corridor length) int 7 1
+
+#Probability (0.0 to 1.0) for every horizontal part of a rail corridor to have torches.
+tsm_railcorridors_probability_torches_in_segment (Torch probability) float 0.5 0.0 1.0
+
+#Probability (0.0 to 1.0) for every part of a rail corridor to go up or down.
+tsm_railcorridors_probability_up_or_down (Stairway probability) float 0.2 0.0 1.0
+
+#Probability (0.0 to 1.0) for every part of a rail corridor to fork.
+#Caution! Too high values may cause Minetest to hang.
+tsm_railcorridors_probability_fork (Fork probability) float 0.04 0.0 1.0
+
+#Probability (0.0 to 1.0) for every part of a rail corridor to contain a treasure chest.
+tsm_railcorridors_probability_chest (Chest probability) float 0.05 0.0 1.0
+
+#Probability (0.0 to 1.0) for every part of a rail corridor to include a cart.
+#Note: The rail may still be subject to rail damage, so the probability
+#of finding a cart in rail corridors with high rail damage will be lower.
+#NOTE: Due to a bug in Minetest <https://github.com/minetest/minetest/issues/4759>
+#carts often fail to spawn even if they should.
+tsm_railcorridors_probability_cart (Cart probability) float 0.05 0.0 1.0
+
+#If enabled, cobwebs may be placed in some corridors.
+#Currently, cobwebs are only supported with the Mobs Redo mod.
+tsm_railcorridors_place_cobwebs (Cobwebs) bool true
+
+#Probability (0.0 to 1.0) for a rail corridor system to have damaged/incomplete railways
+tsm_railcorridors_probability_damage (Damaged railway probability) float 0.55 0.0 1.0
+
+#Minimum height in which rail corridors are created.
+tsm_railcorridors_height_min (Minimum height) int -30900
+
+#Maximum height in which rail corridors are created.
+tsm_railcorridors_height_max (Maximum height) int -30
+
+#If enabled, rail corridors continue to generate through obstacles such
+#as other rail corridors (without destroying them, mostly). This may lead
+#to pretty chaotic rail corridors, but they are also more free to spread.
+#If disabled, rail corridors spread in a orderly fashion.
+tsm_railcorridors_chaos (Chaos Mode) bool false

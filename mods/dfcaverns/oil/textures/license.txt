@@ -1,0 +1,3 @@
+All textures not specifically listed here are created by FaceDeer and released under both the MIT license and under the Creative Commons CC0 license.
+
+oil_bucket and oil liquid textures modified from default mod's bucket and water textures

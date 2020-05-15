@@ -1,0 +1,5 @@
+#To disable glow worm growth, set this to 0.
+dfcaverns_glow_worm_delay_multiplier (glow worm growth delay multiplier) float 10
+dfcaverns_snareweed_damage (Snareweed causes damage to player) bool true
+dfcaverns_invulnerable_slade (Slade cannot be damaged) bool true
+dfcaverns_destructive_pit_plasma (Pit plasma destroys adjacent nodes) bool false

@@ -1,0 +1,1 @@
+An API for registering consumables and other items that add status effects to the player

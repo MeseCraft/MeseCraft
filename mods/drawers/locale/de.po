@@ -1,0 +1,132 @@
+# German translations for PACKAGE package.
+# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# LNJ <git@lnj.li>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"PO-Revision-Date: 2018-12-08 09:04+0000\n"
+"Last-Translator: LNJ <git@lnj.li>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/minetest/"
+"mod-storage-drawers/de/>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Momentaner Zustand: "
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Angehalten"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Läuft"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Gestaut"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Schubfach Steuerung"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Leer"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Holz"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "@1schubfach"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@1schubfächer (1×2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@1schubfächer (2×2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% voll)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% voll)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Akazienholz"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Espenholz"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Tropenholz"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Kiefernholz"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Eichenholz"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Birkenholz"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Dunkeleichenholz"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Fichtenholz"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Stahl-Schubfachverbesserung (×2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Gold-Schubfachverbesserung (×3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Obsidian-Schubfachverbesserung (×5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Diamant-Schubfachverbesserung (×8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Eisen-Schubfachverbesserung (×2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Smaragd-Schubfachverbesserung (×13)"
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr "Holzverkleidung"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Schubfachverbesserungsvorlage"

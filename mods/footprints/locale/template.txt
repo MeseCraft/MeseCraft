@@ -1,0 +1,21 @@
+# textdomain: footprints
+
+
+### init.lua ###
+
+Desert Sand with Footprint=
+Dirt with Coniferous Litter and Footprint=
+Dirt with Dry Grass and Footprint=
+Dirt with Footprint=
+Dirt with Grass and Footprint=
+Dirt with Rainforest Litter and Footprint=
+Dirt with Snow and Footprint=
+Dry Dirt with Dry Grass and Footprint=
+Dry Dirt with Footprint=
+Flattened Cotton=
+Flattened Wheat=
+Gravel with Footprint=
+Sand with Footprint=
+Silver Sand with Footprint=
+Snow Block with Footprint=
+Snow with Footprint=

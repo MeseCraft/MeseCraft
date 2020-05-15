@@ -1,0 +1,12 @@
+With this mod, you are able to compost grass, leaves, flowers...
+
+Crafting:
+Wood barrel:
+	W		W
+	W		W
+	W	S	W
+
+	W : wood
+	S : wood slab
+
+created by cd2 (cdqwertz) - cdqwertz.github.io

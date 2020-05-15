@@ -1,0 +1,1 @@
+Adds item frames and pedestals to showcase items.

@@ -1,0 +1,4 @@
+#    If enabled players are knocked back when hit by mobs or other players
+player_knockback (Player knockback) bool true
+#    If enabled the players use the old sneak glitch and movements
+old_sneak (Use old sneak glitch) bool false

@@ -1,0 +1,2 @@
+enable_gadgets_effects (Enable gadgets_api particle visuals) bool true
+effect_interval (Server step interval for spawning particle effects) float 0.5 0.0 60.0

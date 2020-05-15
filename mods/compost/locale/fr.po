@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-31 12:08+0200\n"
+"PO-Revision-Date: 2017-05-07 06:44+0200\n"
+"Last-Translator: fat115 <fat115@framasoft.org>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: init.lua
+msgid "loading..."
+msgstr "en cours de chargement..."
+
+#: init.lua
+msgid "progress: @1%"
+msgstr "progression : @1%"
+
+#: init.lua
+msgid "To start composting, place some organic matter inside."
+msgstr "Ajoutez de la matière organique pour obtenir du compost."
+
+#: init.lua
+msgid " moves stuff to compost bin at "
+msgstr " a mis quelque chose dans le composteur à "
+
+#: init.lua
+msgid " takes stuff from compost bin at "
+msgstr " a pris quelque chose dans le composteur à "
+
+#: init.lua
+msgid "Empty Compost Bin"
+msgstr "Composteur vide."
+
+#: init.lua
+msgid "Compost Bin"
+msgstr "Composteur"
+
+#: init.lua
+msgid " loaded."
+msgstr " chargé."

@@ -1,0 +1,8 @@
+# Combine player and projectile velocity
+bweapons_combine_velocity (Add player velocity to projectile velocity) bool false
+
+# Global bweapons damage multiplier
+bweapons_damage_multiplier (Bweapons damage multiplier) float 1
+
+# Distance from projectile to which raycast is performed each server step
+bweapons_projectile_raycast_distance (Projectile raycast distance) float 0.5 0 5

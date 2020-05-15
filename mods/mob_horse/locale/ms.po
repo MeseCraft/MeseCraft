@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-06 00:07+0800\n"
+"PO-Revision-Date: 2018-02-06 00:14+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: MuhdNurHidayat (MNH48) <mnh48mail@gmail.com>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ms\n"
+
+#: init.lua
+msgid "Horse"
+msgstr "Kuda"
+
+#: init.lua
+msgid "Horse shoes fitted -"
+msgstr "Ladam telah dipasang pada kuda -"
+
+#: init.lua
+msgid " speed: "
+msgstr " kelajuan: "
+
+#: init.lua
+msgid " , jump height: "
+msgstr " , ketinggian lompat: "
+
+#: init.lua
+msgid " , stop speed: "
+msgstr " , kelajuan berhenti: "
+
+#: init.lua
+msgid "Horse shoes only work on horses!"
+msgstr "Ladam hanya boleh dipakaikan pada kuda!"
+
+#: init.lua
+msgid "Steel HorseShoes (use on horse to apply)"
+msgstr "Ladam Kuda Keluli (guna pada kuda untuk pakaikan ia)"
+
+#: init.lua
+msgid "Bronze HorseShoes (use on horse to apply)"
+msgstr "Ladam Kuda Gangsa (guna pada kuda untuk pakaikan ia)"
+
+#: init.lua
+msgid "Mese HorseShoes (use on horse to apply)"
+msgstr "Ladam Kuda Mese (guna pada kuda untuk pakaikan ia)"
+
+#: init.lua
+msgid "Diamond HorseShoes (use on horse to apply)"
+msgstr "Ladam Kuda Intan (guna pada kuda untuk pakaikan ia)"

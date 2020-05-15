@@ -1,0 +1,7 @@
+All textures not specifically listed here are created by FaceDeer and released under both the MIT license and under the Creative Commons CC0 license.
+
+dfcaverns_glow_amethyst, dfcaverns_glow_amethist_ore - from caverealms glow_amethyst
+
+dfcaverns_slade, dfcaverns_slade_sand, dfcaverns_slade_brick, are all from the Nether mod by PilzAdam: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) http://creativecommons.org/licenses/by-sa/3.0/
+
+dfcaverns_glowstone_anim is derived from an animated gif of the Sun's surface released by the National Science Foundation under the public domain

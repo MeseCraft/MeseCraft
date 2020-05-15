@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"PO-Revision-Date: 2017-09-28 16:09+0000\n"
+"Last-Translator: Hamlet <h4mlet@riseup.net>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/minetest/mod-"
+"storage-drawers/it/>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.17-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr ""
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Running"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr ""
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Vuoto"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Di legno"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "@1 Cassetto"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@1 Cassetti (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@1 Cassetti (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% pieno)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% pieno)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Legno di acacia"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Legno di pioppo"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Legno della giungla"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Legno di pino"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Legno di quercia"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Legno di betulla"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Legno di quercia scura"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Legno di abete rosso"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Miglioramento d'acciaio della cassettiera (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Miglioramento d'oro della cassettiera (x3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Miglioramento d'ossidiana della cassettiera (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Miglioramento di diamante della cassettiera (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Miglioramento di ferro della cassettiera (x3)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Miglioramento di smeraldo della cassettiera (x13)"
+
+#: init.lua
+#, fuzzy
+msgid "Wooden Trim"
+msgstr "Di legno"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Modello di miglioramento della cassettiera"

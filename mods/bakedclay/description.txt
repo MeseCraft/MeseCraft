@@ -1,0 +1,1 @@
+Adds the ability to bake clay into blocks and colour them with dye.

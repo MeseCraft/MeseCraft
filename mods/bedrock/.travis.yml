@@ -1,0 +1,16 @@
+language: generic
+
+addons:
+  apt:
+    packages:
+    - luarocks
+
+install:
+  - pyenv global 3.6.3
+  - pip3 install --user pre-commit
+  - luarocks install --local luacheck
+
+script:
+  # All linters are run with pre-commit hooks
+  - export PATH="$HOME/.luarocks/bin:$PATH"
+  - $HOME/.local/bin/pre-commit run --all-files

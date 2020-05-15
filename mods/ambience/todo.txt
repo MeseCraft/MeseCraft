@@ -1,0 +1,11 @@
+To Do:
+
+-add random_volume parameter to night normal, day normal, & cave normal sounds to create feeling of distance.
+
+m-get constant birds more quiet during the day
+m-bats seem way too frequent now?
+m-when playing multiplayer seems to increase frequency of music & normal sounds to the point where they are obnoxious
+m-which songs should go with which environments?   Dark songs in caves or night, light sounds during day.
+m-may be drowning out some of the normal sound effects like walking on stone.
+l-what about other weird bubble 
+l-put in wind/ wind in trees during day and night

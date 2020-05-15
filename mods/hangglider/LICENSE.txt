@@ -1,0 +1,53 @@
+License for the Hangglider mod
+------------------------------
+Copyright (C) 2018 Piezo_
+Copyright (C) 2018 kestral246
+Copyright (C) 2016 cd2 (cdqwertz) <cdqwertz@gmail.com>
+
+This mod is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This mod is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this mod.  If not, see <http://www.gnu.org/licenses/>.
+
+
+---
+License for the original paraglider mod by cdqwertz
+(available as part of "rpgtest", found at https://forum.minetest.net/viewtopic.php?t=13761)
+------------------------------------------------------------------------------------------
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+http://www.gnu.org/licenses/lgpl-2.1.html
+
+
+---
+License for Media
+-----------------
+
+Textures:
+	glider_inventory.png: CC-BY-SA 3.0 UNPORTED. Created by cd2 (cdqwertz)
+	glider_struts.png: CC-BY-SA 3.0, Piezo_.
+	Default wood and wool textures from minetest-game.
+
+Models and sounds: 
+	CC BY-SA (4.0) by Piezo_.
+	hangglider_flak_shot: tnt_explode sound from minetest_game (CC BY-SA 3.0)

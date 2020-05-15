@@ -1,0 +1,16 @@
+settlements_minimum_distance_between_settlements (Minimum distance between settlements) int 500
+settlements_maximum_height_difference (Maximum ground height difference allowed in settlement site) int 10
+settlements_generate_books (Generate books to populate shelves in settlements) bool true
+
+[HUD display]
+#If this is disabled, player discovery tracking is also disabled (though
+#existing discoveries will not be removed and will be visible again if
+#this is reenabled)
+settlements_show_in_hud (Show settlement names in HUD) bool true
+settlements_hud_requires_item (Require an item to view waypoints) bool true
+#Players can still discover the locations of settlements without this, but waypoints
+#will only be visible in their hud if they have this item in their inventory. You can also
+#specify "group:groupname" here. Leave it blank to default to map:mapping_kit.
+settlements_hud_item_required (Specify the item or group required) string map:mapping_kit
+settlements_discovery_range (Settlement discovery range) int 30
+settlements_visibility_range (Settlement visibility range) int 600

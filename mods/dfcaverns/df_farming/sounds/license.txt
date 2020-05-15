@@ -1,0 +1,5 @@
+df_farming_gummy_chew 1,2 and 3 are from https://freesound.org/people/Breviceps/sounds/447916/ by Breviceps under the CC0 public domain license
+df_farming_chomp_crunch are from https://freesound.org/people/bbrocer/sounds/382650/ by bbrocer under the CC0 public domain license
+df_farming_crisp_chew 1 and 2 are from https://freesound.org/people/InspectorJ/sounds/412068/ by InspectorJ under the CC-BY-SA 3.0 license
+df_farming_soft_chew 1, 2, 3 and 4 are from https://freesound.org/people/miekyj/sounds/326464/ by miekyj under the CC0 public domain license
+df_farming_mushy_chew 1, 2 and 3 are from https://freesound.org/people/nickyg11p/sounds/390800/ by nickyg11p under the CC0 public domain license

@@ -1,0 +1,8 @@
+Carpets mod for minetest
+
+This mod adds 15 colorized wool carpets to the minetest.
+
+License: LGPL-2.1+
+
+The mod provides an api to register more carpets using template nodes
+Example: carpets.register('default:dirt') -- registers carpet looks like dirt

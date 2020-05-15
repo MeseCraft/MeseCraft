@@ -1,0 +1,12 @@
+# The number of seconds the death compass will remain active for.
+# Set this to 0 to let the death compass continue to be active indefinitely.
+death_compass_duration (Death compass duration) int 0
+
+# When a player dies they'll be given a death compass automatically, and it will
+# disappear when its duration expires or the player reaches the death location
+death_compass_automatic (Death compass given to players automatically) bool false
+
+[HUD properties]
+death_compass_hud_x (Relative X coordinate of HUD) float 0.5
+death_compass_hud_y (Relative Y coordinate of HUD) float 0.9
+death_compass_hud_color (Color string for HUD) string FFFF00

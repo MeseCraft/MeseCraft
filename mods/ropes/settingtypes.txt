@@ -1,0 +1,54 @@
+#The shortest rope will extend for this many meters. Longer ropes come in
+#multiples of this length.
+#Changing this value will not affect ropes that already exist in-world.
+ropes_rope_length (Rope length) int 50 1 30000
+
+#Rope ladders will extend this far at maximum.
+#Changing this value will not affect rope ladders that already exist in-world.
+#Setting this to 0 disables rope ladders.
+ropes_rope_ladder_length (Rope ladder length) int 50 0 30000
+
+#Sets the maximum length multiple wooden rope box permitted to be crafted.
+#So for example if the rope length is set to 50 and this is set to 2,
+#the longest possible wooden rope box a player can craft has 100 meters of rope.
+#Allowed values run from 0 to 9. 0 disables wood rope boxes.
+ropes_wood_rope_box_max_multiple (Maximum wood_rope box multiple) int 2 0 9
+
+#Sets the maximum length multiple copper rope box permitted to be crafted.
+#So for example if the rope length is set to 50 and this is set to 5,
+#the longest possible copper rope box a player can craft has 250 meters of rope.
+#Allowed values run from 0 to 9. 0 disables copper rope boxes.
+ropes_copper_rope_box_max_multiple (Maximum copper rope box multiple) int 5 0 9
+
+#Sets the maximum length multiple steel rope box permitted to be crafted.
+#So for example if the rope length is set to 50 and this is set to 9,
+#the longest possible steel rope box a player can craft has 450 meters of rope.
+#Allowed values run from 0 to 9. 0 disables steel rope boxes.
+ropes_steel_rope_box_max_multiple (Maximum steel rope box multiple) int 9 0 9
+
+#If this is set to true, then the mod will generate definitions for the rope boxes
+#that are otherwise not permitted by the settings above. These rope boxes
+#will not be craftable and will not be available in the creative inventory,
+#but they will continue to exist if they were placed "in world" and a player
+#can deconstruct them to retrieve their rope components. This setting is
+#intended for the situation where you have an established world and you want
+#to reduce the number of rope boxes available to players without turning
+#existing rope boxes into "unknown node"s.
+ropes_create_all_definitions (Create all rope box definitions) bool false
+
+#Extending ladders are capable of standing on their own, to a defined limit.
+#A ladder can extend to its unsupported limit before needing another node
+#behind it to provide a new point of support. Right-clicking on an existing
+#ladder with a stack of ladders will add new ladder segments to its top.
+ropes_extending_ladder_enabled (Enable extendable ladders) bool true
+
+#If extending ladders are enabled, this setting will cause them to replace
+#the default ladders entirely.
+ropes_replace_default_ladders (Replace default ladders with extendable ladders) bool false
+
+ropes_extending_wood_ladder_limit (Unsupported limit of wooden ladders) int 5
+ropes_extending_steel_ladder_limit (Unsupported limit of steel ladders) int 15
+
+#These nodes make it easier to build bridges by extending out away
+#from the player as they're placed
+ropes_bridges_enabled (Enable bridges) bool true

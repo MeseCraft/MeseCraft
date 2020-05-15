@@ -1,0 +1,42 @@
+# textdomain: commoditymarket_fantasy
+
+
+### init.lua ###
+
+A gold ingot is far too valuable to use as a basic unit of value, so it has become common practice to divide the standard gold bar into @1 small disks to make trade easier.=
+
+At this time of day the King's Market is closed.=
+At this time of day the Night Market is closed.=
+Caravan summoned@nETA: @1 seconds.=
+
+Deep in the bowels of the world, below even the goblin-infested warrens and ancient delvings of the dwarves, dark and mysterious beings once dwelt. A few still linger to this day, and facilitate barter for those brave souls willing to travel in their lost realms. The Undermarket uses Mese chips ('₥') as a currency - twenty chips to the Mese fragment. Though traders are loathe to physically break Mese crystals up into units that small, as it renders it useless for other purposes.=
+
+Goblin Exchange=
+Gold Coins=
+
+Gold coins can be deposited and withdrawn from markets that accept them as currency. These markets can make change if you have @1 coins and would like them back in ingot form again.=
+
+Indicated parking area isn't suitable.@nA 5x3 open space with solid ground@nis required for a caravan.=
+
+King's Market=
+Night Market=
+
+One does not usually associate Goblins with the sort of sophistication that running a market requires. Usually one just associates Goblins with savagery and violence. But they understand the principle of tit-for-tat exchange, and if approached correctly they actually respect the concepts of ownership and debt. However, for some peculiar reason they understand this concept in the context of coal lumps. Goblins deal in the standard coal lump as their form of currency, conceptually divided into 100 coal centilumps (though Goblin brokers prefer to "keep the change" when giving back actual coal lumps).=
+
+Right-click on this to open the market interface.=
+Right-click to summon a trader's caravan=
+
+The largest and most accessible market for the common man, the King's Market uses gold coins as its medium of exchange (or the equivalent in gold ingots - @1 coins to the ingot). However, as a respectable institution of the surface world, the King's Market operates only during the hours of daylight. The purchase and sale of swords and explosives is prohibited in the King's Market. Gold coins are represented by a '☼' symbol.=
+
+The trader's caravan requires a suitable open space next to the trading post for it to arrive, and takes some time to arrive after being summoned. The post gives a countdown to the caravan's arrival when moused over.=
+
+This post signals passing caravan traders that customers can be found here, and signals to customers that caravan traders can be found here. If no caravan is present, right-click to summon one.=
+
+Trader's Caravan=
+Trading Post=
+Undermarket=
+
+Unlike most markets that have well-known fixed locations that travelers congregate to, the network of Trader's Caravans is fluid and dynamic in their locations. A Trader's Caravan can show up anywhere, make modest trades, and then be gone the next time you visit them. These caravans accept gold and gold coins as a currency (one gold ingot to @1 gold coins exchange rate). Any reasonably-wealthy person can create a signpost marking a location where Trader's Caravans will make a stop.=
+
+When the sun sets and the stalls of the King's Market close, other vendors are just waking up to share their wares. The Night Market is not as voluminous as the King's Market but accepts a wider range of wares. It accepts the same gold coinage of the realm, @1 coins to the gold ingot.=
+

@@ -1,0 +1,474 @@
+# ITALIAN LOCALE FOR THE DFCAVERNS MODULE
+# Copyright (C) 2017 FaceDeer <derksenmobile@gmail.com>
+# This file is distributed under the same license as the DFCAVERNS package.
+# Hamlet <h4mlet@riseup.net>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dfcaverns module's Italian locale\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-05 20:30-0600\n"
+"PO-Revision-Date: 2017-08-17 23:01+0100\n"
+"Last-Translator: H4mlet <h4mlet@riseup.net>\n"
+"Language-Team: ITALIANO\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: df_trees\black_cap.lua:7
+msgid "Black Cap Stem"
+msgstr "Gambo di cappello nero"
+
+#: df_trees\black_cap.lua:18
+msgid "Black Cap"
+msgstr "Cappello nero"
+
+#: df_trees\black_cap.lua:29
+msgid "Black Cap Gills"
+msgstr "Lamelle di cappello nero"
+
+#: df_trees\black_cap.lua:85
+msgid "Black Cap Planks"
+msgstr "Assi di cappello nero"
+
+#: df_trees\black_cap.lua:126
+msgid "Black Cap Spawn"
+msgstr "Prole di cappello nero"
+
+#: df_trees\blood_thorn.lua:32
+msgid "Blood Thorn Stem"
+msgstr "Gambo di spina del sangue"
+
+#: df_trees\blood_thorn.lua:47
+msgid "Dead Blood Thorn Stem"
+msgstr "Gambo di spina del sangue morta"
+
+#: df_trees\blood_thorn.lua:61
+msgid "Blood Thorn Spike"
+msgstr "Spuntone di spina del sangue"
+
+#: df_trees\blood_thorn.lua:91
+msgid "Dead Blood Thorn Spike"
+msgstr "Spuntone di spina del sangue morta"
+
+#: df_trees\blood_thorn.lua:134
+msgid "Blood Thorn Planks"
+msgstr "Assi di spina del sangue"
+
+#: df_trees\doc.lua:12
+msgid ""
+"The dense black wood of these mushrooms is heavy and hard to work with, and "
+"has few remarkable properties."
+msgstr ""
+
+#: df_trees\doc.lua:13
+msgid ""
+"Aside from the artistic applications of its particularly dark color, black "
+"cap wood is a long-burning fuel source that's as good as coal for some "
+"applications. Black cap gills are oily and make for excellent torch fuel."
+msgstr ""
+
+#: df_trees\doc.lua:15
+msgid ""
+"Blood thorns are the most vicious of underground flora, as befits their "
+"harsh environments. Found only in hot, dry caverns with sandy soil far from "
+"the surface world's organic bounty, blood thorns seek to supplement their "
+"nutrient supply with wickedly barbed hollow spines that actively drain "
+"fluids from whatever stray plant or creature they might impale."
+msgstr ""
+
+#: df_trees\doc.lua:16
+msgid ""
+"When harvested, the central stalk of a blood thorn can be cut into planks "
+"and used as wood. It has a purple-red hue that may or may not appeal, "
+"depending on one's artistic tastes."
+msgstr ""
+
+#: df_trees\doc.lua:17
+msgid ""
+"The spikes of a blood thorn can actually remain living long after they're "
+"severed from their parent stalk, a testament to their tenacity. As long as "
+"they remain alive they will continue to actively drain anything they "
+"puncture, though they don't grow."
+msgstr ""
+
+#: df_trees\doc.lua:18
+msgid ""
+"Living blood thorn spikes remain harmful to creatures that touch them. If "
+"killed by bright light, they cause only passive damage to creatures that "
+"fall on them (as one would expect from an enormous spike)."
+msgstr ""
+
+#: df_trees\doc.lua:20
+msgid ""
+"Thin, irregular layers of spore-producing 'shelves' surround the strong "
+"central stalk of the mighty Fungiwood."
+msgstr ""
+
+#: df_trees\doc.lua:21
+msgid ""
+"Fungiwood stalk is strong and very fine-grained, making smooth yellow-tinted "
+"lumber when cut. Fungiwood shelf is too fragile to be much use as anything "
+"other than fuel."
+msgstr ""
+
+#: df_trees\doc.lua:23
+msgid ""
+"Massive but squat, mature goblin cap mushrooms are the size of small "
+"cottages."
+msgstr ""
+
+#: df_trees\doc.lua:24
+msgid ""
+"Goblin cap stem and cap material can be cut into wood of two different hues, "
+"a subdued cream and a bright orange-red."
+msgstr ""
+
+#: df_trees\doc.lua:26
+msgid ""
+"Nether caps have an unusual biochemistry that allows them to somehow subsist "
+"on ambient heat, in violation of all known laws of thermodynamics. They grow "
+"deep underground in frigid, icy caverns that should by all rights be "
+"volcanic."
+msgstr ""
+
+#: df_trees\doc.lua:27
+msgid ""
+"Nether cap wood, in addition to being a beautiful blue hue, retains the odd "
+"heat-draining ability of living nether caps and is able to quickly freeze "
+"nearby water solid."
+msgstr ""
+
+#: df_trees\doc.lua:29
+msgid ""
+"Spore trees have a sturdy 'trunk' that supports a large spongy mesh of "
+"branching fibers, with embedded fruiting bodies that produce a copious "
+"amount of spores that gently rain down around the spore tree's base."
+msgstr ""
+
+#: df_trees\doc.lua:30
+msgid ""
+"Spore tree trunks can be cut into pale woody planks. The branching fibers "
+"and fruiting bodies are only useful as fuel."
+msgstr ""
+
+#: df_trees\doc.lua:32
+msgid "The king of the fungi, tower cap mushrooms grow to immense proportions."
+msgstr ""
+
+#: df_trees\doc.lua:33
+msgid "Tower caps are an excellent source of wood."
+msgstr ""
+
+#: df_trees\doc.lua:35
+msgid ""
+"Tunnel tubes are hollow, curved fungal growths that support a fruiting body."
+msgstr ""
+
+#: df_trees\doc.lua:37
+msgid ""
+"The trunk of a tunnel tube can be cut and processed to produce plywood-like "
+"material. The fruiting body accumulates high-energy compounds that, when "
+"ignited, produce a vigorous detonation - a unique adaptation for spreading "
+"tunnel tube spawn through the still cavern air."
+msgstr ""
+
+#: df_trees\doc.lua:39
+msgid ""
+"The trunk of a tunnel tube can be cut and processed to produce plywood-like "
+"material."
+msgstr ""
+
+#: df_trees\doc.lua:42
+msgid ""
+"Torchspines are strange organic formations that are alive only in a "
+"technical sense. They \"feed\" on volatile flammable vapors vented up "
+"through their structure, growing from combustion residue deposited at their "
+"tips."
+msgstr ""
+
+#: df_trees\doc.lua:43
+msgid ""
+"A torchspine alternates between active and quiescent phases and emits dim "
+"light when active. They can be harvested for torches, and their embers "
+"sprout into new torchspines when placed on flammable surfaces."
+msgstr ""
+
+#: df_trees\doc.lua:45
+msgid ""
+"Spindlestems are too big to easily pluck by hand but too small to be called "
+"a proper tree. Nevertheless, they are a common and useful resource for "
+"underground travelers - particularly their glowing caps."
+msgstr ""
+
+#: df_trees\doc.lua:46
+msgid ""
+"The stem of a Spindlestem is surprisingly sturdy, and despite their thinness "
+"they can grow quite tall. They can be used as a wood substitute in many "
+"crafting recipes."
+msgstr ""
+
+#: df_trees\doc.lua:48
+msgid ""
+"The cap of a Spindlestem, uncontaminated by any symbiotic luminescent "
+"microorganisms."
+msgstr ""
+
+#: df_trees\doc.lua:49
+msgid "These things are useless except as weak fuel for a fire."
+msgstr ""
+
+#: df_trees\doc.lua:51
+msgid ""
+"The cap of a Spindlestem, glowing a weak red due to symbiotic microorganisms."
+msgstr ""
+
+#: df_trees\doc.lua:52
+msgid ""
+"Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin "
+"Caps. Their glowing symbiotes can be extracted as a long-lived light source, "
+"though the glow is weak."
+msgstr ""
+
+#: df_trees\doc.lua:54
+msgid ""
+"The cap of a Spindlestem, glowing a soft green due to symbiotic "
+"microorganisms."
+msgstr ""
+
+#: df_trees\doc.lua:55
+msgid ""
+"Green Spindlestems are a sign of nearby copper deposits. Their glowing "
+"symbiotes can be extracted as a long-lived light source, though the glow is "
+"not strong."
+msgstr ""
+
+#: df_trees\doc.lua:57
+msgid ""
+"The cap of a Spindlestem, glowing a strong cyan due to symbiotic "
+"microorganisms."
+msgstr ""
+
+#: df_trees\doc.lua:58
+msgid ""
+"Cyan Spindlestems are a sign of both copper and iron deposits nearby. Their "
+"glowing symbiotes can be extracted as a long-lived light source."
+msgstr ""
+
+#: df_trees\doc.lua:60
+msgid ""
+"The cap of a Spindlestem, glowing a brilliant yellow due to symbiotic "
+"microorganisms."
+msgstr ""
+
+#: df_trees\doc.lua:61
+msgid ""
+"Golden Spindlestems are a sign of rare and magical mineral deposits nearby. "
+"Their glowing symbiotes can be extracted as a strong and long-lived light "
+"source."
+msgstr ""
+
+#: df_trees\doc.lua:64
+msgid "Living extract from the cap of a red Spindlestem."
+msgstr ""
+
+#: df_trees\doc.lua:66
+msgid "Living extract from the cap of a green Spindlestem."
+msgstr ""
+
+#: df_trees\doc.lua:68
+msgid "Living extract from the cap of a cyan Spindlestem."
+msgstr ""
+
+#: df_trees\doc.lua:70
+msgid "Living extract from the cap of a yellow Spindlestem."
+msgstr ""
+
+#: df_trees\fungiwood.lua:13
+msgid "Fungiwood Stem"
+msgstr "Gambo di fungo di legno"
+
+#: df_trees\fungiwood.lua:34
+msgid "Fungiwood Planks"
+msgstr "Assi di fungo di legno"
+
+#: df_trees\fungiwood.lua:69
+msgid "Fungiwood Shelf"
+msgstr "Mensola di fungo di legno"
+
+#: df_trees\fungiwood.lua:107
+msgid "Fungiwood Spawn"
+msgstr "Prole di fungo di legno"
+
+#: df_trees\goblin_cap.lua:7
+msgid "Goblin Cap Stem"
+msgstr "Gambo di cappello di folletto"
+
+#: df_trees\goblin_cap.lua:18
+msgid "Goblin Cap"
+msgstr "Cappello di folletto"
+
+#: df_trees\goblin_cap.lua:29
+msgid "Goblin Cap Gills"
+msgstr "Lamelle di cappello di folletto"
+
+#: df_trees\goblin_cap.lua:77
+msgid "Goblin Cap Planks"
+msgstr "Assi di cappello di folletto"
+
+#: df_trees\goblin_cap.lua:89
+msgid "Goblin Cap Stem Planks"
+msgstr "Assi di gambo di cappello di folletto"
+
+#: df_trees\goblin_cap.lua:136
+msgid "Goblin Cap Spawn"
+msgstr "Prole di cappello di folletto"
+
+#: df_trees\init.lua:45
+msgid "@1 Stair"
+msgstr ""
+
+#: df_trees\init.lua:46
+msgid "@1 Slab"
+msgstr ""
+
+#: df_trees\nether_cap.lua:7
+msgid "Nether Cap Stem"
+msgstr "Gambo di cappello del Nether"
+
+#: df_trees\nether_cap.lua:18
+msgid "Nether Cap"
+msgstr "Cappello del Nether"
+
+#: df_trees\nether_cap.lua:29
+msgid "Nether Cap Gills"
+msgstr "Lamelle di cappello del Nether"
+
+#: df_trees\nether_cap.lua:78
+msgid "Nether Cap Planks"
+msgstr "Assi di cappello del Nether"
+
+#: df_trees\nether_cap.lua:93
+msgid "Nether Cap Spawn"
+msgstr "Prole di cappello del Nether"
+
+#: df_trees\spindlestem.lua:64
+msgid "Spindlestem"
+msgstr ""
+
+#: df_trees\spindlestem.lua:97
+msgid "@1 Spindlestem Cap"
+msgstr ""
+
+#: df_trees\spindlestem.lua:186
+msgid "@1 Spindlestem Extract"
+msgstr ""
+
+#: df_trees\spindlestem.lua:234
+#, fuzzy
+msgid "Spindlestem Spawn"
+msgstr "Prole di albero delle spore"
+
+#: df_trees\spindlestem.lua:273
+msgid "White"
+msgstr ""
+
+#: df_trees\spindlestem.lua:274
+msgid "Red"
+msgstr ""
+
+#: df_trees\spindlestem.lua:275
+msgid "Green"
+msgstr ""
+
+#: df_trees\spindlestem.lua:276
+msgid "Cyan"
+msgstr ""
+
+#: df_trees\spindlestem.lua:277
+msgid "Golden"
+msgstr ""
+
+#: df_trees\spore_tree.lua:14
+msgid "Spore Tree Stem"
+msgstr "Gambo di albero delle spore"
+
+#: df_trees\spore_tree.lua:35
+msgid "Spore Tree Planks"
+msgstr "Assi di albero delle spore"
+
+#: df_trees\spore_tree.lua:75
+msgid "Spore Tree Hyphae"
+msgstr "Ife di albero delle spore"
+
+#: df_trees\spore_tree.lua:101
+msgid "Spore Tree Fruiting Body"
+msgstr "Corpo fruttifero dell'albero delle spore"
+
+#: df_trees\spore_tree.lua:149
+msgid "Spore Tree Spawn"
+msgstr "Prole di albero delle spore"
+
+#: df_trees\spore_tree.lua:306
+#, fuzzy
+msgid "Spore Tree Ladder"
+msgstr "Ife di albero delle spore"
+
+#: df_trees\torchspine.lua:58
+#: df_trees\torchspine.lua:76
+msgid "Torchspine Tip"
+msgstr ""
+
+#: df_trees\torchspine.lua:95
+#: df_trees\torchspine.lua:121
+#: df_trees\torchspine.lua:151
+msgid "Torchspine"
+msgstr ""
+
+#: df_trees\torchspine.lua:180
+msgid "Torchspine Ember"
+msgstr ""
+
+#: df_trees\tower_cap.lua:7
+msgid "Tower Cap Stem"
+msgstr "Gambo di cappello a torre"
+
+#: df_trees\tower_cap.lua:18
+msgid "Tower Cap"
+msgstr "Cappello a torre"
+
+#: df_trees\tower_cap.lua:29
+msgid "Tower Cap Gills"
+msgstr "Lamelle di cappello a torre"
+
+#: df_trees\tower_cap.lua:77
+msgid "Tower Cap Planks"
+msgstr "Assi di cappello a torre"
+
+#: df_trees\tower_cap.lua:118
+msgid "Tower Cap Spawn"
+msgstr "Prole di cappello a torre"
+
+#: df_trees\tunnel_tube.lua:14
+#: df_trees\tunnel_tube.lua:37
+#: df_trees\tunnel_tube.lua:67
+#: df_trees\tunnel_tube.lua:96
+msgid "Tunnel Tube"
+msgstr "Tubo di galleria"
+
+#: df_trees\tunnel_tube.lua:133
+msgid "Tunnel Tube Plies"
+msgstr "Strati di tubo di galleria"
+
+#: df_trees\tunnel_tube.lua:170
+#: df_trees\tunnel_tube.lua:226
+#: df_trees\tunnel_tube.lua:246
+msgid "Tunnel Tube Fruiting Body"
+msgstr "Corpo fruttifero del tubo di galleria"
+
+#: df_trees\tunnel_tube.lua:277
+msgid "Tunnel Tube Spawn"
+msgstr "Prole di tubo di galleria"

@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"PO-Revision-Date: 2019-02-10 18:07+0000\n"
+"Last-Translator: DartPower <SIMPSON-NEKEK@mail.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/minetest/"
+"mod-storage-drawers/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.5-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "состояние: "
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "остановлен"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "в действие"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "замкнут"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Контролер ящика"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Пусто"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Деревянный"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "@1 Ящик"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@1 Ящики (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@1 Ящики (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% полон)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% полон)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Акация"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Осина"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Тропическое дерево"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Сосна"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Дуб"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Береза"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Темный дуб"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Ель"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Стальной ящик Улучшение (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Золотой ящик Улучшение (x3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Обсидиановый ящик Улучшение (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Алмазный ящик Улучшение (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Железный ящик Улучшение (x2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Изумрудный ящик Улучшение (x13)"
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr "Деревянная отделка"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Шаблон улучшения ящика"

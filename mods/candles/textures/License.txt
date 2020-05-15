@@ -1,0 +1,91 @@
+--========================
+
+Original "candles_hive_dandelion.png" from Flowers mod
+License: CC-BY-SA 3.0   ???
+
+Original Textures by Philipner ???
+License: MIT ???
+- candles_candelabra_flame.png
+
+Original Textures by TenPlus1 ???
+License: MIT ???
+- candles_hive_wild.png
+
+Original Textures by Gambit
+License: WTFPL
+- candles_honey.png
+
+--========================
+
+Textures by Napiophelios
+License: CC-BY-SA 3.0
+
+- candles_candelabra_bronze.png
+- candles_candelabra_bronze_bottom.png
+- candles_candelabra_bronze_lit.png
+- candles_candelabra_bronze_top.png
+- candles_candelabra_copper.png
+- candles_candelabra_copper_bottom.png
+- candles_candelabra_copper_lit.png
+- candles_candelabra_copper_top.png
+- candles_candelabra_flame.png
+- candles_candelabra_gold.png
+- candles_candelabra_gold_bottom.png
+- candles_candelabra_gold_lit.png
+- candles_candelabra_gold_top.png
+- candles_candelabra_silver.png
+- candles_candelabra_silver_bottom.png
+- candles_candelabra_silver_lit.png
+- candles_candelabra_silver_top.png
+- candles_candelabra_steel.png
+- candles_candelabra_steel_bottom.png
+- candles_candelabra_steel_lit.png
+- candles_candelabra_steel_top.png
+- candles_candle.png
+- candles_candle_bronze.png
+- candles_candle_bronze_bottom.png
+- candles_candle_bronze_lit.png
+- candles_candle_bronze_top.png
+- candles_candle_copper.png
+- candles_candle_copper_bottom.png
+- candles_candle_copper_lit.png
+- candles_candle_copper_top.png
+- candles_candle_flame.png
+- candles_candle_gold.png
+- candles_candle_gold_bottom.png
+- candles_candle_gold_lit.png
+- candles_candle_gold_top.png
+- candles_candle_lit.png
+- candles_candle_silver.png
+- candles_candle_silver_bottom.png
+- candles_candle_silver_lit.png
+- candles_candle_silver_top.png
+- candles_candle_steel.png
+- candles_candle_steel_bottom.png
+- candles_candle_steel_lit.png
+- candles_candle_steel_top.png
+- candles_candle_top.png
+- candles_hive.png
+- candles_hive_bee.png
+- candles_hive_bottom.png
+- candles_hive_busybees.png
+- candles_hive_dandelion.png
+- candles_hive_empty.png
+- candles_hive_empty_bottom.png
+- candles_hive_empty_front.png
+- candles_hive_empty_top.png
+- candles_hive_front.png
+- candles_hive_layout.png
+- candles_hive_top.png
+- candles_hive_wild.png
+- candles_honey_bottled.png
+- candles_honey_comb.png
+- candles_honey_comb_block.png
+- candles_honey_jar.png
+- candles_honey_jar_bottom.png
+- candles_honey_jar_inv.png
+- candles_honey_jar_top.png
+- candles_invisible.png
+- candles_wax.png
+
+--========================

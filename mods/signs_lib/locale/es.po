@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-31 18:22+0200\n"
+"PO-Revision-Date: 2017-07-31 18:30+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"Last-Translator: Carlos Barraza\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: init.lua
+msgid "Locked sign, owned by @1\n"
+msgstr ""
+
+#: init.lua
+msgid "locked "
+msgstr "bloqueada "
+
+#: init.lua
+msgid "@1 wrote \"@2\" to @3sign at @4"
+msgstr "@1 escribio \"@2\" en el cartel @3en @4"
+
+#: init.lua
+msgid "Sign"
+msgstr "Letrero"
+
+#: init.lua
+msgid "Can edit all locked signs"
+msgstr ""
+
+#: init.lua
+#, fuzzy
+msgid "Locked Sign"
+msgstr "Letrero bloqueada"
+
+#: init.lua
+msgid "green"
+msgstr "verde"
+
+#: init.lua
+msgid "yellow"
+msgstr "amarillo"
+
+#: init.lua
+msgid "red"
+msgstr "rojo"
+
+#: init.lua
+#, fuzzy
+msgid "white_red"
+msgstr "rojo y blanco"
+
+#: init.lua
+#, fuzzy
+msgid "white_black"
+msgstr "negro y blanco"
+
+#: init.lua
+msgid "orange"
+msgstr "naranja"
+
+#: init.lua
+msgid "blue"
+msgstr "azul"
+
+#: init.lua
+msgid "brown"
+msgstr "marrón"
+
+#: init.lua
+#, fuzzy
+msgid "Sign (@1, metal)"
+msgstr "Letrero (@1, metal)"
+
+#: init.lua
+msgid "Attempt to register unknown node as fence"
+msgstr ""
+
+#: init.lua
+msgid "Registered @1 and @2"
+msgstr "Registrado @1 y @2"
+
+#: init.lua
+msgid "[MOD] signs loaded"
+msgstr "[MOD] signs cargados"

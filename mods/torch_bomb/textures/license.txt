@@ -1,0 +1,9 @@
+Textures in this folder were modified by FaceDeer from textures in the tnt mod.
+Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+Copyright (C) 2014-2016 BlockMen
+Copyright (C) 2014-2016 ShadowNinja
+Copyright (C) 2015-2016 Wuzzy
+Copyright (C) 2016 sofar (sofar@foo-projects.org)
+Copyright (C) 2018 paramat
+
+Torch bomb shard by FaceDeer 2020 under the CC0 license

@@ -1,0 +1,10 @@
+original bell sound  licensed under cc0 by dsp9000 from http://www.freesound.org/people/dsp9000/sounds/76405/
+modified by mootpoint licensed under cc0
+===========================================
+file name: church_bell_punch.ogg
+Author: Ulrich Metzner
+http://opengameart.org/content/church-bell
+Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+https://creativecommons.org/licenses/by-sa/3.0/
+original file name: churchbell.flac
+===========================================

@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"PO-Revision-Date: 2018-12-09 11:08+0000\n"
+"Last-Translator: Muhammad Nur Hidayat Yasuyoshi <mnh48mail@gmail.com>\n"
+"Language-Team: Malay <https://hosted.weblate.org/projects/minetest/"
+"mod-storage-drawers/ms/>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Keadaan Semasa: "
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Berhenti"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Berjalan"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Tersekat"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Pengawal Laci"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Kosong"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Kayu"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "Laci @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "Laci @1 (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "Laci @1 (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% penuh)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% penuh)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Papan Kayu Akasia"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Papan Kayu Aspen"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Papan Kayu Hutan"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Papan Kayu Pain"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Papan Kayu Oak"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Papan Kayu Birch"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Papan Kayu Oak Gelap"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Papan Kayu Fir"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Naik Taraf Laci - Keluli (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Naik Taraf Laci - Emas (x3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Naik Taraf Laci - Obsidia (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Naik Taraf Laci - Intan (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Naik Taraf Laci - Besi (x2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Naik Taraf Laci - Zamrud (x13)"
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr "Hiasan Kayu"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Templat Naik Taraf Laci"

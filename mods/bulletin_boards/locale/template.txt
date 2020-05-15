@@ -1,0 +1,39 @@
+# textdomain: bulletin_boards
+
+
+### init.lua ###
+
+#Appended to the title of a bulletin board to indicate how much it costs to post a bulletin here (@1 is a number, @2 is an item name)
+, Cost: @1 @2=
+#Tooltip. Title of bulletin, author of bulletin, how long ago the bulletin was posted.
+@1@nPosted by @2@n@3 days ago=
+#Button label
+Back to Board=
+#Text area label
+Contents:=
+#title of a bulletin board
+Copper Board=
+#tooltip
+Delete this bulletin=
+#label
+Delete:=
+#Button label
+Next=
+#tooltip
+Post bulletin with this icon=
+#tooltip
+Post bulletin with this icon at the cost of @1 @2=
+#tooltip
+Post your bulletin here=
+#tooltip
+Post your bulletin here for the cost of @1 @2=
+#label
+Post:=
+#player who posted this bulletin
+Posted by @1=
+#Button label, short for "previous"
+Prev=
+#title of a bulletin board
+Public Bulletin Board=
+#Text field label
+Title:=

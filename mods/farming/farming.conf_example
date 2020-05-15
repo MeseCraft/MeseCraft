@@ -1,0 +1,35 @@
+
+--[[
+	Farming settings can be changed here and kept inside mod folder
+	even after the mod has been updated, or you can place inside
+	world folder for map specific settings.
+--]]
+
+-- true to enable crop/food in-game and on mapgen set spawn rarety
+farming.carrot = 0.001
+farming.potato = 0.001
+farming.tomato = 0.001
+farming.cucumber = 0.001
+farming.corn = 0.001
+farming.coffee = 0.001
+farming.melon = 0.001
+farming.pumpkin = 0.001
+farming.cocoa = true -- true or false only
+farming.raspberry = 0.001
+farming.blueberry = 0.001
+farming.rhubarb = 0.001
+farming.beans = 0.001
+farming.grapes = 0.001
+farming.barley = true -- true or false only
+farming.chili = 0.003
+farming.hemp = 0.003
+farming.garlic = 0.001
+farming.onion = 0.001
+farming.pepper = 0.002
+farming.pineapple = 0.001
+farming.peas = 0.001
+farming.beetroot = 0.001
+farming.grains = true -- true or false only
+
+-- default rarety of crops on map (higher number = more crops)
+farming.rarety = 0.002

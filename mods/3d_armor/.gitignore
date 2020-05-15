@@ -1,0 +1,11 @@
+## Generic ignorable patterns and files
+*~
+.*.swp
+*bak*
+tags
+*.vim
+armor.conf
+
+## Eclipse project files & directories
+.project
+.settings

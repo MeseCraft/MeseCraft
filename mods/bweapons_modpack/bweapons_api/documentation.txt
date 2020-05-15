@@ -1,0 +1,257 @@
+bweapons api provides two public functions: bweapons.register_weapon() and bweapons.register_ammo().
+bweapons.register_ammo() is not required (actual required ammo is specified in weapon definition), however it was defined for simplicity of registering ammo.
+
+Automatic weapons are currently not implemented.
+All fields can be omited (except for mandatory ones), in that case they will either default to some value or a specific feature will be disabled
+Many features will only be enabled if a corresponding field was specified (for example if you omit a "flare" field, a muzzle flash wont be shown,
+same for all other visuals and sounds). All features are supposed to work together, so there's a big room for experimentation.
+
+The following example contains all possible fields. Many fields are not required or used together
+(for example there's no point in defining projectile options if your weapon is hitscan).
+Main weapon registration function, with definition supplied in form of table:
+
+bweapons.register_weapon({
+    --Mandatory fields
+    name = "my_weapons_pack:rifle",                                     --Tool ID
+    description = "Rifle",                                              --Name shown in inventory
+    texture = "my_weapons_pack_rifle.png",                              --Texture
+
+    --Ammo or energy
+    has_durability = true,                                              --Master switch for tool durability. If false, it will not deplete its durability and can only use mana or ammo
+    uses = 128,                                                         --Amount of uses until the tool breaks/needs to be recharged by technic or repaired
+    requires_technic = false,                                           --If true, weapon durability is expressed as technic charge. Requires "technic"
+    technic_charge = 350000,                                            --Maximum charge that the weapon holds, in technic EU
+    custom_charge = false,                                              --Item doesn't break when its durability is depleted, and cannot be used until charged/repaired. Has no effect
+                                                                        --if technic_powered is true (since this is default behavior in technic mod anyway). Also prevents items from being
+                                                                        --Repaired with technic workshop
+    mana_per_use = 50,                                                  --If defined, the tool requires this much mana per use. Requires "mana"
+    ammo_type = "my_weapons_pack:rifle_round",                          --If defined, the tool requires this type of ammo to function
+    ammo_per_shot = 1,                                                  --How much ammo should be used per shot
+    return_item = "my_weapons_pack:round_case",                         --Adds an item to the user inventory, if defined. If no space is left, the item is dropped on the ground instead
+
+    --Repair
+    repair_with = "default:wood",                                      --Combine the tool with this item on crafting grid (shapeless) to repair it by amount of uses specified below
+    repair_uses = 8,                                                    --Amount of uses to repair with "repair with" option
+    tool_repair = false,                                                --Allows to repair two items of the same type by combining them on the crafting grid
+
+    --Drop on hit
+    drop = "default:stone",                                             --Drop something on successful hit. If penetration is enabled, drops at the last trace stop
+    drop_chance = 0.8,                                                  --Chance of drop in range from 0 to 1 (1 is always drop, 0 is never)
+
+    --Hitscan configuration
+    hitscan = true,                                                     --Instantly trace shots to the target, use in weapons like firearms, lasers, etc
+    distance = 100,                                                     --Distance in nodes in which hitscan traces will connect to the target
+    penetration = 2,                                                    --How many nodes/objects hitscan trace will go through before stopping (damaging each one and triggering on_hit())
+
+    --Weapon stats
+    liquids_stop = false,                                               --Should hitscan traces or projectiles travel through liquid nodes
+    damage = 15,                                                        --Damage per projectile/hitscan trace
+    shot_amount = 1,                                                    --Total amount of projectiles or hitscan traces per shot (multiple can be used for shotguns, salvos, etc)
+    spread = 0.02,                                                      --Random deviation of direction of every particle or hitscan trace from center of the screen
+    cooldown = 2,                                                       --Period of time in seconds after which you can fire the weapon again
+    spawn_distance = 1,                                                 --Distance in direction of player view at which projectile spawns or hitscan traces start
+    aoe = false,                                                        --Enable Area Of Effect Damage
+    aoe_radius = 5,                                                     --Radius at which damage is inflicted, damage is calculated linearly, with highest at the center
+                                                                        --and lowest at the edge of radius
+
+    --Visuals
+    flare = "tnt_boom.png",                                             --Texture briefly displayed when player fires a weapon
+    flare_size = 10,                                                    --Size of fire flare
+    flare_glow = true,                                                  --Should fire flare glow
+    hit_flare = "tnt_boom.png",                                         --Texture of a big particle spawned upon hit
+    hit_flare_size = 20,                                                --Size of hit flare
+    hit_flare_glow = true,                                              --Should hit flare glow
+    hit_particle = "tnt_smoke.png",                                     --Texture of particles to emit when hit something
+    hit_particle_glow = false,                                          --Should hit particles glow
+    hit_particle_amount = 32,                                           --Amount of hit particles to spawn
+    hit_particle_size = 2,                                              --Maximum visual size of hit particles. Minimum size is lowest integer of maximum size divided by two.
+    hit_particle_velocity = 2,                                          --Starting velocity of hit particles
+    hit_particle_gravity = -10,                                         --Acceleration on vertical axis of hit particles
+    trail_particle = "my_weapons_pack_projectile_trail.png",            --Texture of projectile trail particles
+    trail_particle_distance = 0.5,                                      --Distance between each trail particle with hitscan mode. No effect in projectile mode.
+    trail_particle_velocity = 1,                                        --Random velocity of each particle in trail
+    trail_particle_gravity = 0,                                         --Vertical acceleration of each particle in trail
+    trail_particle_size = 1,                                            --Maximum size of each trail particle. Minimum size is trail_particle_size/2
+    trail_particle_amount = 4,                                          --Amount of particles to emit each server step (with projectile) or hitscan trail particle distance
+    trail_particle_displacement = 0,                                    --Random displacement of each particle from trail center
+    trail_particle_glow = true,                                         --Should trail particles glow
+
+    --Sounds
+    fire_sound = "my_weapons_pack_fire_sound",                          --Sound when firing a weapon
+    fire_sound_gain = 1,                                                --How loud the fire sound should be
+    reload_sound = "my_weapons_pack_reload_sound",                      --Sound when weapon is cooling down/not enough ammo or charge
+    reload_sound_gain = 0.25,                                           --How loud the reload sound should be
+    hit_sound = "my_weapons_pack_hit_sound",                            --Sound, emitted at every place where projectile/hitscan trace hits something
+    hit_sound_gain = 0.25,                                              --How loud the hit sound should be
+
+    --Projectile configuration
+    projectile_speed = 15,                                              --Starting velocity of projectile
+    projectile_gravity = -10,                                           --Acceleration on vertical axis of projectile
+    projectile_timeout = 35,                                            --Timeout in server ticks after which projectile dissapears, calling on_timeout()
+
+    --Projectile visuals
+    projectile_texture = "my_weapons_pack_projectile.png",              --Texture of projectiile
+    projectile_glow = true,                                             --Should projectile visual glow
+    projectile_visual_size = 1,                                         --Size of projectile visual
+
+    --Custom functions
+    on_fire = function(itemstack, user, pointed_thing)
+            print("Fired weapon")
+        end,                                                           --Custom function called on weapon fire
+
+    on_hit = function (self, target)
+            print("Hit something")
+        end,                                                            --Custom function called on hitscan/projectile hit. With hitscan, self provides a user entity,
+                                                                        --with projectile self provides a projectile entity. Depending on occasion, target may reference a node or an object
+
+    on_timeout = function (self)
+            print("Projectile timeout")
+        end,                                                            --Custom function called on a projectile timeout. Self refers to the projectile
+
+    --Recipes
+    shapeless_recipe = false,                                           --Should the recipe be shapeless
+    recipe={
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:motor',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        },
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:tin_ingot',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        }
+    },                                                                  --Recipes to be registered for this weapon. Table may contain multiple recipes
+    replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},    --Replacements for recipe items
+})
+
+
+Ammo registration function, with definition supplied in form of table:
+
+bweapons.register_ammo({
+    --Mandatory
+    name = "my_weapons_pack:rifle_round",                               --Ammo ID
+    description = "Pistol Round",                                       --Inventory name
+    texture = "bweapons_firearms_pack_pistol_round.png",                --Inventory texture
+
+    --Optional
+    recipe={
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:motor',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        },
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:tin_ingot',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        }
+    },                                                                  --Recipes to be registered for this ammo. Table may contain multiple recipes
+    amount = 1,                                                         --Amount of ammo to be given after crafting
+})
+
+
+Copy of functions above without comments and whitespace, for easy copy-pasting:
+
+bweapons.register_weapon({
+    name = "my_weapons_pack:rifle",
+    description = "Rifle",
+    texture = "my_weapons_pack_rifle.png",
+    has_durability = true,
+    uses = 128,
+    requires_technic = false,
+    technic_charge = 350000,
+    custom_charge = false,
+    mana_per_use = 50,
+    ammo_type = "my_weapons_pack:rifle_round",
+    ammo_per_shot = 1,
+    return_item = "my_weapons_pack:round_case",
+    repair_with = "default:wood",
+    repair_uses = 8,
+    tool_repair = false,
+    drop = "default:stone",
+    drop_chance = 0.8,
+    hitscan = true,
+    distance = 100,
+    penetration = 2,
+    liquids_stop = false,
+    damage = 15,
+    shot_amount = 1,
+    spread = 0.02,
+    cooldown = 2,
+    spawn_distance = 1,
+    aoe = false,
+    aoe_radius = 5,
+    flare = "tnt_boom.png",
+    flare_size = 10,
+    flare_glow = true,
+    hit_flare = "tnt_boom.png",
+    hit_flare_size = 20,
+    hit_flare_glow = true,
+    hit_particle = "tnt_smoke.png",
+    hit_particle_glow = false,
+    hit_particle_amount = 32,
+    hit_particle_size = 2,
+    hit_particle_velocity = 2,
+    hit_particle_gravity = -10,
+    trail_particle = "my_weapons_pack_projectile_trail.png",
+    trail_particle_distance = 0.5,
+    trail_particle_velocity = 1,
+    trail_particle_gravity = 0,
+    trail_particle_size = 1,
+    trail_particle_amount = 4,
+    trail_particle_displacement = 0,
+    trail_particle_glow = true,
+    fire_sound = "my_weapons_pack_fire_sound",
+    fire_sound_gain = 1,
+    reload_sound = "my_weapons_pack_reload_sound",
+    reload_sound_gain = 0.25,
+    hit_sound = "my_weapons_pack_hit_sound",
+    hit_sound_gain = 0.25,
+    projectile_speed = 15,
+    projectile_gravity = -10,
+    projectile_timeout = 35,
+    projectile_texture = "my_weapons_pack_projectile.png",
+    projectile_glow = true,
+    projectile_visual_size = 1,
+    on_fire = function(itemstack, user, pointed_thing)
+            print("Fired weapon")
+        end,
+    on_hit = function (self, target)
+            print("Hit something")
+        end,
+    on_timeout = function (self)
+            print("Projectile timeout")
+        end,
+    recipe={
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:motor',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        },
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:tin_ingot',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        }
+    },
+})
+
+bweapons.register_ammo({
+    name = "my_weapons_pack:rifle_round",
+    description = "Rifle Round",
+    texture = "bweapons_firearms_pack_pistol_round.png",
+    recipe={
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:motor',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        },
+        {
+            {'moreores:tin_ingot',            'technic:diamond_drill_head', 'moreores:tin_ingot'},
+            {'technic:stainless_steel_ingot', 'technic:tin_ingot',              'technic:stainless_steel_ingot'},
+            {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
+        }
+    },
+    amount = 1,
+})

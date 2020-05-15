@@ -1,0 +1,15 @@
+# Translation by Pagliaccio
+
+loaded = caricato
+
+%s Ore = Minerale di %s
+%s Lump = %s grezzo
+%s Ingot = Lingotto di %s
+%s Block = Blocco di %s
+%s Pickaxe = Piccone di %s
+%s Shovel = Badile di %s
+%s Axe = Ascia di %s
+%s Sword = Spada di %s
+
+Silver = Argento
+Mithril = Mithril

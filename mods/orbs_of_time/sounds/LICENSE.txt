@@ -1,0 +1,33 @@
+License Sounds
+------------------
+
+Author: Brandon Morris
+file: orbs_ding.ogg
+original file : completetask_0.mp3
+http://opengameart.org/content/completion-sound
+License: CC-BY 3.0
+http://creativecommons.org/licenses/by/3.0/
+
+------------------
+
+(From Ambience mod)
+
+Author: Mike Koenig
+file: orbs_owl.ogg
+original file : horned_owl.ogg
+http://soundbible.com/1851-Horned-Owl.html
+License: Attribution 3.0
+http://creativecommons.org/licenses/by/3.0/
+
+------------------
+
+(From Ambience mod)
+
+Author: PsychoBird
+file: orbs_birds.ogg
+original file : Best Cardinal Bird.ogg
+http://soundbible.com/1515-Best-Cardinal-Bird.html
+License: Attribution 3.0
+http://creativecommons.org/licenses/by/3.0/
+
+------------------

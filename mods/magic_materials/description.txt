@@ -1,0 +1,1 @@
+A mod providing common resources and shared magic system for modpacks like gadgets_modpack, bweapons_modpack, and possibly others

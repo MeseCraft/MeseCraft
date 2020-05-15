@@ -1,0 +1,1 @@
+An API for easy creation of various weapons with many configurable options

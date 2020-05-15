@@ -1,0 +1,3 @@
+gadgets_api
+gadgets_default_effects
+magic_materials

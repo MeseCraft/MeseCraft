@@ -1,0 +1,40 @@
+--[[
+
+Better HUD config file, without Hunger mod.
+
+This file mirrors the default settings of the Better HUD mod,
+except that it moves the "breath" bar upwards to make room
+for the "thirst" bar.
+
+Use this config file as a starting point if you *don't* have the
+Hunger mod enabled.
+
+For more information, see hud.conf.example in the mods/hud
+directory.
+
+]]
+
+HUD_SB_SIZE = { x = 24, y = 24 }
+
+--[[ Layout:
+
+    ARMOR | (AIR)
+   HEALTH | THIRST
+
+]]
+
+HUD_HEALTH_POS    = { x = 0.5, y = 1 }
+HUD_HEALTH_OFFSET = { x = -262, y = -87 }
+
+-- not used
+HUD_HUNGER_POS    = { x = 0.5, y = 1 }
+HUD_HUNGER_OFFSET = { x = 15, y = -133 }
+
+HUD_AIR_POS       = { x = 0.5, y = 1 }
+HUD_AIR_OFFSET    = { x = 15, y = -110 }
+
+HUD_ARMOR_POS     = { x = 0.5, y = 1 }
+HUD_ARMOR_OFFSET  = { x = -262, y = -110 }
+
+HUD_THIRST_POS    = { x = 0.5, y = 1 }
+HUD_THIRST_OFFSET = { x = 15, y = -87 }

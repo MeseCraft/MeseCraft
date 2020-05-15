@@ -1,0 +1,16 @@
+# Translation by Xanthin
+
+loaded = geladen
+
+%s Ore = %serz
+%s Lump = %sklumpen
+%s Ingot = %sbarren
+%s Block = %sblock
+%s Pickaxe = %sspitzhacke
+%s Shovel = %sschaufel
+%s Axe = %saxt
+%s Sword = %sschwert
+%s Hoe = %shacke
+
+Silver = Silber
+Mithril = Mithril

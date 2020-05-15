@@ -1,0 +1,20 @@
+--------------------------------------------
+
+License Textures: Philipner -  CC-BY-SA 3.0
+
+-crafting_bench_workbench_back.png
+-crafting_bench_workbench_front.png
+-crafting_bench_workbench_side.png
+-crafting_bench_workbench_top.png
+
+
+--------------------------------------------
+
+16 px textures based on crafting_bench mod
+original textures by Philipner
+
+License Textures: Napiophelios  - CC-BY-SA 3.0
+
+-crafting_bench_workbench_bottom.png
+
+--------------------------------------------

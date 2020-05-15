@@ -1,0 +1,40 @@
+
+
+Original asteroids code:
+License: MIT (https://opensource.org/licenses/MIT)
+By paramat (available from https://github.com/paramat/asteroid)
+
+Original asteroid_ textures:
+License: CC BY-SA 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Attribution: paramat
+
+Crystal models:
+License: MIT (https://opensource.org/licenses/MIT)
+By Electra Gizen
+
+Skybox texture:
+License: CC BY-SA 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Attribution: Ulukai (available from http://opengameart.org/content/ulukais-space-skyboxes) 
+
+
+---
+
+Recoloured textures from various mods:
+Grass textures based on default mod in minetest_game (WTFPL). 
+Redgrass texture based on junglegrass texture in default mod in minetest_game (assumed to be CC BY-SA 3.0).
+Red versions of asteroid textures (CC BY-SA 3.0).
+
+
+---
+
+Textures created for this mod:
+CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Attribution: Shara RedCat
+
+All original code and edits to code for this mod:
+License: MIT (https://opensource.org/licenses/MIT)
+By Shara RedCat, tenplus1 and Mewmon
+
+---
+
+Thanks also to DonBatman for help with the initial idea, and to the players of Red Cat Creative who gave ideas and helped in testing.

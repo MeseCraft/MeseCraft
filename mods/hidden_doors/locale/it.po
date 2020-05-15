@@ -1,0 +1,275 @@
+# ITALIAN LOCALE FILE FOR THE HIDDEN DOORS MODULE.
+# Copyright (C) 2017 H4mlet <h4mlet@riseup.net>
+# This file is distributed under the same license as the HIDDEN DOORS package.
+# H4mlet <h4mlet@riseup.net>, 2017
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Hidden Doors module's Italian locale\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-12 14:18+0200\n"
+"PO-Revision-Date: 2018-09-12 14:20+0100\n"
+"Last-Translator: Hamlet\n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
+
+#: main.lua
+msgid "Concealed "
+msgstr "porta camuffata di "
+
+#: main.lua
+msgid " Door"
+msgstr " "
+
+#: main.lua
+msgid "Painted "
+msgstr "porta dipinta di "
+
+#: minetest_game.lua
+msgid "Stone"
+msgstr "pietra"
+
+#: minetest_game.lua
+msgid "Cobble"
+msgstr "ciottoli"
+
+#: minetest_game.lua
+msgid "Stone Brick"
+msgstr "mattone di pietra"
+
+#: minetest_game.lua
+msgid "Stone Block"
+msgstr "blocco di pietra"
+
+#: minetest_game.lua
+msgid "Mossy Cobble"
+msgstr "ciottoli muschiosi"
+
+#: minetest_game.lua
+msgid "Desert Stone"
+msgstr "pietra del deserto"
+
+#: minetest_game.lua
+msgid "Desert Cobble"
+msgstr "ciottoli del deserto"
+
+#: minetest_game.lua
+msgid "Desert Stone Brick"
+msgstr "mattone di pietra del deserto"
+
+#: minetest_game.lua
+msgid "Desert Stone Block"
+msgstr "blocco di pietra del deserto"
+
+#: minetest_game.lua
+msgid "Sandstone"
+msgstr "arenaria"
+
+#: minetest_game.lua
+msgid "Sandstone Brick"
+msgstr "mattone d'arenaria"
+
+#: minetest_game.lua
+msgid "Sandstone Block"
+msgstr "blocco d'arenaria"
+
+#: minetest_game.lua
+msgid "Desert Sandstone"
+msgstr "arenaria del deserto"
+
+#: minetest_game.lua
+msgid "Desert Sandstone Brick"
+msgstr "mattone d'arenaria del deserto"
+
+#: minetest_game.lua
+msgid "Desert Sandstone Block"
+msgstr "blocco d'arenaria del deserto"
+
+#: minetest_game.lua
+msgid "Silver Sandstone"
+msgstr "arenaria argentata"
+
+#: minetest_game.lua
+msgid "Silver Sandstone Brick"
+msgstr "mattone d'arenaria argentata"
+
+#: minetest_game.lua
+msgid "Silver Sandstone Block"
+msgstr "blocco d'arenaria argentata"
+
+#: minetest_game.lua
+msgid "Obsidian"
+msgstr "ossidiana"
+
+#: minetest_game.lua
+msgid "Obsidian Brick"
+msgstr "mattone d'ossidiana"
+
+#: minetest_game.lua
+msgid "Obsidian Block"
+msgstr "blocco d'ossidiana"
+
+#: minetest_game.lua
+msgid "Tree"
+msgstr "albero"
+
+#: minetest_game.lua
+msgid "Jungle Tree"
+msgstr "albero della giungla"
+
+#: minetest_game.lua
+msgid "Pine Tree"
+msgstr "pino"
+
+#: minetest_game.lua
+msgid "Acacia Tree"
+msgstr "acacia"
+
+#: minetest_game.lua
+msgid "Aspen Tree"
+msgstr "pioppo"
+
+#: minetest_game.lua
+msgid "Wood"
+msgstr "legno"
+
+#: minetest_game.lua
+msgid "Jungle Wood"
+msgstr "legno della giungla"
+
+#: minetest_game.lua
+msgid "Pine Wood"
+msgstr "legno di pino"
+
+#: minetest_game.lua
+msgid "Acacia Wood"
+msgstr "legno d'acacia"
+
+#: minetest_game.lua
+msgid "Aspen Wood"
+msgstr "legno di pioppo"
+
+#: minetest_game.lua
+msgid "Bronze Block"
+msgstr "blocco di bronzo"
+
+#: minetest_game.lua
+msgid "Copper Block"
+msgstr "blocco di rame"
+
+#: minetest_game.lua
+msgid "Gold Block"
+msgstr "blocco d'oro"
+
+#: minetest_game.lua
+msgid "Steel Block"
+msgstr "blocco d'acciaio"
+
+#: minetest_game.lua
+msgid "Tin Block"
+msgstr "blocco di stagno"
+
+#: minetest_game.lua
+msgid "Dirt"
+msgstr "terra"
+
+#: minetest_game.lua
+msgid "Brick"
+msgstr "mattone"
+
+#: minetest_game.lua
+msgid "Ice"
+msgstr "ghiaccio"
+
+#: minetest_game.lua
+msgid "Diamond Block"
+msgstr "blocco di diamante"
+
+#: minetest_game.lua
+msgid "Mese Block"
+msgstr "blocco di mese"
+
+#: minetest_game.lua
+msgid "Bookshelf"
+msgstr "scaffale"
+
+#: minetest_game.lua
+msgid "Sand"
+msgstr "sabbia"
+
+#: minetest_game.lua
+msgid "Silver Sand"
+msgstr "sabbia argentata"
+
+#: minetest_game.lua
+msgid "Desert Sand"
+msgstr "sabbia del deserto"
+
+#: moreblocks.lua
+msgid "All-faces Jungle Tree"
+msgstr "cuore di albero della giungla"
+
+#: moreblocks.lua
+msgid "All-faces Tree"
+msgstr "cuore di albero"
+
+#: moreblocks.lua
+msgid "Cactus Brick"
+msgstr "mattone di cactus"
+
+#: moreblocks.lua
+msgid "Circle Stone Bricks"
+msgstr "mattone di pietra a cerchio concentrico"
+
+#: moreblocks.lua
+msgid "Coal Stone"
+msgstr "pietra carbone"
+
+#: moreblocks.lua
+msgid "Cobble Compressed"
+msgstr "ciottoli compressi"
+
+#: moreblocks.lua
+msgid "Copper Patina"
+msgstr "patina di rame"
+
+#: moreblocks.lua
+msgid "Empty Shelf"
+msgstr "scaffale vuoto"
+
+#: moreblocks.lua
+msgid "Stone Bricks"
+msgstr "mattone di pietra"
+
+#: moreblocks.lua
+msgid "Iron Stone"
+msgstr "pietra ferro"
+
+#: moreblocks.lua
+msgid "Iron Stone Bricks"
+msgstr "mattone di pietra ferro"
+
+#: moreblocks.lua
+msgid "Plankstone"
+msgstr "pietra e assi"
+
+#: moreblocks.lua
+msgid "Split Stone Tile"
+msgstr "mattonella di pietra divisa"
+
+#: moreblocks.lua
+msgid "Stone Tile"
+msgstr "mattonella di pietra"
+
+#: moreblocks.lua
+msgid "Tar"
+msgstr "catrame"
+
+#: moreblocks.lua
+msgid "Full Wooden Tile"
+msgstr "mattonella di legno pieno"

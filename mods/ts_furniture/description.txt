@@ -1,0 +1,1 @@
+Adds basic furniture (Chairs, Tables, Small Tables, Tiny Tables, Benches).

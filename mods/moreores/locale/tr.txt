@@ -1,0 +1,19 @@
+# Translation by Mahmutelmas06
+# mahmutelmas06@hotmail.com
+# Türkçe Çeviri
+# Turkish translation
+# Language 2 letter iso code is "tr"
+
+loaded = yüklendi
+
+%s Ore = %s madeni
+%s Lump = %s yığını
+%s Ingot = %s külçesi
+%s Block = %s blok
+%s Pickaxe = %s kazma
+%s Shovel = %s kürek
+%s Axe = %s balta
+%s Sword = %s kılıç
+
+Silver = Gümüş
+Mithril = Mithril

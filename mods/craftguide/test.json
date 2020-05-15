@@ -1,0 +1,8 @@
+{
+	"items": [
+		"default:stone, default:stone, default:stone",
+		"default:stone,              , default:stone",
+		"default:stone, default:stone, default:stone"
+	],
+	"result": "default:cobble 16"
+}

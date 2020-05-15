@@ -1,0 +1,15 @@
+# Translation by Calinou
+
+loaded = a été chargé
+
+%s Ore = Minerai en %s
+%s Lump = Roche en %s
+%s Ingot = Lingot en %s
+%s Block = Bloc en %s
+%s Pickaxe = Pioche en %s
+%s Shovel = Pelle en %s
+%s Axe = Hache en %s
+%s Sword = Épée en %s
+
+Silver = argent
+Mithril = mithril

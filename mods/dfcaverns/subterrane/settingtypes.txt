@@ -1,0 +1,3 @@
+subterrane_enable_legacy_dripstone (Adds old dripstone node definitions) bool false
+#Use this mode with singlenode mapgen to produce a large-scale map of a particular world's caverns
+subterrane_enable_singlenode_mapping_mode (Fills cavern volume with stone and warrens with desertstone) bool false

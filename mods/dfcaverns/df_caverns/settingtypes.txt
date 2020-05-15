@@ -1,0 +1,73 @@
+[Cavern dimensions]
+#Note that this doesn't guarantee caverns of this setting's size. This setting
+#affects the scale of features in the perlin noise that is used to build caverns.
+#Most caverns will be smaller than this (and a few might be larger)
+dfcaverns_vertical_cavern_scale (Vertical cavern dimension scale) float 256
+#Note that this doesn't guarantee caverns of this setting's size. This setting
+#affects the scale of features in the perlin noise that is used to build caverns.
+#Most caverns will be smaller than this (and a few might be larger)
+dfcaverns_horizontal_cavern_scale (Horizontal cavern dimension scale) float 256
+#Determines threshold for cave generation. Higher number means sparser, smaller caverns
+dfcaverns_cavern_threshold (Cavern threshold) float 0.5 0.0 1.0
+#Determines threshold for lower sea cave generation. Higher number means sparser, smaller caverns
+dfcaverns_sunless_sea_threshold (Cavern threshold for sunless sea) float 0.4 0.0 1.0
+#Determines how far out water extends into tunnels below the 'sea level' of from flooded
+#caverns. Lower numbers give more flooded tunnel. If this number equals the cavern
+#threshold tunnels will not be flooded at all, if it is 0 then half the tunnels will be flooded.
+dfcaverns_tunnel_flooding_threshold (Tunnel flooding threshold) float 0.25 0.0 1.0
+
+[Cavern depth borders]
+#maximum boundary for cavern depths are most efficient when they fit the formula (x*80-32-1)
+#where x is an integer. That way you don't get map blocks that straddle two cavern layers.
+dfcaverns_ymax (Upper limit of level 1) int -193
+#minimum boundaries for cavern depths are most efficient when they fit the formula (x*80-32)
+#where x is an integer. that way you don't get map blocks that straddle two cavern layers.
+dfcaverns_level1_min (Upper limit of level 2) int -832
+dfcaverns_level2_min (Upper limit of level 3) int -1472
+dfcaverns_level3_min (Upper limit of the sunless sea) int -2112
+dfcaverns_sunless_sea_min (Lower limit of the sunless sea) int -2512
+
+[Lower Levels]
+dfcaverns_enable_oil_sea (Generate oil sea) bool true
+dfcaverns_oil_sea_level (Oil sea level) int -2700
+
+dfcaverns_enable_lava_sea (Generate magma sea) bool true
+dfcaverns_lava_sea_level (Lava sea level) int -2900
+
+dfcaverns_enable_underworld (Generate underworld) bool true
+dfcaverns_underworld_level (Underworld level) int -3200
+#Set this to 0 to disable glowing pit generation entirely.
+dfcaverns_underworld_glowing_pit_mapblocks(Average pit spacing measured in mapblocks) int 8
+
+[Underworld feature HUD]
+
+dfcaverns_underworld_hud_requires_item (Require an item to view waypoints) bool true
+#Players can still discover the locations of volcanoes without this, but waypoints
+#will only be visible in their hud if they have this item in their inventory. You can also
+#specify "group:groupname" here. Leave it blank to default to map:mapping_kit.
+dfcaverns_underworld_hud_item_required (Specify the item or group required) string map:mapping_kit
+
+
+dfcaverns_show_pits_in_hud (Show pit locations in HUD) bool true
+dfcaverns_pit_discovery_range (Pit discovery range) int 60
+dfcaverns_pit_visibility_range (Pit visibility range) int 500
+
+dfcaverns_show_seals_in_hud (Seal locations in HUD) bool true
+dfcaverns_seal_discovery_range (Seal discovery range) int 10
+dfcaverns_seal_visibility_range (Seal visibility range) int 200
+
+dfcaverns_show_ruins_in_hud (Ruin locations visible in HUD) bool true
+dfcaverns_ruin_discovery_range (Ruin discovery range) int 40
+dfcaverns_ruin_visibility_range (Ruin visibility range) int 250
+
+[Primordial]
+dfcaverns_enable_primordial (Generate primordial caverns) bool true
+dfcaverns_primordial_max (Upper limit of primordial caverns) int -3393
+dfcaverns_primordial_min (Lower limit of primordial caverns) int -4032
+
+# This setting is pretty technical, it spreads out the
+# construction of giant mycelium networks on mapgen
+# over this many seconds. If you're experiencing lag spikes
+# during mapgen of Primordial cavern layer mushroom caverns
+# then increasing this number may help.
+dcaverns_giant_mycelium_timer_spread (Giant Mycelium mapgen timer spread) int 10

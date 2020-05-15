@@ -1,0 +1,43 @@
+# Spanish translations for PACKAGE package
+# Traducciones al español para el paquete PACKAGE.
+# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Diego Martínez <kaeza@kaeza-desktop>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-12 12:55-0700\n"
+"PO-Revision-Date: 2017-02-24 00:13-0300\n"
+"Last-Translator: Diego Martínez <kaeza@kaeza-desktop>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: init.lua:141
+msgid "Damp Clay"
+msgstr "Arcilla húmeda"
+
+#: init.lua:197
+msgid "Spring"
+msgstr "Manantial"
+
+#: init.lua:198
+msgid ""
+"A natural spring that generates an endless stream of water source blocks"
+msgstr ""
+"Un manantial natural que genera un flujo sin fín de bloques fuente de agua"
+
+#: init.lua:199
+msgid ""
+"Generates one source block of water directly on top of itself once per "
+"second, provided the space is clear. If this natural spring is dug out the "
+"flow stops and it is turned into ordinary cobble."
+msgstr ""
+"Genera un bloque fuente de agua directamente encima de sí mismo una vez por "
+"segundo, en tanto el espacio esté libre. Si éste manantial natural es "
+"excavado el flujo se detiene y se convierte en adoquines comúnes."

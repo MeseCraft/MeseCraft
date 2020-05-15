@@ -1,0 +1,94 @@
+# Russian Translation for the signs_lib mod.
+# Copyright (C) 2018 Vanessa Ezekowitz
+# This file is distributed under the same license as the signs_lib package.
+# CodeXP <codexp@gmx.net>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: signs_lib\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-24 22:23+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: CodeXP <codexp@gmx.net>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Write"
+msgstr "записать"
+
+#: init.lua
+msgid "Locked sign, owned by @1\n"
+msgstr "защищенная табличка, пренадлежит @1\n"
+
+#: init.lua
+msgid "locked "
+msgstr "защищенный "
+
+#: init.lua
+msgid "@1 wrote \"@2\" to @3sign at @4"
+msgstr "@1 записал \"@2\" в @3sign на @4"
+
+#: init.lua
+msgid "Sign"
+msgstr "табличка"
+
+#: init.lua
+msgid "Can edit all locked signs"
+msgstr "Может редактировать все защищенные таблички"
+
+#: init.lua
+msgid "Locked Sign"
+msgstr "защищенная табличка"
+
+#: init.lua
+msgid "green"
+msgstr "зеленая"
+
+#: init.lua
+msgid "yellow"
+msgstr "желтая"
+
+#: init.lua
+msgid "red"
+msgstr "красная"
+
+#: init.lua
+msgid "white_red"
+msgstr "краснобелая"
+
+#: init.lua
+msgid "white_black"
+msgstr "чернобелая"
+
+#: init.lua
+msgid "orange"
+msgstr "оранжевая"
+
+#: init.lua
+msgid "blue"
+msgstr "синея"
+
+#: init.lua
+msgid "brown"
+msgstr "коричневая"
+
+#: init.lua
+msgid "Sign (@1, metal)"
+msgstr "Табличка (@1, металл)"
+
+#: init.lua
+msgid "Attempt to register unknown node as fence"
+msgstr "Попытка зарегистрировать неизвестный узел как забор"
+
+#: init.lua
+msgid "Registered @1 and @2"
+msgstr "Зарегистрировано @1 для @2"
+
+#: init.lua
+msgid "[MOD] signs loaded"
+msgstr "[MOD] мод табличек загружен"

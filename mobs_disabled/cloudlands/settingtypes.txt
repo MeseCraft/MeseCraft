@@ -1,0 +1,65 @@
+# If true then islands will use biomes from altitude 10 - higher than beaches
+# and lower than mountains. This avoids a problem with some mods which have
+# alpine biomes, causing all islands to be alpine/snowy due to their altitude,
+# however plant-life may still reflect the actual altitude of the islands.
+#
+# Turn this off to have each island's altitude affect its biome.
+cloudlands_use_lowland_biomes        (Use lowland biomes) bool false
+
+# The average altitude islands are found at
+#
+# In Minetest game, ores like iron and diamond will be generated if the 
+# altitude of islands is set above 1200 and "Generate ores inside islands"
+# is Enabled.
+cloudlands_altitude             (Altitude of islands) int 200
+
+# The rough variance of altitude in islands (plus or minus this value)
+cloudlands_altitude_amplitude   (Altitude variance) int 40
+
+# Generates patches of sand and dirt inside island stone cores.
+cloudlands_generate_ores        (Generate ores inside islands - patches of dirt, sand etc.) bool false
+
+# Set this to 0 to disable vines.
+#
+# A percentage value between 0 and 100 which controls the likelyhood of each
+# node on an island edge having a vine growing down it.
+# This option is ignored unless played with a game or mod which provides vines, 
+# such as plantlife_modpack, vines, or MineClone2.
+# This setting does not alter the temperature or humidity determining whether
+# vines will be present on an island.
+cloudlands_vine_coverage        (Vine coverage %) int 30 0 100
+
+# If you wish to have large areas of the map without islands then specify
+# here the area where islands may spawn.
+#
+# The format is: 
+#      minimum_x minimum_z maximum_x maximum_z
+cloudlands_limit_rect           (Limit island locations within rectange) string -32000 -32000 32000 32000
+
+# Leave blank to allow islands to appear in any biome
+# Otherwise list biomes by name, with a space between each one.
+#
+# Example: 
+#      cold_desert sandstone_desert
+cloudlands_limit_biome          (Limit island locations within listed biomes) string
+
+# Only used when "Limit island locations within listed biomes" is set. 
+# This specifies the altitude of biomes which determine whether islands can 
+# spawn, allowing islands to have their own biome system at island altitude
+# while still having locations limited by the biomes at ground level.
+#
+#      Set to about 10 to use ground level biomes (10 is higher than beaches)
+#      Leave blank to use the islands' altitudes.
+cloudlands_limit_biome_altitude (Altitude for listed biomes) string 
+
+# Set this to 0 to disable giant trees.
+#
+# A percentage value between 0 and 100 which controls the spread of the
+# rare and gigantic trees which can sometimes be found growing on islands.
+cloudlands_giant_tree_rarety    (Giant tree rarety %) int 5 0 100
+
+# Set true to allow glowing rarer variants of the rare and gigantic trees
+# which can sometimes be found growing on islands.
+#
+# This option is ignored if tree rarety is set to 0
+cloudlands_bioluminescence      (Allow glowing trees) bool false

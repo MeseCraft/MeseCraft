@@ -1,0 +1,17 @@
+#Number of times the big bells will toll at local midnight (0 to disable)
+#Caution: default Minetest settings cause this to happen once per 20 minutes
+bell_tolls_at_midnight (Bell tolls at midnight) int 0
+#Number of times the big bells will toll at local dawn (0 to disable)
+#Caution: default Minetest settings cause this to happen once per 20 minutes
+bell_tolls_at_dawn (Bell tolls at dawn) int 0
+#Number of times the big bells will toll at local noon (0 to disable)
+#Caution: default Minetest settings cause this to happen once per 20 minutes
+bell_tolls_at_noon (Bell tolls at noon) int 0
+#Number of times the big bells will toll at local dusk (0 to disable)
+#Caution: default Minetest settings cause this to happen once per 20 minutes
+bell_tolls_at_dusk (Bell tolls at dusk) int 0
+
+#Bell tolls the number of hours (per the real-world server timezone) on the hour
+bell_tolls_at_server_hours (Bell tolls at server hours) bool true
+
+bell_enable_model (Use model-based bell nodes) bool true

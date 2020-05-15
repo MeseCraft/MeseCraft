@@ -1,0 +1,1 @@
+Add speed effects, suffocation and cactus damage to players.

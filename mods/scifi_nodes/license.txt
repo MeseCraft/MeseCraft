@@ -1,0 +1,64 @@
+
+License for Code
+----------------
+
+Copyright (C) 2016 DOOMED <heiselong@gmx.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+License for Textures, Models and Sounds
+---------------------------------------
+
+CC-BY-SA 3.0 UNPORTED. Created by DOOMED
+
+Code from Minetest_game (chests and furnace):
+Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
+LGPL2.1(as shown above)
+
+With code from(doors.lua):
+mydoors mod by don
+license:
+DO WHAT YOU WANT TO PUBLIC LICENSE
+or abbreviated DWYWPL
+
+December 2nd 2015
+License Copyright (C) 2015 Michael Tomaino (PlatinumArts@gmail.com)
+www.sandboxgamemaker.com/DWYWPL/
+
+DO WHAT YOU WANT TO PUBLIC LICENSE
+TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+1. You are allowed to do whatever you want to with what content is using this license.
+2. This content is provided 'as-is', without any express or implied warranty. In no event 
+will the authors be held liable for any damages arising from the use of this content.
+
+
+For scifi_nodes_slope.obj, which is renamed from moreblocks_slope.obj:
+
+zlib license
+============
+
+Copyright (c) 2011-2015 Calinou and contributors
+
+**This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.**
+
+Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.
+**Forum topic:** <https://forum.minetest.net/viewtopic.php?f=11&t=509>

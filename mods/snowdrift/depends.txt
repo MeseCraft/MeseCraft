@@ -1,0 +1,4 @@
+default
+stairs?
+fire?
+walls?

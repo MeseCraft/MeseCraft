@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-28 16:30-0600\n"
+"PO-Revision-Date: 2018-10-27 11:26+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: bridge.lua:49
+msgid "Wooden Bridge"
+msgstr ""
+
+#: crafts.lua:54
+msgid "Rope Segment"
+msgstr "Segmento de cuerda"
+
+#: doc.lua:11
+msgid "Rope segments are bundles of fibre twisted into robust cables."
+msgstr ""
+"Los segmentos de cable son haces de fibras trenzadas en cables robustos."
+
+#: doc.lua:12
+msgid ""
+"This craft item is useful for creating rope ladders, or for spooling on "
+"wooden spindles to hang and climb upon."
+msgstr ""
+"Esta objeto es útil para crear escaleras de cuerda, o para enrollar en "
+"husillos de madera para colgar y trepar."
+
+#: doc.lua:14
+msgid "A hanging rope ladder that automatically extends downward."
+msgstr ""
+"Una escalera de cuerda colgante que se extiende automáticamente hacia abajo."
+
+#: doc.lua:15
+msgid ""
+"After a rope ladder is placed on a vertical wall it will begin extending "
+"downward until it reaches its maximum length (@1 meters). If the rope ladder "
+"is removed all of the ladder below the point of removal will disappear. A "
+"rope ladder can be severed partway down using an axe or similar tool, and "
+"the ladder below the point where it is cut will collapse. No rope is "
+"actually lost in the process, though, and if the uppermost section of the "
+"ladder is removed and replaced the ladder will re-extend to the same maximum "
+"length as before."
+msgstr ""
+"Después de colocar una escalera de cuerda en una pared vertical, comenzará a "
+"extenderse hacia abajo hasta que alcance su longitud máxima (@1 metro). Si "
+"se retira la escalera de cuerda, desaparecerá toda la escalera por debajo "
+"del punto de extracción. Una escalera de cuerda puede ser cortada hasta la "
+"mitad usando un hacha o una herramienta similar, y la escalera por debajo "
+"del punto donde es cortada colapsará. Sin embargo, no se pierde ninguna "
+"cuerda en el proceso, y si la sección superior de la escalera se retira y se "
+"reemplaza, la escalera se volverá a extender a la misma longitud máxima que "
+"antes."
+
+#: doc.lua:17
+msgid ""
+"Rope boxes have a certain amount of rope contained within them specified in "
+"the name of the node, and have a limit to how much rope they can support "
+"that depends on the material they're made of. The different lengths can be "
+"crafted by combining and splitting up rope boxes in the crafting grid. For "
+"example, you can craft a @1m rope box by putting a @2m rope box and a rope "
+"segment in the crafting grid, or a @3m rope box and two rope segments in the "
+"crafting grid. Two rope segments can be recovered by putting the @1m rope "
+"box in the crafting grid by itself."
+msgstr ""
+"Las cajas de cuerdas tienen una cierta cantidad de cuerda contenida dentro "
+"de ellas especificada en el nombre del nodo, y tienen un límite en la "
+"cantidad de cuerda que pueden soportar que depende del material del que "
+"están hechas. Las diferentes longitudes se pueden realizar combinando y "
+"dividiendo las cajas de cuerda en la rejilla de elaboración. Por ejemplo, "
+"puedes crear una caja de cuerda de @1m poniendo una caja de cuerda de @2m y "
+"un segmento de cuerda en la rejilla de artesanía, o una caja de cuerda de "
+"@3m y dos segmentos de cuerda en la rejilla de artesanía. Se pueden "
+"recuperar dos segmentos de cable colocando solo la caja de cable de @1m en "
+"la rejilla de fabricación."
+
+#: doc.lua:20
+#: doc.lua:22
+#: ropeboxes.lua:321
+msgid "Wood"
+msgstr "madera"
+
+#: doc.lua:20
+#: doc.lua:26
+#: doc.lua:32
+msgid "rope boxes can hold @1m of rope."
+msgstr "Las cajas de cuerdas pueden mantener @1m de cuerda."
+
+#: doc.lua:22
+#: doc.lua:28
+#: doc.lua:34
+msgid "rope boxes can hold rope lengths from @1m to @2m."
+msgstr "Las cajas de cuerda pueden contener longitudes de cuerda de @1m a @2m."
+
+#: doc.lua:26
+#: doc.lua:28
+#: ropeboxes.lua:338
+msgid "Copper"
+msgstr "cobre"
+
+#: doc.lua:32
+#: doc.lua:34
+#: ropeboxes.lua:355
+msgid "Steel"
+msgstr "acero"
+
+#: doc.lua:37
+msgid ""
+"Ropes are hung by placing rope boxes, which automatically lower a rope of "
+"fixed length below them. They can be climbed and cut."
+msgstr ""
+"Las cuerdas se cuelgan colocando cajas de cuerda, que bajan automáticamente "
+"una cuerda de longitud fija por debajo de ellas. Se pueden escalar y cortar."
+
+#: doc.lua:39
+msgid ""
+"When a rope box is placed the rope will immediately begin lowering from it "
+"at one meter per second. The rope will only descend when its end is in the "
+"vicinity of an active player, suspending its journey when no players are "
+"nearby, so a long descent may require a player to climb down the rope as it "
+"goes. If you are near the bottom end of a rope that's extending you'll be "
+"automatically carried down with it. The rope will stop when it encounters "
+"and obstruction, but will resume lowering if the obstruction is removed."
+msgstr ""
+"Cuando se coloca una caja de cuerda, la cuerda comienza a descender "
+"inmediatamente a un metro por segundo. La cuerda sólo descenderá cuando su "
+"final esté cerca de un jugador activo, suspendiendo su viaje cuando no haya "
+"jugadores cerca, por lo que un largo descenso puede requerir que el jugador "
+"baje por la cuerda a medida que avanza. Si estás cerca del extremo inferior "
+"de una cuerda que se está extendiendo, serás arrastrado automáticamente "
+"hacia abajo con ella. La cuerda se detendrá cuando se encuentre con una "
+"obstrucción, pero volverá a bajar si se retira la obstrucción."
+
+#: doc.lua:40
+msgid ""
+"A rope can be severed midway using an axe or other similar tool. The section "
+"of rope below the cut will collapse and disappear, potentially causing "
+"players who were hanging on to it to fall. The remaining rope will not "
+"resume descent on its own, but the rope box at the top of the rope "
+"\"remembers\" how long the rope was and if it is deconstructed and replaced "
+"it will still have the same maximum length of rope as before - no rope is "
+"permanently lost when a rope is severed like this."
+msgstr ""
+"Una cuerda puede ser cortada a mitad de camino usando un hacha u otra "
+"herramienta similar. La sección de la cuerda debajo del corte se colapsará y "
+"desaparecerá, lo que puede causar que los jugadores que estaban colgados de "
+"ella se caigan. El resto de la cuerda no volverá a descender por sí sola, "
+"pero la caja de la cuerda en la parte superior de la cuerda \"recuerda\" la "
+"longitud de la cuerda y si es deconstruida y reemplazada tendrá la misma "
+"longitud máxima de cuerda que antes - ninguna cuerda se pierde "
+"permanentemente cuando una cuerda es cortada de esta manera."
+
+#: doc.lua:43
+msgid ""
+"A ladder for climbing. It can reach greater heights when placed against a "
+"supporting block."
+msgstr ""
+
+#: doc.lua:44
+msgid ""
+"Right-clicking on a ladder with a stack of identical ladder items will "
+"automatically add new ladder segments to the top, provided it hasn't "
+"extended too far up beyond the last block behind it providing support."
+msgstr ""
+
+#: doc.lua:47
+msgid "A wooden platform with support struts useful for bridging gaps."
+msgstr ""
+
+#: doc.lua:48
+msgid ""
+"This behaves like most structural blocks except in one circumstance: when "
+"placed on top of a block with buildable space on the side facing away from "
+"you, this block will not be built on top but instead will extend out from "
+"that far side of the target block. This allows a platform to be easily built "
+"that juts out away from the location you're standing on."
+msgstr ""
+
+#: extendingladder.lua:11
+msgid "Wooden Ladder"
+msgstr ""
+
+#: extendingladder.lua:18
+msgid "Steel Ladder"
+msgstr ""
+
+#: extendingladder.lua:57
+msgid "Wooden Extendable Ladder"
+msgstr ""
+
+#: extendingladder.lua:64
+msgid "Steel Extendable Ladder"
+msgstr ""
+
+#: ropeboxes.lua:121
+msgid "@1 Ropebox @2m"
+msgstr "Caja de cuerda de @1 de @2m"
+
+#: ropeboxes.lua:229
+#: ropeboxes.lua:264
+msgid "Rope"
+msgstr "Cuerda"
+
+#: ropeladder.lua:27
+#: ropeladder.lua:89
+#: ropeladder.lua:119
+#: ropeladder.lua:153
+msgid "Rope Ladder"
+msgstr "Escalera de cuerda"

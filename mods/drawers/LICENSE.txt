@@ -1,0 +1,117 @@
+Minetest Mod Storage Drawers
+============================
+Version 0.4.3
+
+License of source code:
+-----------------------
+Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im>
+Copyright (C) 2016 Mango Tango <mtango688@gmail.com>
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+License of translations:
+------------------------
+CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+
+No Copyright
+Minetest Mod Storage Drawers Translators
+
+The person who associated a work with this deed has dedicated the work to the public
+domain by waiving all of his or her rights to the work worldwide under copyright law,
+including all related and neighboring rights, to the extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all
+without asking permission. See Other Information below.
+
+Other Information
+
+In no way are the patent or trademark rights of any person affected by CC0, nor are the
+rights that other persons may have in the work or in how the work is used, such as
+publicity or privacy rights.
+Unless expressly stated otherwise, the person who associated a work with this deed makes
+no warranties about the work, and disclaims liability for all uses of the work, to the
+fullest extent permitted by applicable law.
+When using or citing the work, you should not imply endorsement by the author or the
+affirmer.
+
+For more details:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+
+License of media:
+-----------------
+Copyright (C) 2012 ultradust (https://www.freesound.org/people/ultradust/) (CC BY 3.0):
+  sounds/drawers_interact.1.ogg (edited by tacotexmex)
+  sounds/drawers_interact.2.ogg (edited by tacotexmex)
+
+Copyright (C) 2014 Justin Aquadro (MIT):
+  textures/drawers_acacia_wood_mcl_front_1.png
+  textures/drawers_acacia_wood_mcl_front_2.png
+  textures/drawers_acacia_wood_mcl_front_4.png
+  textures/drawers_acacia_wood_mcl.png
+  textures/drawers_aspen_wood_front_1.png
+  textures/drawers_aspen_wood_front_2.png
+  textures/drawers_aspen_wood_front_4.png
+  textures/drawers_aspen_wood.png
+  textures/drawers_birch_wood_front_1.png
+  textures/drawers_birch_wood_front_2.png
+  textures/drawers_birch_wood_front_4.png
+  textures/drawers_birch_wood.png
+  textures/drawers_controller_front.png
+  textures/drawers_controller_side.png
+  textures/drawers_controller_top.png
+  textures/drawers_dark_oak_wood_front_1.png
+  textures/drawers_dark_oak_wood_front_2.png
+  textures/drawers_dark_oak_wood_front_4.png
+  textures/drawers_dark_oak_wood.png
+  textures/drawers_junglewood_mcl_front_1.png
+  textures/drawers_junglewood_mcl_front_2.png
+  textures/drawers_junglewood_mcl_front_4.png
+  textures/drawers_junglewood_mcl.png
+  textures/drawers_oak_wood_front_1.png
+  textures/drawers_oak_wood_front_2.png
+  textures/drawers_oak_wood_front_4.png
+  textures/drawers_oak_wood.png
+  textures/drawers_pine_wood_front_1.png
+  textures/drawers_pine_wood_front_2.png
+  textures/drawers_pine_wood_front_4.png
+  textures/drawers_pine_wood.png
+  textures/drawers_spruce_wood_front_1.png
+  textures/drawers_spruce_wood_front_2.png
+  textures/drawers_spruce_wood_front_4.png
+  textures/drawers_spruce_wood.png
+  textures/drawers_trim.png
+  textures/drawers_upgrade_diamond.png
+  textures/drawers_upgrade_emerald.png
+  textures/drawers_upgrade_gold.png
+  textures/drawers_upgrade_iron.png
+  textures/drawers_upgrade_obsidian.png
+  textures/drawers_upgrade_steel.png
+  textures/drawers_upgrade_slot_bg.png (extracted from gui/drawers_1.png by LNJ <git@lnj.li>)
+  textures/drawers_upgrade_template.png
+  textures/drawers_wood_front_1.png
+  textures/drawers_wood_front_2.png
+  textures/drawers_wood_front_4.png
+  textures/drawers_wood.png
+
+Everything not listed in here:
+Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im> (MIT)

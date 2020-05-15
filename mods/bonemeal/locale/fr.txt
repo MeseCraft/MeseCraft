@@ -1,0 +1,7 @@
+# init.lua
+
+Mulch = Paillis
+Bone Meal = Poudre d'os
+Fertiliser = Engrais
+Bone = Os
+[MOD] bonemeal loaded = [MOD] bonemeal chargé

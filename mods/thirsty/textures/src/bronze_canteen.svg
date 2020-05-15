@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="canteen.svg"
+   inkscape:export-filename="/home/ben/progs/minetest/minetest-thirsty/textures/thirsty_bowl_16.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3824"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3820"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3761"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3761-8"
+       is_visible="true" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#838181"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="31.678384"
+     inkscape:cx="7.6921211"
+     inkscape:cy="7.4852095"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3755"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1036.3622)">
+    <g
+       id="g3784"
+       style="fill:#e28b1a;fill-opacity:1">
+      <path
+         transform="translate(0,1037.3408)"
+         d="m 13.005714,8.0134811 a 5.0034118,4.987628 0 1 1 -10.0068236,0 5.0034118,4.987628 0 1 1 10.0068236,0 z"
+         sodipodi:ry="4.987628"
+         sodipodi:rx="5.0034118"
+         sodipodi:cy="8.0134811"
+         sodipodi:cx="8.0023022"
+         id="path3010"
+         style="fill:#e28b1a;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <rect
+         transform="translate(0,1036.3622)"
+         y="2.0157008"
+         x="5.9977808"
+         height="1.0101526"
+         width="4.0090427"
+         id="rect3780"
+         style="fill:#e28b1a;fill-opacity:1;stroke:none" />
+      <rect
+         transform="translate(0,1036.3622)"
+         y="3.0258534"
+         x="6.976366"
+         height="1.9887378"
+         width="2.0518723"
+         id="rect3782"
+         style="fill:#e28b1a;fill-opacity:1;stroke:none" />
+    </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3789"
+       width="2.0203052"
+       height="0.97858524"
+       x="7.0079331"
+       y="1.0371156"
+       transform="translate(0,1036.3622)" />
+    <rect
+       style="fill:#562f00;fill-opacity:1;stroke:none"
+       id="rect3791"
+       width="11.016976"
+       height="2.0203052"
+       x="562.01971"
+       y="876.90887"
+       transform="matrix(0.84395175,0.53641909,-0.53641909,0.84395175,0,0)" />
+    <rect
+       style="fill:#562f00;fill-opacity:1;stroke:none"
+       id="rect3791-4"
+       width="11.016976"
+       height="2.0203052"
+       x="548.4823"
+       y="885.47589"
+       transform="matrix(-0.84395175,0.53641909,0.53641909,0.84395175,0,0)" />
+  </g>
+</svg>

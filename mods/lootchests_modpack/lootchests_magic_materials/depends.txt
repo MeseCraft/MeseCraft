@@ -1,0 +1,3 @@
+default
+lootchests
+magic_materials

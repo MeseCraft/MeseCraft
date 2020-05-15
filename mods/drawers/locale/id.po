@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"PO-Revision-Date: 2019-02-08 14:10+0000\n"
+"Last-Translator: Muhammad Rifqi Priyo Susanto "
+"<muhammadrifqipriyosusanto@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/minetest/"
+"mod-storage-drawers/id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.5-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Keadaan Saat Ini: "
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Berhenti"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Berjalan"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Macet"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Pengendali Laci"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Kosong"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Kayu"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "Laci @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "Laci @1 (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "Laci @1 (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% penuh)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% penuh)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Kayu Akasia"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Kayu Aspen"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Kayu Rimba"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Kayu Pinus"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Kayu Ek"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Kayu Birch"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Kayu Ek Gelap"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Kayu Cemara"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Tingkatkan menjadi Laci Baja (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Tingkatkan menjadi Laci Emas (x3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Tingkatkan menjadi Laci Obsidian (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Tingkatkan menjadi Laci Berlian (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Tingkatkan menjadi Laci Besi (x2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Tingkatkan menjadi Laci Zamrud (x13)"
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr "Ukiran Kayu"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Templat Peningkatan Laci"

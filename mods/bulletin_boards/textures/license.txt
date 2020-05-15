@@ -1,0 +1,17 @@
+bulletin_boards_corkboard.png and bulletin_boards_frame.png - by FaceDeer, released under the CC-0 public domain license
+
+bulletin_boards_delete.png - from https://commons.wikimedia.org/wiki/File:Symbol_delete_vote_darkened.svg under the public domain
+
+The following are from the "Farm-Fresh Web Icons" set, May 5 2014, from http://www.fatcow.com/free-icons by FatCow under the CC-BY-SA 3.0 unported license:
+bulletin_boards_document_back.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_back.png
+bulletin_boards_document_comment_above.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_comment_above.png
+bulletin_boards_document_image.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_image.png
+bulletin_boards_document_next.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_next.png
+bulletin_boards_document_notes.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_notes.png
+bulletin_boards_document_quote.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_quote.png
+bulletin_boards_document_signature.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_document_signature.png
+bulletin_boards_documents_email.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_documents_email.png
+bulletin_boards_receipt_invoice.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_receipt_invoice.png
+bulletin_boards_to_do_list.png - https://commons.wikimedia.org/wiki/File:Farm-Fresh_to_do_list.png
+
+The Farm-Fresh Web Icons were found via found from https://commons.wikimedia.org/wiki/Category:Document_icons if you want more of them

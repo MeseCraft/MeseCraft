@@ -1,0 +1,11 @@
+dfcaverns_tree_min_growth_delay (Minimum sapling growth delay) int 2400
+dfcaverns_tree_max_growth_delay (Maximum sapling growth delay) int 4800
+dfcaverns_fungiwood_delay_multiplier (fungiwood growth delay multiplier) float 1
+dfcaverns_tunnel_tube_delay_multiplier (tunnel_tube growth delay multiplier) float 1
+dfcaverns_spore_tree_delay_multiplier (spore_tree growth delay multiplier) float 1
+dfcaverns_black_cap_delay_multiplier (black_cap growth delay multiplier) float 1
+dfcaverns_nether_cap_delay_multiplier (nether_cap growth delay multiplier) float 1
+dfcaverns_goblin_cap_delay_multiplier (goblin_cap growth delay multiplier) float 1
+dfcaverns_tower_cap_delay_multiplier (tower_cap growth delay multiplier) float 1
+dfcaverns_blood_thorn_growth_interval (blood_thorn growth ABM interval) int 12
+dfcaverns_blood_thorn_growth_chance (blood_thorn growth ABM chance) int 83

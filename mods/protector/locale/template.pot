@@ -1,0 +1,179 @@
+# Template for PROTECTOR MOD.
+# Copyright (C) 2018 TenPlus1
+# This file is distributed under the same license as the PROTECTOR MOD package.
+# Xanthin <xanthin@wiuwiu.de>, 2016.
+# CodeXP <codexp@gmx.net>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROTECTOR MOD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-10 17:33+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: CodeXP <codexp@gmx.net>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.lua
+msgid "Remove Protectors around players (separate names with spaces)"
+msgstr ""
+
+#: admin.lua
+msgid "<names list>"
+msgstr ""
+
+#: admin.lua
+msgid "Replace Protector Owner with name provided"
+msgstr ""
+
+#: admin.lua
+msgid "<owner name> <name to replace with>"
+msgstr ""
+
+#: admin.lua
+msgid "Replacing Protector name '@1' with '@2'"
+msgstr ""
+
+#: admin.lua
+msgid "Show protected areas of your nearby protectors"
+msgstr ""
+
+#: admin.lua
+msgid "Protector Names to remove: @1"
+msgstr ""
+
+#: admin.lua
+msgid "Name List Reset"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Wooden Door"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Steel Door"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Trapdoor"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Steel Trapdoor"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Chest"
+msgstr ""
+
+#: doors_chest.lua
+msgid "To Chest"
+msgstr ""
+
+#: doors_chest.lua
+msgid "To Inventory"
+msgstr ""
+
+#: doors_chest.lua
+msgid "Protected Chest (@1)"
+msgstr ""
+
+#: init.lua
+msgid "-- Protector interface --"
+msgstr ""
+
+#: init.lua
+msgid "PUNCH node to show protected area"
+msgstr ""
+
+#: init.lua
+msgid "USE for area check"
+msgstr ""
+
+#: init.lua
+msgid "Members:"
+msgstr ""
+
+#: init.lua
+msgid "Close"
+msgstr ""
+
+#: init.lua
+msgid "Protection located at: @1"
+msgstr ""
+
+#: init.lua
+msgid "Members: @1."
+msgstr ""
+
+#: init.lua
+msgid "This area is not protected."
+msgstr ""
+
+#: init.lua
+msgid "You can build here."
+msgstr ""
+
+#: init.lua tool.lua
+msgid "Overlaps into above players protected area"
+msgstr ""
+
+#: init.lua
+msgid "Protection Block"
+msgstr ""
+
+#: admin.lua init.lua tool.lua
+msgid "Protection (owned by @1)"
+msgstr ""
+
+#: init.lua
+msgid "Protection Logo"
+msgstr ""
+
+#: init.lua
+msgid "[MOD] Protector Redo loaded"
+msgstr ""
+
+#: init.lua
+msgid "Spawn @1 has been protected up to a @2 block radius."
+msgstr ""
+
+#: init.lua
+msgid "This area is owned by @1"
+msgstr ""
+
+#: pvp.lua
+msgid "[Protector] on_punchplayer called with nil objects"
+msgstr ""
+
+#: pvp.lua
+msgid "[Protector] pvp_protect not active, update your version of Minetest"
+msgstr ""
+
+#: pvp.lua
+msgid "[Protector] pvp_protect is disabled"
+msgstr ""
+
+#: hud.lua
+msgid "Owner: @1"
+msgstr ""
+
+#: tool.lua
+msgid "Protector Placer Tool (stand near protector, face direction and use)"
+msgstr ""
+
+#: tool.lua
+msgid "Protector already in place!"
+msgstr ""
+
+#: tool.lua
+msgid "No protectors available to place!"
+msgstr ""
+
+#: tool.lua
+msgid "Protector placed at @1"
+msgstr ""

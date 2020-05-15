@@ -1,0 +1,28 @@
+local items = {
+    {"moretrees:acorn", 8},
+    {"moretrees:acorn_muffin_batter", 4},
+    {"moretrees:cedar_nuts", 16},
+    {"moretrees:cedar_cone", 4},
+    {"moretrees:coconut", 2},
+    {"moretrees:date", 16},
+    {"moretrees:date_nut_batter", 4},
+    {"moretrees:fir_cone", 4},
+    {"moretrees:fir_nuts", 8},
+    {"moretrees:spruce_cone", 4},
+    {"moretrees:spruce_nuts", 8},
+    {"moretrees:rubber_tree_sapling", 2},
+    {"moretrees:sequoia_sapling", 2},
+    {"moretrees:spruce_sapling", 2},
+    {"moretrees:willow_sapling", 2},
+    {"moretrees:poplar_sapling", 2},
+    {"moretrees:palm_sapling", 2},
+    {"moretrees:oak_sapling", 2},
+    {"moretrees:fir_sapling", 2},
+    {"moretrees:date_palm_sapling", 2},
+    {"moretrees:apple_tree_sapling", 2},
+    {"moretrees:birch_sapling", 2},
+    {"moretrees:cedar_sapling", 2},
+    {"moretrees:beech_sapling", 2},
+}
+
+lootchests.add_to_loot_table("lootchests_default:basket", items)

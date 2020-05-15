@@ -1,0 +1,18 @@
+bedrock2_step.1.ogg - from the Bedrock mod by Wuzzy, https://repo.or.cz/w/minetest_bedrock2.git, under the WTFPL, relicenced to MIT for this mod.
+bedrock2_step.2.ogg
+bedrock2_step.3.ogg
+
+dfcaverns_grinding_stone.1.ogg - from https://freesound.org/people/FreqMan/sounds/25845/ by FreqMan under Creative Commons BY 3.0
+dfcaverns_grinding_stone.2.ogg - from https://freesound.org/people/FreqMan/sounds/25846/ by FreqMan under Creative Commons BY 3.0
+dfcaverns_grinding_stone.3.ogg - from https://freesound.org/people/FreqMan/sounds/25847/ by FreqMan under Creative Commons BY 3.0
+
+dfcaverns_arcing.1.ogg - from https://freesound.org/people/unfa/sounds/264827/ by unfa under Creative Commons BY 3.0
+dfcaverns_arcing.2.ogg - from https://freesound.org/people/unfa/sounds/264827/ by unfa under Creative Commons BY 3.0
+dfcaverns_arcing.3.ogg - from https://freesound.org/people/unfa/sounds/264827/ by unfa under Creative Commons BY 3.0
+dfcaverns_arcing.4.ogg - from https://freesound.org/people/unfa/sounds/264827/ by unfa under Creative Commons BY 3.0
+
+dfcaverns_seal_unlocked.ogg - from https://freesound.org/people/juskiddink/sounds/74920/ by juskiddink under Creative Commons BY 3.0
+dfcaverns_seal_key.ogg - From https://freesound.org/people/megashroom/sounds/391488/ by megashroom under the CC0 public domain license
+dfcaverns_massive_digging.1.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0
+dfcaverns_massive_digging.2.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0
+dfcaverns_massive_digging.3.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0

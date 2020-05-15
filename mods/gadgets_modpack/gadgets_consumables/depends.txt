@@ -1,0 +1,9 @@
+default
+vessels
+farming
+bucket
+flowers
+gadgets_api
+gadgets_default_effects
+mana?
+sprint_lite?

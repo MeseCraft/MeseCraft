@@ -1,0 +1,6 @@
+@1 Rocket=
+Mega Torch Bomb=
+Rocket accelerates at 1 m/s^2.@nFuse duration from 1 to @1 seconds:=
+Set=
+Torch Bomb=
+Torch Grenade=

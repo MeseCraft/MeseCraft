@@ -1,0 +1,22 @@
+License for Code
+----------------
+
+Original Work Copyright (C) 2016 cd2 (cdqwertz) <cdqwertz@gmail.com>
+Modified Work Copyright (C) Vitalie Ciubotaru <vitalie at ciubotaru dot tk>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+http://www.gnu.org/licenses/gpl-3.0.html
+
+License for Media
+-----------------
+
+CC-BY-SA 3.0 UNPORTED. Created by cd2 (cdqwertz)

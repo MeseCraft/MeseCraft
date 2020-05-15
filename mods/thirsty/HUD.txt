@@ -1,0 +1,17 @@
+Configuration for Better HUD
+----------------------------
+
+The Better HUD mod positions the stat displays according to
+a 'hud.conf' file in its mod directory. If you wish to shift
+the positions of the stat displays around, you need to create or
+edit the 'hud.conf' file.
+
+There should be two files in this mod directory, 'hud.conf.with_hunger'
+and 'hud.conf.no_hunger'. These can be used as the basis for your
+'hud.conf', depending on whether you are also using the Hunger mod
+(which adds a hunger display), or not.
+
+The positions of the displays in those files correspond to the
+default settings in Better HUD. In most cases, it's enough to
+copy one of these files as 'hud.conf' in the Better HUD mod
+directory 'mods/hud'.

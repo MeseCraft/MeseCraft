@@ -1,0 +1,97 @@
+# German Translation for the signs_lib mod.
+# Copyright (C) 2018 Vanessa Ezekowitz
+# This file is distributed under the same license as the signs_lib package.
+# Xanthin, 2017.
+# CodeXP <codexp@gmx.net>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-31 18:31+0200\n"
+"PO-Revision-Date: 2018-03-24 22:00+0100\n"
+"Last-Translator: CodeXP <codexp@gmx.net>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: init.lua
+msgid "Write"
+msgstr "schreiben"
+
+#: init.lua
+msgid "Locked sign, owned by @1\n"
+msgstr "gesperrter Schild, gehört @1\n"
+
+#: init.lua
+msgid "locked "
+msgstr "gesperrt "
+
+#: init.lua
+#, fuzzy
+msgid "@1 wrote \"@2\" to @3sign at @4"
+msgstr "@1 schrieb \"@2\" auf das @3Schild bei @4"
+
+#: init.lua
+msgid "Sign"
+msgstr "Schild"
+
+#: init.lua
+msgid "Can edit all locked signs"
+msgstr "Kann alle gesperrte Schilder bearbeiten"
+
+#: init.lua
+msgid "Locked Sign"
+msgstr "gesperrter Schild"
+
+#: init.lua
+msgid "green"
+msgstr "grün"
+
+#: init.lua
+msgid "yellow"
+msgstr "gelb"
+
+#: init.lua
+msgid "red"
+msgstr "rot"
+
+#: init.lua
+msgid "white_red"
+msgstr "weißrot"
+
+#: init.lua
+msgid "white_black"
+msgstr "schwarzweiß"
+
+#: init.lua
+msgid "orange"
+msgstr "orange"
+
+#: init.lua
+msgid "blue"
+msgstr "blau"
+
+#: init.lua
+msgid "brown"
+msgstr "braun"
+
+#: init.lua
+msgid "Sign (@1, metal)"
+msgstr "Schild (@1, Metall)"
+
+#: init.lua
+msgid "Attempt to register unknown node as fence"
+msgstr "Versuch ein unbekanntes Element als Zaun zu registrieren"
+
+#: init.lua
+msgid "Registered @1 and @2"
+msgstr "Registrierte @1 und @2"
+
+#: init.lua
+msgid "[MOD] signs loaded"
+msgstr "[MOD] Schilder-Mod geladen"

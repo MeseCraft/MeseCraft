@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-27 20:21+0200\n"
+"PO-Revision-Date: 2018-03-27 22:16+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+#: barley.lua
+msgid "Barley Seed"
+msgstr "Graine d'orge"
+
+#: barley.lua
+msgid "Barley"
+msgstr "Orge"
+
+#: beanpole.lua
+msgid "Green Beans"
+msgstr "Haricots verts"
+
+#: beanpole.lua
+msgid "Bean Pole (place on soil before planting beans)"
+msgstr "Tuteur pour haricots  (placer sur le sol avant de planter des haricots)"
+
+#: blueberry.lua
+msgid "Blueberries"
+msgstr "Myrtilles"
+
+#: blueberry.lua
+msgid "Blueberry Muffin"
+msgstr "Gâteau aux myrtilles"
+
+#: carrot.lua
+msgid "Carrot"
+msgstr "Carotte"
+
+#: carrot.lua
+msgid "Golden Carrot"
+msgstr "Carotte dorée"
+
+#: cocoa.lua
+msgid "Cocoa Beans"
+msgstr "Fèves de chocolat"
+
+#: cocoa.lua
+msgid "Cookie"
+msgstr "Biscuit"
+
+#: cocoa.lua
+msgid "Bar of Dark Chocolate"
+msgstr "Barre de chocolat noir"
+
+#: coffee.lua
+msgid "Coffee Beans"
+msgstr "Grains de café"
+
+#: coffee.lua
+msgid "Drinking Cup (empty)"
+msgstr "Tasse (vide)"
+
+#: coffee.lua
+msgid "Cold Cup of Coffee"
+msgstr "Tasse de café froid"
+
+#: coffee.lua
+msgid "Hot Cup of Coffee"
+msgstr "Tasse de café chaud"
+
+#: corn.lua
+msgid "Corn"
+msgstr "Maïs"
+
+#: corn.lua
+msgid "Corn on the Cob"
+msgstr "Épi de maïs"
+
+#: corn.lua
+msgid "Bottle of Ethanol"
+msgstr "Bouteille de'éthanol"
+
+#: cotton.lua
+msgid "Cotton Seed"
+msgstr "Graines de coton"
+
+#: cotton.lua
+msgid "Cotton"
+msgstr "Coton"
+
+#: cucumber.lua
+msgid "Cucumber"
+msgstr "Concombre"
+
+#: donut.lua
+msgid "Donut"
+msgstr "Beignet"
+
+#: donut.lua
+msgid "Chocolate Donut"
+msgstr "Beignet au chocolat"
+
+#: donut.lua
+msgid "Apple Donut"
+msgstr "Beignet aux pommes"
+
+#: grapes.lua
+msgid "Grapes"
+msgstr "Raisins"
+
+#: grapes.lua
+msgid "Trellis (place on soil before planting grapes)"
+msgstr "Treillis (placer sur le sol avant de planter les raisins)"
+
+#: hemp.lua
+msgid "Hemp Seed"
+msgstr "Graines de chanvre"
+
+#: hemp.lua
+msgid "Hemp Leaf"
+msgstr "Feuille de chanvre"
+
+#: hemp.lua
+msgid "Bottle of Hemp Oil"
+msgstr "Bouteille d'huile de chanvre"
+
+#: hemp.lua
+msgid "Hemp Fibre"
+msgstr "Fibre de chanvre"
+
+#: hemp.lua
+msgid "Hemp Rope"
+msgstr "Corde de chanvre"
+
+#: hoes.lua
+msgid "Wooden Hoe"
+msgstr "Houe en bois"
+
+#: hoes.lua
+msgid "Stone Hoe"
+msgstr "Houe en pierre"
+
+#: hoes.lua
+msgid "Steel Hoe"
+msgstr "Houe en acier"
+
+#: hoes.lua
+msgid "Bronze Hoe"
+msgstr "Houe en bronze"
+
+#: hoes.lua
+msgid "Mese Hoe"
+msgstr "Houe en mese"
+
+#: hoes.lua
+msgid "Diamond Hoe"
+msgstr "Houe en diamant"
+
+#: init.lua
+msgid "Seed"
+msgstr "Graine"
+
+#: melon.lua
+msgid "Melon Slice"
+msgstr "Tranche de melon"
+
+#: melon.lua
+msgid "Melon"
+msgstr "Melon"
+
+#: potato.lua
+msgid "Potato"
+msgstr "Pomme de terre"
+
+#: potato.lua
+msgid "Baked Potato"
+msgstr "Pomme de terre cuite"
+
+#: pumpkin.lua
+msgid "Pumpkin"
+msgstr "Citrouille"
+
+#: pumpkin.lua
+msgid "Pumpkin Slice"
+msgstr "Tranche de citrouille"
+
+#: pumpkin.lua
+msgid "Jack 'O Lantern (punch to turn on and off)"
+msgstr "Jack 'O Lantern (tapé pour allumer et éteindre)"
+
+#: pumpkin.lua
+msgid "Pumpkin Bread"
+msgstr "Pain à la citrouille"
+
+#: pumpkin.lua
+msgid "Pumpkin Dough"
+msgstr "Pâte à la citrouille"
+
+#: raspberry.lua
+msgid "Raspberries"
+msgstr "Framboises"
+
+#: raspberry.lua
+msgid "Raspberry Smoothie"
+msgstr "Smoothie aux framboises"
+
+#: rhubarb.lua
+msgid "Rhubarb"
+msgstr "Rhubarbe"
+
+#: rhubarb.lua
+msgid "Rhubarb Pie"
+msgstr "Tarte à la rhubarbe"
+
+#: soil.lua
+msgid "Soil"
+msgstr "Sol"
+
+#: soil.lua
+msgid "Wet Soil"
+msgstr "Sol humide"
+
+#: sugar.lua
+msgid "Sugar"
+msgstr "Sucre"
+
+#: tomato.lua
+msgid "Tomato"
+msgstr "Tomate"
+
+#: wheat.lua
+msgid "Wheat Seed"
+msgstr "Graine de blé"
+
+#: wheat.lua
+msgid "Wheat"
+msgstr "Blé"
+
+#: wheat.lua
+msgid "Straw"
+msgstr "Paille"
+
+#: wheat.lua
+msgid "Flour"
+msgstr "Farine"
+
+#: wheat.lua
+msgid "Bread"
+msgstr "Pain"

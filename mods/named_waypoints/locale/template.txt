@@ -1,0 +1,37 @@
+# textdomain: named_waypoints
+
+
+### init.lua ###
+
+#button label
+Delete=
+#warning that incorrect data was entered for a waypoint in the UI
+Invalid syntax.=
+#button label
+New=
+#button label
+OK=
+#chat command help text
+Open server controls for named_waypoints=
+#chat command error message
+Please provide a valid waypoint type as a parameter=
+#button label
+Rename=
+#button label
+Save=
+#chat command help text
+Set all waypoints of a type as discovered by you=
+#chat command help text
+Set all waypoints of a type as not discovered by you=
+#button label
+Teleport=
+#error message for when trying to create a waypoint where one already exists
+There's already a waypoint there.=
+#chat command error message
+This command is for server admins only.=
+#player chat
+Waypoint updated.=
+#text of the default popup shown when a player discovers a waypoint
+You've discovered @1=
+#chat command parameter help
+waypoint type=

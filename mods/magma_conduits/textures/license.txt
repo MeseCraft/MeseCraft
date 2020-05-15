@@ -1,0 +1,7 @@
+The following are from the Caverealms mod by HeroOfTheWinds, licensed under the WTFPL:
+
+magma_conduits_hot_cobble.png
+
+The following is derived from the default mod under the Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0):
+
+magma_conduits_lava_overlay.png

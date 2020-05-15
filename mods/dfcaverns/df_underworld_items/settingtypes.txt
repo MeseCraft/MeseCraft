@@ -1,0 +1,2 @@
+dfcaverns_invulnerable_slade (Slade cannot be damaged) bool true
+dfcaverns_destructive_pit_plasma (Pit plasma destroys adjacent nodes) bool true

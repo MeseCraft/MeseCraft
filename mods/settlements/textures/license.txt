@@ -1,0 +1,3 @@
+settlements_settlement_marker.png - from https://commons.wikimedia.org/wiki/File:Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Small_City_%E2%80%93_Tourism_%E2%80%93_Classic.png by Nicolas Mollet under the CC-BY-SA 3.0
+settlements_building_marker.png - the preceding file, mixed with https://commons.wikimedia.org/wiki/File:Village_image_icon.svg by Sławek Borewicz under the CC-BY-SA 3.0 license
+settlements_location_marker.png - the preceding file, mixed with https://commons.wikimedia.org/wiki/File:Map_icons_by_Scott_de_Jonge_-_embassy.svg by Scott de Jonge under the CC-BY-SA 3.0 license

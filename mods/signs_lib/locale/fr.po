@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-31 18:13+0200\n"
+"PO-Revision-Date: 2017-07-31 18:22+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"Last-Translator: fat115 <fat115@framasoft.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+#: init.lua
+msgid "Locked sign, owned by @1\n"
+msgstr "Panneau verrouillé, appartient à @1\n"
+
+#: init.lua
+msgid "locked "
+msgstr "verrouillé "
+
+#: init.lua
+msgid "@1 wrote \"@2\" to @3sign at @4"
+msgstr "@1 a écrit \"@2\" sur le panneau @3en @4"
+
+#: init.lua
+msgid "Sign"
+msgstr "Panneau"
+
+#: init.lua
+msgid "Can edit all locked signs"
+msgstr "Peut modifier les panneaux verrouillés"
+
+#: init.lua
+msgid "Locked Sign"
+msgstr "Panneau (verrouillé)"
+
+#: init.lua
+msgid "green"
+msgstr "vert"
+
+#: init.lua
+msgid "yellow"
+msgstr "jaune"
+
+#: init.lua
+msgid "red"
+msgstr "rouge"
+
+#: init.lua
+msgid "white_red"
+msgstr "rouge et blanc"
+
+#: init.lua
+msgid "white_black"
+msgstr "noir et blanc"
+
+#: init.lua
+msgid "orange"
+msgstr "orange"
+
+#: init.lua
+msgid "blue"
+msgstr "bleu"
+
+#: init.lua
+msgid "brown"
+msgstr "marron"
+
+#: init.lua
+msgid "Sign (@1, metal)"
+msgstr "Panneau (@1, métal)"
+
+#: init.lua
+msgid "Attempt to register unknown node as fence"
+msgstr "Tentative d'enregistrer un nœud inconnu comme barrière"
+
+#: init.lua
+msgid "Registered @1 and @2"
+msgstr "Enregistrement de @1 et @"
+
+#: init.lua
+msgid "[MOD] signs loaded"
+msgstr "[MOD] signs chargé"

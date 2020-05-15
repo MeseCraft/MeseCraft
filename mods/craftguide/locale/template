@@ -1,0 +1,28 @@
+# textdomain: craftguide
+
+Craft Guide=
+Crafting Guide=
+Crafting Guide Sign=
+Usage @1 of @2=
+Recipe @1 of @2=
+No recipes=
+No usages=
+Burning time: @1=
+Cooking time: @1=
+Replaced by @1 on smelting=
+Replaced by @1 on burning=
+Replaced by @1 on crafting=
+Repairable by step of @1=
+Any item belonging to the group(s): @1=
+Recipe's too big to be displayed (@1x@2)=
+Shapeless=
+Cooking=
+No item to show=
+Collect items to reveal more recipes=
+Show recipe(s) of the pointed node=
+No node pointed=
+You don't know a recipe or usage for this item=
+No recipe or usage for this item=
+Digging=
+Digging Chance=
+@1 of chance to drop=

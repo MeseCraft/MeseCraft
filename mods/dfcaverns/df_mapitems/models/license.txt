@@ -1,0 +1,3 @@
+All hex crystal models and the octagonal_coral model were created by FaceDeer and released under both the MIT license and under the Creative Commons CC0 license.
+
+underch_crystal is from the [underch] (Underground Challenge) mod by Hume2 (https://gitlab.com/h2mm/underch) under the WTFPL license, relicened here to the MIT license

@@ -1,0 +1,53 @@
+magma_conduits_glowing_rock (Cause rock adjacent to lava to convert into "glowing" form) bool true
+magma_conduits_cook_soil (Cause soil and carbonaceous ores adjacent to lava to cook) bool true
+magma_conduits_remove_default_lava (Remove default mapgen lava) bool true
+
+[Magma Veins]
+#If this is false none of the other settings in this section apply
+magma_conduits_magma_veins (Enable magma veins) bool true
+magma_conduits_spread (Approximate spacing between magma conduits) int 400
+magma_conduits_obsidian_lining (Add an obsidian lining to magma conduits) bool true
+#Removes magma near the surface that could spill out of an open magma vein onto
+#surrounding terrain
+magma_conduits_ameliorate_floods (Ameliorate lava floods on the surface) bool true
+
+# Note: Setting limits near "0" in versions of Minetest before June 2018
+# commit 5c1edc5 may cause a crash due to a bug in vein ore generation
+magma_conduits_upper_limit (Upper extent of magma conduits) int -256
+magma_conduits_lower_limit (Lower extent of magma conduits) int -31000
+
+[Volcanoes]
+#If this is false none of the other settings in this section apply
+magma_conduits_volcanoes (Enable volcanoes) bool true
+magma_conduits_volcano_min_height (Minimum volcano peak elevation) int 20
+magma_conduits_volcano_max_height (Maximum volcano peak elevation) int 200
+#smaller slopes are steeper. 0.5 is probably the lowest this should go,
+#things get unrealistic around there
+magma_conduits_volcano_min_slope (Minimum volcano slope) float 0.75
+#above 1.5 and the mountain becomes more of a shield volcano,
+#taking up a lot of map area.
+magma_conduits_volcano_max_slope (Maximum volcano slope) float 1.5
+#The size of the region within which each volcano is randomly placed
+#measured in mapblocks, which is usually 80 nodes on a side.
+#Eg, the default of 16 means that one volcano is placed in each
+#1280x1280 node region.
+magma_conduits_volcano_region_mapblocks (Region mapblocks) int 16
+
+magma_conduits_volcano_min_depth (Lowest depth magma pipes extend to) int -3000
+magma_conduits_volcano_magma_chambers (Enables magma chambers at base of pipes) bool true
+#With a multiplier of 1, magma chambers are the same size as the mountain above them.
+magma_conduits_volcano_magma_chamber_radius_multiplier (Magma chamber radius multiplier) float 0.5
+
+magma_conduits_volcano_probability_active (Probability of active volcano in region) float 0.3
+magma_conduits_volcano_probability_dormant (Probability of dormant volcano in region) float 0.15
+magma_conduits_volcano_probability_extinct (Probability of extinct volcano in region) float 0.15
+
+[Volcano HUD waypoints]
+magma_conduits_show_volcanoes_in_hud (Show volcanoes in HUD) bool true
+magma_conduits_hud_requires_item (Require an item to view waypoints) bool true
+#Players can still discover the locations of volcanoes without this, but waypoints
+#will only be visible in their hud if they have this item in their inventory. You can also
+#specify "group:groupname" here. Leave it blank to default to map:mapping_kit.
+magma_conduits_hud_item_required (Specify the item or group required) string map:mapping_kit
+magma_conduits_volcano_discovery_range (Volcano discovery range) int 60
+magma_conduits_volcano_visibility_range (Volcano HUD visibility range) int 1000

@@ -1,0 +1,3 @@
+playereffects
+technic?
+mana?

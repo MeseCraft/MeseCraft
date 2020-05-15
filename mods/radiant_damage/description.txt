@@ -1,0 +1,1 @@
+A mod that allows nodes to damage players at a distance

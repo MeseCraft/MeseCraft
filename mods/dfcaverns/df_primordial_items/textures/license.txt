@@ -1,0 +1,10 @@
+All primordial item textures not explicitly listed here were created by ClockGen and licensed under the CC BY 4.0
+
+Created by FaceDeer and also licened under CC BY 4.0 (as well as CC0 public domain):
+dfcaverns_mush_diced_giant_mushroom.png
+dfcaverns_mush_giant_hypha.png
+dfcaverns_mush_sapling.png
+dfcaverns_mush_mycelial_fibers.png
+
+From Minetest default mod:
+dfcaverns_jungle_sapling.png

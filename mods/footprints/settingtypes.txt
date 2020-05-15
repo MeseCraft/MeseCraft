@@ -1,0 +1,14 @@
+footprints_erosion (Erode footsteps back to original soil type) bool true
+#This setting only has an effect if footstep erosion is also set to true
+footprints_trail_erosion (Erode hard-packed trails back to dirt) bool false
+footprints_erosion_interval (Erosion ABM interval) int 128
+footprints_erosion_chance (Erosion ABM 1/x chance) int 2
+#This setting works in combination with footprints_hardpack_count. It gives the
+#probability that a player stepping on a footprint will increment the hardpack
+#counter. So by default, every time you step on a footprint there's a 1/2
+#chance the counter increments for that node.
+footprints_hardpack_probability (Probability footprints in dirt turn to hardpacked soil) float 0.9
+#This setting works in combination with footprints_hardpack_probability. By default,
+#once a footprint has been stepped on enough to increment its counter 5 times
+#it'll turn the soil hard-packed.
+footprints_hardpack_count (Number of times the hardpack check needs to pass) int 10

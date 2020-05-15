@@ -1,0 +1,1 @@
+cloudlands - disabled because of halts when referncing nodes not in minetest_game. 

@@ -1,0 +1,2 @@
+# The number of seconds between each operation of the crafting bench.
+crafting_bench_crafting_rate (Crafting rate) int 5 1 60

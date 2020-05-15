@@ -1,0 +1,1 @@
+A highly configurable mod providing item magnet and in-world node drops

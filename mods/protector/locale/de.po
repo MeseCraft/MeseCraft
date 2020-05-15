@@ -1,0 +1,184 @@
+# German translation for PROTECTOR MOD.
+# Copyright (C) 2018 TenPlus1
+# This file is distributed under the same license as the PROTECTOR MOD package.
+# Xanthin <xanthin@wiuwiu.de>, 2016.
+# CodeXP <codexp@gmx.net>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROTECTOR MOD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-10 17:33+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: CodeXP <codexp@gmx.net>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.lua
+#, fuzzy
+msgid "Remove Protectors around players (separate names with spaces)"
+msgstr ""
+"Entferne Störschützer von bestimmten Namen in der Nähe von Spielern (trenne "
+"Namen durch Leerzeichen)"
+
+#: admin.lua
+msgid "<names list>"
+msgstr "<Namensliste der Spieler>"
+
+#: admin.lua
+msgid "Replace Protector Owner with name provided"
+msgstr "Ersetze Besitzer der Störschützer mit neuem Besitzer"
+
+#: admin.lua
+msgid "<owner name> <name to replace with>"
+msgstr "<Name des Besitzers> <Name des neuen Besitzers>"
+
+#: admin.lua
+msgid "Replacing Protector name '@1' with '@2'"
+msgstr "Ersetze Besitzer der Störschützer von '@1' mit '@2'"
+
+#: admin.lua
+msgid "Show protected areas of your nearby protectors"
+msgstr "Zeige geschützte Bereiche der Störschützer in der Nähe"
+
+#: admin.lua
+msgid "Protector Names to remove: @1"
+msgstr "Störschutznamen zum Entfernen: @1"
+
+#: admin.lua
+msgid "Name List Reset"
+msgstr "Namensliste zurückgesetzt"
+
+#: doors_chest.lua
+msgid "Protected Wooden Door"
+msgstr "Geschützte Holztür"
+
+#: doors_chest.lua
+msgid "Protected Steel Door"
+msgstr "Geschützte Stahltür"
+
+#: doors_chest.lua
+msgid "Protected Trapdoor"
+msgstr "Geschützte Falltür"
+
+#: doors_chest.lua
+msgid "Protected Steel Trapdoor"
+msgstr "Geschützte Stahlfalltür"
+
+#: doors_chest.lua
+msgid "Protected Chest"
+msgstr "Geschützte Truhe"
+
+#: doors_chest.lua
+msgid "To Chest"
+msgstr "Zur Truhe"
+
+#: doors_chest.lua
+msgid "To Inventory"
+msgstr "Zum Inventar"
+
+#: doors_chest.lua
+msgid "Protected Chest (@1)"
+msgstr "Geschützte Truhe (@1)"
+
+#: init.lua
+msgid "-- Protector interface --"
+msgstr "-- Störschutz-Interface --"
+
+#: init.lua
+msgid "PUNCH node to show protected area"
+msgstr "SCHLAGE Node, um geschützten Bereich anzuzeigen oder"
+
+#: init.lua
+msgid "USE for area check"
+msgstr "BENUTZE für Bereichsprüfung"
+
+#: init.lua
+msgid "Members:"
+msgstr "Mitglieder:"
+
+#: init.lua
+msgid "Close"
+msgstr "Schließen"
+
+#: init.lua
+msgid "Protection located at: @1"
+msgstr "Störschutz befindet sich bei: @1"
+
+#: init.lua
+msgid "Members: @1."
+msgstr "Mitglieder: @1."
+
+#: init.lua
+msgid "This area is not protected."
+msgstr "Dieser Bereich ist nicht geschützt."
+
+#: init.lua
+msgid "You can build here."
+msgstr "Du kannst hier bauen."
+
+#: init.lua tool.lua
+msgid "Overlaps into above players protected area"
+msgstr "Überlappung im geschützen Bereich eines Spielers"
+
+#: init.lua
+msgid "Protection Block"
+msgstr "Störschutzblock"
+
+#: admin.lua init.lua tool.lua
+msgid "Protection (owned by @1)"
+msgstr "Störschutz (gehört @1)"
+
+#: init.lua
+msgid "Protection Logo"
+msgstr "Störschutzlogo"
+
+#: init.lua
+msgid "[MOD] Protector Redo loaded"
+msgstr "[MOD] Protector Redo geladen"
+
+#: init.lua
+msgid "Spawn @1 has been protected up to a @2 block radius."
+msgstr "Spawn @1 ist geschützt mit einem Radius von @2 Blöcke."
+
+#: init.lua
+msgid "This area is owned by @1"
+msgstr "Dieser Bereich gehört @1"
+
+#: pvp.lua
+msgid "[Protector] on_punchplayer called with nil objects"
+msgstr "on_punchplayer wurde durch \"nil objects\" aufgerufen"
+
+#: pvp.lua
+msgid "[Protector] pvp_protect not active, update your version of Minetest"
+msgstr "pvp_protect ist nicht aktiv, aktualisiere deine Minetestversion"
+
+#: pvp.lua
+msgid "[Protector] pvp_protect is disabled"
+msgstr "pvp_protect ist ausgeschaltet"
+
+#: hud.lua
+msgid "Owner: @1"
+msgstr "Besitzer: @1"
+
+#: tool.lua
+msgid "Protector Placer Tool (stand near protector, face direction and use)"
+msgstr ""
+"Störschutz Platzier-Werkzeug (stehe neben Störschutz, schaue in die "
+"gewünschte Richtung und anwenden)"
+
+#: tool.lua
+msgid "Protector already in place!"
+msgstr "Störschutz is bereits platziert!"
+
+#: tool.lua
+msgid "No protectors available to place!"
+msgstr "Keine Störschützer mehr im Inventar!"
+
+#: tool.lua
+msgid "Protector placed at @1"
+msgstr "Störschutz befindet sich bei: @1"

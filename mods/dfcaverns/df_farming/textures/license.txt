@@ -1,0 +1,54 @@
+All textures not specifically listed here are created by FaceDeer and released under both the MIT license and under the Creative Commons CC0 license.
+
+dfcaverns_dwarven_syrup_source_animated - derived from default
+dfcaverns_dwarven_syrup - derived from default
+dfcaverns_dwarven_syrup_flowing_animated - derived from default
+dfcaverns_fungi - copied from caverealms
+
+Farming textures are released under CC Attribution 3.0 Unported (CC BY 3.0) and list the following authors:
+Copyright (C) 2012-2016 PilzAdam
+Copyright (C) 2014-2016 BlockMen
+Copyright (C) 2015-2016 MasterGollum
+Copyright (C) 2015-2016 Gambit
+dfcaverns_cave_wheat	- derived from farming wheat
+dfcaverns_cave_straw	- derived from farming straw
+dfcaverns_flour - derived from farming
+dfcaverns_bread - derived from farming
+dfcaverns_pig_tail_thread - copied from farming
+dfcaverns_sugar - derived from farming
+dfcaverns_cave_wheat_seed, dfcaverns_pig_tail_seed - derived from farming wheat seed
+
+
+
+dfcaverns_prepared_food01 - https://commons.wikimedia.org/wiki/File:Croissants-2.jpg public domain 2005 by Christophe Marcheux
+dfcaverns_prepared_food02 - https://commons.wikimedia.org/wiki/File:Boule_de_campagne_01.jpg CC-BY-3.0 2007 by Zantastik
+dfcaverns_prepared_food03 - https://commons.wikimedia.org/wiki/File:Essene_Bread_70pct_Rye_Sproud_30pct_Spelt_cut.JPG CC-BY-SA 3.0 2010 by Fritzs
+dfcaverns_prepared_food04 - https://commons.wikimedia.org/wiki/File:Essene_Bread_Spelt_Sproud_cut.JPG CC-BY-SA 3.0 2010 by Fritzs
+dfcaverns_prepared_food05 - https://commons.wikimedia.org/wiki/File:Tarte_%C3%A0_la_mirabelle_-_20050831.jpeg CC-BY-SA 3.0 and GFDL 1.2 2005 by Sam Hocevar
+dfcaverns_prepared_food06 - https://commons.wikimedia.org/wiki/File:Dry_fruit.jpg CC-BY-SA 2.5 2005 by André Karwath
+dfcaverns_prepared_food07 - https://commons.wikimedia.org/wiki/File:Steinpilzrisotto.jpg CC-BY-SA 3.0 2006 by Rainer Zenz
+dfcaverns_prepared_food08 - https://commons.wikimedia.org/wiki/File:Koernerbroetchen.jpg CC-BY-SA 3.0 2007 by Körnerbrötchen
+dfcaverns_prepared_food09 - https://commons.wikimedia.org/wiki/File:Semmelkn%C3%B6del.jpg CC-BY-SA 2.5 2005 by Kobako
+dfcaverns_prepared_food10 - https://commons.wikimedia.org/wiki/File:Gulasch.jpg CC-BY-SA 2.5 2006 by Kobako
+dfcaverns_prepared_food11 - https://commons.wikimedia.org/wiki/File:Chleb_-_polish_bread.jpg Public Domain 2006 by R a f
+dfcaverns_prepared_food12 - https://commons.wikimedia.org/wiki/File:CocinaPalentina-Pan_002.jpg CC-BY-SA 3.0 2011 by Valdavia
+dfcaverns_prepared_food13 - https://commons.wikimedia.org/wiki/File:Pompei_pane.jpg CC-BY-SA 2.0 Italy 2006 by Beatrice
+dfcaverns_prepared_food14 - https://commons.wikimedia.org/wiki/File:Apple_pie.png CC-BY-SA 3.0 2018 by Tiia Monto
+dfcaverns_prepared_food15 - https://commons.wikimedia.org/wiki/File:Assam-Tee_SFTGFOP1.jpg CC-BY-SA 3.0 2010 by André Helbig
+dfcaverns_prepared_food16 and food17 - https://commons.wikimedia.org/wiki/File:Basler_Brot_white_background.jpg CC-BY-SA 3.0 2008 by Sandstein
+dfcaverns_prepared_food18 - https://commons.wikimedia.org/wiki/File:Beetroot2.jpg CC-BY-SA 4.0 International 2016 by Tiia Monto
+dfcaverns_prepared_food19 - https://commons.wikimedia.org/wiki/File:Bugnes_white_background.jpg CC-BY-SA 2.5 Generic 2013 by Marie-Lan Nguyen
+dfcaverns_prepared_food20 - https://commons.wikimedia.org/wiki/File:Cheeseburger_au_restaurant_Quick_%C3%A0_Coigni%C3%A8res_le_12_avril_2017_-_2.jpg CC-BY-SA 3.0 2017 by Lionel Allorge
+dfcaverns_prepared_food21 - https://commons.wikimedia.org/wiki/File:Choc-Chip-Cookie.jpg Public Domain 2011 by Evan-Amos
+dfcaverns_prepared_food22 - https://commons.wikimedia.org/wiki/File:Chocolate_walnut_cookie.jpg CC-BY-SA 4.0 International 2015 by Tiia Monto
+dfcaverns_prepared_food23 - https://commons.wikimedia.org/wiki/File:Fogaca_Sweet_Bread.jpg Public Domain 2005 by Paula Santos
+dfcaverns_prepared_food24 - https://commons.wikimedia.org/wiki/File:Bonbons_Ricola_Citron_M%C3%A9lisse_-_1.jpg CC-BY-SA 3.0 2015 by Lionel Allorge
+dfcaverns_prepared_food25 and food26 - https://commons.wikimedia.org/wiki/File:Betel_nuts3.jpg CC-BY-SA 3.0 2008 by Henryk Kotowski
+dfcaverns_prepared_food27 - https://commons.wikimedia.org/wiki/File:Criollo.jpg CC-BY-SA 3.0 2004 by Fyyfabian
+dfcaverns_prepared_food28 - https://commons.wikimedia.org/wiki/File:Croissant-Petr_Kratochvil.jpg Public Domain 2011 by Petr Kratochvil
+dfcaverns_prepared_food29 - https://commons.wikimedia.org/wiki/File:Rogalik.jpg Public Domain 2005 by Julo
+dfcaverns_prepared_food30 - https://commons.wikimedia.org/wiki/File:Cod_fillet.jpg CC-BY-40 International 2018 by Tiia Monto
+dfcaverns_prepared_food31 - https://commons.wikimedia.org/wiki/File:California_roll.jpg CC-BY-SA 3.0 2018 by Tiia Monto
+dfcaverns_prepared_food32 - https://commons.wikimedia.org/wiki/File:Kajzerka.jpg Public Domain 2005 by Julo
+dfcaverns_prepared_food33 - https://commons.wikimedia.org/wiki/File:Celery_root.jpg CC-BY-SA 3.0 2019 by Tiia Monto
+dfcaverns_prepared_food34 - https://commons.wikimedia.org/wiki/File:Cherry-Pie-Whole.jpg Public Domain 2011 by Evan-Amos

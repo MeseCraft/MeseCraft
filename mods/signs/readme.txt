@@ -1,0 +1,1 @@
+This adds sign blocks with white text on a black background. The material is carbon. There is also a blank carbon sign block, which is made from burning wool, and is the base material used to make the signs.

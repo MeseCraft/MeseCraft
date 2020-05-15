@@ -1,0 +1,19 @@
+# Travelling a short distance in the Nether can correspond to a much further distance on the surface.
+#
+# A factor of 10 might be a better value for Minetest, since there's no sprint, but ex-Minecraft players will be mathing for 8.
+nether_fasttravel_factor (Nether fast-travel factor) int 8
+
+# The likelyhood of finding a Book containing all the portal plans in a dungeon chest. 
+# Set to 0 to disable, or 10 to have it extremely common.
+#
+# (This value will be treated as 0 when the Nether portal is the only type of portal available, or when the help modpack is installed)
+nether_portalBook_loot_weighting (Likelyhood of finding Book of Portals in dungeon chests) int 9
+
+# Turn off to disable the Nether and Nether portal
+nether_realm_enabled (Enable Nether realm & portal) bool true
+
+# Enables the Floatlands portal api code example
+nether_enable_portal_example_floatlands (Enable example portal: Floatlands) bool false
+
+# Enables the Surface-travel portal api code example
+nether_enable_portal_example_surfacetravel (Enable example portal: Surface-travel) bool false

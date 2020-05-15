@@ -1,0 +1,6 @@
+settlements
+default
+stairs
+beds
+namegen?
+intllib?

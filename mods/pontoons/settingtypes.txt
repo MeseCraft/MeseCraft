@@ -1,0 +1,17 @@
+#When enabled, all logs can now be built "floating" in liquids. Note that
+#a log placed in lava will not last for long.
+pontoons_override_logs (Logs float) bool false
+
+#When enabled, all wood blocks can now be built "floating" in liquids.
+#Note that wood blocks placed in lava will not last for long.
+pontoons_override_wood (Wood floats) bool false
+
+#Adds craftable wooden pontoon blocks that can be built on the
+#surface of liquids. This is only really useful if wood floating
+#is not enabled.
+pontoons_wood_pontoons (Wooden pontoons) bool true
+
+#Adds craftable steel pontoon blocks that can be built on the
+#surface of liquids. These are are lava-resistant, and so are
+#useful even when logs and wood are able to be built on liquids.
+pontoons_steel_pontoons (Steel pontoons) bool true

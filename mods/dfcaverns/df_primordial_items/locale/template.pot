@@ -1,0 +1,389 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-26 16:09-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: df_primordial_items\ceiling_fungus.lua:9
+msgid "Primordial Fungal Lantern"
+msgstr ""
+
+#: df_primordial_items\ceiling_fungus.lua:23
+msgid "Primordial Fungal Lantern Stalk"
+msgstr ""
+
+#: df_primordial_items\ceiling_fungus.lua:35
+#: df_primordial_items\fungal_nodes.lua:50
+#: df_primordial_items\fungal_nodes.lua:69
+msgid "Primordial Fungal Orb"
+msgstr ""
+
+#: df_primordial_items\doc.lua:5
+msgid ""
+"Compared to the behemoths found elsewhere in the deep places of the world, "
+"the giant mushrooms of the primordial jungles are on the smaller side - "
+"often overwhelmed by the green plants that grow in the mysterious light "
+"below. Still, they can become substantial resources."
+msgstr ""
+
+#: df_primordial_items\doc.lua:6
+msgid ""
+"The soft flesh of these large mushrooms is much less woody than other giant "
+"mushrooms, making it ill-suited to structural use. This makes it rather more "
+"nutritious, however."
+msgstr ""
+
+#: df_primordial_items\doc.lua:8
+msgid ""
+"The soil of the primordial jungle is rife with strange life at every scale."
+msgstr ""
+
+#: df_primordial_items\doc.lua:9
+msgid ""
+"When left uncultivated primordial jungle soil will sprout all manner of "
+"strange wild plants."
+msgstr ""
+
+#: df_primordial_items\doc.lua:10
+msgid ""
+"Fungal fibers have infiltrated the ground in a spongy mass, making the soil "
+"half mineral and half living matter."
+msgstr ""
+
+#: df_primordial_items\doc.lua:11
+msgid ""
+"When left uncultivated mycelial soil will sprout all manner of strange wild "
+"fungi."
+msgstr ""
+
+#: df_primordial_items\doc.lua:13
+msgid ""
+"The dark-leaved ferns of the primordial jungle harken back to an earlier era "
+"of life in the world."
+msgstr ""
+
+#: df_primordial_items\doc.lua:15
+msgid ""
+"These fibrous plants that grow in the deep appear similar to grass at a "
+"glance, but they are more closely related to horsetails - a form of "
+"vegetation from before the advent of modern plant forms. Ironically, pale "
+"cave wheat is more kin to surface grass than this is."
+msgstr ""
+
+#: df_primordial_items\doc.lua:18
+msgid ""
+"Tangled weaves of ivy hang from the ceiling where there are wide enough gaps "
+"between the bright sources of light."
+msgstr ""
+
+#: df_primordial_items\doc.lua:19
+msgid ""
+"Ivy is climbable, if it hangs close enough to the ground it can serve as a "
+"path between floor and ceiling."
+msgstr ""
+
+#: df_primordial_items\doc.lua:20
+msgid ""
+"Somewhere above an enormous plant has wedged its roots down through the rock "
+"and emerged from the ceiling of another cavern."
+msgstr ""
+
+#: df_primordial_items\doc.lua:21
+msgid "These hanging roots are climbable."
+msgstr ""
+
+#: df_primordial_items\doc.lua:23
+msgid ""
+"Questing fibers of fungal mycelium sometimes erupt from the soil and reach "
+"upward, driven by chemical cues to seek out nourishment above. They look a "
+"lot like white grass, at a glance."
+msgstr ""
+
+#: df_primordial_items\doc.lua:26
+msgid ""
+"The large woody plants of the primordial jungle are similar in appearance to "
+"the jungle trees of the surface, but are a result of convergent evolution "
+"from ancient cycad plants toward a common form."
+msgstr ""
+
+#: df_primordial_items\doc.lua:27
+msgid ""
+"Like wood of the surface world, primordial jungle trees can be chopped and "
+"carved as building material or as fuel."
+msgstr ""
+
+#: df_primordial_items\doc.lua:28
+msgid ""
+"The cracks in the bark of some primordial jungle trees become host to "
+"phosphorescent veins of symbiotic fungus."
+msgstr ""
+
+#: df_primordial_items\doc.lua:29
+msgid ""
+"The glowing bark fungus doesn't extend into the wood of the trunk, resulting "
+"in surprisingly mundane building material when hewn."
+msgstr ""
+
+#: df_primordial_items\doc.lua:32
+msgid ""
+"Some fronds of primordial jungle trees also become host to the "
+"phosphorescent fungus that creeps through cracks in the bark."
+msgstr ""
+
+#: df_primordial_items\doc.lua:35
+msgid ""
+"The still air of these ancient caverns have allowed ferns to grow to "
+"prodigious sizes, where storms and rain would normally tear their weaker "
+"fronds off on the surface of the world."
+msgstr ""
+
+#: df_primordial_items\doc.lua:36
+msgid ""
+"When a fern grows to such sizes its stem becomes dense enough to be used as "
+"a form of wood."
+msgstr ""
+
+#: df_primordial_items\doc.lua:38
+msgid ""
+"Fungus in its purest form, these gigantic rope-like hyphae creep over the "
+"surface of soil and burrow in to feed wherever nutrients are sensed."
+msgstr ""
+
+#: df_primordial_items\doc.lua:39
+msgid ""
+"Much like a rope, hyphae have fibers inside that can be unraveled and used "
+"for a variety of crafts."
+msgstr ""
+
+#: df_primordial_items\doc.lua:40
+msgid "Fibers extracted from gigantic fungal hyphae."
+msgstr ""
+
+#: df_primordial_items\doc.lua:45
+msgid ""
+"The grandest of the great mushroom species can be found in the deepest "
+"primordial caverns. Their broad caps have hanging gills."
+msgstr ""
+
+#: df_primordial_items\doc.lua:46
+msgid ""
+"Much like the giant mushrooms of higher cavern layers, these can be carved "
+"into woody material for use as fuel or for building things. The grain of "
+"these primordial mushrooms is knurled."
+msgstr ""
+
+#: df_primordial_items\doc.lua:63
+msgid ""
+"The steady light and unchanging growing conditions of the primordial caverns "
+"have led to great mountainous masses of plant material growing in "
+"particularly fertile spots, hardly identifiable as individual organisms."
+msgstr ""
+
+#: df_primordial_items\doc.lua:64
+msgid ""
+"The gnarled interwoven root-like foundations of this plant material is not "
+"useful as building material, but can serve as a fuel source."
+msgstr ""
+
+#: df_primordial_items\fungal_nodes.lua:11
+#: df_primordial_items\fungal_nodes.lua:29
+msgid "Primordial Fungal Grass"
+msgstr ""
+
+#: df_primordial_items\fungal_nodes.lua:88
+msgid "Primordial Fungal Pod"
+msgstr ""
+
+#: df_primordial_items\fungal_nodes.lua:110
+msgid "Dirt with Primordial Mycelium"
+msgstr ""
+
+#: df_primordial_items\fungal_nodes.lua:126
+msgid "Dirt with Primordial Mycelium and Footprint"
+msgstr ""
+
+#: df_primordial_items\giant_fern.lua:9
+#: df_primordial_items\giant_fern.lua:23
+#: df_primordial_items\giant_fern.lua:60
+#: df_primordial_items\giant_fern.lua:97
+msgid "Giant Fern Stem"
+msgstr ""
+
+#: df_primordial_items\giant_fern.lua:134
+msgid "Fern Wood"
+msgstr ""
+
+#: df_primordial_items\giant_fern.lua:152
+msgid "Giant Fern Leaves"
+msgstr ""
+
+#: df_primordial_items\giant_fern.lua:267
+msgid "Giant Fern Sapling"
+msgstr ""
+
+#: df_primordial_items\giant_mycelium.lua:24
+msgid "Rooted Giant Hypha"
+msgstr ""
+
+#: df_primordial_items\giant_mycelium.lua:53
+msgid "Giant Hypha"
+msgstr ""
+
+#: df_primordial_items\giant_mycelium.lua:83
+msgid "Giant Mycelial Fibers"
+msgstr ""
+
+#: df_primordial_items\giant_mycelium.lua:91
+msgid "Mycelial thread"
+msgstr ""
+
+#: df_primordial_items\giant_mycelium.lua:297
+#: df_primordial_items\giant_mycelium.lua:362
+msgid "Giant Hypha Apical Meristem"
+msgstr ""
+
+#: df_primordial_items\jungle_mushroom.lua:9
+msgid "Primordial Jungle Mushroom Trunk"
+msgstr ""
+
+#: df_primordial_items\jungle_mushroom.lua:21
+msgid "Pale Jungle Mushroom Cap"
+msgstr ""
+
+#: df_primordial_items\jungle_mushroom.lua:45
+msgid "Dark Jungle Mushroom Cap"
+msgstr ""
+
+#: df_primordial_items\jungle_mushroom.lua:69
+msgid "Diced Mushroom"
+msgstr ""
+
+#: df_primordial_items\jungle_mushroom.lua:91
+msgid "Primordial Jungle Mushroom Sapling"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:14
+#: df_primordial_items\jungle_nodes.lua:33
+msgid "Primordial Fern"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:55
+msgid "Primordial Flower"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:74
+#: df_primordial_items\jungle_nodes.lua:93
+msgid "Primordial Jungle Pod"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:116
+#: df_primordial_items\jungle_nodes.lua:134
+#: df_primordial_items\jungle_nodes.lua:153
+msgid "Primordial Jungle Grass"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:176
+msgid "Primordial Jungle Ivy"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:203
+#: df_primordial_items\jungle_nodes.lua:221
+msgid "Primordial Jungle Mushroom"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:242
+msgid "Dirt With Primordial Jungle Grass"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:252
+msgid "Primordial Plant Matter"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:270
+msgid "Dirt With Primordial Jungle Grass and Footprint"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:277
+msgid "Primordial Plant Matter with Footprint"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:286
+msgid "Packed Primordial Jungle Roots"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:300
+msgid "Primordial Jungle Roots"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:318
+msgid "Primordial Jungle Root"
+msgstr ""
+
+#: df_primordial_items\jungle_nodes.lua:339
+msgid "Primordial Jungle Thorns"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:7
+msgid "Primordial Jungle Tree Leaves"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:38
+msgid "Phosphorescent Primordial Jungle Tree Leaves"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:72
+msgid "Primordial Jungle Tree"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:84
+msgid "Mossy Primordial Jungle Tree"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:96
+msgid "Phosphorescent Primordial Jungle Tree"
+msgstr ""
+
+#: df_primordial_items\jungle_tree.lua:225
+msgid "Primordial Jungle Tree Sapling"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:6
+msgid "Primordial Mushroom Trunk"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:18
+msgid "Primordial Mushroom Cap"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:30
+msgid "Primordial Mushroom Gills"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:61
+msgid "Glowing Primordial Mushroom Gills"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:99
+msgid "Primordial Mushroom Trunk Wood"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:117
+msgid "Primordial Cap Wood"
+msgstr ""
+
+#: df_primordial_items\primordial_mushroom.lua:692
+msgid "Primordial Mushroom Spawn"
+msgstr ""

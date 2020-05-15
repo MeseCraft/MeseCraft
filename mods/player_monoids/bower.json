@@ -1,0 +1,19 @@
+{
+    "name": "player_monoids",
+    "description": "Library for making player state changes combinable\n",
+    "keywords": [
+        "player_monoids",
+        "monoid",
+        "monoids",
+        "effect",
+        "playereffects"
+    ],
+    "homepage": "https://github.com/raymoo/player_monoids",
+    "forum": "https://forum.minetest.net/viewtopic.php?f=9&t=14895",
+    "screenshots": [
+	"https://example.com/screenshot1.png"
+    ],
+    "authors": [
+	"raymoo"
+    ]
+}

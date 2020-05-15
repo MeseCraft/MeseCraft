@@ -1,0 +1,2 @@
+player_monoids is a library for managing global player state, such as physics
+overrides or player visual size.

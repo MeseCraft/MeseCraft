@@ -1,0 +1,8 @@
+[submodule "mapgen_helper"]
+	path = mapgen_helper
+	url = https://github.com/minetest-mods/mapgen_helper
+	branch = master
+[submodule "subterrane"]
+	path = subterrane
+	url = https://github.com/minetest-mods/subterrane
+	branch = master

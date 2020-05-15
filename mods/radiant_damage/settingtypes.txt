@@ -1,0 +1,7 @@
+radiant_damage_enable_heat_damage (Enable radiant heat damage) bool false
+radiant_damage_lava_damage (Damage dealt per second when standing directly adjacent to one lava node) int 8
+radiant_damage_fire_damage (Damage dealt per second when standing directly adjacent to one fire node) int 2
+
+radiant_damage_enable_mese_damage (Enable mese ore radiation damage) bool false
+radiant_damage_mese_interval (Number of seconds between mese radiation damage checks) int 5
+radiant_damage_mese_damage (Damage dealt per second when standing directly adjacent to one mese ore node) int 2

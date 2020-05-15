@@ -1,0 +1,14 @@
+# If disabled each compass can be calibrated one time only
+ccompass_recalibrate (Allow compass recalibration) bool true
+
+# If disabled (default) all nodes are allowed to be compass target
+ccompass_restrict_target (Restrict nodes usable for calibration) bool false
+
+# List of technical node names allowed for compass calibration, separated by ','
+ccompass_restrict_target_nodes (Nodes list allowed for calibration) string
+
+# Enable aliasses to replace other compass mods
+ccompass_aliasses (Enable compatibility aliasses) bool false
+
+# Nodes able to teleport to destination on punch, separated by ','
+ccompass_teleport_nodes (Nodes list for teleport on punch) string default:mese

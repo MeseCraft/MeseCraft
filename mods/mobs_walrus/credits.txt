@@ -1,0 +1,14 @@
+Graphics by Nathan(CC-BY-SA 4.0)
+mobs_penguin
+mobs_walrus1
+mobs_walrus2
+
+Graphics by DuCake (CC-BY-SA 4.0)
+mobs_penguin_tux
+
+Sound:
+Penguin_chirrup.ogg
+Tai "DuCake" Kedzierski CC-BY-SA 4.0
+
+Walrus sounds
+AlexTriceratops123 CCA

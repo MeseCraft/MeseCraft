@@ -1,0 +1,185 @@
+# Russian translation for PROTECTOR MOD.
+# Copyright (C) 2018 TenPlus1
+# This file is distributed under the same license as the PROTECTOR MOD package.
+# Doloment, 2017.
+# CodeXP <codexp@gmx.net>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROTECTOR MOD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-10 17:33+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: CodeXP <codexp@gmx.net>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.lua
+#, fuzzy
+msgid "Remove Protectors around players (separate names with spaces)"
+msgstr ""
+"Удалить защиту рядом с игроками (перечислить имена, разделяя пробелами)"
+
+#: admin.lua
+msgid "<names list>"
+msgstr "<список имён>"
+
+#: admin.lua
+msgid "Replace Protector Owner with name provided"
+msgstr "Заменить владельца защиты новым владельцем"
+
+#: admin.lua
+msgid "<owner name> <name to replace with>"
+msgstr "<имя владельца> <имя нового владельца>"
+
+#: admin.lua
+msgid "Replacing Protector name '@1' with '@2'"
+msgstr "Заменяется владелец защиты с '@1' на '@2'"
+
+#: admin.lua
+msgid "Show protected areas of your nearby protectors"
+msgstr "Показать защищенные территории с ближней защитой"
+
+#: admin.lua
+msgid "Protector Names to remove: @1"
+msgstr "Имена защит, подлежащих удалению: @1"
+
+#: admin.lua
+msgid "Name List Reset"
+msgstr "Сброс списка имен"
+
+#: doors_chest.lua
+msgid "Protected Wooden Door"
+msgstr "Защищенная яблоневая дверь"
+
+#: doors_chest.lua
+msgid "Protected Steel Door"
+msgstr "Защищенная стальная дверь"
+
+#: doors_chest.lua
+msgid "Protected Trapdoor"
+msgstr "Защищенный яблоневый люк"
+
+#: doors_chest.lua
+msgid "Protected Steel Trapdoor"
+msgstr "Защищенный стальной люк"
+
+#: doors_chest.lua
+msgid "Protected Chest"
+msgstr "Защищенный сундук"
+
+#: doors_chest.lua
+msgid "To Chest"
+msgstr "В сундук"
+
+#: doors_chest.lua
+msgid "To Inventory"
+msgstr "В инвентрарь"
+
+#: doors_chest.lua
+msgid "Protected Chest (@1)"
+msgstr "Защищенный сундук (@1)"
+
+#: init.lua
+msgid "-- Protector interface --"
+msgstr "-- Настройка защиты --"
+
+#: init.lua
+msgid "PUNCH node to show protected area"
+msgstr "СТУКНУТЬ узел для подсведки защищенной территории"
+
+#: init.lua
+msgid "USE for area check"
+msgstr "ЛКМ для проверки защищенной территории"
+
+#: init.lua
+msgid "Members:"
+msgstr "Участники:"
+
+#: init.lua
+msgid "Close"
+msgstr "Закрыть"
+
+#: init.lua
+msgid "Protection located at: @1"
+msgstr "Защита находится на координатах @1"
+
+#: init.lua
+msgid "Members: @1."
+msgstr "Участники: @1."
+
+#: init.lua
+msgid "This area is not protected."
+msgstr "Территория свободна."
+
+#: init.lua
+msgid "You can build here."
+msgstr "Здесь можно ставить блоки."
+
+#: init.lua tool.lua
+msgid "Overlaps into above players protected area"
+msgstr ""
+"Защитный блок не может быть установлен: пересечение с областями, защищенными "
+"другими игроками"
+
+#: init.lua
+msgid "Protection Block"
+msgstr "Защитный блок"
+
+#: admin.lua init.lua tool.lua
+msgid "Protection (owned by @1)"
+msgstr "Защита игрока @1"
+
+#: init.lua
+msgid "Protection Logo"
+msgstr "Защитный знак"
+
+#: init.lua
+msgid "[MOD] Protector Redo loaded"
+msgstr "[MOD] Модификация \"Переделанная Защита\" загружена"
+
+#: init.lua
+msgid "Spawn @1 has been protected up to a @2 block radius."
+msgstr "Спаун @1 защищен в радиусе @2 блока."
+
+#: init.lua
+msgid "This area is owned by @1"
+msgstr "Эта территория пренадлежит @1"
+
+#: pvp.lua
+msgid "[Protector] on_punchplayer called with nil objects"
+msgstr "[Защита] on_punchplayer вызвана с нулевыми объектами"
+
+#: pvp.lua
+msgid "[Protector] pvp_protect not active, update your version of Minetest"
+msgstr "[Защита] pvp_protect не активен, обновите версию Minetest"
+
+#: pvp.lua
+msgid "[Protector] pvp_protect is disabled"
+msgstr "[Защита] pvp_protect отключен"
+
+#: hud.lua
+msgid "Owner: @1"
+msgstr "Владелец: @1"
+
+#: tool.lua
+msgid "Protector Placer Tool (stand near protector, face direction and use)"
+msgstr ""
+"Инструмент установки защиты (станьте рядом с защитой, повернитесь в нужное "
+"направление и используйте)"
+
+#: tool.lua
+msgid "Protector already in place!"
+msgstr "Защита уже установлена!"
+
+#: tool.lua
+msgid "No protectors available to place!"
+msgstr "У вас нет защитных блоков в инвентаре!"
+
+#: tool.lua
+msgid "Protector placed at @1"
+msgstr "Защита находится на координатах @1"

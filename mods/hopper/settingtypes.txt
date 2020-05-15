@@ -1,0 +1,14 @@
+#Dimensions of the textures used, in pixels.
+hopper_texture_size (Hopper texture size) enum 16 16,32
+
+#When true, the hopper mod uses a single craftable item that auto-selects
+#a top hopper or side hopper depending on the context the player places it in.
+#When false, top hoppers and side hoppers are explicitly craftable as separate
+#items.
+hopper_single_craftable_item (Single craftable item) bool true
+
+#This enables a toggle button in the hopper formspecs that allows a hopper
+#to be set to "eject" items out into the world if there's no suitable node
+#in their target location to receive them. By default hoppers do not eject
+#items like this, the player must set this on a per-hopper basis.
+hopper_eject_button (Eject items button) bool true

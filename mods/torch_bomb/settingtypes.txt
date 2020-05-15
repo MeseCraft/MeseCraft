@@ -1,0 +1,9 @@
+torch_bomb_range (Max range of basic torch bomb) int 50
+torch_bomb_mega_range (Max range of mega torch bomb) int 150
+torch_bomb_torch_item (Item that torchbombs fire into walls) string default:torch
+
+torch_bomb_enable_grenades (Enable torch grenades) bool true
+torch_bomb_grenade_range (Max range of torch grenade) int 25
+torch_bomb_enable_rockets (Enable rocket versions of torch bombs) bool true
+# 14 seconds at 1 m/s^2 is 98 meters traveled
+torch_bomb_max_fuse (Maximum fuse duration of rockets) int 14

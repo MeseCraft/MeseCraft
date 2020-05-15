@@ -1,0 +1,30 @@
+
+following Textures created by Fernando Zapata (CC BY-SA 3.0):
+  doors_wood.png
+  doors_wood_a.png
+  doors_wood_b.png
+  doors_brown.png
+
+following Textures created by BlockMen (WTFPL):
+  doors_trapdoor.png
+
+following textures created by celeron55 (CC BY-SA 3.0):
+  doors_trapdoor_side.png
+
+following textures created by PilzAdam (WTFPL):
+  doors_steel.png
+  doors_steel_a.png
+  doors_steel_b.png
+  doors_grey.png
+  doors_trapdoor_steel.png
+  doors_trapdoor_steel_side.png
+
+following textures by Cisoun (WTFPL):
+  default_chest_front.png
+  default_chest_side.png
+  default_chest_top.png
+
+following textures by TenPlus1 (CC BY-SA 3.0):
+  protector_logo.png
+  protector_display.png
+  protector_overlay.png

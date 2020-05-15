@@ -1,0 +1,96 @@
+
+Bonemeal API
+============
+
+This guide will show you how to add saplings, crops and dirt types for the
+bonemeal mod to use from withhin your own mods.  Please make sure that bonemeal
+appears in the depends.txt file of your mod so everything work properly.
+
+
+Function Usage
+==============
+
+
+Adding Crops
+------------
+
+bonemeal:add_crop({
+	{ nodename_start, growing_steps, seed_name }
+})
+
+This command is used to add new crops for bonemeal to work on.
+
+e.g.
+
+bonemeal:add_crop({
+	{"farming:cotton_", 8, "farming:seed_cotton"},
+	{"farming:wheat_", 8, "farming:seed_wheat"},
+})
+
+
+Adding Saplings
+---------------
+
+bonemeal:add_sapling({
+	{ sapling_node, function, soil_type[sand, dirt, nodename] }
+})
+
+This command will add new saplings for bonemeal to grow on sand, soil or a
+specified node type.
+
+bonemeal:add_sapling({
+	{"ethereal:palm_sapling", ethereal.grow_palm_tree, "soil"},
+	{"ethereal:palm_sapling", ethereal.grow_palm_tree, "sand"},
+})
+
+
+Adding Dirt Decoration
+----------------------
+
+bonemeal:add_deco({
+	{ dirt_node, {grass_node_list}, {decor_node_list} }
+})
+
+This command will add grass and decoration to specific dirt types, use "" to
+add an empty node. If some decorations have been already defined for this dirt type, new
+will be added to the respective list. All empty ("") entries will be added regardless,
+which allows to decrease the frequency of decoration emergence, if needed.
+
+e.g.
+
+bonemeal:add_deco({
+	{"default:dirt_with_dry_grass", {"default:dry_grass_1", ""},
+		{"flowers:rose", "flowers:viola"} }
+})
+
+Thus, add_deco() always adds (to) a definition, and never overrides. To discard an existing
+definiton in favor of the new one, use
+
+bonemeal:set_deco({
+	{ dirt_node, {grass_node_list}, {decor_node_list} }
+})
+
+This command will set decoration for a given dirt type, fully replacing any existing definition.
+
+
+Global ON_USE Function
+----------------------
+
+bonemeal:on_use(pos, strength, node)
+
+This function can be called from other mods to grow plants using alternative
+bonemeal items and have the same effect.
+
+  {pos} is the location to apply growing
+  {strength} is how strong to grow [low of 1 to high of 4]
+  {node} is the node at pos, but can be left nil to get_node itself
+
+Note: Higher strength items require lower light levels, and a strength of 4
+needs no light at all.
+
+
+Final Words
+===========
+
+I hope this guide helps you add your own plants so you can grow them quickly
+with the items included.  Please check the mods.lua for more examples.
