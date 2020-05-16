@@ -63,3 +63,8 @@ cloudlands_giant_tree_rarety    (Giant tree rarety %) int 5 0 100
 #
 # This option is ignored if tree rarety is set to 0
 cloudlands_bioluminescence      (Allow glowing trees) bool false
+
+# Set true to allow players to build portals to islands.
+#
+# Portals require the Nether mod.
+cloudlands_enable_portals (Enable portals to the islands) bool true

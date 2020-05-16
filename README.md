@@ -8,3 +8,6 @@ This project started with the goal to expand Minetest game to include additional
 Currently, this game is quite stable and has been debugged on an online server environment with many players.
 
 Thank you to everyone who has helped contribute to this project and mods.
+
+version 5.2.0 or greater is currently recommended to run this game.
+version 5.1.1 will work but not all mod features will be compatible.
