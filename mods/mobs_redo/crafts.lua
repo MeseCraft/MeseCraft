@@ -131,6 +131,10 @@ minetest.register_craft({
 	}
 })
 
+
+-- make sure we can register fences
+if default.register_fence then
+
 -- mob fence (looks like normal fence but collision is 2 high)
 default.register_fence("mobs:fence_wood", {
 	description = S("Mob Fence"),
@@ -177,6 +181,9 @@ minetest.register_craft({
 	}
 })
 
+end
+
+
 -- items that can be used as fuel
 minetest.register_craft({
 	type = "fuel",
@@ -219,6 +226,7 @@ minetest.register_craft({
 	recipe = "mobs:fence_top",
 	burntime = 2
 })
+
 
 -- this tool spawns same mob and adds owner, protected, nametag info
 -- then removes original entity, this is used for fixing any issues.

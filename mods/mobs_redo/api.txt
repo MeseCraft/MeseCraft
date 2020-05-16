@@ -45,6 +45,7 @@ functions needed for the mob to work properly which contains the following:
    'fly'           when true allows your mob to fly around instead of walking.
    'fly_in'        holds the node name that the mob flies (or swims) around
                    in e.g. "air" or "default:water_source".
+   'keep_flying'   when true mobs like birds no longer stop and stand.
    'stay_near'     when set allows mobs the chance to stay around certain nodes.
       'nodes'      string or table of nodes to stay nearby e.g. "farming:straw"
       'chance'     chance of searching for above node(s), default is 10.
@@ -67,7 +68,8 @@ functions needed for the mob to work properly which contains the following:
                    level is between the min and max values below
    'light_damage_min' minimum light value when mob is affected (default: 14)
    'light_damage_max' maximum light value when mob is affected (default: 15)
-   'suffocation'   when true causes mobs to suffocate inside solid blocks.
+   'suffocation'   when > 0 mobs will suffocate inside solid blocks and will be
+                   hurt by the value given every second (0 to disable).
    'floats'        when set to 1 mob will float in water, 0 has them sink.
    'follow'        mobs follow player when holding any of the items which appear
                    on this table, the same items can be fed to a mob to tame or
@@ -87,6 +89,9 @@ functions needed for the mob to work properly which contains the following:
                          punches when nearby.
    'group_attack'        when true has same mob type grouping together to attack
                          offender.
+   'group_helper'        string containing mob name that attacks alongside
+                         current mob when group attacking.
+                         mob is attacking in groups.
    'attack_type'         tells the api what a mob does when attacking the player
                          or another mob:
       'dogfight'         is a melee attack when player is within mob reach.
@@ -180,6 +185,8 @@ functions needed for the mob to work properly which contains the following:
    'child_texture'     holds the texture table for when baby mobs are used.
    'gotten_texture'    holds the texture table for when self.gotten value is
                        true, used for milking cows or shearing sheep.
+   'texture_mods'      holds a string which overlays a texture on top of the
+                       mob texture e.g. "^saddle.png"
    'mesh'              holds the name of the external object used for mob model
                        e.g. "mobs_cow.b3d"
    'gotten_mesh"       holds the name of the external object used for when
@@ -399,6 +406,8 @@ This function registers a arrow for mobs with the attack type shoot.
        'hit_mob'      a function that is called when the arrow hits a mob;
                       this function should hurt the mob, the parameters are
                       (self, player)
+       'hit_object'   a function that is called when the arrow hits an object;
+                      this function parameters are (self, player)
        'hit_node'     a function that is called when the arrow hits a node, the
                       parameters are (self, pos, node)
        'tail'         when set to 1 adds a trail or tail to mob arrows
@@ -628,6 +637,8 @@ External Settings for "minetest.conf"
    'mobs_griefing'          when false mobs cannot break blocks when using either
                             pathfinding level 2, replace functions or mobs:boom
                             function.
+   'mob_nospawn_range'      Minimum range a mob can spawn near player (def: 12)
+   'mob_active_limit'       Number of active mobs in game, 0 for unlimited
 
 Players can override the spawn chance for each mob registered by adding a line
 to their minetest.conf file with a new value, the lower the value the more each

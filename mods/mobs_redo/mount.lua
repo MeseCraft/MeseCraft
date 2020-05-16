@@ -131,7 +131,7 @@ function mobs.attach(entity, player)
 	local rot_view = 0
 
 	if entity.player_rotation.y == 90 then
-		rot_view = math.pi/2
+		rot_view = math.pi / 2
 	end
 
 	attach_at = entity.driver_attach_at
@@ -151,11 +151,13 @@ function mobs.attach(entity, player)
 		}
 	})
 
-	minetest.after(0.2, function()
-		default.player_set_animation(player, "sit" , 30)
-	end)
+	minetest.after(0.2, function(name)
+		local player = minetest.get_player_by_name(name)
+		if player then
+			default.player_set_animation(player, "sit" , 30)
+		end
+	end, player:get_player_name())
 
-	--player:set_look_yaw(entity.object:get_yaw() - rot_view)
 	player:set_look_horizontal(entity.object:get_yaw() - rot_view)
 end
 
@@ -168,11 +170,18 @@ function mobs.detach(player, offset)
 
 	local pos = player:get_pos()
 
-	pos = {x = pos.x + offset.x, y = pos.y + 0.2 + offset.y, z = pos.z + offset.z}
+	pos = {
+		x = pos.x + offset.x,
+		y = pos.y + 0.2 + offset.y,
+		z = pos.z + offset.z
+	}
 
-	minetest.after(0.1, function()
-		player:set_pos(pos)
-	end)
+	minetest.after(0.1, function(name, pos)
+		local player = minetest.get_player_by_name(name)
+		if player then
+			player:set_pos(pos)
+		end
+	end, player:get_player_name(), pos)
 end
 
 
@@ -290,7 +299,7 @@ function mobs.drive(entity, moving_anim, stand_anim, can_fly, dtime)
 
 	-- Set position, velocity and acceleration
 	local p = entity.object:get_pos()
-	local new_velo = {x = 0, y = 0, z = 0}
+	local new_velo
 	local new_acce = {x = 0, y = -9.8, z = 0}
 
 	p.y = p.y - 0.5
@@ -315,7 +324,7 @@ function mobs.drive(entity, moving_anim, stand_anim, can_fly, dtime)
 				minetest.sound_play("default_punch", {
 					object = entity.object,
 					max_hear_distance = 5
-				})
+				}, true)
 
 				entity.object:punch(entity.object, 1.0, {
 					full_punch_interval = 1.0,
