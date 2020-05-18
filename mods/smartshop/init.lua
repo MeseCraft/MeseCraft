@@ -12,7 +12,7 @@ minetest.register_craft({
 	output = "smartshop:shop",
 	recipe = {
 		{"default:chest_locked", "default:chest_locked", "default:chest_locked"},
-		{"default:sign_wall_wood", "default:chest_locked", "default:sign_wall_wood"},
+		{"signs:sign", "default:chest_locked", "signs:sign"},
 		{"default:gold_ingot", "default:torch", "default:gold_ingot"},
 	}
 })

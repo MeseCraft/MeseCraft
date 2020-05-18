@@ -1,4 +1,0 @@
-Most code and all textures by Vanessa Dannenberg.
-
-Some code copied and modified from the game's default mods (especially 
-doors) and ironzorg's flowers mod.

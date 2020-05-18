@@ -104,7 +104,7 @@ minetest.register_craft({
         output = "mobs_creatures:gravestone",
         recipe = {
                 { "", "default:stone", "" },
-                { "default:stone", "default:sign_wall_wood", "default:stone" },
+                { "default:stone", "signs:sign", "default:stone" },
                 { "default:stone", "default:stone", "default:stone" },
         }
 })
@@ -113,7 +113,7 @@ minetest.register_craft({
         output = "mobs_creatures:gravestone_cross",
         recipe = {
                 { "", "default:stone", "" },
-                { "default:stone", "default:sign_wall_wood", "default:stone" },
+                { "default:stone", "signs:sign", "default:stone" },
                 { "", "default:stone", "" },
         }
 })

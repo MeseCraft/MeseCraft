@@ -1,35 +1,12 @@
+-- Get the path to the working directory.
 local modpath = minetest.get_modpath(minetest.get_current_modname())
 
+-- Execute other modules.
 dofile(modpath.."/api.lua")
 dofile(modpath.."/clothing.lua")
 
--- Inventory mod support
-
-if minetest.get_modpath("inventory_plus") then
-	clothing.inv_mod = "inventory_plus"
-	clothing.formspec = clothing.formspec..
-		"button[6,0;2,0.5;main;Back]"
-elseif minetest.get_modpath("unified_inventory") and
-		not unified_inventory.sfinv_compat_layer then
-	clothing.inv_mod = "unified_inventory"
-	unified_inventory.register_button("clothing", {
-		type = "image",
-		image = "inventory_plus_clothing.png",
-	})
-	unified_inventory.register_page("clothing", {
-		get_formspec = function(player, perplayer_formspec)
-			local fy = perplayer_formspec.formspec_y
-			local name = player:get_player_name()
-			local formspec = "background[0.06,"..fy..
-				";7.92,7.52;clothing_ui_form.png]"..
-				"label[0,0;Clothing]"..
-				"list[detached:"..name.."_clothing;clothing;0,"..fy..";2,3;]"..
-				"listring[current_player;main]"..
-				"listring[detached:"..name.."_clothing;clothing]"
-			return {formspec=formspec}
-		end,
-	})
-elseif minetest.get_modpath("sfinv") then
+-- sfinv detection and compatability.
+if minetest.get_modpath("sfinv") then
 	clothing.inv_mod = "sfinv"
 	sfinv.register_page("clothing:clothing", {
 		title = "Clothing",
@@ -45,14 +22,9 @@ elseif minetest.get_modpath("sfinv") then
 	})
 end
 
+-- Get player data.
 minetest.register_on_player_receive_fields(function(player, formname, fields)
 	local name = player:get_player_name()
-	if clothing.inv_mod == "inventory_plus" and fields.clothing then
-		inventory_plus.set_inventory_formspec(player, clothing.formspec..
-			"list[detached:"..name.."_clothing;clothing;0,0.5;2,3;]"..
-			"listring[current_player;main]"..
-			"listring[detached:"..name.."_clothing;clothing]")
-	end
 end)
 
 local function is_clothing(item)
