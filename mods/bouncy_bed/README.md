@@ -1,5 +1,7 @@
-# Bouncy Bed
+minetest_game mod: bouncy_beds
+==============================
 
+# Bouncy Bed
 ![screenshot](https://www.notabug.org/FreeGamers/bouncy_bed/raw/master/Screenshot.png)
 
 ## Description
@@ -10,4 +12,18 @@ The mod essentially just appends the bouncy and fall damage groups onto the defa
 
 #### depends: beds
 
-Code license is GPLv3 | bouncy.ogg, Blender Foundation, CC-BY-3
+License of source code
+------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+https://www.gnu.org/licenses/gpl-3.0.html
+
+
+License of the sound effect
+-------------------
+bouncy.ogg, Blender Foundation, CC-BY-3
+
+
