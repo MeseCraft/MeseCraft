@@ -14,8 +14,8 @@ lootchests.register_lootchest({
     groups = {cracky = 2, oddly_breakable_by_hand = 2},
     ymax = -64,
     ymin = -16000,
-    spawn_in_rarity = 512,
-    spawn_on_rarity = 20000,
+    spawn_in_rarity = 1024,
+    spawn_on_rarity = 40000,
     slot_spawn_chance = 75,
     slots = 24,
 })
@@ -33,7 +33,7 @@ lootchests.register_lootchest({
     groups = {cracky = 2, oddly_breakable_by_hand = 2},
     ymax = -64,
     ymin = -1600,
-    spawn_on_rarity = 7200,
+    spawn_on_rarity = 14400,
     slot_spawn_chance = 50,
     slots = 24,
 })

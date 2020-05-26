@@ -1,4 +1,4 @@
-MultiCraft Game mod: signs
+Sara's Simple Survival Game mod: signs
 ==========================
 
 License of source code

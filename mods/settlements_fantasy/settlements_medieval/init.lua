@@ -62,10 +62,9 @@ end
 local generate_books = minetest.settings:get_bool("settlements_generate_books", true)
 
 local initialize_node = function(pos, node, node_def, settlement_info)
-	if settlement_info.name and node.name == "default:sign_wall_steel" then
+	if settlement_info.name and node.name == "signs:sign" then
 		local meta = minetest.get_meta(pos)
 		meta:set_string("text", S("@1 Town Hall", settlement_info.name))
-		meta:set_string("infotext", S("@1 Town Hall", settlement_info.name))
 	end
 	-- when chest is found -> fill with stuff
 	if node.name == "default:chest" then

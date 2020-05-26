@@ -1,0 +1,220 @@
+# German Translation for ethereal mod
+# Deutsche Übersetzung der ethereal Mod
+# last update: 2016/May/25
+# Author: Xanthin
+
+#bonemeal.lua
+Bone = Knochen
+Bone Meal = Knochenmehl
+
+#crystal.lua
+Crystal Spike = Kristallnadel
+Crystal Ingot = Kristallbarren
+Crystal Block = Kristallblock
+Crystal Sword = Kristallschwert
+Crystal Axe = Kristallaxt
+Crystal Pickaxe = Kristallspitzhacke
+Crystal (soft touch) Shovel = Kristallschaufel (Behutsamkeit)
+Crystal Gilly Staff = Kristallener Gilly-Stab
+
+#dirt.lua
+Green Dirt = Grüne Erde
+Dried Dirt = Vertrocknete Erde
+Bamboo Dirt = Bambuserde
+Jungle Dirt = Tropenerde
+Grove Dirt = Hainerde
+Prairie Dirt = Prärieerde
+Cold Dirt = Kalte Erde
+Crystal Dirt = Kristallerde
+Mushroom Dirt = Pilzerde
+Fiery Dirt = Feuerrote Erde
+Gray Dirt = Graue Erde
+Red Baked Clay = Roter gebrannter Ton
+Orange Baked Clay = Oranger gebrannter Ton
+Grey Baked Clay = Grauer gebrannter Ton
+Quicksand = Treibsand
+
+#extra.lua
+Bamboo Floor = Bambusboden
+Palm Wax = Palmwachs
+Candle = Kerze
+Bowl = Schale
+Stone Ladder = Steinleiter
+Paper Wall = Papierwand
+Glo Stone = Leuchtstein
+Lump of Charcoal = Holzkohlestück
+Staff of Light = Stab des Lichts
+
+#fences.lua
+Scorched Fence = Verbrannter Zaun
+Frost Fence = Frostzaun
+Redwood Fence = Mammutbaumzaun
+Willow Fence = Weidenzaun
+Healing Wood Fence = Lebensholzzaun
+Palm Fence = Palmzaun
+Banana Wood Fence = Bananenholzzaun
+Mushroom Fence = Pilzzaun
+Birch Fence = Birkenzaun
+
+#fishing.lua
+Raw Fish = Roher Fisch
+Cooked Fish = Gekochter Fisch
+Sashimi = Sashimi
+Worm = Wurm
+Fishing Rod = Angelrute
+Baited Fishing Rod = Angelrute mit Köder
+Inventory full, Fish Got Away! = Inventar voll, Fisch entkam!
+
+#food.lua
+Banana = Banane
+Banana Dough = Bananenteig
+Orange = Orange
+Pine Nuts = Pinienkerne
+Banana Loaf = Bananenbrot
+Coconut = Kokosnuss
+Coconut Slice = Kokosscheibe
+Golden Apple = Goldener Apfel 
+Hearty Stew = Deftiger Eintopf
+Bucket of Cactus Pulp = Eimer Kaktusmark
+
+#gates.lua
+Scorched Wood Fence Gate = Verbranntes Holzzauntor
+Frost Wood Fence Gate = Frostholzzauntor
+Redwood Fence Gate = Mammutbaumzauntor
+Willow Wood Fence Gate = Weidenholztor
+Healing Wood Fence Gate = Lebensholzzauntor
+Palm Wood Fence Gate = Palmholzzauntor
+Banana Wood Fence Gate = Bananenholzzauntor
+Mushroom Trunk Fence Gate = Pilzstammzauntor
+Birch Wood Fence Gate = Birkenholzzauntor
+
+#init.lua
+[MOD] Ethereal loaded = [MOD] Ethereal geladen
+
+#leaves.lua
+Willow Twig = Weidenrute
+Redwood Leaves = Mammutbaumlaub
+Orange Leaves = Orangenlaub
+Banana Leaves = Bananenblätter
+Healing Tree Leaves = Lebensbaumlaub
+Palm Leaves = Palmenblätter
+Birch Leaves = Birkenlaub
+Frost Leaves = Frostlaub
+Bamboo Leaves = Bambuslaub
+Mushroom Cap = Pilzkappe
+Mushroom Pore = Pilzpore
+Bush = Busch
+Bush #2 = Busch #2
+Bush #3 = Busch #3
+
+#mushroom.lua
+Mushroom Soup = Pilzsuppe
+
+#onion.lua
+Wild Onion = Wilde Zwiebel
+
+#plantlife.lua
+Fire Flower = Feuerblume
+Fire Dust = Feuerstaub
+Vine = Weinrebe
+Light String Vine = Leuchtschnurrebe
+Fern = Farn
+Fern Tubers = Farnsporenkapseln
+Fiery Dry Shrub = Feuerroter vertrockneter Strauch
+Snowy Grass = Verschneites Gras
+Crystal Grass = Kristallgras
+Crystal Moss = Kristallmoos
+Mushroom Moss = Pilzmoos
+Fiery Moss = Feuerrotes Moos
+Gray Moss = Graues Moos
+Green Moss = Grünes Moos
+Red Illumishroom = Roter Leuchtpilz
+Green Illumishroom = Grüner Leuchtpilz
+Cyan Illumishroom = Türkiser Leuchtpilz
+
+#sapling.lua
+Bamboo Sprout = Bambussprosse
+Willow Tree Sapling = Weidenbaumsetzling
+Healing Tree Sapling = Lebensbaumsetzling
+Apple Tree Sapling = Apfelbaumsetzling
+Jungle Tree Sapling = Tropenbaumsetzling
+Pine Tree Sapling = Piniensetzling
+Big Tree Sapling = Großer-Baum-Setzling
+Banana Tree Sapling = Bananensetzling
+Frost Tree Sapling = Frostbaumsetzling
+Mushroom Tree Sapling = Pilzbaumsetzling
+Palm Tree Sapling = Palmensetzling
+Redwood Tree Sapling = Mammutbaumsetzling
+Orange Tree Sapling = Orangenbaumsetzling
+Acacia Tree Sapling = Akaziensetzling
+Birch Tree Sapling = Birkensetzling
+Schematic not found = Schema nicht gefunden
+
+#sealife.lua
+Seaweed = Seetang
+Blue Coral = Blaue Koralle
+Orange Coral = Orange Koralle
+Pink Coral = Rosa Koralle
+Green Coral = Grüne Koralle
+Sandy = Sandy
+
+#stairs.lua
+Crystal Block Stair = Kristallblocktreppe
+Crystal Block Slab = Kristallblockplatte
+Ice Brick Stair = Eisziegeltreppe
+Ice Brick Slab = Eisziegelplatte
+Snow Brick Stair = Schneeziegeltreppe
+Snow Brick Slab = Schneeziegelplatte
+Dry Dirt Stair = Vertrocknete Erdtreppe
+Dry Dirt Slab = vertrocknete Erdplatte
+Mushroom Trunk Stair = Pilzstammtreppe
+Mushroom Trunk Slab = Pilzstammplatte
+Mushroom Top Stair = Pilzkappentreppe
+Mushroom Top Slab = Pilzkappenplatte
+Frost Wood Stair = Frostholztreppe
+Frost Wood Slab = Frostholzplatte
+Healing Wood Stair = Lebensholztreppe
+Healing Wood Slab = Lebensholzplatte
+Palm Wood Stair = Palmholztreppe
+Palm Wood Slab = Palmholzplatte
+Birch Wood Stair = Birkenholztreppe
+Birch Wood Slab = Birkenholzplatte
+Banana Wood Stair = Bananenholztreppe
+Banana Wood Slab = Bananenholzplatte
+Willow Wood Stair = Weidenholztreppe
+Willow Wood Slab = Weidenholzplatte
+Redwood Stair = Mammutbaumtreppe
+Redwood Slab = Mammutbaumplatte
+Bamboo Stair = Bambustreppe
+Bamboo Slab = Bambusplatte
+Dry Dirt = Vertrocknete Erde
+Mushroom Trunk = Pilzstamm
+Mushroom Top = Pilzkappe
+Healing Wood = Lebensholz
+Redwood = Mammutbaum
+
+#strawberry.lua
+Strawberry = Erdbeere
+
+#water.lua
+Ice Brick = Eisziegel
+Snow Brick = Schneeziegel
+
+#wood.lua
+Willow Trunk = Weidenstamm
+Willow Wood = Weidenholz
+Redwood Trunk = Mammutbaumstamm
+Redwood Wood = Mammutbaumholz
+Frost Tree = Frostbaum
+Frost Wood = Frostholz
+Healing Tree Trunk = Lebensbaumstamm
+Healing Tree Wood = Lebensbaumholz
+Palm Trunk = Palmstamm
+Palm Wood = Palmholz
+Banana Trunk = Bananenstamm
+Banana Wood = Bananenholz
+Scorched Tree = Verbrannter Baum
+Mushroom = Pilz
+Birch Trunk = Birkenstamm
+Birch Wood = Birkenholz
+Bamboo = Bambus

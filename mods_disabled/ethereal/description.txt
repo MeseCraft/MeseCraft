@@ -1,0 +1,1 @@
+Ethereal mod uses the v7 mapgen to add many new biomes to the world.

@@ -1,0 +1,220 @@
+# Russian Translation for ethereal mod
+# Русский перевод мода ethereal
+# last update: 2017/Aug/15
+# Author: Inpos
+
+#bonemeal.lua
+Bone = Кость
+Bone Meal = Косятная мука
+
+#crystal.lua
+Crystal Spike = Хрустальный шип
+Crystal Ingot = Хрустальный слиток
+Crystal Block = Хрустальный блок
+Crystal Sword = Хрустальный меч
+Crystal Axe = Хрустальный топор
+Crystal Pickaxe = Хрустальная кирка
+Crystal (soft touch) Shovel = Хрустальная лопата (хрупкая)
+Crystal Gilly Staff = Хрустальный посох Джилли
+
+#dirt.lua
+Green Dirt = Зелёная земля
+Dried Dirt = Высушенная земля
+Bamboo Dirt = Бамбуковая земля
+Jungle Dirt = Земля джунглей
+Grove Dirt = Лесная земля
+Prairie Dirt = Земля прерий
+Cold Dirt = Холодная земля
+Crystal Dirt = Хрустальная земля
+Mushroom Dirt = Грибная земля
+Fiery Dirt = Огненная земля
+Gray Dirt = Серая земля
+Red Baked Clay = Красная обожжёная глина
+Orange Baked Clay = Оранжевая обожжёная глина
+Grey Baked Clay = Серая обожжёная глина
+Quicksand = Зыбучий песок
+
+#extra.lua
+Bamboo Floor = Бамбуковый пол
+Palm Wax = Пальмовый воск
+Candle = Свеча
+Bowl = Чашка
+Stone Ladder = Каменная лестница
+Paper Wall = Обои
+Glo Stone = Светящийся камень
+Lump of Charcoal = Кусок угля
+Staff of Light = Световой посох
+
+#fences.lua
+Scorched Fence = Обожжёный забор
+Frost Fence = Замороженный забор
+Redwood Fence = Забор из секвойи
+Willow Fence = Ивовый забор
+Healing Wood Fence = Забор из лечащего дерева
+Palm Fence = Пальмовый забор
+Banana Wood Fence = Забор из бананового дерева
+Mushroom Fence = Грибной забор
+Birch Fence = Берёзовый забор
+
+#fishing.lua
+Raw Fish = Сырая рыба
+Cooked Fish = Свареная рыба
+Sashimi = Сашими
+Worm = Червь
+Fishing Rod = Удочка
+Baited Fishing Rod = Удочка с приманкой
+Inventory full, Fish Got Away! = Инвентарь заполнен, рыба сбежала!
+
+#food.lua
+Banana = Банан
+Banana Dough = Банановое тесто
+Orange = Апельсин
+Pine Nuts = Кедровые орехи
+Banana Loaf = Банадовый хлеб
+Coconut = Кокос
+Coconut Slice = Кокосовый ломтик
+Golden Apple = Золотое яблоко 
+Hearty Stew = Сытное рагу
+Bucket of Cactus Pulp = Ведро с мякотью кактуса
+
+#gates.lua
+Scorched Wood Fence Gate = Обожжёные деревянные ворота для забора
+Frost Wood Fence Gate = Замороженные деревянные ворота для забора
+Redwood Fence Gate = Ворота из секвойи для забора
+Willow Wood Fence Gate = Ивовые ворота для забора
+Healing Wood Fence Gate = Ворота из лечащего дерева для забора
+Palm Wood Fence Gate = Ворота из пальмого дерева для забора
+Banana Wood Fence Gate = Ворота из бананового дерева для забора
+Mushroom Trunk Fence Gate = Ворота из грибного ствола для забора
+Birch Wood Fence Gate = Берёзовые ворота для забора
+
+#init.lua
+[MOD] Ethereal loaded = [MOD] Ethereal загружен
+
+#leaves.lua
+Willow Twig = Ивовый прут
+Redwood Leaves = Листва секвойи
+Orange Leaves = Листва апельсина
+Banana Leaves = Листва банана
+Healing Tree Leaves = Листва лечащего дерева
+Palm Leaves = Пальмовая листва
+Birch Leaves = Берёзовая листва
+Frost Leaves = Замороженная листва
+Bamboo Leaves = Бамбуковая листва
+Mushroom Cap = Шляпка гриба
+Mushroom Pore = Грибные поры
+Bush = Куст
+Bush #2 = Куст #2
+Bush #3 = Куст #3
+
+#mushroom.lua
+Mushroom Soup = Грибной суп
+
+#onion.lua
+Wild Onion = Дикий лук
+
+#plantlife.lua
+Fire Flower = Огненый цветок
+Fire Dust = Огненая пыль
+Vine = Виноградная лоза
+Light String Vine = Светящаяся виноградная лоза
+Fern = Папоротник
+Fern Tubers = Клубни папоротника
+Fiery Dry Shrub = Огненный сухой кустарник
+Snowy Grass = Заснеженная трава
+Crystal Grass = Хрустальная трава
+Crystal Moss = Хрустальный мох
+Mushroom Moss = Грибной мох
+Fiery Moss = Огненный мох
+Gray Moss = Серый мох
+Green Moss = Зелёный мох
+Red Illumishroom = Красный светящийся гриб
+Green Illumishroom = Зелёный светящийся гриб
+Cyan Illumishroom = Голубой светящийся гриб
+
+#sapling.lua
+Bamboo Sprout = Росток бамбука
+Willow Tree Sapling = Саженец ивы
+Healing Tree Sapling = Саженец лечебного дерева
+Apple Tree Sapling = Саженец яблони
+Jungle Tree Sapling = Саженец дерева джунглей
+Pine Tree Sapling = Саженец сосны
+Big Tree Sapling = Саженец большого дерева
+Banana Tree Sapling = Саженец бананового дерева
+Frost Tree Sapling = Саженец морозного дерева
+Mushroom Tree Sapling = Саженец грибного дерева
+Palm Tree Sapling = Саженец пальмы
+Redwood Tree Sapling = Саженец секвойи
+Orange Tree Sapling = Саженец апельсинового дерева
+Acacia Tree Sapling = Саженец акации
+Birch Tree Sapling = Саженец берёзы
+Schematic not found = Схема не найдена
+
+#sealife.lua
+Seaweed = Водоросли
+Blue Coral = Синий коралл
+Orange Coral = Оранжевый коралл
+Pink Coral = Розовый коралл
+Green Coral = Залёный коралл
+Sandy = Песочный
+
+#stairs.lua
+Crystal Block Stair = Ступенька из хрустального блока
+Crystal Block Slab = Плита из хрустального блока
+Ice Brick Stair = Ступенька из ледяного кирпича
+Ice Brick Slab = Плита из ледяного кирпича
+Snow Brick Stair = Ступенька из снежного кирпича
+Snow Brick Slab = Плита из снежного кирпича
+Dry Dirt Stair = Ступенька из сухой земли
+Dry Dirt Slab = Плита из сухой земли
+Mushroom Trunk Stair = Ступенька из ствола гриба
+Mushroom Trunk Slab = Плита из ствола гриба
+Mushroom Top Stair = Ступенька из шляпки гриба
+Mushroom Top Slab = Плита из шляпки гриба
+Frost Wood Stair = Ступенька из замороженных досок
+Frost Wood Slab = Плита из замороженных досок
+Healing Wood Stair = Ступенька из лечебного дерева
+Healing Wood Slab = Плита из лечебного дерева
+Palm Wood Stair = Ступенька из пальмовых досок
+Palm Wood Slab = Плита из пальмовых досок
+Birch Wood Stair = Ступенька из берёзовых досок
+Birch Wood Slab = Плита из берёзовых досок
+Banana Wood Stair = Ступенька из банановых досок
+Banana Wood Slab = Плита из банановых досок
+Willow Wood Stair = Ступенька из ивовых досок
+Willow Wood Slab = Плита из ивовых досок
+Redwood Stair = Ступенька из секвойи
+Redwood Slab = Плита из секвойи
+Bamboo Stair = Ступенька из бамбука
+Bamboo Slab = Плита из бамбука
+Dry Dirt = Сухая земля
+Mushroom Trunk = Ствол гриба
+Mushroom Top = Шляпка гриба
+Healing Wood = лечебная древесина
+Redwood = Секвойя
+
+#strawberry.lua
+Strawberry = Клубника
+
+#water.lua
+Ice Brick = Ледяной кирпич
+Snow Brick = Снежный кирпич
+
+#wood.lua
+Willow Trunk = Ствол ивы
+Willow Wood = Доски ивы
+Redwood Trunk = Ствол секвойи
+Redwood Wood = Доски секвойи
+Frost Tree = Морозное дерево
+Frost Wood = Доски 
+Healing Tree Trunk = Ствол лечебного дерева
+Healing Tree Wood = Доски лечебного дерева
+Palm Trunk = Ствол пальмы
+Palm Wood = Доски пальмы
+Banana Trunk = Ствол бананового дерева
+Banana Wood = Доски банавого дерева
+Scorched Tree = Обожжёное дерево
+Mushroom = Гриб
+Birch Trunk = Ствол берёзы
+Birch Wood = Доски берёзы
+Bamboo = Бамбук

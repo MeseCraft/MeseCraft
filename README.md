@@ -1,11 +1,16 @@
+Sara's Simple Survival Game
+==========================
+Copyright (C) 2019-2020 FreeGamers.org
+Thank you to everyone who has contributed to this project, mods, and the FreeGamers communitys.
 
-The best game for Minetest. A project with the goal of enhancing minetest_game survival with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.freegamers.org 
+Description
+-------------------------
+The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.freegamers.org 
+Currently, this game is quite stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
-This project started with the goal to expand Minetest game to include additional features that would greatly enhance the gameplay to be more fun for players.
 
-Currently, this game is quite stable and has been debugged on an online server environment with many players.
+Minetest Engine Compatability
+--------------------------
+Minetest engine version 5.2.0 or greater is currently recommended to run this game.
+Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
 
-Thank you to everyone who has helped contribute to this project and mods.
-
-version 5.2.0 or greater is currently recommended to run this game.
-version 5.1.1 will work but not all mod features will be compatible.

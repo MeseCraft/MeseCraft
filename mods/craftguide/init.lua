@@ -1757,7 +1757,7 @@ else
 	core.register_craft{
 		output = "craftguide:sign",
 		type   = "shapeless",
-		recipe = {"default:sign_wall_wood"}
+		recipe = {"signs:sign"}
 	}
 
 	core.register_craft{

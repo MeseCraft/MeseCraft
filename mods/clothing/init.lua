@@ -119,9 +119,6 @@ minetest.register_on_joinplayer(function(player)
 			return count
 		end,
 	}, name)
-	if clothing.inv_mod == "inventory_plus" then
-		inventory_plus.register_button(player,"clothing", "Clothing")
-	end
 
 	load_clothing_metadata(player, clothing_inv)
 	minetest.after(1, function(name)

@@ -16,7 +16,7 @@ function toolranks.create_description(name, uses, level)
 		.. toolranks.colors.grey .. "Used: " .. (uses or 0) .. " times"
 end
 
-
+-- This is where levels are defined.
 function toolranks.get_level(uses)
 
 	if uses >= 3200 then

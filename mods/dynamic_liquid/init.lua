@@ -265,8 +265,6 @@ if flow_through then
 			"default:dry_shrub",
 			"default:bush_stem",
 			"default:acacia_bush_stem",
-			"default:sign_wall_wood",
-			"default:sign_wall_steel",
 			"default:ladder_wood",
 			"default:ladder_steel",
 			"default:fence_wood",
@@ -288,6 +286,11 @@ if flow_through then
 		add_flow_through("carts:rail")
 		add_flow_through("carts:powerrail")
 		add_flow_through("carts:brakerail")
+	end
+
+	-- Add "signs" support.
+	if minetest.get_modpath("signs") then
+		add_flow_through("signs:sign")
 	end
 end
 

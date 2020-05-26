@@ -202,9 +202,6 @@ Tools / "Advanced" crafting / Non-"natural"
 
 default:bookshelf
 
-default:sign_wall_wood
-default:sign_wall_steel
-
 default:ladder_wood
 default:ladder_steel
 

@@ -1,0 +1,22 @@
+laptop.register_theme("CS-BOS Shell", {
+	desktop_background = "laptop_theme_shell_desktop_background.png",
+	app_background = "laptop_theme_shell_app_background.png",
+	major_button = "laptop_theme_shell_major_button.png",
+	minor_button = "laptop_theme_shell_minor_button.png",
+	minor_textcolor = "#FFFFFF",
+	back_button = "laptop_theme_shell_back_button.png",	
+	back_textcolor = "#000000",
+	exit_button = "laptop_theme_shell_exit_button.png",
+	exit_character = " ",
+--	desktop_icon_button = "blank.png",
+	taskbar_clock_position_and_size = "9,3.5;4,2",
+	desktop_icon_label_button = "laptop_theme_shell_desktop_icon_label_button.png",
+	desktop_icon_label_textcolor = '#000000',
+	titlebar_textcolor = "#000000",
+	table_highlight_bgcolor = '#00ffff',
+	textcolor = "#888888",
+	texture_replacements = {
+		['laptop_removable.png'] = 'laptop_diskette.png',
+	},
+	os_max_version = '5.50',
+})

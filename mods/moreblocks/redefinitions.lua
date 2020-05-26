@@ -8,15 +8,6 @@ Licensed under the zlib license. See LICENSE.md for more information.
 -- Redefinitions of some default crafting recipes:
 
 minetest.register_craft({
-	output = "default:sign_wall 4",
-	recipe = {
-		{"default:wood", "default:wood", "default:wood"},
-		{"default:wood", "default:wood", "default:wood"},
-		{"", "default:stick", ""},
-	}
-})
-
-minetest.register_craft({
 	output = "default:ladder 4",
 	recipe = {
 		{"default:stick", "", "default:stick"},
