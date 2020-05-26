@@ -1,5 +1,4 @@
 # URGENT PRIORITY
-- Fix wielded_light nodes dropping from booms and staff of earth.
 
 # HIGHER PRIORITY
 

@@ -81,6 +81,7 @@ for i=1, 14 do
 		pointable = false,
 		buildable_to = true,
 		drops = {},
+		on_blast = function() end,  -- adding this line to prevent blasts from spawning items.
 		on_timer = function(pos, elapsed)
 			minetest.swap_node(pos, {name = "air"})
 			

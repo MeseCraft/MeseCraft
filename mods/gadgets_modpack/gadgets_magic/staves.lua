@@ -116,6 +116,20 @@ local earth_staff_blacklist = {
     "towercrane:balance",
     "towercrane:mast_ctrl_off",
     "towercrane:mast_ctrl_on",
+    "wielded_light:1",
+    "wielded_light:2",
+    "wielded_light:3",
+    "wielded_light:4",
+    "wielded_light:5",
+    "wielded_light:6",
+    "wielded_light:7",
+    "wielded_light:8",
+    "wielded_light:9",
+    "wielded_light:10",
+    "wielded_light:11",
+    "wielded_light:12",
+    "wielded_light:13",
+    "wielded_light:14",
 }
 
 gadgets.register_gadget({
