@@ -75,6 +75,7 @@ for i=1, 14 do
 		drawtype = "airlike",
 		groups = {not_in_creative_inventory = 1},
 		walkable = false,
+		diggable = false, -- adding this to prevent staff_of_earth from digging these.
 		paramtype = "light",
 		sunlight_propagates = true,
 		light_source = i,
