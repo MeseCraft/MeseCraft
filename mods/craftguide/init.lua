@@ -1672,7 +1672,7 @@ end
 
 if sfinv_only then
 	sfinv.register_page("craftguide:craftguide", {
-		title = S"Craft Guide",
+		title = S"Guide",
 
 		is_in_nav = function(self, player, context)
 			local name = player:get_player_name()
