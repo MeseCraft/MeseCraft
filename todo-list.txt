@@ -1,6 +1,11 @@
-# URGENT PRIORITY
+#### URGENT PRIORITY ####
+Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
+Mobs are flashing on hit. Need to look into the API to see why this is.
 
-# HIGHER PRIORITY
+#### HIGHER PRIORITY ####
 
-# LOWER PRIORITY
+#### LOWER PRIORITY ####
 Add particles that go towards void chest.
+
+### IDEAS ####
+Implement stargate-like portal with nether portal_api?

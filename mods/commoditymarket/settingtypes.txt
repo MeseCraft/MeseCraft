@@ -1,8 +1,0 @@
-#Some item images are very large and break the market formspec.
-#See https://github.com/minetest/minetest/issues/9300
-#Alternately, use:
-#commoditymarket.override_item_icon(item_name, new_icon_texture)
-#or
-#commoditymarket.override_image_icon(old_icon_texture, new_icon_texture)
-#to override a troublesome image directly.
-commoditymarket_enable_item_icons (Enable item icon images in market formspecs) bool true

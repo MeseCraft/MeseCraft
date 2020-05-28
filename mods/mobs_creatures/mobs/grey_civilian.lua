@@ -1,4 +1,4 @@
--- TODO: Add drops.
+-- TODO: Add drops, mese-based trading npc.
 -- GREY CIVILIAN ALIEN
 mobs:register_mob("mobs_creatures:grey_civilian", {
    type = "animal",

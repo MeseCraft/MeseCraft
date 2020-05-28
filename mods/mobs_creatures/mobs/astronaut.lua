@@ -53,14 +53,6 @@ mobs:register_mob('mobs_creatures:astronaut', {
         on_rightclick = function(self, clicker)
                 mobs_trader(self, clicker, entity, mobs.lunar_human)
 	end,
-        on_spawn = function(self)
-                self.nametag = "Astronaut"
-                self.object:set_properties({
-                        nametag = self.nametag,
-                        nametag_color = "#FFFFFF"
-                })
-                return true -- return true so on_spawn is run once only
-        end,
 
 })
 

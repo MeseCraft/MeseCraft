@@ -1,0 +1,10 @@
+How to host a dedicated server.
+server hardware
+domain name or dynamic dns
+port forwards and firewalls
+operating system.
+how to install
+administration fundamentals
+
+
+How to host a listen (local LAN) server.

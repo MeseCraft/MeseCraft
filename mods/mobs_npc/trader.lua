@@ -1,3 +1,4 @@
+-- edited this version to not have nametags on the HUD.
 
 local S = mobs.intllib
 
@@ -103,14 +104,6 @@ mobs:register_mob("mobs_npc:trader", {
 	on_rightclick = function(self, clicker)
 		mobs_trader(self, clicker, entity, mobs.human)
 	end,
-	on_spawn = function(self)
-		self.nametag = S("Trader")
-		self.object:set_properties({
-			nametag = self.nametag,
-			nametag_color = "#FFFFFF"
-		})
-		return true -- return true so on_spawn is run once only
-	end,
 })
 
 --This code comes almost exclusively from the trader and inventory of mobf, by Sapier.
@@ -199,10 +192,6 @@ function mobs_trader(self, clicker, entity, race)
 		self.game_name = tostring(race.names[math.random(1, #race.names)])
 		self.nametag = S("Trader @1", self.game_name)
 
-		self.object:set_properties({
-			nametag = self.nametag,
-			nametag_color = "#00FF00"
-		})
 	end
 
 	if self.trades == nil then

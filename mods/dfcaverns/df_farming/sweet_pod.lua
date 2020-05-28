@@ -246,7 +246,7 @@ if minetest.get_modpath("bucket") then
 		S("Dwarven Syrup Bucket")
 	)
 	
-	if minetest.get_modpath("crafting") then
+	if minetest.get_modpath("simplecrafting_lib") then
 		simplecrafting_lib.register("furnace", {
 			input = {
 				["bucket:bucket_empty"] = 1,
