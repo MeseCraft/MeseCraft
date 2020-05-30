@@ -1,10 +1,39 @@
-#### URGENT PRIORITY ####
+################################## URGENT PRIORITY ##################################
 Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
 Mobs are flashing on hit. Need to look into the API to see why this is.
+Fix skybox vs weather mod conflicts.
+Drop farming_redo, implement "crops", fix critical bugs, add compatibility for fruittoosl, drinks, and diet.
+gramophone top part disappears when pickedup.
+bee hives arent protection-compatbile.
+fridges aren't protected.
 
-#### HIGHER PRIORITY ####
 
-#### LOWER PRIORITY ####
+################################## HIGHER PRIORITY ##################################
+Add more toolranks levels
+Make ovens comppatible with other food items.
+After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
+Split mobs_creatures and create dfcaverns_mobs to be shared with FaceDeer's dfcaverns modpack.
+fire-imps do not fly in lava, they do not float.
+unknown items in lootchests underground.
+shift+click doesnt work on lootchests
+Clothes mod but add more variations and integrate with base skins and preview system.
 
-### IDEAS ####
+
+################################## LOWER PRIORITY ##################################
+why is there a steel bar *and* and steel rod?
+Change the "settlements" bell to be 2d of good quality.
+"3d_armor" on death, armor peices have a chance of being completely destroyed.
+converge papyrus stuff into a single papyrus stuff mod.
+"drinks" mod makes eating noise instead of sipping noise. (share sounds with "hbthirsty"?).
+lightning flash can happen in space, lower effect to just earth height.
+Laxative to make player poop (like in pooper mod)
+drawer upgrades
+burnable: chairs, benches, tables, chests, apple wood planks, etc..
+
+
+################################## IDEAS ##################################
 Implement stargate-like portal with nether portal_api?
+RPG Skills mechanics like McMMO?
+Terraria-like Pet spawners  (e.g. dog whistle)?
+Mining helmet, spawn wielded light above player when wearing.
+leather more uses for leather: armor, maybe canteen.
