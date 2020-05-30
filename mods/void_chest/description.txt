@@ -1,3 +1,0 @@
-Adds a magic void chest.
-Void chest from more_chests
-Textures from Xdecor

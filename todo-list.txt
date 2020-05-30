@@ -5,7 +5,6 @@ Mobs are flashing on hit. Need to look into the API to see why this is.
 #### HIGHER PRIORITY ####
 
 #### LOWER PRIORITY ####
-Add particles that go towards void chest.
 
 ### IDEAS ####
 Implement stargate-like portal with nether portal_api?

@@ -1,5 +1,5 @@
 saras_simple_survival mod: coins
-==============================
+================================
 Copyright (2020) freegamers.org
 
 License of source code
