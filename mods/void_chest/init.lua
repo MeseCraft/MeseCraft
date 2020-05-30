@@ -1,6 +1,6 @@
 -- Register the void chest.
 minetest.register_node("void_chest:void_chest", {
-	description = "Void Chest",
+	description = "" ..core.colorize("#330066","Void Chest\n") ..core.colorize("#FFFFFF", "Use the power of the void to store your items."),
 	tiles = {"void_chest_top.png", "void_chest_top.png", "void_chest_side.png",
 		"void_chest_side.png", "void_chest_side.png", "void_chest_front.png"},
 	paramtype2 = "facedir",
