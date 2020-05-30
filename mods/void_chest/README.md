@@ -13,13 +13,13 @@ Recipe
 if the magic_materials mod is installed:
 
 {'default:steelblock','magic_materials:void_rune','default:steelblock'},
-{'magic_materials:void_rune','default:chest','magic_materials:void_rune'},
+{'magic_materials:void_rune','default:chest_locked','magic_materials:void_rune'},
 {'default:steelblock','magic_materials:void_rune','default:steelblock'}
 
 if no magic_materials mod is present then we can just use materials from default:
 
 {'default:steelblock','default:obsidian_block','default:steelblock'},
-{'default:obsidian_block','default:chest','default:obsidian_block'},
+{'default:obsidian_block','default:chest_locked','default:obsidian_block'},
 {'default:steelblock','default:obsidian_block','default:steelblock'}
 
 
