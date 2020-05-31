@@ -38,7 +38,7 @@ christmas_holiday_pack.christmas_special_item_pool = {}
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:ornament_orange")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:ornament_purple")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:ornament_pink")
-	table.insert(christmas_holiday_pack.christmas_common_item_pool, "commoditymarket:gold_coins")
+	table.insert(christmas_holiday_pack.christmas_common_item_pool, "coins:gold_coins")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:blueberries")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:ice")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:snow")

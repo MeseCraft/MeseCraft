@@ -1,0 +1,24 @@
+Version 1.5
+-support for protections by NathanSalapat
+
+Version 1.4
+-fixed API funtionality, ingots now can be registered from other mods
+-chests and similar now can be used with an ingot in hand, unless sneaking
+
+Version 1.3
+-support for brass, lead, carbon steel, cast iron, chromium and zinc of technic
+-support for rainbow ore of rainbow ore
+
+Version 1.2
+-support for stainless steel and mixed metal of technic
+-added compatibility with 'creative'
+-merged big ingots variant
+-fixed a bug which allowed to overwrite blocks next to full stacks
+
+Version 1.1
+-support for tin, silver and mithril of 'moreores'
+-separate big ingots variant
+
+Version 1.0
+-release
+-support for tin, copper, bronze, steel and gold of 'default'

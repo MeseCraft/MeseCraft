@@ -1,0 +1,5 @@
+All code provided in this package is is licensed under LGPL-2.1
+Full license: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html
+
+All textures and models provided in this package are licensed under CC-BY-SA-4.0
+Full license: https://creativecommons.org/licenses/by-sa/4.0/legalcode

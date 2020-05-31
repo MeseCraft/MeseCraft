@@ -1,0 +1,150 @@
+# Portuguese translation for Crops mod.
+# Copyright (C) 2017
+# This file is distributed under the same license as the PACKAGE package.
+# BrunoMine <borgesdossantosbruno@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-20 17:17-0300\n"
+"PO-Revision-Date: 2017-08-17 17:54-0300\n"
+"Last-Translator: BrunoMine <borgesdossantosbruno@gmail.com>\n"
+"Language-Team: \n"
+"Language: Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: melon.lua
+msgid "Melon seed"
+msgstr "Semente de Melancia"
+
+#: melon.lua
+msgid "Melon plant"
+msgstr "Planta de Melancia"
+
+#: melon.lua
+msgid "Melon slice"
+msgstr "Pedaço de Melancia"
+
+#: melon.lua
+msgid "Melon"
+msgstr "Melancia"
+
+#: tomato.lua
+msgid "Tomato seed"
+msgstr "Semente de Tomate"
+
+#: tomato.lua
+msgid "Tomato plant"
+msgstr "Planta de Tomate"
+
+#: tomato.lua
+msgid "Tomato"
+msgstr "Tomate"
+
+#: polebean.lua
+msgid "Green Bean"
+msgstr "Feijao Verde"
+
+#: polebean.lua
+msgid "Beanpoles"
+msgstr "Apoio de Feijao"
+
+#: polebean.lua
+msgid "Green bean seed"
+msgstr "Semente de Feijao Verde"
+
+#: polebean.lua
+msgid "Green Bean plant"
+msgstr "Planta de Feijao Verde"
+
+#: tools.lua
+msgid "Watering Can"
+msgstr "Regador"
+
+#: tools.lua
+msgid "Hydrometer"
+msgstr "Hydrometro"
+
+#: pumpkin.lua
+msgid "Pumpkin seed"
+msgstr "Semente de Abobora"
+
+#: pumpkin.lua
+msgid "Pumpkin plant"
+msgstr "Planta de Abobora"
+
+#: pumpkin.lua
+msgid "Roasted pumpkin"
+msgstr "Abobora Assada"
+
+#: pumpkin.lua
+msgid "Pumpkin"
+msgstr "Abobora"
+
+#: init.lua
+msgid "Defaulting to \"normal\" difficulty settings"
+msgstr "Padrao para configuraçoes de dificuldade \"normal\""
+
+#: init.lua
+msgid "Hydration and dehydration mechanics are enabled."
+msgstr "Mecanica de hidrataçao e desidrataçao esta habilitada."
+
+#: init.lua
+msgid "Unable to find plant \"@1\" in crops table"
+msgstr "Impossivel encontrar a planta \"@1\" na tabela de culturas"
+
+#: init.lua
+msgid "Loaded!"
+msgstr "Carregado!"
+
+#: potato.lua
+msgid "Potato eyes"
+msgstr "Raizes de Batata"
+
+#: potato.lua
+msgid "Potato plant"
+msgstr "Planta de Batata"
+
+#: potato.lua
+msgid "Potato"
+msgstr "Batata"
+
+#: potato.lua
+msgid "Soil with potatoes"
+msgstr "Solo com Batatas"
+
+#: cooking.lua
+msgid "Unbaked clay bowl"
+msgstr "Tigela de Barro Fresco"
+
+#: cooking.lua
+msgid "Clay bowl"
+msgstr "Tigela de Barro"
+
+#: cooking.lua
+msgid "Bowl of vegetable stew"
+msgstr "Tigela de Ensopado de Vegetais"
+
+#: cooking.lua
+msgid "Bowl of uncooked vegetable stew"
+msgstr "Tigela de Vegetais Crus"
+
+#: corn.lua
+msgid "Corn"
+msgstr "Milho"
+
+#: corn.lua
+msgid "Corn Cob"
+msgstr "Espiga de Milho"
+
+#: corn.lua
+msgid "Corn on the Cob"
+msgstr "Milho na Espiga"
+
+#: corn.lua
+msgid "Corn plant"
+msgstr "Planta de Milho"

@@ -40,15 +40,15 @@ mobs.lunar_human = {
 	names = { "Neil", "Yuri", "Buzz", "Alan", "James" },
 	items = {
                 --{item for sale, price, chance of appearing in trader's inventory}
-		{"vacuum:air_bottle 10", "commoditymarket:gold_coins 50", 4},
+		{"vacuum:air_bottle 10", "coins:gold_coins 4", 4},
 		{"vacuum:airpump 1", "default:gold_ingot 4", 4},
 		{"spacesuit:chestplate 1", "default:gold_ingot 4", 4},
 		{"spacesuit:helmet 1", "default:gold_ingot 2", 4},
 		{"spacesuit:pants 1", "default:gold_ingot 2", 4},
 		{"spacesuit:boots 1", "default:gold_ingot 2", 4},
-		{"farming:tomato 12", "commoditymarket:gold_coins 75", 4},
-		{"farming:potato 12", "commoditymarket:gold_coins 75", 4},
-		{"drinks:jbo_tomato 6", "commoditymarket:gold_coins 75", 4},
+		{"farming:tomato 12", "coins:gold_coins 4", 4},
+		{"farming:potato 12", "coins:gold_coins 4", 4},
+		{"drinks:jbo_tomato 6", "coins:gold_coins 4", 4},
 		}
 	}
 

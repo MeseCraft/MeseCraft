@@ -1,0 +1,5 @@
+This mod expands the basic set of farming-related crops that minetest_game offers. It adds melons, potatoes, tomatoes, green beans and corn. The mod also implements plant humidity - you will have to water plants to make sure they're not dried out, or make sure they don't get over-watered.
+
+Mod specific settings can be changed in the "crops_settings.txt" file in the world folder.
+
+For more information, go to: http://goo.gl/wf0XLh

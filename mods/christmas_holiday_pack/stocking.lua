@@ -43,7 +43,7 @@ end
 
 -- REGISTER STUFFERS BELOW HERE
 --stuffer.register_stuff("modname:nodename", amount)
-stuffer.register_stuff("commoditymarket:gold_coins", 99)
+stuffer.register_stuff("coins:gold_coins", 25)
 stuffer.register_stuff("christmas_holiday_pack:candy_cane", 25)
 stuffer.register_stuff("christmas_holiday_pack:candy_cane_pickaxe", 1)
 stuffer.register_stuff("christmas_holiday_pack:candy_cane_axe", 1)

@@ -1,0 +1,38 @@
+
+Crops - a minetest mod that adds more farming crops
+
+See spdx.org/licenses to see what the License Identifiers used below mean.
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+All source code (lua):
+	(C) Auke Kok <sofar@foo-projects.org>
+	LGPL-2.0+
+
+All textures, models:
+	(C) Auke Kok <sofar@foo-projects.org>
+	CC-BY-SA-3.0
+
+Translations:
+ - de.po
+	(C) 2017 LNJ <git@lnj.li>
+	LGPL-2.0+
+
+Sounds:
+ - crops_watercan_splash*
+	http://freesound.org/people/junggle/sounds/27361/
+	http://profiles.google.com/jun66le
+	CC-BY-3.0
+ - crops_watercan_entering.ogg
+	http://freesound.org/people/Quistard/sounds/166824/
+	CC-BY-3.0
+ - crops_flies.ogg
+	http://www.freesound.org/people/galeku/sounds/46938/
+	CC0-1.0
+ - crops_watercan_watering.ogg
+	http://www.freesound.org/people/Eakoontz/sounds/151736/
+	CC0-1.0
+
+* Sounds edited with audacity
+
+=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~

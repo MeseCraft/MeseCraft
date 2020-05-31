@@ -33,7 +33,7 @@ mobs:register_mob('christmas_holiday_pack:crampus_claus', {
 	drops = {
 	{name = "mobs_creatures:rotten_flesh", chance = 1, min = 0, max = 1},
 	{name = "mobs_creatures:bone", chance = 2, min = 0, max = 1},
-	{name = "commoditymarket:gold_coins", chance = 1, min = 0, max = 10},
+	{name = "coins:gold_coins", chance = 4, min = 1, max = 2},
 	},
 	lava_damage = 5,
 	water_damage = 2,

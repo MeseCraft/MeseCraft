@@ -302,8 +302,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	and fields.name
 	and fields.name ~= "" then
 
-		local name = player:get_player_name()
-
 		-- does mob still exist?
 		if not tex_obj
 		or not tex_obj:get_luaentity() then
@@ -318,8 +316,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		end
 
 		-- limit name entered to 64 characters long
-		if string.len(fields.name) > 64 then
-			fields.name = string.sub(fields.name, 1, 64)
+		if fields.name:len() > 64 then
+			fields.name = fields.name:sub(1, 64)
 		end
 
 		-- update texture
