@@ -23,7 +23,6 @@ minetest.register_node("void_chest:void_chest", {
 				"listring[current_player;main]" ..
 				default.get_hotbar_bg(0,4.85))
 
-		meta:set_string("infotext", "Void Chest")
 	end,
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 				minetest.log("action", player:get_player_name()..
