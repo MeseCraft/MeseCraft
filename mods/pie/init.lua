@@ -7,32 +7,11 @@ local stmod = minetest.global_exists("stamina")
 -- eat pie slice function
 local replace_pie = function(node, puncher, pos)
 
-	-- is this my pie?
-	if minetest.is_protected(pos, puncher:get_player_name()) then
-		return
-	end
 
 	-- which size of pie did we hit?
 	local pie = node.name:split("_")[1]
 	local num = tonumber(node.name:split("_")[2])
 
-	-- are we using crystal shovel to pick up full pie using soft touch?
-	local tool = puncher:get_wielded_item():get_name()
-	if num == 0 and tool == "ethereal:shovel_crystal" then
-
-		local inv = puncher:get_inventory()
-
-		minetest.remove_node(pos)
-
-		if inv:room_for_item("main", {name = pie .. "_0"}) then
-			inv:add_item("main", pie .. "_0")
-		else
-			pos.y = pos.y + 0.5
-			minetest.add_item(pos, {name = pie .. "_0"})
-		end
-
-		return
-	end
 
 	-- eat slice or remove whole pie
 	if num == 3 then
@@ -43,21 +22,9 @@ local replace_pie = function(node, puncher, pos)
 
 	minetest.swap_node(pos, {name = node.name})
 
-	-- Blockmen's hud_hunger mod
-	if hmod then
-
-		local h = hunger.read(puncher)
---		print ("hunger is "..h)
-
-		h = math.min(h + 4, 30)
-
-		local ok = hunger.update_hunger(puncher, h)
-
-		minetest.sound_play("hunger_eat", {
-			pos = pos, gain = 0.7, max_hear_distance = 5})
 
 	-- Wuzzy's hbhunger mod
-	elseif hbmod then
+	if hbmod then
 
 		local h = tonumber(hbhunger.hunger[puncher:get_player_name()])
 --		print ("hbhunger is "..h)
@@ -67,14 +34,6 @@ local replace_pie = function(node, puncher, pos)
 		hbhunger.hunger[puncher:get_player_name()] = h
 
 		minetest.sound_play("hbhunger_eat_generic", {
-			pos = pos, gain = 0.7, max_hear_distance = 5})
-
-	-- Sofar's stamina mod
-	elseif stmod then
-
-		stamina.change(puncher, 4)
-
-		minetest.sound_play("stamina_eat", {
 			pos = pos, gain = 0.7, max_hear_distance = 5})
 
 	-- none of the above found? add to health instead
@@ -197,23 +156,15 @@ minetest.register_craft({
 	replacements = {{ "mobs:bucket_milk", "bucket:bucket_empty"}}
 })
 
+-- chocolate cake
+register_pie("choc", "Chocolate Cake")
 
--- add lucky blocks
-if minetest.get_modpath("lucky_block") then
-lucky_block:add_blocks({
-	{"nod", "pie:pie_0", 0},
-	{"nod", "pie:choc_0", 0},
-	{"nod", "pie:coff_0", 0},
-	{"tro", "pie:pie_0"},
-	{"nod", "pie:rvel_0", 0},
-	{"nod", "pie:scsk_0", 0},
-	{"nod", "pie:bana_0", 0},
-	{"nod", "pie:orange_0", 0},
-	{"tro", "pie:orange_0", "default_place_node_hard", true},
-	{"nod", "pie:brpd_0", 0},
-	{"nod", "pie:meat_0", 0},
-	{"lig"},
+minetest.register_craft({
+	output = "pie:choc_pie_0",
+	recipe = {
+		{"group:food_sugar", "group:food_milk", "group:food_sugar"},
+		{"group:food_chocolate", "group:food_egg", "group:food_chocolate"},
+		{"group:food_wheat", "group:food_flour", "group:food_wheat"},
+	},
+	replacements = {{ "mobs:bucket_milk", "bucket:bucket_empty"}}
 })
-end
-
-print ("[MOD] Pie loaded")

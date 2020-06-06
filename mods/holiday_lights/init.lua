@@ -6,4 +6,3 @@ local path = minetest.get_modpath("holiday_lights")
 dofile(path .. "/craftitems.lua")
 dofile(path .. "/nodes.lua")
 dofile(path .. "/crafts.lua")
-

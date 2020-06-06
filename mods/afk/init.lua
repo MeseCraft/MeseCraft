@@ -12,6 +12,7 @@ local last_pos = {}
 local chat_afk = {}
 local chat_noafk = {}
 
+-- Function to check if the player is afk.
 local function check_moved()
 
 	for _, p in ipairs(minetest.get_connected_players()) do
@@ -58,13 +59,13 @@ local function check_moved()
 			default.player_set_animation(p, "stand")
 	
 			chat_afk[plname] = false
-
+	-- If a player returns and the status changes, we print a message to chat.
 			if chat_noafk[plname] == false then
 				minetest.chat_send_all("* "..plname.." came back from AFK.")
 				chat_noafk[plname] = true
 			end
 		end
-
+	-- If players are dead and AFK, keep their model in the lay position, not sit.
 		if p:get_hp() == 0 and sit then
 			default.player_set_animation(p, "lay")
 		end
