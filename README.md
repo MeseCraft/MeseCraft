@@ -7,11 +7,14 @@ Special thanks to the Minetest community as well. This game was built using the 
 Description
 -------------------------
 The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.freegamers.org 
-Currently, this game is quite stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
+Currently, this game is quite stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
 Minetest Engine Compatability
 --------------------------
 Minetest engine version 5.2.0 or greater is currently recommended to run this game.
 Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
 
+License of Source Code
+--------------------------
+GNU AFFERO GENERAL PUBLIC LICENSE V3
