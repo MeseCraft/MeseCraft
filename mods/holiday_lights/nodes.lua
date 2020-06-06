@@ -255,7 +255,7 @@ minetest.register_node("holiday_lights:lights_spooky", {
 -- Patriotic String Lights   
 minetest.register_node("holiday_lights:lights_patriotic", {
         description = "Patriotic String Lights",
-        tiles = {"holiday_lights_spooky.png"},
+        tiles = {"holiday_lights_patriotic.png"},
         inventory_image = "holiday_lights_patriotic.png",
         wield_image = "holiday_lights_patriotic.png",
         sunlight_propagates = true,
