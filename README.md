@@ -2,7 +2,7 @@ Sara's Simple Survival Game
 ==========================
 Copyright (C) 2019-2020 FreeGamers.org
 Thank you to everyone who has contributed to this project, mods, and the FreeGamers community.
-Special thanks to the Minetest community as well. This game was built using the Minetest game engine and upon minetest_game and the mods of many others as a foundation.
+Special thanks to the Minetest community as well. This game was built using the Minetest game engine, minetest_game, and the mods of many others as a foundation.
 
 Description
 -------------------------
@@ -15,6 +15,6 @@ Minetest Engine Compatability
 Minetest engine version 5.2.0 or greater is currently recommended to run this game.
 Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
 
-License of Source Code
+License
 --------------------------
 GNU AFFERO GENERAL PUBLIC LICENSE V3
