@@ -1,5 +1,6 @@
 ################################## URGENT PRIORITY ##################################
-Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
+Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a  magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
+Death_compass can be duplicated somehow (reported by noodles)
 Mobs are flashing on hit. Need to look into the API to see why this is.
 Fix skybox vs weather mod conflicts.
 Drop farming_redo, implement "crops", fix critical bugs, add compatibility for fruittoosl, drinks, and diet.
@@ -9,6 +10,7 @@ fridges aren't protected.
 
 
 ################################## HIGHER PRIORITY ##################################
+change blueberry respawn rate
 Add more toolranks levels
 Make ovens comppatible with other food items.
 After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
@@ -20,6 +22,8 @@ Clothes mod but add more variations and integrate with base skins and preview sy
 
 
 ################################## LOWER PRIORITY ##################################
+re-add leaves in the wind from piezo's repo.
+add steel sound to ingot piles when walking on it.
 why is there a steel bar *and* and steel rod?
 Change the "settlements" bell to be 2d of good quality.
 "3d_armor" on death, armor peices have a chance of being completely destroyed.
@@ -32,6 +36,7 @@ burnable: chairs, benches, tables, chests, apple wood planks, etc..
 
 
 ################################## IDEAS ##################################
+implement invasions: goblins, aliens, doom, pirate,
 Implement stargate-like portal with nether portal_api?
 RPG Skills mechanics like McMMO?
 Terraria-like Pet spawners  (e.g. dog whistle)?

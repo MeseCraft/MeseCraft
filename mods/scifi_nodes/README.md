@@ -7,6 +7,6 @@ Minetest mod that adds scifi themed nodes
 
 # Attributions
 
-CC BY-NC 3.0
+CC BY 3.0
 * scifi_nodes_door_normal.ogg tlwmdbt https://freesound.org/people/tlwmdbt/sounds/165862/
-* scifi_nodes_door_mechanic.ogg primeval_polypod https://freesound.org/people/primeval_polypod/sounds/156507/
+* scifi_nodes_door_mechanic.ogg freedoom https://github.com/freedoom/freedoom
