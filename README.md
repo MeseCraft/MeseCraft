@@ -2,7 +2,7 @@ Sara's Simple Survival Game
 ==========================
 Copyright (C) 2019-2020 FreeGamers.org
 Thank you to everyone who has contributed to this project, mods, and the FreeGamers community.
-Special thanks to the Minetest community and developers as well. This game was built using the Minetest game engine and upon minetest_game as a foundation.
+Special thanks to the Minetest community as well. This game was built using the Minetest game engine and upon minetest_game and the mods of many others as a foundation.
 
 Description
 -------------------------
