@@ -14,9 +14,6 @@ christmas_holiday_pack.save_bell_positions = function( player )
 
    local file, err = io.open( christmas_holiday_pack.bell_save_file, "wb");
    if (err ~= nil) then
-      if( player ) then
-         minetest.chat_send_player(player:get_player_name(), "Error: Could not save bell data");
-      end
       return
    end
    file:write( str );
@@ -40,7 +37,6 @@ christmas_holiday_pack.restore_bell_data = function()
    local bell_positions_table = minetest.deserialize( str );
    if( bell_positions_table and bell_positions_table.bell_data ) then
      bell_positions = bell_positions_table.bell_data;
-     print("[bell] Read positions of bells from savefile.");
    end
 end
    
@@ -49,7 +45,6 @@ end
 christmas_holiday_pack.ring_bell_once = function()
 
    for i,v in ipairs( bell_positions ) do
--- print("Ringing bell at "..tostring( minetest.pos_to_string( v )));
       minetest.sound_play( "bell_small",
         { pos = v, gain = 1.5, max_hear_distance = 300,});
    end
@@ -64,11 +59,6 @@ christmas_holiday_pack.ring_bell = function()
    local minute  = tonumber( os.date( "%M"));
    local stunde  = tonumber( os.date( "%I")); -- in 12h-format (a bell that rings 24x at once would not survive long...)
    local delay   = christmas_holiday_pack.bell_ring_interval;
- 
-   --print("[bells]It is now H:"..tostring( stunde ).." M:"..tostring(minute).." S:"..tostring( sekunde ));
-
-   --local datum = os.date( "Stunde:%l Minute:%M Sekunde:%S");
-   --print('[bells] ringing bells at '..tostring( datum ))
 
    delay = christmas_holiday_pack.bell_ring_interval - sekunde - (minute*60);
 
@@ -77,11 +67,6 @@ christmas_holiday_pack.ring_bell = function()
 
    -- if no bells are around then don't ring
    if( bell_positions == nil or #bell_positions < 1 ) then
-      return;
-   end
-
-   if( sekunde > 10 ) then
---      print("[bells] Too late. Waiting for "..tostring( delay ).." seconds.");
       return;
    end
 
@@ -114,19 +99,12 @@ minetest.register_node("christmas_holiday_pack:christmas_bell", {
 	end,
 
     after_place_node = function(pos, placer)
-       if( placer ~= nil ) then
-          minetest.chat_send_all(placer:get_player_name().." has placed a new bell at "..tostring( minetest.pos_to_string( pos )));
-       end
        -- remember that there is a bell at that position
        table.insert( bell_positions, pos );
        christmas_holiday_pack.save_bell_positions( placer );
     end,
 
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
-       if( digger ~= nil ) then
-          minetest.chat_send_all(digger:get_player_name().." has removed the bell at "..tostring( minetest.pos_to_string( pos )));
-       end
-
        local found = 0;
        -- actually remove the bell from the list
        for i,v in ipairs( bell_positions ) do
@@ -140,8 +118,5 @@ minetest.register_node("christmas_holiday_pack:christmas_bell", {
           christmas_holiday_pack.save_bell_positions( digger );
        end
     end,
- 
     groups = {cracky=2},
 })
-
-

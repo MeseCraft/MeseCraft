@@ -228,7 +228,7 @@ crops.particles = function(pos, flag)
 			minsize = 1,
 			maxsize = 1,
 			collisiondetection = false,
-			texture = "crops_flies.png",
+			texture = "flies.png",
 			vertical = true,
 		})
 		minetest.add_particlespawner({
@@ -245,7 +245,7 @@ crops.particles = function(pos, flag)
 			minsize = 1,
 			maxsize = 1,
 			collisiondetection = false,
-			texture = "crops_flies.png",
+			texture = "flies.png",
 			vertical = true,
 		})
 		minetest.add_particlespawner({
@@ -262,7 +262,7 @@ crops.particles = function(pos, flag)
 			minsize = 1,
 			maxsize = 1,
 			collisiondetection = false,
-			texture = "crops_flies.png",
+			texture = "flies.png",
 			vertical = true,
 		})
 		minetest.add_particlespawner({
@@ -279,7 +279,7 @@ crops.particles = function(pos, flag)
 			minsize = 1,
 			maxsize = 1,
 			collisiondetection = false,
-			texture = "crops_flies.png",
+			texture = "flies.png",
 			vertical = true,
 		})
 	end
@@ -290,7 +290,7 @@ crops.die = function(pos)
 	local node = minetest.get_node(pos)
 	local plant = find_plant(node)
 	plant.properties.die(pos)
-	minetest.sound_play("crops_flies", {pos=pos, gain=0.8})
+	minetest.sound_play("flies", {pos=pos, gain=0.8})
 end
 
 if crops.settings.hydration then

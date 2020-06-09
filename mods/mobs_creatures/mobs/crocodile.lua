@@ -30,7 +30,7 @@ mobs:register_mob("mobs_creatures:crocodile", {
 	type = "monster",
 	hp_min = 50,
 	hp_max = 50,
-	armor = 85,
+	armor = 100,
 	passive = false,
 	walk_velocity = 1.0,
 	run_velocity = 2.75,

@@ -7,7 +7,7 @@ local PRECTHR = 0.35 -- Precipitation noise threshold, -1 to 1:
 					-- -1 = precipitation all the time
 					-- 0 = precipitation half the time
 					-- 1 = no precipitation
-local DROPLPOS = 1024 -- Raindrop light-tested positions per cycle
+local DROPLPOS = 512 -- Raindrop light-tested positions per cycle
 					-- Maximum number of raindrops spawned per 0.5s
 local RAINGAIN = 1.0 -- Rain sound volume
 local NISVAL = 8 -- Overcast sky RGB value at night (brightness)
