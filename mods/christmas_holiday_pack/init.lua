@@ -25,11 +25,6 @@ if minetest.get_modpath("farming") then
         dofile(path .. "/crops.lua")
 end
 
--- If the "lootchests" mod is present, the Christmas submodule "lootchests" is loaded.
-if minetest.get_modpath("lootchests") then
-	dofile(path .. "/lootchests_item_tables.lua")
-	dofile(path .. "/lootchests.lua")
-end
 
 -- If the mobs_npc mod is present (assumes mobs_redo is installed) we run mobs.
 if minetest.get_modpath("mobs_npc") then
