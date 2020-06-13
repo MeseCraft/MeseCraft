@@ -2,7 +2,7 @@
 local INTERVAL = 5
 
 -- Minimum distance to move to register as not AFK (in blocks).
-local MINDIST = 0.2
+local MINDIST = 0.4
 
 -- If player does not move within this time, 'sit' player (in seconds) and label them as afk.
 local TIMEOUT = 300 -- 300 = 5 minutes
@@ -12,9 +12,9 @@ local last_pos = {} -- a table of position vectors that are indexed by plname
 local chat_afk = {} -- a table of booleans indexed by plname that indicate if players are afk, used to indicate if we have placed a chat message that indicates them as afk
 local chat_noafk = {} -- a table of booleans indexed by plname that indicate if players are not afk
 local beds_path = minetest.get_modpath("beds")
+local attached_before_afk = {}
 -- Function to check if the player is afk.
 local function check_moved()
-
 	for _, p in ipairs(minetest.get_connected_players()) do
 		local plname = p:get_player_name()
 		local in_bed = false
@@ -23,10 +23,12 @@ local function check_moved()
 				in_bed = true
 			end
 		end
+
 		local pos = p:getpos()
 		local sit = false -- for now, assume that they are not afk. Well change that if we need to later on in this function
 		-- (below) if the player is not registered on the afk and no afk list, add them with them not being afk
 		if chat_noafk[plname] == nil then
+			attached_before_afk[plname] = default.player_attached[plname]
 			chat_afk[plname] = false
 			chat_noafk[plname] = true
 		end
@@ -41,10 +43,10 @@ local function check_moved()
 				--(below)and if the time not moved (time_afk at index plname) is more than the timeout time then sit them and post afk message to chat if we haven't already
 				if time_afk[plname] >= TIMEOUT then --if we've reached timeout on the afk time table or are beyond that timeout then
 
-					default.player_attached[plname] = true --??? I suppose let the server know that they are stuck
+
 
 					default.player_set_animation(p, "sit") -- make sure that the player is sitting
-					-- ^^^THIS COULD CAUSE A PROBLEM... what if they are already laying in bed and are afk? now they will be sitting in bed.
+					-- ^^^THIS COULD CAUSE A PROBLEM... what if they are already laying in bed and are afk? now they will be sitting in bed.-- fixed
 					sit = true --indicate that the player is sitting and that we have caused the sitting, for this iteration (used to keep player's animation as lay if they are dead)
 
 					chat_noafk[plname] = false --take them off the list of players that are not afk
@@ -52,8 +54,11 @@ local function check_moved()
 					if chat_afk[plname] == false then  -- so they ARE afk after the timeout, but if they are not on the list of players that we have given an afk chat message about, then give the chat message now, and then indicate that we have given an afk message about them, so that we don't do it again.
 						minetest.chat_send_all("*** "..plname.." is AFK.") -- changed the number of stars to differentiate it from user-generated messages
 						chat_afk[plname] = true
+						attached_before_afk[plname] = default.player_attached[plname] -- for first time afk, the attached state has not been messed with yet by this mod. Save its state now to know whether to unattach the player when they come back
+
 					end
 
+					default.player_attached[plname] = true --I switched this in its order to be after the test for first time afk, so we could determine the original attached state
 				end
 
 			else -- oh, wait, if they have moved more than the minumum distance, then reset their afk time
@@ -63,15 +68,7 @@ local function check_moved()
 
 		if not sit then --if we have not made them sit this iteration then
 
-
-
 			last_pos[plname] = pos --set their last postion indicator to their current position for next iteration so we can detect movement
-
-			if not(in_bed) then    --here was the bug where a player lying in bed was stood up. THIS MAY CAUSE MORE TROUBLE IN THE FUTURE Fixed this by checking to ensure that they are not in bed before setting this
-				default.player_attached[plname] = false --??? let the server know that they are not stuck anymore?
-			end
--- 			(below) moved to line 75, so that this animation is only set if they come back from afk, rather than every interval loop. This allows them to remain lying in bed if in bed already, instead of standing up
---			default.player_set_animation(p, "stand") -- make sure that they look like they are standing.
 
 
 
@@ -80,8 +77,11 @@ local function check_moved()
 			if chat_noafk[plname] == false then --if we didn't make them sit this iteration, its bc they are active. If their index on the not_afk list says that they ARE afk, then we haven't updated that info. SO,
 				minetest.chat_send_all("*** "..plname.." came back from AFK.") --let everyone know
 				chat_noafk[plname] = true --and update their status
-				default.player_set_animation(p, "stand") -- and make them stand up. I moved this from where it was setting the stand animation every check, to where it sets it only when coming back from afk
+				if not(attached_before_afk[plname]) then -- only change animation and attached state to false IF they were not attached before they went afk. Let other mods handle setting them to not attached if they caused it
+					default.player_attached[plname] = false -- let the server know that they are not attached anymore - the server will stand them up.
 
+					default.player_set_animation(p, "stand") -- and make them stand up. I moved this from where it was setting the stand animation every check, to where it sets it only when coming back from afk
+				end
 			end
 		end
 	-- If players are dead and AFK or if they are in bed, keep their model in the lay position, not sit. Spawn particles
@@ -89,78 +89,81 @@ local function check_moved()
 			default.player_set_animation(p, "lay")
 
 			if p:get_hp() == 0 then
-			--spawn fly particles here if they are afk and dead
-			minetest.add_particlespawner({
-				amount = 20,
-				time = 30,
-				minpos = { x = pos.x + 0.3, y = pos.y - 0.5, z = pos.z - 0.5 },
-				maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
-				minvel = { x = -0.6, y = -0.1, z = -0.2 },
-				maxvel = { x = -0.4, y = 0.1, z = 0.2 },
-				minacc = { x = 0.4, y = 0, z = -0.1 },
-				maxacc = { x = 0.5, y = 0, z = 0.1 },
-				minexptime = 2,
-				maxexptime = 4,
-				minsize = 1,
-				maxsize = 1,
-				collisiondetection = false,
-				texture = "flies.png",
-				vertical = true,
-			})
-			minetest.add_particlespawner({
-				amount = 20,
-				time = 30,
-				minpos = { x = pos.x - 0.3, y = pos.y - 0.5, z = pos.z - 0.5 },
-				maxpos = { x = pos.x - 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
-				minvel = { x = 0.6, y = -0.1, z = -0.2 },
-				maxvel = { x = 0.4, y = 0.1, z = 0.2 },
-				minacc = { x = -0.4, y = 0, z = -0.1 },
-				maxacc = { x = -0.5, y = 0, z = 0.1 },
-				minexptime = 2,
-				maxexptime = 4,
-				minsize = 1,
-				maxsize = 1,
-				collisiondetection = false,
-				texture = "flies.png",
-				vertical = true,
-			})
-			minetest.add_particlespawner({
-				amount = 20,
-				time = 30,
-				minpos = { x = pos.x - 0.5, y = pos.y - 0.5, z = pos.z + 0.3 },
-				maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
-				minvel = { z = -0.6, y = -0.1, x = -0.2 },
-				maxvel = { z = -0.4, y = 0.1, x = 0.2 },
-				minacc = { z = 0.4, y = 0, x = -0.1 },
-				maxacc = { z = 0.5, y = 0, x = 0.1 },
-				minexptime = 2,
-				maxexptime = 4,
-				minsize = 1,
-				maxsize = 1,
-				collisiondetection = false,
-				texture = "flies.png",
-				vertical = true,
-			})
-			minetest.add_particlespawner({
-				amount = 20,
-				time = 30,
-				minpos = { x = pos.x - 0.5, y = pos.y - 0.5, z = pos.z - 0.3 },
-				maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z - 0.5 },
-				minvel = { z = 0.6, y = -0.1, x = -0.2 },
-				maxvel = { z = 0.4, y = 0.1, x = 0.2 },
-				minacc = { z = -0.4, y = 0, x = -0.1 },
-				maxacc = { z = -0.5, y = 0, x = 0.1 },
-				minexptime = 2,
-				maxexptime = 4,
-				minsize = 1,
-				maxsize = 1,
-				collisiondetection = false,
-				texture = "flies.png",
-				vertical = true,
-			})
+
+				--spawn fly particles here if they are afk and dead
+				minetest.add_particlespawner({
+					amount = 20,
+					time = 30,
+					minpos = { x = pos.x + 0.3, y = pos.y - 0.5, z = pos.z - 0.5 },
+					maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
+					minvel = { x = -0.6, y = -0.1, z = -0.2 },
+					maxvel = { x = -0.4, y = 0.1, z = 0.2 },
+					minacc = { x = 0.4, y = 0, z = -0.1 },
+					maxacc = { x = 0.5, y = 0, z = 0.1 },
+					minexptime = 2,
+					maxexptime = 4,
+					minsize = 1,
+					maxsize = 1,
+					collisiondetection = false,
+					texture = "flies.png",
+					vertical = true,
+				})
+				minetest.add_particlespawner({
+					amount = 20,
+					time = 30,
+					minpos = { x = pos.x - 0.3, y = pos.y - 0.5, z = pos.z - 0.5 },
+					maxpos = { x = pos.x - 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
+					minvel = { x = 0.6, y = -0.1, z = -0.2 },
+					maxvel = { x = 0.4, y = 0.1, z = 0.2 },
+					minacc = { x = -0.4, y = 0, z = -0.1 },
+					maxacc = { x = -0.5, y = 0, z = 0.1 },
+					minexptime = 2,
+					maxexptime = 4,
+					minsize = 1,
+					maxsize = 1,
+					collisiondetection = false,
+					texture = "flies.png",
+					vertical = true,
+				})
+				minetest.add_particlespawner({
+					amount = 20,
+					time = 30,
+					minpos = { x = pos.x - 0.5, y = pos.y - 0.5, z = pos.z + 0.3 },
+					maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z + 0.5 },
+					minvel = { z = -0.6, y = -0.1, x = -0.2 },
+					maxvel = { z = -0.4, y = 0.1, x = 0.2 },
+					minacc = { z = 0.4, y = 0, x = -0.1 },
+					maxacc = { z = 0.5, y = 0, x = 0.1 },
+					minexptime = 2,
+					maxexptime = 4,
+					minsize = 1,
+					maxsize = 1,
+					collisiondetection = false,
+					texture = "flies.png",
+					vertical = true,
+				})
+				minetest.add_particlespawner({
+					amount = 20,
+					time = 30,
+					minpos = { x = pos.x - 0.5, y = pos.y - 0.5, z = pos.z - 0.3 },
+					maxpos = { x = pos.x + 0.5, y = pos.y + 0.5, z = pos.z - 0.5 },
+					minvel = { z = 0.6, y = -0.1, x = -0.2 },
+					maxvel = { z = 0.4, y = 0.1, x = 0.2 },
+					minacc = { z = -0.4, y = 0, x = -0.1 },
+					maxacc = { z = -0.5, y = 0, x = 0.1 },
+					minexptime = 2,
+					maxexptime = 4,
+					minsize = 1,
+					maxsize = 1,
+					collisiondetection = false,
+					texture = "flies.png",
+					vertical = true,
+				})
+
+
 			end
 		end
-		if sit and not(p:get_hp() == 0) then-- if they are afk and not dead  then
+		if (sit and not(p:get_hp() == 0)) or (in_bed and (not(p:get_hp() == 0))) then-- if they are afk and not dead  then
 			-- spawn zzz particles here
 		 	local bed_offset = 0
 			if in_bed then
@@ -179,7 +182,7 @@ local function check_moved()
 				maxexptime = INTERVAL,
 				minsize = 1,
 				maxsize = 5,
-				collisiondetection = false,
+				collisiondetection = true,
 				vertical = false,
 				texture = "afk_z_anim.png",
 				animation = {
@@ -209,4 +212,5 @@ minetest.register_on_leaveplayer(function(player) -- clean things up
 	last_pos[plname] = nil
 	chat_afk[plname] = nil
 	chat_noafk[plname] = nil
+	attached_before_afk[plname] = nil
 end)
