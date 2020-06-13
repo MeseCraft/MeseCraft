@@ -61,6 +61,12 @@
 			if self.nametag == "Trader Rudolph" then
 				self.textures = "reindeer_rudolph.png"
 			end
+			-- Remove mobs when its not Christmastime.
+                        local remove_date = os.date("*t")
+                        if not (remove_date.month == 12 and remove_date.day >= 1) or (remove_date.month == 12 and remove_date.day <= 31) then
+                                        self.object:remove()
+                                        minetest.chat_send_all("Santa's Reindeer have returned to the North Pole until next Christmas.");
+                        end
 		end,
                     on_die = function(self, pos) -- on die, spawn particles.
 	                minetest.add_particlespawner({

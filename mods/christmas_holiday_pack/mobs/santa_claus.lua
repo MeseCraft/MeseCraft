@@ -61,7 +61,7 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 	                })
 	                return true -- return true so on_spawn is run once only
 	        end,
-		    on_die = function(self, pos) -- on die, spawn particles.
+		on_die = function(self, pos) -- on die, spawn particles.
 			        minetest.add_particlespawner({
 			            amount = 100,
 			            time = 0.1,
@@ -80,6 +80,14 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 			        })
 			        self.object:remove()
 	    	end,
+		-- Mob will remove itself if its not Christmas time. 
+	        do_custom = function(self)
+			local remove_date = os.date("*t")
+			if not (remove_date.month == 12 and remove_date.day >= 1) or (remove_date.month == 12 and remove_date.day <= 31) then
+	                                self.object:remove()
+				        minetest.chat_send_all("Santa Claus has returned to the North Pole until next Christmas.");
+	                end
+	        end,
 })
 
 -- Register Santa's Trading Table
