@@ -1,6 +1,6 @@
 saras_simple_survival mod: void_chest
 =====================================
-Copyright (2020) freegamers.org
+Copyright 2020 freegamers.org
 
 
 Description

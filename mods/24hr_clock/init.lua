@@ -1,5 +1,6 @@
 -- 24hr_clock
 -- By David_G (kestral246@gmail.com)
+-- FreeGamers.org --> Renamed to clock for theming purposes.
 
 local activewidth=8  -- Number of inventory slots to check.
 
