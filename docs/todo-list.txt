@@ -12,27 +12,27 @@ fridges aren't protected.
 ################################## HIGHER PRIORITY ##################################
 change blueberry respawn rate
 Add more toolranks levels
-Make ovens comppatible with other food items.
+Make ovens compatible with other food items.
 After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
+Add weeds to crops (use nettles and ABM)
 Split mobs_creatures and create dfcaverns_mobs to be shared with FaceDeer's dfcaverns modpack.
 fire-imps do not fly in lava, they do not float.
 unknown items in lootchests underground.
 shift+click doesnt work on lootchests
-Clothes mod but add more variations and integrate with base skins and preview system.
-
+Armor: add cosmetic slots vs actual slots to use with costumes and skins.
+"3d_armor" on death, armor peices have a chance of being completely destroyed.
 
 ################################## LOWER PRIORITY ##################################
-re-add leaves in the wind from piezo's repo.
 add steel sound to ingot piles when walking on it.
 why is there a steel bar *and* and steel rod?
 Change the "settlements" bell to be 2d of good quality.
-"3d_armor" on death, armor peices have a chance of being completely destroyed.
 converge papyrus stuff into a single papyrus stuff mod.
-"drinks" mod makes eating noise instead of sipping noise. (share sounds with "hbthirsty"?).
+"drinks" mod makes eating noise instead of sipping noise. (share sounds with "thirsty"?).
 lightning flash can happen in space, lower effect to just earth height.
 Laxative to make player poop (like in pooper mod)
 drawer upgrades
 burnable: chairs, benches, tables, chests, apple wood planks, etc..
+add doors with mesecons support to ts_furniture? (ethereal)
 
 
 ################################## IDEAS ##################################

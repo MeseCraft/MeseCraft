@@ -1,10 +1,13 @@
 How to host a dedicated server.
-server hardware
-domain name or dynamic dns
+
+hardware: dual core or greater. pi possible without dfcaverns and maybe without mobs.
+
+network: domain name or dynamic dns service
 port forwards and firewalls
 operating system.
 how to install
-administration fundamentals
+daemonize
 
+administration fundamentals
 
 How to host a listen (local LAN) server.
