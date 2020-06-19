@@ -1,5 +1,3 @@
-local S = minetest.get_translator("tsm_pyramids")
-
 -- Pyramid width (must be an odd number)
 local PYRA_W = 23
 -- Pyramid width minus 1
@@ -9,11 +7,9 @@ local PYRA_Wh = PYRA_Wm / 2
 -- Minimum spawn height
 local PYRA_MIN_Y = 3
 
-tsm_pyramids = {}
+pyramids = {}
 
-dofile(minetest.get_modpath("tsm_pyramids").."/mummy.lua")
-dofile(minetest.get_modpath("tsm_pyramids").."/nodes.lua")
-dofile(minetest.get_modpath("tsm_pyramids").."/room.lua")
+dofile(minetest.get_modpath("pyramids").."/room.lua")
 
 local mg_name = minetest.get_mapgen_setting("mg_name")
 
@@ -65,7 +61,7 @@ else
 	table.insert(chest_stuff.normal, {name="farming:apple", max = 3})
 end
 
-function tsm_pyramids.fill_chest(pos, stype, flood_sand, treasure_chance)
+function pyramids.fill_chest(pos, stype, flood_sand, treasure_chance)
 	local sand = "default:sand"
 	if not treasure_chance then
 		treasure_chance = 100
@@ -107,15 +103,6 @@ function tsm_pyramids.fill_chest(pos, stype, flood_sand, treasure_chance)
 		end
 	end
 	return treasure_added
-end
-
-local function add_spawner(pos, mummy_offset)
-	minetest.set_node(pos, {name="tsm_pyramids:spawner_mummy"})
-	if not minetest.settings:get_bool("only_peaceful_mobs") then
-		for i=1,2 do
-			tsm_pyramids.attempt_mummy_spawn(pos, false)
-		end
-	end
 end
 
 local function can_replace(pos)
@@ -213,27 +200,12 @@ local function make(pos, brick, sandstone, stone, sand, ptype, room_id)
 
 	local rot = math.random(0, 3)
 	-- Build room
-	local ok, msg, flood_sand = tsm_pyramids.make_room(bpos, ptype, room_id, rot)
-	-- Place mummy spawner
-	local r = math.random(1,3)
-	-- 4 possible spawner positions
-	local spawner_posses = {
-		-- front
-		{{x=bpos.x+PYRA_Wh,y=bpos.y+2, z=bpos.z+5}, {x=0, y=0, z=2}},
-		-- left
-		{{x=bpos.x+PYRA_Wm-5,y=bpos.y+2, z=bpos.z+PYRA_Wh}, {x=-2, y=0, z=0}},
-		-- back
-		{{x=bpos.x+PYRA_Wh,y=bpos.y+2, z=bpos.z+PYRA_W-5}, {x=0, y=0, z=-2}},
-		-- right
-		{{x=bpos.x+5,y=bpos.y+2, z=bpos.z+PYRA_Wh}, {x=2, y=0, z=0}},
-	}
-	-- Delete the spawner position in which the entrance will be placed
-	table.remove(spawner_posses, (rot % 4) + 1)
-	add_spawner(spawner_posses[r][1], spawner_posses[r][2])
+	local ok, msg, flood_sand = pyramids.make_room(bpos, ptype, room_id, rot)
+
 	-- Build entrance
 	make_entrance(bpos, rot, brick, sand, flood_sand)
 	-- Done
-	minetest.log("action", "[tsm_pyramids] Created pyramid at "..minetest.pos_to_string(bpos)..".")
+	minetest.log("action", "[pyramids] Created pyramid at "..minetest.pos_to_string(bpos)..".")
 	return ok, msg
 end
 
@@ -335,14 +307,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	if noise1 > 0.25 or noise1 < -0.26 then
 		-- Need a bit of luck to place a pyramid
 		if math.random(0,10) > 7 then
-			minetest.log("verbose", "[tsm_pyramids] Pyramid not placed, bad dice roll. minp="..minetest.pos_to_string(minp))
+			minetest.log("verbose", "[pyramids] Pyramid not placed, bad dice roll. minp="..minetest.pos_to_string(minp))
 			return
 		end
 		local sand, p2
 		sand, p2 = select_pyramid_type(minp, maxp)
 
 		if p2 == nil then
-			minetest.log("verbose", "[tsm_pyramids] Pyramid not placed, no suitable surface. minp="..minetest.pos_to_string(minp))
+			minetest.log("verbose", "[pyramids] Pyramid not placed, no suitable surface. minp="..minetest.pos_to_string(minp))
 			return
 		end
 		-- Select the material type by the most prominent node type
@@ -351,7 +323,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			sand = sands[sand_cnt_max_id]
 		end
 		if p2.y < PYRA_MIN_Y then
-			minetest.log("info", "[tsm_pyramids] Pyramid not placed, too deep. p2="..minetest.pos_to_string(p2))
+			minetest.log("info", "[pyramids] Pyramid not placed, too deep. p2="..minetest.pos_to_string(p2))
 			return
 		end
 		-- Now sink the pyramid until each corner of it is no longer floating in mid-air
@@ -375,7 +347,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 		-- Bad luck, we have hit the chunk border!
 		if p2.y < minp.y then
-			minetest.log("info", "[tsm_pyramids] Pyramid not placed, sunken too much. p2="..minetest.pos_to_string(p2))
+			minetest.log("info", "[pyramids] Pyramid not placed, sunken too much. p2="..minetest.pos_to_string(p2))
 			return
 		end
 
@@ -389,7 +361,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				minetest.find_node_near(middle, PYRA_W, {"default:dirt_with_grass"}) ~= nil or
 				minetest.find_node_near(middle, 52, {"default:sandstonebrick", "default:desert_sandstone_brick", "default:desert_stonebrick"}) ~= nil or
 				minetest.find_node_near(middle, PYRA_Wh + 3, {"default:cactus", "group:leaves", "group:tree"}) ~= nil then
-			minetest.log("info", "[tsm_pyramids] Pyramid not placed, inappropriate node nearby. p2="..minetest.pos_to_string(p2))
+			minetest.log("info", "[pyramids] Pyramid not placed, inappropriate node nearby. p2="..minetest.pos_to_string(p2))
 			return
 		end
 
@@ -421,13 +393,13 @@ minetest.register_on_generated(function(minp, maxp, seed)
 end)
 
 minetest.register_chatcommand("spawnpyramid", {
-	description = S("Generate a pyramid"),
-		params = S("[<room_type>]"),
+	description = "Generate a pyramid",
+		params = "[<room_type>]",
 		privs = { server = true },
 		func = function(name, param)
 			local player = minetest.get_player_by_name(name)
 			if not player then
-				return false, S("No player.")
+				return false, "No player."
 			end
 			local pos = player:get_pos()
 			pos = vector.round(pos)
@@ -450,7 +422,7 @@ minetest.register_chatcommand("spawnpyramid", {
 				ok, msg = make(pos, "default:desert_stonebrick", "default:desert_stone_block", "default:desert_stone", "ignore", "desert_stone", room_id)
 			end
 			if ok then
-				return true, S("Pyramid generated at @1.", minetest.pos_to_string(pos))
+				return true, "Pyramid generated at @1.", minetest.pos_to_string(pos)
 			else
 				return false, msg
 			end

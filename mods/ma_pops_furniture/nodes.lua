@@ -511,41 +511,7 @@ minetest.register_node("ma_pops_furniture:chair2_"..color, {
 })
 end
 
-local rbt = {name="mp_wool_coloured_rainbow.png", animation={type='vertical_frames', aspect_w=16, aspect_h=16, length=10}}
-
-local rbt_cb = {name="mp_wool_coloured_rainbow.png^mp_r_cb.png", animation={type='vertical_frames', aspect_w=16, aspect_h=16, length=10}}
-
-local rbt_cf = {name="mp_wool_coloured_rainbow.png^mp_r_cf.png", animation={type='vertical_frames', aspect_w=16, aspect_h=16, length=10}}
-
-minetest.register_node("ma_pops_furniture:chair2_rainbow", {
-    description = "Rainbow Chair",
-    tiles = {rbt, rbt_cb, rbt_cf, rbt_cf, rbt_cf, rbt_cf},
-    drawtype = "nodebox",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, furniture = 1, fall_damage_add_percent=-80, bouncy=80},
-	sounds = {wood = {name="furn_bouncy", gain=0.8}},
-    on_rightclick = function(pos, node, clicker)
-        ma_pops_furniture.sit(pos, node, clicker)
-        end,
-    node_box = {
-        type = "fixed",
-        fixed = {
-            {-0.4, -0.5, -0.4, -0.3, -0.4, -0.3},
-            {-0.4, -0.5, 0.4, -0.3, -0.4, 0.3},
-            {0.4, -0.5, 0.4, 0.3, -0.4, 0.3},
-            {0.4, -0.5, -0.4, 0.3, -0.4, -0.3},
-            -----------------------------------
-            {-0.450, -0.4, -0.450, 0.450, 0.1, 0.450},
-            {-0.5, 0.1, -0.5, -0.3, 0.3, 0.0},
-            {0.5, 0.1, -0.5, 0.3, 0.3, 0.0},
-            {0.450, 0.1, -0.0, -0.450, 0.5, 0.450},
-        },
-    }
-})
-
 --Outside--
-
 minetest.register_node('ma_pops_furniture:birdbath', {
 	description = 'Birdbath',
 	drawtype = 'mesh',

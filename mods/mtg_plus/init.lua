@@ -8,6 +8,3 @@ dofile(path.."/brickblocks.lua") -- Bricks and blocks
 -- Non-trivial blocks (definition require API)
 dofile(path.."/xpanes.lua") -- Panes (xpanes mod)
 dofile(path.."/ladders.lua") -- Ladders
-
--- Support for other mods
-dofile(path.."/awards.lua") -- Achievements for the awards mod

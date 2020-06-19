@@ -1,4 +1,4 @@
-local S = minetest.get_translator("tsm_pyramids")
+local S = minetest.get_translator("pyramids")
 
 -- ROOM LAYOUTS
 
@@ -805,15 +805,15 @@ local code_sandstone = {
 	["n"] = "default:desert_sandstone",
 	["h"] = "default:sandstone",
 	["S"] = "default:sandstonebrick",
-	["1"] = "tsm_pyramids:deco_stone1",
-	["2"] = "tsm_pyramids:deco_stone2",
-	["3"] = "tsm_pyramids:deco_stone3",
+	["1"] = "default:sandstone",
+	["2"] = "default:sandstone",
+	["3"] = "default:sandstone",
 	["^"] = "default:chest",
 	["<"] = "default:chest",
 	[">"] = "default:chest",
 	["v"] = "default:chest",
 	["~"] = "default:lava_source",
-	["t"] = "tsm_pyramids:trap",
+	["t"] = "default:sandstone",
 	["C"] = "default:large_cactus_seedling",
 	["a"] = "default:sand",
 }
@@ -822,11 +822,11 @@ code_desert_sandstone["c"] = "default:desert_sandstone"
 code_desert_sandstone["s"] = "default:desert_sandstone"
 code_desert_sandstone["n"] = "default:sandstone"
 code_desert_sandstone["h"] = "default:desert_sandstone"
-code_desert_sandstone["1"] = "tsm_pyramids:deco_stone4"
-code_desert_sandstone["2"] = "tsm_pyramids:deco_stone5"
-code_desert_sandstone["3"] = "tsm_pyramids:deco_stone6"
+code_desert_sandstone["1"] = "default:desert_sandstone"
+code_desert_sandstone["2"] = "default:desert_sandstone"
+code_desert_sandstone["3"] = "default:desert_sandstone"
 code_desert_sandstone["S"] = "default:desert_sandstone_brick"
-code_desert_sandstone["t"] = "tsm_pyramids:desert_trap"
+code_desert_sandstone["t"] = "default:desert_sandstone"
 code_desert_sandstone["a"] = "default:desert_sand"
 
 local code_desert_stone = table.copy(code_sandstone)
@@ -923,7 +923,7 @@ end
 -- stype: Sand type ("sandstone" or "desert")
 -- room_id: Room layout identified (see list of rooms above)
 -- rotations: Number of times to rotate the room (0-3)
-function tsm_pyramids.make_room(pos, stype, room_id, rotations)
+function pyramids.make_room(pos, stype, room_id, rotations)
 	local code_table = code_sandstone
 	if stype == "desert_sandstone" then
 		code_table = code_desert_sandstone
@@ -1060,7 +1060,7 @@ function tsm_pyramids.make_room(pos, stype, room_id, rotations)
 		local chests_with_treasure = 0
 		while filled < 8 do
 			for c=1, #chests do
-				local has_treasure = tsm_pyramids.fill_chest(chests[c], stype, sanded, 30)
+				local has_treasure = pyramids.fill_chest(chests[c], stype, sanded, 30)
 				if has_treasure then
 					chests_with_treasure = chests_with_treasure + 1
 				end
@@ -1069,14 +1069,14 @@ function tsm_pyramids.make_room(pos, stype, room_id, rotations)
 		end
 		-- If no chests were filled with treasure so far, fill a random chest guaranteed
 		if chests_with_treasure == 0 then
-			tsm_pyramids.fill_chest(chests[math.random(1, #chests)], stype, sanded, 100)
+			pyramids.fill_chest(chests[math.random(1, #chests)], stype, sanded, 100)
 		end
 	end
 	if room.traps and math.random(1,4) == 1 then
-		tsm_pyramids.make_traps(pos, stype, rotations, layout)
+		pyramids.make_traps(pos, stype, rotations, layout)
 	end
 	if sanded then
-		tsm_pyramids.flood_sand(pos, stype)
+		pyramids.flood_sand(pos, stype)
 	end
 	return true, nil, sanded
 end
@@ -1098,7 +1098,7 @@ local shuffle_traps = function(layout_traps, layout_room, chance)
 	end
 end
 
-function tsm_pyramids.make_traps(pos, stype, rotations, layout_room)
+function pyramids.make_traps(pos, stype, rotations, layout_room)
 	local code_table = code_sandstone
 	if stype == "desert_sandstone" then
 		code_table = code_desert_sandstone
@@ -1146,7 +1146,7 @@ function tsm_pyramids.make_traps(pos, stype, rotations, layout_room)
 	end
 end
 
-function tsm_pyramids.flood_sand(pos, stype)
+function pyramids.flood_sand(pos, stype)
 	local set_to_sand = {}
 	local nn = "default:sand"
 	if stype == "desert_sandstone" or stype == "desert_stone" then

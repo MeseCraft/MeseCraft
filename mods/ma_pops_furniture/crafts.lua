@@ -289,15 +289,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'ma_pops_furniture:chair2_rainbow',
-	recipe = {
-	{'wool:black', '', '', },
-	{'wool:blue', 'wool:yellow', 'wool:pink', },
-	{'default:acacia_tree', '', 'default:acacia_tree', },
-	}
-})
-
 --added craft
 minetest.register_craft({
 	output = 'ma_pops_furniture:birdbath',

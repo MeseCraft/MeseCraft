@@ -67,24 +67,13 @@ for m=1, #simple_ladders do
 	minetest.register_node("mtg_plus:ladder_"..ladder[1], {
 		description = ladder[3],
 		_doc_items_longdesc = longdesc,
-		drawtype = "nodebox",
-	        node_box = {
-	                type = "fixed",
-	                fixed = {
-        	                {-0.375, -0.5, 0.375, -0.25, 0.5, 0.5}, -- Upright1
-	                        {0.25, -0.5, 0.375, 0.375, 0.5, 0.5}, -- Upright2
-	                        {-0.4375, 0.3125, 0.4375, 0.4375, 0.4375, 0.5}, -- Rung_4
-	                        {-0.4375, -0.1875, 0.4375, 0.4375, -0.0625, 0.5}, -- Rung_2
-	                        {-0.4375, -0.4375, 0.4375, 0.4375, -0.3125, 0.5}, -- Rung_1
-	                        {-0.4375, 0.0625, 0.4375, 0.4375, 0.1875, 0.5}, -- Rung_3
-		                }
-		        },
-	        tiles = {"mtg_plus_ladder_"..ladder[1]..".png","mtg_plus_ladder_"..ladder[1]..".png","mtg_plus_ladder_"..ladder[1]..".png^[transformR270","mtg_plus_ladder_"..ladder[1]..".png^[transformR270","mtg_plus_ladder_"..ladder[1]..".png"},
---		tiles = {"mtg_plus_ladder_"..ladder[1]..".png"},
+		drawtype = "signlike",
+		tiles = {"mtg_plus_ladder_"..ladder[1]..".png"},
+		selection_box = { type = "wallmounted", },
 		inventory_image = "mtg_plus_ladder_"..ladder[1]..".png",
 		wield_image = "mtg_plus_ladder_"..ladder[1]..".png",
 		paramtype = "light",
-		paramtype2 = "facedir",
+		paramtype2 = "wallmounted",
 		sunlight_propagates = true,
 		walkable = false,
 		climbable = true,
