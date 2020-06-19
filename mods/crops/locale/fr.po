@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-30 08:37+0200\n"
+"PO-Revision-Date: 2017-04-30 08:48+0200\n"
+"Last-Translator: fat115 <fat115@framasoft.org>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
+
+#: cooking.lua
+msgid "Unbaked clay bowl"
+msgstr "Bol en argile crue"
+
+#: cooking.lua
+msgid "Clay bowl"
+msgstr "Bol en terre cuite"
+
+#: cooking.lua
+msgid "Bowl of vegetable stew"
+msgstr "Bol de soupe de légumes"
+
+#: cooking.lua
+msgid "Bowl of uncooked vegetable stew"
+msgstr "Bol de soupe de légumes non-cuite"
+
+#: corn.lua
+msgid "Corn"
+msgstr "Maïs"
+
+#: corn.lua
+msgid "Corn Cob"
+msgstr "Épi de maïs"
+
+#: corn.lua
+msgid "Corn on the Cob"
+msgstr "Épi de maïs grillé"
+
+#: corn.lua
+msgid "Corn plant"
+msgstr "Plant de Maïs"
+
+#: init.lua
+msgid "Defaulting to \"normal\" difficulty settings"
+msgstr "Réglage par défaut : \"normal\""
+
+#: init.lua
+msgid "Hydration and dehydration mechanics are enabled."
+msgstr "Les mécanismes d'hydratation et de déshydratation sont activés."
+
+#: init.lua
+msgid "Unable to find plant \"@1\" in crops table"
+msgstr "Impossible de trouver la plante \"@1\" dans le tableau crops"
+
+#: init.lua
+msgid "Loaded!"
+msgstr "Chargé !"
+
+#: melon.lua
+msgid "Melon seed"
+msgstr "Graine de Pastèque"
+
+#: melon.lua
+msgid "Melon plant"
+msgstr "Pied de Pastèque"
+
+#: melon.lua
+msgid "Melon slice"
+msgstr "Tranche de Pastèque"
+
+#: melon.lua
+msgid "Melon"
+msgstr "Pastèque"
+
+#: polebean.lua
+msgid "Green Bean"
+msgstr "Haricot vert"
+
+#: polebean.lua
+msgid "Beanpoles"
+msgstr "Tuteur pour haricots"
+
+#: polebean.lua
+msgid "Green bean seed"
+msgstr "Graine de haricot vert"
+
+#: polebean.lua
+msgid "Green Bean plant"
+msgstr "Plant de haricot vert"
+
+#: potato.lua
+msgid "Potato eyes"
+msgstr "Yeux de pomme de terre"
+
+#: potato.lua
+msgid "Potato plant"
+msgstr "Plant de pomme de terre"
+
+#: potato.lua
+msgid "Potato"
+msgstr "Pomme de terre"
+
+#: potato.lua
+msgid "Soil with potatoes"
+msgstr "Terre labourée avec pommes de terres"
+
+#: pumpkin.lua
+msgid "Pumpkin seed"
+msgstr "Graines de citrouille"
+
+#: pumpkin.lua
+msgid "Pumpkin plant"
+msgstr "Plant de citrouille"
+
+#: pumpkin.lua
+msgid "Roasted pumpkin"
+msgstr "Citrouille grillée"
+
+#: pumpkin.lua
+msgid "Pumpkin"
+msgstr "Citrouille"
+
+#: tomato.lua
+msgid "Tomato seed"
+msgstr "Graines de tomate"
+
+#: tomato.lua
+msgid "Tomato plant"
+msgstr "Pied de tomate"
+
+#: tomato.lua
+msgid "Tomato"
+msgstr "Tomate"
+
+#: tools.lua
+msgid "Watering Can"
+msgstr "Arrosoir"
+
+#: tools.lua
+msgid "Hydrometer"
+msgstr "Hydromètre"

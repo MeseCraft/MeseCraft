@@ -1,0 +1,151 @@
+# ITALIAN LOCALE FOR THE CROPS MODULE
+# Copyright (C) 2017 Auke Kok <sofar@foo-projects.org>
+# This file is distributed under the same license as the CROPS package.
+# Hamlet <h4mlet@riseup.net>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: crops module's Italian translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-20 17:17-0300\n"
+"PO-Revision-Date: 2017-08-17 22:03+0100\n"
+"Last-Translator: H4mlet <h4mlet@riseup.net>\n"
+"Language-Team: ITALIANO\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
+
+#: melon.lua
+msgid "Melon seed"
+msgstr "Seme di anguria"
+
+#: melon.lua
+msgid "Melon plant"
+msgstr "Pianta di anguria"
+
+#: melon.lua
+msgid "Melon slice"
+msgstr "Fetta di anguria"
+
+#: melon.lua
+msgid "Melon"
+msgstr "Anguria"
+
+#: tomato.lua
+msgid "Tomato seed"
+msgstr "Seme di pomodoro"
+
+#: tomato.lua
+msgid "Tomato plant"
+msgstr "Pianta di pomodoro"
+
+#: tomato.lua
+msgid "Tomato"
+msgstr "Pomodoro"
+
+#: polebean.lua
+msgid "Green Bean"
+msgstr "Fagiolo verde"
+
+#: polebean.lua
+msgid "Beanpoles"
+msgstr "Palo per fagioli"
+
+#: polebean.lua
+msgid "Green bean seed"
+msgstr "Seme di fagiolo verde"
+
+#: polebean.lua
+msgid "Green Bean plant"
+msgstr "Pianta di fagiolo verde"
+
+#: tools.lua
+msgid "Watering Can"
+msgstr "Innaffiatoio"
+
+#: tools.lua
+msgid "Hydrometer"
+msgstr "Idrometro"
+
+#: pumpkin.lua
+msgid "Pumpkin seed"
+msgstr "Seme di zucca"
+
+#: pumpkin.lua
+msgid "Pumpkin plant"
+msgstr "Pianta di zucca"
+
+#: pumpkin.lua
+msgid "Roasted pumpkin"
+msgstr "Zucca arrostita"
+
+#: pumpkin.lua
+msgid "Pumpkin"
+msgstr "Zucca"
+
+#: init.lua
+msgid "Defaulting to \"normal\" difficulty settings"
+msgstr "Utilizzo delle impostazioni di difficoltà \"normal\""
+
+#: init.lua
+msgid "Hydration and dehydration mechanics are enabled."
+msgstr "Le meccaniche di idratazione e disidratazione sono abilitate."
+
+#: init.lua
+msgid "Unable to find plant \"@1\" in crops table"
+msgstr "Impossibile trovare la pianta \"@1\" nella tabella delle messi"
+
+#: init.lua
+msgid "Loaded!"
+msgstr "Caricato!"
+
+#: potato.lua
+msgid "Potato eyes"
+msgstr "Germogli di patata"
+
+#: potato.lua
+msgid "Potato plant"
+msgstr "Pianta di patata"
+
+#: potato.lua
+msgid "Potato"
+msgstr "Patata"
+
+#: potato.lua
+msgid "Soil with potatoes"
+msgstr "Terreno con patate"
+
+#: cooking.lua
+msgid "Unbaked clay bowl"
+msgstr "Ciotola di argilla cruda"
+
+#: cooking.lua
+msgid "Clay bowl"
+msgstr "Ciotola di argilla"
+
+#: cooking.lua
+msgid "Bowl of vegetable stew"
+msgstr "Ciotola di stufato vegetale"
+
+#: cooking.lua
+msgid "Bowl of uncooked vegetable stew"
+msgstr "Ciotola di stufato vegetale crudo"
+
+#: corn.lua
+msgid "Corn"
+msgstr "Granoturco"
+
+#: corn.lua
+msgid "Corn Cob"
+msgstr "Pannocchia"
+
+#: corn.lua
+msgid "Corn on the Cob"
+msgstr "Pannocchia arrostita"
+
+#: corn.lua
+msgid "Corn plant"
+msgstr "Pianta di granoturco"

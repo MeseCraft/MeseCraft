@@ -1,0 +1,10 @@
+
+--
+-- crops_settings.txt
+--
+-- These are the default difficulty settings for the crops mod. You can uncomment
+-- the "easy" or "difficult" settings if you wish, or come up with your own values.
+--
+
+-- Valid values are "easy", "normal", and "difficult"
+crops.difficulty = "difficult"
