@@ -1,11 +1,5 @@
 local S = minetest.get_translator("mtg_plus")
 
-local deco, build
-if minetest.get_modpath("doc_items") then
-	deco = doc.sub.items.temp.deco
-	build = doc.sub.items.temp.build
-end
-
 local metal_sounds
 if default.node_sound_metal_defaults then
 	metal_sounds = default.node_sound_metal_defaults()
@@ -15,10 +9,8 @@ end
 
 
 -- Papyrus Block
-
 minetest.register_node("mtg_plus:papyrus_block", {
 	description = S("Papyrus Block"),
-	_doc_items_longdesc = build,
 	tiles = {"mtg_plus_papyrus_block_y.png","mtg_plus_papyrus_block_y.png","mtg_plus_papyrus_block_side2.png","mtg_plus_papyrus_block_side2.png","mtg_plus_papyrus_block_side.png","mtg_plus_papyrus_block_side.png"},
 	groups = {snappy = 2, choppy = 2, flammable = 3},
 	is_ground_content = false,

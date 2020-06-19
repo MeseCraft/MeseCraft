@@ -28,15 +28,6 @@ minetest.register_craft({
 --These recipes depend on Ethereal, but are more logical.
 
 minetest.register_craft({
-        output = 'decoblocks:bamboo_block',
-        recipe = {
-                {'ethereal:bamboo', 'ethereal:bamboo', 'ethereal:bamboo'},
-                {'ethereal:bamboo', '', 'ethereal:bamboo'},
-                {'ethereal:bamboo', 'ethereal:bamboo', 'ethereal:bamboo'},
-        }
-})
-
-minetest.register_craft({
         output = 'decoblocks:bamboo_fence',
         recipe = {
                 {'', '', ''},
