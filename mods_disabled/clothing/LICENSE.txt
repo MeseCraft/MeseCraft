@@ -1,9 +1,0 @@
-Clothing - Visible Player Clothing
-==================================
-
-Source Code: Stuart Jones - LGPL v2.1
-
-Wool Textures: Based on minetest_game wool - CC BY-SA 3.0
-
-Other Textures: Stuart Jones - CC-BY-SA 3.0
-
