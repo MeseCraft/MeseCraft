@@ -65,7 +65,6 @@
                         local date = os.date("*t")
                         if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
                                         self.object:remove()
-                                        minetest.chat_send_all("Santa's Reindeer have returned to the North Pole until next Christmas.");
                         end
 		end,
                     on_die = function(self, pos) -- on die, spawn particles.
