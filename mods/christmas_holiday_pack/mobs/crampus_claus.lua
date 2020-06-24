@@ -51,16 +51,16 @@ mobs:register_mob('christmas_holiday_pack:crampus_claus', {
                 punch_start = 200,
                 punch_end = 219,
         },
+        do_custom = function(self)
+                local date = os.date("*t")
+                if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                                self.object:remove()
+                end
+        end,
 })
 
 --Spawn Eggs
 mobs:register_egg("christmas_holiday_pack:crampus_claus", "Crampus Claus Spawn Egg", "wool_brown.png", 1)
 
-local date = os.date("*t")
-if (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
-	--Spawn Functions
-	mobs:spawn_specific("christmas_holiday_pack:crampus_claus", {"default:dirt_with_snow","default:snow","default:ice"}, {"air"}, 0, 7, 480, 1000, 2, -500 ,100)
-else
-        return
-end
-
+--Spawn Functions
+mobs:spawn_specific("christmas_holiday_pack:crampus_claus", {"default:dirt_with_snow","default:snow","default:ice"}, {"air"}, 0, 7, 480, 1000, 2, -500 ,100)

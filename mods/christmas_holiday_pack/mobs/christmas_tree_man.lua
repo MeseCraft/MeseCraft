@@ -82,17 +82,17 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
         })
         self.object:remove()
     end,
+	do_custom = function(self)
+                local date = os.date("*t")
+                if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                                self.object:remove()
+                end
+	end,
 })
 
 -- Register Spawn Egg
 mobs:register_egg("christmas_holiday_pack:christmas_tree_man", "Christmas Tree Man Spawn Egg", "default_pine_needles.png", 1)
 
-local date = os.date("*t")
-if (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
-	-- Spawning Parameters
-	mobs:spawn_specific("christmas_holiday_pack:christmas_tree_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
-else
-        return
-end
-
+-- Spawning Parameters
+mobs:spawn_specific("christmas_holiday_pack:christmas_tree_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
 

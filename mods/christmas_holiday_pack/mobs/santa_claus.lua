@@ -82,10 +82,9 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 	    	end,
 		-- Mob will remove itself if its not Christmas time. 
 	        do_custom = function(self)
-			local remove_date = os.date("*t")
-			if not (remove_date.month == 12 and remove_date.day >= 1) or (remove_date.month == 12 and remove_date.day <= 31) then
+			local date = os.date("*t")
+			if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
 	                                self.object:remove()
-				        minetest.chat_send_all("Santa Claus has returned to the North Pole until next Christmas.");
 	                end
 	        end,
 })
@@ -108,11 +107,5 @@ christmas_holiday_pack.santa = {
 -- Register Spawn Eggs
 mobs:register_egg("christmas_holiday_pack:santa_claus", "Santa Claus Spawn Egg", "wool_red.png", 1)
 
--- Register Holiday Season Check.
-local date = os.date("*t")
-if (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
-	-- Spawns on Solid blocks -- Santa's spawning parameters.
-	mobs:spawn_specific("christmas_holiday_pack:santa_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
-else
-        return
-end
+-- Spawns on Solid blocks -- Santa's spawning parameters. Autoremove (do_custom) if not christmas-time.
+mobs:spawn_specific("christmas_holiday_pack:santa_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)

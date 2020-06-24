@@ -51,17 +51,17 @@ mobs:register_mob('christmas_holiday_pack:zombie_elf', {
                 run_end = 187,
                 punch_start = 200,
                 punch_end = 219,
-        },
+	},
+        do_custom = function(self)
+                local date = os.date("*t")
+                if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                                self.object:remove()
+                end
+        end,
 })
 
 --Spawn Eggs
 mobs:register_egg("christmas_holiday_pack:zombie_elf", "Zombie Elf Spawn Egg", "wool_green.png", 1)
 
--- Register Holiday Season Check.
-local date = os.date("*t")
-if (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
-	--Spawn Functions
-	mobs:spawn_specific("christmas_holiday_pack:zombie_elf", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 120, 500, 3, 2, 200)
-else
-        return
-end
+--Spawn Functions
+mobs:spawn_specific("christmas_holiday_pack:zombie_elf", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 120, 500, 3, 2, 200)

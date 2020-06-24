@@ -79,16 +79,18 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
         })
         self.object:remove()
     end,
+        do_custom = function(self)
+                local date = os.date("*t")
+                if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                                self.object:remove()
+                end
+        end,
 })
+
 -- Register Spawn Egg
 mobs:register_egg("christmas_holiday_pack:gingerbread_man", "Gingerbread Man Spawn Egg", "christmas_holiday_pack_gingerbread_block.png", 1)
 
-local date = os.date("*t")
-if (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
-	-- Register Spawn Parameters
-	mobs:spawn_specific("christmas_holiday_pack:gingerbread_man", {"default:snowblock", "default:dirt_with_snow", "default:snow", "default:ice"}, {"air"}, 0, 7, 60, 5000, 2, -500, 100, false)
-else
-        return
-end
+-- Register Spawn Parameters
+mobs:spawn_specific("christmas_holiday_pack:gingerbread_man", {"default:snowblock", "default:dirt_with_snow", "default:snow", "default:ice"}, {"air"}, 0, 7, 60, 5000, 2, -500, 100, false)
 
 
