@@ -13,9 +13,7 @@ minetest.register_on_chat_message(function(name, message)
 		return true
 	end
 
-	--
-	local msg = message:lower()
-	-- 
+	-- Use gsub function to do something?
 	message = message:gsub("%s+", " ")
 	-- Format the message with color and send it to the chat.
 	minetest.chat_send_all("<" .. green .. name .. white .. "> " .. message)
