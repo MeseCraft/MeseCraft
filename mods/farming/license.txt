@@ -1,0 +1,144 @@
+The MIT License (MIT)
+
+Copyright (c) 2016 TenPlus1
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+License of media (textures):
+----------------------------
+Created by PilzAdam (License: CC BY 3.0):
+  farming_bread.png
+  farming_soil.png
+  farming_soil_wet.png
+  farming_soil_wet_side.png
+  farming_string.png
+
+Created by Napiophelios (CC BY-SA 3.0):
+  farming_cotton.png
+
+Created by Calinou (License: CC BY-SA):
+  farming_tool_bronzehoe.png
+  farming_tool_steelhoe.png
+  farming_tool_stonehoe.png
+  farming_tool_woodhoe.png
+  farming_tool_mesehoe.png
+  farming_tool_diamondhoe.png
+
+Created by VanessaE (License: CC BY 3.0):
+  farming_cotton_seed.png
+  farming_wheat_seed.png
+  farming_flour.png
+  farming_wheat.png
+  farming_wheat_1.png
+  farming_wheat_2.png
+  farming_wheat_3.png
+  farming_wheat_4.png
+  farming_wheat_5.png
+  farming_wheat_5.png
+  farming_wheat_7.png
+  farming_wheat_8.png
+  farming_cotton_1.png
+  farming_cotton_2.png
+  farming_cotton_3.png
+  farming_cotton_4.png
+  farming_cotton_5.png
+  farming_cotton_6.png
+  farming_cotton_7.png
+  farming_cotton_8.png
+
+Created by Doc (License: CC BY 3.0):
+  farming_cucumber.png
+  farming_cucumber_1.png
+  farming_cucumber_2.png
+  farming_cucumber_3.png
+  farming_cucumber_4.png
+  farming_potato.png
+  farming_potato_1.png
+  farming_potato_2.png
+  farming_potato_3.png
+  farming_potato_4.png
+  farming_raspberries.png
+  farming_raspberry_1.png
+  farming_raspberry_2.png
+  farming_raspberry_3.png
+  farming_raspberry_4.png
+
+Created by Gambit (License: CC BY 3.0):
+  default_junglegrass.png
+  farming_carrot.png
+  farming_carrot_1.png
+  farming_carrot_2.png
+  farming_carrot_3.png
+  farming_carrot_4.png
+  farming_carrot_5.png
+  farming_carrot_6.png
+  farming_carrot_7.png
+  farming_carrot_8.png
+
+Created by JoseTheCrafter and edited by TenPlus1 (CC BY 3.0):
+  farming_tomato.png
+  farming_tomato_1.png
+  farming_tomato_2.png
+  farming_tomato_3.png
+  farming_tomato_4.png
+  farming_tomato_5.png
+  farming_tomato_6.png
+  farming_tomato_7.png
+  farming_tomato_8.png
+
+Created by GeMinecraft and edited by TenPlus1 (CC BY 3.0):
+  farming_corn.png
+  farming_corn_cob.png
+  farming_corn_1.png
+  farming_corn_2.png
+  farming_corn_3.png
+  farming_corn_4.png
+  farming_corn_5.png
+  farming_corn_6.png
+  farming_corn_7.png
+  farming_corn_8.png
+
+Created by TenPlus1 (CC BY 3.0)
+  farming_cocoa_1.png
+  farming_cocoa_2.png
+  farming_cocoa_3.png
+  farming_cocoa_beans.png
+  farming_cookie.png
+  farming_raspberry_smoothie.png
+  farming_rhubarb_1.png
+  farming_rhubarb_2.png
+  farming_rhubarb_3.png
+  farming_rhubarb.png
+  farming_rhubarb_pie.png
+  farming_hemp*.png
+
+Created by ademant (CC-BY-3.0)
+  farming_rye*.png
+  farming_oat*.png
+  farming_rice*.png
+
+Created by PilzAdam and edited by SpaghettiToastBook (CC0):
+  farming_bread_multigrain.png
+
+Created by VanessaE and edited by SpaghettiToastBook (CC0):
+  farming_flour_multigrain.png
+
+Created by mDiyo (Natura), modified by TenPlus1 (License: CC BY-SA 3.0):
+  farming_barley.png
