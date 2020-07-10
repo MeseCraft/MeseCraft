@@ -10,6 +10,7 @@ fridges aren't protected.
 
 
 ################################## HIGHER PRIORITY ##################################
+add coins (plat, gold, silver, copper) as drops from mobs. NPCs can trade in these coins.
 change blueberry respawn rate
 Add more toolranks levels
 Make ovens compatible with other food items.
