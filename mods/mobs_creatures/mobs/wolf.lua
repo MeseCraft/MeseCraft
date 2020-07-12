@@ -242,7 +242,7 @@ mobs:register_mob("mobs_creatures:dog", {
 			teleport_check_interval = 2
 		end
 		if not dist then
-			dist = 12
+			dist = 8
 		end
 		if self._teleport_timer == nil then
 			self._teleport_timer = teleport_check_interval

@@ -12,7 +12,6 @@ fridges aren't protected.
 ################################## HIGHER PRIORITY ##################################
 add coins (plat, gold, silver, copper) as drops from mobs. NPCs can trade in these coins.
 change blueberry respawn rate
-Add more toolranks levels
 Make ovens compatible with other food items.
 After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
 Add weeds to crops (use nettles and ABM)
@@ -43,3 +42,6 @@ RPG Skills mechanics like McMMO?
 Terraria-like Pet spawners  (e.g. dog whistle)?
 Mining helmet, spawn wielded light above player when wearing.
 leather more uses for leather: armor, maybe canteen.
+
+UNSORTED
+-- Improve wolf/dog following code.

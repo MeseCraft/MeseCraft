@@ -1,5 +1,4 @@
 
-
 minetest.register_on_craft(function(itemstack, tool_capabilities, player,  old_craft_grid, craft_inv)
 	if itemstack:get_definition().tool_capabilities ~= nil then
 		itm_mt = itemstack:get_meta() 

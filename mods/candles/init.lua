@@ -650,27 +650,63 @@ end
 -----------------
 -- Chandelier
 -----------------
-minetest.register_node("candles:chandelier_bronze", {
-  description = "Bronze Chandelier",
-drawtype = "mesh",
- mesh = "candles_chandelier.obj",
-  tiles = {"candles_chandelier_bronze.png",
-    "candles_candle_bronze_bottom.png^[multiply:#DFDFDF"},
-  collision_box = {
-    type = "fixed",
-    fixed = {-3/8, -1/2, -3/8, 3/8, 1/2, 3/8}
-  },
-  selection_box = {
-    type = "fixed",
-    fixed = {-3/8, -1/2, -3/8, 3/8, 1/2, 3/8}
-  },
-  paramtype = "light",
-  light_source = 10,
-  groups = {cracky = 2, oddly_breakable_by_hand = 3},
-  sounds = default.node_sound_glass_defaults(),
+minetest.register_node("candles:gold_chandelier", {
+	description = "Gold Chandelier",
+	drawtype = "plantlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	tiles = {{
+		name = "candles_gold_chandelier_animated.png",
+		animation = {
+			type = "vertical_frames",
+			aspect_w = 16,
+			aspect_h = 16,
+			length = 2.5
+		}
+	}},
+	wield_image = "candles_gold_chandelier.png",
+	inventory_image = "candles_gold_chandelier.png",
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.375, -0.5, -0.375, 0.375, 0.5, 0.375}
+	},
+	walkable = false,
+	groups = {dig_immediate = 2},
+	light_source = 10,
+	groups = {cracky = 2, oddly_breakable_by_hand = 3},
+	sounds = default.node_sound_glass_defaults(),
 })
 
+minetest.register_node("candles:gold_chandelier_unlit", {
+	description = "Unlit Gold Chandelier",
+	drawtype = "plantlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	tiles = {"candles_gold_chandelier_unlit.png"},
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.375, -0.5, -0.375, 0.375, 0.5, 0.375}
+	},
+	walkable = false,
+	groups = {dig_immediate = 2}
+})
 
+minetest.register_craft({
+	output = "candles:gold_chandelier",
+	recipe = {
+		{"", "default:gold_ingot", ""},
+		{"default:torch", "default:gold_ingot", "default:torch"}
+	}
+})
+
+minetest.register_craft({
+	output = "candles:gold_chandelier_unlit",
+	recipe = {
+		{"candles:candle", "default:gold_ingot", "candles:candle"},
+		{"", "default:gold_ingot", ""},
+		{"candles:candle", "", "candles:candle"}
+	}
+})
 
 ------------------
 -- Craft Recipes
@@ -690,13 +726,3 @@ minetest.register_craft({
 		{"bees:wax", "farming:cotton", "bees:wax"},
 	}
 })
--- This one needs some work still so lets not make it craftable yet.
--- TODO: add candles.
---minetest.register_craft({
---  output = "candles:chandelier_bronze",
---  recipe = {
---    {"candles:candle", "default:bronze_ingot", "candles:candle"},
---    {"candles:candle", "default:bronze_ingot", "candles:candle"},
---    {"default:steel_ingot", "default:bronze_ingot", "default:steel_ingot"}
---  }
---})

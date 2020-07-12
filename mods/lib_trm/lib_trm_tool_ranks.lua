@@ -1,14 +1,13 @@
 local mod_storage = minetest.get_mod_storage()
 
-
+-- if toolranks mod is detected, don't use this module.
 if minetest.get_modpath("toolranks") then
 	return
 else
 	toolranks = {}
 end
 
---toolranks = {}
-
+-- color table with variables for quick reference.
 toolranks.colors = {
   grey = minetest.get_color_escape_sequence("#9d9d9d"),
   green = minetest.get_color_escape_sequence("#1eff00"),
@@ -16,6 +15,7 @@ toolranks.colors = {
   white = minetest.get_color_escape_sequence("#ffffff")
 }
 
+-- function to determine tool types.
 function toolranks.get_tool_type(description)
   if string.find(description, "Pickaxe") then
     return "pickaxe"
@@ -30,34 +30,29 @@ function toolranks.get_tool_type(description)
   end
 end
 
+-- function to create our description of the too (name, uses, and level)
 function toolranks.create_description(name, uses, level)
   local description = name
   local tooltype    = toolranks.get_tool_type(description)
 
   local newdesc = toolranks.colors.green .. description .. "\n" ..
                   toolranks.colors.gold .. "Level " .. (level or 1) .. " " .. tooltype .. "\n" ..
-                  toolranks.colors.grey .. "Nodes dug: " .. (uses or 0)		-- .. "\n" ..
+                  toolranks.colors.grey .. "Uses: " .. (uses or 0)		-- .. "\n" ..
 		  -- name
 
   return newdesc
 end
 
+-- function to calculate levels (+150 uses per level).
 function toolranks.get_level(uses)
-  if uses <= 200 then
+  if uses < 150 then
     return 1
-  elseif uses < 400 then
-    return 2
-  elseif uses < 1000 then
-    return 3
-  elseif uses < 2000 then
-    return 4
-  elseif uses < 3200 then
-    return 5
   else
-    return 6
+    return math.floor((75 + math.sqrt(625 + 100 * uses))/100)
   end
 end
 
+-- function to run after a tool is used.
 function toolranks.new_afteruse(itemstack, user, node, digparams)
 
 	local itemmeta  = itemstack:get_meta() -- Metadata
@@ -105,28 +100,29 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 		itemmeta:set_string("dug", dugnodes)
 	end
 
+-- if statement to track and broadcast the most used tool in the game.
 	if(dugnodes > most_digs) then
-
+		-- set the high score amount and player name. 
 		most_digs = dugnodes
 		if(most_digs_user ~= user:get_player_name()) then -- Avoid spam.
 
 			most_digs_user = user:get_player_name()
-
-			minetest.chat_send_all("Most used tool is now a " .. t_name .. toolranks.colors.white .. " owned by " .. user:get_player_name() .. " with " .. dugnodes .. " uses.")
-
+			-- broadcast the message.
+			minetest.chat_send_all("The most used tool is now a " .. t_name .. toolranks.colors.white .. " owned by " .. user:get_player_name() .. " with " .. dugnodes .. " uses.")
 		end
-
+		-- utilize storage for these variables to track between game-session.
 		mod_storage:set_int("most_digs", dugnodes)
 		mod_storage:set_string("most_digs_user", user:get_player_name())
 
 	end
 
+-- Tool break warning.
 	if(itemstack:get_wear() > 60135) then
 		minetest.chat_send_player(user:get_player_name(), "Your tool is about to break!")
 		minetest.sound_play("default_tool_breaks", {to_player = user:get_player_name(), gain = 2.0, })
 	end
 
-
+-- Tool Level up event.
 	local level = toolranks.get_level(dugnodes)
 	if lastlevel < level then
 
@@ -139,7 +135,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 		itemmeta:set_string("lastlevel", level)
 	end
 
-
+	-- set tool description
 	local newdesc   = ""
 
 	if t_stat ~= "" then
@@ -149,14 +145,12 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 	end
 
 	itemmeta:set_string("description", newdesc)
-	
+	-- set tool wear
+	-- does this control the wearing effects?
 	local wear = digparams.wear
 	if level > 1 then
-		wear = digparams.wear / (1 + level / 4)
+		wear = digparams.wear / (1 + level / 10)
 	end
-
-		--minetest.chat_send_all("wear="..wear.."Original wear: "..digparams.wear.." 1+level/4="..1+level/4)
-		-- Uncomment for testing ^
 
 	itemstack:add_wear(wear)
 

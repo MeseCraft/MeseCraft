@@ -1,0 +1,26 @@
+DIMENSION			MAXIMUM			MINIMUM			SIZE	
+
+OW RedAsteroids			22001		-	30912			8000
+Planet_Mars			11000		-	22000			11000
+
+OW Asteroids (Moon)		3500		-	10999			7500
+Planet_Moon			3000		-	3300			300
+Earth Orbital Space 		1000		-	2999			2000
+
+Cloudlands			200
+SURFACE
+
+GeoMoria			-140		- 	-170			30
+tsm_railcorridors		-180		-	-9500			(9500)
+Cave Realms			-180		-	-16000
+DF-Level1-UpperLimit		-500		-	-3500			3000
+DF-Level2-UpperLimit		-3500		-	-6500			3000
+DF-Level3-UpperLimit		-6500		-	-9500			3000
+CaveRealms - Dungeon Master	-6500		-	-9500			3000
+DF-SunlessSea			-9500		-	-11000			1500
+DF-OilSea			 	-11,500					500
+DF-LavaSea				-12,000					500
+DF-Underworld				-12,500					500
+//DF-Primordial			-13000		-	-16000			3000
+Nether(Hell)			-16,500		-	-30,000			14500
+Bedrock				-30,000		-	-30,192			~1000

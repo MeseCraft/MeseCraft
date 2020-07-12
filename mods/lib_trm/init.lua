@@ -1,22 +1,13 @@
-
+-- declare our table
 lib_trm = {}
-lib_trm.name = "lib_trm"
-lib_trm.ver_max = 0
-lib_trm.ver_min = 1
-lib_trm.ver_rev = 0
-lib_trm.ver_str = lib_trm.ver_max .. "." .. lib_trm.ver_min .. "." .. lib_trm.ver_rev
-lib_trm.authorship = "lisacvuk, davidthecreator, shadmordre"
-lib_trm.license = "LGLv2.1"
-lib_trm.copyright = "2019"
 lib_trm.path_mod = minetest.get_modpath(minetest.get_current_modname())
 lib_trm.path_world = minetest.get_worldpath()
 
-
+	-- execute the tool random modifiers.
 	dofile(lib_trm.path_mod.."/lib_trm_toolcap_modifier.lua")
-	
+	-- execute the tool ranks portion.
 	dofile(lib_trm.path_mod.."/lib_trm_tool_ranks.lua")
 	
-
 	minetest.register_on_mods_loaded(function()
 		for node_name, node_def in pairs(minetest.registered_tools) do
 			if node_name and node_name ~= "" then
@@ -34,30 +25,3 @@ lib_trm.path_world = minetest.get_worldpath()
 			end
 		end
 	end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
