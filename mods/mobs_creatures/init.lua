@@ -26,6 +26,7 @@ dofile(path .. "/mobs/bat.lua")
 dofile(path .. "/mobs/cow.lua")
 dofile(path .. "/mobs/deer.lua") -- Needs SFX.
 dofile(path .. "/mobs/kangaroo.lua")
+dofile(path .. "/mobs/ocelot.lua")
 dofile(path .. "/mobs/mooshroom.lua")
 dofile(path .. "/mobs/panda.lua") -- Needs spawn.
 dofile(path .. "/mobs/parrot.lua")

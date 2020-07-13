@@ -17,3 +17,9 @@ nether_enable_portal_example_floatlands (Enable example portal: Floatlands) bool
 
 # Enables the Surface-travel portal api code example
 nether_enable_portal_example_surfacetravel (Enable example portal: Surface-travel) bool false
+
+[Nether depth]
+#The depth where the Nether begins / the Nether ceiling
+nether_depth_ymax (Upper limit of Nether) int -5000 -30000 32767
+#The lower limit of the Nether must be at least 1000 lower than the upper limit, and more than 3000 lower is recommended.
+nether_depth_ymin (Lower limit of Nether) int -11000 -32768 30000

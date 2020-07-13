@@ -1,23 +1,21 @@
 ################################## URGENT PRIORITY ##################################
 Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a  magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
+	-- moon rock needed to make moon portals? 
+	-- teleporter node needed to make mars portal?
 Death_compass can be duplicated somehow (reported by noodles)
-Mobs are flashing on hit. Need to look into the API to see why this is.
-Fix skybox vs weather mod conflicts.
-Drop farming_redo, implement "crops", fix critical bugs, add compatibility for fruittoosl, drinks, and diet.
+Mobs are flashing on hit. Need to look into the API to see why this is. (TenPlus1 said this is because of the current MT version, should resolve in the next engine verison)
 gramophone top part disappears when pickedup.
 bee hives arent protection-compatbile.
 fridges aren't protected.
 
-
 ################################## HIGHER PRIORITY ##################################
 add coins (plat, gold, silver, copper) as drops from mobs. NPCs can trade in these coins.
-change blueberry respawn rate
+
 Make ovens compatible with other food items.
-After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
 Add weeds to crops (use nettles and ABM)
 Split mobs_creatures and create dfcaverns_mobs to be shared with FaceDeer's dfcaverns modpack.
 fire-imps do not fly in lava, they do not float.
-unknown items in lootchests underground.
+unknown items in lootchests underground. (probably due to dependency set wrong)
 shift+click doesnt work on lootchests
 Armor: add cosmetic slots vs actual slots to use with costumes and skins.
 "3d_armor" on death, armor peices have a chance of being completely destroyed.
@@ -46,3 +44,6 @@ leather more uses for leather: armor, maybe canteen.
 UNSORTED
 -- Improve wolf/dog following code.
 -- add pets: baby dino, baby slime, dog, cat, etc that follow and help players.
+-- Drop farming_redo, implement "crops", fix critical bugs, add compatibility for fruittoosl, drinks, and diet?
+	-- After crops is implemented, rain ABM's can grow crops and grass, wash out footprints.
+	-- change blueberry respawn rate

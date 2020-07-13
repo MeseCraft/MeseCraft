@@ -1,6 +1,0 @@
-default
-mobs_mc
-hunger?
-hbhunger?
-stamina?
-lucky_block?

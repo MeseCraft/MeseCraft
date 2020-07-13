@@ -115,6 +115,12 @@ Used by `nether.register_portal`.
         -- Required. For best results, have your portal constructed of a
         -- material nobody else is using.
 
+        frame_node_color = 0,
+        -- Optional.
+        -- A value from 0 to 7. Only used if the frame node's paramtype2 is
+        -- "colorfacedir", in which case this color will be used when a remote
+        -- portal is created.
+
         shape = nether.PortalShape_Traditional,
         -- Optional.
         -- Shapes available are:
@@ -127,6 +133,9 @@ Used by `nether.register_portal`.
         -- Optional. Allows a custom wormhole node to be specified.
         -- Useful if you want the portals to have a different post_effect_color
         -- or texture.
+        -- The Nether mod provides:
+        --     "nether:portal" (default)
+        --     "nether:portal_alt"
 
         wormhole_node_color = 0,
         -- Optional. Defaults to 0/magenta.
@@ -208,6 +217,7 @@ Used by `nether.register_portal`.
         -- If the location of an existing portal is returned then include the
         -- orientation, otherwise the existing portal could be overwritten by
         -- a new one with the orientation of the surface portal.
+        -- Return nil to prevent the portal from igniting.
 
         find_surface_anchorPos = function(realm_anchorPos),
         -- Optional. If you don't implement this then a position near the
@@ -222,6 +232,7 @@ Used by `nether.register_portal`.
         -- If the location of an existing portal is returned then include the
         -- orientation, otherwise the existing portal could be overwritten by
         -- a new one with the orientation of the realm portal.
+        -- Return nil to prevent the portal from igniting.
 
         on_run_wormhole      = function(portalDef, anochorPos, orientation),
         -- invoked once per second per portal

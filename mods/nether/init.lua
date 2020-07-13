@@ -38,25 +38,40 @@ nether                = {}
 nether.modname        = minetest.get_current_modname()
 nether.path           = minetest.get_modpath(nether.modname)
 nether.get_translator = S
+                     -- nether.useBiomes allows other mods to know whether they can register ores etc. in the Nether.
+                     -- See mapgen.lua for an explanation of why minetest.read_schematic is being checked
+nether.useBiomes      = minetest.get_mapgen_setting("mg_name") ~= "v6" and minetest.read_schematic ~= nil
+
 
 -- Settings
-nether.DEPTH                      = -17000 -- The y location of the Nether
-nether.FASTTRAVEL_FACTOR          =     8 -- 10 could be better value for Minetest, since there's no sprint, but ex-Minecraft players will be mathing for 8
-nether.PORTAL_BOOK_LOOT_WEIGHTING =   0.9 -- Likelyhood of finding the Book of Portals (guide) in dungeon chests. Set to 0 to disable.
-nether.NETHER_REALM_ENABLED       =  true -- Setting to false disables the Nether and Nether portal
+nether.DEPTH_CEILING              =  -5000 -- The y location of the Nether's celing
+nether.DEPTH_FLOOR                = -11000 -- The y location of the Nether's floor
+nether.FASTTRAVEL_FACTOR          =      8 -- 10 could be better value for Minetest, since there's no sprint, but ex-Minecraft players will be mathing for 8
+nether.PORTAL_BOOK_LOOT_WEIGHTING =    0.9 -- Likelyhood of finding the Book of Portals (guide) in dungeon chests. Set to 0 to disable.
+nether.NETHER_REALM_ENABLED       =   true -- Setting to false disables the Nether and Nether portal
 
 
 -- Override default settings with values from the .conf file, if any are present.
 nether.FASTTRAVEL_FACTOR          = tonumber(minetest.settings:get("nether_fasttravel_factor") or nether.FASTTRAVEL_FACTOR)
 nether.PORTAL_BOOK_LOOT_WEIGHTING = tonumber(minetest.settings:get("nether_portalBook_loot_weighting") or nether.PORTAL_BOOK_LOOT_WEIGHTING)
-nether.NETHER_REALM_ENABLED       = minetest.settings:get_bool("nether_realm_enabled", nether.NETHER_REALM_ENABLED) or nether.NETHER_REALM_ENABLED
+nether.NETHER_REALM_ENABLED       = minetest.settings:get_bool("nether_realm_enabled", nether.NETHER_REALM_ENABLED)
+nether.DEPTH_CEILING              = tonumber(minetest.settings:get("nether_depth_ymax") or nether.DEPTH_CEILING)
+nether.DEPTH_FLOOR                = tonumber(minetest.settings:get("nether_depth_ymin") or nether.DEPTH_FLOOR)
 
+if nether.DEPTH_FLOOR + 1000 > nether.DEPTH_CEILING then 
+	error("The lower limit of the Nether must be set at least 1000 lower than the upper limit, and more than 3000 is recommended. Set settingtypes.txt, or 'All Settings' -> 'Mods' -> 'nether' -> 'Nether depth'", 0)
+end
+nether.DEPTH = nether.DEPTH_CEILING -- Deprecated, use nether.DEPTH_CEILING instead.
 
 -- Load files
 dofile(nether.path .. "/portal_api.lua")
 dofile(nether.path .. "/nodes.lua")
 if nether.NETHER_REALM_ENABLED then
-	dofile(nether.path .. "/mapgen.lua")
+	if nether.useBiomes then
+		dofile(nether.path .. "/mapgen.lua")
+	else
+		dofile(nether.path .. "/mapgen_nobiomes.lua")
+	end
 end
 dofile(nether.path .. "/portal_examples.lua")
 
@@ -83,7 +98,7 @@ This opens to a truly hellish place, though for small mercies the air there is s
 The expedition parties have found no diamonds or gold, and after an experienced search party failed to return from the trail of a missing expedition party, I must conclude this is a dangerous place.]], 10 * nether.FASTTRAVEL_FACTOR),
 
 		is_within_realm = function(pos) -- return true if pos is inside the Nether
-			return pos.y < nether.DEPTH
+			return pos.y < nether.DEPTH_CEILING
 		end,
 
 		find_realm_anchorPos = function(surface_anchorPos)
@@ -91,7 +106,7 @@ The expedition parties have found no diamonds or gold, and after an experienced 
 			local destination_pos = vector.divide(surface_anchorPos, nether.FASTTRAVEL_FACTOR)
 			destination_pos.x = math.floor(0.5 + destination_pos.x) -- round to int
 			destination_pos.z = math.floor(0.5 + destination_pos.z) -- round to int
-			destination_pos.y = nether.DEPTH - 1000 -- temp value so find_nearest_working_portal() returns nether portals
+			destination_pos.y = nether.DEPTH_CEILING - 1000 -- temp value so find_nearest_working_portal() returns nether portals
 
 			-- a y_factor of 0 makes the search ignore the altitude of the portals (as long as they are in the Nether)
 			local existing_portal_location, existing_portal_orientation =
@@ -100,7 +115,7 @@ The expedition parties have found no diamonds or gold, and after an experienced 
 			if existing_portal_location ~= nil then
 				return existing_portal_location, existing_portal_orientation
 			else
-				local start_y = nether.DEPTH - math.random(500, 1500) -- Search starting altitude
+				local start_y = nether.DEPTH_CEILING - math.random(500, 1500) -- Search starting altitude
 				destination_pos.y = nether.find_nether_ground_y(destination_pos.x, destination_pos.z, start_y)
 				return destination_pos
 			end

@@ -43,5 +43,6 @@ SOFTWARE.
 ### [Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](http://creativecommons.org/licenses/by-sa/3.0/)
  * `nether_rack.png`: Zeg9
  * `nether_glowstone.png`: BlockMen
+ * `nether_portal.png`: [Extex101](https://github.com/Extex101), 2020
 
 All other media: Copyright © 2013 PilzAdam, licensed under CC BY-SA 3.0 by PilzAdam.

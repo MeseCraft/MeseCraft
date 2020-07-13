@@ -147,7 +147,7 @@ mobs:register_mob("mobs_creatures:dog", {
 		elseif item:get_name() == "mobs_creatures:bone" then
 	                -- Feed to increase health
 	                local hp = self.health
-	                local hp_add = 0
+	                local hp_add = 5
 	                -- Use eatable group to determine health boost
 	                local eatable = minetest.get_item_group(item, "eatable")
 	                if eatable > 0 then

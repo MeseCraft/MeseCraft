@@ -1,5 +1,3 @@
-local S = minetest.get_translator("pyramids")
-
 -- ROOM LAYOUTS
 
 local ROOM_WIDTH = 9
@@ -808,10 +806,10 @@ local code_sandstone = {
 	["1"] = "default:sandstone",
 	["2"] = "default:sandstone",
 	["3"] = "default:sandstone",
-	["^"] = "default:chest",
-	["<"] = "default:chest",
-	[">"] = "default:chest",
-	["v"] = "default:chest",
+	["^"] = "lootchests_default:urn_marker",
+	["<"] = "lootchests_default:urn_marker",
+	[">"] = "lootchests_default:urn_marker",
+	["v"] = "lootchests_default:urn_marker",
 	["~"] = "default:lava_source",
 	["t"] = "default:sandstone",
 	["C"] = "default:large_cactus_seedling",
@@ -1001,9 +999,9 @@ function pyramids.make_room(pos, stype, room_id, rotations)
 					local cpos = {x=hole.x+ix,y=hole.y-iy,z=hole.z+iz}
 					local nn = replace(n_str, iy, code_table, deco, column_style)
 					minetest.set_node(cpos, {name=nn, param2=p2})
-					if nn == "default:chest" then
-						table.insert(chests, cpos)
-					end
+					--if nn == "lootchests_default:urn" then
+					--	table.insert(chests, cpos)
+					--end
 				end
 			end
 		end
@@ -1044,9 +1042,9 @@ function pyramids.make_room(pos, stype, room_id, rotations)
 					local cpos = {x=hole.x+ix,y=hole.y-iy+layout_offset,z=hole.z+iz}
 					local nn = code_table[n_str]
 					minetest.set_node(cpos, {name=nn, param2=p2})
-					if nn == "default:chest" then
-						table.insert(chests, cpos)
-					end
+					--if nn == "lootchests_default:urn" then
+					--	table.insert(chests, cpos)
+					--end
 				end
 			end
 		end
@@ -1054,24 +1052,6 @@ function pyramids.make_room(pos, stype, room_id, rotations)
 		minetest.log("error", "Invalid pyramid room style! room type ID="..r)
 	end
 	local sanded = room.flood_sand ~= false and stype ~= "desert_stone" and math.random(1,8) == 1
-	if #chests > 0 then
-		-- Make at least 8 attempts to fill chests
-		local filled = 0
-		local chests_with_treasure = 0
-		while filled < 8 do
-			for c=1, #chests do
-				local has_treasure = pyramids.fill_chest(chests[c], stype, sanded, 30)
-				if has_treasure then
-					chests_with_treasure = chests_with_treasure + 1
-				end
-				filled = filled + 1
-			end
-		end
-		-- If no chests were filled with treasure so far, fill a random chest guaranteed
-		if chests_with_treasure == 0 then
-			pyramids.fill_chest(chests[math.random(1, #chests)], stype, sanded, 100)
-		end
-	end
 	if room.traps and math.random(1,4) == 1 then
 		pyramids.make_traps(pos, stype, rotations, layout)
 	end

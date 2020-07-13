@@ -318,7 +318,7 @@ interop.split_nodename = function(nodeName)
     result_nodename = nodeName:sub(pos + 1)
   end
   return result_modname, result_nodename
-end;
+end
 
 -- returns a unique id for the biome, normally this is numeric but with mapgen v6 it can be a string name.
 interop.get_biome_key = function(pos)
@@ -381,7 +381,7 @@ end
               Portals
     ==============================]]--
 
-local addDetail_ancientPortal = nil;
+local addDetail_ancientPortal = nil
 
 if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_exists("nether") and nether.register_portal ~= nil then
   -- The Portals API is available
@@ -398,7 +398,7 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
       local coreList = cloudlands.get_island_details(
         {x = island_info.x - searchRadius, z = island_info.z - searchRadius},
         {x = island_info.x + searchRadius, z = island_info.z + searchRadius}
-      );
+      )
 
       -- Deterministically sample the island for a low location that isn't water.
       -- Seed the prng so this function always returns the same coords for the island
@@ -482,11 +482,11 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
     ore_type       = "scatter",
     ore            = "cloudlands:ancient_portalstone",
     wherein        = "nether:rack",
-    clust_scarcity = 28 * 28 * 28,
+    clust_scarcity = 32 * 32 * 32,
     clust_num_ores = 6,
     clust_size     = 3,
-    y_max = nether.DEPTH,
-    y_min = nether.DEPTH_FLOOR or -32000,
+    y_max = nether.DEPTH_CEILING or nether.DEPTH,
+    y_min = nether.DEPTH_FLOOR   or -32000,
   })
 
   local _  = {name = "air",                                         prob = 0}
@@ -499,10 +499,10 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
     deco_type = "schematic",
     place_on = "nether:rack",
     sidelen = 80,
-    fill_ratio = 0.0003,
+    fill_ratio = 0.00018,
     biomes = {"nether_caverns"},
-    y_max = nether.DEPTH,
-    y_min = nether.DEPTH_FLOOR or -32000,
+    y_max = nether.DEPTH_CEILING or nether.DEPTH,
+    y_min = nether.DEPTH_FLOOR   or -32000,
     schematic = {
       size = {x = 4, y = 4, z = 1},
       data = {
@@ -587,8 +587,10 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
       -- return true if pos is in the cloudlands
       -- I'm doing this based off height for speed, so it sometimes gets it wrong when the
       -- Hallelujah mountains start reaching the ground.
+      if noise_heightMap == nil then cloudlands.init() end
       local largestCoreType  = cloudlands.coreTypes[1] -- the first island type is the biggest/thickest
       local island_bottom = ALTITUDE - (largestCoreType.depthMax * 0.66) + round(noise_heightMap:get2d({x = pos.x, y = pos.z}))
+
       return pos.y > math_max(40, island_bottom)
     end,
 
@@ -669,7 +671,7 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
 
       minetest.add_particlespawner(particleSpawnerDef)
 
-      velocity = vector.multiply(velocity, -1);
+      velocity = vector.multiply(velocity, -1)
       particleSpawnerDef.minvel, particleSpawnerDef.maxvel = velocity, velocity
       minetest.add_particlespawner(particleSpawnerDef)
     end
@@ -1145,7 +1147,7 @@ if not minetest.global_exists("SkyTrees") then -- If SkyTrees added into other m
 
     -- returns a new position vector, rotated around (0, 0) to match the schematic rotation (provided the schematic_size is correct!)
     local function rotatePositon(position, schematic_size, rotation)
-      local result = vector.new(position);
+      local result = vector.new(position)
       if rotation == 90 then
         result.x = position.z
         result.z = schematic_size.x - position.x - 1
@@ -1159,7 +1161,7 @@ if not minetest.global_exists("SkyTrees") then -- If SkyTrees added into other m
       return result
     end
 
-    local rotatedCenter = rotatePositon(schematicInfo.center, schematicInfo.size, rotation);
+    local rotatedCenter = rotatePositon(schematicInfo.center, schematicInfo.size, rotation)
     local treePos = vector.subtract(position, rotatedCenter)
 
     if themeName == nil then themeName = SkyTrees.selectTheme(position, schematicInfo) end
@@ -1211,7 +1213,7 @@ if not minetest.global_exists("SkyTrees") then -- If SkyTrees added into other m
       plan_obj:read_from_schem_file(filename, replacements)
       plan_obj.data.ground_y = -1 -- prevent read_from_schem_file() from automatically adjusting the height when it encounters dirt in the schematic (SkyTrees sometimes have dirt up in their nooks)
       plan_obj.data.facedir = round(rotation / 90)
-      rotatedCenter = plan_obj:get_world_pos(vector.add(vector.multiply(schematicInfo.center, -1), -1), position); -- this function performs the rotation I require, even if it's named/intended for something else.
+      rotatedCenter = plan_obj:get_world_pos(vector.add(vector.multiply(schematicInfo.center, -1), -1), position) -- this function performs the rotation I require, even if it's named/intended for something else.
       plan_obj.data.anchor_pos = rotatedCenter
 
       if DEBUG_SKYTREES then minetest.log("info", "building tree at " .. dump(position) .. "rotated to " .. dump(treePos) .. "rotatedCenter " .. dump(rotatedCenter) .. ", " .. schematicInfo.filename) end
@@ -1253,7 +1255,7 @@ if not minetest.global_exists("SkyTrees") then -- If SkyTrees added into other m
 
 end
 
-SkyTrees.init();
+SkyTrees.init()
 
 
 --[[==============================
@@ -1280,7 +1282,7 @@ local function init_mapgen()
     biomes["Taiga"]  = {node_top="mapgen_dirt_with_snow",  node_filler="mapgen_dirt",        node_stone="mapgen_stone"}
   else
     for k,v in pairs(minetest.registered_biomes) do
-      biomes[minetest.get_biome_id(k)] = v;
+      biomes[minetest.get_biome_id(k)] = v
     end
   end
   if DEBUG then minetest.log("info", "registered biomes: " .. dump(biomes)) end
@@ -1328,7 +1330,7 @@ local function addCores(coreList, coreType, x1, z1, x2, z2)
 
   -- this function is used by the API functions, so may be invoked without our on_generated
   -- being called
-  cloudlands.init();
+  cloudlands.init()
 
   for z = math_floor(z1 / coreType.territorySize), math_floor(z2 / coreType.territorySize) do
     for x = math_floor(x1 / coreType.territorySize), math_floor(x2 / coreType.territorySize) do
@@ -1401,12 +1403,12 @@ local function addCores(coreList, coreType, x1, z1, x2, z2)
                       break
                     end
                   end
-                end;
+                end
               end
 
               if spaceConditionMet then
                 -- all conditions met, we've located a new island core
-                --minetest.log("Adding core "..x..","..y..","..z..","..radius);
+                --minetest.log("Adding core "..x..","..y..","..z..","..radius)
                 local y = round(noise_heightMap:get2d({x = coreX, y = coreZ}))
                 local newCore = {
                   x         = coreX,
@@ -1493,7 +1495,7 @@ cloudlands.get_island_details = function(minp, maxp)
   -- settings from rearranging islands.
   if region_restrictions then removeUnwantedIslands(result) end
 
-  return result;
+  return result
 end
 
 
@@ -1527,7 +1529,7 @@ cloudlands.find_nearest_island = function(x, z, search_radius)
     if result == nil or core.distance < result.distance then result = core end
   end
 
-  return result;
+  return result
 end
 
 
@@ -1536,7 +1538,7 @@ end
 -- having to recalculate it during each call to get_height_at().
 cloudlands.get_height_at = function(x, z, coreList)
 
-  local result, isWater = nil, false;
+  local result, isWater = nil, false
 
   if coreList == nil then
     local pos = {x = x, z = z}
@@ -1927,7 +1929,7 @@ local function addDetail_skyTree(decoration_list, core, minp, maxp)
     end
   end
 
-  local maxOffsetFromCenter = core.radius - (tree.requiredIslandRadius - 4); -- 4 is an arbitrary number, to allow trees to get closer to the edge
+  local maxOffsetFromCenter = core.radius - (tree.requiredIslandRadius - 4) -- 4 is an arbitrary number, to allow trees to get closer to the edge
 
   -- Use a known PRNG implementation
   local prng = PcgRandom(
@@ -1973,7 +1975,7 @@ local function addDetail_skyTree(decoration_list, core, minp, maxp)
   if DEBUG_SKYTREES then minetest.log("info", "core x: "..coreX.." y: ".. coreZ .. " treePos: " .. treePos.x .. ", y: " .. treePos.y) end
 
   SkyTrees.placeTree(treePos, treeAngle, tree, nil, core.biome.node_top)
-  return true;
+  return true
 end
 
 
@@ -2062,6 +2064,8 @@ local frameTexture = nil
 if woodTexture ~= nil then
   -- perhaps it's time for cloudlands to contain textures.
   frameTexture = "([combine:16x16:0,0="..woodTexture.."\\^[colorize\\:black\\:170:1,1="..woodTexture.."\\^[colorize\\:#0F0\\:255\\^[resize\\:14x14^[makealpha:0,255,0)"
+  --frameTexture = "([combine:16x16:0,0="..woodTexture.."\\^[resize\\:16x16\\^[colorize\\:black\\:170:1,1="..woodTexture.."\\^[colorize\\:#0F0\\:255\\^[resize\\:14x14^[makealpha:0,255,0)"
+  --frameTexture = "(("..woodTexture.."^[colorize:black:170)^([combine:16x16:1,1="..woodTexture.."\\^[resize\\:14x14\\^[colorize\\:#0F0\\:255))"
 end
 
 -- Since "secret:fossilized_egg_display" doesn't use this mod's name as the prefix, we shouldn't
@@ -2674,7 +2678,7 @@ local function renderCores(cores, minp, maxp, blockseed)
           if DEBUG_GEOMETRIC then surfaceNoise = SURFACEMAP_OFFSET end
           local surface = round(surfaceNoise * 3 * (core.thickness + 1) * horz_easing) -- if you change this formular then update maxSufaceRise in on_generated()
           local coreBottom = math_floor(coreTop - (core.thickness + core.depth))
-          local noisyDepthOfFiller = depth_filler;
+          local noisyDepthOfFiller = depth_filler
           if noisyDepthOfFiller >= 3 then noisyDepthOfFiller = noisyDepthOfFiller + math_floor(randomNumbers[(x + z) % 256] * 3) - 1 end
 
           local yBottom       = math_max(minp.y, coreBottom - 4) -- the -4 is for rare instances when density noise pushes the bottom of the island deeper
@@ -2711,7 +2715,7 @@ local function renderCores(cores, minp, maxp, blockseed)
           -- ensure nodeId_top blocks also cover the rounded sides of islands (which may be lower
           -- than the flat top), then dust the top surface.
           if topBlockIndex >= 0 then
-            voxelsWereManipulated = true;
+            voxelsWereManipulated = true
 
             -- we either have the highest block, or overdrawTop - but we don't want to set overdrawTop nodes to nodeId_top
             -- (we will err on the side of caution when we can't distinguish the top of a island's side from overdrawTop)
@@ -2773,10 +2777,10 @@ local function renderCores(cores, minp, maxp, blockseed)
                   else
                     data[vi] = nodeId_filler
                   end
-                end;
+                end
               end
             end
-          end;
+          end
 
         end
       end
@@ -2895,6 +2899,10 @@ cloudlands.init = function()
     init_mapgen()
     init_secrets()
   end
+  if noise_eddyField == nil then
+    -- See comment in init_mapgen() about when this can be called
+    minetest.log("warning", "cloudlands.init() unable to init - was probably invoked before the the environment was created")
+  end
 end
 
 local function on_generated(minp, maxp, blockseed)
@@ -2914,13 +2922,12 @@ local function on_generated(minp, maxp, blockseed)
     return
   end
 
-  cloudlands.init();
   local cores = cloudlands.get_island_details(minp, maxp)
 
   if DEBUG then
     minetest.log("info", "Cores for on_generated(): " .. #cores)
     for _,core in pairs(cores) do
-      minetest.log("core ("..core.x..","..core.y..","..core.z..") r"..core.radius);
+      minetest.log("core ("..core.x..","..core.y..","..core.z..") r"..core.radius)
     end
   end
 

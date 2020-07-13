@@ -116,6 +116,7 @@ if minetest.settings:get_bool("nether_enable_portal_example_surfacetravel", ENAB
 	nether.register_portal("surface_portal", {
 		shape               = nether.PortalShape_Circular,
 		frame_node_name     = "default:tinblock",
+		wormhole_node_name  = "nether:portal_alt",
 		wormhole_node_color = 4, -- 4 is cyan
 		title = S("Surface Portal"),
 		book_of_portals_pagetext = S([[Requiring 16 blocks of tin and constructed in a circular fashion, a finished frame is seven blocks wide, seven blocks high, and stands vertically like a doorway.

@@ -79,7 +79,7 @@ end
 
 
 -- Growth Logic
-local STAGE_LENGTH_AVG = 6000.0 -- 20 minutes per day x 30 days per month = 36000. Average stages we'll say is 6 stages. 
+local STAGE_LENGTH_AVG = 6000.0 -- 60 seconds * 20 minutes per day * 30 days per month * 3 months / Average stages we'll say is 6 stages. 
 local STAGE_LENGTH_DEV = STAGE_LENGTH_AVG / 6
 
 

@@ -56,7 +56,7 @@ cloudlands_limit_biome_altitude (Altitude for listed biomes) string
 #
 # A percentage value between 0 and 100 which controls the spread of the
 # rare and gigantic trees which can sometimes be found growing on islands.
-cloudlands_giant_tree_rarety    (Giant tree rarety %) int 5 0 100
+cloudlands_giant_tree_rarety    (Giant tree rarety %) int 8 0 100
 
 # Set true to allow glowing rarer variants of the rare and gigantic trees
 # which can sometimes be found growing on islands.

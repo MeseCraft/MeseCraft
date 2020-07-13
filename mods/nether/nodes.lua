@@ -21,7 +21,7 @@
 
 local S = nether.get_translator
 
--- Portal/wormhole node
+-- Portal/wormhole nodes
 
 nether.register_wormhole_node("nether:portal", {
 	description = S("Nether Portal"),
@@ -34,6 +34,33 @@ nether.register_wormhole_node("nether:portal", {
 		-- work with blue & cyan portals - since blue portals are sometimes portrayed as being red
 		-- from the opposite side / from the inside.
 		a = 160, r = 128, g = 0, b = 80
+	}
+})
+
+local portal_animation2 = {
+	name = "nether_portal_alt.png",
+	animation = {
+		type = "vertical_frames",
+		aspect_w = 16,
+		aspect_h = 16,
+		length = 0.5,
+	},
+}
+
+nether.register_wormhole_node("nether:portal_alt", {
+	description = S("Portal"),
+	tiles = {
+		"nether_transparent.png",
+		"nether_transparent.png",
+		"nether_transparent.png",
+		"nether_transparent.png",
+		portal_animation2,
+		portal_animation2
+	},
+	post_effect_color = {
+		-- hopefully blue enough to work with blue portals, and green enough to
+		-- work with cyan portals.
+		a = 120, r = 0, g = 128, b = 188
 	}
 })
 
