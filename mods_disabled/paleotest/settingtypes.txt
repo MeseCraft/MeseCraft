@@ -1,0 +1,2 @@
+#    If true all animals will spawn in the wild
+wild_spawning (Wild Spawning) bool false

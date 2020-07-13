@@ -45,3 +45,4 @@ leather more uses for leather: armor, maybe canteen.
 
 UNSORTED
 -- Improve wolf/dog following code.
+-- add pets: baby dino, baby slime, dog, cat, etc that follow and help players.
