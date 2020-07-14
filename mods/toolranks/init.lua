@@ -1,4 +1,4 @@
-
+-- table for quick colors.
 toolranks = {
 	colors = {
 		grey = minetest.get_color_escape_sequence("#9d9d9d"),
@@ -8,33 +8,23 @@ toolranks = {
 	}
 }
 
-
+-- function to create our description of the tool.
 function toolranks.create_description(name, uses, level)
-
 	return toolranks.colors.green .. (name or "") .. "\n"
 		.. toolranks.colors.gold .. "Level: " .. (level or 1) .. "\n"
 		.. toolranks.colors.grey .. "Used: " .. (uses or 0) .. " times"
 end
 
--- This is where levels are defined.
+-- function to calculate levels (+150 uses per level)
 function toolranks.get_level(uses)
-
-	if uses >= 3200 then
-		return 6
-	elseif uses >= 2000 then
-		return 5
-	elseif uses >= 1000 then
-		return 4
-	elseif uses >= 400 then
-		return 3
-	elseif uses >= 200 then
-		return 2
-	else
-		return 1
-	end
+  if uses < 150 then
+    return 1
+  else
+    return math.floor((75 + math.sqrt(625 + 100 * uses))/100)
+  end
 end
 
-
+-- function to run after a tool is used.
 function toolranks.new_afteruse(itemstack, user, node, digparams)
 
 	-- Get tool metadata and number of times used
@@ -94,7 +84,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 
 	-- Set wear level
 	if level > 1 then
-		wear = digparams.wear * 4 / (4 + level)
+		wear = digparams.wear / (1 + level / 10)
 	end
 
 	itemstack:add_wear(wear)
