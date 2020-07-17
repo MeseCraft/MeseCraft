@@ -615,7 +615,7 @@ farming.beans = 0.001
 farming.grapes = 0.001
 farming.barley = true
 farming.chili = 0.003
---farming.hemp = 0.003
+farming.hemp = 0.003
 farming.garlic = 0.001
 farming.onion = 0.001
 farming.pepper = 0.002
@@ -665,7 +665,7 @@ end
 ddoo("carrot.lua", farming.carrot)
 ddoo("potato.lua", farming.potato)
 ddoo("tomato.lua", farming.tomato)
---ddoo("cucumber.lua", farming.cucumber)
+ddoo("cucumber.lua", farming.cucumber)
 ddoo("corn.lua", farming.corn)
 ddoo("coffee.lua", farming.coffee)
 ddoo("melon.lua", farming.melon)
@@ -675,7 +675,7 @@ ddoo("raspberry.lua", farming.raspberry)
 ddoo("blueberry.lua", farming.blueberry)
 ddoo("beans.lua", farming.beans)
 ddoo("grapes.lua", farming.grapes)
---ddoo("hemp.lua", farming.hemp)
+ddoo("hemp.lua", farming.hemp)
 ddoo("garlic.lua", farming.garlic)
 ddoo("onion.lua", farming.onion)
 ddoo("pepper.lua", farming.pepper)

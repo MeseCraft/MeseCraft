@@ -7,8 +7,8 @@ lootchests.register_lootchest({
     groups = {choppy = 2, oddly_breakable_by_hand = 2},
     ymax = 5,
     ymin = -512,
-    spawn_in_rarity = 160,
-    spawn_on_rarity = 10000,
+    spawn_in_rarity = 1600,
+    spawn_on_rarity = 100000,
     slot_spawn_chance = 75,
     slots = 32,
 })
@@ -26,7 +26,7 @@ lootchests.register_lootchest({
     groups = {snappy = 2, oddly_breakable_by_hand = 2},
     ymax = 0,
     ymin = -256,
-    spawn_on_rarity = 2800,
+    spawn_on_rarity = 28000,
     slot_spawn_chance = 35,
     slots = 24,
 })
@@ -44,7 +44,7 @@ lootchests.register_lootchest({
     groups = {cracky = 2, oddly_breakable_by_hand = 2},
     ymax = 0,
     ymin = -256,
-    spawn_on_rarity = 1800,
+    spawn_on_rarity = 18000,
     slot_spawn_chance = 50,
     slots = 24,
 })
@@ -62,7 +62,7 @@ lootchests.register_lootchest({
     groups = {choppy = 2, oddly_breakable_by_hand = 2},
     ymax = 5,
     ymin = -32,
-    spawn_in_rarity = 140,
+    spawn_in_rarity = 1400,
     slot_spawn_chance = 50,
     slots = 24,
 })
@@ -83,8 +83,8 @@ lootchests.register_lootchest({
     groups = {cracky = 2},
     ymax = -128,
     ymin = -4096,
-    spawn_in_rarity = 125,
-    spawn_on_rarity = 12500,
+    spawn_in_rarity = 1250,
+    spawn_on_rarity = 125000,
     slot_spawn_chance = 75,
     slots = 32,
 })

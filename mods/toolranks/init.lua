@@ -17,10 +17,10 @@ end
 
 -- function to calculate levels (+150 uses per level)
 function toolranks.get_level(uses)
-  if uses < 150 then
+  if uses < 50 then
     return 1
   else
-    return math.floor((75 + math.sqrt(625 + 100 * uses))/100)
+    return math.floor((25 + math.sqrt(625 + 100 * uses))/50)
   end
 end
 
@@ -84,7 +84,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 
 	-- Set wear level
 	if level > 1 then
-		wear = digparams.wear / (1 + level / 10)
+		wear = digparams.wear / (1 + level / 20)
 	end
 
 	itemstack:add_wear(wear)
