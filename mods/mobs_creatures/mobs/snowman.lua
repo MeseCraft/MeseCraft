@@ -118,7 +118,7 @@ mobs:register_mob("mobs_creatures:snowman", {
 				local belowdef = minetest.registered_nodes[minetest.get_node(below).name]
 				if belowdef and belowdef.walkable and (belowdef.node_box == nil or belowdef.node_box.type == "regular") then
 					-- Place top snow
-					minetest.set_node(pos, {name = mobs_mc.items.top_snow})
+					minetest.set_node(pos, {name = "default:snow"})
 				end
 			end
 		end

@@ -200,6 +200,7 @@ function hb.register_hudbar(identifier, text_color, label, textures, default_sta
 				text = "hudbars_bar_background.png",
 				alignment = {x=1,y=1},
 				offset = { x = offset.x - 1, y = offset.y - 1 },
+				z_index = 0,
 			})
 			if textures.icon ~= nil then
 				ids.icon = player:hud_add({
@@ -209,23 +210,11 @@ function hb.register_hudbar(identifier, text_color, label, textures, default_sta
 					text = textures.icon,
 					alignment = {x=-1,y=1},
 					offset = { x = offset.x - 3, y = offset.y },
-				})
-			end
-		elseif hb.settings.bar_type == "statbar_modern" then
-			if textures.bgicon ~= nil then
-				ids.bg = player:hud_add({
-					hud_elem_type = "statbar",
-					position = pos,
-					text = textures.bgicon,
-					number = bgiconnumber,
-					alignment = {x=-1,y=-1},
-					offset = { x = offset.x, y = offset.y },
-					direction = 0,
-					size = {x=24, y=24},
+					z_index = 1,
 				})
 			end
 		end
-		local bar_image, bar_size
+		local bar_image, bgicon, bar_size
 		if hb.settings.bar_type == "progress_bar" then
 			bar_image = textures.bar
 			-- NOTE: Intentionally set to nil. For some reason, on some systems,
@@ -237,17 +226,21 @@ function hb.register_hudbar(identifier, text_color, label, textures, default_sta
 			bar_size = nil
 		elseif hb.settings.bar_type == "statbar_classic" or hb.settings.bar_type == "statbar_modern" then
 			bar_image = textures.icon
+			bgicon = textures.bgicon
 			bar_size = {x=24, y=24}
 		end
 		ids.bar = player:hud_add({
 			hud_elem_type = "statbar",
 			position = pos,
 			text = bar_image,
+			text2 = bgicon,
 			number = barnumber,
+			item = bgiconnumber,
 			alignment = {x=-1,y=-1},
 			offset = offset,
 			direction = 0,
 			size = bar_size,
+			z_index = 1,
 		})
 		if hb.settings.bar_type == "progress_bar" then
 			ids.text = player:hud_add({
@@ -258,6 +251,7 @@ function hb.register_hudbar(identifier, text_color, label, textures, default_sta
 				number = text_color,
 				direction = 0,
 				offset = { x = offset.x + 2,  y = offset.y - 1},
+				z_index = 2,
 		})
 		end
 		-- Do not forget to update hb.get_hudbar_state if you add new fields to the state table
@@ -316,6 +310,9 @@ function hb.change_hudbar(player, identifier, new_value, new_max_value, new_icon
 
 	local name = player:get_player_name()
 	local hudtable = hb.get_hudtable(identifier)
+	if not hudtable.hudstate[name] then
+		return false
+	end
 	local value_changed, max_changed = false, false
 
 	if new_value ~= nil then
@@ -413,10 +410,9 @@ function hb.hide_hudbar(player, identifier)
 		end
 		player:hud_change(hudtable.hudids[name].bg, "scale", {x=0,y=0})
 		player:hud_change(hudtable.hudids[name].text, "text", "")
-	elseif hb.settings.bar_type == "statbar_modern" then
-		player:hud_change(hudtable.hudids[name].bg, "number", 0)
 	end
 	player:hud_change(hudtable.hudids[name].bar, "number", 0)
+	player:hud_change(hudtable.hudids[name].bar, "item", 0)
 	hudtable.hudstate[name].hidden = true
 	return true
 end
@@ -437,9 +433,10 @@ function hb.unhide_hudbar(player, identifier)
 		end
 		player:hud_change(hudtable.hudids[name].text, "text", make_label(hudtable.format_string, hudtable.format_string_config, hudtable.label, value, max))
 	elseif hb.settings.bar_type == "statbar_modern" then
-		player:hud_change(hudtable.hudids[name].bg, "number", hb.settings.statbar_length)
+		player:hud_change(hudtable.hudids[name].bar, "scale", {x=1,y=1})
 	end
 	player:hud_change(hudtable.hudids[name].bar, "number", hb.value_to_barlength(value, max))
+	player:hud_change(hudtable.hudids[name].bar, "item", hb.value_to_barlength(max, max))
 	hudtable.hudstate[name].hidden = false
 	return true
 end
@@ -495,7 +492,7 @@ local function custom_hud(player)
 		local breath_max = player:get_properties().breath_max
 		local hide_breath
 		if breath >= breath_max and hb.settings.autohide_breath == true then hide_breath = true else hide_breath = false end
-		hb.init_hudbar(player, "breath", math.min(breath, breath_max-1), breath_max-1, hide_breath or hide)
+		hb.init_hudbar(player, "breath", math.min(breath, breath_max), breath_max, hide_breath or hide)
 	end
 end
 
@@ -519,7 +516,7 @@ local function update_hud(player)
 			hb.hide_hudbar(player, "breath")
 		else
 			hb.unhide_hudbar(player, "breath")
-			hb.change_hudbar(player, "breath", math.min(breath, breath_max-1), breath_max-1)
+			hb.change_hudbar(player, "breath", math.min(breath, breath_max), breath_max)
 		end
 		--health
 		update_health(player)

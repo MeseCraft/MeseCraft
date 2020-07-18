@@ -21,6 +21,6 @@ DF-SunlessSea			-9500		-	-11000			1500
 DF-OilSea			 	-11,500					500
 DF-LavaSea				-12,000					500
 DF-Underworld				-12,500					500
-//DF-Primordial			-13000		-	-16000			3000
+DF-Primordial			-13000		-	-16000			3000
 Nether(Hell)			-16,500		-	-30,000			14500
 Bedrock				-30,000		-	-30,192			~1000
