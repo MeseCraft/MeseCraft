@@ -16,13 +16,13 @@ minetest.register_node("farming:seed_hemp", {
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:hemp_1")
-	end,
+	end
 })
 
 -- harvested hemp
 minetest.register_craftitem("farming:hemp_leaf", {
 	description = S("Hemp Leaf"),
-	inventory_image = "farming_hemp_leaf.png",
+	inventory_image = "farming_hemp_leaf.png"
 })
 
 -- hemp oil
@@ -40,7 +40,7 @@ minetest.register_node("farming:hemp_oil", {
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
 	},
 	groups = {food_oil = 1, vessel = 1, dig_immediate = 3, attached_node = 1},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = default.node_sound_glass_defaults()
 })
 
 minetest.register_craft( {
@@ -69,9 +69,9 @@ minetest.register_craft({
 })
 
 -- hemp fibre
-minetest.register_craftitem("farming:hemp_fibre", { 
+minetest.register_craftitem("farming:hemp_fibre", {
 	description = S("Hemp Fibre"),
-	inventory_image = "farming_hemp_fibre.png",
+	inventory_image = "farming_hemp_fibre.png"
 })
 
 minetest.register_craft( {
@@ -108,7 +108,7 @@ minetest.register_craft( {
 		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"},
 		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"},
 		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"}
-	},
+	}
 })
 
 -- check and register stairs
@@ -134,19 +134,19 @@ end
 
 -- paper
 minetest.register_craft( {
-	output = "default:paper",
+	output = "default:paper 3",
 	recipe = {
-		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"},
+		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"}
 	}
 })
 
 -- string
 minetest.register_craft( {
-	output = "farming:cotton",
+	output = "farming:cotton 3",
 	recipe = {
 		{"farming:hemp_fibre"},
 		{"farming:hemp_fibre"},
-		{"farming:hemp_fibre"},
+		{"farming:hemp_fibre"}
 	}
 })
 
@@ -165,8 +165,8 @@ minetest.register_node("farming:hemp_rope", {
 	sounds =  default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
-		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7}
+	}
 })
 
 -- string
@@ -175,12 +175,12 @@ minetest.register_craft( {
 	recipe = {
 		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"},
 		{"farming:cotton", "farming:cotton", "farming:cotton"},
-		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"},
+		{"farming:hemp_fibre", "farming:hemp_fibre", "farming:hemp_fibre"}
 	}
 })
 
 -- hemp definition
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"farming_hemp_1.png"},
 	paramtype = "light",
@@ -197,58 +197,58 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:hemp_1", table.copy(crop_def))
+minetest.register_node("farming:hemp_1", table.copy(def))
 
 -- stage 2
-crop_def.tiles = {"farming_hemp_2.png"}
-minetest.register_node("farming:hemp_2", table.copy(crop_def))
+def.tiles = {"farming_hemp_2.png"}
+minetest.register_node("farming:hemp_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"farming_hemp_3.png"}
-minetest.register_node("farming:hemp_3", table.copy(crop_def))
+def.tiles = {"farming_hemp_3.png"}
+minetest.register_node("farming:hemp_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"farming_hemp_4.png"}
-minetest.register_node("farming:hemp_4", table.copy(crop_def))
+def.tiles = {"farming_hemp_4.png"}
+minetest.register_node("farming:hemp_4", table.copy(def))
 
 -- stage 5
-crop_def.tiles = {"farming_hemp_5.png"}
-minetest.register_node("farming:hemp_5", table.copy(crop_def))
+def.tiles = {"farming_hemp_5.png"}
+minetest.register_node("farming:hemp_5", table.copy(def))
 
 -- stage 6
-crop_def.tiles = {"farming_hemp_6.png"}
-crop_def.drop = {
+def.tiles = {"farming_hemp_6.png"}
+def.drop = {
 	items = {
-		{items = {'farming:hemp_leaf'}, rarity = 2},
-		{items = {'farming:seed_hemp'}, rarity = 1},
+		{items = {"farming:hemp_leaf"}, rarity = 2},
+		{items = {"farming:seed_hemp"}, rarity = 1}
 	}
 }
-minetest.register_node("farming:hemp_6", table.copy(crop_def))
+minetest.register_node("farming:hemp_6", table.copy(def))
 
 -- stage 7
-crop_def.tiles = {"farming_hemp_7.png"}
-crop_def.drop = {
+def.tiles = {"farming_hemp_7.png"}
+def.drop = {
 	items = {
-		{items = {'farming:hemp_leaf'}, rarity = 1},
-		{items = {'farming:hemp_leaf'}, rarity = 3},
-		{items = {'farming:seed_hemp'}, rarity = 1},
-		{items = {'farming:seed_hemp'}, rarity = 3},
+		{items = {"farming:hemp_leaf"}, rarity = 1},
+		{items = {"farming:hemp_leaf"}, rarity = 3},
+		{items = {"farming:seed_hemp"}, rarity = 1},
+		{items = {"farming:seed_hemp"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:hemp_7", table.copy(crop_def))
+minetest.register_node("farming:hemp_7", table.copy(def))
 
 -- stage 8 (final)
-crop_def.tiles = {"farming_hemp_8.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"farming_hemp_8.png"}
+def.groups.growing = nil
+def.drop = {
 	items = {
-		{items = {'farming:hemp_leaf 2'}, rarity = 1},
-		{items = {'farming:hemp_leaf'}, rarity = 2},
-		{items = {'farming:seed_hemp'}, rarity = 1},
-		{items = {'farming:seed_hemp'}, rarity = 2},
+		{items = {"farming:hemp_leaf 2"}, rarity = 1},
+		{items = {"farming:hemp_leaf"}, rarity = 2},
+		{items = {"farming:seed_hemp"}, rarity = 1},
+		{items = {"farming:seed_hemp"}, rarity = 2}
 	}
 }
-minetest.register_node("farming:hemp_8", table.copy(crop_def))
+minetest.register_node("farming:hemp_8", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:hemp"] = {

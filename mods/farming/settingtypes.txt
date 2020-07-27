@@ -1,0 +1,2 @@
+#    Contains a value used for speed of crop growth in seconds
+farming_stage_length (Farming Stage Length) float 160.0

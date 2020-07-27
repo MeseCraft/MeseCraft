@@ -29,6 +29,8 @@ farming.pepper = 0.002
 farming.pineapple = 0.001
 farming.peas = 0.001
 farming.beetroot = 0.001
+farming.mint = 0.005
+farming.cabbage = 0.001
 farming.grains = true -- true or false only
 
 -- default rarety of crops on map (higher number = more crops)

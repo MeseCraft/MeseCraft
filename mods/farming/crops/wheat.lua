@@ -16,14 +16,14 @@ minetest.register_node("farming:seed_wheat", {
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:wheat_1")
-	end,
+	end
 })
 
 -- harvested wheat
 minetest.register_craftitem("farming:wheat", {
 	description = S("Wheat"),
 	inventory_image = "farming_wheat.png",
-	groups = {food_wheat = 1, flammable = 4},
+	groups = {food_wheat = 1, flammable = 4}
 })
 
 -- straw
@@ -32,7 +32,7 @@ minetest.register_node("farming:straw", {
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy = 3, flammable = 4, fall_damage_add_percent = -30},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = default.node_sound_leaves_defaults()
 })
 
 minetest.register_craft({
@@ -40,14 +40,14 @@ minetest.register_craft({
 	recipe = {
 		{"farming:wheat", "farming:wheat", "farming:wheat"},
 		{"farming:wheat", "farming:wheat", "farming:wheat"},
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
+		{"farming:wheat", "farming:wheat", "farming:wheat"}
 	}
 })
 
 minetest.register_craft({
 	output = "farming:wheat 3",
 	recipe = {
-		{"farming:straw"},
+		{"farming:straw"}
 	}
 })
 
@@ -76,7 +76,7 @@ end
 minetest.register_craftitem("farming:flour", {
 	description = S("Flour"),
 	inventory_image = "farming_flour.png",
-	groups = {food_flour = 1, flammable = 1},
+	groups = {food_flour = 1, flammable = 1}
 })
 
 minetest.register_craft({
@@ -86,7 +86,7 @@ minetest.register_craft({
 		"farming:wheat", "farming:wheat", "farming:wheat",
 		"farming:wheat", "farming:mortar_pestle"
 	},
-	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}}
 })
 
 -- bread
@@ -94,7 +94,7 @@ minetest.register_craftitem("farming:bread", {
 	description = S("Bread"),
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(5),
-	groups = {food_bread = 1, flammable = 2},
+	groups = {food_bread = 1, flammable = 2}
 })
 
 minetest.register_craft({
@@ -109,14 +109,14 @@ minetest.register_craftitem("farming:bread_slice", {
 	description = S("Sliced Bread"),
 	inventory_image = "farming_bread_slice.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_bread_slice = 1, flammable = 2},
+	groups = {food_bread_slice = 1, flammable = 2}
 })
 
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:bread_slice 5",
 	recipe = {"farming:bread", "group:food_cutting_board"},
-	replacements = {{"group:food_cutting_board", "farming:cutting_board"}},
+	replacements = {{"group:food_cutting_board", "farming:cutting_board"}}
 })
 
 -- toast
@@ -124,7 +124,7 @@ minetest.register_craftitem("farming:toast", {
 	description = S("Toast"),
 	inventory_image = "farming_toast.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_toast = 1, flammable = 2},
+	groups = {food_toast = 1, flammable = 2}
 })
 
 minetest.register_craft({
@@ -139,7 +139,7 @@ minetest.register_craftitem("farming:toast_sandwich", {
 	description = S("Toast Sandwich"),
 	inventory_image = "farming_toast_sandwich.png",
 	on_use = minetest.item_eat(4),
-	groups = {flammable = 2},
+	groups = {flammable = 2}
 })
 
 minetest.register_craft({
@@ -147,12 +147,12 @@ minetest.register_craft({
 	recipe = {
 		{"farming:bread_slice"},
 		{"farming:toast"},
-		{"farming:bread_slice"},
+		{"farming:bread_slice"}
 	}
 })
 
 -- wheat definition
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"farming_wheat_1.png"},
 	paramtype = "light",
@@ -171,52 +171,64 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:wheat_1", table.copy(crop_def))
+minetest.register_node("farming:wheat_1", table.copy(def))
 
 -- stage 2
-crop_def.tiles = {"farming_wheat_2.png"}
-minetest.register_node("farming:wheat_2", table.copy(crop_def))
+def.tiles = {"farming_wheat_2.png"}
+minetest.register_node("farming:wheat_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"farming_wheat_3.png"}
-minetest.register_node("farming:wheat_3", table.copy(crop_def))
+def.tiles = {"farming_wheat_3.png"}
+minetest.register_node("farming:wheat_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"farming_wheat_4.png"}
-minetest.register_node("farming:wheat_4", table.copy(crop_def))
+def.tiles = {"farming_wheat_4.png"}
+minetest.register_node("farming:wheat_4", table.copy(def))
 
 -- stage 5
-crop_def.tiles = {"farming_wheat_5.png"}
-minetest.register_node("farming:wheat_5", table.copy(crop_def))
+def.tiles = {"farming_wheat_5.png"}
+def.drop = {
+	items = {
+		{items = {"farming:wheat"}, rarity = 2},
+		{items = {"farming:seed_wheat"}, rarity = 2}
+	}
+}
+minetest.register_node("farming:wheat_5", table.copy(def))
 
 -- stage 6
-crop_def.tiles = {"farming_wheat_6.png"}
-minetest.register_node("farming:wheat_6", table.copy(crop_def))
+def.tiles = {"farming_wheat_6.png"}
+def.drop = {
+	items = {
+		{items = {"farming:wheat"}, rarity = 2},
+		{items = {"farming:seed_wheat"}, rarity = 1}
+	}
+}
+minetest.register_node("farming:wheat_6", table.copy(def))
 
 -- stage 7
-crop_def.tiles = {"farming_wheat_7.png"}
-crop_def.drop = {
+def.tiles = {"farming_wheat_7.png"}
+def.drop = {
 	items = {
-		{items = {'farming:wheat'}, rarity = 2},
-                {items = {'farming:seed_wheat'}, rarity = 3},
-
+		{items = {"farming:wheat"}, rarity = 1},
+		{items = {"farming:wheat"}, rarity = 3},
+		{items = {"farming:seed_wheat"}, rarity = 1},
+		{items = {"farming:seed_wheat"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:wheat_7", table.copy(crop_def))
+minetest.register_node("farming:wheat_7", table.copy(def))
 
 -- stage 8 (final)
-crop_def.tiles = {"farming_wheat_8.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"farming_wheat_8.png"}
+def.groups.growing = nil
+def.drop = {
 	items = {
-		{items = {'farming:wheat'}, rarity = 1},
-		{items = {'farming:wheat'}, rarity = 3},
-		{items = {'farming:seed_wheat'}, rarity = 1},
-                {items = {'farming:seed_wheat'}, rarity = 3},
-
+		{items = {"farming:wheat"}, rarity = 1},
+		{items = {"farming:wheat"}, rarity = 3},
+		{items = {"farming:seed_wheat"}, rarity = 1},
+		{items = {"farming:seed_wheat"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:wheat_8", table.copy(crop_def))
+minetest.register_node("farming:wheat_8", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:wheat"] = {
@@ -231,11 +243,11 @@ farming.registered_plants["farming:wheat"] = {
 minetest.register_craft({
 	type = "fuel",
 	recipe = "farming:straw",
-	burntime = 3,
+	burntime = 3
 })
 
 minetest.register_craft({
 	type = "fuel",
 	recipe = "farming:wheat",
-	burntime = 1,
+	burntime = 1
 })

@@ -1,0 +1,195 @@
+# Portuguese translation of the farming mod by TenPlus1
+# textdomain: farming
+# author: BrunoMine <borgesdossantosbruno@gmail.com>
+# author: TheDarkTiger
+# last update: 2020/Apr/26
+
+###### folder . ######
+
+### init.lua ###
+Seed=Sementes
+
+### compatibility.lua ###
+Banana=
+Banana Leaves=
+Orange=
+Strawberry=
+
+### food.lua ###
+Sugar=Açucar
+Salt=
+Rose Water=
+Turkish Delight=
+Garlic Bread=
+Donut=Donut
+Chocolate Donut=Donut de Chocolate
+Apple Donut=Donut de Maça
+Porridge=
+Jaffa Cake=
+
+### hoes.lua ###
+Hoe=Enxada
+Wooden Hoe=Enxada de Madeira
+Stone Hoe=Enxada de Pedra
+Steel Hoe=Enxada de Aço
+Bronze Hoe=Enxada de Bronze
+Mese Hoe=Enxada de Mese
+Diamond Hoe=Enxada de Diamante
+# Surcharge du mod [Toolranks] à faire #
+Hoe Bomb (use or throw on grassy areas to hoe land)=
+Mithril Scythe (Right-click to harvest and replant crops)=
+# Surcharge du mod [Toolranks] à faire #
+
+### soil.lua ###
+Soil=Solo
+Wet Soil=Solo Seco
+
+### utensils.lua ###
+Wooden Bowl=
+Saucepan=
+Cooking Pot=
+Baking Tray=
+Skillet=
+Mortar and Pestle=
+Cutting Board=
+Juicer=
+Glass Mixing Bowl=
+
+
+###### folder ./crops ######
+
+### barley.lua ###
+Barley Seed=Sementes de Cevada
+Barley=Cevada
+
+### beans.lua ###
+Green Beans=Feijoes Verdes
+Bean Pole (place on soil before planting beans)=Apoio de feijao (coloque no solo antes de plantar feijao)
+
+### beetroot.lua ###
+Beetroot=
+Beetroot Soup=
+
+### blueberry.lua ###
+Blueberries=Mirtilos
+Blueberry Muffin=Muffin de Mirtilos
+Blueberry Pie=
+
+### carrot.lua ##
+Carrot=Cenoura
+Carrot Juice=
+Golden Carrot=Cenoura Dourada
+
+### chili.lua ###
+Chili Pepper=
+Bowl of Chili=
+
+### cocoa.lua ###
+Cocoa Beans=Amendoas de Cacau
+Cookie=Cookie
+Bar of Dark Chocolate=Barra de Chocolate Preto
+Chocolate Block=
+
+### coffee.lua ###
+Coffee Beans=Grao de Cafe
+Cup of Coffee=Xicara de Cafe
+
+### corn.lua ###
+Corn=Milho
+Corn on the Cob=Espiga de Milho
+Cornstarch=
+Bottle of Ethanol=Garrafa de Etanol
+
+### cotton.lua ###
+Cotton Seed=Sementes de Algodao
+Cotton=Algodao
+String=
+
+### cucumber.lua ###
+Cucumber=Pepino
+
+### garlic.lua ###
+Garlic clove=
+Garlic=
+Garlic Braid=
+
+### grapes.lua ###
+Grapes=Uvas
+Trellis (place on soil before planting grapes)=Grade de Ripas (colocar no solo antes de plantar uvas)
+
+### hemp.lua ###
+Hemp Seed=Sementes de Canhamo
+Hemp Leaf=Folha de Canhamo
+Bottle of Hemp Oil=Garrafa de Oleo de Canhamo
+Hemp Fibre=Fibra de Canhamo
+Hemp Block=
+Hemp Rope=Corda de Canhamo
+
+### melon.lua ###
+Melon Slice=Sementes de Melancia
+Melon=Melancia
+
+### onion.lua ###
+Onion=
+
+### peas.lua ###
+Pea Pod=
+Peas=
+Pea Soup=
+
+### pepper.lua ###
+Peppercorn=
+Pepper=
+Ground Pepper=
+
+### pinapple.lua ###
+Pineapple Top=
+Pineapple=
+Pineapple Ring=
+Pineapple Juice=
+
+### potato.lua ###
+Potato=Batata
+Baked Potato=Batata Cozida
+Cucumber and Potato Salad=
+
+### pumpkin.lua ###
+Pumpkin Slice=Pedaço de Abobora
+Jack 'O Lantern (punch to turn on and off)=Jack 'O Lantern (Socos para ligar e desligar)
+Scarecrow Bottom=
+Pumpkin Bread=Pao de Abobora
+Pumpkin Dough=Massa de Abobora
+Pumpkin=Abobora
+
+### raspberry.lua ###
+Raspberries=Framboesa
+Raspberry Smoothie=Batida de Framboesa
+
+### rhubarb.lua ###
+Rhubarb=Ruibarbo
+Rhubarb Pie=Torta de Ruibarbo
+
+### ryeoatrice.lua ###
+Rye=
+Rye seed=
+Oat=
+Oat seed=
+Rice=
+Rice grains=
+Rice Bread=
+Rice Flour=
+Multigrain Flour=
+Multigrain Bread=
+
+### tomato.lua ###
+Tomato=Tomate
+
+### wheat.lua ###
+Wheat Seed=Sementes de Trigo
+Wheat=Trigo
+Straw=Palha
+Flour=Farinha
+Bread=Pao
+Sliced Bread=
+Toast=
+Toast Sandwich=

@@ -1,4 +1,6 @@
 
+local S = farming.intllib
+
 --= Helpers
 
 local eth = minetest.get_modpath("ethereal")
@@ -10,13 +12,13 @@ end
 
 minetest.override_item("default:apple", {
 	groups = {food_apple = 1, fleshy = 3, dig_immediate = 3, flammable = 2,
-		leafdecay = 3, leafdecay_drop = 1},
+		leafdecay = 3, leafdecay_drop = 1}
 })
 
 if minetest.registered_nodes["flowers:mushroom_brown"] then
 minetest.override_item("flowers:mushroom_brown", {
 	light_source = 1,
-	groups = {food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 2},
+	groups = {food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 2}
 })
 end
 
@@ -29,7 +31,7 @@ if eth then
 	alias("farming_plus:banana", "ethereal:banana")
 else
 	minetest.register_node(":ethereal:banana", {
-		description = "Banana",
+		description = S("Banana"),
 		drawtype = "torchlike",
 		tiles = {"banana_single.png"},
 		inventory_image = "banana_single.png",
@@ -43,18 +45,18 @@ else
 		},
 		groups = {food_banana = 1, fleshy = 3, dig_immediate = 3, flammable = 2},
 		on_use = minetest.item_eat(2),
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = default.node_sound_leaves_defaults()
 	})
 
 	minetest.register_node(":ethereal:bananaleaves", {
-		description = "Banana Leaves",
+		description = S("Banana Leaves"),
 		tiles = {"banana_leaf.png"},
 		inventory_image = "banana_leaf.png",
 		wield_image = "banana_leaf.png",
 		paramtype = "light",
 		waving = 1,
 		groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = default.node_sound_leaves_defaults()
 	})
 
 	alias("farming_plus:banana_sapling", "default:sapling")
@@ -87,7 +89,7 @@ if eth then
 	alias("farming_plus:orange_seed", "ethereal:orange_tree_sapling")
 else
 	minetest.register_node(":ethereal:orange", {
-		description = "Orange",
+		description = S("Orange"),
 		drawtype = "plantlike",
 		tiles = {"farming_orange.png"},
 		inventory_image = "farming_orange.png",
@@ -101,7 +103,7 @@ else
 		},
 		groups = {food_orange = 1, fleshy = 3, dig_immediate = 3, flammable = 2},
 		on_use = minetest.item_eat(4),
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = default.node_sound_leaves_defaults()
 	})
 
 	alias("farming_plus:orange_item", "ethereal:orange")
@@ -145,11 +147,11 @@ if eth then
 	alias("farming_plus:strawberry", "ethereal:strawberry_7")
 else
 	minetest.register_craftitem(":ethereal:strawberry", {
-		description = "Strawberry",
+		description = S("Strawberry"),
 		inventory_image = "strawberry.png",
 		wield_image = "strawberry.png",
 		groups = {food_strawberry = 1, flammable = 2},
-		on_use = minetest.item_eat(1),
+		on_use = minetest.item_eat(1)
 	})
 
 	alias("farming_plus:strawberry_item", "ethereal:strawberry")

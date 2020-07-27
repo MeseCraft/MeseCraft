@@ -12,6 +12,7 @@ local B = 4.0 / math.pi
 local C = 2.0/(math.pi * A)
 local D = 1.0 / A
 
+
 erf = function(x)
 
 	if x == 0 then return 0; end
@@ -22,6 +23,7 @@ erf = function(x)
 
 	return (x > 0 and v) or -v
 end
+
 
 erf_inv = function(x)
 
@@ -36,12 +38,15 @@ erf_inv = function(x)
 	return (x > 0 and v) or -v
 end
 
+
 local function std_normal(u)
 	return ROOT_2 * erf_inv(2.0 * u - 1.0)
 end
 
+
 local poisson
 local cdf_table = {}
+
 
 local function generate_cdf(lambda_index, lambda)
 
@@ -59,9 +64,11 @@ local function generate_cdf(lambda_index, lambda)
 	return t
 end
 
+
 for li = 1, 100 do
 	cdf_table[li] = generate_cdf(li, 0.25 * li)
 end
+
 
 poisson = function(lambda, max)
 
@@ -107,6 +114,7 @@ poisson = function(lambda, max)
 	end
 end
 
+
 -- Error function.
 statistics.erf = erf
 
@@ -131,6 +139,7 @@ statistics.std_normal = function()
 	return std_normal(u)
 end
 
+
 --- Standard normal distribution function (mean 0, standard deviation 1).
  --
  -- @param mu
@@ -153,6 +162,7 @@ statistics.normal = function(mu, sigma)
 	return mu + sigma * std_normal(u)
 end
 
+
 --- Poisson distribution function.
  --
  -- @param lambda
@@ -170,5 +180,6 @@ statistics.poisson = function(lambda, max)
 
 	return poisson(lambda, max)
 end
+
 
 return statistics

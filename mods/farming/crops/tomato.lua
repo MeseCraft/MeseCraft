@@ -10,15 +10,15 @@ local S = farming.intllib
 minetest.register_craftitem("farming:tomato", {
 	description = S("Tomato"),
 	inventory_image = "farming_tomato.png",
-	groups = {food_tomato = 1, flammable = 2},
+	groups = {seed = 2, food_tomato = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:tomato_1")
 	end,
-	on_use = minetest.item_eat(4),
+	on_use = minetest.item_eat(4)
 })
 
 -- tomato definition
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"farming_tomato_1.png"},
 	paramtype = "light",
@@ -35,48 +35,49 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:tomato_1", table.copy(crop_def))
+minetest.register_node("farming:tomato_1", table.copy(def))
 
 -- stage2
-crop_def.tiles = {"farming_tomato_2.png"}
-minetest.register_node("farming:tomato_2", table.copy(crop_def))
+def.tiles = {"farming_tomato_2.png"}
+minetest.register_node("farming:tomato_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"farming_tomato_3.png"}
-minetest.register_node("farming:tomato_3", table.copy(crop_def))
+def.tiles = {"farming_tomato_3.png"}
+minetest.register_node("farming:tomato_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"farming_tomato_4.png"}
-minetest.register_node("farming:tomato_4", table.copy(crop_def))
+def.tiles = {"farming_tomato_4.png"}
+minetest.register_node("farming:tomato_4", table.copy(def))
 
 -- stage 5
-crop_def.tiles = {"farming_tomato_5.png"}
-minetest.register_node("farming:tomato_5", table.copy(crop_def))
+def.tiles = {"farming_tomato_5.png"}
+minetest.register_node("farming:tomato_5", table.copy(def))
 
 -- stage 6
-crop_def.tiles = {"farming_tomato_6.png"}
-minetest.register_node("farming:tomato_6", table.copy(crop_def))
+def.tiles = {"farming_tomato_6.png"}
+minetest.register_node("farming:tomato_6", table.copy(def))
 
 -- stage 7
-crop_def.tiles = {"farming_tomato_7.png"}
-crop_def.drop = {
+def.tiles = {"farming_tomato_7.png"}
+def.drop = {
 	items = {
-		{items = {'farming:tomato'}, rarity = 2},
-		{items = {'farming:tomato'}, rarity = 4},
+		{items = {"farming:tomato"}, rarity = 1},
+		{items = {"farming:tomato"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:tomato_7", table.copy(crop_def))
+minetest.register_node("farming:tomato_7", table.copy(def))
 
 -- stage 8 (final)
-crop_def.tiles = {"farming_tomato_8.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"farming_tomato_8.png"}
+def.groups.growing = nil
+def.drop = {
 	items = {
-		{items = {'farming:tomato 3'}, rarity = 1},
-		{items = {'farming:tomato 3'}, rarity = 2},
+		{items = {"farming:tomato 3"}, rarity = 1},
+		{items = {"farming:tomato 2"}, rarity = 2},
+		{items = {"farming:tomato 1"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:tomato_8", table.copy(crop_def))
+minetest.register_node("farming:tomato_8", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:tomato"] = {

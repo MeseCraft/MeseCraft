@@ -1,0 +1,195 @@
+# German translation of the farming mod by TenPlus1
+# textdomain: farming
+# author: Xanthin
+# author: TheDarkTiger
+# last update: 2020/Apr/26
+
+###### folder . ######
+
+### init.lua ###
+Seed=Saatgut
+
+### compatibility.lua ###
+Banana=
+Banana Leaves=
+Orange=
+Strawberry=
+
+### food.lua ###
+Sugar=Zucker
+Salt=
+Rose Water=
+Turkish Delight=
+Garlic Bread=
+Donut=Donut
+Chocolate Donut=Schokodonut
+Apple Donut=Apfeldonut
+Porridge=
+Jaffa Cake=
+
+### hoes.lua ###
+Hoe=Hacke
+Wooden Hoe=Holzhacke
+Stone Hoe=Steinhacke
+Steel Hoe=Stahlhacke
+Bronze Hoe=Bronzehacke
+Mese Hoe=Mesehacke
+Diamond Hoe=Diamanthacke
+# Surcharge du mod [Toolranks] à faire #
+Hoe Bomb (use or throw on grassy areas to hoe land)=
+Mithril Scythe (Right-click to harvest and replant crops)=
+# Surcharge du mod [Toolranks] à faire #
+
+### soil.lua ###
+Soil=Ackerboden
+Wet Soil=Bewässerter Ackerboden
+
+### utensils.lua ###
+Wooden Bowl=
+Saucepan=
+Cooking Pot=
+Baking Tray=
+Skillet=
+Mortar and Pestle=
+Cutting Board=
+Juicer=
+Glass Mixing Bowl=
+
+
+###### folder ./crops ######
+
+### barley.lua ###
+Barley Seed=Gerstenkörner
+Barley=Gerste
+
+### beans.lua ###
+Green Beans=Grüne Bohnen
+Bean Pole (place on soil before planting beans)=Bohnenstange (vor dem Pflanzen der Bohnen auf den\nAckerboden stellen)
+
+### beetroot.lua ###
+Beetroot=
+Beetroot Soup=
+
+### blueberry.lua ###
+Blueberries=Blaubeeren
+Blueberry Muffin=Blaubeermuffin
+Blueberry Pie=
+
+### carrot.lua ##
+Carrot=Möhre
+Carrot Juice=
+Golden Carrot=Goldene Möhre
+
+### chili.lua ###
+Chili Pepper=
+Bowl of Chili=
+
+### cocoa.lua ###
+Cocoa Beans=Kakaobohne
+Cookie=Keks
+Bar of Dark Chocolate=Tafel Zartbitterschokolade
+Chocolate Block=
+
+### coffee.lua ###
+Coffee Beans=Kaffeebohnen
+Cup of Coffee=Tasse Kaffee
+
+### corn.lua ###
+Corn=Mais
+Corn on the Cob=Maiskolben
+Cornstarch=
+Bottle of Ethanol=Flasche Ethanol
+
+### cotton.lua ###
+Cotton Seed=Baumwollsamen
+Cotton=Baumwolle
+String=
+
+### cucumber.lua ###
+Cucumber=Gurke
+
+### garlic.lua ###
+Garlic clove=
+Garlic=
+Garlic Braid=
+
+### grapes.lua ###
+Grapes=Weintrauben
+Trellis (place on soil before planting grapes)=Spalier (vor dem Pflanzen der Weintrauben auf den\nAckerboden stellen)
+
+### hemp.lua ###
+Hemp Seed=Hanfsamen
+Hemp Leaf=Hanfblatt
+Bottle of Hemp Oil=Flasche mit Hanföl
+Hemp Fibre=Hanffaser
+Hemp Block=
+Hemp Rope=Hanfseil
+
+### melon.lua ###
+Melon Slice=Melonenscheibe
+Melon=Melone
+
+### onion.lua ###
+Onion=
+
+### peas.lua ###
+Pea Pod=
+Peas=
+Pea Soup=
+
+### pepper.lua ###
+Peppercorn=
+Pepper=
+Ground Pepper=
+
+### pinapple.lua ###
+Pineapple Top=
+Pineapple=
+Pineapple Ring=
+Pineapple Juice=
+
+### potato.lua ###
+Potato=Kartoffel
+Baked Potato=Ofenkartoffel
+Cucumber and Potato Salad=
+
+### pumpkin.lua ###
+Pumpkin Slice=Kürbisscheibe
+Jack 'O Lantern (punch to turn on and off)=Kürbislaterne (Punch zum Ein- und Ausschalten)
+Scarecrow Bottom=
+Pumpkin Bread=Kürbisbrot
+Pumpkin Dough=Kürbisteig
+Pumpkin=Kürbis
+
+### raspberry.lua ###
+Raspberries=Himbeeren
+Raspberry Smoothie=Himbeersmoothie
+
+### rhubarb.lua ###
+Rhubarb=Rhabarber
+Rhubarb Pie=Rhabarberkuchen
+
+### ryeoatrice.lua ###
+Rye=
+Rye seed=
+Oat=
+Oat seed=
+Rice=
+Rice grains=
+Rice Bread=
+Rice Flour=
+Multigrain Flour=
+Multigrain Bread=
+
+### tomato.lua ###
+Tomato=Tomate
+
+### wheat.lua ###
+Wheat Seed=Weizenkörner
+Wheat=Weizen
+Straw=Stroh
+Flour=Mehl
+Bread=Brot
+Sliced Bread=
+Toast=
+Toast Sandwich=

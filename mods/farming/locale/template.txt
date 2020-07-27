@@ -1,28 +1,194 @@
+# Translation of the farming mod by TenPlus1
 # textdomain: farming
-Soil=
-Wet Soil=
-Savanna Soil=
-Wet Savanna Soil=
-Desert Sand Soil=
-Wet Desert Sand Soil=
-Straw=
-Straw Stair=
-Inner Straw Stair=
-Outer Straw Stair=
-Straw Slab=
-Wild Cotton=
-Wheat Seed=
-Wheat=
-Flour=
-Bread=
-Cotton Seed=
-Cotton=
-String=
+# author: (you)
+# last update: 2020/Apr/26
+
+###### folder . ######
+
+### init.lua ###
+Seed=
+
+### compatibility.lua ###
+Banana=
+Banana Leaves=
+Orange=
+Strawberry=
+
+### food.lua ###
+Sugar=
+Salt=
+Rose Water=
+Turkish Delight=
+Garlic Bread=
+Donut=
+Chocolate Donut=
+Apple Donut=
+Porridge=
+Jaffa Cake=
+
+### hoes.lua ###
+Hoe=
 Wooden Hoe=
 Stone Hoe=
 Steel Hoe=
 Bronze Hoe=
 Mese Hoe=
 Diamond Hoe=
-Hoe=
-Seed=
+# Surcharge du mod [Toolranks] à faire #
+Hoe Bomb (use or throw on grassy areas to hoe land)=
+Mithril Scythe (Right-click to harvest and replant crops)=
+# Surcharge du mod [Toolranks] à faire #
+
+### soil.lua ###
+Soil=
+Wet Soil=
+
+### utensils.lua ###
+Wooden Bowl=
+Saucepan=
+Cooking Pot=
+Baking Tray=
+Skillet=
+Mortar and Pestle=
+Cutting Board=
+Juicer=
+Glass Mixing Bowl=
+
+
+###### folder ./crops ######
+
+### barley.lua ###
+Barley Seed=
+Barley=
+
+### beans.lua ###
+Green Beans=
+Bean Pole (place on soil before planting beans)=
+
+### beetroot.lua ###
+Beetroot=
+Beetroot Soup=
+
+### blueberry.lua ###
+Blueberries=
+Blueberry Muffin=
+Blueberry Pie=
+
+### carrot.lua ##
+Carrot=
+Carrot Juice=
+Golden Carrot=
+
+### chili.lua ###
+Chili Pepper=
+Bowl of Chili=
+
+### cocoa.lua ###
+Cocoa Beans=
+Cookie=
+Bar of Dark Chocolate=
+Chocolate Block=
+
+### coffee.lua ###
+Coffee Beans=
+Cup of Coffee=
+
+### corn.lua ###
+Corn=
+Corn on the Cob=
+Cornstarch=
+Bottle of Ethanol=
+
+### cotton.lua ###
+Cotton Seed=
+Cotton=
+String=
+
+### cucumber.lua ###
+Cucumber=
+
+### garlic.lua ###
+Garlic clove=
+Garlic=
+Garlic Braid=
+
+### grapes.lua ###
+Grapes=
+Trellis (place on soil before planting grapes)=
+
+### hemp.lua ###
+Hemp Seed=
+Hemp Leaf=
+Bottle of Hemp Oil=
+Hemp Fibre=
+Hemp Block=
+Hemp Rope=
+
+### melon.lua ###
+Melon Slice=
+Melon=
+
+### onion.lua ###
+Onion=
+
+### peas.lua ###
+Pea Pod=
+Peas=
+Pea Soup=
+
+### pepper.lua ###
+Peppercorn=
+Pepper=
+Ground Pepper=
+
+### pinapple.lua ###
+Pineapple Top=
+Pineapple=
+Pineapple Ring=
+Pineapple Juice=
+
+### potato.lua ###
+Potato=
+Baked Potato=
+Cucumber and Potato Salad=
+
+### pumpkin.lua ###
+Pumpkin Slice=
+Jack 'O Lantern (punch to turn on and off)=
+Scarecrow Bottom=
+Pumpkin Bread=
+Pumpkin Dough=
+Pumpkin=
+
+### raspberry.lua ###
+Raspberries=
+Raspberry Smoothie=
+
+### rhubarb.lua ###
+Rhubarb=
+Rhubarb Pie=
+
+### ryeoatrice.lua ###
+Rye=
+Rye seed=
+Oat=
+Oat seed=
+Rice=
+Rice grains=
+Rice Bread=
+Rice Flour=
+Multigrain Flour=
+Multigrain Bread=
+
+### tomato.lua ###
+Tomato=
+
+### wheat.lua ###
+Wheat Seed=
+Wheat=
+Straw=
+Flour=
+Bread=
+Sliced Bread=
+Toast=
+Toast Sandwich=

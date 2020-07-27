@@ -10,27 +10,27 @@ local S = farming.intllib
 minetest.register_craftitem("farming:potato", {
 	description = S("Potato"),
 	inventory_image = "farming_potato.png",
-	groups = {food_potato = 1, flammable = 2},
+	groups = {seed = 2, food_potato = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:potato_1")
 	end,
---	on_use = minetest.item_eat(1),
+	-- 1 in 3 chance of being poisoned
 	on_use = function(itemstack, user, pointed_thing)
 		if user then
-			if math.random(1, 3) == 1 then
+			if math.random(3) == 1 then
 				return minetest.do_item_eat(-1, nil, itemstack, user, pointed_thing)
 			else
 				return minetest.do_item_eat(1, nil, itemstack, user, pointed_thing)
 			end
 		end
-	end,
+	end
 })
 
 -- baked potato
 minetest.register_craftitem("farming:baked_potato", {
 	description = S("Baked Potato"),
 	inventory_image = "farming_baked_potato.png",
-	on_use = minetest.item_eat(6),
+	on_use = minetest.item_eat(6)
 })
 
 minetest.register_craft({
@@ -44,7 +44,7 @@ minetest.register_craft({
 minetest.register_craftitem("farming:potato_salad", {
 	description = S("Cucumber and Potato Salad"),
 	inventory_image = "farming_potato_salad.png",
-	on_use = minetest.item_eat(10, "farming:bowl"),
+	on_use = minetest.item_eat(10, "farming:bowl")
 })
 
 minetest.register_craft({
@@ -52,12 +52,12 @@ minetest.register_craft({
 	recipe = {
 		{"group:food_cucumber"},
 		{"farming:baked_potato"},
-		{"group:food_bowl"},
+		{"group:food_bowl"}
 	}
 })
 
 -- potato definition
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"farming_potato_1.png"},
 	paramtype = "light",
@@ -75,31 +75,32 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:potato_1", table.copy(crop_def))
+minetest.register_node("farming:potato_1", table.copy(def))
 
 -- stage 2
-crop_def.tiles = {"farming_potato_2.png"}
-minetest.register_node("farming:potato_2", table.copy(crop_def))
+def.tiles = {"farming_potato_2.png"}
+minetest.register_node("farming:potato_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"farming_potato_3.png"}
-crop_def.drop = {
+def.tiles = {"farming_potato_3.png"}
+def.drop = {
 	items = {
-		{items = {'farming:potato'}, rarity = 5},
+		{items = {"farming:potato"}, rarity = 1},
+		{items = {"farming:potato"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:potato_3", table.copy(crop_def))
+minetest.register_node("farming:potato_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"farming_potato_4.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"farming_potato_4.png"}
+def.groups.growing = nil
+def.drop = {
 	items = {
-		{items = {'farming:potato 2'}, rarity = 1},
-		{items = {'farming:potato 3'}, rarity = 2},
+		{items = {"farming:potato 2"}, rarity = 1},
+		{items = {"farming:potato 3"}, rarity = 2}
 	}
 }
-minetest.register_node("farming:potato_4", table.copy(crop_def))
+minetest.register_node("farming:potato_4", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:potato"] = {

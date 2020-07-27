@@ -1,0 +1,194 @@
+# Translation of the farming mod by TenPlus1
+# textdomain: farming
+# author: (Hamlet)
+# last update: 2020/Jun/02
+
+###### folder . ######
+
+### init.lua ###
+Seed=Seme
+
+### compatibility.lua ###
+Banana=Banana
+Banana Leaves=Foglie di banano
+Orange=Arancia
+Strawberry=Fragola
+
+### food.lua ###
+Sugar=Zucchero
+Salt=Sale
+Rose Water=Acqua di rose
+Turkish Delight=Lokum
+Garlic Bread=Pane all'aglio
+Donut=Ciambella
+Chocolate Donut=Ciambella al cioccolato
+Apple Donut=Ciambella alla mela
+Porridge=Porridge
+Jaffa Cake=Torta di jaffa
+
+### hoes.lua ###
+Hoe=Zappa
+Wooden Hoe=Zappa di legno
+Stone Hoe=Zappa di pietra
+Steel Hoe=Zappa d'acciaio
+Bronze Hoe=Zappa di bronzo
+Mese Hoe=Zappa di mese
+Diamond Hoe=Zappa di diamante
+# Surcharge du mod [Toolranks] à faire #
+Hoe Bomb (use or throw on grassy areas to hoe land)=Bomba zappa (usala o lanciala sulle aree erbose per zappare il terreno)
+Mithril Scythe (Right-click to harvest and replant crops)=Falce di mithril (clicca col destro per raccogliere e ripiantare le prose)
+# Surcharge du mod [Toolranks] à faire #
+
+### soil.lua ###
+Soil=Terreno coltivabile
+Wet Soil=Terreno coltivabile bagnato
+
+### utensils.lua ###
+Wooden Bowl=Ciotola di legno
+Saucepan=Casseruola
+Cooking Pot=Pentola da cottura
+Baking Tray=Teglia da forno
+Skillet=Padella
+Mortar and Pestle=Mortaio e pestello
+Cutting Board=Tagliere
+Juicer=Spremiagrumi
+Glass Mixing Bowl=Terrina di vetro
+
+
+###### folder ./crops ######
+
+### barley.lua ###
+Barley Seed=Seme d'orzo
+Barley=Orzo
+
+### beans.lua ###
+Green Beans=Fagiolini
+Bean Pole (place on soil before planting beans)=Palina per fagiolini (mettila sul terreno coltivabile prima di piantare i fagiolini)
+
+### beetroot.lua ###
+Beetroot=Barbabietola
+Beetroot Soup=Zuppa di barbabietola
+
+### blueberry.lua ###
+Blueberries=Mirtilli
+Blueberry Muffin=Focaccina di mirtilli
+Blueberry Pie=Tortino di mirtilli
+
+### carrot.lua ##
+Carrot=Carota
+Carrot Juice=Succo di carota
+Golden Carrot=Carota d'oro
+
+### chili.lua ###
+Chili Pepper=Peperoncino
+Bowl of Chili=Ciotola di peperoncino
+
+### cocoa.lua ###
+Cocoa Beans=Chicchi di cacao
+Cookie=Biscotto
+Bar of Dark Chocolate=Barra di cioccolato fondente
+Chocolate Block=Blocco di cioccolato
+
+### coffee.lua ###
+Coffee Beans=Chicchi di caffè
+Cup of Coffee=Tazza di caffè
+
+### corn.lua ###
+Corn=Mais
+Corn on the Cob=Pannocchia arrostita
+Cornstarch=Amido di mais
+Bottle of Ethanol=Bottiglia di alcol etilico
+
+### cotton.lua ###
+Cotton Seed=Seme di cotone
+Cotton=Cotone
+String=Filo
+
+### cucumber.lua ###
+Cucumber=Cetriolo
+
+### garlic.lua ###
+Garlic clove=Spicchio d'aglio
+Garlic=Aglio
+Garlic Braid=Treccia d'aglio
+
+### grapes.lua ###
+Grapes=Chicchi d'uva
+Trellis (place on soil before planting grapes)=Graticcio (mettilo sul terreno coltivabile prima di piantare i chicchi d'uva)
+
+### hemp.lua ###
+Hemp Seed=Seme di canapa
+Hemp Leaf=Foglia di canapa
+Bottle of Hemp Oil=Bottiglia d'olio di canapa
+Hemp Fibre=Fibra di canapa
+Hemp Block=Blocco di canapa
+Hemp Rope=Corda di canapa
+
+### melon.lua ###
+Melon Slice=Fetta d'anguria
+Melon=Anguria
+
+### onion.lua ###
+Onion=Cipolla
+
+### peas.lua ###
+Pea Pod=Baccello di piselli
+Peas=Piselli
+Pea Soup=Zuppa di piselli
+
+### pepper.lua ###
+Peppercorn=Grano di pepe
+Pepper=Pepe
+Ground Pepper=Pepe macinato
+
+### pinapple.lua ###
+Pineapple Top=Cima d'ananas
+Pineapple=Ananas
+Pineapple Ring=Anello d'ananas
+Pineapple Juice=Succo d'ananas
+
+### potato.lua ###
+Potato=Patata
+Baked Potato=Patata arrostita
+Cucumber and Potato Salad=Insalata di patate e cetrioli
+
+### pumpkin.lua ###
+Pumpkin Slice=Fetta di zucca
+Jack 'O Lantern (punch to turn on and off)=Jack Lanterna (colpirlo per accenderlo e spegnerlo)
+Scarecrow Bottom=Fondo dello spaventapasseri
+Pumpkin Bread=Pane alla zucca
+Pumpkin Dough=Pasta di zucca
+Pumpkin=Zucca
+
+### raspberry.lua ###
+Raspberries=Lamponi
+Raspberry Smoothie=Purea di lamponi
+
+### rhubarb.lua ###
+Rhubarb=Rabarbaro
+Rhubarb Pie=Tortino al rabarbaro
+
+### ryeoatrice.lua ###
+Rye=Segale
+Rye seed=Seme di segale
+Oat=Avena
+Oat seed=Seme d'avena
+Rice=Riso
+Rice grains=Chicchi di riso
+Rice Bread=Pane di riso
+Rice Flour=Farina di riso
+Multigrain Flour=Farina multicereale
+Multigrain Bread=Pane multicereale
+
+### tomato.lua ###
+Tomato=Pomodoro
+
+### wheat.lua ###
+Wheat Seed=Seme di grano
+Wheat=Grano
+Straw=Paglia
+Flour=Farina
+Bread=Pane
+Sliced Bread=Pane a fette
+Toast=Pane tostato
+Toast Sandwich=Panino di pane tostato

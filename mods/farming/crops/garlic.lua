@@ -11,10 +11,10 @@ local S = farming.intllib
 minetest.register_craftitem("farming:garlic_clove", {
 	description = S("Garlic clove"),
 	inventory_image = "crops_garlic_clove.png",
-	groups = {food_garlic_clove = 1, flammable = 3},
+	groups = {seed = 2, food_garlic_clove = 1, flammable = 3},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:garlic_1")
-	end,
+	end
 })
 
 -- garlic bulb
@@ -22,13 +22,13 @@ minetest.register_craftitem("farming:garlic", {
 	description = S("Garlic"),
 	inventory_image = "crops_garlic.png",
 	on_use = minetest.item_eat(1),
-	groups = {food_garlic = 1, flammable = 3},
+	groups = {food_garlic = 1, flammable = 3}
 })
 
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:garlic_clove 8",
-	recipe = { "farming:garlic" }
+	recipe = {"farming:garlic"}
 })
 
 minetest.register_craft({
@@ -58,14 +58,14 @@ minetest.register_node("farming:garlic_braid", {
 	node_box = {
 		type = "fixed",
 		fixed = {
-				{-0.13, -0.45, 0.5, 0.13, 0.45, 0.24},
-		},
+				{-0.13, -0.45, 0.5, 0.13, 0.45, 0.24}
+		}
 	}
 })
 
 minetest.register_craft({
 	output = "farming:garlic_braid",
-	recipe = { 
+	recipe = {
 		{"farming:garlic", "farming:garlic", "farming:garlic"},
 		{"farming:garlic", "farming:garlic", "farming:garlic"},
 		{"farming:garlic", "farming:garlic", "farming:garlic"}
@@ -75,11 +75,11 @@ minetest.register_craft({
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:garlic 9",
-	recipe = { "farming:garlic_braid" }
+	recipe = {"farming:garlic_braid"}
 })
 
 -- crop definition
-local crop_def = {
+local def = {
 	drawtype = "plantlike",
 	tiles = {"crops_garlic_plant_1.png"},
 	paramtype = "light",
@@ -99,31 +99,31 @@ local crop_def = {
 }
 
 -- stage 1
-minetest.register_node("farming:garlic_1", table.copy(crop_def))
+minetest.register_node("farming:garlic_1", table.copy(def))
 
 -- stage 2
-crop_def.tiles = {"crops_garlic_plant_2.png"}
-minetest.register_node("farming:garlic_2", table.copy(crop_def))
+def.tiles = {"crops_garlic_plant_2.png"}
+minetest.register_node("farming:garlic_2", table.copy(def))
 
 -- stage 3
-crop_def.tiles = {"crops_garlic_plant_3.png"}
-minetest.register_node("farming:garlic_3", table.copy(crop_def))
+def.tiles = {"crops_garlic_plant_3.png"}
+minetest.register_node("farming:garlic_3", table.copy(def))
 
 -- stage 4
-crop_def.tiles = {"crops_garlic_plant_4.png"}
-minetest.register_node("farming:garlic_4", table.copy(crop_def))
+def.tiles = {"crops_garlic_plant_4.png"}
+minetest.register_node("farming:garlic_4", table.copy(def))
 
 -- stage 5
-crop_def.tiles = {"crops_garlic_plant_5.png"}
-crop_def.groups.growing = 0
-crop_def.drop = {
+def.tiles = {"crops_garlic_plant_5.png"}
+def.groups.growing = nil
+def.drop = {
 	items = {
-		{items = {'farming:garlic 3'}, rarity = 1},
-		{items = {'farming:garlic'}, rarity = 2},
-		{items = {'farming:garlic'}, rarity = 5},
+		{items = {"farming:garlic 3"}, rarity = 1},
+		{items = {"farming:garlic"}, rarity = 2},
+		{items = {"farming:garlic"}, rarity = 5}
 	}
 }
-minetest.register_node("farming:garlic_5", table.copy(crop_def))
+minetest.register_node("farming:garlic_5", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:garlic"] = {
