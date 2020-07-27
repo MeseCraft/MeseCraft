@@ -113,33 +113,3 @@ minetest.register_craft({
 		{'group:wood', 'group:wood', 'group:wood'},
 	}
 })
-
---
--- Misc
---
-
--- Remove any items thrown in trash can.
-local old_on_step = minetest.registered_entities["__builtin:item"].on_step
-minetest.registered_entities["__builtin:item"].on_step = function(self, dtime)
-	local item_pos = self.object:getpos()
-	-- Round the values.  Not essential, but makes logging look nicer.
-	for key, value in pairs(item_pos) do item_pos[key] = math.floor(value + 0.5) end
-	if minetest.get_node(item_pos).name == "trash_can:trash_can_wooden" then
-		local item_stack = ItemStack(self.itemstring)
-		local inv = minetest.get_inventory({type="node", pos=item_pos})
-		local leftover = inv:add_item("trashlist", item_stack)
-		if leftover:get_count() == 0 then
-			self.object:remove()
-			minetest.log("action", item_stack:to_string() ..
-				" added to trash can at " .. minetest.pos_to_string(item_pos))
-		elseif item_stack:get_count() - leftover:get_count() ~= 0 then
-			self.set_item(self, leftover:to_string())
-			minetest.log("action", item_stack:to_string() ..
-				" added to trash can at " .. minetest.pos_to_string(item_pos) ..
-				" with " .. leftover:to_string() .. " left over"
-			)
-		end
-		return
-	end
-	old_on_step(self, dtime)
-end
