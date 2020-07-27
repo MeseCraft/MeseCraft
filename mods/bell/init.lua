@@ -36,7 +36,6 @@ local save_bell_positions = function()
 
    local file, err = io.open( BELL_SAVE_FILE, "wb")
    if (err ~= nil) then
-      minetest.log("error", "[bell] Could not save bell data")
       return
    end
    file:write( str )
@@ -51,7 +50,6 @@ local restore_bell_data = function()
 
    local file, err = io.open(BELL_SAVE_FILE, "rb")
    if (err ~= nil) then
-      minetest.log("warning", "[bell] Could not open bell data savefile (ignore this message on first start)")
       return
    end
    local str = file:read()
@@ -60,7 +58,6 @@ local restore_bell_data = function()
    local bell_positions_table = minetest.deserialize( str )
    if( bell_positions_table and bell_positions_table.bell_data ) then
      bell_positions = bell_positions_table.bell_data
-     minetest.log("action", "[bell] Read positions of bells from savefile.")
    end
 end
 

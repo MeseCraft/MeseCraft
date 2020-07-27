@@ -8,7 +8,6 @@
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
-minetest.log('action', 'MOD: Compost ' .. S("loading..."))
 compost_version = '0.0.3'
 
 compost = {}
@@ -202,14 +201,12 @@ end
 local function on_metadata_inventory_put(pos, listname, index, stack, player)
 	update_timer(pos)
 	update_nodebox(pos)
-	minetest.log('action', player:get_player_name() .. S(" moves stuff to compost bin at ") .. minetest.pos_to_string(pos))
 	return
 end
 
 local function on_metadata_inventory_take(pos, listname, index, stack, player)
 	update_timer(pos)
 	update_nodebox(pos)
-	minetest.log('action', player:get_player_name() .. S(" takes stuff from compost bin at ") .. minetest.pos_to_string(pos))
 	return
 end
 
@@ -232,7 +229,6 @@ local function on_punch(pos, node, player, pointed_thing)
 		if is_compostable(wielded_item_name) and inv:room_for_item('src', wielded_item_name) then
 			player:set_wielded_item('')
 			inv:add_item('src', wielded_item_name .. ' ' .. wielded_item_count)
-			minetest.log('action', player:get_player_name() .. S(" moves stuff to compost bin at ") .. minetest.pos_to_string(pos))
 			update_nodebox(pos)
 			update_timer(pos)
 		end
@@ -242,7 +238,6 @@ local function on_punch(pos, node, player, pointed_thing)
 	if compost_count > 0 and wielded_item:is_empty() then
 		inv:set_stack('dst', 1, '')
 		player:set_wielded_item('default:dirt ' .. compost_count)
-		minetest.log('action', player:get_player_name() .. S(" takes stuff from compost bin at ") .. minetest.pos_to_string(pos))
 		update_nodebox(pos)
 		update_timer(pos)
 	end
@@ -324,5 +319,3 @@ minetest.register_craft({
 		{"group:wood", "stairs:slab_wood", "group:wood"}
 	}
 })
-
-minetest.log('action', "MOD: Compost version " .. compost_version .. S(" loaded."))
