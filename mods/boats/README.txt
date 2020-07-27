@@ -14,9 +14,18 @@ Model: thetoon and Zeg9 (CC BY-SA 3.0),
   modified by PavelS(SokolovPavel) (CC BY-SA 3.0),
   modified by sofar (CC BY-SA 3.0)
 
-changed by TenPlus1 to add some new features
- - boat is destroyed when crashing at speed (drops 3 wood)
- - boats drop after 10 seconds if no driver
- - boats can be damaged by mobs attacking player
- - Improve physics of boat by implementing drag force (thanks gnag65)
- - nil player check functions by misterskullz
+Controls
+--------
+Right mouse button = Enter or exit boat when pointing at boat.
+Forward            = Speed up.
+                     Slow down when moving backwards.
+Forward + backward = Enable cruise mode: Boat will accelerate to maximum forward
+                     speed and remain at that speed without needing to hold the
+                     forward key.
+Backward           = Slow down.
+                     Speed up when moving backwards.
+                     Disable cruise mode.
+Left               = Turn to the left.
+                     Turn to the right when moving backwards.
+Right              = Turn to the right.
+                     Turn to the left when moving backwards.

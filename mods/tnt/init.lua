@@ -22,7 +22,7 @@ local tnt_radius = tonumber(minetest.settings:get("tnt_radius") or 3)
 
 -- Fill a list with data for content IDs, after all nodes are registered
 local cid_data = {}
-minetest.after(0, function()
+minetest.register_on_mods_loaded(function()
 	for name, def in pairs(minetest.registered_nodes) do
 		cid_data[minetest.get_content_id(name)] = {
 			name = name,
@@ -163,13 +163,9 @@ local function entity_physics(pos, radius, drops)
 
 		local damage = (4 / dist) * radius
 		if obj:is_player() then
-			-- we knock the player back 1.0 node, and slightly upwards
-			-- TODO: switch to add_player_velocity() introduced in 5.1
 			local dir = vector.normalize(vector.subtract(obj_pos, pos))
-			local moveoff = vector.multiply(dir, dist + 1.0)
-			local newpos = vector.add(pos, moveoff)
-			newpos = vector.add(newpos, {x = 0, y = 0.2, z = 0})
-			obj:set_pos(newpos)
+			local moveoff = vector.multiply(dir, 2 / dist * radius)
+			obj:add_player_velocity(moveoff)
 
 			obj:set_hp(obj:get_hp() - damage)
 		else
@@ -238,12 +234,16 @@ local function add_effects(pos, radius, drops)
 	-- we just dropped some items. Look at the items entities and pick
 	-- one of them to use as texture
 	local texture = "tnt_blast.png" --fallback texture
+	local node
 	local most = 0
 	for name, stack in pairs(drops) do
 		local count = stack:get_count()
 		if count > most then
 			most = count
 			local def = minetest.registered_nodes[name]
+			if def then
+				node = { name = name }
+			end
 			if def and def.tiles and def.tiles[1] then
 				texture = def.tiles[1]
 			end
@@ -261,9 +261,11 @@ local function add_effects(pos, radius, drops)
 		maxacc = {x = 0, y = -10, z = 0},
 		minexptime = 0.8,
 		maxexptime = 2.0,
-		minsize = radius * 0.66,
-		maxsize = radius * 2,
+		minsize = radius * 0.33,
+		maxsize = radius,
 		texture = texture,
+		-- ^ only as fallback for clients without support for `node` parameter
+		node = node,
 		collisiondetection = true,
 	})
 end
@@ -292,10 +294,15 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast, owne
 	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
 	local data = vm1:get_data()
 	local count = 0
-	local c_tnt = minetest.get_content_id("tnt:tnt")
+	local c_tnt
 	local c_tnt_burning = minetest.get_content_id("tnt:tnt_burning")
 	local c_tnt_boom = minetest.get_content_id("tnt:boom")
 	local c_air = minetest.get_content_id("air")
+	if enable_tnt then
+		c_tnt = minetest.get_content_id("tnt:tnt")
+	else
+		c_tnt = c_tnt_burning -- tnt is not registered if disabled
+	end
 	-- make sure we still have explosion even when centre node isnt tnt related
 	if explode_center then
 		count = 1
@@ -401,7 +408,7 @@ function tnt.boom(pos, def)
 	def.damage_radius = def.damage_radius or def.radius * 2
 	local meta = minetest.get_meta(pos)
 	local owner = meta:get_string("owner")
-	if not def.explode_center then
+	if not def.explode_center and def.ignore_protection ~= true then
 		minetest.set_node(pos, {name = "tnt:boom"})
 	end
 	local sound = def.sound or "tnt_explode"

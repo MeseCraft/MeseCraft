@@ -1,19 +1,15 @@
+-- boats/init.lua
+
+-- Load support for MT game translation.
+local S = minetest.get_translator("boats")
+
 --
 -- Helper functions
 --
 
-local function is_water(pos, nodename)
-	local nn = nodename or minetest.get_node(pos).name
-	return minetest.get_item_group(nn, "water") ~= 0, nn
-end
-
-
-local function get_sign(i)
-	if i == 0 then
-		return 0
-	else
-		return i / math.abs(i)
-	end
+local function is_water(pos)
+	local nn = minetest.get_node(pos).name
+	return minetest.get_item_group(nn, "water") ~= 0
 end
 
 
@@ -28,42 +24,20 @@ local function get_v(v)
 	return math.sqrt(v.x ^ 2 + v.z ^ 2)
 end
 
-local function after_detach(name, pos)
-	local player = minetest.get_player_by_name(name)
-	if player then
-		player:set_pos(pos)
-	end
-end
-
-
-local function after_attach(name)
-	local player = minetest.get_player_by_name(name)
-	if player then
-		--player_api.set_animation(player, "sit" , 30) -- 5.0
-		default.player_set_animation(player, "sit" , 30) -- 0.4.17
-	end
-end
-
-
-local function after_remove(object)
-	if object then
-		object:remove()
-	end
-end
-
-
 --
 -- Boat entity
 --
 
 local boat = {
-	physical = true,
-	-- Warning: Do not change the position of the collisionbox top surface,
-	-- lowering it causes the boat to fall through the world if underwater
-	collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
-	visual = "mesh",
-	mesh = "boats_boat.obj",
-	textures = {"default_wood.png"},
+	initial_properties = {
+		physical = true,
+		-- Warning: Do not change the position of the collisionbox top surface,
+		-- lowering it causes the boat to fall through the world if underwater
+		collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
+		visual = "mesh",
+		mesh = "boats_boat.obj",
+		textures = {"default_wood.png"},
+	},
 
 	driver = nil,
 	v = 0,
@@ -71,13 +45,6 @@ local boat = {
 	removed = false,
 	auto = false
 }
-
-
--- 0.4.17 or 5.0 check
-local y_off = 11
-if minetest.registered_nodes["default:permafrost"] then
-	y_off = 1
-end
 
 
 function boat.on_rightclick(self, clicker)
@@ -89,13 +56,13 @@ function boat.on_rightclick(self, clicker)
 		self.driver = nil
 		self.auto = false
 		clicker:set_detach()
---		player_api.player_attached[name] = false -- 5.0
---		player_api.set_animation(clicker, "stand" , 30)
-		default.player_attached[name] = false -- 0.4.17
-		default.player_set_animation(clicker, "stand" , 30)
+		player_api.player_attached[name] = false
+		player_api.set_animation(clicker, "stand" , 30)
 		local pos = clicker:get_pos()
 		pos = {x = pos.x, y = pos.y + 0.2, z = pos.z}
-		minetest.after(0.1, after_detach, name, pos)
+		minetest.after(0.1, function()
+			clicker:set_pos(pos)
+		end)
 	elseif not self.driver then
 		local attach = clicker:get_attach()
 		if attach and attach:get_luaentity() then
@@ -107,15 +74,17 @@ function boat.on_rightclick(self, clicker)
 		end
 		self.driver = name
 		clicker:set_attach(self.object, "",
-			{x = 0.5, y = y_off, z = -3}, {x = 0, y = 0, z = 0})
---		player_api.player_attached[name] = true -- 5.0
-		default.player_attached[name] = true -- 0.4.17
-		minetest.after(0.2, after_attach, name)
+			{x = 0.5, y = 1, z = -3}, {x = 0, y = 0, z = 0})
+		player_api.player_attached[name] = true
+		minetest.after(0.2, function()
+			player_api.set_animation(clicker, "sit" , 30)
+		end)
 		clicker:set_look_horizontal(self.object:get_yaw())
 	end
 end
 
 
+-- If driver leaves server while driving boat
 function boat.on_detach_child(self, child)
 	self.driver = nil
 	self.auto = false
@@ -123,7 +92,7 @@ end
 
 
 function boat.on_activate(self, staticdata, dtime_s)
-	self.object:set_armor_groups({fleshy = 100}) -- {immortal = 1}
+	self.object:set_armor_groups({immortal = 1})
 	if staticdata then
 		self.v = tonumber(staticdata)
 	end
@@ -145,8 +114,7 @@ function boat.on_punch(self, puncher)
 	if self.driver and name == self.driver then
 		self.driver = nil
 		puncher:set_detach()
---		player_api.player_attached[name] = false -- 5.0
-		default.player_attached[name] = false -- 0.4.17
+		player_api.player_attached[name] = false
 	end
 	if not self.driver then
 		self.removed = true
@@ -161,38 +129,29 @@ function boat.on_punch(self, puncher)
 			end
 		end
 		-- delay remove to ensure player is detached
-		minetest.after(0.1, after_remove, self.object)
+		minetest.after(0.1, function()
+			self.object:remove()
+		end)
 	end
 end
 
 
 function boat.on_step(self, dtime)
-
-	-- after 10 seconds remove boat and drop as item if not boarded
-	self.count = (self.count or 0) + dtime
-
-	if self.count > 10 then
-		minetest.add_item(self.object:get_pos(), "boats:boat")
-		self.object:remove()
-		return
-	end
-
-	self.v = get_v(self.object:get_velocity()) * get_sign(self.v)
+	self.v = get_v(self.object:get_velocity()) * math.sign(self.v)
 	if self.driver then
-		self.count = 0
 		local driver_objref = minetest.get_player_by_name(self.driver)
 		if driver_objref then
 			local ctrl = driver_objref:get_player_control()
 			if ctrl.up and ctrl.down then
 				if not self.auto then
 					self.auto = true
-					minetest.chat_send_player(self.driver, "[boats] Cruise on")
+					minetest.chat_send_player(self.driver, S("Boat cruise mode on"))
 				end
 			elseif ctrl.down then
 				self.v = self.v - dtime * 2.0
 				if self.auto then
 					self.auto = false
-					minetest.chat_send_player(self.driver, "[boats] Cruise off")
+					minetest.chat_send_player(self.driver, S("Boat cruise mode off"))
 				end
 			elseif ctrl.up or self.auto then
 				self.v = self.v + dtime * 2.0
@@ -210,11 +169,6 @@ function boat.on_step(self, dtime)
 					self.object:set_yaw(self.object:get_yaw() - dtime * 0.9)
 				end
 			end
-		else
-			-- If driver leaves server while driving 'driver' is present
-			-- but driver objectref is nil. Reset boat properties.
-			self.driver = nil
-			self.auto = false
 		end
 	end
 	local velo = self.object:get_velocity()
@@ -222,9 +176,10 @@ function boat.on_step(self, dtime)
 		self.object:set_pos(self.object:get_pos())
 		return
 	end
-	-- We need to multiple by abs to not loose sign of velocity
-	local drag = dtime * 0.08 * self.v * math.abs(self.v)
-	-- If drag is larger than velocity, then stop horizontal move.
+	-- We need to preserve velocity sign to properly apply drag force
+	-- while moving backward
+	local drag = dtime * math.sign(self.v) * (0.01 + 0.0796 * self.v * self.v)
+	-- If drag is larger than velocity, then stop horizontal movement
 	if math.abs(self.v) <= math.abs(drag) then
 		self.v = 0
 	else
@@ -235,9 +190,8 @@ function boat.on_step(self, dtime)
 	p.y = p.y - 0.5
 	local new_velo
 	local new_acce = {x = 0, y = 0, z = 0}
-	local iswater, nodename = is_water(p)
-	if not iswater then
-		local nodedef = minetest.registered_nodes[nodename]
+	if not is_water(p) then
+		local nodedef = minetest.registered_nodes[minetest.get_node(p).name]
 		if (not nodedef) or nodedef.walkable then
 			self.v = 0
 			new_acce = {x = 0, y = 1, z = 0}
@@ -276,8 +230,6 @@ function boat.on_step(self, dtime)
 	end
 	self.object:set_velocity(new_velo)
 	self.object:set_acceleration(new_acce)
---removed code from here,freegamers.
-	self.v2 = self.v
 end
 
 
@@ -285,7 +237,7 @@ minetest.register_entity("boats:boat", boat)
 
 
 minetest.register_craftitem("boats:boat", {
-	description = "Boat",
+	description = S("Boat"),
 	inventory_image = "boats_inventory.png",
 	wield_image = "boats_wield.png",
 	wield_scale = {x = 2, y = 2, z = 1},
@@ -340,4 +292,3 @@ minetest.register_craft({
 	recipe = "boats:boat",
 	burntime = 20,
 })
-print ("[MOD] Boats loaded")

@@ -202,6 +202,9 @@ Tools / "Advanced" crafting / Non-"natural"
 
 default:bookshelf
 
+default:sign_wall_wood
+default:sign_wall_steel
+
 default:ladder_wood
 default:ladder_steel
 
@@ -460,7 +463,7 @@ minetest.register_node("default:dirt_with_dry_grass", {
 		"default_dirt.png",
 		{name = "default_dirt.png^default_dry_grass_side.png",
 			tileable_vertical = false}},
-	groups = {crumbly = 3, soil = 1},
+	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
 	drop = "default:dirt",
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name = "default_grass_footstep", gain = 0.4},
@@ -2552,6 +2555,7 @@ minetest.register_node("default:bookshelf", {
 		return drops
 	end,
 })
+
 
 minetest.register_node("default:ladder_wood", {
 	description = S("Wooden Ladder"),

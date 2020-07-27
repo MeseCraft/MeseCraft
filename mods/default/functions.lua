@@ -210,7 +210,12 @@ end
 function default.grow_papyrus(pos, node)
 	pos.y = pos.y - 1
 	local name = minetest.get_node(pos).name
-	if name ~= "default:dirt_with_grass" and name ~= "default:dirt" then
+	if name ~= "default:dirt" and
+			name ~= "default:dirt_with_grass" and
+			name ~= "default:dirt_with_dry_grass" and
+			name ~= "default:dirt_with_rainforest_litter" and
+			name ~= "default:dry_dirt" and
+			name ~= "default:dry_dirt_with_dry_grass" then
 		return
 	end
 	if not minetest.find_node_near(pos, 3, {"group:water"}) then
@@ -247,7 +252,17 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow papyrus",
 	nodenames = {"default:papyrus"},
-	neighbors = {"default:dirt", "default:dirt_with_grass"},
+	-- Grows on the dirt and surface dirt nodes of the biomes papyrus appears in,
+	-- including the old savanna nodes.
+	-- 'default:dirt_with_grass' is here only because it was allowed before.
+	neighbors = {
+		"default:dirt",
+		"default:dirt_with_grass",
+		"default:dirt_with_dry_grass",
+		"default:dirt_with_rainforest_litter",
+		"default:dry_dirt",
+		"default:dry_dirt_with_dry_grass",
+	},
 	interval = 14,
 	chance = 71,
 	action = function(...)
@@ -433,6 +448,9 @@ local function leafdecay_after_destruct(pos, oldnode, def)
 	end
 end
 
+local movement_gravity = tonumber(
+	minetest.settings:get("movement_gravity")) or 9.81
+
 local function leafdecay_on_timer(pos, def)
 	if minetest.find_node_near(pos, def.radius, def.trunks) then
 		return false
@@ -459,6 +477,21 @@ local function leafdecay_on_timer(pos, def)
 
 	minetest.remove_node(pos)
 	minetest.check_for_falling(pos)
+
+	-- spawn a few particles for the removed node
+	minetest.add_particlespawner({
+		amount = 8,
+		time = 0.001,
+		minpos = vector.subtract(pos, {x=0.5, y=0.5, z=0.5}),
+		maxpos = vector.add(pos, {x=0.5, y=0.5, z=0.5}),
+		minvel = vector.new(-0.5, -1, -0.5),
+		maxvel = vector.new(0.5, 0, 0.5),
+		minacc = vector.new(0, -movement_gravity, 0),
+		maxacc = vector.new(0, -movement_gravity, 0),
+		minsize = 0,
+		maxsize = 0,
+		node = node,
+	})
 end
 
 function default.register_leafdecay(def)
@@ -483,7 +516,7 @@ end
 
 
 --
--- Convert dirt to something that fits the environment
+-- Convert default:dirt to something that fits the environment
 --
 
 minetest.register_abm({
@@ -492,6 +525,7 @@ minetest.register_abm({
 	neighbors = {
 		"air",
 		"group:grass",
+		"group:dry_grass",
 		"default:snow",
 	},
 	interval = 6,
@@ -520,6 +554,8 @@ minetest.register_abm({
 			minetest.set_node(pos, {name = "default:dirt_with_snow"})
 		elseif minetest.get_item_group(name, "grass") ~= 0 then
 			minetest.set_node(pos, {name = "default:dirt_with_grass"})
+		elseif minetest.get_item_group(name, "dry_grass") ~= 0 then
+			minetest.set_node(pos, {name = "default:dirt_with_dry_grass"})
 		end
 	end
 })
