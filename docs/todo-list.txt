@@ -6,7 +6,7 @@
 Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a  magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
 	-- moon rock needed to make moon portals? 
 	-- teleporter node needed to make mars portal?
-Death_compass can be duplicated somehow (reported by noodles)
+Death_compass can be duplicated somehow (reported by noodles) also does not work now.
 Mobs are flashing on hit. Need to look into the API to see why this is. (TenPlus1 said this is because of the current MT version, should resolve in the next engine verison)
 gramophone top part disappears when pickedup.
 bee hives arent protection-compatbile.
@@ -54,3 +54,6 @@ UNSORTED
 -- mobs_mc: add squid and use horse/armor in creatures.
 -- add chandiler recipe.
 -- are toolrank sounds missing when break-warning?
+-- flying potion, faster potions
+-- AFK mod should detect when players send shout messages. 
+-- blueberries too much, diet mod. oats remove, cave wheat and such longer grow time.

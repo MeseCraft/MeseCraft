@@ -1,16 +1,12 @@
--- declare cores
-cores={"brachiosaurus","tyrannosaurus","triceratops","stegosaurus","dilophosaurus","velociraptor","mosasaurus","elasmosaurus","dunkleosteus","pteranodon", "horsetails","cycad"}
-cores2={"Mammoth","Elasmotherium","Smilodon","Direwolf","Thylacoleo"}
-
 -- declare formspec page.
 local fossil_analyzer_fs = "size[8,7]"
     .."image[3.28,1.75;1.5,.5;paleotest_progress_bar.png^[transformR270]"
     .."list[current_player;main;0,3;8,4;]"
     .."list[context;input;2,1.5;1,1;]"
     .."list[context;output;5,1.5;1,1;]"
-    .."label[3,0.5;Fossil Analyzer]"
-    .."label[2.0,1;Fossil]"
-    .."label[5.1,1;DNA]"
+    .."label[3.3,0;DNA Sequencer]"
+    .."label[2.15,1;Fossil]"
+    .."label[5.2,1;DNA]"
 
 -- get formspec page (active).
 local function get_active_fossil_analyzer_fs(item_percent)
@@ -20,9 +16,10 @@ local function get_active_fossil_analyzer_fs(item_percent)
         .."list[current_player;main;0,3;8,4;]"
         .."list[context;input;2,1.5;1,1;]"
         .."list[context;output;5,1.5;1,1;]"
-        .."label[3,0.5;Fossil Analyzer]"
-        .."label[2.0,1;Fossil]"
-        .."label[5.1,1;DNA]"
+        .."label[3.3,0;Fossil Analyzer]"
+        .."label[3.3,1.3;Sequencing...]"
+        .."label[2.15,1;Fossil]"
+        .."label[5.2,1;DNA]"
 end
 
 -- initialize table.
@@ -51,7 +48,7 @@ local function update_formspec(progress, goal, meta)
 	meta:set_string("formspec", formspec)
 end
 
--- timer?
+-- timer to control cooking.
 local function recalculate(pos)
 	local meta, timer = minetest.get_meta(pos), minetest.get_node_timer(pos)
 	local inv = meta:get_inventory()
@@ -65,27 +62,30 @@ local function recalculate(pos)
 	timer:start(1)
 end
 
+-- tables for paleotest dna outputs
+fossil_output={"brachiosaurus","tyrannosaurus","triceratops","stegosaurus","dilophosaurus","velociraptor","mosasaurus","elasmosaurus","dunkleosteus","pteranodon", "horsetails","cycad"}
+bone_outputs={"mammoth","elasmotherium","smilodon","direwolf","thylacoleo"}
+
+
 -- function to cook
 local function do_cook_single(pos)
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local fossil = inv:get_stack("input", 1)
 	fossil:set_count(1)
-
-	if not "paleotest:fossil" or "paleotest:prehistoric_bone" then
-        minetest.chat_send_all("fossil_analyzer cooked nothing because there was nothing to cook.")
+	-- Output items and take fossil when we are done.
+	-- Outputs work by selecting a random string from the tables above.
+	if fossil:get_name() == "paleotest:fossil" then
+		inv:remove_item("input", "paleotest:fossil")
+		local dinosaur_dna = "paleotest:"..fossil_outputs[math.random(1,#fossil_outputs)].."_dna"
+		inv:add_item("output", dinosaur_dna)
+	elseif fossil:get_name() == "paleotest:bone" then
+		inv:remove_item("input", "paleotest:bone")
+		local dinosaur_dna = "paleotest:"..bone_outputs[math.random(1,#bone_outputs)].."_dna"
+		inv:add_item("output", dinosaur_dna)
+	else
 		minetest.get_node_timer(pos):stop()
 		update_formspec(0, 3, meta)
-	elseif "paleotest:fossil" then
-        minetest.chat_send_all("fuck")
-		inv:remove_item("input", "paleotest:fossil")
-		local dinosaur_dna = "paleotest:"..cores[math.random(1,#cores)].."_dna"
-		inv:add_item("output", dinosaur_dna)
-	elseif "paleotest:bone" then
-        minetest.chat_send_all("fuck")
-		inv:remove_item("input", "paleotest:bone")
-		local dinosaur_dna = "paleotest:"..cores2[math.random(1,#cores2)].."_dna"
-		inv:add_item("output", dinosaur_dna)
 	end
 end
 
@@ -154,7 +154,32 @@ minetest.register_node("paleotest:fossil_analyzer", {
 		return drops
 	end,
 
-	allow_metadata_inventory_put = function(pos, list, index, stack, player)
-		return "paleotest:fossil" and "paleotest:bone" and 1 or 0
+	-- allows what items can be put into the machine.
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		-- declare variables for the protection check.
+		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
+		-- check if we are accepting these items/stacks.
+		if listname == "input" then
+			if stack:get_name() == "paleotest:fossil" or stack:get_name() == "paleotest:bone" then
+				-- number of items allowed to input.
+				return 1
+			else
+				return 0
+			end
+	 	-- you cant place things into the output slot
+		elseif listname == "output" then
+			return 0
+		end
 	end,
+	-- run a protection check when removing items.
+	allow_metadata_inventory_take = function (pos, listname, index, stack, player)
+		local meta = minetest.get_meta(pos)
+		-- check if its protected, then see who the player is.	
+		if (minetest.is_protected(pos, player:get_player_name())) then
+  			return 0
+		else
+			return 1
+  		end
+	end
 })

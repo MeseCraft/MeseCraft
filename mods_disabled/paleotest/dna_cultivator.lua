@@ -1,6 +1,9 @@
+-- declare cores
 cores={"Brachiosaurus","Tyrannosaurus","Triceratops","Stegosaurus","Dilophosaurus","Velociraptor","Pteranodon","Sarcosuchus"}
 cores2={"Mammoth","Elasmotherium","Smilodon","Direwolf","Procoptodon","Thylacoleo","Mosasaurus","Elasmosaurus","Dunkleosteus"}
 cores3={"Horsetails","Cycad"}
+
+-- declare the formspec page (inactive)
 local dna_cultivator_fs = "size[8,7]"
     .."image[3.25,1.75;1.7,.5;paleotest_progress_bar.png^[transformR270]"
     .."list[current_player;main;0,3;8,4;]"
@@ -10,6 +13,7 @@ local dna_cultivator_fs = "size[8,7]"
     .."label[2.0,1;DNA]"
     .."label[5.1,1;Egg]"
 
+-- declare the formspec page (active)
 local function get_active_dna_cultivator_fs(item_percent)
     return "size[8,7]"
 	    .."image[3.25,1.75;1.7,.5;paleotest_progress_bar.png^[lowpart:"
@@ -22,24 +26,32 @@ local function get_active_dna_cultivator_fs(item_percent)
         .."label[5.1,1;Egg]"
 end
 
+-- initialize the table
 paleotest.dna_cultivator = {}
 local dna_cultivator = paleotest.dna_cultivator
+
+-- initialize table for reciple declarations.
 dna_cultivator.recipes = {}
+
+-- function to register recipes
 function dna_cultivator.register_recipe(input, output) dna_cultivator.recipes[input] = output end
 
+-- function to control formspec switching.
 local function update_formspec(progress, goal, meta)
     local formspec
-
     if progress > 0 and progress <= goal then
+	-- when analyzing is active, we add a progress bar
         local item_percent = math.floor(progress / goal * 100)
         formspec = get_active_dna_cultivator_fs(item_percent)
     else
+	-- otherwise we just use standard formspec
         formspec = dna_cultivator_fs
     end
-
+	-- set formspec meta string to whichever version we are using.
     meta:set_string("formspec", formspec)
 end
 
+-- timer to control cooking.
 local function recalculate(pos)
 	local meta, timer = minetest.get_meta(pos), minetest.get_node_timer(pos)
 	local inv = meta:get_inventory()
@@ -53,6 +65,7 @@ local function recalculate(pos)
     timer:start(1)
 end
 
+-- function to cook.
 local function do_cook_single(pos)
     local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
@@ -68,7 +81,7 @@ local function do_cook_single(pos)
 	    inv:add_item("output", dinosaur_egg)
     end
 end
-
+-- Register the DNA cultivator node.
 minetest.register_node("paleotest:dna_cultivator", {
 	description = "DNA Cultivator",
 	tiles = {
@@ -114,7 +127,7 @@ minetest.register_node("paleotest:dna_cultivator", {
 	end,
 
 	on_metadata_inventory_put = recalculate,
-    on_metadata_inventory_take = recalculate,
+	on_metadata_inventory_take = recalculate,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -132,12 +145,25 @@ minetest.register_node("paleotest:dna_cultivator", {
 		minetest.remove_node(pos)
 		return drops
 	end,
-
+	-- allows what items can be put into the macine.
 	allow_metadata_inventory_put = function(pos, list, index, stack, player)
+		-- declare variables for the protection check.
+		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
+		-- declare our recipes
 		return dna_cultivator.recipes[stack:get_name()] and stack:get_count() or 0
 	end,
+	-- run protection check when removing items.
+	allow_metadata_inventory_take = function (pos, listname, index, stack, player)
+		local meta = minetest.get_meta(pos)
+		-- check if its protected, then see who the player is.	
+		if (minetest.is_protected(pos, player:get_player_name())) then
+  			return 0
+		else
+			return 1
+  		end
+	end
 })
-
 
 -- Recipe Registration
 for n,cor in ipairs(cores3) do

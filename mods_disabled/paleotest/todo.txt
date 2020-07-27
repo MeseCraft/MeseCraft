@@ -1,6 +1,3 @@
-Fossil Analyzer: 
-Can input a fossil or bone and output a random dna type.
-
 DNA Cultivator:
 converts a DNA into an egg to spawn a baby dino.
 
