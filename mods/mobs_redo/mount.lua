@@ -84,7 +84,7 @@ local function force_detach(player)
 
 	local entity = attached_to:get_luaentity()
 
-	if entity.driver
+	if entity and entity.driver
 	and entity.driver == player then
 
 		entity.driver = nil

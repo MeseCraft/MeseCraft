@@ -106,11 +106,15 @@ msgid "Mob Spawner"
 msgstr ""
 
 #: spawner.lua
-msgid "Mob MinLight MaxLight Amount PlayerDist"
+msgid "(mob name) (min light) (max light) (amount) (player distance) (Y offset)"
 msgstr ""
 
 #: spawner.lua
 msgid "Spawner Not Active (enter settings)"
+msgstr ""
+
+#@ spawner.lua
+msgid "Command:"
 msgstr ""
 
 #: spawner.lua

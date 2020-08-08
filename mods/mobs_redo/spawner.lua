@@ -3,7 +3,7 @@ local S = mobs.intllib
 
 -- mob spawner
 
-local spawner_default = "mobs_animal:pumba 10 15 0 0"
+local spawner_default = "mobs_animal:pumba 10 15 0 0 0"
 
 minetest.register_node("mobs:spawner", {
 	tiles = {"mob_spawner.png"},
@@ -17,10 +17,17 @@ minetest.register_node("mobs:spawner", {
 
 		local meta = minetest.get_meta(pos)
 
+		-- setup formspec
+		local head = S("(mob name) (min light) (max light) (amount)"
+				.. " (player distance) (Y offset)")
+
 		-- text entry formspec
 		meta:set_string("formspec",
-			"field[text;" .. S("Mob MinLight MaxLight Amount PlayerDist")
+			"size[9,3.5]"
+			.. "label[0.15,0.5;" .. minetest.formspec_escape(head) .. "]"
+			.. "field[1,2.5;7.5,0.8;text;" .. S("Command:")
 			.. ";${command}]")
+
 		meta:set_string("infotext", S("Spawner Not Active (enter settings)"))
 		meta:set_string("command", spawner_default)
 	end,
@@ -54,11 +61,11 @@ minetest.register_node("mobs:spawner", {
 		local pla = tonumber(comm[5]) -- player distance (0 to disable)
 		local yof = tonumber(comm[6]) or 0 -- Y offset to spawn mob
 
-		if mob and mob ~= "" and mobs.spawning_mobs[mob] == true
+		if mob and mob ~= "" and mobs.spawning_mobs[mob]
 		and num and num >= 0 and num <= 10
 		and mlig and mlig >= 0 and mlig <= 15
 		and xlig and xlig >= 0 and xlig <= 15
-		and pla and pla >=0 and pla <= 20
+		and pla and pla >= 0 and pla <= 20
 		and yof and yof > -10 and yof < 10 then
 
 			meta:set_string("command", fields.text)
@@ -67,7 +74,7 @@ minetest.register_node("mobs:spawner", {
 		else
 			minetest.chat_send_player(name, S("Mob Spawner settings failed!"))
 			minetest.chat_send_player(name,
-				S("Syntax: “name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] distance[1-20] y_offset[-10 to 10]”"))
+				S("Syntax: “name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] player_distance[1-20] y_offset[-10 to 10]”"))
 		end
 	end
 })

@@ -23,8 +23,8 @@ Lucky Blocks: 9
 
 
 Changelog:
-- 1.52 - Added 'mob_active_limit' in settings to set number of mobs in game 
-(default is 0 for unlimited), removed {immortal} from mob armor
+- 1.52 - Added 'mob_active_limit' in settings to set number of mobs in game
+(default is 0 for unlimited), removed {immortal} from mob armor, fluid viscocity slows mobs
 - 1.51 - Added some node checks for dangerous nodes, jumping and falling tweaks, spawn area check (thx for idea wuzzy), re-enabled mob suffocation, add 'mob_nospawn_range' setting
 - 1.50 - Added new line_of_sight function that uses raycasting if mt5.0 is found,  (thanks Astrobe), dont spawn mobs if world anchor nearby (technic or simple_anchor mods), chinese local added
 - 1.49- Added mobs:force_capture(self, player) function, api functions now use metatables thanks to bell07
