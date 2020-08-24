@@ -79,7 +79,7 @@ mobs:register_mob("mobs_creatures:sheep", {
 				mesh = "mobs_creatures_sheep_naked.b3d",
 			})
 			if not minetest.settings:get_bool("creative_mode") then
-				item:add_wear(mobs_mc.misc.shears_wear)
+				item:add_wear(276)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 			self.drops = {
