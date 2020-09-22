@@ -1,0 +1,55 @@
+# textdomain: protector
+# author: CodeXP and TenPlus1
+# last update: 2020/Jul/12
+
+### admin.lua ###
+Remove Protectors around players (separate names with spaces)=Ismi verilen oyuncuların yanındaki korumaları kaldır. (İsimleri boşlukla ayır)
+<names list>=<isim listesi>
+Replace Protector Owner with name provided=Koruyucu Sahibini belirtilen adla değiştirin
+<owner name> <name to replace with>=<sahip adı> <değiştirilecek ad>
+Replacing Protector name '@1' with '@2'='@ 1' Koruyucu adını '@ 2' ile değiştirin
+Show protected areas of your nearby protectors=Yakındaki koruyucuların korunan alanlarını göster
+Protector Names to remove: @1=Silinecek korumaların isimleri: @1
+Name List Reset=İsim listesini sıfırla
+
+### doors_chest.lua ###
+Protected Wooden Door=Korumalı ahşap kapı
+Protected Steel Door=Korumalı çelik kapı
+Protected Trapdoor=Korumalı tuzak kapısı
+Protected Steel Trapdoor=Korumalı çelik tuzak kapısı
+Protected Chest=Korumalı sandık
+To Chest=Sandığa
+To Inventory=Envantere
+Protected Chest (@1)=Korumalı sandık (@1)
+
+### init.lua ###
+-- Protector interface --=-- Koruyucu arayüz --
+PUNCH node to show protected area=Korunan alanı göstermek için yumruk
+USE for area check=Bölge kontrolü için kullan
+Members:=Üyeler
+Close=Kapat
+Protection located at: @1=Korumanın bulunduğu yer  @1
+Members: @1.=Üyeler  @1.
+This area is not protected.=Bu alan korumalı değildir.
+You can build here.=Buraya inşaa edebilirsiniz.
+Overlaps into above players protected area=Yukarıdaki oyuncuların koruma alanı ile çakışıyor
+Protection Block=Koruma kutusu
+Protection (owned by @1)=Koruma (@1 sahibidir)
+Protection Logo=Koruma arması
+[MOD] Protector Redo loaded=[MOD] Protector Redo yüklendi
+Spawn @1 has been protected up to a @2 block radius.=Spawn @1, @2 blok yarıçapa kadar korunur.
+This area is owned by @1=Burasının sahibi @1!
+
+### pvp.lua ###
+[Protector] on_punchplayer called with nil objects=[Protector] on_punchplayer boş objelerle çağrıldı
+[Protector] pvp_protect not active, update your version of Minetest=[Protector] pvp_protect aktif değil, Minetest sürümünüzü güncelleyin.
+[Protector] pvp_protect is disabled=[Protector] pvp_protect kapatıldı.
+
+### hud.lua ###
+Owner: @1=Sahip: @1
+
+### tool.lua ###
+Protector Placer Tool (stand near protector, face direction and use)=Koruyucu Yerleştirme Aleti (koruyucunun yanında durun, yüz yönü ve kullanım)
+Protector already in place!=Koruyucu zaten yerinde!
+No protectors available to place!=Yerleştirilecek koruyucu yok!
+Protector placed at @1=Korumanın bulunduğu yer @1

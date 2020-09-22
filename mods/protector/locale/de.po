@@ -19,10 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: admin.lua
-#, fuzzy
 msgid "Remove Protectors around players (separate names with spaces)"
-msgstr ""
-"Entferne Störschützer von bestimmten Namen in der Nähe von Spielern (trenne "
+msgstr "Entferne Störschützer von bestimmten Namen in der Nähe von Spielern (trenne "
 "Namen durch Leerzeichen)"
 
 #: admin.lua

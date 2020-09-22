@@ -19,10 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: admin.lua
-#, fuzzy
 msgid "Remove Protectors around players (separate names with spaces)"
-msgstr ""
-"Удалить защиту рядом с игроками (перечислить имена, разделяя пробелами)"
+msgstr "Удалить защиту рядом с игроками (перечислить имена, разделяя пробелами)"
 
 #: admin.lua
 msgid "<names list>"

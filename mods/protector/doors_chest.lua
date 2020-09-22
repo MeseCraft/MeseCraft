@@ -6,6 +6,9 @@
 local S = protector.intllib
 local F = minetest.formspec_escape
 
+-- MineClone2 support
+local mcl = not minetest.registered_items["default:steel_ingot"]
+
 -- Registers a door
 function register_door(name, def)
 	def.groups.not_in_creative_inventory = 1
@@ -310,6 +313,14 @@ register_door(name, {
 	sunlight = false,
 })
 
+if mcl then
+minetest.register_craft({
+	output = name,
+	recipe = {
+		{"mcl_doors:wooden_door", "mcl_core:gold_ingot"}
+	}
+})
+else
 minetest.register_craft({
 	output = name,
 	recipe = {
@@ -325,6 +336,7 @@ minetest.register_craft({
 		{"doors:door_wood", "default:copper_ingot"}
 	}
 })
+end
 
 -- Protected Steel Door
 
@@ -343,6 +355,14 @@ register_door(name, {
 	sunlight = false,
 })
 
+if mcl then
+minetest.register_craft({
+	output = name,
+	recipe = {
+		{"mcl_doors:iron_door", "mcl_core:gold_ingot"}
+	}
+})
+else
 minetest.register_craft({
 	output = name,
 	recipe = {
@@ -358,6 +378,7 @@ minetest.register_craft({
 		{"doors:door_steel", "default:copper_ingot"}
 	}
 })
+end
 
 ----trapdoor----
 
@@ -408,8 +429,8 @@ function register_trapdoor(name, def)
 		fixed = {-0.5, -0.5, 6/16, 0.5, 0.5, 0.5}
 	}
 	def_opened.tiles = { def.tile_side, def.tile_side,
-			def.tile_side .. '^[transform3',
-			def.tile_side .. '^[transform1',
+			def.tile_side .. "^[transform3",
+			def.tile_side .. "^[transform1",
 			def.tile_front, def.tile_front }
 
 	def_opened.drop = name_closed
@@ -434,12 +455,19 @@ register_trapdoor("protector:trapdoor", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+if mcl then
 minetest.register_craft({
-	output = 'protector:trapdoor 2',
+	output = "protector:trapdoor",
 	recipe = {
-		{'group:wood', 'default:copper_ingot', 'group:wood'},
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'', '', ''},
+		{"mcl_doors:trapdoor", "mcl_core:gold_ingot"}
+	}
+})
+else
+minetest.register_craft({
+	output = "protector:trapdoor 2",
+	recipe = {
+		{"group:wood", "default:copper_ingot", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
 	}
 })
 
@@ -449,6 +477,7 @@ minetest.register_craft({
 		{"doors:trapdoor", "default:copper_ingot"}
 	}
 })
+end
 
 -- Protected Steel Trapdoor
 
@@ -465,11 +494,19 @@ register_trapdoor("protector:trapdoor_steel", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+if mcl then
 minetest.register_craft({
-	output = 'protector:trapdoor_steel',
+	output = "protector:trapdoor_steel",
 	recipe = {
-		{'default:copper_ingot', 'default:steel_ingot'},
-		{'default:steel_ingot', 'default:steel_ingot'},
+		{"mcl_doors:iron_trapdoor", "mcl_core:gold_ingot"}
+	}
+})
+else
+minetest.register_craft({
+	output = "protector:trapdoor_steel",
+	recipe = {
+		{"default:copper_ingot", "default:steel_ingot"},
+		{"default:steel_ingot", "default:steel_ingot"},
 	}
 })
 
@@ -479,6 +516,7 @@ minetest.register_craft({
 		{"doors:trapdoor_steel", "default:copper_ingot"}
 	}
 })
+end
 
 -- Protected Chest
 
@@ -580,9 +618,9 @@ minetest.register_node("protector:chest", {
 
 		local spos = pos.x .. "," .. pos.y .. "," ..pos.z
 		local formspec = "size[8,9]"
-			.. default.gui_bg
-			.. default.gui_bg_img
-			.. default.gui_slots
+--			.. default.gui_bg
+--			.. default.gui_bg_img
+--			.. default.gui_slots
 			.. "list[nodemeta:".. spos .. ";main;0,0.3;8,4;]"
 			.. "button[0,4.5;2,0.25;toup;" .. F(S("To Chest")) .. "]"
 			.. "field[2.3,4.8;4,0.25;chestname;;"
@@ -675,18 +713,27 @@ end)
 
 -- Protected Chest recipes
 
+if mcl then
 minetest.register_craft({
-	output = 'protector:chest',
+	output = "protector:chest",
 	recipe = {
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'group:wood', 'default:copper_ingot', 'group:wood'},
-		{'group:wood', 'group:wood', 'group:wood'},
+		{"mcl_chests:chest", "mcl_core:gold_ingot"},
+	}
+})
+else
+minetest.register_craft({
+	output = "protector:chest",
+	recipe = {
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "default:copper_ingot", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
 	}
 })
 
 minetest.register_craft({
-	output = 'protector:chest',
+	output = "protector:chest",
 	recipe = {
-		{'default:chest', 'default:copper_ingot', ''},
+		{"default:chest", "default:copper_ingot"},
 	}
 })
+end

@@ -1,0 +1,55 @@
+# textdomain: protector
+# author: universales
+# last update: 2020-02-27
+
+### admin.lua ###
+Remove Protectors around players (separate names with spaces)=Eliminar protectores alrededor de los jugadores (nombres separados con espacios)
+<names list>=<Lista de nombres>
+Replace Protector Owner with name provided=Reemplace el propietario del protector con el nombre proporcionado
+<owner name> <name to replace with>=<Nombre del propietario> <Nombre del nuevo propietario>
+Replacing Protector name '@1' with '@2'=Reemplazando el nombre del protector '@1' a '@2'
+Show protected areas of your nearby protectors=Mostrar áreas protegidas de sus protectores cercanos
+Protector Names to remove: @1=Nombres de protectores para eliminar: @1
+Name List Reset=Restablecer lista de nombres
+
+### doors_chest.lua ###
+Protected Wooden Door=Puerta de madera protegida
+Protected Steel Door=Puerta de hierro protegida
+Protected Trapdoor=Trampilla Protegida
+Protected Steel Trapdoor=Trampilla de hierro protegida
+Protected Chest=Cofre protegido
+To Chest=Al cofre
+To Inventory=Al inventario
+Protected Chest (@1)=Cofre protegido (@1)
+
+### init.lua ###
+-- Protector interface --=-- Interfaz del protector --
+PUNCH node to show protected area=nodo de perforación para mostrar el área protegida
+USE for area check=Usar para chequeo del área
+Members:=Miembros:
+Close=Cerrar
+Protection located at: @1=Protección ubicada en: @1
+Members: @1.=Miembros: @1.
+This area is not protected.=Esta área no está protegida.
+You can build here.=Puedes construir aquí.
+Overlaps into above players protected area=Se superpone en el área protegida de los jugadores anteriores
+Protection Block=Bloque de protección
+Protection (owned by @1)=Protegido (Propiedad de @1)
+Protection Logo=Logotipo de la protección
+[MOD] Protector Redo loaded=[MOD] Protector recargado
+Spawn @1 has been protected up to a @2 block radius.=Spawn @1 ha sido protegido hasta un radio de bloque @2.
+This area is owned by @1=Esta área es propiedad de @1
+
+### pvp.lua ###
+[Protector] on_punchplayer called with nil objects=[Protector] on_punchplayer llamado con objetos nulos.
+[Protector] pvp_protect not active, update your version of Minetest=[Protector] pvp_protect no está activo, actualiza tu versión de Minetest
+[Protector] pvp_protect is disabled=[Protector] pvp_protect está deshabilitado
+
+### hud.lua ###
+Owner: @1=Propietario: @1
+
+### tool.lua ###
+Protector Placer Tool (stand near protector, face direction and use)=Herramienta de colocación del protector (pararse cerca del protector, dirección de la cara y uso)
+Protector already in place!=¡El protector ya está en este lugar!
+No protectors available to place!=¡No hay protectores disponibles para colocar!
+Protector placed at @1=Protector colocado en @1

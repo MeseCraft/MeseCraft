@@ -56,6 +56,11 @@ Change log:
 - 2.6 - Add protection against CSM tampering, updated Intllib support (thanks codexp), tweaked block textures
 - 2.7 - Remove protection field entity when protector has been dug
 - 2.8 - Added 'protector_show_interval' setting to minetest.conf [default is 5], make protection field glow in dark.
+- 2.9 - Added MineClone2 recipes for protection block but no official support as yet
+- 3.0 - Added PlayerFactions support, 'protector_hud_interval' setting and listing in advanced settings for mod values.
+- 3.1 - Ability to hide protection blocks using /protector_hide and /protector_show , italian local added (thanks Hamlet)
+- 3.2 - Defaults to Minetest translation if found, otherwise intllib fallback if loaded, locale files updated for both.  Added 'protector_msg' setting for player text.
+- 3.3 - Added support for playerfactions new api (thanks louisroyer), added limiter to protection radius of 22.
 
 Lucky Blocks: 10
 
@@ -92,6 +97,11 @@ reset name list
 
 
 show protected areas of your nearby protectors (max of 5)
+	/protector_show_area
+
+
+A players own protection blocks can be hidden and shown using the following:
+	/protector_hide
 	/protector_show
 
 
@@ -117,6 +127,12 @@ protector_flip = true
 
 protector_show_interval
 - Number of seconds the protection field is visible, defaults to 5 seconds.
+
+protector_recipe = true
+- When true allows players to craft protection blocks
+
+protector_msg = true
+- When true shows protection messages in players chat when trying to interact in someone else's area
 
 
 Protector Tool

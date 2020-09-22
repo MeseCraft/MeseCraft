@@ -331,3 +331,25 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		tex_obj = nil
 	end
 end)
+
+
+-- Meat Block (thanks to painterlypack.net for allowing me to use these textures)
+minetest.register_node("mobs:meatblock", {
+	description = S("Meat Block"),
+	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
+	paramtype2 = "facedir",
+	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_leaves_defaults(),
+	on_place = minetest.rotate_node,
+	on_use = minetest.item_eat(20),
+})
+
+minetest.register_craft({
+	output = "mobs:meatblock",
+	type = "shapeless",
+	recipe = {
+		"group:food_meat", "group:food_meat", "group:food_meat",
+		"group:food_meat", "group:food_meat", "group:food_meat",
+		"group:food_meat", "group:food_meat", "group:food_meat"
+	}
+})

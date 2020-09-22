@@ -1,0 +1,32 @@
+#    Size of protected area around protection node limiting player interaction
+protector_radius (Protector Radius [max 22]) int 5
+
+#    Flips player around when accessing protected area to stop lag griefing
+protector_flip (Protector Flip) bool false
+
+#    Hurts player by amount entered when accessing protected area, 0 to disable
+protector_hurt (Protector Hurt) int 0
+
+#    Sets a protected area around spawn by node radius given
+protector_spawn (Protector Spawn) int 0
+
+#    Enables PVP inside of protected areas
+protector_pvp (Protector PVP) bool false
+
+#    When true will allow PVP inside protected spawn area
+protector_pvp_spawn (Protector PVP Spawn) int 0
+
+#    When true will allow PVP inside all protected areas at night time only
+protector_night_pvp (Protector Night PVP) bool false
+
+#    Interval in seconds that protection field is shown
+protector_show_interval (Protector Show Interval) int 5
+
+#    Interval in seconds that HUD ownership text is updated, 0 to disable
+protector_hud_interval (Protector HUD Interval) int 5
+
+#    Enables craft recipe for protection block
+protector_recipe (Enable Protector recipe) bool true
+
+#    Enables protection messages in player chat
+protector_msg (Enable Protector Messages) bool true

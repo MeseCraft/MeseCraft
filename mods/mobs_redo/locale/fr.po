@@ -3,20 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-29 09:13+0200\n"
-"PO-Revision-Date: 2017-07-29 09:20+0200\n"
+"PO-Revision-Date: 2020-08-13 21:20+0500\n"
+"Last-Translator: Olivier Dragon <odragon@protonmail.com>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
-"Last-Translator: fat115 <fat115@framasoft.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
 
 #: api.lua
 msgid "** Peaceful Mode Active - No Monsters Will Spawn"
@@ -64,7 +63,7 @@ msgstr "Renommer"
 
 #: crafts.lua
 msgid "Name Tag"
-msgstr "Étiquette pour collier"
+msgstr "Étiquette de collier"
 
 #: crafts.lua
 msgid "Leather"
@@ -102,17 +101,25 @@ msgstr "Selle"
 msgid "Mob Fence"
 msgstr "Clôture à animaux"
 
+#: crafts.lua
+msgid "Mob Fence Top"
+msgstr "Haut de clôture à animaux"
+
 #: spawner.lua
 msgid "Mob Spawner"
 msgstr "Générateur de mob"
 
 #: spawner.lua
-msgid "Mob MinLight MaxLight Amount PlayerDist"
-msgstr "Mob MinLumière MaxLumière Quantité DistanceJoueur"
+msgid "(mob name) (min light) (max light) (amount) (player distance) (Y offset)"
+msgstr "(Nom) (MinLumière) (MaxLumière) (Quantité) (Distance du Joueur) (Décalage en Y)"
 
 #: spawner.lua
 msgid "Spawner Not Active (enter settings)"
 msgstr "Générateur non actif (entrez les paramètres)"
+
+#: spawner.lua
+msgid "Command:"
+msgstr "Commande:"
 
 #: spawner.lua
 msgid "Spawner Active (@1)"

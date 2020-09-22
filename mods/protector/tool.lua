@@ -6,6 +6,9 @@ local S = protector.intllib
 -- get protection radius
 local r = tonumber(minetest.settings:get("protector_radius")) or 5
 
+-- radius limiter (minetest cannot handle node volume of more than 4096000)
+if r > 22 then r = 22 end
+
 minetest.register_craftitem("protector:tool", {
 	description = S("Protector Placer Tool (stand near protector, face direction and use)"),
 	inventory_image = "protector_display.png^protector_logo.png",
@@ -19,7 +22,7 @@ minetest.register_craftitem("protector:tool", {
 		local pos = user:get_pos()
 		local pp = minetest.find_nodes_in_area(
 			vector.subtract(pos, 2), vector.add(pos, 2),
-			{"protector:protect", "protector:protect2"})
+			{"protector:protect", "protector:protect2", "protector:protect_hidden"})
 
 		if #pp == 0 then return end -- none found
 
@@ -33,13 +36,13 @@ minetest.register_craftitem("protector:tool", {
 		local dir = minetest.dir_to_facedir( user:get_look_dir() )
 		local vec = {x = 0, y = 0, z = 0}
 		local gap = (r * 2) + 1
-		local pit =  user:get_look_pitch()
+		local pit =  user:get_look_vertical()
 
 		-- set placement coords
 		if pit > 1.2 then
-			vec.y = gap -- up
+			vec.y = -gap -- up
 		elseif pit < -1.2 then
-			vec.y = -gap -- down
+			vec.y = gap -- down
 		elseif dir == 0 then
 			vec.z = gap -- north
 		elseif dir == 1 then
@@ -67,7 +70,8 @@ minetest.register_craftitem("protector:tool", {
 		-- does a protector already exist ?
 		if #minetest.find_nodes_in_area(
 			vector.subtract(pos, 1), vector.add(pos, 1),
-			{"protector:protect", "protector:protect2"}) > 0 then
+			{"protector:protect", "protector:protect2",
+					"protector:protect_hidden"}) > 0 then
 
 			minetest.chat_send_player(name, S("Protector already in place!"))
 
@@ -91,11 +95,13 @@ minetest.register_craftitem("protector:tool", {
 		if inv:contains_item("main", "protector:protect") then
 
 			inv:remove_item("main", "protector:protect")
+
 			nod = "protector:protect"
 
 		elseif inv:contains_item("main", "protector:protect2") then
 
 			inv:remove_item("main", "protector:protect2")
+
 			nod = "protector:protect2"
 		end
 
@@ -141,11 +147,18 @@ minetest.register_craftitem("protector:tool", {
 })
 
 -- tool recipe
+local df = "default:steel_ingot"
+
+if not minetest.registered_items[df] then
+	df = "mcl_core:iron_ingot"
+end
+
+
 minetest.register_craft({
 	output = "protector:tool",
 	recipe = {
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-		{"default:steel_ingot", "protector:protect", "default:steel_ingot"},
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{df, df, df},
+		{df, "protector:protect", df},
+		{df, df, df},
 	}
 })

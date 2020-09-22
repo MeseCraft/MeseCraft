@@ -101,6 +101,10 @@ msgstr ""
 msgid "Mob Fence"
 msgstr ""
 
+#: crafts.lua
+msgid "Mob Fence Top"
+msgstr ""
+
 #: spawner.lua
 msgid "Mob Spawner"
 msgstr ""

@@ -23,7 +23,8 @@ Lucky Blocks: 9
 
 
 Changelog:
-- 1.52 - Added 'mob_active_limit' in settings to set number of mobs in game
+- 1.53 - Added 'on_map_load' settings to mobs:spawn so that mobs will only spawn when new areas of map are loaded.
+- 1.52 - Added 'mob_active_limit' in settings to set number of mobs in game,
 (default is 0 for unlimited), removed {immortal} from mob armor, fluid viscocity slows mobs
 - 1.51 - Added some node checks for dangerous nodes, jumping and falling tweaks, spawn area check (thx for idea wuzzy), re-enabled mob suffocation, add 'mob_nospawn_range' setting
 - 1.50 - Added new line_of_sight function that uses raycasting if mt5.0 is found,  (thanks Astrobe), dont spawn mobs if world anchor nearby (technic or simple_anchor mods), chinese local added

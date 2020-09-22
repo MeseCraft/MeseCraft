@@ -1,12 +1,15 @@
 
--- Intllib and CMI support check
+-- Load support for intllib.
 local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP .. "/intllib.lua")
+local S = minetest.get_translator and minetest.get_translator("mobs_redo") or
+		dofile(MP .. "/intllib.lua")
+
+-- CMI support check
 local use_cmi = minetest.global_exists("cmi")
 
 mobs = {
 	mod = "redo",
-	version = "20200727",
+	version = "20200916",
 	intllib = S,
 	invis = minetest.global_exists("invisibility") and invisibility or {}
 }
@@ -196,7 +199,7 @@ end
 -- calculate distance
 local get_distance = function(a, b)
 
---	if not a or not b then return 50 end -- nil check
+	if not a or not b then return 50 end -- nil check
 
 	local x, y, z = a.x - b.x, a.y - b.y, a.z - b.z
 
@@ -2682,20 +2685,20 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 
 	-- mob health check
 	if self.health <= 0 then
-		return
+		return true
 	end
 
 	-- custom punch function
 	if self.do_punch
 	and self:do_punch(hitter, tflp, tool_capabilities, dir) == false then
-		return
+		return true
 	end
 
 	-- error checking when mod profiling is enabled
 	if not tool_capabilities then
 		minetest.log("warning",
 				"[mobs] Mod profiling enabled, damage not enabled")
-		return
+		return true
 	end
 
 	-- is mob protected?
@@ -2706,7 +2709,7 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 		minetest.chat_send_player(hitter:get_player_name(),
 				S("Mob has been protected!"))
 
-		return
+		return true
 	end
 
 	local weapon = hitter:get_wielded_item()
@@ -2767,7 +2770,7 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 	if use_cmi
 	and cmi.notify_punch(
 			self.object, hitter, tflp, tool_capabilities, dir, damage) then
-		return
+		return true
 	end
 
 	-- add weapon wear
@@ -2872,7 +2875,7 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 		local v = self.object:get_velocity()
 
 		-- sanity check
-		if not v then return end
+		if not v then return true end
 
 		local kb = damage or 1
 		local up = 2
@@ -3696,8 +3699,8 @@ function mobs:spawn_abm_check(pos, node, name)
 end
 
 
-function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
-		interval, chance, aoc, min_height, max_height, day_toggle, on_spawn)
+function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, interval,
+		chance, aoc, min_height, max_height, day_toggle, on_spawn, map_load)
 
 	-- Do mobs spawn at all?
 	if not mobs_spawn or not mobs.spawning_mobs[name] then
@@ -3722,191 +3725,215 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 		minetest.log("action", string.format(
 				"[mobs] Chance setting for %s changed to %s (total: %s)",
 				name, chance, aoc))
-
 	end
 
 	mobs.spawning_mobs[name].aoc = aoc
 
-	minetest.register_abm({
+	local spawn_action = function(pos, node, active_object_count,
+			active_object_count_wider)
 
-		label = name .. " spawning",
-		nodenames = nodes,
-		neighbors = neighbors,
-		interval = interval,
-		chance = max(1, (chance * mob_chance_multiplier)),
-		catch_up = false,
+		-- use instead of abm's chance setting when using lbm
+		if map_load and random(max(1, (chance * mob_chance_multiplier))) > 1 then
+			return
+		end
 
-		action = function(pos, node, active_object_count,
-				active_object_count_wider)
+		-- use instead of abm's neighbor setting when using lbm
+		if map_load and not minetest.find_node_near(pos, 1, neighbors) then
+--print("--- lbm neighbors not found")
+			return
+		end
 
-			-- is mob actually registered?
-			if not mobs.spawning_mobs[name]
-			or not minetest.registered_entities[name] then
+		-- is mob actually registered?
+		if not mobs.spawning_mobs[name]
+		or not minetest.registered_entities[name] then
 --print("--- mob doesn't exist", name)
-				return
-			end
+			return
+		end
 
-			-- are we over active mob limit
-			if active_limit > 0 and active_mobs >= active_limit then
+		-- are we over active mob limit
+		if active_limit > 0 and active_mobs >= active_limit then
 --print("--- active mob limit reached", active_mobs, active_limit)
-				return
-			end
+			return
+		end
 
-			-- additional custom checks for spawning mob
-			if mobs:spawn_abm_check(pos, node, name) == true then
-				return
-			end
+		-- additional custom checks for spawning mob
+		if mobs:spawn_abm_check(pos, node, name) == true then
+			return
+		end
 
-			-- do not spawn if too many entities in area
-			if active_object_count_wider >= max_per_block then
+		-- do not spawn if too many entities in area
+		if active_object_count_wider
+		and active_object_count_wider >= max_per_block then
 --print("--- too many entities in area", active_object_count_wider)
-				return
-			end
+			return
+		end
 
-			-- get total number of this mob in area
-			local num_mob, is_pla = count_mobs(pos, name)
+		-- get total number of this mob in area
+		local num_mob, is_pla = count_mobs(pos, name)
 
-			if not is_pla then
+		if not is_pla then
 --print("--- no players within active area, will not spawn " .. name)
-				return
-			end
+			return
+		end
 
-			if num_mob >= aoc then
+		if num_mob >= aoc then
 --print("--- too many " .. name .. " in area", num_mob .. "/" .. aoc)
-				return
-			end
+			return
+		end
 
 			-- if toggle set to nil then ignore day/night check
-			if day_toggle ~= nil then
+		if day_toggle ~= nil then
 
-				local tod = (minetest.get_timeofday() or 0) * 24000
+			local tod = (minetest.get_timeofday() or 0) * 24000
 
-				if tod > 4500 and tod < 19500 then
-					-- daylight, but mob wants night
-					if day_toggle == false then
+			if tod > 4500 and tod < 19500 then
+				-- daylight, but mob wants night
+				if day_toggle == false then
 --print("--- mob needs night", name)
-						return
-					end
-				else
-					-- night time but mob wants day
-					if day_toggle == true then
+					return
+				end
+			else
+				-- night time but mob wants day
+				if day_toggle == true then
 --print("--- mob needs day", name)
-						return
-					end
-				end
-			end
-
-			-- spawn above node
-			pos.y = pos.y + 1
-
-			-- are we spawning within height limits?
-			if pos.y > max_height
-			or pos.y < min_height then
---print("--- height limits not met", name, pos.y)
-				return
-			end
-
-			-- are light levels ok?
-			local light = minetest.get_node_light(pos)
-			if not light
-			or light > max_light
-			or light < min_light then
---print("--- light limits not met", name, light)
-				return
-			end
-
-			-- mobs cannot spawn in protected areas when enabled
-			if not spawn_protected
-			and minetest.is_protected(pos, "") then
---print("--- inside protected area", name)
-				return
-			end
-
-			-- only spawn a set distance away from player
-			local objs = minetest.get_objects_inside_radius(
-					pos, mob_nospawn_range)
-
-			for n = 1, #objs do
-
-				if objs[n]:is_player() then
---print("--- player too close", name)
 					return
 				end
-			end
-
-			-- do we have enough space to spawn mob? (thanks wuzzy)
-			local ent = minetest.registered_entities[name]
-			local width_x = max(1,
-					ceil(ent.collisionbox[4] - ent.collisionbox[1]))
-			local min_x, max_x
-
-			if width_x % 2 == 0 then
-				max_x = floor(width_x / 2)
-				min_x = -(max_x - 1)
-			else
-				max_x = floor(width_x / 2)
-				min_x = -max_x
-			end
-
-			local width_z = max(1,
-					ceil(ent.collisionbox[6] - ent.collisionbox[3]))
-			local min_z, max_z
-
-			if width_z % 2 == 0 then
-				max_z = floor(width_z / 2)
-				min_z = -(max_z - 1)
-			else
-				max_z = floor(width_z / 2)
-				min_z = -max_z
-			end
-
-			local max_y = max(0,
-					ceil(ent.collisionbox[5] - ent.collisionbox[2]) - 1)
-
-			for y = 0, max_y do
-			for x = min_x, max_x do
-			for z = min_z, max_z do
-
-				local pos2 = {
-					x = pos.x + x,
-					y = pos.y + y,
-					z = pos.z + z}
-
-				if minetest.registered_nodes[
-						node_ok(pos2).name].walkable == true then
---print("--- not enough space to spawn", name)
-					return
-				end
-			end
-			end
-			end
-
-			-- spawn mob 1/2 node above ground
-			pos.y = pos.y + 0.5
-
-			-- tweak X/Z spawn pos
-			if width_x % 2 == 0 then
-				pos.x = pos.x + 0.5
-			end
-
-			if width_z % 2 == 0 then
-				pos.z = pos.z + 0.5
-			end
-
-			local mob = minetest.add_entity(pos, name)
-
---			print("[mobs] Spawned " .. name .. " at "
---			.. minetest.pos_to_string(pos) .. " on "
---			.. node.name .. " near " .. neighbors[1])
-
-			if on_spawn then
-
-				local ent = mob:get_luaentity()
-
-				on_spawn(ent, pos)
 			end
 		end
-	})
+
+		-- spawn above node
+		pos.y = pos.y + 1
+
+		-- are we spawning within height limits?
+		if pos.y > max_height
+		or pos.y < min_height then
+--print("--- height limits not met", name, pos.y)
+			return
+		end
+
+		-- are light levels ok?
+		local light = minetest.get_node_light(pos)
+		if not light
+		or light > max_light
+		or light < min_light then
+--print("--- light limits not met", name, light)
+			return
+		end
+
+		-- mobs cannot spawn in protected areas when enabled
+		if not spawn_protected
+		and minetest.is_protected(pos, "") then
+--print("--- inside protected area", name)
+			return
+		end
+
+		-- only spawn a set distance away from player
+		local objs = minetest.get_objects_inside_radius(pos, mob_nospawn_range)
+
+		for n = 1, #objs do
+
+			if objs[n]:is_player() then
+--print("--- player too close", name)
+				return
+			end
+		end
+
+		-- do we have enough space to spawn mob? (thanks wuzzy)
+		local ent = minetest.registered_entities[name]
+		local width_x = max(1, ceil(ent.collisionbox[4] - ent.collisionbox[1]))
+		local min_x, max_x
+
+		if width_x % 2 == 0 then
+			max_x = floor(width_x / 2)
+			min_x = -(max_x - 1)
+		else
+			max_x = floor(width_x / 2)
+			min_x = -max_x
+		end
+
+		local width_z = max(1, ceil(ent.collisionbox[6] - ent.collisionbox[3]))
+		local min_z, max_z
+
+		if width_z % 2 == 0 then
+			max_z = floor(width_z / 2)
+			min_z = -(max_z - 1)
+		else
+			max_z = floor(width_z / 2)
+			min_z = -max_z
+		end
+
+		local max_y = max(0, ceil(ent.collisionbox[5] - ent.collisionbox[2]) - 1)
+
+		for y = 0, max_y do
+		for x = min_x, max_x do
+		for z = min_z, max_z do
+
+			local pos2 = {
+				x = pos.x + x,
+				y = pos.y + y,
+				z = pos.z + z}
+
+			if minetest.registered_nodes[node_ok(pos2).name].walkable == true then
+--print("--- not enough space to spawn", name)
+				return
+			end
+		end
+		end
+		end
+
+		-- spawn mob 1/2 node above ground
+		pos.y = pos.y + 0.5
+
+		-- tweak X/Z spawn pos
+		if width_x % 2 == 0 then
+			pos.x = pos.x + 0.5
+		end
+
+		if width_z % 2 == 0 then
+			pos.z = pos.z + 0.5
+		end
+
+		local mob = minetest.add_entity(pos, name)
+
+--		print("[mobs] Spawned " .. name .. " at "
+--		.. minetest.pos_to_string(pos) .. " on "
+--		.. node.name .. " near " .. neighbors[1])
+
+		if on_spawn then
+			on_spawn(mob:get_luaentity(), pos)
+		end
+	end
+
+
+	-- are we registering an abm or lbm?
+	if map_load == true then
+
+		minetest.register_lbm({
+			name = name .. "_spawning",
+			label = name .. " spawning",
+			nodenames = nodes,
+			run_at_every_load = false,
+
+			action = function(pos, node)
+				spawn_action(pos, node)
+			end
+		})
+
+	else
+
+		minetest.register_abm({
+			label = name .. " spawning",
+			nodenames = nodes,
+			neighbors = neighbors,
+			interval = interval,
+			chance = max(1, (chance * mob_chance_multiplier)),
+			catch_up = false,
+
+			action = function(pos, node, active_object_count, active_object_count_wider)
+				spawn_action(pos, node, active_object_count, active_object_count_wider)
+			end
+		})
+	end
 end
 
 
@@ -3919,7 +3946,7 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance,
 end
 
 
--- MarkBu's spawn function
+-- MarkBu's spawn function (USE this one please)
 function mobs:spawn(def)
 
 	mobs:spawn_specific(
@@ -3934,7 +3961,8 @@ function mobs:spawn(def)
 		def.min_height or -31000,
 		def.max_height or 31000,
 		def.day_toggle,
-		def.on_spawn)
+		def.on_spawn,
+		def.on_map_load)
 end
 
 
@@ -4560,6 +4588,8 @@ function mobs:feed_tame(self, clicker, feed_count, breed, tame)
 			.. ";" .. tag .. "]"
 			.. "button_exit[2.5,3.5;3,1;mob_rename;"
 			.. minetest.formspec_escape(S("Rename")) .. "]")
+
+		return true
 	end
 
 	return false

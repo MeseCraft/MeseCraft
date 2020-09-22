@@ -1,0 +1,55 @@
+# textdomain: protector
+# author: Xanthin and CodeXP
+# last update: 2020/Jul/12
+
+### admin.lua ###
+Remove Protectors around players (separate names with spaces)=Entferne Störschützer von bestimmten Namen in der Nähe von Spielern (trenne Namen durch Leerzeichen)
+<names list>=<Namensliste der Spieler>
+Replace Protector Owner with name provided=Ersetze Besitzer der Störschützer mit neuem Besitzer
+<owner name> <name to replace with>=<Name des Besitzers> <Name des neuen Besitzers>
+Replacing Protector name '@1' with '@2'=Ersetze Besitzer der Störschützer von '@1' mit '@2'
+Show protected areas of your nearby protectors=Zeige geschützte Bereiche der Störschützer in der Nähe
+Protector Names to remove: @1=Störschutznamen zum Entfernen: @1
+Name List Reset=Namensliste zurückgesetzt
+
+### doors_chest.lua ###
+Protected Wooden Door=Geschützte Holztür
+Protected Steel Door=Geschützte Stahltür
+Protected Trapdoor=Geschützte Falltür
+Protected Steel Trapdoor=Geschützte Stahlfalltür
+Protected Chest=Geschützte Truhe
+To Chest=Zur Truhe
+To Inventory=Zum Inventar
+Protected Chest (@1)=Geschützte Truhe (@1)
+
+### init.lua ###
+-- Protector interface --=-- Störschutz-Interface --
+PUNCH node to show protected area=SCHLAGE Node, um geschützten Bereich anzuzeigen oder
+USE for area check=BENUTZE für Bereichsprüfung
+Members:=Mitglieder:
+Close=Schließen
+Protection located at: @1=Störschutz befindet sich bei: @1
+Members: @1.=Mitglieder: @1.
+This area is not protected.=Dieser Bereich ist nicht geschützt.
+You can build here.=Du kannst hier bauen.
+Overlaps into above players protected area=Überlappung im geschützen Bereich eines Spielers
+Protection Block=Störschutzblock
+Protection (owned by @1)=Störschutz (gehört @1)
+Protection Logo=Störschutzlogo
+[MOD] Protector Redo loaded=[MOD] Protector Redo geladen
+Spawn @1 has been protected up to a @2 block radius.=Spawn @1 ist geschützt mit einem Radius von @2 Blöcke.
+This area is owned by @1=Dieser Bereich gehört @1
+
+### pvp.lua ###
+[Protector] on_punchplayer called with nil objects=on_punchplayer wurde durch \"nil objects\" aufgerufen
+[Protector] pvp_protect not active, update your version of Minetest=pvp_protect ist nicht aktiv, aktualisiere deine Minetestversion
+[Protector] pvp_protect is disabled=pvp_protect ist ausgeschaltet
+
+### hud.lua ###
+Owner: @1=Besitzer: @1
+
+### tool.lua ###
+Protector Placer Tool (stand near protector, face direction and use)=Störschutz Platzier-Werkzeug (stehe neben Störschutz, schaue in die gewünschte Richtung und anwenden)
+Protector already in place!=Störschutz is bereits platziert!
+No protectors available to place!=Keine Störschützer mehr im Inventar!
+"Protector placed at @1"=Störschutz befindet sich bei: @1

@@ -1,9 +1,21 @@
 
+-- default support (for use with MineClone2 and other [games]
+default = default or {
+	node_sound_stone_defaults = function(table) end,
+	node_sound_wood_defaults = function(table) end,
+	gui_bg = "",
+	gui_bg_img = "",
+	gui_slots = "",
+}
+
 -- Load support for intllib.
 local MP = minetest.get_modpath(minetest.get_current_modname())
-local S = dofile(MP .. "/intllib.lua")
 local F = minetest.formspec_escape
+local S = minetest.get_translator and minetest.get_translator("protector") or
+		dofile(MP .. "/intllib.lua")
 
+-- Load support for factions
+local factions_available = minetest.global_exists("factions")
 
 protector = {
 	mod = "redo",
@@ -19,6 +31,12 @@ local protector_hurt = tonumber(minetest.settings:get("protector_hurt")) or 0
 local protector_spawn = tonumber(minetest.settings:get("protector_spawn")
 	or minetest.settings:get("protector_pvp_spawn")) or 0
 local protector_show = tonumber(minetest.settings:get("protector_show_interval")) or 5
+local protector_recipe = minetest.settings:get_bool("protector_recipe") ~= false
+local protector_msg = minetest.settings:get_bool("protector_msg") ~= false
+
+-- radius limiter (minetest cannot handle node volume of more than 4096000)
+if protector_radius > 22 then protector_radius = 22 end
+
 
 -- get static spawn position
 local statspawn = minetest.string_to_pos(minetest.settings:get("static_spawnpoint"))
@@ -48,6 +66,30 @@ end
 
 -- check for member name
 local is_member = function (meta, name)
+
+	if factions_available
+	and meta:get_int("faction_members") == 1 then
+
+		if factions.version == nil then
+
+			-- backward compatibility
+			if factions.get_player_faction(name) ~= nil
+			and factions.get_player_faction(meta:get_string("owner")) ==
+					factions.get_player_faction(name) then
+				return true
+			end
+		else
+			-- is member if player and owner share at least one faction
+			local owner_factions = factions.get_player_factions(name)
+
+			for _, f in ipairs(owner_factions) do
+
+				if factions.player_is_in_faction(f, owner) then
+					return true
+				end
+			end
+		end
+	end
 
 	for _, n in pairs(get_member_list(meta)) do
 
@@ -119,6 +161,34 @@ local protector_formspec = function(meta)
 	local members = get_member_list(meta)
 	local npp = protector_max_share_count -- max users added to protector list
 	local i = 0
+	local checkbox_faction = false
+
+	-- Display the checkbox only if the owner is member of at least 1 faction
+	if factions_available then
+
+		if factions.version == nil then
+
+			-- backward compatibility
+			if factions.get_player_faction(meta:get_string("owner")) then
+				checkbox_faction = true
+			end
+		else
+			if next(factions.get_player_faction(meta:get_string("owner"))) then
+				checkbox_faction = true
+			end
+		end
+	end
+	if checkbox_faction then
+
+		formspec = formspec .. "checkbox[0,5;faction_members;"
+			.. F(S("Allow faction access"))
+			.. ";" .. (meta:get_int("faction_members") == 1 and
+					"true" or "false") .. "]"
+
+		if npp > 8 then
+			npp = 8
+		end
+	end
 
 	for n = 1, #members do
 
@@ -176,6 +246,18 @@ local inside_spawn = function(pos, radius)
 end
 
 
+-- show protection message if enabled
+local show_msg = function(player, msg)
+
+	-- if messages disabled or no player name provided
+	if protector_msg == false or not player or player == "" then
+		return
+	end
+
+	minetest.chat_send_player(player, msg)
+end
+
+
 -- Infolevel:
 -- 0 for no info
 -- 1 for "This area is owned by <owner> !" if you can't dig
@@ -200,7 +282,7 @@ protector.can_dig = function(r, pos, digger, onlyowner, infolevel)
 	-- is spawn area protected ?
 	if inside_spawn(pos, protector_spawn) then
 
-		minetest.chat_send_player(digger,
+		show_msg(digger,
 			S("Spawn @1 has been protected up to a @2 block radius.",
 				minetest.pos_to_string(statspawn), protector_spawn))
 
@@ -211,7 +293,7 @@ protector.can_dig = function(r, pos, digger, onlyowner, infolevel)
 	local pos = minetest.find_nodes_in_area(
 		{x = pos.x - r, y = pos.y - r, z = pos.z - r},
 		{x = pos.x + r, y = pos.y + r, z = pos.z + r},
-		{"protector:protect", "protector:protect2"})
+		{"protector:protect", "protector:protect2", "protector:protect_hidden"})
 
 	local meta, owner, members
 
@@ -227,7 +309,7 @@ protector.can_dig = function(r, pos, digger, onlyowner, infolevel)
 			-- and you aren't on the member list
 			if onlyowner or not is_member(meta, digger) then
 
-				minetest.chat_send_player(digger,
+				show_msg(digger,
 					S("This area is owned by @1", owner) .. "!")
 
 				return false
@@ -284,7 +366,11 @@ function minetest.is_protected(pos, digger)
 
 			-- hurt player if protection violated
 			if protector_hurt > 0 and player:get_hp() > 0 then
-				player:set_hp(player:get_hp() - protector_hurt)
+
+				-- This delay fixes item duplication bug (thanks luk3yx)
+				minetest.after(0.1, function()
+					player:set_hp(player:get_hp() - protector_hurt)
+				end)
 			end
 
 			-- flip player when protection violated
@@ -390,8 +476,9 @@ minetest.register_node("protector:protect", {
 		local meta = minetest.get_meta(pos)
 
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", S("Protection (owned by @1)", meta:get_string("owner")))
 		meta:set_string("members", "")
+		meta:set_string("infotext",
+				S("Protection (owned by @1)", meta:get_string("owner")))
 	end,
 
 	on_use = function(itemstack, user, pointed_thing)
@@ -400,7 +487,8 @@ minetest.register_node("protector:protect", {
 			return
 		end
 
-		protector.can_dig(protector_radius, pointed_thing.under, user:get_player_name(), false, 2)
+		protector.can_dig(protector_radius, pointed_thing.under,
+				user:get_player_name(), false, 2)
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
@@ -441,15 +529,28 @@ minetest.register_node("protector:protect", {
 	end,
 })
 
-minetest.register_craft({
-	output = "protector:protect",
-	recipe = {
-		{"default:stone", "default:stone", "default:stone"},
-		{"default:stone", "default:gold_ingot", "default:stone"},
-		{"default:stone", "default:stone", "default:stone"},
-	}
-})
-
+-- default recipe and alternative for MineClone2
+if protector_recipe then
+	if minetest.registered_items["default:stone"] then
+	minetest.register_craft({
+		output = "protector:protect",
+		recipe = {
+			{"default:stone", "default:stone", "default:stone"},
+			{"default:stone", "default:gold_ingot", "default:stone"},
+			{"default:stone", "default:stone", "default:stone"},
+		}
+	})
+	else
+	minetest.register_craft({
+		output = "protector:protect",
+		recipe = {
+			{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
+			{"mcl_core:stone", "mcl_core:gold_ingot", "mcl_core:stone"},
+			{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
+		}
+	})
+	end
+end
 
 -- protection logo
 minetest.register_node("protector:protect2", {
@@ -481,8 +582,9 @@ minetest.register_node("protector:protect2", {
 		local meta = minetest.get_meta(pos)
 
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", S("Protection (owned by @1)", meta:get_string("owner")))
 		meta:set_string("members", "")
+		meta:set_string("infotext",
+				S("Protection (owned by @1)", meta:get_string("owner")))
 	end,
 
 	on_use = function(itemstack, user, pointed_thing)
@@ -491,7 +593,8 @@ minetest.register_node("protector:protect2", {
 			return
 		end
 
-		protector.can_dig(protector_radius, pointed_thing.under, user:get_player_name(), false, 2)
+		protector.can_dig(protector_radius, pointed_thing.under,
+				user:get_player_name(), false, 2)
 	end,
 
 	on_rightclick = function(pos, node, clicker, itemstack)
@@ -587,6 +690,11 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 
 	if not meta then
 		return
+	end
+
+	-- add faction members
+	if factions_available then
+		meta:set_int("faction_members", fields.faction_members == "true" and 1 or 0)
 	end
 
 	-- add member [+]
