@@ -60,10 +60,10 @@ mobs:register_mob('halloween_holiday_pack:werewolf', {
                 punch_start = 200,
                 punch_end = 219,
         },
-	    -- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
+	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
 		        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
 		                       self.object:remove()
 		        end
 	    end,
@@ -71,5 +71,6 @@ mobs:register_mob('halloween_holiday_pack:werewolf', {
 --Spawn Eggs
 mobs:register_egg("halloween_holiday_pack:werewolf", "Werewolf Spawn Egg", "mobs_meat_raw.png", 1)
 
+--mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:werewolf", {"group:flora", "group:leaves"}, {"air"}, 0, 4, 480, 4000, 1, -30912, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:werewolf", {"group:flora", "group:leaves"}, {"air"}, 0, 4, 240, 2000, 1, -30912, 30912, false)

@@ -61,19 +61,17 @@ mobs:register_mob('halloween_holiday_pack:halloween_zombie', {
 	                punch_start = 200,
 	                punch_end = 219,
 	        },
-	    -- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
+	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
 		        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
 		                       self.object:remove()
 		        end
 	    end,
 	})
 --Spawn Eggs
-	mobs:register_egg("halloween_holiday_pack:halloween_zombie", "Halloween Zombie Spawn Egg", "wool_red.png", 1)
---end the halloween spawn registers.
---[[ If the game has been launched between the 20th of October and the 3rd of November system time,
--- the maximum spawn light level is increased. ]]
+mobs:register_egg("halloween_holiday_pack:halloween_zombie", "Halloween Zombie Spawn Egg", "wool_red.png", 1)
 
+--mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:halloween_zombie", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 120, 4000, 4, -30912, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:halloween_zombie", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 1000, 4, -30912, 30912, false)

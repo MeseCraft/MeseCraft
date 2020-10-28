@@ -69,10 +69,10 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 	on_die = function(self,pos)
 			        minetest.add_entity(pos, "mobs_creatures:bat")
 	end,
-	-- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
+	-- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	do_custom = function(self)
 	        local date = os.date("*t")
-	        if not (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+	        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
 	                       self.object:remove()
 	        end
 	end,
@@ -81,5 +81,6 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 --Spawn Egg
 mobs:register_egg("halloween_holiday_pack:vampire", "Vampire Spawn Egg", "wool_black.png", 1)
 
+--mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:vampire", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 480, 3000, 3, -30192, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:vampire", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 180, 5000, 3, -30192, 30912, false)

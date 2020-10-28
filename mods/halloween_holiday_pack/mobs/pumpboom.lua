@@ -57,10 +57,10 @@ mobs:register_mob("halloween_holiday_pack:pumpboom", {
     stepheight=1.1,
     on_rightclick = nil,
     attack_type = "explode",
-	    -- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
+	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
 		        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
 		                       self.object:remove()
 		        end
 	    end,
@@ -69,5 +69,6 @@ mobs:register_mob("halloween_holiday_pack:pumpboom", {
 -- Register spawn egg
 mobs:register_egg("halloween_holiday_pack:pumpboom","Pumpboom Spawn Egg", "farming_pumpkin_side.png", 1)
 
+--mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for the pumpboom.
-mobs:spawn_specific("halloween_holiday_pack:pumpboom", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 60, 4000, 8, -30912, 30192, false)
+mobs:spawn_specific("halloween_holiday_pack:pumpboom", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 30, 1000, 8, -30912, 30192, false)

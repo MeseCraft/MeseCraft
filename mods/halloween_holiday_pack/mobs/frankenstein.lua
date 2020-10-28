@@ -60,10 +60,10 @@ mobs:register_mob('halloween_holiday_pack:frankenstein', {
                 punch_start = 200,
                 punch_end = 219,
         },
-	-- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
+	-- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 2 weeks).
 	do_custom = function(self)
 	        local date = os.date("*t")
-	        if not (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+	        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
 	                       self.object:remove()
 	        end
 	end,
@@ -72,6 +72,6 @@ mobs:register_mob('halloween_holiday_pack:frankenstein', {
 --Spawn Eggs
 mobs:register_egg("halloween_holiday_pack:frankenstein", "Frankenstein Spawn Egg", "wool_green.png", 1)
 
--- Only spawn around Halloween date/time (Oct 20th - Nov 3rd, 2 weeks).
-mobs:spawn_specific("halloween_holiday_pack:frankenstein", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 120, 6000, 1, -30912, 30912, false)
+--mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
+mobs:spawn_specific("halloween_holiday_pack:frankenstein", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 3000, 1, -30912, 30912, false)
 
