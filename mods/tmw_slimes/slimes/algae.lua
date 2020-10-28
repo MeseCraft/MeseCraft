@@ -48,7 +48,7 @@ mobs:register_mob("tmw_slimes:algae_slime", {
 		jump_end = 83
 	},
 	do_custom = function(self)
-		tmw_slimes.animate(self)
+--		tmw_slimes.animate(self)
 		tmw_slimes.absorb_nearby_items(self)
 	end,
 	on_die = function(self, pos)
