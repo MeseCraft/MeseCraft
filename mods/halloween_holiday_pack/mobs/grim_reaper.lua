@@ -12,8 +12,8 @@ mobs:register_mob("halloween_holiday_pack:grim_reaper", {
 	},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
-	armor = 50,
-	knock_back = false,
+	armor = 100,
+	knock_back = true,
         sounds = {
                 random = "mobs_creatures_skeleton_random",
                 death = "mobs_creatures_skeleton_death",
@@ -69,4 +69,4 @@ mobs:register_egg("halloween_holiday_pack:grim_reaper", "Grim Reaper Spawn Egg",
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for Death.
-mobs:spawn_specific("halloween_holiday_pack:grim_reaper", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 120, 10000, 1, -30912, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:grim_reaper", {"bones:bones"}, {"air"}, 0, 5, 120, 1000, 1, -30912, 30912, false)
