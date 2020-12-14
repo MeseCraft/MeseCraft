@@ -1,0 +1,58 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=
+3d_armor: Player name is nil @1=
+3d_armor: Player reference is nil @1=
+
+### armor.lua ###
+
+Admin Boots=
+Admin Chestplate=
+Admin Helmet=
+Admin Leggings=
+Bronze Boots=
+Bronze Chestplate=
+Bronze Helmet=
+Bronze Leggings=
+Cactus Boots=
+Cactus Chestplate=
+Cactus Helmet=
+Cactus Leggings=
+Crystal Boots=
+Crystal Chestplate=
+Crystal Helmet=
+Crystal Leggings=
+Diamond Boots=
+Diamond Chestplate=
+Diamond Helmet=
+Diamond Leggings=
+Gold Boots=
+Gold Chestplate=
+Gold Helmet=
+Gold Leggings=
+Mithril Boots=
+Mithril Chestplate=
+Mithril Helmet=
+Mithril Leggings=
+Steel Boots=
+Steel Chestplate=
+Steel Helmet=
+Steel Leggings=
+Wood Boots=
+Wood Chestplate=
+Wood Helmet=
+Wood Leggings=
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=
+Fire=
+Heal=
+Level=
+Radiation=
+Your @1 got destroyed!=
+Your @1 is almost broken!=
+[3d_armor] Fire Nodes disabled=

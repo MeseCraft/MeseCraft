@@ -76,10 +76,11 @@ mobs:register_mob("christmas_holiday_pack:candy_cane_man", {
             texture="christmas_holiday_pack_candy_cane_block.png"
         })
         self.object:remove()
-    end,
+	end,
+-- Remove the mob if it's not December.
     do_custom = function(self)
                 local date = os.date("*t")
-                if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                if not (date.month == 12) then
                                self.object:remove()
                 end
     end,

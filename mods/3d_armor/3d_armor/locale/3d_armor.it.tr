@@ -1,0 +1,85 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=3d_armor: L'inventario separato dell'armatura è nullo @1
+3d_armor: Player name is nil @1=3d_armor: Il nome dell'utente è nullo @1
+3d_armor: Player reference is nil @1=3d_armor: Il riferimento all'utente è nullo @1
+
+### armor.lua ###
+
+Admin Boots=Stivali dell'amministratrice/tore
+Admin Chestplate=Corazza dell'amministratrice/tore
+Admin Helmet=Elmo dell'amministratrice/tore
+Admin Leggings=Gambali dell'amministratrice/tore
+Bronze Boots=Stivali di bronzo
+Bronze Chestplate=Corazza di bronzo
+Bronze Helmet=Elmo di bronzo
+Bronze Leggings=Gambali di bronzo
+Cactus Boots=Stivali di cactus
+Cactus Chestplate=Corazza di cactus
+Cactus Helmet=Elmo di cactus
+Cactus Leggings=Gambali di cactus
+Crystal Boots=Stivali di cristallo
+Crystal Chestplate=Corazza di cristallo
+Crystal Helmet=Elmo di cristallo
+Crystal Leggings=Gambali di cristallo
+Diamond Boots=Stivali di diamante
+Diamond Chestplate=Corazza di diamante
+Diamond Helmet=Elmo di diamante
+Diamond Leggings=Gambali di diamante
+Gold Boots=Stivali d'oro
+Gold Chestplate=Corazza d'oro
+Gold Helmet=Elmo d'oro
+Gold Leggings=Gambali d'oro
+Mithril Boots=Stivali di mithril
+Mithril Chestplate=Corazza di mithril
+Mithril Helmet=Elmo di mithril
+Mithril Leggings=Gambali di mithril
+Steel Boots=Stivali d'acciaio
+Steel Chestplate=Corazza d'acciaio
+Steel Helmet=Elmo d'acciaio
+Steel Leggings=Gambali d'acciaio
+Wood Boots=Stivali di legno
+Wood Chestplate=Corazza di legno
+Wood Helmet=Elmo di legno
+Wood Leggings=Gambali di legno
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=3d_armor: Inizializzazione dell'utente fallita
+Fire=Fuoco
+Heal=Guarigione
+Level=Livello
+Radiation=Radiazione
+Your @1 got destroyed!=@1 in frantumi!
+Your @1 is almost broken!=@1 quasi in frantumi!
+[3d_armor] Fire Nodes disabled=[3d_armor] Nodi fuoco disabilitati
+
+
+##### not used anymore #####
+
+3d_armor_ip: Mod loaded but unused.=3d_armor_ip: Mod caricata ma inutilizzata.
+Back=Indietro
+Armor=Armatura
+3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: Mod caricata ma inutilizzata.
+Armor stand top=Parte superiore del supporto per armatura
+Armor stand=Supporto per armatura
+Armor Stand=Supporto per armatura
+Locked Armor stand=Supporto per armatura chiuso a chiave
+Armor Stand (owned by @1)=Supporto per armatura (di proprietà di @1)
+3d_armor_ui: Mod loaded but unused.=3d_armor_ui: Mod caricata ma inutilizzata.
+3d Armor=Armatura 3D
+Armor not initialized!=Armatura non inizializzata!
+Admin Shield=Scudo dell'amministratrice/tore
+Wooden Shield=Scudo di legno
+Enhanced Wood Shield=Scudo di legno migliorato
+Cactus Shield=Scudo di cactus
+Enhanced Cactus Shield=Scudo di cactus migliorato
+Steel Shield=Scudo d'acciaio
+Bronze Shield=Scudo di bronzo
+Diamond Shield=Scudo di diamante
+Gold Shield=Scudo d'oro
+Mithril Shield=Scudo di mithril
+Crystal Shield=Scudo di cristallo

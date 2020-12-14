@@ -54,6 +54,9 @@ wieldview.update_wielded_item = function(self, player)
 		return
 	end
 	if self.wielded_item[name] then
+		if player:get_meta():get_int("show_wielded_item") == 2 then
+			item = ""
+		end
 		if self.wielded_item[name] == item then
 			return
 		end
@@ -66,9 +69,12 @@ end
 minetest.register_on_joinplayer(function(player)
 	local name = player:get_player_name()
 	wieldview.wielded_item[name] = ""
-	minetest.after(0, function(player)
-		wieldview:update_wielded_item(player)
-	end, player)
+	minetest.after(0, function()
+		local pplayer = minetest.get_player_by_name(name)
+		if player then
+			wieldview:update_wielded_item(pplayer)
+		end
+	end)
 end)
 
 minetest.register_globalstep(function(dtime)
@@ -80,4 +86,3 @@ minetest.register_globalstep(function(dtime)
 		time = 0
 	end
 end)
-

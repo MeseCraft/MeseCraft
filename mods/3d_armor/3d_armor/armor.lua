@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = armor.get_translator
 
 armor:register_armor("3d_armor:helmet_admin", {
 	description = S("Admin Helmet"),
@@ -79,6 +79,19 @@ if armor.materials.wood then
 		damage_groups = {cracky=3, snappy=2, choppy=3, crumbly=2, level=1},
 		groups = {armor_feet=1, armor_heal=0, armor_use=2000, flammable=1},
 	})
+	local wood_armor_fuel = {
+		helmet = 6,
+		chestplate = 8,
+		leggings = 7,
+		boots = 5
+	}
+	for armor, burn in pairs(wood_armor_fuel) do
+		minetest.register_craft({
+			type = "fuel",
+			recipe = "3d_armor:" .. armor .. "_wood",
+			burntime = burn,
+		})
+	end
 end
 
 if armor.materials.cactus then
@@ -110,6 +123,19 @@ if armor.materials.cactus then
 		armor_groups = {fleshy=5},
 		damage_groups = {cracky=3, snappy=3, choppy=2, crumbly=2, level=1},
 	})
+	local cactus_armor_fuel = {
+		helmet = 14,
+		chestplate = 16,
+		leggings = 15,
+		boots = 13
+	}
+	for armor, burn in pairs(cactus_armor_fuel) do
+		minetest.register_craft({
+			type = "fuel",
+			recipe = "3d_armor:" .. armor .. "_cactus",
+			burntime = burn,
+		})
+	end
 end
 
 if armor.materials.steel then

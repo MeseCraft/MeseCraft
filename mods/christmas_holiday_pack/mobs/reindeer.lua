@@ -63,7 +63,7 @@
 			end
 			-- Remove mobs when its not Christmastime.
                         local date = os.date("*t")
-                        if not (date.month == 12 and date.day >= 1) or (date.month == 12 and date.day <= 31) then
+                        if not (date.month == 12) then
                                         self.object:remove()
                         end
 		end,

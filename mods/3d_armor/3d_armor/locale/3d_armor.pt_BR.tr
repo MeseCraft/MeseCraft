@@ -1,0 +1,85 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=3d_armor: Inventario avulso de armadura é nulo @1
+3d_armor: Player name is nil @1=3d_armor: Nome de jogador é nulo @1
+3d_armor: Player reference is nil @1=3d_armor: Referência Jogador é nula @1
+
+### armor.lua ###
+
+Admin Boots=Botas de Administrador
+Admin Chestplate=Peitoral de Administrador
+Admin Helmet=Capacete de Administrador
+Admin Leggings=Calças de Administrador
+Bronze Boots=Botas de Bronze
+Bronze Chestplate=Peitoral de Bronze
+Bronze Helmet=Capacete de Bronze
+Bronze Leggings=Calças de Bronze
+Cactus Boots=Botas de Madeira
+Cactus Chestplate=Peitoral de Cacto
+Cactus Helmet=Capacete de Cacto
+Cactus Leggings=Calças de Cacto
+Crystal Boots=Botas de Cristal
+Crystal Chestplate=Peitoral de Cristal
+Crystal Helmet=Capacete de Cristal
+Crystal Leggings=Calças de Cristal
+Diamond Boots=Botas de Diamante
+Diamond Chestplate=Peitoral de Diamante
+Diamond Helmet=Capacete de Diamante
+Diamond Leggings=Calças de Diamante
+Gold Boots=Botas de Ouro
+Gold Chestplate=Peitoral de Ouro
+Gold Helmet=Capacete de Ouro
+Gold Leggings=Calças de Ouro
+Mithril Boots=Botas de Mithril
+Mithril Chestplate=Peitoral de Mithril
+Mithril Helmet=Capacete de Mithril
+Mithril Leggings=Calças de Mithril
+Steel Boots=Botas de Aço
+Steel Chestplate=Peitoral de Aço
+Steel Helmet=Capacete de Aço
+Steel Leggings=Calças de Aço
+Wood Boots=Botas de Madeira
+Wood Chestplate=Peitoral de Madeira
+Wood Helmet=Capacete de Madeira
+Wood Leggings=Calças de Madeira
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=3d_armor: Falha ao inicializar jogador
+Fire=Fogo
+Heal=Saúde
+Level=Nível
+Radiation=Radiação
+Your @1 got destroyed!=@1 foi destruído(a)!
+Your @1 is almost broken!=
+[3d_armor] Fire Nodes disabled=[3d_armor] Nodes de gofo desabilitados
+
+
+##### not used anymore #####
+
+3d_armor_ip: Mod loaded but unused.=3d_armor_ip: Mod carregado mas inoperante.
+Back=Voltar
+Armor=Armadura
+3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: Mod carregado mas inoperante.
+Armor stand top=Topo de estande de armadura
+Armor stand=Estande de armadura
+Armor Stand=Estande de Armadura
+Locked Armor stand=Estande de Armadura Trancada
+Armor Stand (owned by @1)=Estande de Armadura (pertente a @1)
+3d_armor_ui: Mod loaded but unused.=3d_armor_ui: Mod carregado mas inoperante.
+3d Armor=3d Armor
+Armor not initialized!=Armadura não inicializada!
+Admin Shield=Escudo de Administrador
+Wooden Shield=Escudo de Madeira
+Enhanced Wood Shield=Escudo de Madeira Melhorado
+Cactus Shield=Escudo de Cacto
+Enhanced Cactus Shield=Escudo de Cacto Melhorado
+Steel Shield=Escudo de Aço
+Bronze Shield=Escudo de Bronze
+Diamond Shield=Escudo de Diamante
+Gold Shield=Escudo de Ouro
+Mithril Shield=Escudo de Mithril
+Crystal Shield=Escudo de Cristal

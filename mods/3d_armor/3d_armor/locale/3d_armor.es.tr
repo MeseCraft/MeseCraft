@@ -1,0 +1,107 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=3d_armor: La armadura desconectada es nula @1
+3d_armor: Player name is nil @1=3d_armor: El nombre del jugador es nulo @1
+3d_armor: Player reference is nil @1=3d_armor: La referencia del jugador es nula @1
+
+### armor.lua ###
+
+Admin Boots=Botas de admin
+Admin Chestplate=Peto de admin
+Admin Helmet=Casco de admin
+Admin Leggings=Polainas de admin
+Bronze Boots=Botas de bronce
+Bronze Chestplate=Peto de bronce
+Bronze Helmet=Casco de bronce
+Bronze Leggings=Polainas de bronce
+Cactus Boots=Botas de cactus
+Cactus Chestplate=Peto de cactus
+Cactus Helmet=Casco de cactus
+Cactus Leggings=Polainas de cactus
+Crystal Boots=Botas de cristal
+Crystal Chestplate=Peto de cristal
+Crystal Helmet=Casco de cristal
+Crystal Leggings=Polainas de cristal
+Diamond Boots=Botas de diamante
+Diamond Chestplate=Peto de diamante
+Diamond Helmet=Casco de diamante
+Diamond Leggings=Polainas de diamante
+Gold Boots=Botas de oro
+Gold Chestplate=Peto de oro
+Gold Helmet=Casco de oro
+Gold Leggings=Polainas de oro
+Mithril Boots=Botas de mitrilo
+Mithril Chestplate=Peto de mitrilo
+Mithril Helmet=Casco de mitrilo
+Mithril Leggings=Polainas de mitrilo
+Steel Boots=Botas de acero
+Steel Chestplate=Peto de acero
+Steel Helmet=Casco de acero
+Steel Leggings=Polainas de acero
+Wood Boots=Botas de madera
+Wood Chestplate=Peto de madera
+Wood Helmet=Casco de madera
+Wood Leggings=Polainas de madera
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=3d_armor: Fallo en la inicialización del jugador
+Fire=Fuego
+Heal=Salud
+Level=Nivel
+Radiation=Radiación
+Your @1 got destroyed!=¡Tu @1 fue destruído!
+Your @1 is almost broken!=
+[3d_armor] Fire Nodes disabled=[3d_armor] Nodos de fuego desabilitados
+
+
+##### not used anymore #####
+
+3d_armor: Player inventory is nil @1=3d_armor: El inventario del jugador es nulo @1
+3d_armor_ip: Mod loaded but unused.=3d_armor_ip: Mod cargado, pero sin ser usado.
+Back=Volver
+Armor=Armadura
+3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: Mod cargado, pero sin ser usado.
+Armor stand top=Parte arriba maniquí armadura
+Armor stand=Maniquí para armadura
+Armor Stand=Maniquí para armadura
+Locked Armor stand=Maniquí para armadura (bloqueado)
+Armor Stand (owned by @1)=Maniquí para armadura (propiedad de @1)
+3d_armor_ui: Mod loaded but unused.=3d_armor_ui: Mod cargado, pero sin ser usado.
+3d Armor=Armadura 3d
+Armor not initialized!=¡Armadura no inicializada!
+hazmat_suit: Mod loaded but unused.=hazmat_suit: Mod cargado, pero sin ser usado.
+Hazmat Helmet=Casco de hazmat
+Hazmat Chestplate=Peto de hazmat
+Hazmat Sleeve=Manga de hazmat
+Hazmat Leggins=Polainas de hazmat
+Hazmat Boots=Botas de hazmat
+Hazmat Suit=Traje de hazmat
+Admin Shield=Escudo de admin
+Wooden Shield=Escudo de madera
+Enhanced Wood Shield=Escudo de madera mejorado
+Cactus Shield=Escudo de cactus
+Enhanced Cactus Shield=Escudo de cactus mejorado
+Steel Shield=Escudo de acero
+Bronze Shield=Escudo de bronce
+Diamond Shield=Escudo de diamante
+Gold Shield=Escudo de oro
+Mithril Shield=Escudo de mitrilo
+Crystal Shield=Escudo de cristal
+technic_armor: Mod loaded but unused.=technic_armor: Mod cargado, pero no usado.
+Lead=Plomo
+Brass=Latón
+Cast Iron=Hierro fundido
+Carbon Steel=Acero carbono
+Stainless Steel=Acero inoxidable
+Tin=Estaño
+Silver=Plata
+Helmet=Casco
+Chestplate=Peto
+Leggins=Polainas
+Boots=Botas
+Shield=Escudo
+@1 @2=@2 de @1

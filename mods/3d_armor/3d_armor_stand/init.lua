@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local armor_stand_formspec = "size[8,7]" ..
 	default.gui_bg ..
@@ -97,7 +97,7 @@ local function update_entity(pos)
 				yaw = math.pi / 2
 			end
 		end
-		object:setyaw(yaw)
+		object:set_yaw(yaw)
 		object:set_properties({textures={texture}})
 	end
 end

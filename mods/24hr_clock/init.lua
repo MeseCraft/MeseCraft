@@ -1,6 +1,7 @@
 -- 24hr_clock
 -- By David_G (kestral246@gmail.com)
--- FreeGamers.org --> Renamed to clock for theming purposes.
+--
+-- 2020-02-19
 
 local activewidth=8  -- Number of inventory slots to check.
 
@@ -82,11 +83,13 @@ for i,img in ipairs(images) do
 end
 
 -- crafting recipe only works if default mod present. 
+if minetest.get_modpath("default") ~= nil then
 	minetest.register_craft({
-			output = "24hr_clock:clock11",
+			output = '24hr_clock:clock11',
 			recipe = {
-					{"", "default:tin_ingot", ""},
-					{"default:copper_ingot", "default:glass", "default:copper_ingot"},
-					{"", "default:copper_ingot", ""}
+					{'', 'default:tin_ingot', ''},
+					{'default:copper_ingot', 'default:glass', 'default:copper_ingot'},
+					{'', 'default:copper_ingot', ''}
 			}
 	})
+end

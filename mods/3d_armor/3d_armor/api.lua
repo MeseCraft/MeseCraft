@@ -1,5 +1,5 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local skin_previews = {}
 local use_player_monoids = minetest.global_exists("player_monoids")
@@ -74,7 +74,8 @@ armor = {
 		on_destroy = {},
 	},
 	migrate_old_inventory = true,
-	version = "0.4.13",
+  version = "0.4.13",
+  get_translator = S
 }
 
 armor.config = {
@@ -95,14 +96,26 @@ armor.config = {
 	material_mithril = true,
 	material_crystal = true,
 	water_protect = true,
---	fire_protect = minetest.get_modpath("ethereal") ~= nil,
-	fire_protect = true,
+	fire_protect = minetest.get_modpath("ethereal") ~= nil,
 	punch_damage = true,
 }
 
 -- Armor Registration
 
 armor.register_armor = function(self, name, def)
+	def.on_secondary_use = function(itemstack, player)
+		return armor:equip(player, itemstack)
+	end
+	def.on_place = function(itemstack, player, pointed_thing)
+		if pointed_thing.type == "node" and player and not player:get_player_control().sneak then
+			local node = minetest.get_node(pointed_thing.under)
+			local ndef = minetest.registered_nodes[node.name]
+			if ndef and ndef.on_rightclick then
+				return ndef.on_rightclick(pointed_thing.under, node, player, itemstack, pointed_thing)
+			end
+		end
+		return armor:equip(player, itemstack)
+	end
 	minetest.register_tool(name, def)
 end
 
@@ -186,7 +199,6 @@ armor.set_player_armor = function(self, player)
 	local material = {count=1}
 	local preview = armor:get_preview(name)
 	local texture = "3d_armor_trans.png"
-	local textures = {}
 	local physics = {}
 	local attributes = {}
 	local levels = {}
@@ -280,6 +292,11 @@ armor.set_player_armor = function(self, player)
 	if use_armor_monoid then
 		armor_monoid.monoid:add_change(player, change, "3d_armor:armor")
 	else
+		-- Preserve immortal group (damage disabled for player)
+		local immortal = player:get_armor_groups().immortal
+		if immortal and immortal ~= 0 then
+			groups.immortal = 1
+		end
 		player:set_armor_groups(groups)
 	end
 	if use_player_monoids then
@@ -298,7 +315,10 @@ armor.set_player_armor = function(self, player)
 		})
 		pova.do_override(player)
 	else
-		player:set_physics_override(physics)
+		local player_physics_locked = player:get_meta():get_int("player_physics_locked")
+		if player_physics_locked == nil or player_physics_locked == 0 then
+			player:set_physics_override(physics)
+		end
 	end
 	self.textures[name].armor = texture
 	self.textures[name].preview = preview
@@ -313,6 +333,8 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 	if not name then
 		return
 	end
+	local set_state
+	local set_count
 	local state = 0
 	local count = 0
 	local recip = true
@@ -320,8 +342,8 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 	local list = armor_inv:get_list("armor")
 	for i, stack in pairs(list) do
 		if stack:get_count() == 1 then
-			local name = stack:get_name()
-			local use = minetest.get_item_group(name, "armor_use") or 0
+			local itemname = stack:get_name()
+			local use = minetest.get_item_group(itemname, "armor_use") or 0
 			local damage = use > 0
 			local def = stack:get_definition() or {}
 			if type(def.on_punched) == "function" then
@@ -369,14 +391,20 @@ armor.punch = function(self, player, hitter, time_from_last_punch, tool_capabili
 				end
 			end
 			if damage == true and hitter == "fire" then
-				damage = minetest.get_item_group(name, "flammable") > 0
+				damage = minetest.get_item_group(itemname, "flammable") > 0
 			end
 			if damage == true then
 				self:damage(player, i, stack, use)
+				set_state = self.def[name].state
+				set_count = self.def[name].count
 			end
 			state = state + stack:get_wear()
 			count = count + 1
 		end
+	end
+	if set_count and set_count ~= count then
+		state = set_state or state
+		count = set_count or count
 	end
 	self.def[name].state = state
 	self.def[name].count = count
@@ -394,6 +422,66 @@ armor.damage = function(self, player, index, stack, use)
 	end
 end
 
+armor.get_weared_armor_elements = function(self, player)
+    local name, inv = self:get_valid_player(player, "[get_weared_armor]")
+	local weared_armor = {}
+	if not name then
+		return
+	end
+    for i=1, inv:get_size("armor") do
+        local item_name = inv:get_stack("armor", i):get_name()
+        local element = self:get_element(item_name)
+        if element ~= nil then
+            weared_armor[element] = item_name
+        end
+	end
+	return weared_armor
+end
+
+armor.equip = function(self, player, itemstack)
+    local name, armor_inv = self:get_valid_player(player, "[equip]")
+    local weared_armor = self:get_weared_armor_elements(player)
+    local armor_element = self:get_element(itemstack:get_name())
+	if name and armor_element then
+		if weared_armor[armor_element] ~= nil then
+			self:unequip(player, armor_element)
+		end
+		armor_inv:add_item("armor", itemstack:take_item())
+		self:set_player_armor(player)
+		self:save_armor_inventory(player)
+	end
+	return itemstack
+end
+
+armor.unequip = function(self, player, armor_element)
+    local name, armor_inv = self:get_valid_player(player, "[unequip]")
+	local weared_armor = self:get_weared_armor_elements(player)
+	if not name or not weared_armor[armor_element] then
+		return
+	end
+	local itemstack = armor_inv:remove_item("armor", ItemStack(weared_armor[armor_element]))
+	minetest.after(0, function()
+		local inv = player:get_inventory()
+		if inv:room_for_item("main", itemstack) then
+			inv:add_item("main", itemstack)
+		else
+			minetest.add_item(player:get_pos(), itemstack)
+		end
+	end)
+    self:set_player_armor(player)
+	self:save_armor_inventory(player)
+end
+
+armor.remove_all = function(self, player)
+    local name, inv = self:get_valid_player(player, "[remove_all]")
+	if not name then
+		return
+    end
+	inv:set_list("armor", {})
+	self:set_player_armor(player)
+	self:save_armor_inventory(player)
+end
+
 armor.get_player_skin = function(self, name)
 	if (self.skin_mod == "skins" or self.skin_mod == "simple_skins") and skins.skins[name] then
 		return skins.skins[name]..".png"
@@ -403,6 +491,16 @@ armor.get_player_skin = function(self, name)
 		return wardrobe.playerSkins[name]
 	end
 	return armor.default_skin..".png"
+end
+
+armor.update_skin = function(self, name)
+	minetest.after(0, function()
+		local pplayer = minetest.get_player_by_name(name)
+		if pplayer then
+			self.textures[name].skin = self:get_player_skin(name)
+			self:set_player_armor(pplayer)
+		end
+	end)
 end
 
 armor.add_preview = function(self, preview)
@@ -467,7 +565,8 @@ end
 armor.load_armor_inventory = function(self, player)
 	local _, inv = self:get_valid_player(player, "[load_armor_inventory]")
 	if inv then
-		local armor_list_string = player:get_attribute("3d_armor_inventory")
+		local meta = player:get_meta()
+		local armor_list_string = meta:get_string("3d_armor_inventory")
 		if armor_list_string then
 			inv:set_list("armor",
 				self:deserialize_inventory_list(armor_list_string))
@@ -479,7 +578,8 @@ end
 armor.save_armor_inventory = function(self, player)
 	local _, inv = self:get_valid_player(player, "[save_armor_inventory]")
 	if inv then
-		player:set_attribute("3d_armor_inventory",
+		local meta = player:get_meta()
+		meta:set_string("3d_armor_inventory",
 			self:serialize_inventory_list(inv:get_list("armor")))
 	end
 end
@@ -520,7 +620,7 @@ armor.drop_armor = function(pos, stack)
 	if node then
 		local obj = minetest.add_item(pos, stack)
 		if obj then
-			obj:setvelocity({x=math.random(-1, 1), y=5, z=math.random(-1, 1)})
+			obj:set_velocity({x=math.random(-1, 1), y=5, z=math.random(-1, 1)})
 		end
 	end
 end

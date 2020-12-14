@@ -1,0 +1,1 @@
+This mod provides a simple LED marquee that accepts single characters, strings, and special control words via digilines.

@@ -1,0 +1,10 @@
+# textdomain: 3d_armor_stand
+
+
+### init.lua ###
+
+Armor Stand=
+Armor Stand (owned by @1)=
+Armor stand=
+Armor stand top=
+Locked Armor stand=

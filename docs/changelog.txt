@@ -1,0 +1,6 @@
+#### CHANGE-LOG ####
+
+2020-Nov-15
+- update 3d_armor
+- update 24hr_clock
+- adjust wielded_light to be more network friendly. (increase update interval)

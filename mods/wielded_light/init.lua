@@ -1,4 +1,4 @@
-local update_interval = 0.2
+local update_interval = 0.3
 local level_delta = 2
 local shiny_items = {}
 

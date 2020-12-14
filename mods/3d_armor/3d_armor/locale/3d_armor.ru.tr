@@ -1,0 +1,85 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=3d_armor: Отдельный инвентарь брони является nil @1
+3d_armor: Player name is nil @1=3d_armor: Имя игрока является nil @1
+3d_armor: Player reference is nil @1=3d_armor: Ссылка игрока является nil @1
+
+### armor.lua ###
+
+Admin Boots=ботинки админа
+Admin Chestplate=бронежилет админа
+Admin Helmet=шлем админа
+Admin Leggings=гамаши админа
+Bronze Boots=бронзовые ботинки
+Bronze Chestplate=бронзовый бронежилет
+Bronze Helmet=бронзовый шлем
+Bronze Leggings=бронзовые гамаши
+Cactus Boots=кактусовые ботинки
+Cactus Chestplate=кактусовый бронежилет
+Cactus Helmet=кактусовый шлем
+Cactus Leggings=кактусовые гамаши
+Crystal Boots=кристалловые ботинки
+Crystal Chestplate=кристалловый бронежилет
+Crystal Helmet=кристалловый шлем
+Crystal Leggings=кристалловые гамаши
+Diamond Boots=алмазные ботинки
+Diamond Chestplate=алмазный бронежилет
+Diamond Helmet=алмазный шлем
+Diamond Leggings=алмазные гамаши
+Gold Boots=золотые ботинки
+Gold Chestplate=золотой бронежилет
+Gold Helmet=золотой шлем
+Gold Leggings=золотые гамаши
+Mithril Boots=мифриловые ботинки
+Mithril Chestplate=мифриловый бронежилет
+Mithril Helmet=мифриловый шлем
+Mithril Leggings=мифриловые гамаши
+Steel Boots=стальные ботинки
+Steel Chestplate=стальной бронежилет
+Steel Helmet=стальной шлем
+Steel Leggings=стальные гамаши
+Wood Boots=деревянные ботинки
+Wood Chestplate=деревянный бронежилет
+Wood Helmet=деревянный шлем
+Wood Leggings=деревянные гамаши
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=3d_armor: не смог подготовить игрока
+Fire=огонь
+Heal=исцеление
+Level=уровень
+Radiation=излучение
+Your @1 got destroyed!=твой(и) @1 был(и) разрушен(ы)!
+Your @1 is almost broken!=
+[3d_armor] Fire Nodes disabled=[3d_armor] блоки огня отключены
+
+
+##### not used anymore #####
+
+3d_armor_ip: Mod loaded but unused.=3d_armor_ip: мод загружен но не используется.
+Back=назад
+Armor=бронь
+3d_armor_sfinv: Mod loaded but unused.=3d_armor_sfinv: мод загружен но не используется.
+Armor stand top=стойка для брони (верх)
+Armor stand=стойка для брони
+Armor Stand=стойка для брони
+Locked Armor stand=защищенная стойка для брони
+Armor Stand (owned by @1)=стойка для брони (принадлежит @1)
+3d_armor_ui: Mod loaded but unused.=3d_armor_ui: мод загружен но не используется.
+3d Armor=3D бронь
+Armor not initialized!=бронь не подготовлена!
+Admin Shield=щит админа
+Wooden Shield=деревянный щит
+Enhanced Wood Shield=улучшенный деревянный щит
+Cactus Shield=кактусный щит
+Enhanced Cactus Shield=улучшенный кактусный щит
+Steel Shield=стальной щит
+Bronze Shield=бронзовый щит
+Diamond Shield=алмазный щит
+Gold Shield=золотой щит
+Mithril Shield=мифриловый щит
+Crystal Shield=кристалловый щит

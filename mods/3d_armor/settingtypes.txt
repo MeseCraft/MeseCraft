@@ -42,7 +42,7 @@ armor_heal_multiplier (Armor healing multiplier) float 1
 armor_water_protect (Enable water protection) bool true
 
 # Enable fire protection (defaults true if using ethereal mod).
-armor_fire_protect (Enable fire protection) bool true
+armor_fire_protect (Enable fire protection) bool false
 
 # Enable punch damage effects.
 armor_punch_damage (Enable damage effects) bool true

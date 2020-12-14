@@ -1,8 +1,7 @@
 -- support for i18n
-local S = armor_i18n.gettext
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local disable_sounds = minetest.settings:get_bool("shields_disable_sounds")
-local use_moreores = minetest.get_modpath("moreores")
 local function play_sound_effect(player, name)
 	if not disable_sounds and player then
 		local pos = player:get_pos()
@@ -69,6 +68,11 @@ if armor.materials.wood then
 			{"default:steel_ingot"},
 		},
 	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "shields:shield_wood",
+		burntime = 8,
+	})
 end
 
 if armor.materials.cactus then
@@ -107,6 +111,11 @@ if armor.materials.cactus then
 			{"shields:shield_cactus"},
 			{"default:steel_ingot"},
 		},
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "shields:shield_cactus",
+		burntime = 16,
 	})
 end
 

@@ -5,6 +5,8 @@ A 24hr clock with one hand.
 
 David_G (kestral246@gmail.com)
 
+**New:** I have updated this mod to work with the craftguide mod. *(Thanks to feedback from FreeGamers.)*
+
 ![Family Screenshot](screenshot.png "All my compass and clock mods")
 
 Shown are all my compass and clock mods.

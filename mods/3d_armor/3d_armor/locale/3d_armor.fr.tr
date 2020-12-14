@@ -1,0 +1,58 @@
+# textdomain: 3d_armor
+
+
+### api.lua ###
+
+3d_armor: Detached armor inventory is nil @1=3d_armor : Inventaire détaché pour l'armure non trouvé @1
+3d_armor: Player name is nil @1=3d_armor : Nom du joueur non trouvé @1
+3d_armor: Player reference is nil @1=3d_armor : Référence au joueur non trouvée @1
+
+### armor.lua ###
+
+Admin Boots=Bottes d'admin
+Admin Chestplate=Cuirasse d'admin
+Admin Helmet=Casque d'admin
+Admin Leggings=Jambières d'admin
+Bronze Boots=Bottes en bronze
+Bronze Chestplate=Cuirasse en bronze
+Bronze Helmet=Casque en bronze
+Bronze Leggings=Jambières en bronze
+Cactus Boots=Bottes en cactus
+Cactus Chestplate=Cuirasse en cactus
+Cactus Helmet=Casque en cactus
+Cactus Leggings=Jambières en cactus
+Crystal Boots=Bottes en cristal
+Crystal Chestplate=Cuirasse en cristal
+Crystal Helmet=Casque en cristal
+Crystal Leggings=Jambières en cristal
+Diamond Boots=Bottes en diamant
+Diamond Chestplate=Cuirasse en diamant
+Diamond Helmet=Casque en diamant
+Diamond Leggings=Jambières en diamant
+Gold Boots=Bottes en or
+Gold Chestplate=Cuirasse en or
+Gold Helmet=Casque en or
+Gold Leggings=Jambières en or
+Mithril Boots=Bottes en mithril
+Mithril Chestplate=Cuirasse en mithril
+Mithril Helmet=Casque en mithril
+Mithril Leggings=Jambières en mithril
+Steel Boots=Bottes en acier
+Steel Chestplate=Cuirasse en acier
+Steel Helmet=Casque en acier
+Steel Leggings=Jambières en acier
+Wood Boots=Bottes en bois
+Wood Chestplate=Cuirasse en bois
+Wood Helmet=Casque en bois
+Wood Leggings=Jambières en bois
+
+### init.lua ###
+
+3d_armor: Failed to initialize player=3d_armor : Impossible d'initialiser le joueur
+Fire=Fire
+Heal=Soins
+Level=Niveau
+Radiation=Radiation
+Your @1 got destroyed!=Une partie de votre armure a été détruite : @1 !
+Your @1 is almost broken!=Une partie de votre armure est presque détruite : @1 !
+[3d_armor] Fire Nodes disabled=[3d_armor] Nœuds de type feu désactivés

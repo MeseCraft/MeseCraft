@@ -1,0 +1,7 @@
+# textdomain: 3d_armor_sfinv
+
+
+### init.lua ###
+
+3d_armor_sfinv: Mod loaded but unused.=
+Armor=
