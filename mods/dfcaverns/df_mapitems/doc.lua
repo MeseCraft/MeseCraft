@@ -4,14 +4,28 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_mapitems.S
 
 df_mapitems.doc.cave_moss_desc = S("Cave moss is technically a form of mold, but fortunately a relatively benign one given its ubiquity. Its fibers form a tough but springy mat over the surface of any organic-rich soil that accumulates deep underground.")
 df_mapitems.doc.cave_moss_usage = S("Cave moss has no known uses aside from the faint glow it emits. It dies when exposed to bright light sources such as the Sun.")
 df_mapitems.doc.floor_fungus_desc = S("Floor fungus produces a thin, slick film that spreads through the cracks of broken rock. Its ability to subsist on the tiniest traces of nutrients means it's found in relatively harsh underground environments.")
 df_mapitems.doc.floor_fungus_usage = S("Floor fungus has no known uses. It can penetrate deeply into cobblestone constructions if an infestation gets hold, but it is difficult to transport and is inhibited by light so it hasn't spread beyond the deep caverns.")
+
+df_mapitems.doc.sand_scum_desc = S("Sand scum is a crust of algae that sometimes accumulates on wet sand deep underground, somehow managing to eke out a meager living from the phosphorescent light emitted by other organisms.")
+df_mapitems.doc.sand_scum_usage = S("Sand scum is useless. You can get sand out of it, at least.")
+
+df_mapitems.doc.pebble_fungus_desc = S("Soil that is rich enough to support gigantic mushrooms can support innumerable smaller ones as well. Pebble fungus is a prolific form of mushroom that covers the soil in small spheroidal fruiting bodies.")
+df_mapitems.doc.pebble_fungus_usage = S("Pebble fungus grows in soil that is rich enough for farming.")
+
+df_mapitems.doc.stillworm_desc = S("Stillworm is not actually a kind of worm, but a sort of fungus that looks uncannily like pale, motionless earthworms intertwined with the soil.")
+df_mapitems.doc.stillworm_usage = S("Stillworm grows in soil that is rich enough for farming.")
+
+df_mapitems.doc.rock_rot_desc = S("A highly aggressive form of lichen that eats into solid rock, turning its upper surfaces rough and a little spongy.")
+df_mapitems.doc.rock_rot_usage = S("Organic material accumulates in the enlarged pores of rock rot, but not enough to be considered \"soil\" in the usable sense.")
+
+df_mapitems.doc.spongestone_desc = S("Spongestone is the result of advanced rock rot in its ultimate form. The stone has become so riddled with pores and cavities that it's no longer really stone.")
+df_mapitems.doc.spongestone_usage = S("Although a strong mineral matrix remains, spongestone has enough organic content that it can be used as soil for farming.")
+
 
 df_mapitems.doc.hoar_moss_desc = S("Hoar moss is a strange glowing crust that sometimes forms on the surface of water flowing over ice.")
 df_mapitems.doc.hoar_moss_usage = S("Hoar moss has no known use aside from providing a faint source of light.")

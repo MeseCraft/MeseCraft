@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 --stem
 minetest.register_node("df_trees:nether_cap_stem", {
@@ -10,7 +8,7 @@ minetest.register_node("df_trees:nether_cap_stem", {
 	tiles = {"dfcaverns_nether_cap_stem.png"},
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 --cap
@@ -21,9 +19,7 @@ minetest.register_node("df_trees:nether_cap", {
 	tiles = {"dfcaverns_nether_cap.png"},
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = default.node_sound_wood_defaults({
-		footstep = {name = "default_snow_footstep", gain = 0.2},
-	}),
+	sounds = df_trees.sounds.nethercap_wood,
 })
 
 --gills
@@ -35,7 +31,7 @@ minetest.register_node("df_trees:nether_cap_gills", {
 	is_ground_content = false,
 	light_source = 6,
 	groups = {snappy = 3, leafdecay = 3, leaves = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 	drawtype = "plantlike",
 	paramtype = "light",
 	drop = {
@@ -50,16 +46,14 @@ minetest.register_node("df_trees:nether_cap_gills", {
 			}
 		}
 	},
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
-if default.register_leafdecay then -- default.register_leafdecay is very new, remove this check some time after 0.4.16 is released
-	default.register_leafdecay({
-		trunks = {"df_trees:nether_cap"}, -- don't need stem nodes here
-		leaves = {"df_trees:nether_cap_gills"},
-		radius = 1,	
-	})
-end
+df_trees.register_leafdecay({
+	trunks = {"df_trees:nether_cap"}, -- don't need stem nodes here
+	leaves = {"df_trees:nether_cap_gills"},
+	radius = 1,	
+})
 
 --Wood
 minetest.register_craft({
@@ -85,7 +79,7 @@ minetest.register_node("df_trees:nether_cap_wood", {
 	tiles = {"dfcaverns_nether_cap_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, wood = 1, freezes_water = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 df_trees.register_all_stairs("nether_cap_wood")
@@ -111,7 +105,7 @@ minetest.register_node("df_trees:nether_cap_sapling", {
 	},
 	groups = {snappy = 2, dig_immediate = 3,
 		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
 	on_construct = function(pos)
 		local node_below_name = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
@@ -168,26 +162,33 @@ df_trees.spawn_nether_cap_vm = function(vi, area, data)
 	subterrane.giant_mushroom(vi, area, data, c_stem, c_cap, c_gills, stem_height, cap_radius)
 end
 
+local water = df_trees.node_names.water_source
+local river_water = df_trees.node_names.river_water_source
+local ice = df_trees.node_names.ice
+local water_flowing = df_trees.node_names.water_flowing
+local river_water_flowing = df_trees.node_names.river_water_flowing
+local snow = df_trees.node_names.snow
+
 minetest.register_abm{
 	label = "water freezing",
-	nodenames = {"default:water_source", "default:river_water_source",},
+	nodenames = {water, river_water,},
 	neighbors = {"group:freezes_water"},
 	interval = 1,
 	chance = 5,
 	catch_up = true,
 	action = function(pos)
-		minetest.swap_node(pos, {name="default:ice"})
+		minetest.swap_node(pos, {name=ice})
 	end,
 }
 
 minetest.register_abm{
 	label = "flowing water freezing",
-	nodenames = {"default:water_flowing",  "default:river_water_flowing"},
+	nodenames = {water_flowing,  river_water_flowing},
 	neighbors = {"group:freezes_water"},
 	interval = 1,
 	chance = 1,
 	catch_up = true,
 	action = function(pos)
-		minetest.swap_node(pos, {name="default:snow"})
+		minetest.swap_node(pos, {name=snow})
 	end,
 }

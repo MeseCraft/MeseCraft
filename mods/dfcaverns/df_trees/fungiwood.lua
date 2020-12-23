@@ -5,9 +5,7 @@
 -- Max trunk height 	8 
 -- depth 1-2
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 minetest.register_node("df_trees:fungiwood", {
 	description = S("Fungiwood Stem"),
@@ -17,7 +15,7 @@ minetest.register_node("df_trees:fungiwood", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 
 	on_place = minetest.rotate_node
 })
@@ -39,7 +37,7 @@ minetest.register_node("df_trees:fungiwood_wood", {
 	tiles = {"dfcaverns_fungiwood_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 df_trees.register_all_stairs("fungiwood_wood")
@@ -90,18 +88,16 @@ minetest.register_node("df_trees:fungiwood_shelf",{
 			{items = {"df_trees:fungiwood_shelf"}}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
-if default.register_leafdecay then -- default.register_leafdecay is very new, remove this check some time after 0.4.16 is released
-	default.register_leafdecay({
-		trunks = {"df_trees:fungiwood"},
-		leaves = {"df_trees:fungiwood_shelf"},
-		radius = 5,
-	})
-end
+df_trees.register_leafdecay({
+	trunks = {"df_trees:fungiwood"},
+	leaves = {"df_trees:fungiwood_shelf"},
+	radius = 5,
+})
 
 minetest.register_node("df_trees:fungiwood_sapling", {
 	description = S("Fungiwood Spawn"),
@@ -123,7 +119,7 @@ minetest.register_node("df_trees:fungiwood_sapling", {
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
 		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
 	on_construct = function(pos)
 		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then

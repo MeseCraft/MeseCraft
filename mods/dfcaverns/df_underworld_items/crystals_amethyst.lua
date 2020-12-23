@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_underworld_items.S
 
 minetest.register_node("df_underworld_items:glow_amethyst", {
 	description = S("Glowing Amethyst Block"),

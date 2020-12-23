@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_primordial_items.S
 
 ---------------------------------------------------------------------------------------
 -- Glownode and stalk
@@ -15,8 +13,8 @@ minetest.register_node("df_primordial_items:glownode", {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	groups = {cracky = 3, oddly_breakable_by_hand = 3},
-	sounds = default.node_sound_glass_defaults(),
-	light_source = default.LIGHT_MAX,
+	sounds = df_primordial_items.sounds.glass,
+	light_source = minetest.LIGHT_MAX,
 })
 
 minetest.register_node("df_primordial_items:glownode_stalk", {
@@ -27,7 +25,7 @@ minetest.register_node("df_primordial_items:glownode_stalk", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_primordial_items.sounds.wood,
 	on_place = minetest.rotate_node
 })
 
@@ -46,7 +44,7 @@ minetest.register_node("df_primordial_items:glow_orb_hanging", {
 	is_ground_content = false,
 	walkable = false,
 	light_source = 6,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })

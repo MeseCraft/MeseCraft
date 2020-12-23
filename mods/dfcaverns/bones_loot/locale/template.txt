@@ -1,0 +1,6 @@
+# textdomain: bones_loot
+
+
+### init.lua ###
+
+Someone's old bones=

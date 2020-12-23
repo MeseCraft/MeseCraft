@@ -1,0 +1,221 @@
+# textdomain: df_mapitems
+
+
+### castle_coral.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral=Schlosskoralle
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral Skeleton=Schlosskorallenskelett
+
+### cave_coral.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Coral=Höhlenkoralle
+
+### cave_pearls.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Pearls=Höhlenperlen
+
+### crystals_mese.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flawless Mese Block=Makelloser Mese Block
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flawless Mese Crystal=Makelloser Mese-Kristall
+
+### crystals_ruby.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Big Red Crystal=Großer roter Kristall
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Red Crystal=Riesiger roter Kristall
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red Crystal Vein=Rote Kristallader
+
+### crystals_salt.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Luminous Salt Crystal=Leuchtender Salzkristall
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Salty Cobble=Salziges Kopfsteinpflaster
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A crystal of salt grown from water that percolated through the depths of the earth, picking up all manner of minerals as it went.=Ein Salzkristall aus Wasser, das durch die Tiefen der Erde sickerte und dabei alle möglichen Mineralien aufnahm.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A highly aggressive form of lichen that eats into solid rock, turning its upper surfaces rough and a little spongy.=Eine sehr aggressive Form von Flechten, die sich in festes Gestein frisst und ihre oberen Oberflächen rau und ein wenig schwammig macht.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A nasty kelp-like plant that grows in patches on the floor of the Sunless Sea. Its reflective patches draw in the unwary and then its prickly barbs catch and hold small creatures.=Eine böse Seetang-ähnliche Pflanze, die in Flecken auf dem Boden des sonnenlosen Meeres wächst. Seine reflektierenden Flecken ziehen Unachtsame an und dann fangen und halten seine stacheligen Widerhaken kleine Kreaturen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A rare form of coral found only deep underground in the Sunless Sea, cave coral grows hanging from the ceilings of flooded caverns.=Eine seltene Form von Korallen, die nur tief unter der Erde im sonnenlosen Meer zu finden ist. Höhlenkorallen wachsen an den Decken überfluteter Höhlen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Although a strong mineral matrix remains, spongestone has enough organic content that it can be used as soil for farming.=Obwohl eine starke Mineralmatrix verbleibt, hat Schwammstein einen ausreichenden organischen Gehalt, um als Boden für die Landwirtschaft verwendet zu werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Although stalagmites are blunter than the stalactites above them, they can cause extra damage to the unwary caver who falls on them.=Obwohl Stalagmiten stumpfer sind als die Stalaktiten über ihnen, können sie dem unachtsamen Höhlenforscher, der auf sie fällt, zusätzlichen Schaden zufügen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from its aesthetic value this crystal has no particular use.=Abgesehen von seinem ästhetischen Wert hat dieser Kristall keine besondere Verwendung.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from its aesthetic value this rock has no particular use.=Abgesehen von seinem ästhetischen Wert hat dieser Stein keine besondere Verwendung.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from the aesthetic beauty of its formations flowstone has no special properties or uses.=Abgesehen von der ästhetischen Schönheit seiner Formationen hat Flowstone keine besonderen Eigenschaften oder Verwendungen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from their aesthetic beauty, cave corals can be harvested for simple building materials.=Neben ihrer ästhetischen Schönheit können Höhlenkorallen für einfache Baumaterialien geerntet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from their soft glow and beauty, cave pearls have no practical use. Except perhaps as handholds for climbing.=Abgesehen von ihrem weichen Glanz und ihrer Schönheit haben Höhlenperlen keinen praktischen Nutzen. Außer vielleicht als Haltegriffe zum Klettern.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Attemping to mine this rock knocks the salt crust away, leaving only base stone.=Der Versuch, diesen Stein abzubauen, stößt die Salzkruste weg und hinterlässt nur Grundstein.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral has little practical use aside from perhaps as a distinctive-looking building material.=Castle Coral hat wenig praktischen Nutzen, außer vielleicht als unverwechselbar aussehendes Baumaterial.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave moss has no known uses aside from the faint glow it emits. It dies when exposed to bright light sources such as the Sun.=Höhlenmoos hat keine bekannten Verwendungszwecke, abgesehen von dem schwachen Schein, den es ausstrahlt. Es stirbt, wenn es hellen Lichtquellen wie der Sonne ausgesetzt wird.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave moss is technically a form of mold, but fortunately a relatively benign one given its ubiquity. Its fibers form a tough but springy mat over the surface of any organic-rich soil that accumulates deep underground.=Höhlenmoos ist technisch gesehen eine Form von Schimmel, aber glücklicherweise eine relativ harmlose Form aufgrund seiner Allgegenwart. Seine Fasern bilden eine zähe, aber federnde Matte über der Oberfläche eines organisch reichen Bodens, der sich tief unter der Erde ansammelt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Deep in the infernal conditions of the magma sea, over the course of millions of years, mese crystals grow into flawless blocks that glow bright with strange energies.=Tief in den höllischen Bedingungen des Magma-Meeres wachsen diese Kristalle im Laufe von Millionen von Jahren zu makellosen Blöcken, die vor seltsamen Energien hell leuchten.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Deep under the surface of the Sunless Sea are the rare and beautiful Castle Corals, so named due to their resemblance to small undersea castles.=Tief unter der Oberfläche des sonnenlosen Meeres befinden sich die seltenen und wunderschönen Burgkorallen, die aufgrund ihrer Ähnlichkeit mit kleinen Unterwasserschlössern so benannt wurden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Falling onto an icicle is particularly damaging.=Das Fallen auf einen Eiszapfen ist besonders schädlich.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Floor fungus has no known uses. It can penetrate deeply into cobblestone constructions if an infestation gets hold, but it is difficult to transport and is inhibited by light so it hasn't spread beyond the deep caverns.=Bodenpilz hat keine bekannten Verwendungen. Es kann tief in Kopfsteinpflaster eindringen, wenn sich ein Befall festsetzt, ist jedoch schwer zu transportieren und wird durch Licht gehemmt, sodass es sich nicht über die tiefen Höhlen hinaus ausbreitet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Floor fungus produces a thin, slick film that spreads through the cracks of broken rock. Its ability to subsist on the tiniest traces of nutrients means it's found in relatively harsh underground environments.=Bodenpilz erzeugt einen dünnen, glatten Film, der sich durch die Risse von gebrochenem Gestein ausbreitet. Aufgrund seiner Fähigkeit, sich von kleinsten Nährstoffspuren zu ernähren, ist es in relativ rauen unterirdischen Umgebungen anzutreffen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flowstone is a carbonate-rich rock formation deposited by flowing water. It consists of minerals that the water dissolved earlier as it widens cracks and fissures into caves.=Flowstone ist eine karbonatreiche Gesteinsformation, die sich durch fließendes Wasser ablagert. Es besteht aus Mineralien, die das Wasser früher aufgelöst hat, als es Risse und Risse in Höhlen weitete.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glistening strings of silk hang from the ceilings of some of the larger caverns, lit by the millions of tiny bioluminescent worms that spun them. Glow worms prey on the insects they lure and entangle with their faux starry sky - and sometimes the occasional bat or other larger flying beast.=Von den Decken einiger der größeren Höhlen hängen glitzernde Seidenfäden, die von den Millionen winziger biolumineszierender Würmer beleuchtet werden, die sie gesponnen haben. Glühwürmchen jagen den Insekten nach, die sie locken und mit ihrem künstlichen Sternenhimmel verwickeln - und manchmal auch gelegentlich Fledermäuse oder andere größere fliegende Tiere.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glow worms can be harvested and used as a source of light but they die when exposed to light significantly brighter than themselves or when immersed in water. A colony of glow worms hung in a hospitable environment will undergo a modest amount of growth, allowing it to be divided and propagated.=Glühwürmchen können geerntet und als Lichtquelle verwendet werden. Sie sterben jedoch ab, wenn sie Licht ausgesetzt werden, das deutlich heller ist als sie selbst oder wenn sie in Wasser getaucht sind. Eine Kolonie von Glühwürmchen, die in einer gastfreundlichen Umgebung aufgehängt ist, wird ein bescheidenes Wachstum erfahren, so dass sie geteilt und vermehrt werden kann.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Hoar moss has no known use aside from providing a faint source of light.=Hoarmoos hat keine bekannte Verwendung, abgesehen von der Bereitstellung einer schwachen Lichtquelle.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Hoar moss is a strange glowing crust that sometimes forms on the surface of water flowing over ice.=Raureif ist eine seltsam leuchtende Kruste, die sich manchmal auf der Oberfläche von Wasser bildet, das über Eis fließt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Ice formed by water dripping slowly into a cold environment, icicles tend to be exceptionally pure and clear.=Eis, das durch Wasser gebildet wird, das langsam in eine kalte Umgebung tropft. Eiszapfen sind in der Regel außergewöhnlich rein und klar.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Large, dry caverns deep underground are well suited to aeons-long processes that concentrate crystalline substances in their walls. This rock is riddled with veins of the stuff.=Große, trockene Kavernen tief unter der Erde eignen sich gut für Äonen lange Prozesse, bei denen kristalline Substanzen in ihren Wänden konzentriert werden. Dieser Felsen ist voller Adern.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Monolithic crystals of this size form only over extremely long periods deep underground, in large long-lived cavities that allow them room to grow. Water and the life it hosts tend to disrupt the formation process of these crystals so they're only found in dry environments.=Monolithische Kristalle dieser Größe bilden sich nur über extrem lange Zeiträume tief unter der Erde in großen, langlebigen Hohlräumen, in denen sie wachsen können. Wasser und das Leben, das es beherbergt, neigen dazu, den Bildungsprozess dieser Kristalle zu stören, sodass sie nur in trockenen Umgebungen vorkommen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Much water has seeped through the cracks in this rock and then quickly evaporated, leaving a crust of salt laced throughout.=Viel Wasser ist durch die Risse in diesem Felsen gesickert und dann schnell verdunstet, wobei eine Salzkruste zurückbleibt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Organic material accumulates in the enlarged pores of rock rot, but not enough to be considered "soil" in the usable sense.=Organisches Material reichert sich in den vergrößerten Poren der Gesteinsfäule an, reicht jedoch nicht aus, um im verwendbaren Sinne als "Boden" betrachtet zu werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pebble fungus grows in soil that is rich enough for farming.=Kieselpilz wächst in Böden, die reich genug für die Landwirtschaft sind.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand scum is a crust of algae that sometimes accumulates on wet sand deep underground, somehow managing to eke out a meager living from the phosphorescent light emitted by other organisms.=Sandschaum ist eine Algenkruste, die sich manchmal tief im Untergrund auf nassem Sand ansammelt und es irgendwie schafft, einen mageren Lebensunterhalt mit dem phosphoreszierenden Licht anderer Organismen zu verdienen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand scum is useless. You can get sand out of it, at least.=Sandschaum ist nutzlos. Zumindest kann man Sand herausholen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Snareweed has no practical use, its fibers disintegrate when they dry.=Snareweed hat keinen praktischen Nutzen, seine Fasern zerfallen beim Trocknen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Soil that is rich enough to support gigantic mushrooms can support innumerable smaller ones as well. Pebble fungus is a prolific form of mushroom that covers the soil in small spheroidal fruiting bodies.=Böden, die reich genug sind, um gigantische Pilze zu unterstützen, können auch unzählige kleinere Pilze unterstützen. Kieselpilz ist eine fruchtbare Form von Pilzen, die den Boden in kleinen kugelförmigen Fruchtkörpern bedeckt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spongestone is the result of advanced rock rot in its ultimate form. The stone has become so riddled with pores and cavities that it's no longer really stone.=Schwammstein ist das Ergebnis der fortgeschrittenen Steinfäule in ihrer ultimativen Form. Der Stein ist so voller Poren und Hohlräume, dass er nicht mehr wirklich Stein ist.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Stillworm grows in soil that is rich enough for farming.=Stillworm wächst auf Böden, die reich genug für die Landwirtschaft sind.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Stillworm is not actually a kind of worm, but a sort of fungus that looks uncannily like pale, motionless earthworms intertwined with the soil.=Stillworm ist eigentlich keine Art Wurm, sondern eine Art Pilz, der unheimlich aussieht wie blasse, bewegungslose Regenwürmer, die mit dem Boden verflochten sind.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The iconic stalactites and stalagmites found in caverns are composed of flowstone (or 'dripstone' in the case of these formations). Moist dripstone is still undergoing growth, whereas dry dripstone is found in 'dead' caverns once the source of water that created them ceases.=Die in Kavernen gefundenen ikonischen Stalaktiten und Stalagmiten bestehen aus Flussstein (oder bei diesen Formationen „Tropfstein“). Feuchter Tropfstein wächst immer noch, während trockener Tropfstein in „toten“ Höhlen gefunden wird, sobald die Wasserquelle, aus der sie entstanden sind, aufhört.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These blocks can be broken down into a large number of mese crystals, but cannot be artificially reassembled.=Diese Blöcke können in eine große Anzahl dieser Kristalle zerlegt, aber nicht künstlich wieder zusammengesetzt werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These nodules are actually calcified bacterial colonies.=Diese Knötchen sind tatsächlich verkalkte Bakterienkolonien.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Traces of Mese must have been dissolved by the water as this crystal has an inherent glow to it. Not enough Mese to be useful as a reagent, unfortunately.=Spuren von Mese müssen vom Wasser aufgelöst worden sein, da dieser Kristall einen inhärenten Glanz hat. Leider nicht genug, um als Reagenz nützlich zu sein.
+
+
+### flowstone.lua ###
+
+Dry Dripstone=Trockener Tropfstein
+Dry Flowstone=Trockener Fließstein
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Icicle=Eiszapfen
+Wet Dripstone=Nasser Tropfstein
+Wet Flowstone=Nasser Fließstein
+
+### glow_worms.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glow Worms=Glühwürmchen
+
+### ground_cover.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cobblestone with Floor Fungus=Kopfsteinpflaster mit Bodenpilz
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Cave Moss=Dreck mit Höhlenmoos
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Cave Moss and Footprint=Schmutz mit Höhlenmoos und Fußabdruck
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Pebble Fungus=Schmutz mit Kieselpilz
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Pebble Fungus and Footprint=Schmutz mit Kieselpilz und Fußabdruck
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Stillworm=Dreck mit Stillworm
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Stillworm and Footprint=Schmutz mit Stillworm und Footprint
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Ice with Hoar Moss=Eis mit Hoar Moss
+Rock Rot=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand Scum=Sandschaum
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand Scum with Footprint=Sandschaum mit Fußabdruck
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spongestone=Schwammstein
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spongestone with Footprint=Schwammstein mit Fußabdruck
+
+### snareweed.lua ###
+
+Snareweed=
+
+### veinstone.lua ###
+
+Veinstone=

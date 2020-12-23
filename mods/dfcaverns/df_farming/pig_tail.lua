@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local pig_tail_grow_time = df_farming.config.plant_growth_time * df_farming.config.pig_tail_delay_multiplier / 8
 
@@ -21,7 +19,7 @@ local register_pig_tail = function(number)
 		floodable = true,
 		buildable_to = true,
 		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
         selection_box = {
             type = "fixed",
             fixed = {
@@ -99,7 +97,7 @@ minetest.register_craftitem("df_farming:pig_tail_thread", {
 
 if minetest.get_modpath("wool") then
 	minetest.register_craft({
-		output = "wool:white",
+		output = df_farming.node_names.wool_white,
 		recipe = {
 			{"group:thread", "group:thread"},
 			{"group:thread", "group:thread"},
@@ -122,7 +120,7 @@ minetest.register_craft({
 	burntime = 1,
 })
 
-if minetest.get_modpath("trail") and trail and trail.register_trample_node then	
+if minetest.get_modpath("footprints") then
 	minetest.register_node("df_farming:pig_tail_trampled", {
 		description = S("Flattened Pig Tail"),
 		tiles = {"dfcaverns_pig_tail_flattened.png"},
@@ -139,22 +137,22 @@ if minetest.get_modpath("trail") and trail and trail.register_trample_node then
 		},
 		groups = {snappy = 3, flammable = 2, attached_node = 1},
 		drop = "",
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
 	})
 	
-	trail.register_trample_node("df_farming:pig_tail_5", {
+	footprints.register_trample_node("df_farming:pig_tail_5", {
 		trampled_node_name = "df_farming:pig_tail_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:pig_tail_6", {
+	footprints.register_trample_node("df_farming:pig_tail_6", {
 		trampled_node_name = "df_farming:pig_tail_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:pig_tail_7", {
+	footprints.register_trample_node("df_farming:pig_tail_7", {
 		trampled_node_name = "df_farming:pig_tail_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:pig_tail_8", {
+	footprints.register_trample_node("df_farming:pig_tail_8", {
 		trampled_node_name = "df_farming:pig_tail_trampled",
 		randomize_trampled_param2 = true,
 	})

@@ -1,22 +1,16 @@
 df_trees = {}
 
-df_trees.node_sound_tree_soft_fungus_defaults = function(table)
-	table = table or {}
-	table.footstep = table.footstep or
-			{name = "dfcaverns_fungus_footstep", gain = 0.3}
-	default.node_sound_wood_defaults(table)
-	return table
-end
-
---grab a shorthand for the filepath of the mod
-local modpath = minetest.get_modpath(minetest.get_current_modname())
+local modname = minetest.get_current_modname()
+df_trees.S = minetest.get_translator(modname)
+local modpath = minetest.get_modpath(modname)
 
 --load companion lua files
 dofile(modpath.."/config.lua")
+dofile(modpath.."/dependencies.lua")
 dofile(modpath.."/doc.lua")
 dofile(modpath.."/aliases.lua")
 
-local S, NS = dofile(modpath.."/intllib.lua")
+local S = df_trees.S
 
 df_trees.register_all_stairs = function(name, override_def)
 	local mod = "df_trees"

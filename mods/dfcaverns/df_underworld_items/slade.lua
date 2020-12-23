@@ -1,11 +1,12 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_underworld_items.S
 
 local invulnerable = df_underworld_items.config.invulnerable_slade and not minetest.settings:get_bool("creative_mode")
 
 local server_diggable_only = function(pos, player)
-	return minetest.check_player_privs(player, "server")
+	if player then
+		return minetest.check_player_privs(player, "server")
+	end
+	return false
 end
 
 local add_immortality = function(slade_def)
@@ -22,7 +23,6 @@ local slade_def = {
 	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
-	diggable = false,
 	on_blast = function(pos, intensity)
 		if intensity > 3.0 then
 			minetest.set_node(pos, {name="df_underworld_items:slade_sand"})
@@ -43,7 +43,6 @@ local slade_brick_def = {
 	groups = { cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
-	diggable = false,
 }
 if invulnerable then
 	add_immortality(slade_brick_def)
@@ -67,7 +66,6 @@ local slade_wall_def = {
 	tiles = {"dfcaverns_slade_brick.png"},
 	walkable = true,
 	is_ground_content = false,
-	diggable = false,
 	groups = { cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
 }
@@ -83,7 +81,6 @@ minetest.register_node("df_underworld_items:slade_sand", {
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade_sand.png"},
 	is_ground_content = false,
-	diggable = false,
 	groups = {crumbly = 3, level = 2, falling_node = 1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_gravel_defaults({
 		footstep = {name = "default_gravel_footstep", gain = 0.45},
@@ -98,7 +95,6 @@ local slade_block_def = {
 	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
-	diggable = false,
 }
 if invulnerable then
 	add_immortality(slade_block_def)
@@ -115,7 +111,6 @@ local slade_seal_def = {
 	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
 	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
-	diggable = false,
 }
 if invulnerable then
 	slade_seal_def.on_blast = function() end

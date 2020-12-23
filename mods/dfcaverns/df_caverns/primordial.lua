@@ -2,6 +2,8 @@ if not df_caverns.config.enable_primordial or not minetest.get_modpath("df_primo
 	return
 end
 
+local c_air = df_caverns.node_id.air
+
 local perlin_cave_primordial = {
 	offset = 0,
 	scale = 1,
@@ -20,25 +22,15 @@ local perlin_wave_primordial = {
 	persist = 0.63
 }
 
-local c_air = minetest.get_content_id("air")
-
 local giant_mycelium_timer_spread = tonumber(minetest.settings:get("dcaverns_giant_mycelium_timer_spread")) or 10
 
 -----------------------------------------------------------------------------------------
 -- Fungal biome
 
-local c_orb = minetest.get_content_id("df_primordial_items:glow_orb_hanging")
-local c_mycelial_dirt = minetest.get_content_id("df_primordial_items:dirt_with_mycelium")
-local c_dirt = minetest.get_content_id("default:dirt")
-local c_giant_mycelium = minetest.get_content_id("df_primordial_items:giant_hypha_apical_mapgen")
-
-local fungal_plants = {
-	minetest.get_content_id("df_primordial_items:fungal_grass_1"),
-	minetest.get_content_id("df_primordial_items:fungal_grass_2"),
-	minetest.get_content_id("df_primordial_items:glow_orb"),
-	minetest.get_content_id("df_primordial_items:glow_orb_stalks"),
-	minetest.get_content_id("df_primordial_items:glow_pods"),
-}
+local c_orb = df_caverns.node_id.orb
+local c_mycelial_dirt = df_caverns.node_id.mycelial_dirt
+local c_dirt = df_caverns.node_id.dirt
+local c_giant_mycelium = df_caverns.node_id.giant_mycelium
 
 local fungal_plant_names = {}
 local fungal_plants = {}
@@ -145,18 +137,14 @@ for node_name, node_def in pairs(minetest.registered_nodes) do
 	end
 end
 
-local c_jungle_dirt = minetest.get_content_id("df_primordial_items:dirt_with_jungle_grass")
-local c_plant_matter = minetest.get_content_id("df_primordial_items:plant_matter")
-local c_packed_roots = minetest.get_content_id("df_primordial_items:packed_roots")
-local c_glowstone = minetest.get_content_id("df_underworld_items:glowstone")
-local c_ivy = minetest.get_content_id("df_primordial_items:jungle_ivy")
-local c_root_2 = minetest.get_content_id("df_primordial_items:jungle_roots_2")
-local c_root_1 = minetest.get_content_id("df_primordial_items:jungle_roots_1")
-
-local c_fireflies
-if minetest.get_modpath("fireflies") then
-	c_fireflies = minetest.get_content_id("fireflies:firefly")
-end
+local c_jungle_dirt = df_caverns.node_id.jungle_dirt
+local c_plant_matter = df_caverns.node_id.plant_matter
+local c_packed_roots = df_caverns.node_id.packed_roots
+local c_glowstone = df_caverns.node_id.glowstone
+local c_ivy = df_caverns.node_id.ivy
+local c_root_2 = df_caverns.node_id.root_2
+local c_root_1 = df_caverns.node_id.root_1
+local c_fireflies = df_caverns.node_id.fireflies
 
 local jungle_cavern_floor = function(abs_cracks, humidity, vi, area, data, data_param2)
 	local ystride = area.ystride
@@ -389,6 +377,40 @@ subterrane.register_layer({
 	is_ground_content = df_caverns.is_ground_content,
 })
 
+minetest.register_ore({
+	ore_type = "vein",
+	ore = "df_underworld_items:glowstone",
+	wherein = {
+		"default:stone",
+		"default:stone_with_coal",
+		"default:stone_with_iron",
+		"default:stone_with_copper",
+		"default:stone_with_tin",
+		"default:stone_with_gold",
+		"default:stone_with_diamond",
+		"default:dirt",
+		"default:sand",
+		"default:desert_sand",
+		"default:silver_sand",
+		"default:gravel",
+	},
+	column_height_min = 2,
+	column_height_max = 6,
+	y_min = df_caverns.config.primordial_min,
+	y_max = df_caverns.config.primordial_max,
+	noise_threshold = 0.9,
+	noise_params = {
+		offset = 0,
+		scale = 3,
+		spread = {x=400, y=400, z=400},
+		seed = 25111,
+		octaves = 4,
+		persist = 0.5,
+		flags = "eased",
+	},
+	random_factor = 0,
+})
+
 -- Rather than make plants farmable, have them randomly respawn in jungle soil. You can only get them down there.
 minetest.register_abm({
 	label = "Primordial plant growth",
@@ -423,3 +445,34 @@ minetest.register_abm({
 		end
 	end,
 })
+
+-- an ABM to extinguish fires on the primordial layer. Glowstone next to plant life equals too much fire.
+local fire_enabled = minetest.settings:get_bool("enable_fire")
+if fire_enabled == nil then
+	-- enable_fire setting not specified, check for disable_fire
+	local fire_disabled = minetest.settings:get_bool("disable_fire")
+	if fire_disabled == nil then
+		-- Neither setting specified, check whether singleplayer
+		fire_enabled = minetest.is_singleplayer()
+	else
+		fire_enabled = not fire_disabled
+	end
+end
+if fire_enabled and minetest.get_modpath("fire") then
+	local primordial_min = df_caverns.config.primordial_min
+	local primordial_max = df_caverns.config.primordial_max
+	minetest.register_abm({
+		label = "Remove fire in the primordial layer",
+		nodenames = {"fire:basic_flame"},
+		--neighbors = {"fire:basic_flame"},
+		interval = 3,
+		chance = 3,
+		catch_up = false,
+		action = function(pos)
+			local pos_y = pos.y
+			if pos_y > primordial_min and pos_y < primordial_max then
+				minetest.remove_node(pos)
+			end
+		end
+	})
+end

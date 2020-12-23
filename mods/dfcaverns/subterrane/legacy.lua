@@ -5,8 +5,11 @@ local enable_legacy = minetest.settings:get_bool("subterrane_enable_legacy_drips
 
 if enable_legacy then
 
+local modname = minetest.get_current_modname()
+local S = minetest.get_translator(modname)
+
 subterrane.register_stalagmite_nodes("subterrane:dry_stal", {
-	description = "Dry Dripstone",
+	description = S("Dry Dripstone"),
 	tiles = {
 		"default_stone.png^[brighten",
 	},
@@ -15,7 +18,7 @@ subterrane.register_stalagmite_nodes("subterrane:dry_stal", {
 })
 
 minetest.register_node("subterrane:dry_flowstone", {
-	description = "Dry Flowstone",
+	description = S("Dry Flowstone"),
 	tiles = {"default_stone.png^[brighten"},
 	groups = {cracky = 3, stone = 1},
 	drop = 'default:cobble',
@@ -25,7 +28,7 @@ minetest.register_node("subterrane:dry_flowstone", {
 -----------------------------------------------
 
 subterrane.register_stalagmite_nodes("subterrane:wet_stal", {
-	description = "Wet Dripstone",
+	description = S("Wet Dripstone"),
 	tiles = {
 		"default_stone.png^[brighten^subterrane_dripstone_streaks.png",
 	},
@@ -34,7 +37,7 @@ subterrane.register_stalagmite_nodes("subterrane:wet_stal", {
 }, "subterrane:dry_stal")
 
 minetest.register_node("subterrane:wet_flowstone", {
-	description = "Wet Flowstone",
+	description = S("Wet Flowstone"),
 	tiles = {"default_stone.png^[brighten^subterrane_dripstone_streaks.png"},
 	groups = {cracky = 3, stone = 1, subterrane_wet_dripstone = 1},
 	drop = 'default:cobble',

@@ -1,19 +1,20 @@
-local c_water = minetest.get_content_id("default:water_source")
-local c_air = minetest.get_content_id("air")
-local c_dirt = minetest.get_content_id("default:dirt")
-local c_dirt_moss = minetest.get_content_id("df_mapitems:dirt_with_cave_moss")
-local c_sand = minetest.get_content_id("default:sand")
-local c_gravel = minetest.get_content_id("default:gravel")
-local c_wet_flowstone = minetest.get_content_id("df_mapitems:wet_flowstone")
-local c_dry_flowstone = minetest.get_content_id("df_mapitems:dry_flowstone")
-local c_lava = minetest.get_content_id("default:lava_source")
-local c_obsidian = minetest.get_content_id("default:obsidian")
+local c_water = df_caverns.node_id.water
+local c_air = df_caverns.node_id.air
+local c_dirt = df_caverns.node_id.dirt
+local c_dirt_moss = df_caverns.node_id.dirt_moss
+local c_sand = df_caverns.node_id.sand
+local c_gravel = df_caverns.node_id.gravel
+local c_wet_flowstone = df_caverns.node_id.wet_flowstone
+local c_dry_flowstone = df_caverns.node_id.dry_flowstone
+local c_lava = df_caverns.node_id.lava
+local c_obsidian = df_caverns.node_id.obsidian
 
-local c_coral_table = {
-	minetest.get_content_id("df_mapitems:cave_coral_1"),
-	minetest.get_content_id("df_mapitems:cave_coral_2"),
-	minetest.get_content_id("df_mapitems:cave_coral_3")
-}
+local c_coral_table = {}
+for node_name, node_def in pairs(minetest.registered_nodes) do
+	if minetest.get_item_group(node_name, "dfcaverns_cave_coral") > 0 then
+		table.insert(c_coral_table, minetest.get_content_id(node_name))
+	end
+end
 
 local mushroom_shrublist
 local fungispore_shrublist

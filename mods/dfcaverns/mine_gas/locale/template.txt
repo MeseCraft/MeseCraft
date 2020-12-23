@@ -1,0 +1,27 @@
+# textdomain: mine_gas
+
+
+### init.lua ###
+
+Gas Seep=
+
+Gas is highly hazardous. Heavier than air, it pools in deep caverns and asphyxiates the unwary.=
+
+Gaseous hydrocarbons formed from the detritus of long dead plants and animals processed by heat and pressure deep within the earth.=
+
+Mine Gas=
+Mining out such a deposit seals the crack.=
+
+Some coal deposits have cracks that seep a steady flow of mine gas.=
+
+When exposed to air and an ignition source it can produce a deadly explosion.=
+
+
+### wisp.lua ###
+
+Gas Wisp=
+
+Gas Wisps have no known use, and fortunately they are not hostile or very dangerous.=
+
+Mysterious blue flames may occasionally be found flickering on the edges of oil lakes, burning without oxygen and seeming to maintain their size as they drift about through the unbreathable atmosphere.=
+

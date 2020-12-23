@@ -1,0 +1,35 @@
+# textdomain: mine_gas
+
+
+### init.lua ###
+
+Gas Seep=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gas is highly hazardous. Heavier than air, it pools in deep caverns and asphyxiates the unwary.=Il gas è altamente pericoloso. Più pesante dell'aria, si accumula in profonde caverne e asfissia gli incauti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gaseous hydrocarbons formed from the detritus of long dead plants and animals processed by heat and pressure deep within the earth.=Idrocarburi gassosi formati dai detriti di piante e animali morti da tempo lavorati dal calore e dalla pressione nelle profondità della terra.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mine Gas=Il mio gas
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mining out such a deposit seals the crack.=L'estrazione di un tale deposito sigilla la fessura.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Some coal deposits have cracks that seep a steady flow of mine gas.=Alcuni depositi di carbone hanno crepe che filtrano un flusso costante di gas di miniera.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When exposed to air and an ignition source it can produce a deadly explosion.=Se esposto all'aria e ad una fonte di ignizione può produrre un'esplosione mortale.
+
+
+### wisp.lua ###
+
+Gas Wisp=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gas Wisps have no known use, and fortunately they are not hostile or very dangerous.=I Gas Wisps non hanno un uso noto e fortunatamente non sono ostili o molto pericolosi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mysterious blue flames may occasionally be found flickering on the edges of oil lakes, burning without oxygen and seeming to maintain their size as they drift about through the unbreathable atmosphere.=Occasionalmente si possono trovare misteriose fiamme blu tremolanti sui bordi dei laghi petroliferi, che bruciano senza ossigeno e sembrano mantenere le loro dimensioni mentre vagano nell'atmosfera irrespirabile.
+

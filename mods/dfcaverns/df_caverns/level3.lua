@@ -1,32 +1,22 @@
-local c_water = minetest.get_content_id("default:water_source")
-local c_air = minetest.get_content_id("air")
-local c_desert_sand = minetest.get_content_id("default:desert_sand")
-local c_stone_with_coal = minetest.get_content_id("default:stone_with_coal")
-
-local c_silver_sand = minetest.get_content_id("default:silver_sand")
-local c_snow = minetest.get_content_id("default:snow")
-local c_ice = minetest.get_content_id("default:ice")
-local c_hoar_moss = minetest.get_content_id("df_mapitems:ice_with_hoar_moss")
-local c_gravel = minetest.get_content_id("default:gravel")
-
-local c_oil = minetest.get_content_id("oil:oil_source")
-
-local c_cobble_fungus_fine = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus_fine")
-local c_cobble_fungus = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus")
-local c_cobble = minetest.get_content_id("default:cobble")
-
-local c_wet_flowstone = minetest.get_content_id("df_mapitems:wet_flowstone")
-local c_dry_flowstone = minetest.get_content_id("df_mapitems:dry_flowstone")
-
-local c_glow_ore = minetest.get_content_id("df_mapitems:glow_ruby_ore")
-
-local c_salty_cobble = minetest.get_content_id("df_mapitems:salty_cobble")
-local c_salt_crystal = minetest.get_content_id("df_mapitems:salt_crystal")
-
-local c_sprite
-if minetest.get_modpath("ice_sprites") then
-	c_sprite = minetest.get_content_id("ice_sprites:ice_sprite")
-end
+local c_water = df_caverns.node_id.water
+local c_air = df_caverns.node_id.air
+local c_desert_sand = df_caverns.node_id.desert_sand
+local c_stone_with_coal = df_caverns.node_id.stone_with_coal
+local c_silver_sand = df_caverns.node_id.silver_sand
+local c_snow = df_caverns.node_id.snow
+local c_ice = df_caverns.node_id.ice
+local c_hoar_moss = df_caverns.node_id.hoar_moss
+local c_gravel = df_caverns.node_id.gravel
+local c_oil = df_caverns.node_id.oil
+local c_cobble_fungus_fine = df_caverns.node_id.cobble_fungus_fine
+local c_cobble_fungus = df_caverns.node_id.cobble_fungus
+local c_cobble = df_caverns.node_id.cobble
+local c_wet_flowstone = df_caverns.node_id.wet_flowstone
+local c_dry_flowstone = df_caverns.node_id.dry_flowstone
+local c_glow_ore = df_caverns.node_id.glow_ore
+local c_salty_cobble = df_caverns.node_id.salty_cobble
+local c_salt_crystal = df_caverns.node_id.salt_crystal
+local c_sprite = df_caverns.node_id.sprite
 
 local subsea_level = math.floor(df_caverns.config.level3_min - (df_caverns.config.level3_min - df_caverns.config.level2_min) * 0.33)
 local flooding_threshold = math.min(df_caverns.config.tunnel_flooding_threshold, df_caverns.config.cavern_threshold)
@@ -353,7 +343,7 @@ local decorate_level_3 = function(minp, maxp, seed, vm, node_arrays, area, data)
 				-- we're in flooded areas or are not barren
 				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, true)
 			else
-				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, false)
+				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, false, c_gravel)
 			end
 		end
 	end
@@ -463,7 +453,7 @@ local decorate_level_3 = function(minp, maxp, seed, vm, node_arrays, area, data)
 			if flooded_caverns or biome_name == "blackcap" then
 				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, true)
 			else
-				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, false)
+				df_caverns.tunnel_floor(minp, maxp, area, vi, nvals_cracks, data, data_param2, false, c_gravel)
 			end
 		end
 	end

@@ -4,9 +4,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 df_farming.doc.simple_meal_desc = S("A meal made from the admixture of two ingredients, it keeps well but are not a rich source of nutrients.")
 df_farming.doc.simple_meal_usage = nil

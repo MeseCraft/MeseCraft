@@ -2,11 +2,11 @@ if not df_caverns.config.enable_oil_sea then
 	return
 end
 
-local c_oil = minetest.get_content_id("oil:oil_source")
-local c_gas = minetest.get_content_id("mine_gas:gas")
-local c_gas_wisp = minetest.get_content_id("mine_gas:gas_wisp")
-local c_lava = minetest.get_content_id("default:lava_source")
-local c_obsidian = minetest.get_content_id("default:obsidian")
+local c_oil = df_caverns.node_id.oil
+local c_gas = df_caverns.node_id.gas
+local c_gas_wisp = df_caverns.node_id.gas_wisp
+local c_lava = df_caverns.node_id.lava
+local c_obsidian = df_caverns.node_id.obsidian
 
 -------------------------------------------------------------------------------------------
 

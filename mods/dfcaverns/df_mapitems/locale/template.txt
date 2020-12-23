@@ -1,0 +1,154 @@
+# textdomain: df_mapitems
+
+
+### castle_coral.lua ###
+
+Castle Coral=
+Castle Coral Skeleton=
+
+### cave_coral.lua ###
+
+Cave Coral=
+
+### cave_pearls.lua ###
+
+Cave Pearls=
+
+### crystals_mese.lua ###
+
+Flawless Mese Block=
+Flawless Mese Crystal=
+
+### crystals_ruby.lua ###
+
+Big Red Crystal=
+Giant Red Crystal=
+Red Crystal Vein=
+
+### crystals_salt.lua ###
+
+Luminous Salt Crystal=
+Salty Cobble=
+
+### doc.lua ###
+
+A crystal of salt grown from water that percolated through the depths of the earth, picking up all manner of minerals as it went.=
+
+A highly aggressive form of lichen that eats into solid rock, turning its upper surfaces rough and a little spongy.=
+
+A nasty kelp-like plant that grows in patches on the floor of the Sunless Sea. Its reflective patches draw in the unwary and then its prickly barbs catch and hold small creatures.=
+
+A rare form of coral found only deep underground in the Sunless Sea, cave coral grows hanging from the ceilings of flooded caverns.=
+
+Although a strong mineral matrix remains, spongestone has enough organic content that it can be used as soil for farming.=
+
+Although stalagmites are blunter than the stalactites above them, they can cause extra damage to the unwary caver who falls on them.=
+
+Aside from its aesthetic value this crystal has no particular use.=
+
+Aside from its aesthetic value this rock has no particular use.=
+
+Aside from the aesthetic beauty of its formations flowstone has no special properties or uses.=
+
+Aside from their aesthetic beauty, cave corals can be harvested for simple building materials.=
+
+Aside from their soft glow and beauty, cave pearls have no practical use. Except perhaps as handholds for climbing.=
+
+Attemping to mine this rock knocks the salt crust away, leaving only base stone.=
+
+Castle Coral has little practical use aside from perhaps as a distinctive-looking building material.=
+
+Cave moss has no known uses aside from the faint glow it emits. It dies when exposed to bright light sources such as the Sun.=
+
+Cave moss is technically a form of mold, but fortunately a relatively benign one given its ubiquity. Its fibers form a tough but springy mat over the surface of any organic-rich soil that accumulates deep underground.=
+
+Deep in the infernal conditions of the magma sea, over the course of millions of years, mese crystals grow into flawless blocks that glow bright with strange energies.=
+
+Deep under the surface of the Sunless Sea are the rare and beautiful Castle Corals, so named due to their resemblance to small undersea castles.=
+
+Falling onto an icicle is particularly damaging.=
+
+Floor fungus has no known uses. It can penetrate deeply into cobblestone constructions if an infestation gets hold, but it is difficult to transport and is inhibited by light so it hasn't spread beyond the deep caverns.=
+
+Floor fungus produces a thin, slick film that spreads through the cracks of broken rock. Its ability to subsist on the tiniest traces of nutrients means it's found in relatively harsh underground environments.=
+
+Flowstone is a carbonate-rich rock formation deposited by flowing water. It consists of minerals that the water dissolved earlier as it widens cracks and fissures into caves.=
+
+Glistening strings of silk hang from the ceilings of some of the larger caverns, lit by the millions of tiny bioluminescent worms that spun them. Glow worms prey on the insects they lure and entangle with their faux starry sky - and sometimes the occasional bat or other larger flying beast.=
+
+Glow worms can be harvested and used as a source of light but they die when exposed to light significantly brighter than themselves or when immersed in water. A colony of glow worms hung in a hospitable environment will undergo a modest amount of growth, allowing it to be divided and propagated.=
+
+Hoar moss has no known use aside from providing a faint source of light.=
+
+Hoar moss is a strange glowing crust that sometimes forms on the surface of water flowing over ice.=
+
+Ice formed by water dripping slowly into a cold environment, icicles tend to be exceptionally pure and clear.=
+
+Large, dry caverns deep underground are well suited to aeons-long processes that concentrate crystalline substances in their walls. This rock is riddled with veins of the stuff.=
+
+Monolithic crystals of this size form only over extremely long periods deep underground, in large long-lived cavities that allow them room to grow. Water and the life it hosts tend to disrupt the formation process of these crystals so they're only found in dry environments.=
+
+Much water has seeped through the cracks in this rock and then quickly evaporated, leaving a crust of salt laced throughout.=
+
+Organic material accumulates in the enlarged pores of rock rot, but not enough to be considered "soil" in the usable sense.=
+
+Pebble fungus grows in soil that is rich enough for farming.=
+
+Sand scum is a crust of algae that sometimes accumulates on wet sand deep underground, somehow managing to eke out a meager living from the phosphorescent light emitted by other organisms.=
+
+Sand scum is useless. You can get sand out of it, at least.=
+
+Snareweed has no practical use, its fibers disintegrate when they dry.=
+
+Soil that is rich enough to support gigantic mushrooms can support innumerable smaller ones as well. Pebble fungus is a prolific form of mushroom that covers the soil in small spheroidal fruiting bodies.=
+
+Spongestone is the result of advanced rock rot in its ultimate form. The stone has become so riddled with pores and cavities that it's no longer really stone.=
+
+Stillworm grows in soil that is rich enough for farming.=
+
+Stillworm is not actually a kind of worm, but a sort of fungus that looks uncannily like pale, motionless earthworms intertwined with the soil.=
+
+The iconic stalactites and stalagmites found in caverns are composed of flowstone (or 'dripstone' in the case of these formations). Moist dripstone is still undergoing growth, whereas dry dripstone is found in 'dead' caverns once the source of water that created them ceases.=
+
+These blocks can be broken down into a large number of mese crystals, but cannot be artificially reassembled.=
+
+These nodules are actually calcified bacterial colonies.=
+
+Traces of Mese must have been dissolved by the water as this crystal has an inherent glow to it. Not enough Mese to be useful as a reagent, unfortunately.=
+
+
+### flowstone.lua ###
+
+Dry Dripstone=
+Dry Flowstone=
+Icicle=
+Wet Dripstone=
+Wet Flowstone=
+
+### glow_worms.lua ###
+
+Glow Worms=
+
+### ground_cover.lua ###
+
+Cobblestone with Floor Fungus=
+Dirt with Cave Moss=
+Dirt with Cave Moss and Footprint=
+Dirt with Pebble Fungus=
+Dirt with Pebble Fungus and Footprint=
+Dirt with Stillworm=
+Dirt with Stillworm and Footprint=
+Ice with Hoar Moss=
+Rock Rot=
+Sand Scum=
+Sand Scum with Footprint=
+Spongestone=
+Spongestone with Footprint=
+
+### snareweed.lua ###
+
+Snareweed=
+
+### veinstone.lua ###
+
+Veinstone=

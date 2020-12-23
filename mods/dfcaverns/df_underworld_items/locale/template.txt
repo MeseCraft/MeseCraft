@@ -1,0 +1,63 @@
+# textdomain: df_underworld_items
+
+
+### crystals_amethyst.lua ###
+
+Glowing Amethyst Block=
+
+### doc.lua ###
+
+Bright glowing stones of unknown origin found lodged in the crevices of the underworld's ceiling.=
+
+Glowing purple crystals that grow through holes in the foundation of the world.=
+
+In fact, Slade is impervious to conventional mining entirely.=
+
+Slade is extremely hard to work with so it has little use.=
+
+The liquid found in the deepest pits in the underworld is highly dangerous and damaging.=
+
+The only use for this material is that it destroys whatever is thrown into it. It cannot otherwise be manipulated.=
+
+The very foundation of the world, Slade is a mysterious ultra-dense substance.=
+
+These crystals have no known use.=
+
+These stones are highly volatile and should not be disturbed.=
+
+This block of Slade, carved by an unknown hand, is engraved with mysterious symbols. Most of the engraving's meaning is lost to the mists of time but one frament in the oldest known language can be translated: "This place is not a place of honor."=
+
+
+### glow_stone.lua ###
+
+Lightseam=
+
+### glowing_pit_plasma.lua ###
+
+Glowing Pit Plasma=
+
+### hunter_statue.lua ###
+
+Guardian Statue=
+
+### puzzle_seal.lua ###
+
+Active Slade Breacher=
+Breach in the Slade=
+Inscribed Slade Block=
+Slade Block Slab=
+Slade Block Stair=
+Slade Capstone=
+Slade Puzzle Seal=
+Turn=
+
+### slade.lua ###
+
+Slade=
+Slade Block=
+Slade Brick=
+Slade Sand=
+Slade Seal=
+Slade Slab=
+Slade Stair=
+Slade Wall=

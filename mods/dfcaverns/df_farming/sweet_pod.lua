@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local sweet_pod_grow_time = df_farming.config.plant_growth_time * df_farming.config.sweet_pod_delay_multiplier / 6
 
@@ -19,7 +17,7 @@ local register_sweet_pod = function(number)
 		buildable_to = true,
 		floodable = true,
 		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
         selection_box = {
             type = "fixed",
             fixed = {
@@ -116,14 +114,14 @@ if minetest.get_modpath("cottages") then
 	recipe_registered = true
 end
 
-if minetest.registered_items["farming:mortar_pestle"] ~= nil then
+if minetest.registered_items[df_farming.node_names.mortar_pestle] ~= nil then
 	minetest.register_craft({
 		type = "shapeless",
 		output = "df_farming:sugar",
 		recipe = {
-			"df_farming:sweet_pods", "farming:mortar_pestle"
+			"df_farming:sweet_pods", df_farming.node_names.mortar_pestle
 		},
-		replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+		replacements = {{"group:food_mortar_pestle", df_farming.node_names.mortar_pestle}},
 	})
 	recipe_registered = true
 end
@@ -186,7 +184,7 @@ if minetest.get_modpath("bucket") then
 		liquid_range = 2,
 		post_effect_color = {a = 204, r = 179, g = 131, b = 88},
 		groups = {liquid = 3, flammable = 2},
-		sounds = default.node_sound_water_defaults(),
+		sounds = df_farming.sounds.water,
 	})
 	
 	minetest.register_node("df_farming:dwarven_syrup_flowing", {
@@ -235,7 +233,7 @@ if minetest.get_modpath("bucket") then
 		liquid_range = 2,
 		post_effect_color = {a = 204, r = 179, g = 131, b = 88},
 		groups = {liquid = 3, flammable = 2, not_in_creative_inventory = 1},
-		sounds = default.node_sound_water_defaults(),
+		sounds = df_farming.sounds.water,
 	})
 
 	bucket.register_liquid(
@@ -246,10 +244,10 @@ if minetest.get_modpath("bucket") then
 		S("Dwarven Syrup Bucket")
 	)
 	
-	if minetest.get_modpath("simplecrafting_lib") then
+	if minetest.get_modpath("crafting") then
 		simplecrafting_lib.register("furnace", {
 			input = {
-				["bucket:bucket_empty"] = 1,
+				[df_farming.node_names.bucket] = 1,
 				["df_farming:sugar"] = 3,
 				["simplecrafting_lib:heat"] = 5,
 			},
@@ -259,7 +257,7 @@ if minetest.get_modpath("bucket") then
 		minetest.register_craft({
 			type = "shapeless",
 			output = "df_farming:dwarven_syrup_bucket",
-			recipe = {"bucket:bucket_empty", "df_farming:sugar", "df_farming:sugar", "df_farming:sugar"},
+			recipe = {df_farming.node_names.bucket, "df_farming:sugar", "df_farming:sugar", "df_farming:sugar"},
 		})
 	end
 	

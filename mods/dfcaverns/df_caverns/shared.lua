@@ -1,18 +1,23 @@
 -- This file contains code that is used by multiple different cavern layers.
 
-local c_water = minetest.get_content_id("default:water_source")
-local c_air = minetest.get_content_id("air")
-local c_dirt = minetest.get_content_id("default:dirt")
-local c_gravel = minetest.get_content_id("default:gravel")
-
-local c_dirt_moss = minetest.get_content_id("df_mapitems:dirt_with_cave_moss")
-local c_cobble_fungus = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus")
-local c_cobble_fungus_fine = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus_fine")
-local c_cobble = minetest.get_content_id("default:cobble")
-local c_mossycobble = minetest.get_content_id("default:mossycobble")
-
-local c_wet_flowstone = minetest.get_content_id("df_mapitems:wet_flowstone")
-local c_dry_flowstone = minetest.get_content_id("df_mapitems:dry_flowstone")
+local c_air = df_caverns.node_id.air
+local c_cobble = df_caverns.node_id.cobble
+local c_cobble_fungus = df_caverns.node_id.cobble_fungus
+local c_cobble_fungus_fine = df_caverns.node_id.cobble_fungus_fine
+local c_dead_fungus = df_caverns.node_id.dead_fungus
+local c_dirt = df_caverns.node_id.dirt
+local c_dirt_moss = df_caverns.node_id.dirt_moss
+local c_dry_flowstone = df_caverns.node_id.dry_flowstone
+local c_fireflies = df_caverns.node_id.fireflies
+local c_glowstone = df_caverns.node_id.glowstone
+local c_ice = df_caverns.node_id.ice
+local c_mossycobble = df_caverns.node_id.mossycobble
+local c_oil = df_caverns.node_id.oil
+local c_sand_scum = df_caverns.node_id.sand_scum
+local c_spongestone = df_caverns.node_id.spongestone
+local c_rock_rot = df_caverns.node_id.rock_rot
+local c_water = df_caverns.node_id.water
+local c_wet_flowstone = df_caverns.node_id.wet_flowstone
 
 df_caverns.data_param2 = {}
 
@@ -62,7 +67,7 @@ df_caverns.flooded_cavern_floor = function(abs_cracks, vert_rand, vi, area, data
 	if abs_cracks < 0.25 then
 		data[vi] = c_mossycobble
 	elseif data[vi-ystride] ~= c_water then
-		data[vi] = c_dirt
+		data[vi] = c_sand_scum
 	end
 	
 	-- put in only the large stalagmites that won't get in the way of the water
@@ -71,11 +76,6 @@ df_caverns.flooded_cavern_floor = function(abs_cracks, vert_rand, vi, area, data
 			subterrane.big_stalagmite(vi+ystride, area, data, 6, 15, c_wet_flowstone, c_wet_flowstone, c_wet_flowstone)
 		end
 	end
-end
-
-local c_dead_fungus
-if minetest.get_modpath("df_farming") then
-	c_dead_fungus = minetest.get_content_id("df_farming:dead_fungus")
 end
 
 df_caverns.dry_cavern_floor = function(abs_cracks, vert_rand, vi, area, data, data_param2)
@@ -98,8 +98,10 @@ df_caverns.wet_cavern_floor = function(abs_cracks, vert_rand, vi, area, data, da
 		df_caverns.stalagmites(abs_cracks, vert_rand, vi, area, data, data_param2, true)
 	elseif abs_cracks < 0.6 then
 		data[vi] = c_cobble
+	elseif abs_cracks < 0.8 then
+		data[vi] = c_rock_rot
 	else
-		data[vi] = c_mossycobble
+		data[vi] = c_spongestone
 		if c_dead_fungus and math.random() < 0.05 then
 			data[vi+area.ystride] = c_dead_fungus
 		end
@@ -123,7 +125,7 @@ local content_in_list=function(content, list)
 	return false
 end
 
-df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, data_param2, wet)
+df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, data_param2, wet, dirt_node)
 	if maxp.y > -30 then
 		wet = false
 	end
@@ -138,14 +140,16 @@ df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, dat
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalagmite(vi+ystride, area, data, data_param2, param2, height, df_mapitems.wet_stalagmite_ids)
 			data[vi] = c_wet_flowstone
+		elseif dirt_node and abs_cracks > 0.5 and data[vi-ystride] ~= c_air then
+			data[vi] = dirt_node		
 		end
 	else
 		if abs_cracks < 0.025 and data[vi+ystride] == c_air and not content_in_list(data[vi], df_mapitems.dry_stalagmite_ids) then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
 			local param2 = abs_cracks*1000000 - math.floor(abs_cracks*1000000/4)*4
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalagmite(vi+ystride, area, data, data_param2, param2, height, df_mapitems.dry_stalagmite_ids)
-		elseif cracks > 0.5 and data[vi-ystride] ~= c_air then
-			data[vi] = c_gravel
+		elseif dirt_node and cracks > 0.5 and data[vi-ystride] ~= c_air then
+			data[vi] = dirt_node
 		end
 	end
 end
@@ -228,6 +232,7 @@ local dfcaverns_mods = {
 	"ice_sprites:",
 	"mine_gas:",
 }
+
 df_caverns.is_ground_content = function(c_node)
 	if dfcaverns_nodes then
 		return not dfcaverns_nodes[c_node]
@@ -240,11 +245,12 @@ df_caverns.is_ground_content = function(c_node)
 			end
 		end
 	end
-	dfcaverns_nodes[minetest.get_content_id("default:ice")] = true -- needed for nethercap cavern water covering
-	dfcaverns_nodes[minetest.get_content_id("oil:oil_source")] = true -- needed for blackcap oil slicks
-	if minetest.get_modpath("fireflies") then
-		dfcaverns_nodes[minetest.get_content_id("fireflies:firefly")] = true -- used in the primordial caverns
+	dfcaverns_nodes[c_ice] = true -- needed for nethercap cavern water covering
+	dfcaverns_nodes[c_oil] = true -- needed for blackcap oil slicks
+	if c_fireflies then
+		dfcaverns_nodes[c_fireflies] = true -- used in the primordial caverns
 	end
+	dfcaverns_nodes[c_glowstone] = nil
 	dfcaverns_mods = nil
 	return not dfcaverns_nodes[c_node]
 end

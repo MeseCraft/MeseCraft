@@ -1,0 +1,36 @@
+# textdomain: mine_gas
+
+
+### init.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gas Seep=Gassickern
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gas is highly hazardous. Heavier than air, it pools in deep caverns and asphyxiates the unwary.=Gas ist sehr gefährlich. Schwerer als Luft, sammelt es sich in tiefen Höhlen und erstickt die Unachtsamen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gaseous hydrocarbons formed from the detritus of long dead plants and animals processed by heat and pressure deep within the earth.=Gasförmige Kohlenwasserstoffe, die aus dem Abfall langer toter Pflanzen und Tiere entstehen, die durch Hitze und Druck tief in der Erde verarbeitet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mine Gas=Minengas
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mining out such a deposit seals the crack.=Durch den Abbau einer solchen Ablagerung wird der Riss versiegelt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Some coal deposits have cracks that seep a steady flow of mine gas.=Einige Kohlevorkommen weisen Risse auf, die einen stetigen Fluss von Minengas versickern lassen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When exposed to air and an ignition source it can produce a deadly explosion.=Wenn es Luft und einer Zündquelle ausgesetzt wird, kann es zu einer tödlichen Explosion kommen.
+
+
+### wisp.lua ###
+
+Gas Wisp=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Gas Wisps have no known use, and fortunately they are not hostile or very dangerous.=Gas-Wisps haben keine bekannte Verwendung und sind glücklicherweise nicht feindlich oder sehr gefährlich.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mysterious blue flames may occasionally be found flickering on the edges of oil lakes, burning without oxygen and seeming to maintain their size as they drift about through the unbreathable atmosphere.=Gelegentlich flackern mysteriöse blaue Flammen an den Rändern von Ölseen, brennen ohne Sauerstoff und scheinen ihre Größe beizubehalten, wenn sie durch die unatmbare Atmosphäre treiben.
+

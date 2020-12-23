@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 --stem
 minetest.register_node("df_trees:black_cap_stem", {
@@ -10,7 +8,7 @@ minetest.register_node("df_trees:black_cap_stem", {
 	tiles = {"dfcaverns_black_cap_top.png","dfcaverns_black_cap_top.png","dfcaverns_black_cap_side.png",},
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 --cap
@@ -21,7 +19,7 @@ minetest.register_node("df_trees:black_cap", {
 	tiles = {"dfcaverns_black_cap_top.png","dfcaverns_black_cap_top.png","dfcaverns_black_cap_side.png^[transformR90",},
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 --gills
@@ -32,7 +30,7 @@ minetest.register_node("df_trees:black_cap_gills", {
 	tiles = {"dfcaverns_black_cap_gills.png"},
 	is_ground_content = false,
 	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 	drawtype = "plantlike",
 	paramtype = "light",
 	drop = {
@@ -47,16 +45,14 @@ minetest.register_node("df_trees:black_cap_gills", {
 			}
 		}
 	},
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
-if default.register_leafdecay then -- default.register_leafdecay is very new, remove this check some time after 0.4.16 is released
-	default.register_leafdecay({
-		trunks = {"df_trees:black_cap"}, -- don't need stem nodes here
-		leaves = {"df_trees:black_cap_gills"},
-		radius = 1,	
-	})
-end
+df_trees.register_leafdecay({
+	trunks = {"df_trees:black_cap"}, -- don't need stem nodes here
+	leaves = {"df_trees:black_cap_gills"},
+	radius = 1,	
+})
 
 -- Wood
 minetest.register_craft({
@@ -74,7 +70,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:torch 8',
+	output = df_trees.node_names.torch .. ' 8',
 	recipe = {
 		{'df_trees:black_cap_gills'},
 		{'group:stick'},
@@ -99,7 +95,7 @@ minetest.register_node("df_trees:black_cap_wood", {
 	tiles = {"dfcaverns_black_cap_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 df_trees.register_all_stairs("black_cap_wood")
@@ -151,7 +147,7 @@ minetest.register_node("df_trees:black_cap_sapling", {
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
 		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
 	on_construct = function(pos)
 		local below_node_name = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name

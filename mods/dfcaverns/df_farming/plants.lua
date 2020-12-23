@@ -1,10 +1,7 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 -----------------------------------------------------------------------
 -- Plants
-
 
 minetest.register_node("df_farming:dead_fungus", {
 	description = S("Dead Fungus"),
@@ -19,7 +16,7 @@ minetest.register_node("df_farming:dead_fungus", {
 	buildable_to = true,
 	floodable = true,
 	groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, flow_through = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_farming.sounds.leaves,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
@@ -53,7 +50,7 @@ minetest.register_node("df_farming:cavern_fungi", {
 	floodable = true,
 	light_source = 6,
 	groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11, flow_through = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_farming.sounds.leaves,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 0.0, 0.5},
@@ -74,8 +71,8 @@ end
 
 -----------------------------------------------------------------------------------------
 
-local marginal = {["default:dirt"] = true, ["df_farming:dirt_with_cave_moss"] = true, ["df_farming:cobble_with_floor_fungus"] = true}
-local growable = {["farming:soil_wet"] = true, ["default:dirt"] = true, ["df_farming:dirt_with_cave_moss"] = true, ["df_farming:cobble_with_floor_fungus"] = true}
+local marginal = {[df_farming.node_names.dirt] = true, [df_farming.node_names.dirt_moss] = true, [df_farming.node_names.floor_fungus] = true}
+local growable = {[df_farming.node_names.dirt_wet] = true, [df_farming.node_names.dirt] = true, [df_farming.node_names.dirt_moss] = true, [df_farming.node_names.floor_fungus] = true}
 
 df_farming.plant_timer = function(pos, plantname, elapsed)
 	local next_stage_time = minetest.registered_nodes[plantname]._dfcaverns_next_stage_time

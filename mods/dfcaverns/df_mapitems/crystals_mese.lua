@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_mapitems.S
 
 --glowing mese crystal blocks
 minetest.register_node("df_mapitems:glow_mese", {
@@ -9,7 +7,7 @@ minetest.register_node("df_mapitems:glow_mese", {
 	_doc_items_usagehelp = df_mapitems.doc.glow_mese_usage,
 	tiles = {"dfcaverns_glow_mese.png"},
 	groups = {cracky=3},
-	sounds = default.node_sound_glass_defaults(),
+	sounds = df_mapitems.sounds.glass,
 	is_ground_content = false,
 	light_source = 13,
 	paramtype = "light",
@@ -37,14 +35,14 @@ minetest.register_node("df_mapitems:mese_crystal", {
 	mesh = "underch_crystal.obj",
 	light_source = 12,
 	is_ground_content = false,
-	sounds = default.node_sound_glass_defaults(),
+	sounds = df_mapitems.sounds.glass,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 	on_place = df_mapitems.place_against_surface,
 })
 
 minetest.register_craft({
-	output = 'default:mese_crystal 9',
+	output = df_mapitems.node_name.mese_crystal .. ' 9',
 	recipe = {
 		{'df_mapitems:mese_crystal'},
 	}

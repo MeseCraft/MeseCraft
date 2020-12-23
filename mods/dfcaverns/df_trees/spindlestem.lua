@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 local vessels = minetest.get_modpath("vessels")
 
@@ -66,7 +64,7 @@ minetest.register_node("df_trees:spindlestem_stem", {
 	_doc_items_usagehelp = df_trees.doc.spindlestem_usage,
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 	tiles = {
 		"dfcaverns_tower_cap.png",
 	},
@@ -90,7 +88,7 @@ minetest.register_craft({
 	burntime = 5,
 })
 
-local register_spindlestem_type = function(item_suffix, colour_name, colour_code, light_level)
+local register_spindlestem_type = function(item_suffix, colour_name, colour_code, light_level, extract_color_group)
 	local cap_item = "df_trees:spindlestem_cap_"..item_suffix
 	
 	minetest.register_node(cap_item, {
@@ -99,7 +97,7 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 		_doc_items_longdesc = df_trees.doc["spindlestem_cap_"..item_suffix.."_desc"],
 		_doc_items_usagehelp = df_trees.doc["spindlestem_cap_"..item_suffix.."_usage"],
 		groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1},
-		sounds = default.node_sound_wood_defaults(),
+		sounds = df_trees.sounds.wood,
 		tiles = {
 			"dfcaverns_tower_cap.png^[multiply:#"..colour_code,
 			"dfcaverns_spindlestem_cap.png^[multiply:#"..colour_code,
@@ -193,6 +191,12 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 	if vessels and light_level > 0 then
 		local tex = "dfcaverns_vessels_glowing_liquid.png^[multiply:#"..colour_code.."^vessels_glass_bottle.png"
 		local new_light = light_level + math.floor((minetest.LIGHT_MAX-light_level)/2)
+		
+		local groups = {vessel = 1, dig_immediate = 3, attached_node = 1}
+		if extract_color_group then
+			groups[extract_color_group] = 1
+		end
+		
 		minetest.register_node("df_trees:glowing_bottle_"..item_suffix, {
 			description = S("@1 Spindlestem Extract", colour_name),
 			drawtype = "plantlike",
@@ -208,8 +212,8 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 				type = "fixed",
 				fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
 			},
-			groups = {vessel = 1, dig_immediate = 3, attached_node = 1},
-			sounds = default.node_sound_glass_defaults(),
+			groups = groups,
+			sounds = df_trees.sounds.glass,
 			light_source = new_light,
 		})
 		
@@ -290,10 +294,10 @@ minetest.register_node("df_trees:spindlestem_seedling", {
 })
 
 register_spindlestem_type("white", S("White"), "FFFFFF", 0)
-register_spindlestem_type("red", S("Red"), "FFC3C3", 3)
-register_spindlestem_type("green", S("Green"), "C3FFC3", 4)
-register_spindlestem_type("cyan", S("Cyan"), "C3FFFF", 6)
-register_spindlestem_type("golden", S("Golden"), "FFFFC3", 12)
+register_spindlestem_type("red", S("Red"), "FFC3C3", 3, "color_red")
+register_spindlestem_type("green", S("Green"), "C3FFC3", 4, "color_green")
+register_spindlestem_type("cyan", S("Cyan"), "C3FFFF", 6, "color_cyan")
+register_spindlestem_type("golden", S("Golden"), "FFFFC3", 12, "color_yellow")
 
 local c_air = minetest.get_content_id("air")
 local c_stem = minetest.get_content_id("df_trees:spindlestem_stem")
@@ -340,9 +344,9 @@ get_spindlestem_cap_type = function(pos)
 		return c_red
 	end
 	
-	local iron = minetest.find_node_near(pos, 5, {"default:stone_with_iron", "default:steelblock"})
-	local copper = minetest.find_node_near(pos, 5, {"default:stone_with_copper", "default:copperblock"})
-	local mese = minetest.find_node_near(pos, 5, {"default:stone_with_mese", "default:mese"})
+	local iron = minetest.find_node_near(pos, 5, df_trees.iron_containing_nodes)
+	local copper = minetest.find_node_near(pos, 5, df_trees.copper_containing_nodes)
+	local mese = minetest.find_node_near(pos, 5, df_trees.mese_containing_nodes)
 	local possibilities = {}
 
 	if mese then table.insert(possibilities, c_golden) end

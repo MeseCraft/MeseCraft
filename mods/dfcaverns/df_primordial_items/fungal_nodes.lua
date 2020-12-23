@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_primordial_items.S
 
 -----------------------------------------------------------------------------------------------
 -- Plants
@@ -20,7 +18,7 @@ minetest.register_node("df_primordial_items:fungal_grass_1", {
 	buildable_to = true,
 	is_ground_content = false,
 	walkable = false,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })
@@ -39,7 +37,7 @@ minetest.register_node("df_primordial_items:fungal_grass_2", {
 	is_ground_content = false,
 	walkable = false,
 	place_param2 = 3,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })
@@ -60,7 +58,7 @@ minetest.register_node("df_primordial_items:glow_orb", {
 	is_ground_content = false,
 	walkable = false,
 	light_source = 9,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })
@@ -79,7 +77,7 @@ minetest.register_node("df_primordial_items:glow_orb_stalks", {
 	is_ground_content = false,
 	walkable = false,
 	light_source = 6,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })
@@ -94,11 +92,24 @@ minetest.register_node("df_primordial_items:glow_pods", {
 	groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1, primordial_fungal_plant = 1, light_sensitive_fungus = 13},
 	paramtype = "light",
 	drawtype = "plantlike",
+	drop = {
+		max_items = 2,
+		items = {
+			{
+				rarity = 3,
+				items = {"df_primordial_items:primordial_fruit"},
+			},
+			{
+				rarity = 3,
+				items = {"df_primordial_items:primordial_fruit"},
+			},
+		},
+	},
 	buildable_to = true,
 	is_ground_content = false,
 	walkable = false,
 	light_source = 6,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 })
@@ -114,14 +125,14 @@ minetest.register_node("df_primordial_items:dirt_with_mycelium", {
 	groups = {crumbly = 3, soil = 1},
 	is_ground_content = false,
 	paramtype = "light",
-	drops = "default:dirt",
-	sounds = default.node_sound_dirt_defaults(),
+	drops = df_primordial_items.node_names.dirt,
+	sounds = df_primordial_items.sounds.dirt,
 	light_source = 3,
 })
 
 minetest.register_abm{
 	label = "df_primordial_items:dirt_with_mycelium_spread",
-	nodenames = {"default:dirt"},
+	nodenames = {df_primordial_items.node_names.dirt},
 	neighbors = {"df_mapitems:dirt_with_mycelium"},
 	interval = 60,
 	chance = 50,
@@ -131,14 +142,14 @@ minetest.register_abm{
 	end,
 }
 
-if minetest.get_modpath("trail") and trail and trail.register_trample_node then	
-	local HARDPACK_PROBABILITY = minetest.settings:get("trail_hardpack_probability") or 0.5 -- Chance walked dirt/grass is worn and compacted to trail:trail.
-	local HARDPACK_COUNT = minetest.settings:get("trail_hardpack_count") or 5 -- Number of times the above chance needs to be passed for soil to compact.
+if minetest.get_modpath("footprints") then
+	local HARDPACK_PROBABILITY = minetest.settings:get("footprints_hardpack_probability") or 0.9 -- Chance walked dirt/grass is worn and compacted to footprints:trail.
+	local HARDPACK_COUNT = minetest.settings:get("footprints_hardpack_count") or 10 -- Number of times the above chance needs to be passed for soil to compact.
 
-	trail.register_trample_node("df_primordial_items:dirt_with_mycelium", {
+	footprints.register_trample_node("df_primordial_items:dirt_with_mycelium", {
 		trampled_node_def_override = {description = S("Dirt with Primordial Mycelium and Footprint"),},
 		footprint_opacity = 196,
-		hard_pack_node_name = "trail:trail",
+		hard_pack_node_name = "footprints:trail",
 		hard_pack_probability = HARDPACK_PROBABILITY,
 		hard_pack_count = HARDPACK_COUNT,
 	})	

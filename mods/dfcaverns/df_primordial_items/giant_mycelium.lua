@@ -1,8 +1,6 @@
 -- This file defines a type of root-like growth that spreads over the surface of the ground in a random web-like pattern
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_primordial_items.S
 
 -- hub_thickness -- the bit in the middle that's seen at the ends and corners of long hypha runs
 -- connector_thickness

@@ -1,13 +1,23 @@
 if not df_caverns.config.enable_underworld or not minetest.get_modpath("df_underworld_items") then
 	return
 end
-local modpath = minetest.get_modpath(minetest.get_current_modname())
-
-local S = minetest.get_translator("df_caverns")
+local modname = minetest.get_current_modname()
+local modpath = minetest.get_modpath(modname)
+local S = minetest.get_translator(modname)
 
 local bones_loot_path = minetest.get_modpath("bones_loot")
 local named_waypoints_path = minetest.get_modpath("named_waypoints")
-local namegen_path = minetest.get_modpath("namegen")
+local name_generator_path = minetest.get_modpath("name_generator")
+
+-- TEMP backwards compatibility for the change of name of the name_generator mod. Once it's updated in the contentDB, remove this and also the optional_depends
+local namegenerator = nil
+if not name_generator_path and minetest.get_modpath("namegen") and namegen and namegen.parse_lines and namegen.generate then
+	namegenerator = namegen
+elseif name_generator_path then
+	namegenerator = name_generator
+end
+
+local hunters_enabled = minetest.get_modpath("hunter_statue") and df_underworld_items.config.underworld_hunter_statues
 
 local name_pit = function() end
 local name_ruin = function() end
@@ -49,14 +59,14 @@ if named_waypoints_path then
 	end
 	named_waypoints.register_named_waypoints("puzzle_seals", seal_waypoint_def)
 
-	if namegen_path then
-		namegen.parse_lines(io.lines(modpath.."/underworld_names.cfg"))
+	if namegenerator then
+		namegenerator.parse_lines(io.lines(modpath.."/underworld_names.cfg"))
 		
 		name_pit = function()
-			return namegen.generate("glowing_pits")
+			return namegenerator.generate("glowing_pits")
 		end
 		name_ruin = function()
-			return namegen.generate("underworld_ruins")
+			return namegenerator.generate("underworld_ruins")
 		end
 		
 		local underworld_ruin_def = {
@@ -75,14 +85,14 @@ end
 
 
 
-local c_slade = minetest.get_content_id("df_underworld_items:slade")
-local c_slade_block = minetest.get_content_id("df_underworld_items:slade_block")
-local c_air = minetest.get_content_id("air")
-local c_water = minetest.get_content_id("default:water_source")
+local c_slade = df_caverns.node_id.slade
+local c_slade_block = df_caverns.node_id.slade_block
+local c_air = df_caverns.node_id.air
+local c_water = df_caverns.node_id.water
 
-local c_glowstone = minetest.get_content_id("df_underworld_items:glowstone")
-local c_amethyst = minetest.get_content_id("df_underworld_items:glow_amethyst")
-local c_pit_plasma = minetest.get_content_id("df_underworld_items:pit_plasma")
+local c_glowstone = df_caverns.node_id.glowstone
+local c_amethyst = df_caverns.node_id.amethyst
+local c_pit_plasma = df_caverns.node_id.pit_plasma
 
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local oubliette_schematic = dofile(MP.."/schematics/oubliette.lua")
@@ -465,7 +475,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, small_building_schematic, building.rotation)
 						elseif building.building_type == "medium building" then
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, medium_building_schematic, building.rotation)
-							if named_waypoints_path and namegen_path then
+							if named_waypoints_path and namegenerator then
 								if not next(named_waypoints.get_waypoints_in_area("underworld_ruins", vector.subtract(building.pos, 250), vector.add(building.pos, 250))) then
 									named_waypoints.add_waypoint("underworld_ruins", {x=building.pos.x, y=floor_height+1, z=building.pos.z}, {name=name_ruin()})
 								end
@@ -553,6 +563,27 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				end
 			end
 		end
+	end
+	
+	if hunters_enabled then
+		local x = math.random(minp.x, maxp.x)
+		local z = math.random(minp.z, maxp.z)
+		local index2d = mapgen_helper.index2d(emin, emax, x, z)
+		local abs_cave = math.abs(nvals_cave[index2d]) -- range is from 0 to approximately 2, with 0 being connected and 2s being islands
+		local wave = nvals_wave[index2d] * wave_mult
+		local floor_height =  math.floor(abs_cave * floor_mult + median + floor_displace + wave)-1
+		local zone = math.abs(nvals_zone[index2d])
+		if math.random() < zone / 4 then -- hunters are more common in the built-up areas. zone/4 gives ~ 400 hunters per square kilometer.
+			for y = floor_height, floor_height+20 do
+				local target_pos = {x=x, y=y, z=z}
+				local target_node = minetest.get_node(target_pos)
+				if minetest.get_item_group(target_node.name, "slade") == 0 then
+					minetest.set_node(target_pos, {name="df_underworld_items:hunter_statue"})
+					break
+				end
+			end
+		end
+		
 	end
 	
 	local time_taken = os.clock() - t_start -- how long this chunk took, in seconds

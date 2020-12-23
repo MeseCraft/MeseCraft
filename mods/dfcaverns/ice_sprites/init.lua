@@ -1,6 +1,5 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local modname = minetest.get_current_modname()
+local S = minetest.get_translator(modname)
 
 local ice_sprite_desc
 local ice_sprite_usage
@@ -8,7 +7,7 @@ local ice_sprite_bottle_desc
 local ice_sprite_bottle_usage
 
 if minetest.get_modpath("doc") then
-	ice_sprite_desc = S("Ice sprites are mysterious glowing insect-like creatures that appear to be made partly of crystalized water.")
+	ice_sprite_desc = S("Ice sprites are mysterious glowing insect-like creatures that appear to be made partly of crystallized water.")
 	if minetest.get_modpath("vessels") then
 		if minetest.get_modpath("fireflies") then
 			ice_sprite_usage = S("Ice sprites can be caught with nets and placed in bottles as sources of light and freezing cold.")

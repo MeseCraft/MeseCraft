@@ -1,0 +1,79 @@
+# textdomain: df_underworld_items
+
+
+### crystals_amethyst.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glowing Amethyst Block=Blocco di ametista incandescente
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Bright glowing stones of unknown origin found lodged in the crevices of the underworld's ceiling.=Pietre luminose e luminose di origine sconosciuta trovate alloggiate nelle fessure del soffitto del mondo sotterraneo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glowing purple crystals that grow through holes in the foundation of the world.=Cristalli viola luminosi che crescono attraverso i buchi nelle fondamenta del mondo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+In fact, Slade is impervious to conventional mining entirely.=In effetti, Slade è completamente impermeabile al mining convenzionale.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Slade is extremely hard to work with so it has little use.=Slade è estremamente difficile da lavorare, quindi è poco utile.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The liquid found in the deepest pits in the underworld is highly dangerous and damaging.=Il liquido trovato nelle fosse più profonde degli inferi è altamente pericoloso e dannoso.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The only use for this material is that it destroys whatever is thrown into it. It cannot otherwise be manipulated.=L'unico uso di questo materiale è che distrugge tutto ciò che viene gettato al suo interno. Non può essere altrimenti manipolato.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The very foundation of the world, Slade is a mysterious ultra-dense substance.=Il fondamento stesso del mondo, Slade è una misteriosa sostanza ultra-densa.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These crystals have no known use.=Questi cristalli non hanno alcun uso noto.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These stones are highly volatile and should not be disturbed.=Queste pietre sono altamente volatili e non dovrebbero essere disturbate.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+This block of Slade, carved by an unknown hand, is engraved with mysterious symbols. Most of the engraving's meaning is lost to the mists of time but one frament in the oldest known language can be translated: "This place is not a place of honor."=Questo blocco di Slade, scolpito da una mano sconosciuta, è inciso con simboli misteriosi. La maggior parte del significato dell'incisione si perde nella notte dei tempi, ma un frammento nella più antica lingua conosciuta può essere tradotto: "Questo posto non è un posto d'onore".
+
+
+### glow_stone.lua ###
+
+Lightseam=
+
+### glowing_pit_plasma.lua ###
+
+Glowing Pit Plasma=
+
+### hunter_statue.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Guardian Statue=Statua del guardiano
+
+### puzzle_seal.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Active Slade Breacher=Attivo Slade Breacher
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Breach in the Slade=Violazione nello Slade
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Inscribed Slade Block=Inscritto Slade Block
+Slade Block Slab=
+Slade Block Stair=
+Slade Capstone=
+Slade Puzzle Seal=
+Turn=
+
+### slade.lua ###
+
+Slade=
+Slade Block=
+Slade Brick=
+Slade Sand=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Slade Seal=Sigillo Slade
+Slade Slab=
+Slade Stair=
+Slade Wall=

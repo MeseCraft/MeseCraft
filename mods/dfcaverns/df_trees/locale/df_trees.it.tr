@@ -1,0 +1,209 @@
+# textdomain: df_trees
+
+
+### black_cap.lua ###
+
+Black Cap=Cappello nero
+Black Cap Gills=Lamelle di cappello nero
+Black Cap Planks=Assi di cappello nero
+Black Cap Spawn=Prole di cappello nero
+Black Cap Stem=Gambo di cappello nero
+
+### blood_thorn.lua ###
+
+Blood Thorn Planks=Assi di spina del sangue
+Blood Thorn Spike=Spuntone di spina del sangue
+Blood Thorn Stem=Gambo di spina del sangue
+Dead Blood Thorn Spike=Spuntone di spina del sangue morta
+Dead Blood Thorn Stem=Gambo di spina del sangue morta
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A torchspine alternates between active and quiescent phases and emits dim light when active. They can be harvested for torches, and their embers sprout into new torchspines when placed on flammable surfaces.=Una torcia alterna le fasi attiva e quiescente ed emette una luce fioca quando è attiva. Possono essere raccolti per le torce e le loro braci germogliano in nuove spine delle torce quando vengono posizionate su superfici infiammabili.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from the artistic applications of its particularly dark color, black cap wood is a long-burning fuel source that's as good as coal for some applications. Black cap gills are oily and make for excellent torch fuel.=A parte le applicazioni artistiche del suo colore particolarmente scuro, il legno del cappello nero è una fonte di combustibile a combustione lunga che è buona come il carbone per alcune applicazioni. Le branchie del cappuccio nero sono oleose e costituiscono un eccellente combustibile per la torcia.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Blood thorns are the most vicious of underground flora, as befits their harsh environments. Found only in hot, dry caverns with sandy soil far from the surface world's organic bounty, blood thorns seek to supplement their nutrient supply with wickedly barbed hollow spines that actively drain fluids from whatever stray plant or creature they might impale.=Le spine di sangue sono le più viziose della flora sotterranea, come si addice ai loro ambienti ostili. Trovate solo in caverne calde e asciutte con terreno sabbioso lontano dalla generosità organica del mondo di superficie, le spine di sangue cercano di integrare il loro apporto di nutrienti con spine cave malvagie che drenano attivamente i fluidi da qualsiasi pianta o creatura vagante che potrebbero impalare.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cyan Spindlestems are a sign of both copper and iron deposits nearby. Their glowing symbiotes can be extracted as a long-lived light source.=Gli spindlestem ciano sono un segno di depositi di rame e ferro nelle vicinanze. I loro simbionti luminosi possono essere estratti come fonte di luce a lunga durata.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungiwood stalk is strong and very fine-grained, making smooth yellow-tinted lumber when cut. Fungiwood shelf is too fragile to be much use as anything other than fuel.=Il gambo di legno di fungo è forte e a grana molto fine, quando viene tagliato produce legname liscio di colore giallo. La mensola in legno di fungo è troppo fragile per essere utilizzata come qualcosa di diverso dal carburante.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Goblin cap stem and cap material can be cut into wood of two different hues, a subdued cream and a bright orange-red.=Il gambo e il materiale del cappuccio del goblin possono essere tagliati in legno di due diverse tonalità, una crema tenue e un rosso arancio brillante.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Golden Spindlestems are a sign of rare and magical mineral deposits nearby. Their glowing symbiotes can be extracted as a strong and long-lived light source.=I Golden Spindlestems sono un segno di depositi minerali rari e magici nelle vicinanze. I loro simbionti luminosi possono essere estratti come una fonte di luce forte e di lunga durata.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Green Spindlestems are a sign of nearby copper deposits. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is not strong.=Gli spindlestem verdi sono un segno di depositi di rame nelle vicinanze. I loro simbionti luminosi possono essere estratti come fonte di luce a lunga durata, sebbene il bagliore non sia forte.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living blood thorn spikes remain harmful to creatures that touch them. If killed by bright light, they cause only passive damage to creatures that fall on them (as one would expect from an enormous spike).=Le punte di spine di sangue vivo rimangono dannose per le creature che le toccano. Se uccisi da una luce intensa, causano solo danni passivi alle creature che cadono su di loro (come ci si aspetterebbe da un enorme picco).
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a cyan Spindlestem.=Estratto vivo dal tappo di uno Spindlestem ciano.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a green Spindlestem.=Estratto vivo dal cappello di uno Spindlestem verde.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a red Spindlestem.=Estratto vivo dal cappello di uno Spindlestem rosso.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a yellow Spindlestem.=Estratto vivo dal cappello di uno Spindlestem giallo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Massive but squat, mature goblin cap mushrooms are the size of small cottages.=I funghi goblin sono grandi ma tozzi e maturi, hanno le dimensioni di piccoli cottage.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Il legno del cappuccio inferiore, oltre ad essere una bella tonalità blu, conserva la strana capacità di drenaggio del calore dei tappi inferiori viventi ed è in grado di congelare rapidamente l'acqua solida vicina.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=I cappucci inferiori hanno una biochimica insolita che consente loro di sopravvivere in qualche modo al calore ambientale, in violazione di tutte le leggi conosciute della termodinamica. Crescono in profondità nel sottosuolo in caverne gelide che dovrebbero a tutti gli effetti essere vulcaniche.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin Caps. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is weak.=I Red Spindlestems sono un segno di depositi di ferro vicini - o forse Goblin Caps. I loro simbionti luminosi possono essere estratti come fonte di luce a lunga durata, anche se il bagliore è debole.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spindlestems are too big to easily pluck by hand but too small to be called a proper tree. Nevertheless, they are a common and useful resource for underground travelers - particularly their glowing caps.=Gli spindlestem sono troppo grandi per essere strappati facilmente a mano ma troppo piccoli per essere definiti un albero vero e proprio. Tuttavia, sono una risorsa comune e utile per i viaggiatori sotterranei, in particolare i loro berretti luminosi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore tree trunks can be cut into pale woody planks. The branching fibers and fruiting bodies are only useful as fuel.=I tronchi degli alberi di spore possono essere tagliati in assi legnose chiare. Le fibre ramificate e i corpi fruttiferi sono utili solo come combustibile.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore trees have a sturdy 'trunk' that supports a large spongy mesh of branching fibers, with embedded fruiting bodies that produce a copious amount of spores that gently rain down around the spore tree's base.=Gli alberi di spore hanno un robusto "tronco" che sostiene una grande rete spugnosa di fibre ramificate, con corpi fruttiferi incorporati che producono una copiosa quantità di spore che piovono delicatamente intorno alla base dell'albero di spore.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a brilliant yellow due to symbiotic microorganisms.=Il cappuccio di uno Spindlestem, che brilla di un giallo brillante a causa di microrganismi simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a soft green due to symbiotic microorganisms.=Il cappuccio di uno Spindlestem, che emette un colore verde tenue a causa di microrganismi simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a strong cyan due to symbiotic microorganisms.=Il cappuccio di uno Spindlestem, che emette un forte colore ciano a causa di microrganismi simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a weak red due to symbiotic microorganisms.=Il cappuccio di uno Spindlestem, che brilla di un debole rosso a causa di microrganismi simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, uncontaminated by any symbiotic luminescent microorganisms.=Il cappuccio di uno Spindlestem, incontaminato da eventuali microrganismi luminescenti simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The dense black wood of these mushrooms is heavy and hard to work with, and has few remarkable properties.=Il denso legno nero di questi funghi è pesante e difficile da lavorare e ha poche proprietà notevoli.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The king of the fungi, tower cap mushrooms grow to immense proportions.=Il re dei funghi, i funghi con cappuccio a torre crescono in proporzioni immense.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The spikes of a blood thorn can actually remain living long after they're severed from their parent stalk, a testament to their tenacity. As long as they remain alive they will continue to actively drain anything they puncture, though they don't grow.=Le punte di una spina di sangue possono effettivamente rimanere in vita molto tempo dopo essere state separate dal gambo dei genitori, a testimonianza della loro tenacia. Finché rimangono in vita continueranno a drenare attivamente tutto ciò che forano, anche se non crescono.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The stem of a Spindlestem is surprisingly sturdy, and despite their thinness they can grow quite tall. They can be used as a wood substitute in many crafting recipes.=Lo stelo di uno Spindlestem è sorprendentemente robusto e nonostante la loro magrezza possono crescere abbastanza alti. Possono essere usati come sostituti del legno in molte ricette di lavorazione.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The trunk of a tunnel tube can be cut and processed to produce plywood-like material.=Il tronco di un tubo a tunnel può essere tagliato e lavorato per produrre materiale simile al compensato.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The trunk of a tunnel tube can be cut and processed to produce plywood-like material. The fruiting body accumulates high-energy compounds that, when ignited, produce a vigorous detonation - a unique adaptation for spreading tunnel tube spawn through the still cavern air.=Il tronco di un tubo a tunnel può essere tagliato e lavorato per produrre materiale simile al compensato. Il corpo fruttifero accumula composti ad alta energia che, una volta innescati, producono una vigorosa detonazione - un adattamento unico per diffondere le uova del tubo del tunnel attraverso l'aria tranquilla della caverna.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These things are useless except as weak fuel for a fire.=Queste cose sono inutili se non come combustibile debole per un incendio.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Thin, irregular layers of spore-producing 'shelves' surround the strong central stalk of the mighty Fungiwood.=Strati sottili e irregolari di "mensole" che producono spore circondano il robusto gambo centrale del potente Fungiwood.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspines are strange organic formations that are alive only in a technical sense. They "feed" on volatile flammable vapors vented up through their structure, growing from combustion residue deposited at their tips.=Le torce sono strane formazioni organiche che sono vive solo in senso tecnico. Si "nutrono" di vapori volatili infiammabili emessi attraverso la loro struttura, che crescono dai residui di combustione depositati alle loro estremità.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower caps are an excellent source of wood.=I cappucci delle torri sono un'ottima fonte di legno.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tunnel tubes are hollow, curved fungal growths that support a fruiting body.=I tubi del tunnel sono escrescenze fungine cave e ricurve che supportano un corpo fruttifero.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When harvested, the central stalk of a blood thorn can be cut into planks and used as wood. It has a purple-red hue that may or may not appeal, depending on one's artistic tastes.=Quando viene raccolto, il gambo centrale di una spina sanguigna può essere tagliato in assi e usato come legno. Ha una tonalità rosso porpora che può piacere o meno, a seconda dei gusti artistici.
+
+
+### fungiwood.lua ###
+
+Fungiwood Planks=Assi di fungo di legno
+Fungiwood Shelf=Mensola di fungo di legno
+Fungiwood Spawn=Prole di fungo di legno
+Fungiwood Stem=Gambo di fungo di legno
+
+### goblin_cap.lua ###
+
+Goblin Cap=Cappello di folletto
+Goblin Cap Gills=Lamelle di cappello di folletto
+Goblin Cap Planks=Assi di cappello di folletto
+Goblin Cap Spawn=Prole di cappello di folletto
+Goblin Cap Stem=Gambo di cappello di folletto
+Goblin Cap Stem Planks=Assi di gambo di cappello di folletto
+
+### init.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Slab=@1 Lastra
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Stair=@1 Scala
+
+### nether_cap.lua ###
+
+Nether Cap=Cappello del Nether
+Nether Cap Gills=Lamelle di cappello del Nether
+Nether Cap Planks=Assi di cappello del Nether
+Nether Cap Spawn=Prole di cappello del Nether
+Nether Cap Stem=Gambo di cappello del Nether
+
+### spindlestem.lua ###
+
+@1 Spindlestem Cap=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Spindlestem Extract=@1 Estratto di Spindlestem
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cyan=Ciano
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Golden=D'oro
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Green=Verde
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red=Rosso
+Spindlestem=
+Spindlestem Spawn=Prole di albero delle spore
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+White=Bianca
+
+### spore_tree.lua ###
+
+Spore Tree Fruiting Body=Corpo fruttifero dell'albero delle spore
+Spore Tree Hyphae=Ife di albero delle spore
+Spore Tree Ladder=Ife di albero delle spore
+Spore Tree Planks=Assi di albero delle spore
+Spore Tree Spawn=Prole di albero delle spore
+Spore Tree Stem=Gambo di albero delle spore
+
+### torchspine.lua ###
+
+Torchspine=
+Torchspine Ember=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspine Tip=Punta Torchspine
+
+### tower_cap.lua ###
+
+Tower Cap=Cappello a torre
+Tower Cap Gills=Lamelle di cappello a torre
+Tower Cap Planks=Assi di cappello a torre
+Tower Cap Spawn=Prole di cappello a torre
+Tower Cap Stem=Gambo di cappello a torre
+
+### tunnel_tube.lua ###
+
+Tunnel Tube=Tubo di galleria
+Tunnel Tube Fruiting Body=Corpo fruttifero del tubo di galleria
+Tunnel Tube Plies=Strati di tubo di galleria
+Tunnel Tube Spawn=Prole di tubo di galleria

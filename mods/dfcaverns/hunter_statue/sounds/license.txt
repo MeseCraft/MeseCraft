@@ -1,0 +1,3 @@
+hunter_statue_brick_step and hunter_statue_turn_grind are all from https://freesound.org/people/nebulousflynn/sounds/234360/ by nebulousflynn under Creative Commons BY 3.0
+
+hunter_statue_thud are from https://freesound.org/people/yummy9987/sounds/494930/ under the CC0 license

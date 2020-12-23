@@ -110,7 +110,7 @@ local function resolve_commands(commands, pos)
 	local nearest, farthest = nil, nil
 	local min_distance, max_distance = math.huge, -1
 	for index, player in pairs(players) do
-		local distance = vector.distance(pos, player:getpos())
+		local distance = vector.distance(pos, player:get_pos())
 		if distance < min_distance then
 			min_distance = distance
 			nearest = player:get_player_name()
@@ -174,7 +174,8 @@ end
 local function can_dig(pos, player)
 	local meta = minetest.get_meta(pos)
 	local owner = meta:get_string("owner")
-	return owner == "" or owner == player:get_player_name()
+	return owner == "" or owner == player:get_player_name() or
+		minetest.check_player_privs(player, "protection_bypass")
 end
 
 minetest.register_node("mesecons_commandblock:commandblock_off", {

@@ -4,9 +4,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_underworld_items.S
 
 df_underworld_items.doc.glowstone_desc = S("Bright glowing stones of unknown origin found lodged in the crevices of the underworld's ceiling.")
 df_underworld_items.doc.glowstone_usage = S("These stones are highly volatile and should not be disturbed.")

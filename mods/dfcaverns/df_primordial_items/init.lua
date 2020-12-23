@@ -1,14 +1,18 @@
 df_primordial_items = {}
 df_primordial_items.doc = {}
 
-local MP = minetest.get_modpath(minetest.get_current_modname())
+local modname = minetest.get_current_modname()
+df_primordial_items.S = minetest.get_translator(modname)
+local modpath = minetest.get_modpath(modname)
 
-dofile(MP.."/doc.lua")
-dofile(MP.."/jungle_nodes.lua")
-dofile(MP.."/jungle_tree.lua")
-dofile(MP.."/jungle_mushroom.lua")
-dofile(MP.."/giant_fern.lua")
-dofile(MP.."/fungal_nodes.lua")
-dofile(MP.."/ceiling_fungus.lua")
-dofile(MP.."/primordial_mushroom.lua")
-dofile(MP.."/giant_mycelium.lua")
+dofile(modpath.."/dependencies.lua")
+dofile(modpath.."/doc.lua")
+dofile(modpath.."/jungle_nodes.lua")
+dofile(modpath.."/jungle_tree.lua")
+dofile(modpath.."/jungle_mushroom.lua")
+dofile(modpath.."/giant_fern.lua")
+dofile(modpath.."/fungal_nodes.lua")
+dofile(modpath.."/ceiling_fungus.lua")
+dofile(modpath.."/primordial_mushroom.lua")
+dofile(modpath.."/giant_mycelium.lua")
+dofile(modpath.."/edibles.lua")

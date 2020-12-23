@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_mapitems.S
 
 minetest.register_node("df_mapitems:cave_pearls", {
 	description = S("Cave Pearls"),

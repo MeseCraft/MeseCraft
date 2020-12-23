@@ -1,0 +1,185 @@
+# textdomain: df_farming
+
+
+### cave_wheat.lua ###
+
+Cave Straw=Grano di caverna
+Cave Wheat=Grano di caverna
+Cave Wheat Flour=Farina di grano di caverna
+Cave Wheat Seed=Seme di grano di caverna
+Dwarven Bread=Pane nanico
+Flattened Cave Wheat=Grano di caverna
+
+### cooking.lua ###
+
+Cave Wheat Flour Biscuit=Farina di grano di caverna
+Cave Wheat Flour Bun=Farina di grano di caverna
+Cave Wheat Flour Pancake=Farina di grano di caverna
+Cave Wheat Seed Loaf=Seme di grano di caverna
+Cave Wheat Seed Puffs=Seme di grano di caverna
+Cave Wheat Seed Risotto=Seme di grano di caverna
+Dimple Cup Spore Flatbread=Spora di coppa increspata
+Dimple Cup Spore Roll=Spora di coppa increspata
+Dimple Cup Spore Scone=Spora di coppa increspata
+Dwarven Syrup Delight=Secchio di sciroppo nanico
+Dwarven Syrup Jellies=Sciroppo nanico
+Dwarven Syrup Taffy=Sciroppo nanico
+Pig Tail Spore Casserole=Spora di coda di maiale
+Pig Tail Spore Sandwich=Spora di coda di maiale
+Pig Tail Spore Tofu=Spora di coda di maiale
+Plump Helmet Mince=Elmo rotondo
+Plump Helmet Roast=Elmo rotondo
+Plump Helmet Spawn Jambalaya=Prole di elmo rotondo
+Plump Helmet Spawn Soup=Prole di elmo rotondo
+Plump Helmet Sprout Stew=Prole di elmo rotondo
+Plump Helmet Stalk Sausage=Prole di elmo rotondo
+Quarry Bush Leaf Croissant=Foglia di cespuglio di cava
+Quarry Bush Leaf Spicy Bun=Foglia di cespuglio di cava
+Rock Nut Bread=Noce di roccia
+Rock Nut Cake=Noce di roccia
+Rock Nut Cookie=Noce di roccia
+Stuffed Quarry Bush Leaf=Foglia di cespuglio di cava
+Sweet Pod Spore Brule=Spora di baccello dolce
+Sweet Pod Spore Dumplings=Spore di baccello dolce
+Sweet Pod Spore Single Crust Pie=Spore di baccello dolce
+Sweet Pod Sugar Cookie=Zucchero di baccello dolce
+Sweet Pod Sugar Gingerbread=Zucchero di baccello dolce
+Sweet Pod Sugar Roll=Zucchero di baccello dolce
+
+### dimple_cup.lua ###
+
+Dimple Cup=Coppa increspata
+Dimple Cup Spores=Spore di coppa increspata
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A crafting item that can be woven into textiles and other similar items.=Un oggetto di artigianato che può essere tessuto in tessuti e altri oggetti simili.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A meal made from the admixture of two ingredients, it keeps well but are not a rich source of nutrients.=Un pasto composto dalla miscela di due ingredienti, si conserva bene ma non è una ricca fonte di nutrienti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A meal made from three ingredients mixed together. They're more wholesome, packing more nutrition into a single serving.=Un pasto composto da tre ingredienti mescolati insieme. Sono più sani e contengono più nutrimento in una singola porzione.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A rare breed of fungus from deep underground that produces a bushy cluster of rumpled gray 'blades'. The biological function of these blades is not known, as quarry bushes reproduce via hard-shelled nodules that grow down at the blade's base.=Una rara razza di fungo proveniente dal sottosuolo profondo che produce un folto gruppo di "lame" grigie spiegazzate. La funzione biologica di queste lame non è nota, poiché i cespugli di cava si riproducono tramite noduli a guscio duro che crescono alla base della lama.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A species of lavender mushroom ubiquitous in caves that is most notable for the soft bioluminescence it produces.=Una specie di fungo lavanda onnipresente nelle grotte che è più notevole per la morbida bioluminescenza che produce.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Bread baked from cave wheat flour is tough and durable. A useful ration for long expeditions.=Il pane cotto dalla farina di grano di grotta è duro e durevole. Un rapporto utile per lunghe spedizioni.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave wheat is literally a breed of grain-producing grass that somehow lost its ability to photosynthesize and adapted to a more fungal style of life.=Il grano delle caverne è letteralmente una razza di erba che produce grano che in qualche modo ha perso la sua capacità di fotosintetizzare e adattata a uno stile di vita più fungino.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave wheat seed ground into a powder suitable for cooking.=Semi di grano di caverna macinati in una polvere adatta alla cottura.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Crushing them in a bucket squeezes out a flavorful syrup.=Schiacciandoli in un secchio spreme uno sciroppo saporito.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dead fungus quickly decays into an unrecognizable mess. It can be used as weak fuel or terrible decor.=Il fungo morto decade rapidamente in un pasticcio irriconoscibile. Può essere usato come combustibile debole o arredamento terribile.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple cups can be dried, ground, and processed to extract a deep blue dye.=Le coppe fossette possono essere asciugate, macinate e lavorate per estrarre un colorante blu intenso.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Four finely minced ingredients combine into a fine, full meal.=Quattro ingredienti finemente tritati si combinano in un fine pasto completo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+It's not tasty, but it keeps you going.=Non è gustoso, ma ti fa andare avanti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Like its surface cousin, cave wheat produces grain that can be ground into a form of flour.=Come il suo cugino di superficie, il grano delle caverne produce grano che può essere macinato in una forma di farina.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig tail stalks can be processed to extract fibers useful as thread.=Gli steli della coda di maiale possono essere lavorati per estrarre fibre utili come filo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig tails are a fibrous fungal growth that's most notable for its twisting stalks. In a mature stand of pig tails the helical stalks intertwine into a dense mesh.=Le code di maiale sono una crescita fungina fibrosa che è più notevole per i suoi gambi contorti. In un gruppo maturo di code di maiale, gli steli elicoidali si intrecciano in una fitta rete.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump helmets are a thick, fleshy mushroom that's edible picked straight from the ground. They form a staple diet for both lost cave explorers and the fauna that preys on them.=I caschi paffuti sono un fungo spesso e carnoso che è commestibile raccolto direttamente da terra. Costituiscono una dieta base sia per gli esploratori di caverne perduti che per la fauna che li preda.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry bush leaves and nodules (called 'rock nuts') can be harvested and are edible with processing.=Le foglie ei noduli di arbusti di cava (chiamati "noci di roccia") possono essere raccolti e sono commestibili con la lavorazione.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry bush leaves can be used as an ingredient in foodstuffs.=Le foglie di cespuglio di cava possono essere utilizzate come ingrediente nei prodotti alimentari.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pod sugar has a pink tint to it.=Lo zucchero di baccello dolce ha una sfumatura rosa.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pod syrup is thick and flavorful.=Lo sciroppo di baccello dolce è denso e saporito.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pods grow in rich soil, and once they reach maturity they draw that supply of nutrients up to concentrate it in their fruiting bodies. They turn bright red when ripe and can be processed in a variety of ways to extract the sugars they contain.=I baccelli dolci crescono in un terreno fertile e, una volta raggiunta la maturità, assorbono quella scorta di sostanze nutritive per concentrarla nei loro corpi fruttiferi. Diventano di un rosso brillante quando sono maturi e possono essere lavorati in vari modi per estrarre gli zuccheri che contengono.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The distinctive midnight-blue caps of these mushrooms are inverted, exposing their gills to any breeze that might pass, and have dimpled edges that give them their name.=I caratteristici cappucci blu notte di questi funghi sono invertiti, esponendo le loro branchie a qualsiasi brezza che potrebbe passare, e hanno bordi increspati che danno loro il nome.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The dried blades of a quarry bush add a welcome zing to recipes containing otherwise-bland subterranean foodstuffs, but they're too spicy to be eaten on their own.=Le lame essiccate di un cespuglio di cava aggiungono un tocco di benvenuto alle ricette che contengono cibi sotterranei altrimenti blandi, ma sono troppo piccanti per essere mangiati da soli.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+This mushroom is inedible but continues producing modest levels of light long after it's picked.=Questo fungo non è commestibile ma continua a produrre livelli modesti di luce molto tempo dopo essere stato raccolto.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Threads of pig tail fiber.=Fili di fibra di coda di maiale.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Too strong and thick to drink straight, sweet pod syrup is useful in food recipes.=Troppo forte e denso per essere bevuto liscio, lo sciroppo di baccelli dolce è utile nelle ricette alimentari.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Too sweet to be eaten directly, it makes an excellent ingredient in food recipes.=Troppo dolce per essere consumato direttamente, è un ottimo ingrediente nelle ricette alimentari.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Whatever this fungus was in life, it is now dead.=Qualunque cosa fosse questo fungo in vita, ora è morto.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When baked alone it forms an edible bread, but it combines well with other more flavorful ingredients.=Cotto da solo forma un pane commestibile, ma si abbina bene con altri ingredienti più saporiti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When dried in an oven, sweet pods produce a granular sugary substance.=Quando essiccati in un forno, i baccelli dolci producono una sostanza zuccherina granulare.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When milled, sweet pods produce a granular sugary substance.=Quando vengono macinati, i baccelli dolci producono una sostanza zuccherina granulare.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+While they can be eaten fresh, they can be monotonous fare and are perhaps better appreciated as part of a more complex prepared dish.=Sebbene possano essere consumati freschi, possono essere piatti monotoni e forse sono meglio apprezzati come parte di un piatto preparato più complesso.
+
+
+### pig_tail.lua ###
+
+Flattened Pig Tail=Coda di maiale
+Pig Tail=Coda di maiale
+Pig Tail Spore=Spora di coda di maiale
+Pig tail thread=Filo di coda di maiale
+
+### plants.lua ###
+
+Cavern Fungi=Funghi di caverna
+Dead Fungus=Fungo morto
+
+### plump_helmet.lua ###
+
+Plump Helmet=Elmo rotondo
+Plump Helmet Spawn=Prole di elmo rotondo
+
+### quarry_bush.lua ###
+
+Quarry Bush=Cespuglio di cava
+Quarry Bush Leaves=Foglie di cespuglio di cava
+Rock Nuts=Noci di roccia
+
+### sweet_pod.lua ###
+
+Dwarven Syrup Bucket=Secchio di sciroppo nanico
+Dwarven Syrup Source=Fonte di sciroppo nanico
+Flowing Dwarven Syrup=Sciroppo nanico che scorre
+Sweet Pod=Baccello dolce
+Sweet Pod Spores=Spore di baccello dolce
+Sweet Pod Sugar=Zucchero di baccello dolce
+Sweet Pods=Baccelli dolci

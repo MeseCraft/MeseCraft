@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_primordial_items.S
 
 -- Leaves
 minetest.register_node("df_primordial_items:jungle_leaves", {
@@ -18,7 +16,7 @@ minetest.register_node("df_primordial_items:jungle_leaves", {
 	is_ground_content = false,
 	buildable_to = true,
 	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	drop = {
 		max_items = 1,
 		items = {
@@ -31,7 +29,7 @@ minetest.register_node("df_primordial_items:jungle_leaves", {
 			}
 		}
 	},
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_primordial_items.after_place_leaves,
 })
 
 minetest.register_node("df_primordial_items:jungle_leaves_glowing", {
@@ -50,7 +48,7 @@ minetest.register_node("df_primordial_items:jungle_leaves_glowing", {
 	buildable_to = true,
 	light_source = 2,
 	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	drop = {
 		max_items = 1,
 		items = {
@@ -63,7 +61,7 @@ minetest.register_node("df_primordial_items:jungle_leaves_glowing", {
 			}
 		}
 	},
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_primordial_items.after_place_leaves,
 })
 
 -- Trunk
@@ -76,7 +74,7 @@ minetest.register_node("df_primordial_items:jungle_tree", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_jungle_tree = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_primordial_items.sounds.wood,
 	on_place = minetest.rotate_node
 })
 
@@ -88,7 +86,7 @@ minetest.register_node("df_primordial_items:jungle_tree_mossy", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_jungle_tree = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_primordial_items.sounds.wood,
 	on_place = minetest.rotate_node
 })
 
@@ -101,18 +99,18 @@ minetest.register_node("df_primordial_items:jungle_tree_glowing", {
 	is_ground_content = false,
 	light_source = 4,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_jungle_tree = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_primordial_items.sounds.wood,
 	on_place = minetest.rotate_node
 })
 
-default.register_leafdecay({
+df_primordial_items.register_leafdecay({
 	trunks = {"df_primordial_items:jungle_tree", "df_primordial_items:jungle_tree_mossy", "df_primordial_items:jungle_tree_glowing"},
 	leaves = {"df_primordial_items:jungle_leaves", "df_primordial_items:jungle_leaves_glowing"},
 	radius = 1,
 })
 
 minetest.register_craft({
-	output = "default:junglewood 4",
+	output = df_primordial_items.node_names.junglewood .. " 4",
 	recipe = {
 		{"group:primordial_jungle_tree"},
 	}
@@ -225,7 +223,7 @@ minetest.register_node("df_primordial_items:jungletree_sapling", {
 	inventory_image = "dfcaverns_jungle_sapling.png",
 	wield_image = "dfcaverns_jungle_sapling.png",
 	groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1, sapling = 1, light_sensitive_fungus = 13},
-	_dfcaverns_dead_node = "default:dry_shrub",
+	_dfcaverns_dead_node = df_primordial_items.node_names.dry_shrub,
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -235,7 +233,7 @@ minetest.register_node("df_primordial_items:jungletree_sapling", {
 	buildable_to = true,
 	walkable = false,
 	is_ground_content = false,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 	on_construct = function(pos)

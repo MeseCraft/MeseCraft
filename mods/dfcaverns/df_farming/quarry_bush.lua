@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local quarry_grow_time = df_farming.config.plant_growth_time * df_farming.config.quarry_bush_delay_multiplier / 5
 
@@ -21,7 +19,7 @@ local register_quarry_bush = function(number)
 		is_ground_content = false,
 		floodable = true,
 		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
         selection_box = {
             type = "fixed",
             fixed = {

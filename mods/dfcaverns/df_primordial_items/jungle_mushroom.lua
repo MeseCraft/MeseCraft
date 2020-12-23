@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_primordial_items.S
 
 ------------------------------------------------------------------------------------------
 -- Big jungle mushroom
@@ -73,6 +71,7 @@ minetest.register_craftitem("df_primordial_items:diced_mushroom", {
 	groups = {food = 1, dfcaverns_cookable = 1},
 	sound = {eat = {name = "df_farming_gummy_chew", gain = 1.0}},
 	on_use = minetest.item_eat(1),
+	_hunger_ng = {satiates = 1},
 })
 
 minetest.register_craft({
@@ -105,7 +104,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_sapling", {
 	buildable_to = true,
 	is_ground_content = false,
 	walkable = false,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_primordial_items.sounds.leaves,
 	use_texture_alpha = true,
 	sunlight_propagates = true,
 

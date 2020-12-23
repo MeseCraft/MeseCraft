@@ -4,9 +4,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 -- Trees
 df_trees.doc.black_cap_desc = S("The dense black wood of these mushrooms is heavy and hard to work with, and has few remarkable properties.")

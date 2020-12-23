@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local register_cooking_recipes = function(def)
 	local prefix = def.prefix
@@ -14,7 +12,8 @@ local register_cooking_recipes = function(def)
 		sound = def.simple.sound,
 		on_use = minetest.item_eat(4),
 		groups = {food = 4},
-	})
+		_hunger_ng = {satiates = 4},
+	})	
 	minetest.register_craftitem("df_farming:"..item.."_medium_meal", {
 		description = def.medium.name,
 		_doc_items_longdesc = df_farming.doc.medium_meal_desc,
@@ -23,6 +22,7 @@ local register_cooking_recipes = function(def)
 		sound = def.medium.sound,
 		on_use = minetest.item_eat(6),
 		groups = {food = 6},
+		_hunger_ng = {satiates = 6},
 	})
 	minetest.register_craftitem("df_farming:"..item.."_complex_meal", {
 		description = def.complex.name,
@@ -32,8 +32,9 @@ local register_cooking_recipes = function(def)
 		sound = def.complex.sound,
 		on_use = minetest.item_eat(8),
 		groups = {food = 8},
+		_hunger_ng = {satiates = 8},
 	})
-	
+
 	minetest.register_alias("dfcaverns:"..item.."_biscuit", "df_farming:"..item.."_simple_meal")
 	minetest.register_alias("dfcaverns:"..item.."_stew", "df_farming:"..item.."_medium_meal")
 	minetest.register_alias("dfcaverns:"..item.."_roast", "df_farming:"..item.."_complex_meal")
@@ -60,7 +61,6 @@ local register_cooking_recipes = function(def)
 		replacements = replacements
 	})
 end
-
 
 --{
 --	prefix =,

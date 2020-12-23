@@ -1,0 +1,148 @@
+# textdomain: df_primordial_items
+
+
+### ceiling_fungus.lua ###
+
+Primordial Fungal Lantern=
+Primordial Fungal Lantern Stalk=
+
+### ceiling_fungus.lua ###
+### fungal_nodes.lua ###
+
+Primordial Fungal Orb=
+
+### doc.lua ###
+
+A strangely glowing starchy nodule from a plant that grew deeper than any plant has a right to.=
+
+Compared to the behemoths found elsewhere in the deep places of the world, the giant mushrooms of the primordial jungles are on the smaller side - often overwhelmed by the green plants that grow in the mysterious light below. Still, they can become substantial resources.=
+
+Eating this fruit will improve your vitality.=
+Fibers extracted from gigantic fungal hyphae.=
+
+Fungal fibers have infiltrated the ground in a spongy mass, making the soil half mineral and half living matter.=
+
+Fungus in its purest form, these gigantic rope-like hyphae creep over the surface of soil and burrow in to feed wherever nutrients are sensed.=
+
+Ivy is climbable, if it hangs close enough to the ground it can serve as a path between floor and ceiling.=
+
+Like wood of the surface world, primordial jungle trees can be chopped and carved as building material or as fuel.=
+
+Much energy is contained in this tuber. It tastes surprisingly good, too. You could cook with it but any change in its pure state would only reduce its value.=
+
+Much like a rope, hyphae have fibers inside that can be unraveled and used for a variety of crafts.=
+
+Much like the giant mushrooms of higher cavern layers, these can be carved into woody material for use as fuel or for building things. The grain of these primordial mushrooms is knurled.=
+
+Questing fibers of fungal mycelium sometimes erupt from the soil and reach upward, driven by chemical cues to seek out nourishment above. They look a lot like white grass, at a glance.=
+
+Some fronds of primordial jungle trees also become host to the phosphorescent fungus that creeps through cracks in the bark.=
+
+Somewhere above an enormous plant has wedged its roots down through the rock and emerged from the ceiling of another cavern.=
+
+Tangled weaves of ivy hang from the ceiling where there are wide enough gaps between the bright sources of light.=
+
+The cracks in the bark of some primordial jungle trees become host to phosphorescent veins of symbiotic fungus.=
+
+The dark-leaved ferns of the primordial jungle harken back to an earlier era of life in the world.=
+
+The glowing bark fungus doesn't extend into the wood of the trunk, resulting in surprisingly mundane building material when hewn.=
+
+The gnarled interwoven root-like foundations of this plant material is not useful as building material, but can serve as a fuel source.=
+
+The grandest of the great mushroom species can be found in the deepest primordial caverns. Their broad caps have hanging gills.=
+
+The large woody plants of the primordial jungle are similar in appearance to the jungle trees of the surface, but are a result of convergent evolution from ancient cycad plants toward a common form.=
+
+The soft flesh of these large mushrooms is much less woody than other giant mushrooms, making it ill-suited to structural use. This makes it rather more nutritious, however.=
+
+The soil of the primordial jungle is rife with strange life at every scale.=
+
+The steady light and unchanging growing conditions of the primordial caverns have led to great mountainous masses of plant material growing in particularly fertile spots, hardly identifiable as individual organisms.=
+
+The still air of these ancient caverns have allowed ferns to grow to prodigious sizes, where storms and rain would normally tear their weaker fronds off on the surface of the world.=
+
+These fibrous plants that grow in the deep appear similar to grass at a glance, but they are more closely related to horsetails - a form of vegetation from before the advent of modern plant forms. Ironically, pale cave wheat is more kin to surface grass than this is.=
+
+These hanging roots are climbable.=
+
+This strange fruit from the depths has absorbed healthful energies.=
+
+When a fern grows to such sizes its stem becomes dense enough to be used as a form of wood.=
+
+When left uncultivated mycelial soil will sprout all manner of strange wild fungi.=
+
+When left uncultivated primordial jungle soil will sprout all manner of strange wild plants.=
+
+
+### edibles.lua ###
+
+Glowtato=
+Primordial Fruit=
+
+### fungal_nodes.lua ###
+
+Dirt with Primordial Mycelium=
+Dirt with Primordial Mycelium and Footprint=
+Primordial Fungal Grass=
+Primordial Fungal Pod=
+
+### giant_fern.lua ###
+
+Fern Wood=
+Giant Fern Leaves=
+Giant Fern Sapling=
+Giant Fern Stem=
+
+### giant_mycelium.lua ###
+
+Giant Hypha=
+Giant Hypha Apical Meristem=
+Giant Mycelial Fibers=
+Mycelial thread=
+Rooted Giant Hypha=
+
+### jungle_mushroom.lua ###
+
+Dark Jungle Mushroom Cap=
+Diced Mushroom=
+Pale Jungle Mushroom Cap=
+Primordial Jungle Mushroom Sapling=
+Primordial Jungle Mushroom Trunk=
+
+### jungle_nodes.lua ###
+
+Dirt With Primordial Jungle Grass=
+Dirt With Primordial Jungle Grass and Footprint=
+Large Primordial Jungle Mushroom=
+Packed Primordial Jungle Roots=
+Primordial Fern=
+Primordial Flower=
+Primordial Jungle Grass=
+Primordial Jungle Ivy=
+Primordial Jungle Mushroom=
+Primordial Jungle Pod=
+Primordial Jungle Root=
+Primordial Jungle Roots=
+Primordial Jungle Thorns=
+Primordial Plant Matter=
+Primordial Plant Matter with Footprint=
+
+### jungle_tree.lua ###
+
+Mossy Primordial Jungle Tree=
+Phosphorescent Primordial Jungle Tree=
+Phosphorescent Primordial Jungle Tree Leaves=
+Primordial Jungle Tree=
+Primordial Jungle Tree Leaves=
+Primordial Jungle Tree Sapling=
+
+### primordial_mushroom.lua ###
+
+Glowing Primordial Mushroom Gills=
+Primordial Cap Wood=
+Primordial Mushroom Cap=
+Primordial Mushroom Gills=
+Primordial Mushroom Spawn=
+Primordial Mushroom Trunk=
+Primordial Mushroom Trunk Wood=

@@ -6,6 +6,8 @@ local modpath = minetest.get_modpath(minetest.get_current_modname())
 --load companion lua files
 dofile(modpath.."/config.lua")
 
+dofile(modpath.."/node_ids.lua")
+
 dofile(modpath.."/shared.lua")
 dofile(modpath.."/surface_tunnels.lua")
 dofile(modpath.."/level1.lua")

@@ -100,7 +100,6 @@ christmas_holiday_pack.christmas_special_item_pool = {}
         table.insert(christmas_holiday_pack.christmas_special_item_pool, "christmas_holiday_pack:candy_cane_sword")
         table.insert(christmas_holiday_pack.christmas_special_item_pool, "gramophone:vinyl_disc12")
         table.insert(christmas_holiday_pack.christmas_special_item_pool, "gramophone:vinyl_disc13")
-        table.insert(christmas_holiday_pack.christmas_special_item_pool, "magic_mirror:magic_mirror")
 
 
 -- Register Presents (3 tiers: 3 commons, 2 uncommon, 2 special)

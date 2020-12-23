@@ -1,0 +1,9 @@
+# textdomain: subterrane
+
+
+### legacy.lua ###
+
+Dry Dripstone=
+Dry Flowstone=
+Wet Dripstone=
+Wet Flowstone=

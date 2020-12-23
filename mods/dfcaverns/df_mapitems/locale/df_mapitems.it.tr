@@ -1,0 +1,219 @@
+# textdomain: df_mapitems
+
+
+### castle_coral.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral=Castello di Coral
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral Skeleton=Scheletro di corallo del castello
+
+### cave_coral.lua ###
+
+Cave Coral=Grano di caverna
+
+### cave_pearls.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Pearls=Perle di caverna
+
+### crystals_mese.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flawless Mese Block=Impeccabile Mese Block
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flawless Mese Crystal=Cristallo di Mese impeccabile
+
+### crystals_ruby.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Big Red Crystal=Grande cristallo rosso
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Red Crystal=Cristallo rosso gigante
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red Crystal Vein=Vena di cristallo rossa
+
+### crystals_salt.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Luminous Salt Crystal=Cristallo di sale luminoso
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Salty Cobble=Ciottoli salati
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A crystal of salt grown from water that percolated through the depths of the earth, picking up all manner of minerals as it went.=Un cristallo di sale cresciuto dall'acqua che filtrava attraverso le profondità della terra, raccogliendo ogni sorta di minerali mentre procedeva.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A highly aggressive form of lichen that eats into solid rock, turning its upper surfaces rough and a little spongy.=Una forma molto aggressiva di lichene che mangia la roccia solida, rendendo le sue superfici superiori ruvide e un po 'spugnose.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A nasty kelp-like plant that grows in patches on the floor of the Sunless Sea. Its reflective patches draw in the unwary and then its prickly barbs catch and hold small creatures.=Una brutta pianta simile ad alghe che cresce a chiazze sul fondo del Mare senza sole. Le sue macchie riflettenti attirano gli incauti e poi le sue punte spinose catturano e trattengono piccole creature.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A rare form of coral found only deep underground in the Sunless Sea, cave coral grows hanging from the ceilings of flooded caverns.=Una rara forma di corallo che si trova solo nel sottosuolo del Mare senza sole, il corallo delle caverne cresce appeso ai soffitti delle caverne allagate.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Although a strong mineral matrix remains, spongestone has enough organic content that it can be used as soil for farming.=Sebbene rimanga una forte matrice minerale, la spongestone ha un contenuto organico sufficiente da poter essere utilizzata come terreno per l'agricoltura.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Although stalagmites are blunter than the stalactites above them, they can cause extra damage to the unwary caver who falls on them.=Sebbene le stalagmiti siano più smussate delle stalattiti sopra di loro, possono causare danni extra allo speleologo incauto che cade su di loro.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from its aesthetic value this crystal has no particular use.=A parte il suo valore estetico questo cristallo non ha particolari utilizzi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from its aesthetic value this rock has no particular use.=A parte il suo valore estetico questa roccia non ha particolari utilizzi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from the aesthetic beauty of its formations flowstone has no special properties or uses.=A parte la bellezza estetica delle sue formazioni, il flowstone non ha proprietà o usi particolari.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from their aesthetic beauty, cave corals can be harvested for simple building materials.=A parte la loro bellezza estetica, i coralli delle caverne possono essere raccolti per semplici materiali da costruzione.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from their soft glow and beauty, cave pearls have no practical use. Except perhaps as handholds for climbing.=A parte il loro bagliore tenue e la loro bellezza, le perle delle caverne non hanno alcun uso pratico. Tranne forse come appigli per arrampicarsi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Attemping to mine this rock knocks the salt crust away, leaving only base stone.=Il tentativo di estrarre questa roccia spazza via la crosta di sale, lasciando solo la pietra di base.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Castle Coral has little practical use aside from perhaps as a distinctive-looking building material.=Castle Coral ha poco uso pratico a parte forse come materiale da costruzione dall'aspetto distintivo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave moss has no known uses aside from the faint glow it emits. It dies when exposed to bright light sources such as the Sun.=Il muschio delle caverne non ha usi conosciuti a parte il debole bagliore che emette. Muore se esposto a sorgenti luminose intense come il sole.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave moss is technically a form of mold, but fortunately a relatively benign one given its ubiquity. Its fibers form a tough but springy mat over the surface of any organic-rich soil that accumulates deep underground.=Il muschio delle caverne è tecnicamente una forma di muffa, ma fortunatamente relativamente benigna data la sua ubiquità. Le sue fibre formano un tappeto resistente ma elastico sulla superficie di qualsiasi terreno ricco di sostanze organiche che si accumula in profondità nel sottosuolo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Deep in the infernal conditions of the magma sea, over the course of millions of years, mese crystals grow into flawless blocks that glow bright with strange energies.=Nelle profondità delle condizioni infernali del mare di magma, nel corso di milioni di anni, i cristalli di mese crescono in blocchi impeccabili che brillano luminosi di strane energie.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Deep under the surface of the Sunless Sea are the rare and beautiful Castle Corals, so named due to their resemblance to small undersea castles.=In profondità sotto la superficie del Mare senza sole si trovano i rari e bellissimi Castle Corals, così chiamati per la loro somiglianza con i piccoli castelli sottomarini.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Falling onto an icicle is particularly damaging.=Cadere su un ghiacciolo è particolarmente dannoso.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Floor fungus has no known uses. It can penetrate deeply into cobblestone constructions if an infestation gets hold, but it is difficult to transport and is inhibited by light so it hasn't spread beyond the deep caverns.=Il fungo del pavimento non ha usi conosciuti. Può penetrare in profondità nelle costruzioni di ciottoli se un'infestazione si impadronisce, ma è difficile da trasportare ed è inibito dalla luce, quindi non si è diffuso oltre le profonde caverne.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Floor fungus produces a thin, slick film that spreads through the cracks of broken rock. Its ability to subsist on the tiniest traces of nutrients means it's found in relatively harsh underground environments.=Il fungo del pavimento produce una pellicola sottile e liscia che si diffonde attraverso le fessure della roccia frantumata. La sua capacità di sopravvivere alle più piccole tracce di sostanze nutritive significa che si trova in ambienti sotterranei relativamente difficili.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flowstone is a carbonate-rich rock formation deposited by flowing water. It consists of minerals that the water dissolved earlier as it widens cracks and fissures into caves.=Flowstone è una formazione rocciosa ricca di carbonati depositata dall'acqua corrente. È costituito da minerali che l'acqua ha sciolto in precedenza mentre allarga crepe e fessure in grotte.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glistening strings of silk hang from the ceilings of some of the larger caverns, lit by the millions of tiny bioluminescent worms that spun them. Glow worms prey on the insects they lure and entangle with their faux starry sky - and sometimes the occasional bat or other larger flying beast.=Luccicanti fili di seta pendono dai soffitti di alcune delle caverne più grandi, illuminati dai milioni di minuscoli vermi bioluminescenti che li fanno girare. I vermi luminosi predano gli insetti che attirano e intrappolano con il loro finto cielo stellato, e talvolta il pipistrello occasionale o altre bestie volanti più grandi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glow worms can be harvested and used as a source of light but they die when exposed to light significantly brighter than themselves or when immersed in water. A colony of glow worms hung in a hospitable environment will undergo a modest amount of growth, allowing it to be divided and propagated.=I lombrichi possono essere raccolti e usati come fonte di luce, ma muoiono se esposti a una luce significativamente più brillante di loro o quando vengono immersi nell'acqua. Una colonia di lucciole appese in un ambiente ospitale subirà una modesta crescita, che ne consentirà la divisione e la propagazione.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Hoar moss has no known use aside from providing a faint source of light.=Il muschio di Hoar non ha alcun uso noto a parte fornire una debole fonte di luce.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Hoar moss is a strange glowing crust that sometimes forms on the surface of water flowing over ice.=Il muschio è una strana crosta luminosa che a volte si forma sulla superficie dell'acqua che scorre sul ghiaccio.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Ice formed by water dripping slowly into a cold environment, icicles tend to be exceptionally pure and clear.=Ghiaccio formato dall'acqua che gocciola lentamente in un ambiente freddo, i ghiaccioli tendono ad essere eccezionalmente puri e limpidi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Large, dry caverns deep underground are well suited to aeons-long processes that concentrate crystalline substances in their walls. This rock is riddled with veins of the stuff.=Grandi caverne asciutte nel sottosuolo ben si adattano a processi lunghi eoni che concentrano sostanze cristalline nelle loro pareti. Questa roccia è crivellata di vene del materiale.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Monolithic crystals of this size form only over extremely long periods deep underground, in large long-lived cavities that allow them room to grow. Water and the life it hosts tend to disrupt the formation process of these crystals so they're only found in dry environments.=Cristalli monolitici di queste dimensioni si formano solo per periodi estremamente lunghi nel sottosuolo, in grandi cavità longeve che consentono loro di crescere. L'acqua e la vita che ospita tendono a interrompere il processo di formazione di questi cristalli, quindi si trovano solo in ambienti asciutti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Much water has seeped through the cracks in this rock and then quickly evaporated, leaving a crust of salt laced throughout.=Molta acqua è filtrata attraverso le fessure di questa roccia e poi è evaporata rapidamente, lasciando una crosta di sale allacciata.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Organic material accumulates in the enlarged pores of rock rot, but not enough to be considered "soil" in the usable sense.=Il materiale organico si accumula nei pori dilatati della putrefazione della roccia, ma non abbastanza per essere considerato "suolo" nel senso utilizzabile.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pebble fungus grows in soil that is rich enough for farming.=Il fungo di ghiaia cresce in un terreno abbastanza ricco per l'agricoltura.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand scum is a crust of algae that sometimes accumulates on wet sand deep underground, somehow managing to eke out a meager living from the phosphorescent light emitted by other organisms.=La schiuma di sabbia è una crosta di alghe che a volte si accumula sulla sabbia bagnata in profondità nel sottosuolo, riuscendo in qualche modo a sopravvivere a una misera vita dalla luce fosforescente emessa da altri organismi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand scum is useless. You can get sand out of it, at least.=La schiuma di sabbia è inutile. Almeno puoi tirar fuori la sabbia.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Snareweed has no practical use, its fibers disintegrate when they dry.=Snareweed non ha alcun uso pratico, le sue fibre si disintegrano quando si asciugano.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Soil that is rich enough to support gigantic mushrooms can support innumerable smaller ones as well. Pebble fungus is a prolific form of mushroom that covers the soil in small spheroidal fruiting bodies.=Un terreno abbastanza ricco da supportare funghi giganteschi può supportare anche innumerevoli funghi più piccoli. Il fungo di ghiaia è una forma prolifica di fungo che copre il terreno in piccoli corpi fruttiferi sferoidali.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spongestone is the result of advanced rock rot in its ultimate form. The stone has become so riddled with pores and cavities that it's no longer really stone.=Spongestone è il risultato del marciume roccioso avanzato nella sua forma definitiva. La pietra è diventata così piena di pori e cavità che non è più veramente pietra.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Stillworm grows in soil that is rich enough for farming.=Il verme selvatico cresce in un terreno abbastanza ricco per l'agricoltura.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Stillworm is not actually a kind of worm, but a sort of fungus that looks uncannily like pale, motionless earthworms intertwined with the soil.=Il verme morto non è in realtà una specie di verme, ma una specie di fungo che assomiglia stranamente a lombrichi pallidi e immobili intrecciati con il terreno.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The iconic stalactites and stalagmites found in caverns are composed of flowstone (or 'dripstone' in the case of these formations). Moist dripstone is still undergoing growth, whereas dry dripstone is found in 'dead' caverns once the source of water that created them ceases.=Le iconiche stalattiti e stalagmiti trovate nelle caverne sono composte da pietrisco (o "gocciolatoio" nel caso di queste formazioni). La pietra gocciolante umida è ancora in fase di crescita, mentre la pietra gocciolante secca si trova nelle caverne "morte" una volta che la fonte d'acqua che le ha create cessa.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These blocks can be broken down into a large number of mese crystals, but cannot be artificially reassembled.=Questi blocchi possono essere scomposti in un gran numero di cristalli mese, ma non possono essere riassemblati artificialmente.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These nodules are actually calcified bacterial colonies.=Questi noduli sono in realtà colonie batteriche calcificate.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Traces of Mese must have been dissolved by the water as this crystal has an inherent glow to it. Not enough Mese to be useful as a reagent, unfortunately.=Tracce di Mese devono essere state sciolte dall'acqua poiché questo cristallo ha un bagliore intrinseco. Sfortunatamente, non abbastanza Mese per essere utile come reagente.
+
+
+### flowstone.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dry Dripstone=Pietra gocciolante secca
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dry Flowstone=Flowstone secco
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Icicle=Ghiacciolo
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Wet Dripstone=Dripstone bagnato
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Wet Flowstone=Flowstone bagnato
+
+### glow_worms.lua ###
+
+Glow Worms=Vermi luminosi
+
+### ground_cover.lua ###
+
+Cobblestone with Floor Fungus=Ciottoli con funghi del terreno
+Dirt with Cave Moss=Terra con muschio di caverna
+Dirt with Cave Moss and Footprint=Terra con muschio di caverna
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Pebble Fungus=Sporcizia con funghi di ghiaia
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Pebble Fungus and Footprint=Sporcizia con funghi di ghiaia e impronta
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Stillworm=Sporcizia con Stillworm
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Stillworm and Footprint=Sporcizia con Stillworm e Footprint
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Ice with Hoar Moss=Ghiaccio con Hoar Moss
+Rock Rot=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand Scum=Feccia di sabbia
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sand Scum with Footprint=Feccia di sabbia con impronta
+Spongestone=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spongestone with Footprint=Pietra spugnosa con impronta
+
+### snareweed.lua ###
+
+Snareweed=
+
+### veinstone.lua ###
+
+Veinstone=

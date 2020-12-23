@@ -1,0 +1,221 @@
+# textdomain: df_primordial_items
+
+
+### ceiling_fungus.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fungal Lantern=Lanterna fungina primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fungal Lantern Stalk=Gambo di lanterna fungina primordiale
+
+### ceiling_fungus.lua ###
+### fungal_nodes.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fungal Orb=Globo fungino primordiale
+
+### doc.lua ###
+
+A strangely glowing starchy nodule from a plant that grew deeper than any plant has a right to.=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Compared to the behemoths found elsewhere in the deep places of the world, the giant mushrooms of the primordial jungles are on the smaller side - often overwhelmed by the green plants that grow in the mysterious light below. Still, they can become substantial resources.=Rispetto ai behemoth che si trovano altrove nelle profondità del mondo, i funghi giganti delle giungle primordiali sono sul lato più piccolo, spesso sopraffatti dalle piante verdi che crescono nella misteriosa luce sottostante. Tuttavia, possono diventare risorse sostanziali.
+
+Eating this fruit will improve your vitality.=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fibers extracted from gigantic fungal hyphae.=Fibre estratte da gigantesche ife fungine.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungal fibers have infiltrated the ground in a spongy mass, making the soil half mineral and half living matter.=Le fibre fungine si sono infiltrate nel terreno in una massa spugnosa, rendendo il suolo metà minerale e metà materia vivente.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungus in its purest form, these gigantic rope-like hyphae creep over the surface of soil and burrow in to feed wherever nutrients are sensed.=Funghi nella sua forma più pura, queste gigantesche ife simili a corde strisciano sulla superficie del terreno e si insinuano per nutrirsi ovunque vengano percepiti i nutrienti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Ivy is climbable, if it hangs close enough to the ground it can serve as a path between floor and ceiling.=Ivy è scalabile, se pende abbastanza vicino al suolo può fungere da percorso tra il pavimento e il soffitto.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Like wood of the surface world, primordial jungle trees can be chopped and carved as building material or as fuel.=Come il legno del mondo di superficie, gli alberi della giungla primordiale possono essere tagliati e intagliati come materiale da costruzione o come combustibile.
+
+Much energy is contained in this tuber. It tastes surprisingly good, too. You could cook with it but any change in its pure state would only reduce its value.=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Much like a rope, hyphae have fibers inside that can be unraveled and used for a variety of crafts.=Proprio come una corda, le ife hanno fibre all'interno che possono essere svelate e utilizzate per una varietà di mestieri.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Much like the giant mushrooms of higher cavern layers, these can be carved into woody material for use as fuel or for building things. The grain of these primordial mushrooms is knurled.=Proprio come i funghi giganti degli strati superiori delle caverne, questi possono essere scolpiti in materiale legnoso da utilizzare come combustibile o per costruire oggetti. Il chicco di questi funghi primordiali è zigrinato.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Questing fibers of fungal mycelium sometimes erupt from the soil and reach upward, driven by chemical cues to seek out nourishment above. They look a lot like white grass, at a glance.=Le fibre di ricerca del micelio fungino a volte eruttano dal suolo e si allungano verso l'alto, spinte da segnali chimici a cercare nutrimento sopra. Assomigliano molto all'erba bianca, a prima vista.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Some fronds of primordial jungle trees also become host to the phosphorescent fungus that creeps through cracks in the bark.=Alcune fronde di alberi primordiali della giungla diventano anche ospiti del fungo fosforescente che si insinua attraverso le fessure della corteccia.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Somewhere above an enormous plant has wedged its roots down through the rock and emerged from the ceiling of another cavern.=Da qualche parte sopra un'enorme pianta ha incuneato le sue radici nella roccia ed è emersa dal soffitto di un'altra caverna.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tangled weaves of ivy hang from the ceiling where there are wide enough gaps between the bright sources of light.=Intrecci aggrovigliati di edera pendono dal soffitto dove ci sono spazi abbastanza ampi tra le sorgenti luminose luminose.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cracks in the bark of some primordial jungle trees become host to phosphorescent veins of symbiotic fungus.=Le crepe nella corteccia di alcuni alberi primordiali della giungla ospitano vene fosforescenti di funghi simbiotici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The dark-leaved ferns of the primordial jungle harken back to an earlier era of life in the world.=Le felci dalle foglie scure della giungla primordiale rimandano a un'era precedente della vita nel mondo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The glowing bark fungus doesn't extend into the wood of the trunk, resulting in surprisingly mundane building material when hewn.=Il fungo della corteccia incandescente non si estende nel legno del tronco, risultando in materiale da costruzione sorprendentemente banale quando viene tagliato.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The gnarled interwoven root-like foundations of this plant material is not useful as building material, but can serve as a fuel source.=Le fondamenta nodose intrecciate simili a radici di questo materiale vegetale non sono utili come materiale da costruzione, ma possono servire come fonte di combustibile.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The grandest of the great mushroom species can be found in the deepest primordial caverns. Their broad caps have hanging gills.=La più grande delle grandi specie di funghi si trova nelle più profonde caverne primordiali. I loro berretti larghi hanno branchie pendenti.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The large woody plants of the primordial jungle are similar in appearance to the jungle trees of the surface, but are a result of convergent evolution from ancient cycad plants toward a common form.=Le grandi piante legnose della giungla primordiale sono simili nell'aspetto agli alberi della giungla della superficie, ma sono il risultato dell'evoluzione convergente dalle antiche piante delle Cicade verso una forma comune.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The soft flesh of these large mushrooms is much less woody than other giant mushrooms, making it ill-suited to structural use. This makes it rather more nutritious, however.=La polpa morbida di questi grandi funghi è molto meno legnosa di altri funghi giganti, rendendola poco adatta all'uso strutturale. Tuttavia, questo lo rende un po 'più nutriente.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The soil of the primordial jungle is rife with strange life at every scale.=Il suolo della giungla primordiale è pieno di strane forme di vita ad ogni scala.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The steady light and unchanging growing conditions of the primordial caverns have led to great mountainous masses of plant material growing in particularly fertile spots, hardly identifiable as individual organisms.=La luce costante e le condizioni di crescita immutate delle caverne primordiali hanno portato a grandi masse montuose di materiale vegetale che crescono in punti particolarmente fertili, difficilmente identificabili come singoli organismi.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The still air of these ancient caverns have allowed ferns to grow to prodigious sizes, where storms and rain would normally tear their weaker fronds off on the surface of the world.=L'aria immobile di queste antiche caverne ha permesso alle felci di raggiungere dimensioni prodigiose, dove le tempeste e la pioggia normalmente strapperebbero le loro fronde più deboli sulla superficie del mondo.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These fibrous plants that grow in the deep appear similar to grass at a glance, but they are more closely related to horsetails - a form of vegetation from before the advent of modern plant forms. Ironically, pale cave wheat is more kin to surface grass than this is.=Queste piante fibrose che crescono in profondità sembrano a prima vista simili all'erba, ma sono più strettamente imparentate con gli equiseti, una forma di vegetazione antecedente all'avvento delle moderne forme vegetali. Ironia della sorte, il grano chiaro delle caverne è più simile all'erba in superficie di quanto non lo sia.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These hanging roots are climbable.=Queste radici pendenti sono scalabili.
+
+This strange fruit from the depths has absorbed healthful energies.=
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When a fern grows to such sizes its stem becomes dense enough to be used as a form of wood.=Quando una felce raggiunge tali dimensioni, il suo gambo diventa abbastanza denso da essere usato come una forma di legno.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When left uncultivated mycelial soil will sprout all manner of strange wild fungi.=Se lasciato incolto il terreno miceliale germoglierà ogni sorta di strani funghi selvatici.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When left uncultivated primordial jungle soil will sprout all manner of strange wild plants.=Se lasciato incolto, il terreno della giungla primordiale germoglierà ogni sorta di strane piante selvatiche.
+
+
+### edibles.lua ###
+
+Glowtato=
+Primordial Fruit=
+
+### fungal_nodes.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Primordial Mycelium=Sporcizia con micelio primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt with Primordial Mycelium and Footprint=Sporcizia con micelio primordiale e impronta
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fungal Grass=Erba fungina primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fungal Pod=Capsula Fungina Primordiale
+
+### giant_fern.lua ###
+
+Fern Wood=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Fern Leaves=Foglie di felce gigante
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Fern Sapling=Alberello di felce gigante
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Fern Stem=Fusto di felce gigante
+
+### giant_mycelium.lua ###
+
+Giant Hypha=
+Giant Hypha Apical Meristem=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Giant Mycelial Fibers=Fibre miceliali giganti
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mycelial thread=Filo miceliale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Rooted Giant Hypha=Hypha gigante radicato
+
+### jungle_mushroom.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dark Jungle Mushroom Cap=Cappello a fungo della giungla oscura
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Diced Mushroom=Funghi a cubetti
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pale Jungle Mushroom Cap=Cappello a fungo della giungla pallido
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Mushroom Sapling=Alberello di funghi della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Mushroom Trunk=Tronco di funghi della giungla primordiale
+
+### jungle_nodes.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt With Primordial Jungle Grass=Sporcizia Con Erba Primordiale Della Giungla
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dirt With Primordial Jungle Grass and Footprint=Sporcizia con erba della giungla primordiale e impronta
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Large Primordial Jungle Mushroom=Grande fungo della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Packed Primordial Jungle Roots=Radici della giungla primordiali imballate
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Fern=Felce primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Flower=Fiore primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Grass=Erba della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Ivy=Edera della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Mushroom=Fungo della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Pod=Capsula della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Root=Radice della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Roots=Radici della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Thorns=Spine della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Plant Matter=Materia vegetale primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Plant Matter with Footprint=Materia vegetale primordiale con impronta
+
+### jungle_tree.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Mossy Primordial Jungle Tree=Albero della giungla primordiale muschioso
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Phosphorescent Primordial Jungle Tree=Albero della giungla primordiale fosforescente
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Phosphorescent Primordial Jungle Tree Leaves=Foglie di albero della giungla primordiale fosforescente
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Tree=Albero della giungla primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Tree Leaves=Foglie primordiali dell'albero della giungla
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Jungle Tree Sapling=Alberello dell'albero della giungla primordiale
+
+### primordial_mushroom.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Glowing Primordial Mushroom Gills=Incandescente branchie di funghi primordiali
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Cap Wood=Cap legno primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Mushroom Cap=Cappello del fungo primordiale
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Mushroom Gills=Branchie di funghi primordiali
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Mushroom Spawn=Spawn dei Funghi Primordiali
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Mushroom Trunk=Tronco di funghi primordiali
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Primordial Mushroom Trunk Wood=Tronco di funghi primordiali in legno

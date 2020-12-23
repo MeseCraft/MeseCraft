@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local dimple_grow_time = df_farming.config.plant_growth_time * df_farming.config.dimple_cup_delay_multiplier / 4
 
@@ -19,7 +17,7 @@ local register_dimple_cup = function(number)
 		is_ground_content = false,
 		buildable_to = true,
 		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, color_blue = 1, light_sensitive_fungus = 11, flower = 1},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
         selection_box = {
             type = "fixed",
             fixed = {

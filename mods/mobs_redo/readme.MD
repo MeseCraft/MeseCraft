@@ -23,6 +23,7 @@ Lucky Blocks: 9
 
 
 Changelog:
+- 1.54 - Simplified animal breeding function, added editable settings (thanks Wuzzy), Child mobs now take 20 mins to grow up, reverted to simple mob spawning with setting to use area checks, on_flop added, air_damage added.
 - 1.53 - Added 'on_map_load' settings to mobs:spawn so that mobs will only spawn when new areas of map are loaded.
 - 1.52 - Added 'mob_active_limit' in settings to set number of mobs in game,
 (default is 0 for unlimited), removed {immortal} from mob armor, fluid viscocity slows mobs

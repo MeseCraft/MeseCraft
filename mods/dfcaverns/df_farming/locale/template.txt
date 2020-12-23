@@ -1,0 +1,152 @@
+# textdomain: df_farming
+
+
+### cave_wheat.lua ###
+
+Cave Straw=
+Cave Wheat=
+Cave Wheat Flour=
+Cave Wheat Seed=
+Dwarven Bread=
+Flattened Cave Wheat=
+
+### cooking.lua ###
+
+Cave Wheat Flour Biscuit=
+Cave Wheat Flour Bun=
+Cave Wheat Flour Pancake=
+Cave Wheat Seed Loaf=
+Cave Wheat Seed Puffs=
+Cave Wheat Seed Risotto=
+Dimple Cup Spore Flatbread=
+Dimple Cup Spore Roll=
+Dimple Cup Spore Scone=
+Dwarven Syrup Delight=
+Dwarven Syrup Jellies=
+Dwarven Syrup Taffy=
+Pig Tail Spore Casserole=
+Pig Tail Spore Sandwich=
+Pig Tail Spore Tofu=
+Plump Helmet Mince=
+Plump Helmet Roast=
+Plump Helmet Spawn Jambalaya=
+Plump Helmet Spawn Soup=
+Plump Helmet Sprout Stew=
+Plump Helmet Stalk Sausage=
+Quarry Bush Leaf Croissant=
+Quarry Bush Leaf Spicy Bun=
+Rock Nut Bread=
+Rock Nut Cake=
+Rock Nut Cookie=
+Stuffed Quarry Bush Leaf=
+Sweet Pod Spore Brule=
+Sweet Pod Spore Dumplings=
+Sweet Pod Spore Single Crust Pie=
+Sweet Pod Sugar Cookie=
+Sweet Pod Sugar Gingerbread=
+Sweet Pod Sugar Roll=
+
+### dimple_cup.lua ###
+
+Dimple Cup=
+Dimple Cup Spores=
+
+### doc.lua ###
+
+A crafting item that can be woven into textiles and other similar items.=
+
+A meal made from the admixture of two ingredients, it keeps well but are not a rich source of nutrients.=
+
+A meal made from three ingredients mixed together. They're more wholesome, packing more nutrition into a single serving.=
+
+A rare breed of fungus from deep underground that produces a bushy cluster of rumpled gray 'blades'. The biological function of these blades is not known, as quarry bushes reproduce via hard-shelled nodules that grow down at the blade's base.=
+
+A species of lavender mushroom ubiquitous in caves that is most notable for the soft bioluminescence it produces.=
+
+Bread baked from cave wheat flour is tough and durable. A useful ration for long expeditions.=
+
+Cave wheat is literally a breed of grain-producing grass that somehow lost its ability to photosynthesize and adapted to a more fungal style of life.=
+
+Cave wheat seed ground into a powder suitable for cooking.=
+Crushing them in a bucket squeezes out a flavorful syrup.=
+
+Dead fungus quickly decays into an unrecognizable mess. It can be used as weak fuel or terrible decor.=
+
+Dimple cups can be dried, ground, and processed to extract a deep blue dye.=
+
+Four finely minced ingredients combine into a fine, full meal.=
+
+It's not tasty, but it keeps you going.=
+
+Like its surface cousin, cave wheat produces grain that can be ground into a form of flour.=
+
+Pig tail stalks can be processed to extract fibers useful as thread.=
+
+Pig tails are a fibrous fungal growth that's most notable for its twisting stalks. In a mature stand of pig tails the helical stalks intertwine into a dense mesh.=
+
+Plump helmets are a thick, fleshy mushroom that's edible picked straight from the ground. They form a staple diet for both lost cave explorers and the fauna that preys on them.=
+
+Quarry bush leaves and nodules (called 'rock nuts') can be harvested and are edible with processing.=
+
+Quarry bush leaves can be used as an ingredient in foodstuffs.=
+
+Sweet pod sugar has a pink tint to it.=
+Sweet pod syrup is thick and flavorful.=
+
+Sweet pods grow in rich soil, and once they reach maturity they draw that supply of nutrients up to concentrate it in their fruiting bodies. They turn bright red when ripe and can be processed in a variety of ways to extract the sugars they contain.=
+
+The distinctive midnight-blue caps of these mushrooms are inverted, exposing their gills to any breeze that might pass, and have dimpled edges that give them their name.=
+
+The dried blades of a quarry bush add a welcome zing to recipes containing otherwise-bland subterranean foodstuffs, but they're too spicy to be eaten on their own.=
+
+This mushroom is inedible but continues producing modest levels of light long after it's picked.=
+
+Threads of pig tail fiber.=
+
+Too strong and thick to drink straight, sweet pod syrup is useful in food recipes.=
+
+Too sweet to be eaten directly, it makes an excellent ingredient in food recipes.=
+
+Whatever this fungus was in life, it is now dead.=
+
+When baked alone it forms an edible bread, but it combines well with other more flavorful ingredients.=
+
+When dried in an oven, sweet pods produce a granular sugary substance.=
+
+When milled, sweet pods produce a granular sugary substance.=
+
+While they can be eaten fresh, they can be monotonous fare and are perhaps better appreciated as part of a more complex prepared dish.=
+
+
+### pig_tail.lua ###
+
+Flattened Pig Tail=
+Pig Tail=
+Pig Tail Spore=
+Pig tail thread=
+
+### plants.lua ###
+
+Cavern Fungi=
+Dead Fungus=
+
+### plump_helmet.lua ###
+
+Plump Helmet=
+Plump Helmet Spawn=
+
+### quarry_bush.lua ###
+
+Quarry Bush=
+Quarry Bush Leaves=
+Rock Nuts=
+
+### sweet_pod.lua ###
+
+Dwarven Syrup Bucket=
+Dwarven Syrup Source=
+Flowing Dwarven Syrup=
+Sweet Pod=
+Sweet Pod Spores=
+Sweet Pod Sugar=
+Sweet Pods=

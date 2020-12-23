@@ -1,0 +1,12 @@
+# textdomain: oil
+
+
+### init.lua ###
+
+Buckets of oil can be used as fuel.=
+Flowing Oil=
+
+Liquid hydrocarbons formed from the detritus of long dead plants and animals processed by heat and pressure deep within the earth.=
+
+Oil=
+Oil Bucket=

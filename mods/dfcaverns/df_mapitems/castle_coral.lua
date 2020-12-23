@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_mapitems.S
 
 minetest.register_node("df_mapitems:castle_coral", {
 	description = S("Castle Coral"),
@@ -19,7 +17,7 @@ minetest.register_node("df_mapitems:castle_coral", {
 	drop = "df_mapitems:castle_coral_skeleton",
 	paramtype = "light",
 	groups = {cracky=2,},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = df_mapitems.sounds.stone,
 })
 
 minetest.register_node("df_mapitems:castle_coral_skeleton", {
@@ -27,24 +25,21 @@ minetest.register_node("df_mapitems:castle_coral_skeleton", {
 	_doc_items_longdesc = df_mapitems.doc.castle_coral_desc,
 	_doc_items_usagehelp = df_mapitems.doc.castle_coral_usage,
 	tiles = {
-		"default_coral_skeleton.png",
-		"default_coral_skeleton.png",
-		"default_coral_skeleton.png",
-		"default_coral_skeleton.png",
+		df_mapitems.texture.coral_skeleton
 	},
 	drawtype = "mesh",
 	mesh = "octagonal_coral.obj",
 	paramtype = "light",
 	is_ground_content = false,
 	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
+	sounds = df_mapitems.sounds.stone,
 })
 
 local c_coral = minetest.get_content_id("df_mapitems:castle_coral")
 local c_coral_skeleton = minetest.get_content_id("df_mapitems:castle_coral_skeleton")
-
-local c_stone = minetest.get_content_id("default:stone")
-local c_water = minetest.get_content_id("default:water_source")
+ 
+local c_stone = df_mapitems.node_id.stone
+local c_water = df_mapitems.node_id.water
 
 df_mapitems.spawn_castle_coral = function(area, data, vi, iterations)
 	local run = math.random(2,4)

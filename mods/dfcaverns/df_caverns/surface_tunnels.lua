@@ -3,8 +3,8 @@
 local y_max = 200
 local y_min = df_caverns.config.ymax
 
-local c_stone = minetest.get_content_id("default:stone")
-local c_air = minetest.get_content_id("air")
+local c_stone = df_caverns.node_id.stone
+local c_air = df_caverns.node_id.air
 
 minetest.register_on_generated(function(minp, maxp, seed)
 	--if out of range of cave definition limits, abort

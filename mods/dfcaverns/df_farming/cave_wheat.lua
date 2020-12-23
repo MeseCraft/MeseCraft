@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_farming.S
 
 local wheat_grow_time = df_farming.config.plant_growth_time * df_farming.config.cave_wheat_delay_multiplier / 8
 
@@ -21,7 +19,7 @@ local register_cave_wheat = function(number)
 		buildable_to = true,
 		floodable = true,
 		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
         selection_box = {
             type = "fixed",
             fixed = {
@@ -121,6 +119,7 @@ minetest.register_craftitem("df_farming:cave_bread", {
 	inventory_image = "dfcaverns_prepared_food13x16.png",
 	sound = {eat = {name = "df_farming_chomp_crunch", gain = 1.0}},
 	on_use = minetest.item_eat(5),
+	_hunger_ng = {satiates = 5},
 	groups = {flammable = 2, food = 5},
 })
 
@@ -166,7 +165,7 @@ minetest.register_node("df_farming:cave_straw", {
 	tiles = {"dfcaverns_cave_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4, fall_damage_add_percent=-30, straw=1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_farming.sounds.leaves,
 })
 
 minetest.register_craft({
@@ -189,7 +188,7 @@ minetest.register_craft({
 ---------
 -- Trample support
 
-if minetest.get_modpath("trail") and trail and trail.register_trample_node then	
+if minetest.get_modpath("footprints") then
 	minetest.register_node("df_farming:wheat_trampled", {
 		description = S("Flattened Cave Wheat"),
 		tiles = {"dfcaverns_cave_wheat_flattened.png"},
@@ -206,22 +205,22 @@ if minetest.get_modpath("trail") and trail and trail.register_trample_node then
 		},
 		groups = {snappy = 3, flammable = 2, attached_node = 1},
 		drop = "",
-		sounds = default.node_sound_leaves_defaults(),
+		sounds = df_farming.sounds.leaves,
 	})
 	
-	trail.register_trample_node("df_farming:cave_wheat_5", {
+	footprints.register_trample_node("df_farming:cave_wheat_5", {
 		trampled_node_name = "df_farming:wheat_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:cave_wheat_6", {
+	footprints.register_trample_node("df_farming:cave_wheat_6", {
 		trampled_node_name = "df_farming:wheat_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:cave_wheat_7", {
+	footprints.register_trample_node("df_farming:cave_wheat_7", {
 		trampled_node_name = "df_farming:wheat_trampled",
 		randomize_trampled_param2 = true,
 	})
-	trail.register_trample_node("df_farming:cave_wheat_8", {
+	footprints.register_trample_node("df_farming:cave_wheat_8", {
 		trampled_node_name = "df_farming:wheat_trampled",
 		randomize_trampled_param2 = true,
 	})

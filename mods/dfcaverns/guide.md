@@ -200,11 +200,11 @@ The Magma Sea is not without its treasures, however. In the most infernal region
 
 ![There are older and fouler things than orcs in the deep places of the world](./df_caverns/screenshots/underworld.jpg)
 
-The foundations of the world lie at -3100 meters, under a default configuration. The diggable rock of the world ends at a rippling layer of invulnerable Slade, a material of unparalleled density. There is a cavern layer at the seam between rock and Slade, however, as if the earth itself was reluctant to touch the strange matter below. The crevices of the ceiling have strange glowing rocks in them, producing a surprisingly bright ambience. Don't attempt to disturb those rocks.
+The foundations of the world lie at -3100 meters, under a default configuration. The diggable rock of the world ends at a rippling layer of invulnerable Slade, a material of unparalleled density. There is a cavern layer at the seam between rock and Slade, however, as if the earth itself was reluctant to touch the strange matter below. The crevices of the ceiling have strange glowing rocks in them, producing a surprisingly bright ambiance. Don't attempt to disturb those rocks.
 
 There is no native life in the Underworld. It appears there once _was_, however. Occasional clusters of vacant buildings can be found, impossibly crafted from bricks of Slade and empty of any furnishings. Around those clusters of vacant buildings are fields filled with sealed pits lined with flawless Slade blocks. It is unclear whether these pits are as vacant as the buildings, though. The seals capping them are engraved with ancient words in lost tongues, but one phrase can be translated from the oldest known languages: "This Place is Not a Place of Honor."
 
-Just as ominously, the ancient bones of long-dead warriors are scattered amidst the buildings. They contain loot for those willing to risk disturbing them. There are no traces of who - or what - they died fighting.
+Just as ominously, the ancient bones of long-dead warriors are scattered amidst the buildings. They contain loot for those willing to risk disturbing them. There are no traces of who - or what - they died fighting, but their ancient sentinels still lurk nearby to guard them.
 
 ![Glowing pit](./df_caverns/screenshots/glowing_pit.jpg)
 

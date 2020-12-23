@@ -1,4 +1,5 @@
 [Cavern dimensions]
+
 #Note that this doesn't guarantee caverns of this setting's size. This setting
 #affects the scale of features in the perlin noise that is used to build caverns.
 #Most caverns will be smaller than this (and a few might be larger)
@@ -17,6 +18,7 @@ dfcaverns_sunless_sea_threshold (Cavern threshold for sunless sea) float 0.4 0.0
 dfcaverns_tunnel_flooding_threshold (Tunnel flooding threshold) float 0.25 0.0 1.0
 
 [Cavern depth borders]
+
 #maximum boundary for cavern depths are most efficient when they fit the formula (x*80-32-1)
 #where x is an integer. That way you don't get map blocks that straddle two cavern layers.
 dfcaverns_ymax (Upper limit of level 1) int -193
@@ -28,6 +30,7 @@ dfcaverns_level3_min (Upper limit of the sunless sea) int -2112
 dfcaverns_sunless_sea_min (Lower limit of the sunless sea) int -2512
 
 [Lower Levels]
+
 dfcaverns_enable_oil_sea (Generate oil sea) bool true
 dfcaverns_oil_sea_level (Oil sea level) int -2700
 
@@ -47,7 +50,6 @@ dfcaverns_underworld_hud_requires_item (Require an item to view waypoints) bool 
 #specify "group:groupname" here. Leave it blank to default to map:mapping_kit.
 dfcaverns_underworld_hud_item_required (Specify the item or group required) string map:mapping_kit
 
-
 dfcaverns_show_pits_in_hud (Show pit locations in HUD) bool true
 dfcaverns_pit_discovery_range (Pit discovery range) int 60
 dfcaverns_pit_visibility_range (Pit visibility range) int 500
@@ -61,6 +63,7 @@ dfcaverns_ruin_discovery_range (Ruin discovery range) int 40
 dfcaverns_ruin_visibility_range (Ruin visibility range) int 250
 
 [Primordial]
+
 dfcaverns_enable_primordial (Generate primordial caverns) bool true
 dfcaverns_primordial_max (Upper limit of primordial caverns) int -3393
 dfcaverns_primordial_min (Lower limit of primordial caverns) int -4032

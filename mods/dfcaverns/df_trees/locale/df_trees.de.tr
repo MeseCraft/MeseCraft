@@ -1,0 +1,233 @@
+# textdomain: df_trees
+
+
+### black_cap.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Black Cap=Schwarze Kappe
+Black Cap Gills=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Black Cap Planks=Black Cap Planken
+Black Cap Spawn=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Black Cap Stem=Schwarzer Kappenstiel
+
+### blood_thorn.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Blood Thorn Planks=Blutdornbretter
+Blood Thorn Spike=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Blood Thorn Stem=Blutdornstamm
+Dead Blood Thorn Spike=
+Dead Blood Thorn Stem=
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A torchspine alternates between active and quiescent phases and emits dim light when active. They can be harvested for torches, and their embers sprout into new torchspines when placed on flammable surfaces.=Eine Fackel wechselt zwischen aktiver und ruhender Phase und gibt schwaches Licht ab, wenn sie aktiv ist. Sie können für Fackeln geerntet werden, und ihre Glut sprießt auf brennbaren Oberflächen zu neuen Fackelstacheln.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Aside from the artistic applications of its particularly dark color, black cap wood is a long-burning fuel source that's as good as coal for some applications. Black cap gills are oily and make for excellent torch fuel.=Abgesehen von den künstlerischen Anwendungen seiner besonders dunklen Farbe ist Schwarzkappenholz eine langbrennende Brennstoffquelle, die für einige Anwendungen so gut wie Kohle ist. Kiemen mit schwarzer Kappe sind ölig und sorgen für hervorragenden Brennerkraftstoff.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Blood thorns are the most vicious of underground flora, as befits their harsh environments. Found only in hot, dry caverns with sandy soil far from the surface world's organic bounty, blood thorns seek to supplement their nutrient supply with wickedly barbed hollow spines that actively drain fluids from whatever stray plant or creature they might impale.=Blutdornen sind die bösartigste unterirdische Flora, wie es sich für ihre raue Umgebung gehört. Blutdornen kommen nur in heißen, trockenen Höhlen mit sandigem Boden vor, weit entfernt von der organischen Prämie der Oberflächenwelt. Sie versuchen, ihre Nährstoffversorgung durch boshafte, hohle Stacheln zu ergänzen, die aktiv Flüssigkeiten aus streunenden Pflanzen oder Kreaturen ablassen, die sie aufspießen könnten.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cyan Spindlestems are a sign of both copper and iron deposits nearby. Their glowing symbiotes can be extracted as a long-lived light source.=Cyan-Spindelstämme sind ein Zeichen für Kupfer- und Eisenvorkommen in der Nähe. Ihre leuchtenden Symbioten können als langlebige Lichtquelle extrahiert werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungiwood stalk is strong and very fine-grained, making smooth yellow-tinted lumber when cut. Fungiwood shelf is too fragile to be much use as anything other than fuel.=Der Pilzholzstiel ist stark und sehr feinkörnig, wodurch beim Schneiden glattes, gelb getöntes Holz entsteht. Das Pilzholzregal ist zu zerbrechlich, um als etwas anderes als Kraftstoff verwendet zu werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Goblin cap stem and cap material can be cut into wood of two different hues, a subdued cream and a bright orange-red.=Goblin-Kappenstiel und Kappenmaterial können in Holz in zwei verschiedenen Farbtönen geschnitten werden, einer gedämpften Creme und einem leuchtenden Orangerot.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Golden Spindlestems are a sign of rare and magical mineral deposits nearby. Their glowing symbiotes can be extracted as a strong and long-lived light source.=Goldene Spindelstämme sind ein Zeichen für seltene und magische Mineralvorkommen in der Nähe. Ihre leuchtenden Symbioten können als starke und langlebige Lichtquelle extrahiert werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Green Spindlestems are a sign of nearby copper deposits. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is not strong.=Grüne Spindelstämme sind ein Zeichen für nahegelegene Kupfervorkommen. Ihre leuchtenden Symbioten können als langlebige Lichtquelle extrahiert werden, obwohl das Leuchten nicht stark ist.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living blood thorn spikes remain harmful to creatures that touch them. If killed by bright light, they cause only passive damage to creatures that fall on them (as one would expect from an enormous spike).=Lebende Blutdornspitzen bleiben für Kreaturen, die sie berühren, schädlich. Wenn sie durch helles Licht getötet werden, verursachen sie nur passiven Schaden an Kreaturen, die auf sie fallen (wie man es von einer enormen Spitze erwarten würde).
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a cyan Spindlestem.=Lebender Extrakt aus der Kappe eines cyanfarbenen Spindlestems.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a green Spindlestem.=Lebender Extrakt aus der Kappe eines grünen Spindlestems.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a red Spindlestem.=Lebender Extrakt aus der Kappe eines roten Spindlestems.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Living extract from the cap of a yellow Spindlestem.=Lebender Extrakt aus der Kappe eines gelben Spindlestems.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Massive but squat, mature goblin cap mushrooms are the size of small cottages.=Massive, aber gedrungene, reife Koboldkappenpilze haben die Größe kleiner Hütten.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Netherkappenholz ist nicht nur ein wunderschöner blauer Farbton, sondern behält auch die seltsame Wärmeableitungsfähigkeit lebender Netherkappen bei und kann in der Nähe befindliche Wasserfeststoffe schnell einfrieren.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=Netherkappen haben eine ungewöhnliche Biochemie, die es ihnen ermöglicht, unter Verstoß gegen alle bekannten Gesetze der Thermodynamik von Umgebungswärme zu leben. Sie wachsen tief unter der Erde in kalten, eisigen Höhlen, die auf jeden Fall vulkanisch sein sollten.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin Caps. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is weak.=Rote Spindelstämme sind ein Zeichen für nahegelegene Eisenvorkommen - oder vielleicht Goblin Caps. Ihre leuchtenden Symbioten können als langlebige Lichtquelle extrahiert werden, obwohl das Leuchten schwach ist.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spindlestems are too big to easily pluck by hand but too small to be called a proper tree. Nevertheless, they are a common and useful resource for underground travelers - particularly their glowing caps.=Spindelstämme sind zu groß, um leicht von Hand gepflückt zu werden, aber zu klein, um als richtiger Baum bezeichnet zu werden. Trotzdem sind sie eine häufige und nützliche Ressource für U-Bahn-Reisende - insbesondere für ihre leuchtenden Kappen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore tree trunks can be cut into pale woody planks. The branching fibers and fruiting bodies are only useful as fuel.=Sporenbaumstämme können in blasse Holzbretter geschnitten werden. Die verzweigten Fasern und Fruchtkörper sind nur als Brennstoff nützlich.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore trees have a sturdy 'trunk' that supports a large spongy mesh of branching fibers, with embedded fruiting bodies that produce a copious amount of spores that gently rain down around the spore tree's base.=Sporenbäume haben einen stabilen "Stamm", der ein großes schwammiges Netz aus verzweigten Fasern trägt, mit eingebetteten Fruchtkörpern, die eine große Menge von Sporen produzieren, die sanft um die Basis des Sporenbaums regnen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a brilliant yellow due to symbiotic microorganisms.=Die Kappe eines Spindlestems, die aufgrund symbiotischer Mikroorganismen leuchtend gelb leuchtet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a soft green due to symbiotic microorganisms.=Die Kappe eines Spindlestems, die aufgrund symbiotischer Mikroorganismen sanft grün leuchtet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a strong cyan due to symbiotic microorganisms.=Die Kappe eines Spindlestems, die aufgrund symbiotischer Mikroorganismen stark cyan leuchtet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, glowing a weak red due to symbiotic microorganisms.=Die Kappe eines Spindlestems, die aufgrund symbiotischer Mikroorganismen schwach rot leuchtet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The cap of a Spindlestem, uncontaminated by any symbiotic luminescent microorganisms.=Die Kappe eines Spindlestems, die nicht durch symbiotische lumineszierende Mikroorganismen kontaminiert ist.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The dense black wood of these mushrooms is heavy and hard to work with, and has few remarkable properties.=Das dichte schwarze Holz dieser Pilze ist schwer und schwer zu verarbeiten und hat nur wenige bemerkenswerte Eigenschaften.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The king of the fungi, tower cap mushrooms grow to immense proportions.=Der König der Pilze, Turmkappenpilze, wachsen zu immensen Ausmaßen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The spikes of a blood thorn can actually remain living long after they're severed from their parent stalk, a testament to their tenacity. As long as they remain alive they will continue to actively drain anything they puncture, though they don't grow.=Die Stacheln eines Blutdorns können tatsächlich noch lange leben, nachdem sie von ihrem Elternstiel abgetrennt wurden, ein Beweis für ihre Hartnäckigkeit. Solange sie am Leben bleiben, werden sie weiterhin aktiv alles ablassen, was sie durchstechen, obwohl sie nicht wachsen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The stem of a Spindlestem is surprisingly sturdy, and despite their thinness they can grow quite tall. They can be used as a wood substitute in many crafting recipes.=Der Stiel eines Spindlestems ist überraschend robust und kann trotz ihrer Dünnheit ziemlich groß werden. Sie können als Holzersatz in vielen Handwerksrezepten verwendet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The trunk of a tunnel tube can be cut and processed to produce plywood-like material.=Der Stamm eines Tunnelrohrs kann geschnitten und zu sperrholzartigem Material verarbeitet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The trunk of a tunnel tube can be cut and processed to produce plywood-like material. The fruiting body accumulates high-energy compounds that, when ignited, produce a vigorous detonation - a unique adaptation for spreading tunnel tube spawn through the still cavern air.=Der Stamm eines Tunnelrohrs kann geschnitten und zu sperrholzartigem Material verarbeitet werden. Der Fruchtkörper sammelt hochenergetische Verbindungen an, die beim Zünden eine heftige Detonation hervorrufen - eine einzigartige Anpassung für die Ausbreitung von Tunnelrohrlaich in der stillen Höhlenluft.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+These things are useless except as weak fuel for a fire.=Diese Dinge sind nutzlos, außer als schwacher Brennstoff für ein Feuer.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Thin, irregular layers of spore-producing 'shelves' surround the strong central stalk of the mighty Fungiwood.=Dünne, unregelmäßige Schichten sporenproduzierender "Regale" umgeben den starken Mittelstiel des mächtigen Pilzwaldes.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspines are strange organic formations that are alive only in a technical sense. They "feed" on volatile flammable vapors vented up through their structure, growing from combustion residue deposited at their tips.=Fackelstacheln sind seltsame organische Formationen, die nur im technischen Sinne leben. Sie "ernähren" sich von flüchtigen brennbaren Dämpfen, die durch ihre Struktur entweichen und aus Verbrennungsrückständen wachsen, die sich an ihren Spitzen ablagern.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower caps are an excellent source of wood.=Turmkappen sind eine ausgezeichnete Holzquelle.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tunnel tubes are hollow, curved fungal growths that support a fruiting body.=Tunnelrohre sind hohle, gekrümmte Pilzwucherungen, die einen Fruchtkörper stützen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When harvested, the central stalk of a blood thorn can be cut into planks and used as wood. It has a purple-red hue that may or may not appeal, depending on one's artistic tastes.=Bei der Ernte kann der zentrale Stiel eines Blutdorns in Bretter geschnitten und als Holz verwendet werden. Es hat einen purpurroten Farbton, der je nach künstlerischem Geschmack ansprechen kann oder nicht.
+
+
+### fungiwood.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungiwood Planks=Fungiwood Planken
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Fungiwood Shelf=Fungiwood Regal
+Fungiwood Spawn=
+Fungiwood Stem=
+
+### goblin_cap.lua ###
+
+Goblin Cap=
+Goblin Cap Gills=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Goblin Cap Planks=Goblin Cap Planken
+Goblin Cap Spawn=
+Goblin Cap Stem=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Goblin Cap Stem Planks=Goblin Cap Stem Planken
+
+### init.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Slab=@1 Platte
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Stair=@1 Treppe
+
+### nether_cap.lua ###
+
+Nether Cap=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether Cap Gills=Nether Cap Kiemen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether Cap Planks=Nether Cap Planken
+Nether Cap Spawn=
+Nether Cap Stem=
+
+### spindlestem.lua ###
+
+@1 Spindlestem Cap=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Spindlestem Extract=@1 Spindlestem-Extrakt
+Cyan=
+Golden=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Green=Grün
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Red=Rot
+Spindlestem=
+Spindlestem Spawn=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+White=Weiß
+
+### spore_tree.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Fruiting Body=Sporenbaum-Fruchtkörper
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Hyphae=Sporenbaumhyphen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Ladder=Sporenbaumleiter
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Planks=Sporenbaumbretter
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Spawn=Sporenbaumlaich
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Spore Tree Stem=Sporenbaumstamm
+
+### torchspine.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspine=Fackelrücken
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspine Ember=Fackelglut
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Torchspine Tip=Fackelspitze
+
+### tower_cap.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower Cap=Turmkappe
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower Cap Gills=Tower Cap Kiemen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower Cap Planks=Turmkappenbretter
+Tower Cap Spawn=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tower Cap Stem=Turmkappenstiel
+
+### tunnel_tube.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tunnel Tube=Tunnelrohr
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tunnel Tube Fruiting Body=Tunnelrohr-Fruchtkörper
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Tunnel Tube Plies=Tunnelrohrlagen
+Tunnel Tube Spawn=

@@ -1,0 +1,234 @@
+# textdomain: df_farming
+
+
+### cave_wheat.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Straw=Höhlenstroh
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat=Höhlenweizen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Flour=Höhlenweizenmehl
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Seed=Höhlenweizensamen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Bread=Zwergenbrot
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flattened Cave Wheat=Abgeflachter Höhlenweizen
+
+### cooking.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Flour Biscuit=Höhlenweizenmehlkeks
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Flour Bun=Höhlenweizenmehlbrötchen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Flour Pancake=Höhlenweizenmehlpfannkuchen
+Cave Wheat Seed Loaf=
+Cave Wheat Seed Puffs=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave Wheat Seed Risotto=Höhlenweizensamen-Risotto
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple Cup Spore Flatbread=Dimple Cup Spore Fladenbrot
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple Cup Spore Roll=Dimple Cup Sporenrolle
+Dimple Cup Spore Scone=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Syrup Delight=Zwergensirup-Freude
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Syrup Jellies=Zwergsirupgelees
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Syrup Taffy=Zwergensirup Taffy
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig Tail Spore Casserole=Schweineschwanz-Sporenauflauf
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig Tail Spore Sandwich=Schweineschwanz-Sporensandwich
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig Tail Spore Tofu=Schweineschwanzsporentofu
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Mince=Pralles Helmhackfleisch
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Roast=Praller Helmbraten
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Spawn Jambalaya=Praller Helmlaich Jambalaya
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Spawn Soup=Pralle Helmlaichsuppe
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Sprout Stew=Praller Helmsprosseneintopf
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Stalk Sausage=Pralle Helmstielwurst
+Quarry Bush Leaf Croissant=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry Bush Leaf Spicy Bun=Steinbruch Bush Leaf Spicy Bun
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Rock Nut Bread=Steinnussbrot
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Rock Nut Cake=Steinnusskuchen
+Rock Nut Cookie=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Stuffed Quarry Bush Leaf=Gefülltes Steinbruch-Buschblatt
+Sweet Pod Spore Brule=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pod Spore Dumplings=Sweet Pod Sporenknödel
+Sweet Pod Spore Single Crust Pie=
+Sweet Pod Sugar Cookie=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pod Sugar Gingerbread=Sweet Pod Sugar Lebkuchen
+Sweet Pod Sugar Roll=
+
+### dimple_cup.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple Cup=Grübchen Tasse
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple Cup Spores=Grübchen Cup Sporen
+
+### doc.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A crafting item that can be woven into textiles and other similar items.=Ein Handwerksgegenstand, der in Textilien und ähnliche Gegenstände eingewebt werden kann.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A meal made from the admixture of two ingredients, it keeps well but are not a rich source of nutrients.=Eine Mahlzeit, die aus der Beimischung von zwei Zutaten hergestellt wird. Sie ist gut haltbar, aber keine reichhaltige Nährstoffquelle.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A meal made from three ingredients mixed together. They're more wholesome, packing more nutrition into a single serving.=Eine Mahlzeit aus drei Zutaten gemischt. Sie sind gesünder und verpacken mehr Nahrung in einer einzigen Portion.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A rare breed of fungus from deep underground that produces a bushy cluster of rumpled gray 'blades'. The biological function of these blades is not known, as quarry bushes reproduce via hard-shelled nodules that grow down at the blade's base.=Eine seltene Pilzrasse aus dem tiefen Untergrund, die eine buschige Ansammlung zerknitterter grauer "Klingen" erzeugt. Die biologische Funktion dieser Klingen ist nicht bekannt, da sich Steinbruchbüsche über hartschalige Knötchen vermehren, die an der Klingenbasis nachwachsen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+A species of lavender mushroom ubiquitous in caves that is most notable for the soft bioluminescence it produces.=Eine in Höhlen allgegenwärtige Lavendelpilzart, die sich vor allem durch ihre weiche Biolumineszenz auszeichnet.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Bread baked from cave wheat flour is tough and durable. A useful ration for long expeditions.=Aus Höhlenweizenmehl gebackenes Brot ist zäh und haltbar. Ein nützliches Verhältnis für lange Expeditionen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave wheat is literally a breed of grain-producing grass that somehow lost its ability to photosynthesize and adapted to a more fungal style of life.=Höhlenweizen ist buchstäblich eine Rasse von Getreide produzierendem Gras, das irgendwie seine Fähigkeit zur Photosynthese verloren hat und sich an einen eher pilzartigen Lebensstil anpasst.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cave wheat seed ground into a powder suitable for cooking.=Den gemahlenen Weizensamen zu einem zum Kochen geeigneten Pulver aushöhlen.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Crushing them in a bucket squeezes out a flavorful syrup.=Wenn man sie in einem Eimer zerquetscht, wird ein aromatischer Sirup herausgedrückt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dead fungus quickly decays into an unrecognizable mess. It can be used as weak fuel or terrible decor.=Toter Pilz zerfällt schnell in ein nicht wiederzuerkennendes Chaos. Es kann als schwacher Kraftstoff oder schreckliches Dekor verwendet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dimple cups can be dried, ground, and processed to extract a deep blue dye.=Grübchenbecher können getrocknet, gemahlen und verarbeitet werden, um einen tiefblauen Farbstoff zu extrahieren.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Four finely minced ingredients combine into a fine, full meal.=Vier fein gehackte Zutaten ergeben eine feine, vollständige Mahlzeit.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+It's not tasty, but it keeps you going.=Es ist nicht lecker, aber es hält dich am Laufen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Like its surface cousin, cave wheat produces grain that can be ground into a form of flour.=Höhlenweizen produziert wie sein Cousin an der Oberfläche Getreide, das zu Mehl gemahlen werden kann.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig tail stalks can be processed to extract fibers useful as thread.=Schweineschwanzstiele können verarbeitet werden, um Fasern zu extrahieren, die als Faden nützlich sind.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig tails are a fibrous fungal growth that's most notable for its twisting stalks. In a mature stand of pig tails the helical stalks intertwine into a dense mesh.=Schweineschwänze sind ein faseriges Pilzwachstum, das sich vor allem durch seine verdrehten Stiele auszeichnet. In einem ausgewachsenen Schweineschwanzbestand verflechten sich die helikalen Stiele zu einem dichten Netz.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump helmets are a thick, fleshy mushroom that's edible picked straight from the ground. They form a staple diet for both lost cave explorers and the fauna that preys on them.=Pralle Helme sind dicke, fleischige Pilze, die essbar direkt vom Boden gepflückt werden. Sie bilden eine Grundnahrungsmittel sowohl für verlorene Höhlenforscher als auch für die Fauna, die ihnen nachjagt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry bush leaves and nodules (called 'rock nuts') can be harvested and are edible with processing.=Steinbruchbuschblätter und Knötchen (sogenannte Steinnüsse) können geerntet werden und sind bei der Verarbeitung essbar.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry bush leaves can be used as an ingredient in foodstuffs.=Steinbruch Buschblätter können als Zutat in Lebensmitteln verwendet werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pod sugar has a pink tint to it.=Süßer Schotenzucker hat eine rosa Tönung.
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pod syrup is thick and flavorful.=Süßer Schotensirup ist dick und aromatisch.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet pods grow in rich soil, and once they reach maturity they draw that supply of nutrients up to concentrate it in their fruiting bodies. They turn bright red when ripe and can be processed in a variety of ways to extract the sugars they contain.=Süße Schoten wachsen auf reichem Boden und sobald sie reif sind, ziehen sie diese Nährstoffversorgung auf, um sie in ihren Fruchtkörpern zu konzentrieren. Sie werden im reifen Zustand leuchtend rot und können auf verschiedene Weise verarbeitet werden, um den darin enthaltenen Zucker zu extrahieren.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The distinctive midnight-blue caps of these mushrooms are inverted, exposing their gills to any breeze that might pass, and have dimpled edges that give them their name.=Die markanten nachtblauen Kappen dieser Pilze sind umgedreht und setzen ihre Kiemen einer Brise aus, die vorbeiziehen könnte. Sie haben Noppenkanten, die ihnen ihren Namen geben.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+The dried blades of a quarry bush add a welcome zing to recipes containing otherwise-bland subterranean foodstuffs, but they're too spicy to be eaten on their own.=Die getrockneten Klingen eines Steinbruchstrauchs verleihen Rezepten mit ansonsten milden unterirdischen Lebensmitteln eine willkommene Note, aber sie sind zu scharf, um allein gegessen zu werden.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+This mushroom is inedible but continues producing modest levels of light long after it's picked.=Dieser Pilz ist ungenießbar, produziert aber noch lange nach seiner Ernte bescheidene Lichtmengen.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Threads of pig tail fiber.=Fäden aus Schweineschwanzfaser.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Too strong and thick to drink straight, sweet pod syrup is useful in food recipes.=Zu stark und zu dick, um gerade zu trinken, ist süßer Schotensirup in Lebensmittelrezepten nützlich.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Too sweet to be eaten directly, it makes an excellent ingredient in food recipes.=Zu süß, um direkt gegessen zu werden, ist eine hervorragende Zutat für Lebensmittelrezepte.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Whatever this fungus was in life, it is now dead.=Was auch immer dieser Pilz im Leben war, er ist jetzt tot.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When baked alone it forms an edible bread, but it combines well with other more flavorful ingredients.=Wenn es alleine gebacken wird, bildet es ein essbares Brot, das sich jedoch gut mit anderen geschmackvolleren Zutaten kombinieren lässt.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When dried in an oven, sweet pods produce a granular sugary substance.=Wenn süße Schoten im Ofen getrocknet werden, entsteht eine körnige zuckerhaltige Substanz.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+When milled, sweet pods produce a granular sugary substance.=Süße Schoten produzieren beim Mahlen eine körnige zuckerhaltige Substanz.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+While they can be eaten fresh, they can be monotonous fare and are perhaps better appreciated as part of a more complex prepared dish.=Während sie frisch gegessen werden können, können sie eintönig sein und werden vielleicht besser als Teil eines komplexeren zubereiteten Gerichts geschätzt.
+
+
+### pig_tail.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flattened Pig Tail=Abgeflachter Schweineschwanz
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig Tail=Schweineschwanz
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig Tail Spore=Schweineschwanzspore
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Pig tail thread=Schweineschwanzfaden
+
+### plants.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Cavern Fungi=Höhlenpilze
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dead Fungus=Toter Pilz
+
+### plump_helmet.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet=Praller Helm
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Plump Helmet Spawn=Praller Helmlaich
+
+### quarry_bush.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry Bush=Steinbruch Bush
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Quarry Bush Leaves=Steinbruch Bush Blätter
+Rock Nuts=
+
+### sweet_pod.lua ###
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Syrup Bucket=Zwergen-Sirup-Eimer
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Dwarven Syrup Source=Zwergensirupquelle
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Flowing Dwarven Syrup=Fließender Zwergensirup
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pod=Süße Schote
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pod Spores=Süße Schotensporen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pod Sugar=Süßer Schotenzucker
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Sweet Pods=Süße Schoten

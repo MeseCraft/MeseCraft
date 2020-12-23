@@ -6,9 +6,7 @@
 -- Max trunk height 	5
 -- depth 2-3
 
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 minetest.register_node("df_trees:spore_tree", {
 	description = S("Spore Tree Stem"),
@@ -18,7 +16,7 @@ minetest.register_node("df_trees:spore_tree", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 
 	on_place = minetest.rotate_node,
 })
@@ -40,7 +38,7 @@ minetest.register_node("df_trees:spore_tree_wood", {
 	tiles = {"dfcaverns_spore_tree_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 df_trees.register_all_stairs("spore_tree_wood")
@@ -92,9 +90,9 @@ minetest.register_node("df_trees:spore_tree_hyphae", {
 			{-0.5, -0.0625, -0.0625, 0.5, 0.0625, 0.0625},
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
 minetest.register_node("df_trees:spore_tree_fruiting_body", {
@@ -132,18 +130,16 @@ minetest.register_node("df_trees:spore_tree_fruiting_body", {
 			}
 		}
 	},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
-if default.register_leafdecay then -- default.register_leafdecay is very new, remove this check some time after 0.4.16 is released
-	default.register_leafdecay({
-		trunks = {"df_trees:spore_tree"},
-		leaves = {"df_trees:spore_tree_hyphae", "df_trees:spore_tree_fruiting_body"},
-		radius = 3,	
-	})
-end
+df_trees.register_leafdecay({
+	trunks = {"df_trees:spore_tree"},
+	leaves = {"df_trees:spore_tree_hyphae", "df_trees:spore_tree_fruiting_body"},
+	radius = 3,	
+})
 
 minetest.register_node("df_trees:spore_tree_sapling", {
 	description = S("Spore Tree Spawn"),
@@ -165,7 +161,7 @@ minetest.register_node("df_trees:spore_tree_sapling", {
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
 		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
 	on_construct = function(pos)
 		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
@@ -333,11 +329,8 @@ minetest.register_node("df_trees:spore_tree_ladder", {
 	is_ground_content = false,
 	selection_box = {
 		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
 	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 3, flammable = 2},
 	legacy_wallmounted = true,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })

@@ -2,12 +2,12 @@ if not df_caverns.config.enable_lava_sea then
 	return
 end
 
-local c_air = minetest.get_content_id("air")
-local c_lava = minetest.get_content_id("default:lava_source")
-local c_meseore = minetest.get_content_id("default:stone_with_mese")
-local c_mese_crystal = minetest.get_content_id("df_mapitems:mese_crystal")
-local c_mese_crystal_block = minetest.get_content_id("df_mapitems:glow_mese")
-local c_obsidian = minetest.get_content_id("default:obsidian")
+local c_air = df_caverns.node_id.air
+local c_lava = df_caverns.node_id.lava
+local c_meseore = df_caverns.node_id.meseore
+local c_mese_crystal = df_caverns.node_id.mese_crystal
+local c_mese_crystal_block = df_caverns.node_id.mese_crystal_block
+local c_obsidian = df_caverns.node_id.obsidian
 
 -------------------------------------------------------------------------------------------
 

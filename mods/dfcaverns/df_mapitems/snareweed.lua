@@ -1,20 +1,18 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_mapitems.S
 
 minetest.register_node("df_mapitems:snareweed", {
 	description = S("Snareweed"),
 	_doc_items_longdesc = df_mapitems.doc.snareweed_desc,
 	_doc_items_usagehelp = df_mapitems.doc.snareweed_usage,
-	tiles = {"default_dirt.png^dfcaverns_snareweed_roots.png", "default_dirt.png"},
+	tiles = {df_mapitems.texture.dirt .. "^dfcaverns_snareweed_roots.png", df_mapitems.texture.dirt},
 	drawtype="plantlike_rooted",
 	paramtype2 = "leveled",
 	special_tiles = {{name = "dfcaverns_snareweed.png", tileable_vertical = true}},
 	is_ground_content = false,
-	drop = 'default:dirt',
+	drop = df_mapitems.node_name.dirt,
 	light_source = 6,
 	groups = {crumbly = 3, soil = 1},
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = df_mapitems.sounds.dirt,
 })
 
 if df_mapitems.config.snareweed_damage then
@@ -43,9 +41,9 @@ if df_mapitems.config.snareweed_damage then
 end
 
 
-local c_water = minetest.get_content_id("default:water_source")
-local c_dirt = minetest.get_content_id("default:dirt")
-local c_stone = minetest.get_content_id("default:stone")
+local c_water = df_mapitems.node_id.water
+local c_dirt = df_mapitems.node_id.dirt
+local c_stone = df_mapitems.node_id.stone
 local c_snareweed = minetest.get_content_id("df_mapitems:snareweed")
 
 df_mapitems.place_snareweed = function(area, data, bi, param2_data)

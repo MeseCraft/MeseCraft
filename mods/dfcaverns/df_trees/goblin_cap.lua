@@ -1,6 +1,5 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local modpath = minetest.get_modpath(minetest.get_current_modname())
+local S = df_trees.S
 
 --stem
 minetest.register_node("df_trees:goblin_cap_stem", {
@@ -32,7 +31,7 @@ minetest.register_node("df_trees:goblin_cap_gills", {
 	tiles = {"dfcaverns_goblin_cap_gills.png"},
 	is_ground_content = false,
 	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, goblin_cap = 1},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 	drawtype = "plantlike",
 	paramtype = "light",
 	drop = {
@@ -47,16 +46,14 @@ minetest.register_node("df_trees:goblin_cap_gills", {
 			}
 		}
 	},
-	after_place_node = default.after_place_leaves,
+	after_place_node = df_trees.after_place_leaves,
 })
 
-if default.register_leafdecay then -- default.register_leafdecay is very new, remove this check some time after 0.4.16 is released
-	default.register_leafdecay({
-		trunks = {"df_trees:goblin_cap"}, -- don't need stem nodes here
-		leaves = {"df_trees:goblin_cap_gills"},
-		radius = 1,	
-	})
-end
+df_trees.register_leafdecay({
+	trunks = {"df_trees:goblin_cap"}, -- don't need stem nodes here
+	leaves = {"df_trees:goblin_cap_gills"},
+	radius = 1,	
+})
 
 --Wood
 minetest.register_craft({
@@ -82,7 +79,7 @@ minetest.register_node("df_trees:goblin_cap_wood", {
 	tiles = {"dfcaverns_goblin_cap_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 minetest.register_node("df_trees:goblin_cap_stem_wood", {
@@ -94,7 +91,7 @@ minetest.register_node("df_trees:goblin_cap_stem_wood", {
 	tiles = {"dfcaverns_goblin_cap_stem_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults(),
+	sounds = df_trees.sounds.wood,
 })
 
 df_trees.register_all_stairs("goblin_cap_wood")
@@ -131,23 +128,28 @@ minetest.register_craft({
 	burntime = 2,
 })
 
-local big_goblin_cap_schem = dofile(MP.."/schematics/goblin_cap_big.lua")
-local big_goblin_cap_hut_schem = dofile(MP.."/schematics/goblin_cap_big_hut.lua")
-local bigger_goblin_cap_schem = dofile(MP.."/schematics/goblin_cap_bigger.lua")
-local bigger_goblin_cap_hut_schem = dofile(MP.."/schematics/goblin_cap_bigger_hut.lua")
+local big_goblin_cap_schem = dofile(modpath.."/schematics/goblin_cap_big.lua")
+local big_goblin_cap_hut_schem = dofile(modpath.."/schematics/goblin_cap_big_hut.lua")
+local bigger_goblin_cap_schem = dofile(modpath.."/schematics/goblin_cap_bigger.lua")
+local bigger_goblin_cap_hut_schem = dofile(modpath.."/schematics/goblin_cap_bigger_hut.lua")
 
 -- The hut has a chest and furnace near pos, use this to initialize it
-local chest_on_construct = minetest.registered_items["default:chest"].on_construct
-local furnace_on_construct = minetest.registered_items["default:furnace"].on_construct
+local chest_node = df_trees.node_names.chest
+local furnace_node = df_trees.node_names.furnace
+local gold_item = df_trees.node_names.gold_ingot
+local apple_item = df_trees.node_names.apple
+
+local chest_on_construct = minetest.registered_items[chest_node].on_construct
+local furnace_on_construct = minetest.registered_items[furnace_node].on_construct
 local init_hut = function(pos)
-	local chest_pos = minetest.find_node_near({x=pos.x, y=pos.y+1, z=pos.z}, 2, "default:chest")
+	local chest_pos = minetest.find_node_near({x=pos.x, y=pos.y+1, z=pos.z}, 2, chest_node)
 	if chest_pos then
 		chest_on_construct(chest_pos)
 		local inv = minetest.get_inventory({type="node", pos=chest_pos})
-		inv:add_item("main", "default:apple 3")
-		inv:add_item("main", "default:gold_ingot ".. math.random(1,5))
+		inv:add_item("main", apple_item.." 3")
+		inv:add_item("main", gold_item.." ".. math.random(1,5))
 	end
-	local furnace_pos = minetest.find_node_near({x=pos.x, y=pos.y+1, z=pos.z}, 2, "default:furnace")
+	local furnace_pos = minetest.find_node_near({x=pos.x, y=pos.y+1, z=pos.z}, 2, furnace_node)
 	if furnace_pos then
 		furnace_on_construct(furnace_pos)
 	end
@@ -203,7 +205,7 @@ minetest.register_node("df_trees:goblin_cap_sapling", {
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
 		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = df_trees.sounds.leaves,
 
 	on_construct = function(pos)
 		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then

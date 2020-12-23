@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = df_trees.S
 
 -- Rather than make this whole mod depend on subterrane just for this, I copied and pasted a chunk of stalactite code.
 local x_disp = 0.125
@@ -54,6 +52,8 @@ local stal_box_2 = {{-0.125+x_disp, -0.5, -0.125+z_disp, 0.125+x_disp, 0.5, 0.12
 local stal_box_3 = {{-0.25+x_disp, -0.5, -0.25+z_disp, 0.25+x_disp, 0.5, 0.25+z_disp}}
 local stal_box_4 = {{-0.375+x_disp, -0.5, -0.375+z_disp, 0.375+x_disp, 0.5, 0.375+z_disp}}
 
+local torch_node = df_trees.node_names.torch
+
 minetest.register_node("df_trees:torchspine_1", {
 	description = S("Torchspine Tip"),
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
@@ -64,14 +64,14 @@ minetest.register_node("df_trees:torchspine_1", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	drop = "default:torch",
+	drop = torch_node,
 	node_box = {
 		type = "fixed",
 		fixed = stal_box_1,
 	},
 	on_place = stal_on_place,
 	on_punch = function(pos, node, puncher)
-		if puncher:get_wielded_item():get_name() == "default:torch" then
+		if puncher:get_wielded_item():get_name() == torch_node then
 			minetest.swap_node(pos, {name = "df_trees:torchspine_1_lit", param2 = node.param2})
 		end
 	end,
@@ -81,14 +81,14 @@ minetest.register_node("df_trees:torchspine_1_lit", {
 	description = S("Torchspine Tip"),
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
-	tiles = {"default_gold_block.png", "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1_lit.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, torch = 1, fall_damage_add_percent = 150},
+	tiles = {df_trees.textures.gold_block, "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1_lit.png"},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, torch = 1, fall_damage_add_percent = 150, smokey = 4},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	light_source = 8,
 	is_ground_content = false,
-	drop = "default:torch 2",
+	drop = torch_node .. " 2",
 	node_box = {
 		type = "fixed",
 		fixed = stal_box_1,
@@ -261,14 +261,14 @@ end
 
 -- overriding node groups using override_item doesn't appear to work with ABMs:
 -- https://github.com/minetest/minetest/issues/5518
-local coal_def = minetest.registered_nodes["default:stone_with_coal"]
-local coal_block_def = minetest.registered_nodes["default:coalblock"]
-coal_def.groups.coal = 1
+local coal_def = minetest.registered_nodes[df_trees.node_names.stone_with_coal]
+local coal_block_def = minetest.registered_nodes[df_trees.node_names.coalblock]
+if coal_def then
+	coal_def.groups.coal = 1
+	minetest.register_node(":"..df_trees.node_names.stone_with_coal, coal_def)
+end
 coal_block_def.groups.coal = 1
-coal_block_def.groups.flammable = coal_block_def.groups.flammable or 1
-minetest.register_node(":default:stone_with_coal", coal_def)
-minetest.register_node(":default:coalblock", coal_block_def)
-
+minetest.register_node(":"..df_trees.node_names.coalblock, coal_block_def)
 
 minetest.register_abm{
 	label = "torchspine germinating",
