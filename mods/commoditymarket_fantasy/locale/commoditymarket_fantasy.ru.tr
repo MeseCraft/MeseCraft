@@ -1,0 +1,55 @@
+# textdomain: commoditymarket_fantasy
+
+
+### caravan_markets.lua ###
+
+Caravan summoned@nETA: @1 seconds.=Караван вызван!  @nETA: @1 сек
+
+Indicated parking area isn't suitable.@nA 5x3 open space with solid ground@nis required for a caravan.=Указанное место не подходит! Необходимо@nA 5x3 открытое пространство с твердым грунтом.
+
+Right-click to summon a trader's caravan=Клик правой кнопкой мыши, чтобы вызвать торговый караван
+
+The trader's caravan requires a suitable open space next to the trading post for it to arrive, and takes some time to arrive after being summoned. The post gives a countdown to the caravan's arrival when moused over.=Караван трейдера требует подходящего открытого пространства рядом с торговым постом, чтобы он прибыл, и занимает некоторое время, чтобы прибыть после вызова. Пост дает обратный отсчет времени до прибытия каравана, когда он оказался в канаве.
+
+This post signals passing caravan traders that customers can be found here, and signals to customers that caravan traders can be found here. If no caravan is present, right-click to summon one.=Этот пост сигнализирует проходящим трейдерам каравана, что клиенты могут быть найдены здесь, и сигналы для клиентов, что караванные трейдеры могут быть найдены здесь. Если каравана нет, кликните правой кнопкой мыши, чтобы вызвать караван.
+
+Trader's Caravan=Караван торговцев
+Trading Post=Торговый пост
+
+Unlike most markets that have well-known fixed locations that travelers congregate to, the network of Trader's Caravans is fluid and dynamic in their locations. A Trader's Caravan can show up anywhere, make modest trades, and then be gone the next time you visit them. These caravans accept gold and gold coins as a currency (one gold ingot to @1 gold coins exchange rate). Any reasonably-wealthy person can create a signpost marking a location where Trader's Caravans will make a stop.=В отличие от большинства рынков, которые имеют хорошо известные фиксированные местоположения, на которые собираются путешественники, сеть Караванов трейдеров является гибкой и динамичной в своем местоположении. Караван трейдера может появиться где угодно, совершить скромные сделки, а затем уехать в следующий раз, когда вы его посетите. Эти караваны принимают золото и золотые монеты в качестве валюты (один слиток золота на @1 обменный курс золотых монет). Любой достаточно состоятельный человек может создать указатель, обозначающий место, где Караваны трейдера сделают остановку.
+
+
+### dungeon_markets.lua ###
+
+Goblin Exchange=Гоблинский Обмен
+
+One does not usually associate Goblins with the sort of sophistication that running a market requires. Usually one just associates Goblins with savagery and violence. But they understand the principle of tit-for-tat exchange, and if approached correctly they actually respect the concepts of ownership and debt. However, for some peculiar reason they understand this concept in the context of coal lumps. Goblins deal in the standard coal lump as their form of currency, conceptually divided into 100 coal centilumps (though Goblin brokers prefer to "keep the change" when giving back actual coal lumps).=Обычно Гоблинов не связывают с той высокой тонкостью, которая присуща рынку. Чаще всего Гоблинов относят к числу дикарей и первобытных людей. Но они понимают суть обмена "око за око", если к ним относиться справедливо, то они реально уважают понятия собственности и долга. Однако по каким-то своеобразным причинам они понимают это понятие в разрезе комочков угля. Гоблины имеют дело со стандартным углем как со своей формой валюты, условно разделенной на 100 косарей (правда Гоблинские брокеры предпочитают держать сдачу у себя, отдавая только целыми частями угля).
+
+Undermarket=Подземный рынок
+
+### init.lua ###
+
+A gold ingot is far too valuable to use as a basic unit of value, so it has become common practice to divide the standard gold bar into @1 small disks to make trade easier.=Золотой слиток слишком ценен, чтобы использовать его в качестве базовой единицы стоимости, поэтому стало общепринятой практикой делить стандартный слиток золота на маленькие диски @1, чтобы облегчить торговлю.
+
+Deep in the bowels of the world, below even the goblin-infested warrens and ancient delvings of the dwarves, dark and mysterious beings once dwelt. A few still linger to this day, and facilitate barter for those brave souls willing to travel in their lost realms. The Undermarket uses Mese chips ('₥') as a currency - twenty chips to the Mese fragment. Though traders are loathe to physically break Mese crystals up into units that small, as it renders it useless for other purposes.=Глубоко в недрах мира, еще ниже заражённых гоблинов и древними раскопками гномов, когда-то обитали темные и таинственные существа. Немногие и по сей день живут, и предлагают обмен для тех бесстрашных храбрецов, которые готовы путешествовать в затерянных мирах. Подземный рынок использует кристалл Месе в качестве валюты за осколок кристалла Месе дают 20 фрагментов Месе ('₥'). Торговцы не любят физически разбивать осколоки кристаллов Mese на такие маленькие единицы, так как это делает их бесполезными для других целей.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Deep in the bowels of the world, below even the goblin-infested warrens and ancient delvings of the dwarves, dark and mysterious beings once dwelt. A few still linger to this day, and facilitate barter for those brave souls willing to travel in their lost realms. The Undermarket uses Redstone ('₨') as a currency.=Глубоко в недрах мира, ниже даже кишащих гоблинами лабиринтов и древних раскопок гномов, некогда обитали темные и загадочные существа. Некоторые из них все еще живут и по сей день и содействуют обмену для тех храбрых душ, которые желают путешествовать в своих потерянных царствах. Undermarket использует Redstone (₨) в качестве валюты.
+
+Gold Coins=Золотые монеты
+
+Gold coins can be deposited and withdrawn from markets that accept them as currency. These markets can make change if you have @1 coins and would like them back in ingot form again.=Золотые монеты можно депонировать и выводить с рынков, принимающих их в качестве валюты. Эти рынки могут измениться, если у вас есть @1 монета и вы хотите, чтобы они снова были в слитке.
+
+Right-click on this to open the market interface.=Кликните правой кнопкой мыши на это, чтобы открыть рыночный интерфейс.
+
+### village_markets.lua ###
+
+At this time of day the King's Market is closed.=В это время дня Королевский рынок закрыт.
+At this time of day the Night Market is closed.=В это время суток Ночной рынок закрыт.
+King's Market=Королевский рынок
+Night Market=Ночной рынок
+
+The largest and most accessible market for the common man, the King's Market uses gold coins as its medium of exchange (or the equivalent in gold ingots - @1 coins to the ingot). However, as a respectable institution of the surface world, the King's Market operates only during the hours of daylight. Gold coins are represented by a '☼' symbol.=Крупнейший и наиболее доступный для простого человека рынок, Королевский рынок использует золотые монеты в качестве средства обмена (или эквивалент в золотых слитках - @1 монета к слитку). Однако, как респектабельный институт поверхностного мира, Королевский рынок работает только в часы дневного света. Золотые монеты представлены символом "☼".
+
+When the sun sets and the stalls of the King's Market close, other vendors are just waking up to share their wares. The Night Market is not as voluminous as the King's Market but sometimes it's the only option. It accepts the same gold coinage of the realm, @1 coins to the gold ingot.=Когда заходит солнце и закрываются ларьки Королевского рынка, другие продавцы просто просыпаются, чтобы поделиться своими товарами. Ночной рынок не такой объемный, как Королевский, но принимает более широкий ассортимент товаров. Он принимает одну и ту же золотую монету королевства, @1 монету к золотым слиткам.
+

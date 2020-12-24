@@ -1,0 +1,25 @@
+commoditymarket_gold_coins.png - from https://commons.wikimedia.org/wiki/File:Farm-Fresh_coins.png, by FatCow under the CC-BY 3.0 license
+commoditymarket_crown.png - from https://commons.wikimedia.org/wiki/File:Farm-Fresh_crown_gold.png by FatCow under the CC-BY 3.0 Unported license
+commoditymarket_moon.png - from https://commons.wikimedia.org/wiki/File:Luneta08.svg by Arturo D. Castillo —Zoram.hakaan— under the CC-BY 3.0 Unported license
+commoditymarket_goblin.png - cropped from the "goblins" mod, Copyright 2015 by Francisco "FreeLikeGNU" Athens Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+commoditymarket_empty_shelf.png - from the moreblocks mod's "moreblocks_empty_shelf", under the zlib license by Hugo Locurcio and contributors
+commoditymarket_shingles_wood.png is cottages_homedecor_shingles_wood.png from the cottages mod by VanessaE (CC-by-SA 3.0)
+
+commoditymarket_trade.png, commoditymarket_trade_flag.png, commoditymarket_under.png, and commoditymarket_under_top were created by FaceDeer and released under the CC0 public domain license
+
+commoditymarket_sign_post.png and commoditymarket_sign.png are made from elements of default_tree.png and default_aspen_wood.png
+commoditymarket_door_wood.png is doors_door_wood.png from the doors mod
+
+
+The following are all taken from the default mod unaltered, to allow this mod to be mineclone2 compatible:
+commoditymarket_default_aspen_wood
+commoditymarket_default_chest_lock
+commoditymarket_default_chest_side
+commoditymarket_default_chest_top
+commoditymarket_default_copper_block
+commoditymarket_default_fence_aspen_wood
+commoditymarket_default_fence_rail_junglewood
+commoditymarket_default_fence_rail_wood
+commoditymarket_default_furnace_top
+commoditymarket_default_pine_tree
+commoditymarket_default_pine_wood
