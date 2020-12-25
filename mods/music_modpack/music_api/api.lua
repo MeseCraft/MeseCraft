@@ -1,4 +1,4 @@
-music = {}
+music_api = {}
 local players = {}
 local tracks = {}
 
@@ -226,7 +226,7 @@ minetest.register_globalstep(function(dtime)
 end)
 
 --API function
-function music.register_track(def)
+function music_api.register_track(def)
 
     if def.name == nil or def.length == nil then
         minetest.log("error", "[Music_api] Missing track definition parameters!")

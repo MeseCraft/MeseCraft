@@ -507,6 +507,7 @@ local fade_out_sound = function(list, name)
 end
 
 minetest.register_on_leaveplayer(function(player)
+	local ambience_player_name = player:get_player_name()
 	local lists = {
 		cave, 
 		cave_frequent, 
@@ -552,7 +553,9 @@ local stop_sound = function(still_playing, player, dtime)
 	}
 	for _,list in pairs(lists) do
 		if still_playing[list.name] == nil then
+			--minetest.log('line 556')
 			if list.handler[ambience_player_name] ~= nil then
+				--minetest.log('line 558')
 				fade_out_sound(list, ambience_player_name, dtime)
 			end
 			list.started[ambience_player_name] = nil
@@ -583,18 +586,21 @@ minetest.register_globalstep(function(dtime)
 			end
 		end
 		stop_sound(ambiences, player)
+		--minetest.log("ambiences is "..dump(ambiences))
 		for _,ambience in pairs(ambiences) do
+			--minetest.log("max_frequency_all is "..dump(max_frequency_all))
+			--minetest.log("ambience is "..dump(ambience))
 			if math.random(1, max_frequency_all) <= ambience.frequency then			
---				if(played_on_start) then
---				--	minetest.chat_send_all("playedOnStart "  )
---				else
---				--	minetest.chat_send_all("FALSEplayedOnStart "  )
---				end
-			--	minetest.chat_send_all("ambience: " ..ambience )
-			--	if ambience.on_start ~= nil and played_on_start_flying == false then
-			--		played_on_start_flying = true
-			--		minetest.sound_play(ambience.on_start, {to_player=player:get_player_name()})					
-			--	end
+				--				if(played_on_start) then
+				--				--	minetest.chat_send_all("playedOnStart "  )
+				--				else
+				--				--	minetest.chat_send_all("FALSEplayedOnStart "  )
+				--				end
+				--	minetest.chat_send_all("ambience: " ..ambience )
+				--	if ambience.on_start ~= nil and played_on_start_flying == false then
+				--		played_on_start_flying = true
+				--		minetest.sound_play(ambience.on_start, {to_player=player:get_player_name()})					
+				--	end
 				local is_music =false
 				if ambience.is_music ~= nil then
 					is_music = true

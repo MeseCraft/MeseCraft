@@ -1,6 +1,8 @@
 2020-12-24
 - added player factions
 - re-added commoditymarket mod (by FaceDeer) and commoditymarket_fantasy
+- protection fixed with itemdrop, disappearing protectors.
+- music_api readded. debugged conflict with ambience mod (thanks MisterE)
 
 2020-Dec-23
 - fixed christmas spawn issue reported by mineman
