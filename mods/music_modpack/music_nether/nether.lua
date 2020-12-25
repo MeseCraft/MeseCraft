@@ -1,9 +1,9 @@
-local ymax = tonumber(minetest.settings:get("music_dfcaverns_underground2_ymax")) or -800
-local ymin = tonumber(minetest.settings:get("music_dfcaverns_underground2_ymin")) or -1400
+local ymax = tonumber(minetest.settings:get("music_nether_ymax")) or -17000
+local ymin = tonumber(minetest.settings:get("music_nether_ymin")) or -31000
 
 music_api.register_track({
-    name = "fairytale_waltz",
-    length = 99,
+    name = "nether1",
+    length = 185,
     gain = 1,
     day = true,
     night = true,
@@ -12,8 +12,8 @@ music_api.register_track({
 })
 
 music_api.register_track({
-    name = "lasting_hope",
-    length = 143,
+    name = "nether2",
+    length = 138,
     gain = 1,
     day = true,
     night = true,
@@ -22,8 +22,8 @@ music_api.register_track({
 })
 
 music_api.register_track({
-    name = "lost_time",
-    length = 227,
+    name = "nether3",
+    length = 177,
     gain = 1,
     day = true,
     night = true,
@@ -32,8 +32,8 @@ music_api.register_track({
 })
 
 music_api.register_track({
-    name = "ossuary_5_rest",
-    length = 235,
+    name = "nether4",
+    length = 205,
     gain = 1,
     day = true,
     night = true,
