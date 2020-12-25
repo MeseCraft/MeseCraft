@@ -1,0 +1,2 @@
+player_factions.mode_unique_faction (Enable faction mode) bool true
+player_factions.max_members_list (The max number of members shown with info command) int 50
