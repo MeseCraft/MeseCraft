@@ -1,0 +1,79 @@
+# textdomain: playerfactions
+
+
+### init.lua ###
+
+@1 has the playerfactions_admin privilege so they can admin every faction.=
+
+@1 is in the following factions: @2.=
+@1 is now a member of the faction @2.=
+@1 isn't in your faction.=
+Add player to a faction, you need playerfactions_admin privs=
+Allow the use of all playerfactions commands=
+
+Change your faction's password or the password of the given faction=
+
+Create a new faction=
+Disband your faction or the given faction=
+Disbanded @1.=
+Error kicking @1 from faction.=
+Error on adding @1 into @2.=
+Error on joining.=
+Error on leaving faction.=
+Factions (@1): @2.=
+Failed to change password.=
+Failed to transfer ownership.=
+Join an existing faction=
+Joined @1.=
+Kick someone from your faction or from the given faction=
+Kicked @1 from faction.=
+Leave your faction=
+Left @1.=
+List available factions=
+Missing faction name.=
+Missing password.=
+Missing player name.=
+Name: @1@nOwner: @2@nMembers: @3=
+Ownership has been transferred to @1.=
+Password has been updated.=
+Password: @1=
+Permission denied: Wrong password.=
+
+Permission denied: You are not the owner of this faction, and don't have the playerfactions_admin privilege.=
+
+Permission denied: You can't use this command, playerfactions_admin priv is needed.=
+
+Registered @1.=
+See information on a faction=
+See information on a player=
+That faction already exists.=
+The faction @1 doesn't exist.=
+
+The faction has more than @1 members, the members list can't be shown.=
+
+The given faction doesn't exists.=
+The player doesn't exist.=
+The player is already in the faction "@1".=
+There are no factions yet.=
+This faction doesn't exists.=
+This player doesn't exists or is in no faction=
+This player is not in the specified faction.=
+This player is the owner of no faction.=
+This player is the owner of the following factions: @1.=
+Transfer ownership of your faction=
+Unknown subcommand. Run '/help factions' for help.=
+You are already in a faction.=
+
+You are in many factions, you have to choose one of them: @1.=
+
+You are not in a faction.=
+
+You are the owner of many factions, you have to choose one of them: @1.=
+
+You are the owner of no faction, you can't use this command.=
+You are the owner of no faction.=
+
+You cannot kick the owner of a faction, use '/factions chown <player> [faction]' to change the ownership.=
+
+You cannot leave your own faction, change owner or disband it.=
+

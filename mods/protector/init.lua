@@ -173,9 +173,11 @@ local protector_formspec = function(meta)
 				checkbox_faction = true
 			end
 		else
-			if next(factions.get_player_faction(meta:get_string("owner"))) then
-				checkbox_faction = true
-			end
+	            if factions.get_player_factions(meta:get_string("owner")) ~= nil then
+	                if next(factions.get_player_factions(meta:get_string("owner"))) then
+	                    checkbox_faction = true
+	                end
+	            end
 		end
 	end
 	if checkbox_faction then
