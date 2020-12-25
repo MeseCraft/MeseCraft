@@ -65,7 +65,8 @@ end
 
 
 -- check for member name
-local is_member = function(meta, name)
+-- check for member name
+local is_member = function (meta, name)
 
 	if factions_available
 	and meta:get_int("faction_members") == 1 then
@@ -81,17 +82,16 @@ local is_member = function(meta, name)
 		else
 			-- is member if player and owner share at least one faction
 			local owner_factions = factions.get_player_factions(name)
-			local owner = meta:get_string("owner")
+            local owner = meta:get_string("owner")
+            if owner_factions ~= nil and owner_factions ~= false then
 
-			if owner_factions ~= nil and owner_factions ~= false then
+                for _, f in ipairs(owner_factions) do
 
-				for _, f in ipairs(owner_factions) do
-
-					if factions.player_is_in_faction(f, owner) then
-						return true
-					end
-				end
-			end
+                    if factions.player_is_in_faction(f, owner) then
+                        return true
+                    end
+                end
+            end
 		end
 	end
 
@@ -177,9 +177,11 @@ local protector_formspec = function(meta)
 				checkbox_faction = true
 			end
 		else
-			if next(factions.get_player_faction(meta:get_string("owner"))) then
-				checkbox_faction = true
-			end
+	            if factions.get_player_factions(meta:get_string("owner")) ~= nil then
+	                if next(factions.get_player_factions(meta:get_string("owner"))) then
+	                    checkbox_faction = true
+	                end
+	            end
 		end
 	end
 	if checkbox_faction then
@@ -448,19 +450,6 @@ local check_overlap = function(itemstack, placer, pointed_thing)
 end
 
 
--- remove protector display entities
-local del_display = function(pos)
-
-	local objects = minetest.get_objects_inside_radius(pos, 0.5)
-
-	for _, v in ipairs(objects) do
-
-		if v:get_luaentity().name == "protector:display" then
-			v:remove()
-		end
-	end
-end
-
 -- temporary pos store
 local player_pos = {}
 
@@ -538,32 +527,36 @@ minetest.register_node("protector:protect", {
 
 	on_blast = function() end,
 
-	after_destruct = del_display
+	after_destruct = function(pos, oldnode)
+		local objects = minetest.get_objects_inside_radius(pos, 0.5)
+		for _, v in ipairs(objects) do
+			if v:get_luaentity().name == "protector:display" then
+				v:remove()
+			end
+		end
+	end,
 })
 
 -- default recipe and alternative for MineClone2
 if protector_recipe then
-
 	if minetest.registered_items["default:stone"] then
-
-		minetest.register_craft({
-			output = "protector:protect",
-			recipe = {
-				{"default:stone", "default:stone", "default:stone"},
-				{"default:stone", "default:gold_ingot", "default:stone"},
-				{"default:stone", "default:stone", "default:stone"},
-			}
-		})
+	minetest.register_craft({
+		output = "protector:protect",
+		recipe = {
+			{"default:stone", "default:stone", "default:stone"},
+			{"default:stone", "default:gold_ingot", "default:stone"},
+			{"default:stone", "default:stone", "default:stone"},
+		}
+	})
 	else
-
-		minetest.register_craft({
-			output = "protector:protect",
-			recipe = {
-				{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
-				{"mcl_core:stone", "mcl_core:gold_ingot", "mcl_core:stone"},
-				{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
-			}
-		})
+	minetest.register_craft({
+		output = "protector:protect",
+		recipe = {
+			{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
+			{"mcl_core:stone", "mcl_core:gold_ingot", "mcl_core:stone"},
+			{"mcl_core:stone", "mcl_core:stone", "mcl_core:stone"},
+		}
+	})
 	end
 end
 
@@ -642,7 +635,14 @@ minetest.register_node("protector:protect2", {
 
 	on_blast = function() end,
 
-	after_destruct = del_display
+	after_destruct = function(pos, oldnode)
+		local objects = minetest.get_objects_inside_radius(pos, 0.5)
+		for _, v in ipairs(objects) do
+			if v:get_luaentity().name == "protector:display" then
+				v:remove()
+			end
+		end
+	end,
 })
 
 -- recipes to switch between protectors

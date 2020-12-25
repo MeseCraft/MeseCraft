@@ -1,7 +1,6 @@
 2020-12-24
 - added player factions
 - re-added commoditymarket mod (by FaceDeer) and commoditymarket_fantasy
-- disabled item_drop item drop. Pickup mode still enabled.
 
 2020-Dec-23
 - fixed christmas spawn issue reported by mineman
