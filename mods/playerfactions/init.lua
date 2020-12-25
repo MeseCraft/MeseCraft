@@ -1,3 +1,6 @@
+-- Translation support
+local S = minetest.get_translator("playerfactions")
+
 minetest.register_privilege("playerfactions_admin", {description = S("Allow the use of all playerfactions commands"), give_to_singleplayer = false})
 
 -- Data
@@ -295,10 +298,10 @@ local function handle_command(name, param)
 					str_member = str_member..", "..v
 				end
 			end
-			minetest.chat_send_player(name, S("@1 is in the following factions: @2.", player_name, str_member, str_owner))
+			minetest.chat_send_player(name, "@1 is in the following factions: @2.", player_name, str_member, str_owner)
 			local owned_factions = factions.get_owned_factions(player_name)
 			if not owned_factions then
-				minetest.chat_send_player(name, "This player is the owner of no faction.")
+				minetest.chat_send_player(name, S("This player is the owner of no faction."))
 			else
 				for _,v in ipairs(owned_factions) do
 					if str_owner == "" then
