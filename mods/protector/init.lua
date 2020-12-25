@@ -81,7 +81,7 @@ local is_member = function (meta, name)
 		else
 			-- is member if player and owner share at least one faction
 			local owner_factions = factions.get_player_factions(name)
-
+			local owner = meta:get_string("owner")
 			for _, f in ipairs(owner_factions) do
 
 				if factions.player_is_in_factions(f, owner) then
