@@ -84,7 +84,7 @@ local is_member = function (meta, name)
 
 			for _, f in ipairs(owner_factions) do
 
-				if factions.player_is_in_faction(f, owner) then
+				if factions.player_is_in_factions(f, owner) then
 					return true
 				end
 			end
