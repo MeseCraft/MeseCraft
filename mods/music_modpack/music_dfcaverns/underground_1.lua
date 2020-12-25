@@ -1,4 +1,4 @@
-local ymax = tonumber(minetest.settings:get("music_dfcaverns_underground1_ymax ")) or -8
+local ymax = tonumber(minetest.settings:get("music_dfcaverns_underground1_ymax")) or -8
 local ymin = tonumber(minetest.settings:get("music_dfcaverns_underground1_ymin")) or -800
 
 music_api.register_track({

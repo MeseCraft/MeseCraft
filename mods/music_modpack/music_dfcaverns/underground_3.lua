@@ -1,4 +1,4 @@
-local ymax = tonumber(minetest.settings:get("music_default_underground1_ymax ")) or -1400
+local ymax = tonumber(minetest.settings:get("music_default_underground1_ymax")) or -1400
 local ymin = tonumber(minetest.settings:get("music_default_underground1_ymin")) or -31000
 
 music_api.register_track({
