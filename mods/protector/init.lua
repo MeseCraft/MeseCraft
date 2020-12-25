@@ -84,7 +84,7 @@ local is_member = function (meta, name)
 			local owner = meta:get_string("owner")
 			for _, f in ipairs(owner_factions) do
 
-				if factions.player_is_in_factions(f, owner) then
+				if factions.player_is_in_faction(f, owner) then
 					return true
 				end
 			end
