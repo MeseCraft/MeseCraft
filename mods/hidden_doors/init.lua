@@ -57,5 +57,4 @@ or (s_LogLevel == "info")
 or (s_LogLevel == "verbose")
 then
 	s_LogLevel = nil
-	minetest.log("action", "[Mod] Hidden Doors [v1.12.0] loaded.")
 end

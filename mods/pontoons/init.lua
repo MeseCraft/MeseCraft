@@ -41,11 +41,7 @@ if pontoons_wood_pontoons then
 	local default_sound
 	local wood_burn_time
 	if default_modpath then
-		if mcl_sounds then
-			default_sound = mcl_sounds.node_sound_wood_defaults()
-		else
-			default_sound = default.node_sound_wood_defaults()
-		end
+		default_sound = default.node_sound_wood_defaults()
 		wood_burn_time = minetest.get_craft_result({method="fuel", width=1, items={ItemStack("group:wood")}}).time
 	end
 	if not wood_burn_time then wood_burn_time = 7 end
@@ -95,15 +91,11 @@ end
 if pontoons_steel_pontoons then
 	local default_sound
 	if default_modpath then
-		if mcl_sounds then
-			default_sound = mcl_sounds.node_sound_metal_defaults()
-		else
 			if default.node_sound_metal_defaults then
 				default_sound = default.node_sound_metal_defaults()
 			else
 				default_sound = default.node_sound_wood_defaults()
 			end
-		end
 	end
 	
 	minetest.register_node("pontoons:steel_pontoon", {

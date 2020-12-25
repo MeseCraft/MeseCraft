@@ -1,13 +1,7 @@
 ################################## URGENT PRIORITY ##################################
--- figure out ambience vs music_modpack conflict
--- lib_trm, every tool now has level and usage, only supported ones should.
 -- Readjust mob spawning parameters to be more aggressive and common for some.
 -- Etheral content conseratively add.
-Exploit (Material duplication): Nether portal is exploitable for infinite portal-materials if a  magic_mirror is used. Break exit portal, mirror home, then reinitiate portal entrance.
-	-- moon rock needed to make moon portals? 
-	-- teleporter node needed to make mars portal?
-Death_compass can be duplicated somehow (reported by noodles) also does not work now.
-Mobs are flashing on hit. Need to look into the API to see why this is. (TenPlus1 said this is because of the current MT version, should resolve in the next engine verison)
+
 gramophone top part disappears when pickedup.
 bee hives arent protection-compatbile.
 fridges aren't protected.
@@ -21,7 +15,7 @@ unknown items in lootchests underground. (probably due to dependency set wrong)
 shift+click doesnt work on lootchests
 Armor: add cosmetic slots vs actual slots to use with costumes and skins.
 "3d_armor" on death, armor peices have a chance of being completely destroyed.
--- healing potion and hbhunger or hudbars seems to conflict and potion has no effect.
+
 
 ################################## LOWER PRIORITY ##################################
 add steel sound to ingot piles when walking on it.
@@ -55,5 +49,4 @@ UNSORTED
 -- add chandiler recipe.
 -- are toolrank sounds missing when break-warning?
 -- flying potion, faster potions
--- AFK mod should detect when players send shout messages. 
 -- blueberries too much, diet mod. oats remove, cave wheat and such longer grow time.
