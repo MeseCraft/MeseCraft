@@ -75,7 +75,7 @@ local function play_track(name)
     --Assemble list of fitting tracks
     for _,track in pairs(tracks) do
 	-- string boolean check, workaround
-        if type(track.name) == 'string' and type(track.day) == 'boolean' and type(track.night) == 'boolean' and type(track.ymin) == 'number' and type(track.ymax) == 'number' then
+--     if type(track.name) == 'string' and type(track.day) == 'boolean' and type(track.night) == 'boolean' and type(track.ymin) == 'number' and type(track.ymax) == 'number' then
       	  if track.name ~= players[name].previous and ((track.day and time > 0.25 and time < 0.75) or
         (track.night and ((time < 0.25 and time >= 0) or (time > 0.75 and time <= 1)))) and
         player_pos.y >= track.ymin and player_pos.y < track.ymax then
