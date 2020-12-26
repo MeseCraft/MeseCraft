@@ -77,7 +77,9 @@ local function make_label(format_string, format_string_config, label, start_valu
 	else
 		ret = S(format_string, unpack(params))
 	end
-	return ret
+--commenting out original to output a blank string
+--	return ret
+	return ""
 end
 
 -- Table which contains all players with active default HUD bars (only for internal use)

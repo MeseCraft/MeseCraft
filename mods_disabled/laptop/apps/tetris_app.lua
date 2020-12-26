@@ -239,7 +239,6 @@ laptop.register_app("tetris", {
 	formspec_func = function(app, mtos)
 		local data = mtos.bdev:get_app_storage('ram', 'tetris')
 		local tetris = get_tetris(app, data)
-		local timer = minetest.get_node_timer(mtos.pos)
 		if not data.t then
 			return mtos.theme:get_button('2,4;2,2', 'major', 'new', 'New Game', 'Start a new game')
 		end

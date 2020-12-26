@@ -107,76 +107,56 @@ end
 
 local function after_place_node(pos, placer, itemstack, pointed_thing)
 	local save = minetest.deserialize(itemstack:get_meta():get_string("laptop_metadata"))
-	laptop.mtos_cache:free(pos)
-	if save then
+	if not save then
+		return
+	end
+
+	-- Backwards compatibility code
+	if not save.ram_disk and not save.hard_disk then
+		laptop.mtos_cache:free(pos)
 		local meta = minetest.get_meta(pos)
 		meta:from_table({fields = save.fields})
-
 		for invname, inv in pairs(save.invlist) do
 			meta:get_inventory():set_list(invname, inv)
 		end
+		itemstack:clear()
+		return
 	end
+	-- Backwards compatibility code end
+
+	local mtos = laptop.os_get(pos)
+	mtos.bdev.ram_disk = save.ram_disk or mtos.bdev.ram_disk
+	mtos.bdev.hard_disk = save.hard_disk or mtos.bdev.hard_disk
+
+	if save.removable_disk then
+		local removable = mtos.bdev:get_removable_disk()
+		removable:reload(ItemStack(save.removable_disk))
+	end
+
+	mtos.bdev:sync()
 	itemstack:clear()
 end
 
-local function after_dig_node(pos, oldnode, oldmetadata, digger)
---local function preserve_metadata(pos, oldnode, oldmetadata, drops) --TODO: if MT-0.5 stable
-	local save = { fields = oldmetadata.fields, invlist = {} }
-	local cached_mtos = laptop.mtos_cache:get(pos)
-	if cached_mtos then
-		-- Workaround, handle sync without nodemeta access
-		local bdev = cached_mtos.bdev
-		save.fields.laptop_ram = minetest.serialize(bdev.ram_disk)
-		save.fields.laptop_appdata = minetest.serialize(bdev.hard_disk)
-
-		if bdev.removable_disk then
-			local stack = bdev.removable_disk.stack
-			if stack then
-				local stackmeta  = stack:get_meta()
-				if bdev.removable_disk.def and bdev.removable_disk.label ~= bdev.removable_disk.def.description then
-					stackmeta:set_string("description", bdev.removable_disk.label)
-				end
-				if bdev.removable_disk.storage then
-					stackmeta:set_string("os_storage", minetest.serialize(bdev.removable_disk.storage))
-				end
-			end
-			oldmetadata.inventory.main = oldmetadata.inventory.main or {}
-			oldmetadata.inventory.main[1] = stack
-		end
-		laptop.mtos_cache:free(pos)
+local function preserve_metadata(pos, oldnode, oldmetadata, drops)
+	local mtos = laptop.os_get(pos)
+	if not mtos then
+		return
 	end
 
-	if oldmetadata.inventory then
-		for invname, inv in pairs(oldmetadata.inventory) do
-			local invsave = {}
-			save.invlist[invname] = invsave
-			for _, stack in ipairs(inv) do
-				table.insert(invsave, stack:to_string())
-			end
-		end
-	end
+	laptop.mtos_cache:sync_and_free(mtos)
+
+	local removable = mtos.bdev:get_removable_disk()
+
+	local save = {
+		laptop_ram = mtos.bdev:get_ram_disk(),
+		hard_disk = mtos.bdev:get_hard_disk(),
+		removable_disk = removable.stack and removable.stack:to_string()
+	}
+
 	local item_name = minetest.registered_items[oldnode.name].drop or oldnode.name
-	local inventory = digger:get_inventory()
-	local in_inv
-	for idx, stack in ipairs(inventory:get_list("main")) do
-		if stack:get_name() == item_name and stack:get_meta():get_string("laptop_metadata") == "" then
+	for _, stack in pairs(drops) do
+		if stack:get_name() == item_name then
 			stack:get_meta():set_string("laptop_metadata", minetest.serialize(save))
-			digger:get_inventory():set_stack("main", idx, stack)
-			in_inv = true
-			break
-		end
-	end
-
-	-- creative? no item found without metadata. Create new one
-	if not in_inv then
-		local new_stack = ItemStack(item_name)
-		new_stack:get_meta():set_string("laptop_metadata", minetest.serialize(save))
-		local keeped = inventory:add_item("main", new_stack)
-		if not keeped:is_empty() then
-			-- No place in inventory, revert the node
-			minetest.set_node(pos, oldnode)
-			after_place_node(pos, digger, keeped, nil)
-			on_punch(pos, oldnode, digger)
 		end
 	end
 end
@@ -205,8 +185,7 @@ function laptop.register_hardware(name, hwdef)
 		-- needed to transfer content to item if place or dig laptop
 		def.stack_max = 1
 		def.after_place_node = after_place_node
-		def.after_dig_node = after_dig_node
---		def.preserve_metadata = preserve_metadata TODO: if MT-0.5 stable
+		def.preserve_metadata = preserve_metadata
 		def.on_punch = on_punch
 		def.on_construct = on_construct
 		def.on_receive_fields = on_receive_fields

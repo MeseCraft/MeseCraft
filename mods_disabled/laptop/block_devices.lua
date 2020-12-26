@@ -172,7 +172,7 @@ function bdev:sync()
 			if self.removable_disk.def and self.removable_disk.label ~= self.removable_disk.def.description then
 				self.removable_disk.meta:set_string("description", self.removable_disk.label)
 			end
-			if self.removable_disk.storage then
+			if self.removable_disk.storage and next(self.removable_disk.storage) then
 				self.removable_disk.meta:set_string("os_storage", minetest.serialize(self.removable_disk.storage))
 			end
 		end

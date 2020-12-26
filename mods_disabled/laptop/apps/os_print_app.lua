@@ -1,6 +1,6 @@
 local printer_range = 10
 
-local function trigger_queue(mtos)
+local function trigger_queue(app, mtos)
 	-- Check print requirements
 	if mtos.sysdata.selected_view ~= 'output' or
 			mtos.sysdata.out_stack_save or
@@ -17,6 +17,7 @@ local function trigger_queue(mtos)
 		mtos.sysdata.print_progress = 0
 		mtos.sysdata.paper_count = mtos.sysdata.paper_count - 1
 		mtos.sysdata.dye_count = mtos.sysdata.dye_count - 0.1
+		mtos.bdev.removable_disk = nil -- force reading
 		local idata = mtos.bdev:get_removable_disk()
 		local stack = ItemStack("laptop:printed_paper")
 		local print_data = mtos.sysdata.print_queue[1]
@@ -24,9 +25,10 @@ local function trigger_queue(mtos)
 		table.remove(mtos.sysdata.print_queue, 1)
 		idata:reload(stack)
 		idata.label = print_data.title
+		mtos.bdev:sync()
 	end
 
-	local timer = minetest.get_node_timer(mtos.pos)
+	local timer = app:get_timer()
 	if not timer:is_started() then
 		timer:start(1)
 	end
@@ -37,6 +39,7 @@ local function sync_stack_values(mtos)
 	mtos.sysdata.paper_count = mtos.sysdata.paper_count or 0
 	mtos.sysdata.dye_count = mtos.sysdata.dye_count or 0
 	mtos.sysdata.print_progress = mtos.sysdata.print_progress or 0
+	mtos.bdev.removable_disk = nil -- force reading
 	local idata = mtos.bdev:get_removable_disk()
 	-- store old stack values
 	if mtos.sysdata.selected_view == 'paper' then
@@ -68,7 +71,8 @@ laptop.register_app("printer_launcher", {
 		mtos.sysdata.print_queue = mtos.sysdata.print_queue or {}
 		mtos.sysdata.selected_view = mtos.sysdata.selected_view or 'output'
 		sync_stack_values(mtos)
-		trigger_queue(mtos)
+		trigger_queue(launcher_app, mtos)
+		mtos.bdev:sync()
 		-- inventory fields
 		local formspec = "size[9,8]"..
 				"list[current_player;main;0.3,3.85;8,1;]" ..
@@ -76,7 +80,6 @@ laptop.register_app("printer_launcher", {
 				"listring[nodemeta:"..mtos.pos.x..','..mtos.pos.y..','..mtos.pos.z..";main]" ..
 				"listring[current_player;main]"..
 				mtos.theme:get_label('0,0', mtos.hwdef.description, 'titlebar')
-		local idata = mtos.bdev:get_removable_disk()
 
 		-- queue
 		formspec = formspec .. mtos.theme:get_tableoptions()..
@@ -164,12 +167,14 @@ laptop.register_app("printer_launcher", {
 			mtos.sysdata.print_progress = 0
 		end
 		idata:reload(idata.stack)
-		trigger_queue(mtos)
+		trigger_queue(app, mtos)
+		mtos.bdev:sync()
 	end,
 
 	on_timer = function(app, mtos)
 		mtos.sysdata.print_progress = mtos.sysdata.print_progress + 1
-		return trigger_queue(mtos)
+		mtos.bdev.removable_disk = nil -- force reading
+		return trigger_queue(app, mtos)
 	end,
 })
 
