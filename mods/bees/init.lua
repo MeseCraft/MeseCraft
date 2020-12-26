@@ -171,6 +171,9 @@
       end
     end,
     allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+      if minetest.is_protected(pos, player:get_player_name()) then 
+        return 0 
+      end
       if (listname == 'bottles_empty' and stack:get_name() == 'vessels:glass_bottle') or (listname == 'frames_filled' and stack:get_name() == 'bees:frame_full') then
         return stack:get_count()
       else
@@ -179,6 +182,12 @@
     end,
     allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
       return 0
+    end,
+    allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+      if minetest.is_protected(pos,player:get_player_name()) then
+        return 0 
+      end
+      return stack:get_count()
     end,
   })
 
@@ -407,6 +416,9 @@
       end
     end,
     allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+      if minetest.is_protected(pos, player:get_player_name()) then 
+        return 0 
+      end
       local inv = minetest.get_meta(pos):get_inventory()
       if from_list == to_list then 
         if inv:get_stack(to_list, to_index):is_empty() then
@@ -432,6 +444,9 @@
       end
     end,
     allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+      if minetest.is_protected(pos, player:get_player_name()) then 
+        return 0 
+      end
       if not minetest.get_meta(pos):get_inventory():get_stack(listname, index):is_empty() then return 0 end
       if listname == 'queen' then
         if stack:get_name():match('bees:queen*') then
@@ -443,6 +458,12 @@
         end
       end
       return 0
+    end,
+    allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+      if minetest.is_protected(pos,player:get_player_name()) then
+        return 0 
+      end
+      return stack:get_count()
     end,
   })
 
