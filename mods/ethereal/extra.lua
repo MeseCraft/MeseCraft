@@ -188,7 +188,7 @@ if not minetest.registered_items["farming:bowl"] then
 	})
 end
 
--- stone Ladder
+--[[ stone Ladder
 minetest.register_node("ethereal:stone_ladder", {
 	description = S("Stone Ladder"),
 	drawtype = "signlike",
@@ -217,7 +217,7 @@ minetest.register_craft({
 		{"group:stone", "", "group:stone"},
 	}
 })
-
+]]--
 -- Paper Wall
 minetest.register_node("ethereal:paper_wall", {
 	drawtype = "nodebox",
