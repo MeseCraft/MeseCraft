@@ -74,11 +74,14 @@ local function play_track(name)
 
     --Assemble list of fitting tracks
     for _,track in pairs(tracks) do
-        if track.name ~= players[name].previous and ((track.day and time > 0.25 and time < 0.75) or
+	-- string boolean check, workaround
+        if type(track.name) == 'string' and type(track.day) == 'boolean' and type(track.night) == 'boolean' and type(track.ymin) == 'number' and type(track.ymax) == 'number' then
+      	  if track.name ~= players[name].previous and ((track.day and time > 0.25 and time < 0.75) or
         (track.night and ((time < 0.25 and time >= 0) or (time > 0.75 and time <= 1)))) and
         player_pos.y >= track.ymin and player_pos.y < track.ymax then
             table.insert(possible_tracks, track)
-        end
+--    	    end
+	end
     end
 
     --Return if no music fits
@@ -232,6 +235,14 @@ function music_api.register_track(def)
         minetest.log("error", "[Music_api] Missing track definition parameters!")
         return
     end
+-- use to debug output if tracks are crashing
+--    assert(type(def.name) == 'string', "def.name is not a string!")
+--    assert(type(def.length) == 'number', "def.length is not a Number!")
+--    assert(type(def.gain) == 'number', "def.gain is not a Number!")
+--    assert(type(def.day) == 'boolean', "def.day is not a Boolean!")
+--    assert(type(def.night) == 'boolean', "def.night is not a Boolean!")
+--    assert(type(def.ymin) == 'number', "def.ymin is not a Number!")
+--    assert(type(def.ymax) == 'number', "def.ymax is not a Number!")
 
     local track_def = {
         name = def.name,
