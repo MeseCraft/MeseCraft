@@ -1,2 +1,0 @@
-# Add default achievements from the awards mod
-awards.add_defaults (Add Default Achievements) bool true
