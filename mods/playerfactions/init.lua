@@ -255,9 +255,11 @@ local function handle_command(name, param)
 	elseif action == "info" then
 		local faction_name = params[2]
 		if faction_name == nil then
-			local player_factions = factions.get_player_factions(name)
+			local player_factions = factions.get_player_factions(name) or {}
 			if #player_factions == 1 then
 				faction_name = player_factions[1]
+			elseif #player_factions == 0 then
+				minetest.chat_send_player(name, S("You are not a member of a faction."))
 			else
 				minetest.chat_send_player(name, S("You are in many factions, you have to choose one of them: @1.", table.concat(player_factions, ", ")))
 				return false

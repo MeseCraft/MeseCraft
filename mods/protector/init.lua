@@ -638,10 +638,16 @@ minetest.register_node("protector:protect2", {
 	after_destruct = function(pos, oldnode)
 		local objects = minetest.get_objects_inside_radius(pos, 0.5)
 		for _, v in ipairs(objects) do
-			if v:get_luaentity().name == "protector:display" then
-				v:remove()
-			end
-		end
+        	if v ~= nil then
+            	if v:get_luaentity() ~= nil then
+                	if v:get_luaentity().name ~= nil then
+                        if v:get_luaentity().name == "protector:display" then
+                            v:remove()
+                        end
+                    end
+                end
+            end
+	end
 	end,
 })
 
