@@ -1,0 +1,2 @@
+name = MTG
+description = Meta-modpack containing minetest_game files for MeseCraft.

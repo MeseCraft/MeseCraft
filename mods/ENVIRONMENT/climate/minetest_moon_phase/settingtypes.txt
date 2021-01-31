@@ -1,0 +1,6 @@
+# The moon will switch to the next phase every X days.
+moon_phases_cycle (Change moon phase every X days) int 4
+
+# Use classic for a default-inspired set of textures.
+# Use realistic for a set of down-scaled NASA photography.
+moon_phases_style (Choose a default texture style) enum classic classic,realistic
