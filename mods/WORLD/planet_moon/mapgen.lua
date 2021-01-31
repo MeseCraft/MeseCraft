@@ -76,6 +76,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	end --z
 
 	vm:set_data(data)
-	minetest.generate_ores(vm, minp, maxp)
+-- 	Uncommenting below line to remove ores from moon. They need to be rebalanced manually.
+--	minetest.generate_ores(vm, minp, maxp)
 	vm:write_to_map()
 end)
