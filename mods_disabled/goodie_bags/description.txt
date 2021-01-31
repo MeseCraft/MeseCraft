@@ -1,1 +1,0 @@
-Adds goodie bags that give random predefined loot.

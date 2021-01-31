@@ -1,2 +1,0 @@
-name = CORE
-description = Meta-modpack containing the core mods for MeseCraft.

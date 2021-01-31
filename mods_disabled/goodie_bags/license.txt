@@ -1,9 +1,0 @@
-The pixel font used in the "Goodie Bag Contents" texture is called Battlenet. The battlenet font is made by Tom Israels. It's posted on http://www.pentacom.jp/pentacom/bitfontmaker2/gallery/?id=125 which is a website where you can make pixel fonts. It's licensed as public domain. The font itself is not distributed with this mod, but some people may want to know what font was used and any licensing restrictions it may have.
-
-The sound named "ff_goodie_bags_Coin01.ogg" is licensed as CC0 by wobbleboxx (wobbleboxx.com) on opengamart.org. https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
-
-All other code and textures are created by isaiah658.
-
-The code is licensed as WTFPL or MIT. You may choose either license that fits best when adapting code into your project.
-
-The textures are licensed as Creative Commons Zero (CC0).
