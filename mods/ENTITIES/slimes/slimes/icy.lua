@@ -1,4 +1,4 @@
-mobs:register_mob("tmw_slimes:icy_slime", {
+mobs:register_mob("slimes:icy_slime", {
 	group_attack = true,
 	type = "monster",
 	passive = false,
@@ -7,7 +7,7 @@ mobs:register_mob("tmw_slimes:icy_slime", {
 	attack_monsters = false,
 	attack_type = "dogfight",
 	reach = 2,
-	damage = tmw_slimes.strong_dmg,
+	damage = slimes.strong_dmg,
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
@@ -15,9 +15,9 @@ mobs:register_mob("tmw_slimes:icy_slime", {
 	visual_size = {x = 4, y = 4},
 	visual = "mesh",
 	mesh = "slime_land.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["icy"],
+	blood_texture = "slime_goo.png^[colorize:"..slimes.colors["icy"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["icy"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["icy"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["icy"]},
+		{"slime_goo_block.png^[colorize:"..slimes.colors["icy"],"slime_goo_block.png^[colorize:"..slimes.colors["icy"],"slime_goo_block.png^[colorize:"..slimes.colors["icy"]},
 	},
         sounds = {
                 jump = "mobs_monster_slime_jump",
@@ -34,7 +34,7 @@ mobs:register_mob("tmw_slimes:icy_slime", {
 	--floats = 0,
 	--fly_in = {"default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
 	drops = {
-		{name = "tmw_slimes:icy_goo", chance = 1, min = 0, max = 2},
+		{name = "slimes:icy_goo", chance = 1, min = 0, max = 2},
 	},
 	water_damage = 0,
 	lava_damage = 256,
@@ -60,22 +60,22 @@ mobs:register_mob("tmw_slimes:icy_slime", {
 		jump_end = 83
 	},
 	do_custom = function(self)
-		tmw_slimes.animate(self)
-		tmw_slimes.absorb_nearby_items(self)
+		slimes.animate(self)
+		slimes.absorb_nearby_items(self)
 	end,
 	on_die = function(self, pos)
-		tmw_slimes.drop_items(self, pos)
+		slimes.drop_items(self, pos)
 	end
 })
 
 
 mobs:spawn({
-	name = "tmw_slimes:icy_slime",
+	name = "slimes:icy_slime",
 	nodes = {"group:snowy", "default:ice"},
 	min_light = 0,
 	max_light = 16,
-	chance = tmw_slimes.uncommon,
-	active_object_count = tmw_slimes.uncommon_max,
+	chance = slimes.uncommon,
+	active_object_count = slimes.uncommon_max,
 	min_height = -31000,
 	max_height = 31000,
 })

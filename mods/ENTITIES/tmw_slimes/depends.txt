@@ -1,6 +1,0 @@
-mobs
-default
-fire
-other_worlds?
-mesecons_materials?
-mythology?

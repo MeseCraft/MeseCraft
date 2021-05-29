@@ -97,11 +97,6 @@ minetest.register_node('smoke:block', {
 	}},
 	inventory_image = "smoke.png^[verticalframe:16:1",
 	wield_image =  "smoke.png^[verticalframe:16:1",
-	drawtype = "nodebox",
-	node_box={
-		type="fixed",
-		fixed= {{-0.5, -0.5, -0.5, 0.20, 0.20, 0.20}, { -0.25, -0.25, -0.25, 0.5, 0.5, 0.5}},
-	},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	use_texture_alpha=TRANSPARENCY,

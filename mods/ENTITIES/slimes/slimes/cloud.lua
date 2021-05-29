@@ -1,4 +1,4 @@
-mobs:register_mob("tmw_slimes:cloud_slime", {
+mobs:register_mob("slimes:cloud_slime", {
 	group_attack = true,
 	type = "animal",
 	passive = false,
@@ -7,7 +7,7 @@ mobs:register_mob("tmw_slimes:cloud_slime", {
 	attack_monsters = false,
 	attack_type = "dogfight",
 	reach = 3,
-	damage = tmw_slimes.strong_dmg,
+	damage = slimes.strong_dmg,
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
@@ -15,9 +15,9 @@ mobs:register_mob("tmw_slimes:cloud_slime", {
 	visual_size = {x = 4, y = 4},
 	visual = "mesh",
 	mesh = "slime_liquid.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["cloud"],
+	blood_texture = "slime_goo.png^[colorize:"..slimes.colors["cloud"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["cloud"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["cloud"].."^[colorize:#FFF:96"},
+		{"slime_goo_block.png^[colorize:"..slimes.colors["cloud"],"slime_goo_block.png^[colorize:"..slimes.colors["cloud"].."^[colorize:#FFF:96"},
 	},
         sounds = {
                 jump = "mobs_monster_slime_jump",
@@ -34,7 +34,7 @@ mobs:register_mob("tmw_slimes:cloud_slime", {
 	fly = true,
 	fly_in = {"air", "default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
 	drops = {
-		{name = "tmw_slimes:cloud_goo", chance = 1, min = 0, max = 2},
+		{name = "slimes:cloud_goo", chance = 1, min = 0, max = 2},
 	},
 	water_damage = 0,
 	lava_damage = 8,
@@ -50,26 +50,26 @@ mobs:register_mob("tmw_slimes:cloud_slime", {
 		jump_end = 83
 	},
 	do_custom = function(self)
-	--	tmw_slimes.animate(self)
-		tmw_slimes.absorb_nearby_items(self)
+	--	slimes.animate(self)
+		slimes.absorb_nearby_items(self)
 	end,
 	on_die = function(self, pos)
-		tmw_slimes.drop_items(self, pos)
+		slimes.drop_items(self, pos)
 	end
 })
 
-minetest.override_item("tmw_slimes:cloud_goo", {on_use = minetest.item_eat(0)})
+minetest.override_item("slimes:cloud_goo", {on_use = minetest.item_eat(0)})
 
 mobs:spawn({
-	name = "tmw_slimes:cloud_slime",
+	name = "slimes:cloud_slime",
 	nodes = {
 		"default:silver_sand",
 		"air"
 	},
 	min_light = 0,
 	max_light = 16,
-	chance = tmw_slimes.rare,
-	active_object_count = tmw_slimes.rare_max,
+	chance = slimes.rare,
+	active_object_count = slimes.rare_max,
 	min_height = 130,
 	max_height = 1000,
 })

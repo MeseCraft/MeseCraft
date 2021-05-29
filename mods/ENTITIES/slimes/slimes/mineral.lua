@@ -1,23 +1,23 @@
-mobs:register_mob("tmw_slimes:jungle_slime", {
+mobs:register_mob("slimes:mineral_slime", {
 	group_attack = true,
-	type = "monster",
+	type = "animal",
 	passive = false,
 	attack_animals = false,
 	attack_npcs = false,
 	attack_monsters = false,
 	attack_type = "dogfight",
 	reach = 2,
-	damage = tmw_slimes.medium_dmg,
+	damage = slimes.medium_dmg,
 	hp_min = 20,
 	hp_max = 40,
 	armor = 180,
-        collisionbox = {-0.4, -0.02, -0.4, 0.4, 0.8, 0.4},
+	collisionbox = {-0.4, -0.02, -0.4, 0.4, 0.8, 0.4},
 	visual_size = {x = 4, y = 4},
 	visual = "mesh",
 	mesh = "slime_land.b3d",
-	blood_texture = "tmw_slime_goo.png^[colorize:"..tmw_slimes.colors["jungle"],
+	blood_texture = "slime_goo.png^[colorize:"..slimes.colors["mineral"],
 	textures = {
-		{"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["jungle"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["jungle"],"tmw_slime_goo_block.png^[colorize:"..tmw_slimes.colors["jungle"]},
+		{"slime_goo_block.png^[colorize:"..slimes.colors["mineral"],"slime_goo_block.png^[colorize:"..slimes.colors["mineral"],"slime_goo_block.png^[colorize:"..slimes.colors["mineral"]},
 	},
         sounds = {
                 jump = "mobs_monster_slime_jump",
@@ -33,7 +33,7 @@ mobs:register_mob("tmw_slimes:jungle_slime", {
 	view_range = 15,
 	--fly_in = {"default:water_source", "default:water_flowing", "default:river_water_source", "default:river_water_flowing"},
 	drops = {
-		{name = "tmw_slimes:jungle_goo", chance = 1, min = 0, max = 2},
+		{name = "slimes:mineral_goo", chance = 1, min = 0, max = 2},
 	},
 	water_damage = 0,
 	lava_damage = 8,
@@ -49,33 +49,29 @@ mobs:register_mob("tmw_slimes:jungle_slime", {
 		jump_end = 83
 	},
 	do_custom = function(self)
-		tmw_slimes.animate(self)
-		tmw_slimes.absorb_nearby_items(self)
+		slimes.animate(self)
+		slimes.absorb_nearby_items(self)
 	end,
 	on_die = function(self, pos)
-		tmw_slimes.drop_items(self, pos)
+		slimes.drop_items(self, pos)
 	end
 })
 
-minetest.override_item("tmw_slimes:jungle_goo", {on_use = minetest.item_eat(3)})
-
-if minetest.registered_items["mesecons_materials:glue"] then
-	minetest.register_craft({
-		type = "cooking",
-		output = "mesecons_materials:glue",
-		recipe = "tmw_slimes:jungle_goo"
-	})
-end
+minetest.register_craft({
+	type = "cooking",
+	output = "default:steel_ingot",
+	recipe = "slimes:mineral_goo"
+})
 
 mobs:spawn({
-	name = "tmw_slimes:jungle_slime",
+	name = "slimes:mineral_slime",
 	nodes = {
-		"default:dirt_with_rainforest_litter"
+		"default:stone"
 	},
 	min_light = 0,
 	max_light = 16,
-	chance = tmw_slimes.pervasive,
-	active_object_count = tmw_slimes.pervasive_max,
+	chance = slimes.common,
+	active_object_count = slimes.common_max,
 	min_height = -31000,
-	max_height = 31000,
+	max_height = -24,
 })
