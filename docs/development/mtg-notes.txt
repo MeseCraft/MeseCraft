@@ -1,0 +1,6 @@
+Minetest_Game is imported as a base for MeseCraft.
+
+However, there are some changes with MTG that need to be made to make it compatible with MeseCraft.
+
+Remove from mtg: default:sign_wall_wood & default:sign_wall_steel  (crafts, nodes, textures, references).
+Remove from mtg: "farming"

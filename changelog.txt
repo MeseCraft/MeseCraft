@@ -1,0 +1,10 @@
+# Changelog for MeseCraft #
+
+2021-06-28
+* Added digiterms, to allow terminals and keyboard input methods to be used with digilines and to encourage Lua education.
+* Added some of display_modpack to enable digiterms and display system.
+* Removed smartshop.
+* Added Fancy Vend for vending that supports pipeworks and digilines.
+* Added awards mod to add achievements system.
+* Updated minetest_game to release version 5.3.0
+

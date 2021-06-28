@@ -1,0 +1,3 @@
+Code by Pierre-Yves Rollo (pyrollo)
+Contributors:
+Andrzej Pieńkowski (apienk): Unicode support and tool for creating texturess

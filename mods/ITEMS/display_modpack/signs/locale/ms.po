@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Yaya (Nurul Azeera Hidayah @ Muhammad Nur Hidayat) <translation@mnh48.moe>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: Display Modpack\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-26 13:20+0200\n"
+"PO-Revision-Date: 2020-07-05 11:34+0000\n"
+"Last-Translator: Yaya MNH48 <translation@mnh48.moe>\n"
+"Language-Team: Malay <translation@mnh48.moe>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.3\n"
+
+#: common.lua nodes.lua
+msgid "Text"
+msgstr "Teks"
+
+#: common.lua nodes.lua
+msgid "Write"
+msgstr "Tulis"
+
+#: common.lua
+#, lua-format
+msgid " (first %s lines only)"
+msgstr " (%s baris pertama sahaja)"
+
+#: nodes.lua
+msgid "Title"
+msgstr "Tajuk"
+
+#: nodes.lua
+msgid "Close"
+msgstr "Tutup"
+
+#: nodes.lua
+msgid "(right-click to read more text)"
+msgstr "(klik-kanan untuk baca teks penuh)"
+
+#: nodes.lua
+msgid "Wooden direction sign"
+msgstr "Papan tanda arah kayu"
+
+#: nodes.lua
+msgid "Poster"
+msgstr "Poster"

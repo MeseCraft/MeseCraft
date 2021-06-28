@@ -1,0 +1,3 @@
+Font by Nate Halley (Nate547 (total FontGeek))
+Textures named digiterms_scifi_*.png are derivated from D00Med work
+Other textures and code by Pierre-Yves Rollo (pyrollo)

@@ -1,0 +1,15 @@
+
+[Basic]
+
+# The node to copy as the display node
+fancy_vend.display_node (Display Node) string default:obsidian_glass
+
+# Maximum number of mods to store per vender
+fancy_vend.log_max (Log Max) int 40
+
+# Speed of display item auto rotation
+fancy_vend.autorotate_speed (Autorotate Speed) int 1
+
+# Whether to not send mail alerts
+fancy_vend.no_alerts (Don't Send Mail Alerts) bool false
+
