@@ -4,3 +4,4 @@ However, there are some changes with MTG that need to be made to make it compati
 
 Remove from mtg: default:sign_wall_wood & default:sign_wall_steel  (crafts, nodes, textures, references).
 Remove from mtg: "farming"
+Remove from mtg: "beds"

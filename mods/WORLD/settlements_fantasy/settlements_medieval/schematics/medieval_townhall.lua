@@ -24,7 +24,7 @@ local n23 = { name = "default:torch_wall", param2 = 4 }
 local n24 = { name = "doors:door_wood_a", param2 = 1 }
 local n25 = { name = "xpanes:pane_flat", param2 = 3 }
 local n26 = { name = "doors:hidden", param2 = 1 }
-local n27 = { name = "signs:sign", param2 = 3 }
+local n27 = { name = "signs:wall_sign", param2 = 3 }
 local n28 = { name = "default:tree", param2 = 18 }
 local n29 = { name = "stairs:stair_junglewood", param2 = 3 }
 local n30 = { name = "default:fence_wood" }

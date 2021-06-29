@@ -62,7 +62,7 @@ end
 local generate_books = minetest.settings:get_bool("settlements_generate_books", true)
 
 local initialize_node = function(pos, node, node_def, settlement_info)
-	if settlement_info.name and node.name == "signs:sign" then
+	if settlement_info.name and node.name == "signs:wall_sign" then
 		local meta = minetest.get_meta(pos)
 		meta:set_string("text", S("@1 Town Hall", settlement_info.name))
 	end

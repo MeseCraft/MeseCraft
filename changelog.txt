@@ -1,5 +1,9 @@
 # Changelog for MeseCraft #
 
+2021-06-29
+* Created custom bed mod. Removed Fancy Beds and added colored beds. Also integrated features from "bouncy_bed".
+
+
 2021-06-28
 * Added digiterms, to allow terminals and keyboard input methods to be used with digilines and to encourage Lua education.
 * Added some of display_modpack to enable digiterms and display system.
