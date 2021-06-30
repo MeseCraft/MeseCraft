@@ -1,0 +1,115 @@
+# textdomain: nether
+
+# Translation FR by Louis Royer
+
+
+### init.lua ###
+
+Construction requires 14 blocks of obsidian, which we found deep underground where water had solidified molten rock. The finished frame is four blocks wide, five blocks high, and stands vertically, like a doorway.@n@nThis opens to a truly hellish place, though for small mercies the air there is still breathable. There is an intriguing dimensional mismatch happening between this realm and ours, as after opening the second portal into it we observed that 10 strides taken in the Nether appear to be an equivalent of @1 in the natural world.@n@nThe expedition parties have found no diamonds or gold, and after an experienced search party failed to return from the trail of a missing expedition party, I must conclude this is a dangerous place.=Cette construction nécessite 14 blocs d’obsidienne, qui peut être trouvée profondément sous terre, là où l’eau a solidifié de la roche fondue. Une fois terminé, le cadre fait quatre blocs de large, cinq blocs de haut, et se tient verticalement comme une porte.@n@nElle ouvre sur un lieu vraiment infernal, mais on peut s’estimer heureux que l’air y soit quand même respirable. Il y a un décalage dimensionnel intrigant entre ce monde et le nôtre, car après avoir ouvert un deuxième portail, nous avons observé que 10 pas effectués dans le Nether semblent être l’équivalent de @1 dans notre monde.@n@nLes membres de l’expédition n’ontr trouvé ni diamants ni or, et après qu’un groupe de recheche expérimenté n’ait pas réussi à retrouver la piste d’un membre de l’expédition disparu, je n’ai d’autre choix que de conclure que cet endroit est trop dangereux pour nous.
+
+
+### init.lua ###
+### nodes.lua ###
+
+Nether Portal=Portail du Nether
+
+### mapgen_mantle.lua ###
+
+, @1m above lava-sea level=
+, @1m below lava-sea level=
+, approaching y boundary of Nether=
+@1@2@3@4=
+Center/Mantle, but outside the caverns=
+Center/Mantle, inside cavern=
+Describes which region of the nether the player is in=
+Negative nether=
+Positive nether=
+Shell between negative nether and center region=
+Shell between positive nether and center region=
+The Overworld=
+Unknown player position=
+[Perlin @1] =
+
+### nodes.lua ###
+
+A finely finished block of solid Nether Basalt.=
+A rough cut solid block of Nether Basalt.=
+A thin crust of cooled lava with liquid lava beneath=
+A vent in the earth emitting steam and gas=
+Can be repurposed to provide puffs of smoke in a chimney=
+Chiselled Basalt=
+
+Columns of dark basalt found only in magma oceans deep within the Nether.=
+
+Compressed Netherbrick=
+Cracked Nether Brick=
+Deep Glowstone=
+Deep Netherrack=
+Fumarolic Chimney=
+Fumarolic Chimney Corner=
+Fumarolic Chimney Slab=
+Glowstone=Pierre lumineuse
+Hewn Basalt=
+Inner Nether Stair=Escalier intérieur du Nether
+Lava Crust=
+
+Lava crust is strong enough to walk on, but still hot enough to inflict burns.=
+
+Nether Basalt=
+Nether Brick=Brique du Nether
+Nether Brick Fence=Barrière en briques du Nether
+Nether Slab=Dalle du Nether
+Nether Stair=Escalier du Nether
+Netherrack=Roche du Nether
+Netherrack from deep in the mantle=
+Netherrack stair=
+Nethersand=Sable du Nether
+Outer Nether Stair=Escalier extérieur du Nether
+Portal=
+
+### portal_api.lua ###
+
+@n@nThe key to opening such a doorway is to strike the frame with a @1, at which point the very air inside begins to crackle and glow.=@n@nLa méthode pour ouvrir une telle porte est de frapper son cadre avec un @1, jusqu’à ce que tout l’air à l’intérieur commence à crépiter et briller.
+
+A definitive guide to Rifts and Portals=Un guide détaillé des failles et des portails
+
+A guidebook for how to build portals to other realms. It can sometimes be found in dungeon chests, however a copy of this book is not needed as its contents are included in this Encyclopedia.=Un guide sur comment construire des portails vers d’autres mondes. Il peut parfois être trouvé dans des coffres de dongeons, cependant la copie de ce livre n’est pas nécessaire puisque son contenu est inclus dans l’encyclopédie.
+
+Book of Portals=Livre des portails
+Building Portals=Construire des portails
+
+In all my travels, and time spent in the Great Libraries, I have encountered no shortage of legends surrounding preternatural doorways said to open into other worlds, yet only @1 can I confirm as being more than merely stories.=Après tous mes voyages, et le temps passé dans les Grandes Bibliothèques, je ne manque pas de légendes sur les portes surnaturelles qui, dit-on s’ouvrent vers d’autres mondes, mais seul @1 peut confirmer que ce sont plus que de simples histoires.
+
+In all my travels, and time spent in the Great Libraries, I have encountered no shortage of legends surrounding preternatural doorways said to open into other worlds, yet only one can I confirm as being more than merely a story.=Après tous mes voyages, et le temps passé dans les Grandes Bibliothèques, je ne manque pas de légendes sur les portes surnaturelles qui, dit-on s’ouvrent vers d’autres mondes, mais seul une personne peut confirmer que ce sont plus que de simples histoires.
+
+Mysterious forces prevented you from opening that portal. Please try another location=
+
+Portal wormhole=Vortex du portail
+
+Portals to other realms can be opened by building a frame in the right shape with the right blocks, then using an item to activate it. A local copy of the guidebook to portals is published below.@n---@n@n=Les portails vers d’autres mondes peuvent être ouvert en construisant un cadre de la bonne forme avec les bons blocs, puis en utilisant un objet pour l’activer. Une copie du guide des portails est ci-dessous.@n---@n@n
+
+Refer: "Help" > "Basics" > "Building Portals"=Voir : Aide > Bases > Construire des portails
+Untitled portal=Portail sans nom
+We know almost nothing about this portal=Nous ne savons presque rien sur les portails
+
+### portal_examples.lua ###
+
+Floatlands Portal=Portail du monde flottant
+
+Requiring 16 blocks of tin and constructed in a circular fashion, a finished frame is seven blocks wide, seven blocks high, and stands vertically like a doorway.@n@nThese travel a distance along the ground, and even when constructed deep underground will link back up to the surface. They appear to favor a strange direction, with the exit portal linking back only for as long as the portal stays open — attempting to reopen a portal from the exit doorway leads to a new destination along this favored direction. It has stymied our ability to study the behavior of these portals because without constructing dual portals and keeping both open it's hard to step through more than one and still be able to return home.@n@nDue to such difficulties, we never learned what determines the direction and distance where the matching twin portal will appear, and I have lost my friend and protégé. In cavalier youth and with little more than a rucksack, Coudreau has decided to follow the chain as far as it goes, and has not been seen since. Coudreau believes it works in epicycles, but I am not convinced. Still, I cling to the hope that one day the portal will open and Coudreau will step out from whichever place leads to this one, perhaps with an epic tale to tell.=Nécessite 16 blocs d’étain placés de manière circulaire, le cadre final fait sept blocs de large, sept blocs de haut, et se tient verticalement comme une porte.@n@nIls permettent de voyager une distance sous le sol et se relieent à la surface même s’ils sont construits profondément sous terre. Ils ont l’air de préférer une direction étrange, avec le portail de sortie ne se reliant au portail d’entrée que tant qu’ils restent tous deux ouverts – tenter de réouvrir le portail de sortie mènera à une nouvelle destination dans cette direction privilégiée.Cela a entravé notre capacité à étudier le comportement de ces portails, car sans la construction de doubles portails et en gardant les deux ouverts, il est difficile d'en traverser plus d'un et de pouvoir rentrer chez soi.@n@nEn raison de ces difficultés, nous n'avons jamais appris ce qui détermine la direction et la distance à laquelle le portail jumeau correspondant apparaîtra, et j’ai perdu mon ami et mon protégé. Dans sa jeunesse cavalière et avec à peine plus qu'un sac à dos, Coudreau a décidé de suivre la chaîne jusqu'au bout, et n'a pas été vu depuis. Coudreau croit qu'elle fonctionne sur les épicycles, mais je n'en suis pas convaincu. Je m'accroche néanmoins à l'espoir qu'un jour le portail s'ouvrira et que Coudreau sortira de l'endroit qui mène à celui-ci, peut-être avec un récit épique à raconter.
+
+Requiring 21 blocks of ice, and constructed in the shape of a 3 × 3 platform with walls, or like a bowl. A finished platform is 2 blocks high, and 5 blocks wide at the widest in both directions.@n@nThis portal is different to the others, rather than acting akin to a doorway it appears to the eye more like a small pool of water which can be stepped into. Upon setting foot in the portal we found ourselves at a tremendous altitude.@1=Nécessite 21 blocs de glace placés pour former une plateforme de 3 × 3 avec des murs, ou comme un bol. La plateforme finale fait 2 blocs de haut, et 5 blocs de large à sa largeur maximale dans les deux directions.@n@nCe portail est différent des autres, au lieu de ressembler à une porte, il ressemble plus à un petit bassin d’eau dans lequel on peut entrer. En mettant les pieds dans le portail, nous nous sommes retrouvés à une altitude énorme.@1
+
+Surface Portal=Portail de surface
+
+There is a floating land of hills and forests up there, over the edges of which is a perilous drop all the way back down to sea level. We have not found how far these pristine lands extend. I have half a mind to retire there one day.=Il y a là un monde flottant remplis de collines et de forêts, sur les bords duquel se trouve une chute périlleuse jusqu'au niveau de la mer. Nous n'avons pas encore trouvé jusqu'où s'étendent ces terres vierges. J'ai à moitié envie de m'y retirer un jour.
+
+
+### tools.lua ###
+
+Nether Axe=
+Nether Ingot=
+Nether Lump=
+Nether Pickaxe=
+Nether Shovel=
+Nether Sword=

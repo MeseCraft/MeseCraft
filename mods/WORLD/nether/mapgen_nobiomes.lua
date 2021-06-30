@@ -2,6 +2,12 @@
 
   Nether mod for minetest
 
+  "mapgen_nobiomes.lua" is the legacy version of the mapgen, only used
+    in older versions of Minetest or in v6 worlds.
+  "mapgen.lua" is the modern biomes-based Nether mapgen, which
+    requires Minetest v5.1 or greater
+
+
   Copyright (C) 2013 PilzAdam
 
   Permission to use, copy, modify, and/or distribute this software for
@@ -190,8 +196,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	vm:set_data(data)
 
-	-- avoid generating decorations on the underside of the bottom of the nether
-	if minp.y > NETHER_FLOOR and maxp.y < NETHER_CEILING then minetest.generate_decorations(vm) end
+	minetest.generate_decorations(vm)
 
 	vm:set_lighting({day = 0, night = 0}, minp, maxp)
 	vm:calc_lighting()
@@ -201,24 +206,30 @@ end)
 
 
 -- use knowledge of the nether mapgen algorithm to return a suitable ground level for placing a portal.
-function nether.find_nether_ground_y(target_x, target_z, start_y)
+-- player_name is optional, allowing a player to spawn a remote portal in their own protected areas.
+function nether.find_nether_ground_y(target_x, target_z, start_y, player_name)
 	local nobj_cave_point = minetest.get_perlin(np_cave)
 	local air = 0 -- Consecutive air nodes found
 
-	for y = start_y, start_y - 4096, -1 do
-		local nval_cave = nobj_cave_point:get3d({x = target_x, y = y, z = target_z})
+	local minp_schem, maxp_schem = nether.get_schematic_volume({x = target_x, y = 0, z = target_z}, nil, "nether_portal")
+	local minp = {x = minp_schem.x, y = 0, z = minp_schem.z}
+	local maxp = {x = maxp_schem.x, y = 0, z = maxp_schem.z}
+
+	for y = start_y, math.max(NETHER_FLOOR + BLEND, start_y - 4096), -1 do
+		local nval_cave = nobj_cave_point:get_3d({x = target_x, y = y, z = target_z})
 
 		if nval_cave > TCAVE then -- Cavern
 			air = air + 1
 		else -- Not cavern, check if 4 nodes of space above
 			if air >= 4 then
+				local portal_y = y + 1
 				-- Check volume for non-natural nodes
-				local minp = {x = target_x - 1, y = y    , z = target_z - 2}
-				local maxp = {x = target_x + 2, y = y + 4, z = target_z + 2}
-				if nether.volume_is_natural(minp, maxp) then
-					return y + 1
+				minp.y = minp_schem.y + portal_y
+				maxp.y = maxp_schem.y + portal_y
+				if nether.volume_is_natural_and_unprotected(minp, maxp, player_name) then
+					return portal_y
 				else -- Restart search a little lower
-					nether.find_nether_ground_y(target_x, target_z, y - 16)
+					nether.find_nether_ground_y(target_x, target_z, y - 16, player_name)
 				end
 			else -- Not enough space, reset air to zero
 				air = 0
@@ -226,5 +237,5 @@ function nether.find_nether_ground_y(target_x, target_z, start_y)
 		end
 	end
 
-	return start_y -- Fallback
+	return math.max(start_y, NETHER_FLOOR + BLEND) -- Fallback
 end

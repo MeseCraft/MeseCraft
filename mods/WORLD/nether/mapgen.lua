@@ -2,6 +2,12 @@
 
   Nether mod for minetest
 
+  "mapgen.lua" is the modern biomes-based Nether mapgen, which
+    requires Minetest v5.1 or greater
+  "mapgen_nobiomes.lua" is the legacy version of the mapgen, only used
+    in older versions of Minetest or in v6 worlds.
+
+
   Copyright (C) 2013 PilzAdam
 
   Permission to use, copy, modify, and/or distribute this software for
@@ -27,10 +33,31 @@ local NETHER_FLOOR   = nether.DEPTH_FLOOR
 local TCAVE = 0.6
 local BLEND = 128
 
+-- parameters for central region
+local REGION_BUFFER_THICKNESS   = 0.2
+local CENTER_REGION_LIMIT       = TCAVE - REGION_BUFFER_THICKNESS -- Netherrack gives way to Deep-Netherrack here
+local CENTER_CAVERN_LIMIT       = CENTER_REGION_LIMIT - 0.1       -- Deep-Netherrack gives way to air here
+local SURFACE_CRUST_LIMIT       = CENTER_CAVERN_LIMIT * 0.25      -- Crusted-lava at the surface of the lava ocean gives way to liquid lava here
+local CRUST_LIMIT               = CENTER_CAVERN_LIMIT * 0.85      -- Crusted-lava under the surface of the lava ocean gives way to liquid lava here
+local BASALT_COLUMN_UPPER_LIMIT = CENTER_CAVERN_LIMIT * 0.9       -- Basalt columns may appear between these upper and lower limits
+local BASALT_COLUMN_LOWER_LIMIT = CENTER_CAVERN_LIMIT * 0.25      -- This value is close to SURFACE_CRUST_LIMIT so basalt columns give way to "flowing" lava rivers
 
--- Stuff
 
-local math_max, math_min = math.max, math.min -- avoid needing table lookups each time a common math function is invoked
+-- Shared Nether mapgen namespace
+-- For mapgen files to share functions and constants
+local mapgen = nether.mapgen
+
+mapgen.TCAVE                     = TCAVE                     -- const needed in mapgen_mantle.lua
+mapgen.BLEND                     = BLEND                     -- const needed in mapgen_mantle.lua
+mapgen.CENTER_REGION_LIMIT       = CENTER_REGION_LIMIT       -- const needed in mapgen_mantle.lua
+mapgen.CENTER_CAVERN_LIMIT       = CENTER_CAVERN_LIMIT       -- const needed in mapgen_mantle.lua
+mapgen.BASALT_COLUMN_UPPER_LIMIT = BASALT_COLUMN_UPPER_LIMIT -- const needed in mapgen_mantle.lua
+mapgen.BASALT_COLUMN_LOWER_LIMIT = BASALT_COLUMN_LOWER_LIMIT -- const needed in mapgen_mantle.lua
+
+mapgen.ore_ceiling = NETHER_CEILING - BLEND -- leave a solid 128 node cap of netherrack before introducing ores
+mapgen.ore_floor   = NETHER_FLOOR   + BLEND
+
+local debugf = nether.debug
 
 if minetest.read_schematic == nil then
 	-- Using biomes to create the Nether requires the ability for biomes to set "node_cave_liquid = air".
@@ -40,6 +67,19 @@ if minetest.read_schematic == nil then
 	-- for whether the Minetest engine is recent enough to have implemented node_cave_liquid=air
 	error("This " .. nether.modname .. " mapgen requires Minetest v5.1 or greater, use mapgen_nobiomes.lua instead.", 0)
 end
+
+-- Load specialty helper functions
+dofile(nether.path .. "/mapgen_dungeons.lua")
+dofile(nether.path .. "/mapgen_mantle.lua")
+
+
+-- Misc math functions
+
+-- avoid needing table lookups each time a common math function is invoked
+local math_max, math_min, math_abs, math_floor = math.max, math.min, math.abs, math.floor
+
+
+-- Inject nether_caverns biome
 
 local function override_underground_biomes()
 	-- https://forum.minetest.net/viewtopic.php?p=257522#p257522
@@ -68,7 +108,7 @@ local function override_underground_biomes()
 	end
 	for old_ore_key, old_ore_def in pairs(minetest.registered_ores) do
 		registered_ores_copy[old_ore_key] = old_ore_def
-	 end
+	end
 
 	-- clear biomes, decorations, and ores
 	minetest.clear_registered_decorations()
@@ -77,23 +117,36 @@ local function override_underground_biomes()
 
 	-- Restore biomes, adjusted to not overlap the Nether
 	for biome_key, new_biome_def in pairs(registered_biomes_copy) do
-		local biome_y_max, biome_y_min = tonumber(new_biome_def.y_max), tonumber(new_biome_def.y_min)
+		-- follow similar min_pos/max_pos processing logic as read_biome_def() in l_mapgen.cpp
+		local biome_y_max, biome_y_min = 31000, -31000
+		if type(new_biome_def.min_pos) == 'table' and type(new_biome_def.min_pos.y) == 'number' then biome_y_min = new_biome_def.min_pos.y end
+		if type(new_biome_def.max_pos) == 'table' and type(new_biome_def.max_pos.y) == 'number' then biome_y_max = new_biome_def.max_pos.y end
+		if type(new_biome_def.y_min) == 'number' then biome_y_min = new_biome_def.y_min end
+		if type(new_biome_def.y_max) == 'number' then biome_y_max = new_biome_def.y_max end
 
 		if biome_y_max > NETHER_FLOOR and biome_y_min < NETHER_CEILING then
 			-- This biome occupies some or all of the depth of the Nether, shift/crop it.
+			local new_y_min, new_y_max
 			local spaceOccupiedAbove = biome_y_max - NETHER_CEILING
 			local spaceOccupiedBelow = NETHER_FLOOR - biome_y_min
 			if spaceOccupiedAbove >= spaceOccupiedBelow or biome_y_min <= -30000 then
 				-- place the biome above the Nether
 				-- We also shift biomes which extend to the bottom of the map above the Nether, since they
 				-- likely only extend that deep as a catch-all, and probably have a role nearer the surface.
-				new_biome_def.y_min = NETHER_CEILING + 1
-				new_biome_def.y_max = math_max(biome_y_max, NETHER_CEILING + 2)
+				new_y_min = NETHER_CEILING + 1
+				new_y_max = math_max(biome_y_max, NETHER_CEILING + 2)
 			else
 				-- shift the biome to below the Nether
-				new_biome_def.y_max = NETHER_FLOOR - 1
-				new_biome_def.y_min = math_min(biome_y_min, NETHER_CEILING - 2)
+				new_y_max = NETHER_FLOOR - 1
+				new_y_min = math_min(biome_y_min, NETHER_CEILING - 2)
 			end
+
+			debugf("Moving biome \"%s\" from %s..%s to %s..%s", new_biome_def.name, new_biome_def.y_min, new_biome_def.y_max, new_y_min, new_y_max)
+
+			if type(new_biome_def.min_pos) == 'table' and type(new_biome_def.min_pos.y) == 'number' then new_biome_def.min_pos.y = new_y_min end
+			if type(new_biome_def.max_pos) == 'table' and type(new_biome_def.max_pos.y) == 'number' then new_biome_def.max_pos.y = new_y_max end
+			new_biome_def.y_min = new_y_min -- Ensure the new heights are saved, even if original biome never specified one
+			new_biome_def.y_max = new_y_max
 		end
 		minetest.register_biome(new_biome_def)
 	end
@@ -121,9 +174,9 @@ minetest.register_node("nether:native_mapgen", {})
 minetest.register_biome({
 	name = "nether_caverns",
 	node_stone  = "nether:native_mapgen", -- nether:native_mapgen is used here to prevent the native mapgen from placing ores and decorations.
-	node_filler = "nether:native_mapgen", -- The lua on_generate will transform nether:rack_native into nether:rack then decorate and add ores.
+	node_filler = "nether:native_mapgen", -- The lua on_generate will transform nether:native_mapgen into nether:rack then decorate and add ores.
 	node_dungeon = "nether:brick",
-	--node_dungeon_alt = "default:mossycobble",
+	node_dungeon_alt = "nether:brick_cracked",
 	node_dungeon_stair = "stairs:stair_nether_brick",
 	-- Setting node_cave_liquid to "air" avoids the need to filter lava and water out of the mapchunk and
 	-- surrounding shell (overdraw nodes beyond the mapchunk).
@@ -152,19 +205,30 @@ minetest.register_ore({
 	clust_scarcity = 11 * 11 * 11,
 	clust_num_ores = 3,
 	clust_size     = 2,
-	y_max = NETHER_CEILING,
-	y_min = NETHER_FLOOR,
+	y_max = mapgen.ore_ceiling,
+	y_min = mapgen.ore_floor
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "nether:lava_crust", -- crusted lava replaces scattered glowstone in the mantle
+	wherein        = "nether:rack_deep",
+	clust_scarcity = 16 * 16 * 16,
+	clust_num_ores = 4,
+	clust_size     = 2,
+	y_max = mapgen.ore_ceiling,
+	y_min = mapgen.ore_floor
 })
 
 minetest.register_ore({
 	ore_type       = "scatter",
 	ore            = "default:lava_source",
-	wherein        = "nether:rack",
+	wherein        = {"nether:rack", "nether:rack_deep"},
 	clust_scarcity = 36 * 36 * 36,
 	clust_num_ores = 4,
 	clust_size     = 2,
-	y_max = NETHER_CEILING,
-	y_min = NETHER_FLOOR,
+	y_max = mapgen.ore_ceiling,
+	y_min = mapgen.ore_floor
 })
 
 minetest.register_ore({
@@ -173,8 +237,8 @@ minetest.register_ore({
 	wherein         = "nether:rack",
 	clust_scarcity  = 14 * 14 * 14,
 	clust_size      = 8,
-	y_max = NETHER_CEILING,
-	y_min = NETHER_FLOOR
+	y_max = mapgen.ore_ceiling,
+	y_min = mapgen.ore_floor
 })
 
 
@@ -182,7 +246,7 @@ minetest.register_ore({
 
 -- 3D noise
 
-local np_cave = {
+mapgen.np_cave = {
 	offset = 0,
 	scale = 1,
 	spread = {x = 384, y = 128, z = 384}, -- squashed 3:1
@@ -193,210 +257,74 @@ local np_cave = {
 	--flags = ""
 }
 
+local cavePointPerlin = nil
+
+mapgen.getCavePointPerlin = function()
+	cavePointPerlin = cavePointPerlin or minetest.get_perlin(mapgen.np_cave)
+	return cavePointPerlin
+end
+
+mapgen.getCavePerlinAt = function(pos)
+	cavePointPerlin = cavePointPerlin or minetest.get_perlin(mapgen.np_cave)
+	return cavePointPerlin:get_3d(pos)
+end
+
+
 -- Buffers and objects we shouldn't recreate every on_generate
 
 local nobj_cave = nil
 local nbuf_cave = {}
 local dbuf = {}
 
-local yblmin = NETHER_FLOOR   + BLEND * 2
-local yblmax = NETHER_CEILING - BLEND * 2
 
 -- Content ids
 
 local c_air              = minetest.get_content_id("air")
 local c_netherrack       = minetest.get_content_id("nether:rack")
-local c_netherbrick      = minetest.get_content_id("nether:brick")
-local c_netherbrick_slab = minetest.get_content_id("stairs:slab_nether_brick")
-local c_netherfence      = minetest.get_content_id("nether:fence_nether_brick")
-local c_glowstone        = minetest.get_content_id("nether:glowstone")
-local c_lava_source      = minetest.get_content_id("default:lava_source")
+local c_netherrack_deep  = minetest.get_content_id("nether:rack_deep")
+local c_lavasea_source   = minetest.get_content_id("nether:lava_source") -- same as lava but with staggered animation to look better as an ocean
+local c_lava_crust       = minetest.get_content_id("nether:lava_crust")
 local c_native_mapgen    = minetest.get_content_id("nether:native_mapgen")
 
 
--- Dungeon excavation functions
 
-function build_dungeon_room_list(data, area)
+local yblmin = NETHER_FLOOR   + BLEND * 2
+local yblmax = NETHER_CEILING - BLEND * 2
+-- At both the top and bottom of the Nether, as set by NETHER_CEILING and NETHER_FLOOR,
+-- there is a 128 deep cap of solid netherrack, followed by a 128-deep blending zone
+-- where Nether caverns may start to appear.
+-- The solid zones and blending zones are achieved by adjusting the np_cave noise to be
+-- outside the range where caverns form, this function returns that adjustment.
+--
+-- Returns two values: the noise limit adjustment for nether caverns, and the
+-- noise limit adjustment for the central region / mantle caverns
+mapgen.get_mapgenblend_adjustments = function(y)
 
-	local result = {}
+	-- floorAndCeilingBlend will normally be 0, but shifts toward 1 in the
+	-- blending zone, and goes higher than 1 in the solid zone between the
+	-- blending zone and the end of the nether.
+	local floorAndCeilingBlend = 0
+	if y > yblmax then floorAndCeilingBlend = ((y - yblmax) / BLEND) ^ 2 end
+	if y < yblmin then floorAndCeilingBlend = ((yblmin - y) / BLEND) ^ 2 end
 
-	-- Unfortunately gennotify only returns dungeon rooms, not corridors.
-	-- We don't need to check for temples because only dungeons are generated in biomes
-	-- that define their own dungeon nodes.
-	local gennotify = minetest.get_mapgen_object("gennotify")
-	local roomLocations = gennotify["dungeon"] or {}
+	-- the nether caverns exist when np_cave noise is greater than TCAVE, so
+	-- to fade out the nether caverns, adjust TCAVE upward.
+	local tcave_adj               = floorAndCeilingBlend
 
-	-- Excavation should still know to stop if a cave or corridor has removed the dungeon wall.
-	-- See MapgenBasic::generateDungeons in mapgen.cpp for max room sizes.
-	local maxRoomSize = 18
-	local maxRoomRadius = math.ceil(maxRoomSize / 2)
+	-- the central regions exists when np_cave noise is below CENTER_REGION_LIMIT,
+	-- so to fade out the mantle caverns adjust CENTER_REGION_LIMIT downward.
+	local centerRegionLimit_adj = -(CENTER_REGION_LIMIT * floorAndCeilingBlend)
 
-	local xStride, yStride, zStride = 1, area.ystride, area.zstride
-	local minEdge, maxEdge = area.MinEdge, area.MaxEdge
-
-	for _, roomPos in ipairs(roomLocations) do
-
-		if area:containsp(roomPos) then -- this safety check does not appear to be necessary, but lets make it explicit
-
-			local room_vi = area:indexp(roomPos)
-			--data[room_vi] = minetest.get_content_id("default:torch") -- debug
-
-			local startPos = vector.new(roomPos)
-			if roomPos.y + 1 <= maxEdge.y and data[room_vi + yStride] == c_air then
-				-- The roomPos coords given by gennotify are at floor level, but whenever possible we
-				-- want to be performing searches a node higher than floor level to avoids dungeon chests.
-				startPos.y = startPos.y + 1
-				room_vi = area:indexp(startPos)
-			end
-
-			local bound_min_x = math_max(minEdge.x, roomPos.x - maxRoomRadius)
-			local bound_min_y = math_max(minEdge.y, roomPos.y - 1) -- room coords given by gennotify are on the floor
-			local bound_min_z = math_max(minEdge.z, roomPos.z - maxRoomRadius)
-
-			local bound_max_x = math_min(maxEdge.x, roomPos.x + maxRoomRadius)
-			local bound_max_y = math_min(maxEdge.y, roomPos.y + maxRoomSize) -- room coords given by gennotify are on the floor
-			local bound_max_z = math_min(maxEdge.z, roomPos.z + maxRoomRadius)
-
-			local room_min = vector.new(startPos)
-			local room_max = vector.new(startPos)
-
-			local vi = room_vi
-			while room_max.y < bound_max_y and data[vi + yStride] == c_air do
-				room_max.y = room_max.y + 1
-				vi = vi + yStride
-			end
-
-			vi = room_vi
-			while room_min.y > bound_min_y and data[vi - yStride] == c_air do
-				room_min.y = room_min.y - 1
-				vi = vi - yStride
-			end
-
-			vi = room_vi
-			while room_max.z < bound_max_z and data[vi + zStride] == c_air do
-				room_max.z = room_max.z + 1
-				vi = vi + zStride
-			end
-
-			vi = room_vi
-			while room_min.z > bound_min_z and data[vi - zStride] == c_air do
-				room_min.z = room_min.z - 1
-				vi = vi - zStride
-			end
-
-			vi = room_vi
-			while room_max.x < bound_max_x and data[vi + xStride] == c_air do
-				room_max.x = room_max.x + 1
-				vi = vi + xStride
-			end
-
-			vi = room_vi
-			while room_min.x > bound_min_x and data[vi - xStride] == c_air do
-				room_min.x = room_min.x - 1
-				vi = vi - xStride
-			end
-
-			local roomInfo = vector.new(roomPos)
-			roomInfo.minp = room_min
-			roomInfo.maxp = room_max
-			result[#result + 1] = roomInfo
-		end
-	end
-
-	return result;
+	return tcave_adj, centerRegionLimit_adj
 end
 
--- Only partially excavates dungeons, the rest is left as an exercise for the player ;)
--- (Corridors and the parts of rooms which extend beyond the emerge boundary will remain filled)
-function excavate_dungeons(data, area, rooms)
-
-	-- any air from the native mapgen has been replaced by netherrack, but
-	-- we don't want this inside dungeons, so fill dungeon rooms with air
-	for _, roomInfo in ipairs(rooms) do
-
-		local room_min = roomInfo.minp
-		local room_max = roomInfo.maxp
-
-		for z = room_min.z, room_max.z do
-			for y = room_min.y, room_max.y do
-				local vi = area:index(room_min.x, y, z)
-				for x = room_min.x, room_max.x do
-					if data[vi] == c_netherrack then data[vi] = c_air end
-					vi = vi + 1
-				end
-			end
-		end
-	end
-end
-
--- Since we already know where all the rooms and their walls are, and have all the nodes stored
--- in a voxelmanip already, we may as well add a little Nether flair to the dungeons found here.
-function decorate_dungeons(data, area, rooms)
-
-	local xStride, yStride, zStride = 1, area.ystride, area.zstride
-	local minEdge, maxEdge = area.MinEdge, area.MaxEdge
-
-	for _, roomInfo in ipairs(rooms) do
-
-		local room_min, room_max = roomInfo.minp, roomInfo.maxp
-		local room_size = vector.distance(room_min, room_max)
-
-		if room_size > 10 then
-			local room_seed = roomInfo.x + 3 * roomInfo.z + 13 * roomInfo.y
-			local window_y  = roomInfo.y + math_min(2, room_max.y - roomInfo.y - 1)
-
-			if room_seed % 3 == 0 and room_max.y < maxEdge.y then
-				-- Glowstone chandelier
-				local vi = area:index(roomInfo.x, room_max.y + 1, roomInfo.z)
-				if data[vi] == c_netherbrick then data[vi] = c_glowstone end
-
-			elseif room_seed % 4 == 0 and room_min.y > minEdge.y
-				   and room_min.x > minEdge.x and room_max.x < maxEdge.x
-				   and room_min.z > minEdge.z and room_max.z < maxEdge.z then
-				-- lava well (feel free to replace with a fancy schematic)
-				local vi = area:index(roomInfo.x, room_min.y, roomInfo.z)
-				if data[vi - yStride] == c_netherbrick then data[vi - yStride] = c_lava_source end
-				if data[vi - zStride] == c_air then data[vi - zStride] = c_netherbrick_slab end
-				if data[vi + zStride] == c_air then data[vi + zStride] = c_netherbrick_slab end
-				if data[vi - xStride] == c_air then data[vi - xStride] = c_netherbrick_slab end
-				if data[vi + xStride] == c_air then data[vi + xStride] = c_netherbrick_slab end
-			end
-
-			-- Barred windows
-			if room_seed % 7 < 5 and room_max.x - room_min.x >= 4 and room_max.z - room_min.z >= 4
-			   and window_y >= minEdge.y and window_y + 1 <= maxEdge.y
-			   and room_min.x > minEdge.x and room_max.x < maxEdge.x
-			   and room_min.z > minEdge.z and room_max.z < maxEdge.z then
-				--data[area:indexp(roomInfo)] = minetest.get_content_id("default:mese_post_light") -- debug
-
-				-- Until whisper glass is added, every window will be made of netherbrick fence (rather
-				-- than material depending on room_seed)
-				local window_node = c_netherfence
-
-				local vi_min = area:index(room_min.x - 1, window_y, roomInfo.z)
-				local vi_max = area:index(room_max.x + 1, window_y, roomInfo.z)
-				local locations = {-zStride, zStride, -zStride + yStride, zStride + yStride}
-				for _, offset in ipairs(locations) do
-					if data[vi_min + offset] == c_netherbrick then data[vi_min + offset] = window_node end
-					if data[vi_max + offset] == c_netherbrick then data[vi_max + offset] = window_node end
-				end
-				vi_min = area:index(roomInfo.x, window_y, room_min.z - 1)
-				vi_max = area:index(roomInfo.x, window_y, room_max.z + 1)
-				locations = {-xStride, xStride, -xStride + yStride, xStride + yStride}
-				for _, offset in ipairs(locations) do
-					if data[vi_min + offset] == c_netherbrick then data[vi_min + offset] = window_node end
-					if data[vi_max + offset] == c_netherbrick then data[vi_max + offset] = window_node end
-				end
-			end
-
-			-- Weeds on the floor once Nether weeds are added
-		end
-	end
-end
 
 
 -- On-generated function
 
+local tunnelCandidate_count = 0
+local tunnel_count = 0
+local total_chunk_count = 0
 local function on_generated(minp, maxp, seed)
 
 	if minp.y > NETHER_CEILING or maxp.y < NETHER_FLOOR then
@@ -414,49 +342,131 @@ local function on_generated(minp, maxp, seed)
 	local zCaveStride = yCaveStride * yCaveStride
 	local chulens = {x = yCaveStride, y = yCaveStride, z = yCaveStride}
 
-	nobj_cave = nobj_cave or minetest.get_perlin_map(np_cave, chulens)
+	nobj_cave = nobj_cave or minetest.get_perlin_map(mapgen.np_cave, chulens)
 	local nvals_cave = nobj_cave:get_3d_map_flat(minp, nbuf_cave)
 
+	local dungeonRooms = mapgen.build_dungeon_room_list(data, area) -- function from mapgen_dungeons.lua
+	local abs_cave_noise, abs_cave_noise_adjusted
 
-	local dungeonRooms = build_dungeon_room_list(data, area)
+	local contains_nether = false
+	local contains_mantle = false
+	local contains_ocean  = false
 
-	for y = y0, y1 do -- Y loop first to minimise tcave calculations
 
-		local tcave = TCAVE
-		if y > yblmax then tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2 end
-		if y < yblmin then tcave = TCAVE + ((yblmin - y) / BLEND) ^ 2 end
+	for y = y0, y1 do -- Y loop first to minimise tcave & lava-sea calculations
+
+		local sea_level, cavern_limit_distance = mapgen.find_nearest_lava_sealevel(y) -- function from mapgen_mantle.lua
+		local above_lavasea = y > sea_level
+		local below_lavasea = y < sea_level
+
+		local tcave_adj, centerRegionLimit_adj = mapgen.get_mapgenblend_adjustments(y)
+		local tcave   = TCAVE + tcave_adj
+		local tmantle = CENTER_REGION_LIMIT + centerRegionLimit_adj -- cavern_noise_adj already contains central_region_limit_adj, so tmantle is only for comparisons when cavern_noise_adj hasn't been added to the noise value
+
+		 -- cavern_noise_adj gets added to noise value instead of added to the limit np_noise
+		 -- is compared against, so subtract centerRegionLimit_adj instead of adding
+		local cavern_noise_adj =
+			CENTER_REGION_LIMIT * (cavern_limit_distance * cavern_limit_distance * cavern_limit_distance) -
+			centerRegionLimit_adj
 
 		for z = z0, z1 do
 			local vi = area:index(x0, y, z) -- Initial voxelmanip index
 			local ni = (z - z0) * zCaveStride + (y - y0) * yCaveStride + 1
+			local noise2di = 1 + (z - z0) * yCaveStride
 
 			for x = x0, x1 do
 
-				local id = data[vi] -- Existing node
+				local cave_noise = nvals_cave[ni]
 
-				if nvals_cave[ni] > tcave then
+				if cave_noise > tcave then
+					-- Prime region
+					-- This was the only region in initial versions of the Nether mod.
+					-- It is the only region which portals from the surface will open into.
 					data[vi] = c_air
-				elseif id == c_air or id == c_native_mapgen then
-					data[vi] = c_netherrack -- excavate_dungeons() will mostly reverse this inside dungeons
+					contains_nether = true
+
+				elseif -cave_noise > tcave then
+					-- Secondary/spare region
+					-- This secondary region is unused until someone decides to do something cool or novel with it.
+					-- Reaching here would require the player to first find and journey through the central region,
+					-- as it's always separated from the Prime region by the central region.
+
+					data[vi] = c_netherrack -- For now I've just left this region as solid netherrack instead of air.
+
+					-- Only set contains_nether to true here if you want tunnels created between the secondary region
+					-- and the central region.
+					--contains_nether = true
+					--data[vi] = c_air
+				else
+					-- netherrack walls and/or center region/mantle
+					abs_cave_noise = math_abs(cave_noise)
+
+					-- abs_cave_noise_adjusted makes the center region smaller as distance from the lava ocean
+					-- increases, we do this by pretending the abs_cave_noise value is higher.
+					abs_cave_noise_adjusted = abs_cave_noise + cavern_noise_adj
+
+					if abs_cave_noise_adjusted >= CENTER_CAVERN_LIMIT then
+
+						local id = data[vi] -- Check existing node to avoid removing dungeons
+						if id == c_air or id == c_native_mapgen then
+							if abs_cave_noise < tmantle then
+								data[vi] = c_netherrack_deep
+							else
+								-- the shell seperating the mantle from the rest of the nether...
+								data[vi] = c_netherrack -- excavate_dungeons() will mostly reverse this inside dungeons
+							end
+						end
+
+					elseif above_lavasea then
+						data[vi] = c_air
+						contains_mantle = true
+					elseif abs_cave_noise_adjusted < SURFACE_CRUST_LIMIT or (below_lavasea and abs_cave_noise_adjusted < CRUST_LIMIT) then
+						data[vi] = c_lavasea_source
+						contains_ocean = true
+					else
+						data[vi] = c_lava_crust
+						contains_ocean = true
+					end
 				end
 
 				ni = ni + 1
 				vi = vi + 1
+				noise2di = noise2di + 1
 			end
 		end
 	end
 
+	if contains_mantle or contains_ocean then
+		mapgen.add_basalt_columns(data, area, minp, maxp) -- function from mapgen_mantle.lua
+	end
+
+	if contains_nether and contains_mantle then
+		tunnelCandidate_count = tunnelCandidate_count + 1
+		local success = mapgen.excavate_tunnel_to_center_of_the_nether(data, area, nvals_cave, minp, maxp) -- function from mapgen_mantle.lua
+		if success then tunnel_count = tunnel_count + 1 end
+	end
+	total_chunk_count = total_chunk_count + 1
+	if total_chunk_count % 50 == 0 then
+		debugf(
+			"%s of %s chunks contain both nether and lava-sea (%s%%), %s chunks generated a pathway (%s%%)",
+			tunnelCandidate_count,
+			total_chunk_count,
+			math_floor(tunnelCandidate_count * 100 / total_chunk_count),
+			tunnel_count,
+			math_floor(tunnel_count * 100 / total_chunk_count)
+		)
+	end
+
 	-- any air from the native mapgen has been replaced by netherrack, but we
 	-- don't want netherrack inside dungeons, so fill known dungeon rooms with air.
-	excavate_dungeons(data, area, dungeonRooms)
-	decorate_dungeons(data, area, dungeonRooms)
+	mapgen.excavate_dungeons(data, area, dungeonRooms) -- function from mapgen_dungeons.lua
+	mapgen.decorate_dungeons(data, area, dungeonRooms) -- function from mapgen_dungeons.lua
 
 	vm:set_data(data)
 
-	-- avoid generating decorations on the underside of the bottom of the nether
-	if minp.y > NETHER_FLOOR and maxp.y < NETHER_CEILING then minetest.generate_decorations(vm) end
-
 	minetest.generate_ores(vm)
+	minetest.generate_decorations(vm)
+
 	vm:set_lighting({day = 0, night = 0}, minp, maxp)
 	vm:calc_lighting()
 	vm:update_liquids()
@@ -465,24 +475,30 @@ end
 
 
 -- use knowledge of the nether mapgen algorithm to return a suitable ground level for placing a portal.
-function nether.find_nether_ground_y(target_x, target_z, start_y)
-	local nobj_cave_point = minetest.get_perlin(np_cave)
+-- player_name is optional, allowing a player to spawn a remote portal in their own protected areas.
+function nether.find_nether_ground_y(target_x, target_z, start_y, player_name)
+	local nobj_cave_point = mapgen.getCavePointPerlin()
 	local air = 0 -- Consecutive air nodes found
 
+	local minp_schem, maxp_schem = nether.get_schematic_volume({x = target_x, y = 0, z = target_z}, nil, "nether_portal")
+	local minp = {x = minp_schem.x, y = 0, z = minp_schem.z}
+	local maxp = {x = maxp_schem.x, y = 0, z = maxp_schem.z}
+
 	for y = start_y, math_max(NETHER_FLOOR + BLEND, start_y - 4096), -1 do
-		local nval_cave = nobj_cave_point:get3d({x = target_x, y = y, z = target_z})
+		local nval_cave = nobj_cave_point:get_3d({x = target_x, y = y, z = target_z})
 
 		if nval_cave > TCAVE then -- Cavern
 			air = air + 1
 		else -- Not cavern, check if 4 nodes of space above
 			if air >= 4 then
+				local portal_y = y + 1
 				-- Check volume for non-natural nodes
-				local minp = {x = target_x - 1, y = y    , z = target_z - 2}
-				local maxp = {x = target_x + 2, y = y + 4, z = target_z + 2}
-				if nether.volume_is_natural(minp, maxp) then
-					return y + 1
+				minp.y = minp_schem.y + portal_y
+				maxp.y = maxp_schem.y + portal_y
+				if nether.volume_is_natural_and_unprotected(minp, maxp, player_name) then
+					return portal_y
 				else -- Restart search a little lower
-					nether.find_nether_ground_y(target_x, target_z, y - 16)
+					nether.find_nether_ground_y(target_x, target_z, y - 16, player_name)
 				end
 			else -- Not enough space, reset air to zero
 				air = 0
@@ -492,9 +508,5 @@ function nether.find_nether_ground_y(target_x, target_z, start_y)
 
 	return math_max(start_y, NETHER_FLOOR + BLEND) -- Fallback
 end
-
--- We don't need to be gen-notified of temples because only dungeons will be generated
--- if a biome defines the dungeon nodes
-minetest.set_gen_notify({dungeon = true})
 
 minetest.register_on_generated(on_generated)

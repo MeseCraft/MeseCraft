@@ -2,10 +2,12 @@ unused_args = false
 allow_defined_top = true
 
 globals = {
+	"bucket",
 	"nether"
 }
 
 read_globals = {
+	"climate_api",
 	"core",
 	"default",
 	"DIR_DELIM",
@@ -23,6 +25,7 @@ read_globals = {
 	"PseudoRandom",
 	"stairs",
 	"stairsplus",
+	"string.split",
 	table = { fields = { "copy", "getn" } },
 	"vector",
 	"VoxelArea",

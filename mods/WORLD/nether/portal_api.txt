@@ -22,6 +22,9 @@ one kind of portal with the same frame material — such as obsidian — provide
 the size of the PortalShape is distinct from any other type of portal that is
 using the same node for its frame, and portal sizes remain small.
 
+The Nether provides three variants of Nether basalt to ensure there are
+alternatives to obsidian for other mods to use as portalstones.
+
 
 Realms
 ------
@@ -49,17 +52,24 @@ surface.
 Helper functions
 ----------------
 
-* `nether.volume_is_natural(minp, maxp)`: returns a boolean
+* `nether.volume_is_natural_and_unprotected(minp, maxp, player_name)`: returns
+  a boolean.
     * use this when determining where to spawn a portal, to avoid overwriting
       player builds. It checks the area for any nodes that aren't ground or
       trees.
       Water will fail this test, unless it is unemerged.
+    * player_name is optional, providing it allows the player's own protected
+      areas to be treated as unprotected.
 
-* `nether.find_surface_target_y(target_x, target_z, portal_name)`: returns a
-  suitable anchorPos
+* `nether.find_surface_target_y(target_x, target_z, portal_name, player_name)`:
+  returns a suitable anchorPos
     * Can be used when implementing custom find_surface_anchorPos() functions
     * portal_name is optional, providing it allows existing portals on the
       surface to be reused.
+    * player_name is optional, providing it prevents the exclusion of surface
+      target areas which are protected by the player.
+    * May return nil in extreme circumstances, such as the surface being
+      protected down to a great depth.
 
 * `nether.find_nearest_working_portal(portal_name, anchorPos, distance_limit, y_factor)`: returns
   (anchorPos, orientation), or nil if no portal was found within the
@@ -208,7 +218,7 @@ Used by `nether.register_portal`.
         -- Ideally implementations are fast, as this function can be used to
         -- sift through a list of portals.
 
-        find_realm_anchorPos = function(surface_anchorPos),
+        find_realm_anchorPos = function(surface_anchorPos, player_name),
         -- Required. Return a position in the realm that a portal created at
         -- surface_anchorPos will link to.
         -- Return an anchorPos or (anchorPos, orientation)
@@ -217,9 +227,12 @@ Used by `nether.register_portal`.
         -- If the location of an existing portal is returned then include the
         -- orientation, otherwise the existing portal could be overwritten by
         -- a new one with the orientation of the surface portal.
-        -- Return nil to prevent the portal from igniting.
+        -- Return nil, or a position with a nil y component, to prevent the
+        -- portal from igniting.
+        -- player_name may be "", e.g. if the portal was ignited by a mesecon,
+        -- and is provided for use with volume_is_natural_and_unprotected() etc.
 
-        find_surface_anchorPos = function(realm_anchorPos),
+        find_surface_anchorPos = function(realm_anchorPos, player_name),
         -- Optional. If you don't implement this then a position near the
         -- surface will be picked.
         -- Return an anchorPos or (anchorPos, orientation)
@@ -232,7 +245,10 @@ Used by `nether.register_portal`.
         -- If the location of an existing portal is returned then include the
         -- orientation, otherwise the existing portal could be overwritten by
         -- a new one with the orientation of the realm portal.
-        -- Return nil to prevent the portal from igniting.
+        -- Return nil, or a position with a nil y component, to prevent the
+        -- portal from igniting.
+        -- player_name may be "", e.g. if the portal was ignited by a mesecon,
+        -- and is provided for use with volume_is_natural_and_unprotected() etc.
 
         on_run_wormhole      = function(portalDef, anochorPos, orientation),
         -- invoked once per second per portal

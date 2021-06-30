@@ -1,7 +1,11 @@
 # Changelog for MeseCraft #
 
+2021-06-30
+* Added menu background, header, footer.
+
 2021-06-29
 * Created custom bed mod. Removed Fancy Beds and added colored beds. Also integrated features from "bouncy_bed".
+* Added alias for signs
 
 
 2021-06-28

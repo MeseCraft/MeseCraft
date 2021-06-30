@@ -1,0 +1,114 @@
+# textdomain: nether
+
+
+
+### init.lua ###
+
+Construction requires 14 blocks of obsidian, which we found deep underground where water had solidified molten rock. The finished frame is four blocks wide, five blocks high, and stands vertically, like a doorway.@n@nThis opens to a truly hellish place, though for small mercies the air there is still breathable. There is an intriguing dimensional mismatch happening between this realm and ours, as after opening the second portal into it we observed that 10 strides taken in the Nether appear to be an equivalent of @1 in the natural world.@n@nThe expedition parties have found no diamonds or gold, and after an experienced search party failed to return from the trail of a missing expedition party, I must conclude this is a dangerous place.=
+
+
+### init.lua ###
+### nodes.lua ###
+
+Nether Portal=
+
+### mapgen_mantle.lua ###
+
+, @1m above lava-sea level=
+, @1m below lava-sea level=
+, approaching y boundary of Nether=
+@1@2@3@4=
+Center/Mantle, but outside the caverns=
+Center/Mantle, inside cavern=
+Describes which region of the nether the player is in=
+Negative nether=
+Positive nether=
+Shell between negative nether and center region=
+Shell between positive nether and center region=
+The Overworld=
+Unknown player position=
+[Perlin @1] =
+
+### nodes.lua ###
+
+A finely finished block of solid Nether Basalt.=
+A rough cut solid block of Nether Basalt.=
+A thin crust of cooled lava with liquid lava beneath=
+A vent in the earth emitting steam and gas=
+Can be repurposed to provide puffs of smoke in a chimney=
+Chiselled Basalt=
+
+Columns of dark basalt found only in magma oceans deep within the Nether.=
+
+Compressed Netherbrick=
+Cracked Nether Brick=
+Deep Glowstone=
+Deep Netherrack=
+Fumarolic Chimney=
+Fumarolic Chimney Corner=
+Fumarolic Chimney Slab=
+Glowstone=
+Hewn Basalt=
+Inner Nether Stair=
+Lava Crust=
+
+Lava crust is strong enough to walk on, but still hot enough to inflict burns.=
+
+Nether Basalt=
+Nether Brick=
+Nether Brick Fence=
+Nether Slab=
+Nether Stair=
+Netherrack=
+Netherrack from deep in the mantle=
+Netherrack stair=
+Nethersand=
+Outer Nether Stair=
+Portal=
+
+### portal_api.lua ###
+
+@n@nThe key to opening such a doorway is to strike the frame with a @1, at which point the very air inside begins to crackle and glow.=
+
+A definitive guide to Rifts and Portals=
+
+A guidebook for how to build portals to other realms. It can sometimes be found in dungeon chests, however a copy of this book is not needed as its contents are included in this Encyclopedia.=
+
+Book of Portals=
+Building Portals=
+
+In all my travels, and time spent in the Great Libraries, I have encountered no shortage of legends surrounding preternatural doorways said to open into other worlds, yet only @1 can I confirm as being more than merely stories.=
+
+In all my travels, and time spent in the Great Libraries, I have encountered no shortage of legends surrounding preternatural doorways said to open into other worlds, yet only one can I confirm as being more than merely a story.=
+
+Mysterious forces prevented you from opening that portal. Please try another location=
+
+Portal wormhole=
+
+Portals to other realms can be opened by building a frame in the right shape with the right blocks, then using an item to activate it. A local copy of the guidebook to portals is published below.@n---@n@n=
+
+Refer: "Help" > "Basics" > "Building Portals"=
+Untitled portal=
+We know almost nothing about this portal=
+
+### portal_examples.lua ###
+
+Floatlands Portal=
+
+Requiring 16 blocks of tin and constructed in a circular fashion, a finished frame is seven blocks wide, seven blocks high, and stands vertically like a doorway.@n@nThese travel a distance along the ground, and even when constructed deep underground will link back up to the surface. They appear to favor a strange direction, with the exit portal linking back only for as long as the portal stays open — attempting to reopen a portal from the exit doorway leads to a new destination along this favored direction. It has stymied our ability to study the behavior of these portals because without constructing dual portals and keeping both open it's hard to step through more than one and still be able to return home.@n@nDue to such difficulties, we never learned what determines the direction and distance where the matching twin portal will appear, and I have lost my friend and protégé. In cavalier youth and with little more than a rucksack, Coudreau has decided to follow the chain as far as it goes, and has not been seen since. Coudreau believes it works in epicycles, but I am not convinced. Still, I cling to the hope that one day the portal will open and Coudreau will step out from whichever place leads to this one, perhaps with an epic tale to tell.=
+
+Requiring 21 blocks of ice, and constructed in the shape of a 3 × 3 platform with walls, or like a bowl. A finished platform is 2 blocks high, and 5 blocks wide at the widest in both directions.@n@nThis portal is different to the others, rather than acting akin to a doorway it appears to the eye more like a small pool of water which can be stepped into. Upon setting foot in the portal we found ourselves at a tremendous altitude.@1=
+
+Surface Portal=
+
+There is a floating land of hills and forests up there, over the edges of which is a perilous drop all the way back down to sea level. We have not found how far these pristine lands extend. I have half a mind to retire there one day.=
+
+
+### tools.lua ###
+
+Nether Axe=
+Nether Ingot=
+Nether Lump=
+Nether Pickaxe=
+Nether Shovel=
+Nether Sword=

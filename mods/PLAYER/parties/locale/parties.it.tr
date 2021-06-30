@@ -1,0 +1,26 @@
+# version 1.3.0-dev
+# author(s):
+# reviewer(s):
+# textdomain: parties
+
+# party_manager.lua
+[!] Only the party leader can perform this action!=[!] Solo il capo gruppo può eseguire quest'azione!
+[!] You can't invite yourself!=[!] Non ci si può invitare da soli!
+[!] This player is not online!=[!] Questo giocatore non è online!
+[!] You've already invited this player!=[!] Hai già invitato questo giocatore!
+[!] This player is already in a party!=[!] Questo giocatore è già in un gruppo!
+Invite to @1 successfully sent=Invito a @1 inviato con successo
+@1 has invited you to a party, would you like to join? (/party join, or /party join @2)=@1 ti ha invitato in un gruppo, vuoi unirti? (/party join, o /party join @2)
+No answer from @1...=Nessuna risposta da @1...
+[!] You have no pending invites!=[!] Non hai nessun invito da accettare!
+[!] You have no pending invites from this player!=[!] Non hai nessun invito da accettare da parte di questo giocatore!
+[!] The party leader has disconnected!=[!] Il capo gruppo si è disconnesso!
+@1 has joined the party=@1 si è unito al gruppo
+@1 has joined another party=@1 si è unito a un altro gruppo
+You've joined @1's party=Ti sei unito al gruppo di @1
+[!] You must enter a party first!=[!] Devi prima entrare in un gruppo!
+The party has been disbanded=Il gruppo è stato sciolto
+@1 has left the party=@1 è uscito dal gruppo
+You've left the party=Sei uscito dal gruppo
+@1 is the new party leader=@1 è il nuovo capo gruppo
+Party=Gruppo

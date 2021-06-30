@@ -85,7 +85,7 @@ This portal is different to the others, rather than acting akin to a doorway it 
 			return pos.y > FLOATLAND_LEVEL - 200
 		end,
 
-		find_realm_anchorPos = function(surface_anchorPos)
+		find_realm_anchorPos = function(surface_anchorPos, player_name)
 			-- TODO: Once paramat finishes adjusting the floatlands, implement a surface algorithm that finds land
 			local destination_pos = {x = surface_anchorPos.x ,y = FLOATLAND_LEVEL + 2, z = surface_anchorPos.z}
 
@@ -131,13 +131,13 @@ Due to such difficulties, we never learned what determines the direction and dis
 			return true
 		end,
 
-		find_realm_anchorPos = function(surface_anchorPos)
+		find_realm_anchorPos = function(surface_anchorPos, player_name)
 			-- This function isn't needed, since this type of portal always goes to the surface
 			minetest.log("error" , "find_realm_anchorPos called for surface portal")
 			return {x=0, y=0, z=0}
 		end,
 
-		find_surface_anchorPos = function(realm_anchorPos)
+		find_surface_anchorPos = function(realm_anchorPos, player_name)
 			-- A portal definition doesn't normally need to provide a find_surface_anchorPos() function,
 			-- since find_surface_target_y() will be used by default, but these portals travel around the
 			-- surface (following a Moore curve) so will be calculating a different x and z to realm_anchorPos.
@@ -192,7 +192,7 @@ Due to such difficulties, we never learned what determines the direction and dis
 				end
 
 				local destination_pos = {x = target_x + adj_x, y = 0, z = target_z + adj_z}
-				destination_pos.y = nether.find_surface_target_y(destination_pos.x, destination_pos.z, "surface_portal")
+				destination_pos.y = nether.find_surface_target_y(destination_pos.x, destination_pos.z, "surface_portal", player_name)
 
 				return destination_pos
 			end

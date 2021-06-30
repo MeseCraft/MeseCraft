@@ -1,0 +1,26 @@
+# version 1.3.0-dev
+# author(s):
+# reviewer(s):
+# textdomain: parties
+
+# api.lua
+[!] Only the party leader can perform this action!=
+[!] You can't invite yourself!=
+[!] This player is not online!=
+[!] You've already invited this player!=
+[!] This player is already in a party!=
+Invite to @1 successfully sent=
+@1 has invited you to a party, would you like to join? (/party join, or /party join @2)=
+No answer from @1...=
+[!] You have no pending invites!=
+[!] You have no pending invites from this player!=
+[!] The party leader has disconnected!=
+@1 has joined the party=
+@1 has joined another party=
+You've joined @1's party=
+[!] You must enter a party first!=
+The party has been disbanded=
+@1 has left the group=
+You've left the party=
+@1 is the new party leader=
+Party=
