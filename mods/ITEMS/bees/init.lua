@@ -1,4 +1,4 @@
--- EDITED BY FREEGAMERS, Fall, 2019
+-- EDITED BY MESECRAFT, Fall, 2019
 -- CHANGES:
 -- INCLUDED NICER TEXTURES FROM CHURCH_CANDLES MOD
 -- USED TEXTURES FROM DEFAULT TO REDUCE REDUNDANCY,
@@ -8,7 +8,11 @@
 -- ADDED LOCATIONAL SOUND EFFECTS.
 -- TODO: ADD HONEY LIQUID / BUCKET, maybe a honey/bee biomes.
 -- TODO: Giant Bee Mob for mobs_Creatures.
-
+-- TODO: Add honey dripping particles from wild hives.
+-- TODO: Right click wild hive with jar to get honey, spawns angry bee.
+-- TODO: Right click wild hive with sheer to get honey comb, spawns angry bee.
+-- TODO: Break wild hive / artificial hive spawns angry bee(s).
+-- TODO: Bee sting poisons players.
 --Bees by Bas080
 --Note: This branch was modified by clockgen in summer, 2019.
 --Version	2.2
@@ -206,10 +210,6 @@
     walkable = false,
     buildable_to = true,
     pointable = false,
-    on_punch = function(pos, node, puncher)
-      local health = puncher:get_hp()
-      puncher:set_hp(health-2)
-    end,
   })
   minetest.register_node('bees:hive_wild', {
     description = 'Wild Bee Hive',
@@ -267,19 +267,13 @@
     on_punch = function(pos, node, puncher)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      if inv:contains_item('queen','bees:queen') then
-        local health = puncher:get_hp()
-        puncher:set_hp(health-4)
-      end
     end,
     on_metadata_inventory_take = function(pos, listname, index, stack, taker)
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
       local timer= minetest.get_node_timer(pos)
       if listname == 'combs' and inv:contains_item('queen', 'bees:queen') then
-        local health = taker:get_hp()
         timer:start(10)
-        taker:set_hp(health-2)
       end
     end,
     on_metadata_inventory_put = function(pos, listname, index, stack, taker) --restart the colony by adding a queen
@@ -303,12 +297,6 @@
       )
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
-      if meta:get_int('agressive') == 1 and inv:contains_item('queen', 'bees:queen') then
-        local health = clicker:get_hp()
-        clicker:set_hp(health-4)
-      else
-        meta:set_int('agressive', 1)
-      end
     end,
     can_dig = function(pos,player)
       local meta = minetest.get_meta(pos)
@@ -366,12 +354,6 @@
       )
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
-      if meta:get_int('agressive') == 1 and inv:contains_item('queen', 'bees:queen') then
-        local health = clicker:get_hp()
-        clicker:set_hp(health-4)
-      else
-        meta:set_int('agressive', 1)
-      end
     end,
     on_timer = function(pos,elapsed)
       local meta = minetest.get_meta(pos)
@@ -399,7 +381,7 @@
               end
             end
           else
-            meta:set_string('infotext', 'Progress: '..progress..'+'..#flowers..'/1000')
+            meta:set_string('infotext', 'Bees are busy making honey!')
           end
         else
           meta:set_string('infotext', 'Hive does not have empty frame(s)!')

@@ -1,7 +1,15 @@
 # Changelog for MeseCraft #
 
+2021-07-04
+* Fixed duplication bug with bee's reported by Mineman. Disabled Bee hive damage.
+* Added todo notes for bee's.
+* Temporarily disabled music_modpack.
+
 2021-06-30
 * Added menu background, header, footer.
+* Added parties mod.
+* Updated Nether mod.
+* Disabled some Ethereal biomes (banana, scortched).
 
 2021-06-29
 * Created custom bed mod. Removed Fancy Beds and added colored beds. Also integrated features from "bouncy_bed".
