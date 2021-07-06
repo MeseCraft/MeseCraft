@@ -1,5 +1,8 @@
 # Changelog for MeseCraft #
 
+2021-07-05
+* Removed ts_furniture and ts_workshop to encourage player creativity instead of providing pre-defined furniture nodes.
+
 2021-07-04
 * Fixed duplication bug with bee's reported by Mineman. Disabled Bee hive damage.
 * Added todo notes for bee's.
