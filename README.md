@@ -6,7 +6,7 @@ Special thanks to the Minetest community as well. This game was built using the 
 
 Description
 -------------------------
-The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.mesecraft.net
+The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.mesecraft.com
 
 Currently, this game is quite stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
