@@ -1,6 +1,6 @@
 MeseCraft
 ==========================
-Copyright (C) 2019-2021 MeseCraft.net
+Copyright (C) 2019-2022 MeseCraft, www.mesecraft.com
 Thank you to everyone who has contributed to this project, mods, and the MeseCraft and FreeGamers community.
 Special thanks to the Minetest community as well. This game was built using the Minetest game engine, minetest_game, and the mods of many others as a foundation.
 

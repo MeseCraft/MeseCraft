@@ -1,1 +1,0 @@
-An api and manager for in-game music

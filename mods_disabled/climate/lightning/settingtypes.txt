@@ -1,4 +1,0 @@
-# When fire is enabled, this setting specifies whether the lightnings
-# have a small chance to start a fire.
-# Value 'false' will disable fire caused by lightnings.
-lightning_random_fire (Enable random fire) bool true

@@ -1,3 +1,0 @@
-add mesecon support
-	- require mesecon instead of copper
-	- lights conduct mese like a mesecon. need an activator.

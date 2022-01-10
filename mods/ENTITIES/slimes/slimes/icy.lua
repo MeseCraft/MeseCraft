@@ -41,9 +41,6 @@ mobs:register_mob("slimes:icy_slime", {
 	light_damage = 0,
 	replace_rate = 2,
 	replace_what = {
-		{"air", "default:snow", 0},
-		{"group:grass", "default:snow", 0},
-		{"group:dry_grass", "default:snow", 0},
 		{"default:water_source", "default:ice", -1},
 		{"default:water_flowing", "default:ice", -1},
 		{"default:river_water_source", "default:ice", -1},
