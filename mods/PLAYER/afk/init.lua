@@ -1,3 +1,4 @@
+afk={}
 -- Interval between movement checks (in seconds).
 local INTERVAL = 10
 
