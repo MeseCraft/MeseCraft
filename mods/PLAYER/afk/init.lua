@@ -1,20 +1,22 @@
-afk={}
+afk = {}
 -- Interval between movement checks (in seconds).
-local INTERVAL = 10
+local INTERVAL = 5
 
 -- Minimum distance to move to register as not AFK (in blocks).
 local MINDIST = 1
 
 -- If player does not move within this time, 'sit' player (in seconds) and label them as afk.
-local TIMEOUT = 300 -- 300 = 5 minutes
+local TIMEOUT = 300
 
 local time_afk = {} -- a table indexed by plname that indicates the approximate time since last moved
 local last_pos = {} -- a table of position vectors that are indexed by plname
 local chat_afk = {} -- a table of booleans indexed by plname that indicate if players are afk, used to indicate if we have placed a chat message that indicates them as afk
 local chat_noafk = {} -- a table of booleans indexed by plname that indicate if players are not afk
-local beds_path = minetest.get_modpath("mesecraft_beds")
+afk.afk_count = 0
+local beds_path = minetest.get_modpath("beds")
 local attached_before_afk = {}
 -- Function to check if the player is afk.
+
 local function check_moved()
    for _, p in ipairs(minetest.get_connected_players()) do
       local plname = p:get_player_name()
