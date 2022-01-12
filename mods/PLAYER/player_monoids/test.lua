@@ -4,6 +4,7 @@ local speed = player_monoids.speed
 minetest.register_privilege("monoid_master", {
 	description = "Allows testing of player monoids.",
 	give_to_singleplayer = false,
+	give_to_admin = true,
 })
 
 local function test(player)

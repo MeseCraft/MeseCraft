@@ -118,7 +118,8 @@ end
 local function update_formspecs(finished)
 	local ges = #minetest.get_connected_players()
 	local player_in_bed = get_player_in_bed_count()
-	local is_majority = (ges / 2) < player_in_bed
+  	local afk_count = afk.afk_count
+   	local is_majority = (#minetest.get_connected_players() / 2) < (player_in_bed + afk_count)
 
 	local form_n
 	local esc = minetest.formspec_escape
@@ -246,7 +247,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	end
 
 	if fields.force then
-		local is_majority = (#minetest.get_connected_players() / 2) < last_player_in_bed
+	local afk_count = afk.afk_count
+		local is_majority = (#minetest.get_connected_players() / 2) < (last_player_in_bed + afk_count)
 		if is_majority and is_night_skip_enabled() then
 			update_formspecs(true)
 			beds.skip_night()

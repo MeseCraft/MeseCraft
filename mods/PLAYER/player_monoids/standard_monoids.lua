@@ -63,7 +63,6 @@ player_monoids.jump = monoid({
 	end,
 })
 
-
 -- Gravity monoid. Effect values are gravity multipliers.
 player_monoids.gravity = monoid({
 	combine = mult,
@@ -75,7 +74,6 @@ player_monoids.gravity = monoid({
 		player:set_physics_override(ov)
 	end,
 })
-
 
 -- Fly ability monoid. The values are booleans, which are combined by or. A true
 -- value indicates having the ability to fly.
@@ -103,7 +101,6 @@ player_monoids.fly = monoid({
 
 	end,
 })
-
 
 -- Noclip ability monoid. Works the same as fly monoid.
 player_monoids.noclip = monoid({

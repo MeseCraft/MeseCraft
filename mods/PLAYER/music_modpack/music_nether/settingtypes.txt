@@ -1,0 +1,5 @@
+#Nether maximum height
+music_nether_ymax (Maximum height for nether) int -17000
+
+#Nether minimum height
+music_nether_ymin (Minimum height for nether) int -31000

@@ -1,0 +1,17 @@
+#Interval between attempts to play music
+music_time_interval (Interval between attempts to play music) int 60
+
+#Interval between attempts to clean up player playback state
+music_cleanup_interval (Interval between attempts to clean up player playback state) int 5
+
+#Music volume
+music_global_gain (Music volume) float 0.3 0.0 1.0
+
+#Add random delay to music
+music_add_random_delay (Add random delay to each music start attempt) bool true
+
+#Maximum random delay (from 0) to add
+music_maximum_random_delay (Maximum random delay to add) int 30
+
+#Display info messages in server console
+music_display_playback_messages (Display info messages in server console) bool true
