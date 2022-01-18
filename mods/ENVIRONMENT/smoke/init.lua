@@ -9,7 +9,7 @@
 smoke= {}
 
 -- Library parameters
-local ITVL=2.5 -- how fast smoke moves, in seconds. Smoke is generate at twice this period (so half slower than the smoke moves).
+local ITVL=1 -- how fast smoke moves, in seconds. Smoke is generate at twice this period (so half slower than the smoke moves).
 local PERSIST=0.91 -- the chance smokes has *not* to dissipate.
 -- This is a very sensitive parameter: in terms of average smoke column average half-height, 0.95 -> 14, 0.93 -> 10 but 0.80 -> 5
 local PERSIST_S=0.96 -- same parameter for smog
@@ -233,7 +233,7 @@ if true then -- change to "false" if you want to do your own thing
 		label="Smoke",
 		nodenames= {"group:smokey"},
 		neighbors={"air"},
-		interval=ITVL*2,
+		interval=ITVL,
 		chance=1,
 		action=function(pos)
 			local p=minetest.find_node_near(pos, 1, "air") -- note that it happens that this function will try the node above first, but no statement about that in the docs.

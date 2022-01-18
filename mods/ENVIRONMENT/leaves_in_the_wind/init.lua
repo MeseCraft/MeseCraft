@@ -6,8 +6,8 @@ local _3pi_over2 = 3*pi_over2
 local ppos, pyaw, dx, dz, yaw, isBehind -- Allocate
 
 minetest.register_abm({
-	interval = 4,
-	chance = 10,
+	interval = 30,
+	chance = 5,
 	catch_up = false,
 	nodenames = {"group:leaves"},
 	action = function(npos, node, ...)
