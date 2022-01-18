@@ -1,0 +1,20 @@
+2020-12-24
+- added player factions
+- re-added commoditymarket mod (by FaceDeer) and commoditymarket_fantasy
+- protection fixed with itemdrop, disappearing protectors.
+- music_api readded. debugged conflict with ambience mod (thanks MisterE)
+
+2020-Dec-23
+- fixed christmas spawn issue reported by mineman
+- updated dfcaverns (by FaceDeer)
+- update protector mod to try to fix disappearing protectors (report by mineman).
+- update mesecons
+- update mobs_redo by tenplus1
+- reduce mesecon torch light output to 2
+- remove magic_mirror from special present item pool.
+
+
+2020-Nov-15
+- update 3d_armor
+- update 24hr_clock
+- adjust wielded_light to be more network friendly. (increase update interval)

@@ -1,0 +1,50 @@
+[Features]
+
+# If set to true, wind will boost or penalize player movements based on direction.
+regional_weather_player_speed (Change movement speed based on wind) bool true
+
+# If set to true, snow layers will stack up during snowy weather.
+regional_weather_snow_layers (Place snow layers) bool true
+
+# If set to true, snow layers will destroy crops
+regional_weather_snow_griefing (Destructive snow layers) bool true
+
+# If set to true, river water sources will freeze at low temperatures and melt when it gets warmer again.
+# This process does not affect regular ice blocks because it adds its own temporary ones.
+regional_weather_ice (Freeze river water) bool true
+
+# If set to true, water puddles will form during rain or when snow layers have melted.
+regional_weather_puddles (Place rain puddles) bool true
+
+# If set to true, puddles will be marked as water and hydrate farmland.
+# Not compatible with some ambient sound or mob mods
+regional_weather_puddles_water (Hydrate farmland near puddles) bool false
+
+# If set to true, rain will cause dry farmland to turn wet.
+regional_weather_soil (Hydrate farmland during rain) bool true
+
+# If set to true, fires will be extinguished during rain showers.
+regional_weather_fire (Extinguish fire) bool true
+
+# If set to true, rain will wetten or dry nodes from pedology mod.
+regional_weather_pedology (Wetten pedology nodes) bool true
+
+# Multiplier for lightning strike chances
+# Requires lightning mod to be installed
+regional_weather_lightning (Lightning chance modifier) float 1 0 20
+
+[World Configuration]
+
+# No visual effects will be applied below this height.
+# This will prevent unwanted visuals within large underground caves.
+regional_weather_min_height (Minimum height of weather effects) int -50
+
+# No visual effects will be applied above this height.
+# This value defaults to normal cloud height (120 nodes above sea level).
+regional_weather_max_height (Maximum height of weather effects) int 120
+
+# Average height of cloud bases
+regional_weather_cloud_height (Cloud height) int 120
+
+# Maxmial variation of cloud height from base value
+regional_weather_cloud_scale (Cloud height variation) int 40

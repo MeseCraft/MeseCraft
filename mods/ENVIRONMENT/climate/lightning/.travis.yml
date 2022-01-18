@@ -1,0 +1,11 @@
+language: generic
+addons:
+  apt:
+    packages:
+    - luarocks
+before_install:
+  - luarocks install --local luacheck
+script:
+- $HOME/.luarocks/bin/luacheck ./
+notifications:
+  email: false

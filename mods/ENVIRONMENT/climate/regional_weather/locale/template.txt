@@ -1,0 +1,5 @@
+# textdomain:regional_weather
+Disable MTG weather for the best experience=
+Thin Ice=
+Puddle=
+Snow Cover=

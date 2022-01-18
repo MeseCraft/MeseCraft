@@ -1,0 +1,77 @@
+[Performance]
+
+# This value regulates how often weather presets are recalculated.
+# Higher values will result in smoother transitions between effects as well as faster response times to traveling players.
+# Lower values will significantly increase overall performance at the cost of rougher looking effects.
+climate_api_tick_speed (Update speed of weather effects) float 1 0.1 10
+
+# This value regulates how many particles will be spawned.
+# A value of 1 will use the recommended amount of particles.
+# Lower values can possible increase performance.
+climate_api_particle_count (Multiplicator for used particles) float 1 0.1 2
+
+# If set to true, weather packs are allowed to register node update handlers.
+# These can be used to dynamically place snow layers, melt ice, or hydrate soil.
+climate_api_block_updates (Dynamically modify nodes) bool true
+
+# If set to true, Climate API will factor in wind speed and obstacles to determine damage sources.
+# If set to false, a simple check will be used whether the player is outside.
+# Only applied if climate_api_damage is also set to true.
+climate_api_raycast (Include wind speed in damage checks) bool true
+
+# Increase this number if you notice snow or rain inside large glass domes.
+# Decrease this number if you notice lag spikes or overall reduced game performance.
+ceiling_checks (Check x nodes on outdoor test) int 10 0 50
+
+
+[Weather Effects]
+
+# If set to true, dangerous weather presets will damage affected players over time.
+climate_api_damage (Cause player damage) bool true
+
+# If set to true, weather effects (like rain) are allowed to render particles.
+# Deactivating this feature will prevent some presets from being visible.
+# For performance considerations it is recommended to decrease the amount of particles instead.
+climate_api_particles (Show particle effects) bool true
+
+# If set to true, weather effects are allowed to modify a player's sky.
+# This includes skybox, sun, moon, and clouds (also used for fog effects).
+# Running this mod on Minetest 5.1.2 or earlier versions will automatically disable this feature.
+climate_api_skybox (Override the skybox) bool true
+
+# If set to true, weather effects are allowed to render an image on top of the gameplay.
+# This is usually an optional effect used to increase immersion (like a frozen-over camera in a snow storm).
+climate_api_hud_overlay (Display HUD overlays) bool true
+
+
+[Environment]
+
+# This value will be added to all biome's base temperatures before applying random modifiers.
+# Every unit here will increase the global base heat by one degree Fahrenheit.
+# Negative values will cool down global base heat respectively.
+climate_api_heat_base (Global base temperature) float 0
+
+# This value will be added to all biome's base humidity before applying random modifiers.
+# Every unit here will increase the global base humidity by one percent.
+# Negative values will dry up global base humidity respectively.
+climate_api_humidity_base (Global base humidity) float 0
+
+# This value regulates how quickly environment factors like heat, humidity and wind are changing.
+# A value of 2 will double the speed at which weather presets change.
+# A value of 0.5 will half the speed respectively.
+climate_api_time_spread (Time rate of weather changes) float 1 0.1 10
+
+
+[Preferences]
+
+# If set to true, temperature information in /weather command will be displayed in Fahrenheit.
+climate_api_fahrenheit (Show degrees in Fahrenheit instead of Celsius) bool false
+
+# If set to true, weather effects are allowed to play sound loops.
+# You can also adjust sound levels instead of deactivating this feature completely.
+# Setting this value to false will be slightly more performant than setting the volume to zero.
+climate_api_sound (Play ambient sound loops) bool true
+
+# This value regulates overall sound volume.
+# A value of 2 will double the volume whereas a value of 0.5 will reduce the volume by half.
+climate_api_volume (Volume of sound effects) float 1 0 10
