@@ -3,6 +3,15 @@
 ## CHANGELOG ##
 ###############
 
+2022-01-20
+* remove ethereal, can be added in incrementally but dev focus on less biomes is helpful.
+* dfcaverns closer to surface. mobs will need to be adjusted too.
+
+2022-01-19
+* rename fireplace
+* remove hedges
+
+
 2022-01-18
 * Set annoucement frequency to 20 minutes (1200 seconds).
 * Water is now opaque, enforced in game settings.
