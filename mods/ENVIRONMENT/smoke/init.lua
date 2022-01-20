@@ -233,7 +233,7 @@ if true then -- change to "false" if you want to do your own thing
 		label="Smoke",
 		nodenames= {"group:smokey"},
 		neighbors={"air"},
-		interval=ITVL,
+		interval=4,
 		chance=1,
 		action=function(pos)
 			local p=minetest.find_node_near(pos, 1, "air") -- note that it happens that this function will try the node above first, but no statement about that in the docs.

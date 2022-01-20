@@ -93,8 +93,9 @@ local tool_item_pairs = {
 
 -- checks if user is holding a fruit tool, if they are returns the fruit pair name, else returns false
 local function is_holding_fruit_tool(player)
-    local tool = player:get_wielded_item():get_name()
-    local fruit_pair_name = false
+    if player then
+        local tool = player:get_wielded_item():get_name()
+        local fruit_pair_name = false
 
     for i, p in ipairs(tool_item_pairs) do
         if tool == p.tool then
@@ -103,6 +104,7 @@ local function is_holding_fruit_tool(player)
     end
 
     return fruit_pair_name
+    end
 end
 
 local function get_random_drop_quantity()

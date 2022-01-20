@@ -1,13 +1,13 @@
 -- FIREPLACE -----------------------------------------------
 
-minetest.register_node("extrablocks:fireplace", {
+minetest.register_node("fireplace:fireplace", {
 	description = "Fireplace",
 	tiles = {"fireplace_top.png", "fireplace_top.png", "fireplace_side.png", "fireplace_top.png", "fireplace_top.png", "fireplace_front.png"},
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 	paramtype2 = "facedir",
 	sounds = default.node_sound_stone_defaults(),
 	on_rightclick = function(pos, node, clicker, itemstack)
-		node.name = "extrablocks:fireplace_active"
+		node.name = "fireplace:fireplace_active"
 		minetest.set_node(pos, node)
 		minetest.sound_play("fire", {
 			pos = pos,
@@ -17,7 +17,7 @@ minetest.register_node("extrablocks:fireplace", {
 	end
 })
 
-minetest.register_node("extrablocks:fireplace_active", {
+minetest.register_node("fireplace:fireplace_active", {
 	tiles = {
 	"fireplace_top.png", "fireplace_top.png", "fireplace_side.png", "fireplace_top.png", "fireplace_top.png",
 		{
@@ -34,13 +34,13 @@ minetest.register_node("extrablocks:fireplace_active", {
 	paramtype2 = "facedir",
 	light_source = 8,
 	on_rightclick = function(pos, node, clicker, itemstack)
-		node.name = "extrablocks:fireplace"
+		node.name = "fireplace:fireplace"
 		minetest.set_node(pos, node)
 	end
 })
 
 minetest.register_craft({
-	output = 'extrablocks:fireplace',
+	output = 'fireplace:fireplace',
 	recipe = {
 		{'default:wood', 'default:wood', 'default:wood'},
 		{'default:stone', 'default:coalblock', 'default:stone'},

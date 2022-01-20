@@ -27,7 +27,7 @@ if geomoria_mod.cheap_lighting == nil then
 end
 
 geomoria_mod.damage_level = minetest.setting_getbool('geomoria_damage_level')
-geomoria_mod.damage_level = (13 - (geomoria_mod.damage_level or 5)) / 10
+geomoria_mod.damage_level = (geomoria_mod.damage_level or 5)
 
 
 local treasure_chest = 'default:chest'

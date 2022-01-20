@@ -5,6 +5,7 @@
 
 2022-01-18
 * Set annoucement frequency to 20 minutes (1200 seconds).
+* Water is now opaque, enforced in game settings.
 
 2022-01-17
 * add announcement system to game files.

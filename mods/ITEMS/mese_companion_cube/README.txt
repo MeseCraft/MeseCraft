@@ -1,4 +1,4 @@
-Sara's Simple Survival Game mod: mese_companion
+MeseCraft mod: mese_companion_cube
 ==========================
 
 License of source code

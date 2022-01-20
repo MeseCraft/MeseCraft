@@ -201,13 +201,13 @@ local function check_text(pos)
 	end
 end
 
-minetest.register_lbm({
-	label = "Check for sign text",
-	name = "signs:sign_text",
-	nodenames = {"signs:sign", "signs:wall_sign"},
-	run_at_every_load = true,
-	action = check_text
-})
+--minetest.register_lbm({
+--	label = "Check for sign text",
+--	name = "signs:sign_text",
+--	nodenames = {"signs:sign", "signs:wall_sign"},
+--	run_at_every_load = true,
+--	action = check_text
+--})
 
 local function construct(pos)
 	local meta = minetest.get_meta(pos)
