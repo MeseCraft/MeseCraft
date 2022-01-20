@@ -977,7 +977,7 @@ local function refresh_vendor(pos)
     end
 
     if status then
-        meta:set_string("infotext", (settings.admin_vendor and "Admin" or "Player").." Vendor trading "..settings.input_item_qty.." "..minetest.registered_items[settings.input_item].description.." for "..settings.output_item_qty.." "..minetest.registered_items[settings.output_item].description.." (owned by " .. meta:get_string("owner") .. ")")
+--        meta:set_string("infotext", (settings.admin_vendor and "Admin" or "Player").." Vendor trading "..settings.input_item_qty.." "..minetest.registered_items[settings.input_item].description.." for "..settings.output_item_qty.." "..minetest.registered_items[settings.output_item].description.." (owned by " .. meta:get_string("owner") .. ")")
 
         if meta:get_string("configured") == "" then
             meta:set_string("configured", "true")
