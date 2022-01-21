@@ -70,7 +70,9 @@
 * Add mesecons support to holidaylights
 * Independence day celebration: Famous books and quotes by fathers, active around 4th of july and bastille day, fireworks be purchased, summer foods burgers, hotdogs, bbq, red white blue popsicles.
 * Punch water to drink, not just sit in water.
-
+* MeseBall (or perhaps trap) to have chance capture monsters that are low health
+* Optimize ABMs, global step? 
+* 
 
 // BUGS
 * Gramophone top part disappears when picked up. (Centeria fix)
@@ -86,4 +88,4 @@
 * Staff of Earth for nether.
 * Add support for other mobs for death messages.
 * Fix non-seamless lava sound loop.
-
+* CONTENT_IGNORE when replacing air for giant cave spiders
