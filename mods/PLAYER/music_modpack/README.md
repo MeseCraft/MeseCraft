@@ -1,4 +1,4 @@
-# music_modpack
+# music_modpack (Originally by "ClockGen")
 
 ![Screenshot](screenshot.png)
 
@@ -54,7 +54,6 @@ music_add_random_delay = boolean, if to add a random delay to interval between a
 music_maximum_random_delay = - integer, maximum random delay in seconds, default is 30
 music_display_playback_messages = boolean, display messages when music starts for a certain player, default is true
 ```
-
 Music packs also provide settingtypes with corresponding height limits.
 
 ## Content
@@ -62,8 +61,6 @@ Default pack features 11 tracks from composer Kevin McLeod. Tracks are split int
 Music_dfcaverns is an additional pack of music for underground layers from [dfcaverns](https://github.com/FaceDeer/dfcaverns/), featuring 13 tracks from composer Kevin McLeod. Tracks split into three categories, each for one cavern layer from dfcaverns, and their heights are set accordingly. Dfcaverns modpack is not required, however, and it is recommended to enable this pack even without dfcaverns, unless client connection speed is an issue.
 
 ## License
-
 Code is licensed under GPLv3.  
-
 All music used in this mod was produced by Kevin McLeod and released under CC BY 4.0. [link to the license](https://creativecommons.org/licenses/by/4.0/).  
 Original music can be found [here](https://incompetech.com/music/royalty-free/music.html).
