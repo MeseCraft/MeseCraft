@@ -158,11 +158,11 @@ minetest.register_craft({
 minetest.register_craft({
     output = "magic_materials:fire_rune",
     recipe = {
-        {"default:mese_crystal", "bucket:bucket_lava", "default:mese_crystal"},
-        {"bucket:bucket_lava", "magic_materials:enchanted_rune", "bucket:bucket_lava"},
-        {"default:mese_crystal", "bucket:bucket_lava", "default:mese_crystal"},
+        {"default:mese_crystal", "mesecraft_bucket:bucket_lava", "default:mese_crystal"},
+        {"mesecraft_bucket:bucket_lava", "magic_materials:enchanted_rune", "mesecraft_bucket:bucket_lava"},
+        {"default:mese_crystal", "mesecraft_bucket:bucket_lava", "default:mese_crystal"},
     },
-    replacements = {{ "bucket:bucket_lava", "bucket:bucket_empty"}}
+    replacements = {{ "mesecraft_bucket:bucket_lava", "mesecraft_bucket:bucket_empty"}}
 })
 
 minetest.register_craft({

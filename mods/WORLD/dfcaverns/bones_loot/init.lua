@@ -116,7 +116,7 @@ if minetest.get_modpath("default") then
 end
 
 bones_loot.place_bones = function(pos, loot_type, max_stacks, infotext, exclusive_loot_type)
-	minetest.set_node(pos, {name="bones:bones", param2 = math.random(1,4)-1})
+	minetest.set_node(pos, {name="mesecraft_bones:bones", param2 = math.random(1,4)-1})
 	local meta = minetest.get_meta(pos)
 	if infotext == nil then
 		infotext = S("Someone's old bones")
@@ -137,7 +137,7 @@ end
 minetest.register_lbm({
 	label = "Repair underworld bones formspec",
 	name = "bones_loot:repair_underworld_bones_formspec",
-	nodenames = {"bones:bones"},	
+	nodenames = {"mesecraft_bones:bones"},	
 	action = function(pos, node)
 		local meta = minetest.get_meta(pos)
 		if not meta:get("formspec") then

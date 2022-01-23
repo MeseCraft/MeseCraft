@@ -57,9 +57,9 @@ lootchests.loot_table["lootchests_default:ocean_chest"] = {
     {"carts:powerrail", 16},
     {"carts:brakerail", 16},
     {"carts:cart", 1},
-    {"bucket:bucket_empty", 4},
+    {"mesecraft_bucket:bucket_empty", 4},
     {"boats:boat", 1},
-    {"binoculars:binoculars", 1},
+    {"mesecraft_binoculars:binoculars", 1},
 }
 
 lootchests.loot_table["lootchests_default:basket"] = {
@@ -160,6 +160,6 @@ lootchests.loot_table["lootchests_default:stone_chest"] = {
     {"carts:powerrail", 32},
     {"carts:brakerail", 32},
     {"carts:cart", 2},
-    {"bucket:bucket_empty", 8},
+    {"mesecraft_bucket:bucket_empty", 8},
     {"boats:boat", 2},
 }

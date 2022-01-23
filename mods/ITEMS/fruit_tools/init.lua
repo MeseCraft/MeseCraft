@@ -177,7 +177,7 @@ minetest.register_craft({
     recipe = {
         {"default:diamond", "default:gold_ingot", "default:diamond"},
         {"default:mese_crystal", "vessels:glass_bottle", "default:mese_crystal"},
-        {"default:diamond", "bucket:bucket_water", "default:diamond"}
+        {"default:diamond", "mesecraft_bucket:bucket_water", "default:diamond"}
     },
 })
 

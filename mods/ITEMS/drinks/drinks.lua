@@ -11,9 +11,9 @@ for i in ipairs (drinks.drink_table) do
 minetest.register_node('drinks:jbu_'..desc..'', {
 	description = 'Bucket of '..craft..' Juice',
 	drawtype = "plantlike",
-	tiles = {'bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)'},
-	inventory_image = 'bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)',
-	wield_image = 'bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)',
+	tiles = {'mesecraft_bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)'},
+	inventory_image = 'mesecraft_bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)',
+	wield_image = 'mesecraft_bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)',
 	paramtype = "light",
    juice_type = craft,
 	is_ground_content = false,

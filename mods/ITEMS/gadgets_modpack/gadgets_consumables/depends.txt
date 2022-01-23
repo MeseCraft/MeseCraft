@@ -1,7 +1,7 @@
 default
 vessels
 farming
-bucket
+mesecraft_bucket
 flowers
 gadgets_api
 gadgets_default_effects

@@ -51,12 +51,12 @@ local regen_potions = {
         name = "fire_shield",
         recipe = {
             {
-                {"default:obsidian_shard", "bucket:bucket_lava", "default:mese_crystal_fragment"},
+                {"default:obsidian_shard", "mesecraft_bucket:bucket_lava", "default:mese_crystal_fragment"},
                 {"", "magic_materials:magic_root", ""},
                 {"", "gadgets_consumables:water_bottle", ""},
             }
         },
-        replacements = {{"bucket:bucket_lava", "bucket:bucket_empty"}},
+        replacements = {{"mesecraft_bucket:bucket_lava", "mesecraft_bucket:bucket_empty"}},
     },
     {
         desc = "Health Regeneration",

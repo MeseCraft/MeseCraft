@@ -3,6 +3,14 @@
 ## CHANGELOG ##
 ###############
 
+2022-01-21
+* disabled windspeed affecting player speed
+* removed screenshots in folder structure
+* compressed nether music to 80kbps
+
+2022-01-20
+* fancyvend quick patch
+
 2022-01-20
 * remove ethereal, can be added in incrementally but dev focus on less biomes is helpful.
 * dfcaverns closer to surface. mobs will need to be adjusted too.

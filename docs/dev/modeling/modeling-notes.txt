@@ -1,0 +1,14 @@
+Install into Blender:
+* io_scene_b3d.zip in Blender to import/export models.
+* Edit --> Prefernces --> Addons --> Install
+* Only export in object mode.
+
+Steps to modelings:
+1. Shape in edit mode and assign vertex groups.
+2. UV editing, unwrapping.
+3. Make the texture. (Gimp, import color pallette)
+4. Make the armature (skeleton/bones).
+5. Animate the armature.
+
+
+Bones should be named same as the vertex groups.

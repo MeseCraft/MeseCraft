@@ -8,9 +8,9 @@ fire
 dye
 wool
 carts
-bucket
+mesecraft_bucket
 boats
-binoculars
+mesecraft_binoculars
 farming
 flowers
 3d_armor?
