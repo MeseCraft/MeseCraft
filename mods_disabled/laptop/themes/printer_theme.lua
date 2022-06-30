@@ -1,0 +1,15 @@
+laptop.register_theme("PrintOS", {
+	desktop_background = "laptop_theme_blue_desktop_background.png",
+	app_background = "laptop_theme_blue_app_background.png",
+	contrast_background = "laptop_theme_desktop_icon_label_button_grey.png",
+	contrast_textcolor = "#63a0e4",
+	titlebar_textcolor = "#63a0e4",
+	major_button = "laptop_theme_printos_major_button.png",
+	minor_button = "laptop_theme_printos_minor_button.png",
+	back_button = "laptop_theme_blue_back_button.png",
+	exit_button = "laptop_theme_blue_exit_button.png",
+	desktop_icon_button = "laptop_theme_blue_desktop_icon_button.png",
+	table_highlight_bgcolor='#1c3c9e',
+	table_highlight_textcolor = '#cccccc',
+	os_max_version = "0.01",
+})

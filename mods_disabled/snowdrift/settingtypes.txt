@@ -1,0 +1,2 @@
+#Enable ABMS that put out fire, mossify cobble, and grow grass.
+snowdrift.enable_abms (Enable rain ABMs) bool false

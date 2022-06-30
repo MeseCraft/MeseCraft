@@ -1,0 +1,97 @@
+*** Reduce particles on Void chest and nether portal
+*** Disable knockback mods.
+
+
+// WEB
+* Put MeseCraft on ContentDB (create submodules that target MTG)
+* DDNS with HTTPS redirect to https://mesecraft.net --> mesecraft.com
+
+
+// META
+* Adjust Spawn Rates
+* Split mobs_creatures and create dfcaverns mobs pack.
+* Add more burnable recipes.
+* Why is there a steel bar and a steel rod.
+* Additional drawer ore upgrades
+* Mesecons support for additional doors.
+* New protection system, perhaps use cost/rent system.
+* Improve the dog following code.
+* Change apples, blueberry respawn rate.
+* Diet mod support for other foods.
+* Make moreblocks different recipes for tar.
+* Add poop to more animals.
+* Check damage friendly mobs in water
+* Add mooshroom cow code for milk from cow
+* Mob drops, balance.
+* Live stock breeding balance.
+* Refill canteens with water bucket, maybe use a water purifcation system, filter straws, unpurified water can make you sick?
+
+// GAME
+* add message about send screenshots in to contact@mesecraft.com
+* Transparent leaves again
+* Ethereal abms for torches, water, ice, etc.
+* Radio item that grants a private chat channel?
+* Cell phone item for documentation, chat channels, or apps, and commodity market delivery in mailbox after delay.
+* Laptop mod check. (Look at lwcomputers)(Centeria)
+* Transformation with magic potions into different creatures.
+* Add species specific paitings to villages.
+* Add painter NPC and paintings.
+* Add coins. NPC's can trade with this coin system.
+* Shift + Clickdoes not work on lootchests
+* Cosmetic slots for accessories.
+* 3d armor on death: armor peices have a chance of being completely destroyed.
+* Eastern trader that maybe has special eastern items / extra papyrus items.
+* Poison api system and override hbhunger.
+* Laxative potion item to make the player poop. For fertilizer, but makes you hungerier.
+* Implement invasion events: goblins, aliens, nether, pirates, etc.
+* Terraria-like pet spawners (e.g. dog whistle)
+* Mining helmet spawns a light above while wearing but is weak protection.
+* Leather more uses for leather: armor, canteen.
+* Rain ABMS can grow crops grass wash out footprints
+* Add weeds that can appear in gardens (nettles?)
+* Some sort of martian sickness that can infect / sick players or crops.
+* If zombie kills you, spawn a similiar looking zombie by bones. or a zomb virus effect.
+* Mobs_mc add squid, use horse armor.
+* Ignore and party features in chat.
+* Goblins, dwarves, elves and items. 
+* Maybe use moresnow and integrate and bugfix
+* Easter event.
+* Helicopter integration, vehicles?
+* Mobs, undead pirates in shipwrecks.
+* Bee biomes underground maybe.
+* Halloween event add: improve vampire soudns, string light drops, spider spawn rate increase, black cat, bat increase, cobwebs and spiders.
+* Primordial biome ideas: archelogist npc sells fossils and machines. Dinosaur mobs in biome.
+* Copy goblins and make a dwarven version that can trade and mine.
+* Elves: magical forest biome? Fireflies villages home? roaming in nature in small groups?
+* Mars: Giant sandworm from nssm, 
+* Moon or different planet: facehuggers kill players add a xenoalien.
+* Tome of light have weilded light.
+* Custom skins for mobs during holidays?
+* Check out the rotator screwdriver (Centeria)?
+* Snowball gun
+* Make certain mobs avoid scarecrows?
+* Meseportals for admins, telemosiac for player?
+* Pufferfish for kiopy?
+* Evil tech company called SynTek
+* Add mesecons support to holidaylights
+* Independence day celebration: Famous books and quotes by fathers, active around 4th of july and bastille day, fireworks be purchased, summer foods burgers, hotdogs, bbq, red white blue popsicles.
+* Punch water to drink, not just sit in water.
+* MeseBall (or perhaps trap) to have chance capture monsters that are low health
+* Optimize ABMs, global step? 
+* 
+
+// BUGS
+* Gramophone top part disappears when picked up. (Centeria fix)
+* Fridges aren't protected (remove these from game?)
+* Ovens compatible with other food items.
+* Spider webs on v5.5  (Centruria Fix)
+* Fire-imps do not fly in lava, nor float.
+* Add steel sounds to ingot stacks when walking on them.
+* Drinks mod makes eating noise, not drinking.
+* Fix duplicate portal bug.
+* Look at centeria bedrock implentation.
+* Slade block, puzzle seal. 
+* Staff of Earth for nether.
+* Add support for other mobs for death messages.
+* Fix non-seamless lava sound loop.
+* CONTENT_IGNORE when replacing air for giant cave spiders
