@@ -3,6 +3,14 @@
 ## CHANGELOG ##
 ###############
 
+2022-06-30
+* add disabled resources folder /mods_disabled
+* documentation updated.
+* added new texturing palette file.
+
+2022-02-11
+* fixed mobs and items from gliding by removing "builtin_item" mod
+
 2022-01-21
 * disabled windspeed affecting player speed
 * removed screenshots in folder structure
