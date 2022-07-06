@@ -186,7 +186,7 @@ if minetest.get_modpath("dynamic_liquid") then
 end
 
 if minetest.get_modpath("mesecraft_bucket") then
-	bucket.register_liquid(
+	mesecraft_bucket.register_liquid(
 		"oil:oil_source",
 		"oil:oil_flowing",
 		"oil:oil_bucket",
