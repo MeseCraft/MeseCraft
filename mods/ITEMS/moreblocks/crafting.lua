@@ -521,7 +521,7 @@ minetest.register_craft({
 	output = "moreblocks:copperpatina",
 	recipe = {"group:water_bucket", "default:copperblock"},
 	replacements = {
-		{"group:water_bucket", "bucket:bucket_empty"}
+		{"group:water_bucket", "mesecraft_bucket:bucket_empty"}
 	}
 })
 

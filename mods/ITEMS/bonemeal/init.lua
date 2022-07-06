@@ -567,11 +567,11 @@ minetest.register_craft({
 	recipe = {
 --MCMOB BONE
 		{"mobs_creatures:bone", "mobs_creatures:bone", "mobs_creatures:bone"},
-		{"bucket:bucket_water", "bucket:bucket_water", "bucket:bucket_water"},
-		{"bucket:bucket_water", "default:torch", "bucket:bucket_water"},
+		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_water"},
+		{"mesecraft_bucket:bucket_water", "default:torch", "mesecraft_bucket:bucket_water"},
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty 5"},
+		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty 5"},
 	},
 })
 

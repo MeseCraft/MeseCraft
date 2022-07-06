@@ -181,7 +181,7 @@ Tier 3
 
 ]]
 
-if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirsty.config.register_drinking_fountain then
+if minetest.get_modpath("default") and minetest.get_modpath("mesecraft_bucket") and thirsty.config.register_drinking_fountain then
 
     minetest.register_node('thirsty:drinking_fountain', {
         description = 'Drinking fountain',
@@ -220,7 +220,7 @@ if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirst
     minetest.register_craft({
         output = "thirsty:drinking_fountain",
         recipe = {
-            { "default:stone", "bucket:bucket_water", "default:stone"},
+            { "default:stone", "mesecraft_bucket:bucket_water", "default:stone"},
             { "", "default:stone", ""},
             { "", "default:stone", ""}
         }
@@ -234,7 +234,7 @@ Tier 4+: the water fountains, plus extenders
 
 ]]
 
-if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirsty.config.register_fountains then
+if minetest.get_modpath("default") and minetest.get_modpath("mesecraft_bucket") and thirsty.config.register_fountains then
 
     minetest.register_node('thirsty:water_fountain', {
         description = 'Water fountain',
@@ -268,7 +268,7 @@ if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirst
     minetest.register_craft({
         output = "thirsty:water_fountain",
         recipe = {
-            { "default:copper_ingot", "bucket:bucket_water", "default:copper_ingot"},
+            { "default:copper_ingot", "mesecraft_bucket:bucket_water", "default:copper_ingot"},
             { "", "default:copper_ingot", ""},
             { "default:copper_ingot", "default:mese_crystal", "default:copper_ingot"}
         }
@@ -276,7 +276,7 @@ if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirst
     minetest.register_craft({
         output = "thirsty:water_extender",
         recipe = {
-            { "", "bucket:bucket_water", ""},
+            { "", "mesecraft_bucket:bucket_water", ""},
             { "", "default:copper_ingot", ""},
             { "default:copper_ingot", "default:mese_crystal", "default:copper_ingot"}
         }
@@ -301,7 +301,7 @@ they are searched for in player's inventories
 
 ]]
 
-if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirsty.config.register_amulets then
+if minetest.get_modpath("default") and minetest.get_modpath("mesecraft_bucket") and thirsty.config.register_amulets then
 
     minetest.register_craftitem('thirsty:injector', {
         description = 'Water injector',
@@ -311,7 +311,7 @@ if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirst
         output = "thirsty:injector",
         recipe = {
             { "default:diamond", "default:mese_crystal", "default:diamond"},
-            { "default:mese_crystal", "bucket:bucket_water", "default:mese_crystal"},
+            { "default:mese_crystal", "mesecraft_bucket:bucket_water", "default:mese_crystal"},
             { "default:diamond", "default:mese_crystal", "default:diamond"}
         }
     })
@@ -324,7 +324,7 @@ if minetest.get_modpath("default") and minetest.get_modpath("bucket") and thirst
         output = "thirsty:extractor",
         recipe = {
             { "default:mese_crystal", "default:diamond", "default:mese_crystal"},
-            { "default:diamond", "bucket:bucket_water", "default:diamond"},
+            { "default:diamond", "mesecraft_bucket:bucket_water", "default:diamond"},
             { "default:mese_crystal", "default:diamond", "default:mese_crystal"}
         }
     })

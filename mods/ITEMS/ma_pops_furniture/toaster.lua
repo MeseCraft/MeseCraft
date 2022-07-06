@@ -181,7 +181,7 @@ minetest.register_craft({
 	recipe = {
 	{'','','',},
 	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
-	{'default:steel_ingot','bucket:bucket_lava','default:steel_ingot',},
+	{'default:steel_ingot','mesecraft_bucket:bucket_lava','default:steel_ingot',},
 	}
 })
 	

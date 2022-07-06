@@ -1,0 +1,5 @@
+In Linux, in a terminal console, sometimes we need to search for a string of text to find all instances of that text string. We can use grep for this. 
+
+grep -r "bucket"
+
+The above command will recursively search for all instances of "bucket" .

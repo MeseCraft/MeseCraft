@@ -63,8 +63,8 @@ gadgets.register_gadget({
     },                                                          --Crafting recipe. The table may contain multiple recipes, all of which will be registered
     replacements = {
         {
-            "bucket:bucket_lava",
-            "bucket:bucket_empty"
+            "mesecraft_bucket:bucket_lava",
+            "mesecraft_bucket:bucket_empty"
         }
     },                                                          --List of item replacements on crafting grid
     craft_amount = 1,                                           --How much items to craft

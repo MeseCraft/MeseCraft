@@ -153,7 +153,7 @@ minetest.register_craft({
 		{"group:food_sugar", "group:food_egg", "group:food_sugar"},
 		{"group:food_wheat", "group:food_flour", "group:food_wheat"},
 	},
-	replacements = {{ "mobs:bucket_milk", "bucket:bucket_empty"}}
+	replacements = {{ "mobs:bucket_milk", "mesecraft_bucket:bucket_empty"}}
 })
 
 -- chocolate cake
@@ -166,5 +166,5 @@ minetest.register_craft({
 		{"group:food_chocolate", "group:food_egg", "group:food_chocolate"},
 		{"group:food_wheat", "group:food_flour", "group:food_wheat"},
 	},
-	replacements = {{ "mobs:bucket_milk", "bucket:bucket_empty"}}
+	replacements = {{ "mobs:bucket_milk", "mesecraft_bucket:bucket_empty"}}
 })

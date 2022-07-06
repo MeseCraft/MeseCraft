@@ -127,7 +127,7 @@ register_cooking_recipes({prefix="df_farming", item="pig_tail_seed",
 	medium = {name=S("Pig Tail Spore Tofu"), image="dfcaverns_prepared_food30x16.png", sound = gummy},
 	complex =  {name=S("Pig Tail Spore Casserole"), image="dfcaverns_prepared_food34x16.png", sound = mushy},
 })
-register_cooking_recipes({prefix="df_farming", item="dwarven_syrup_bucket", replacements={{"df_farming:dwarven_syrup_bucket", "bucket:bucket_empty"}},
+register_cooking_recipes({prefix="df_farming", item="dwarven_syrup_bucket", replacements={{"df_farming:dwarven_syrup_bucket", "mesecraft_bucket:bucket_empty"}},
 	simple =  {name=S("Dwarven Syrup Taffy"), image="dfcaverns_prepared_food19x16.png", sound = gummy},
 	medium =  {name=S("Dwarven Syrup Jellies"), image="dfcaverns_prepared_food06x16.png", sound = gummy},
 	complex = {name=S("Dwarven Syrup Delight"), image="dfcaverns_prepared_food24x16.png", sound = mushy},

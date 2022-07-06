@@ -40,8 +40,8 @@ minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "farming:salt",
-	recipe = "bucket:bucket_water",
-	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
+	recipe = "mesecraft_bucket:bucket_water",
+	replacements = {{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}}
 })
 
 --= Rose Water
@@ -68,10 +68,10 @@ minetest.register_craft({
 	recipe = {
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
 		{"flowers:rose", "flowers:rose", "flowers:rose"},
-		{"bucket:bucket_water", "group:food_pot", "vessels:glass_bottle"}
+		{"mesecraft_bucket:bucket_water", "group:food_pot", "vessels:glass_bottle"}
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"},
+		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"},
 		{"group:food_pot", "farming:pot"}
 	}
 })
@@ -168,8 +168,8 @@ minetest.register_craftitem("farming:porridge", {
 
 minetest.after(0, function()
 
-	local fluid = "bucket:bucket_water"
-	local fluid_return = "bucket:bucket_water"
+	local fluid = "mesecraft_bucket:bucket_water"
+	local fluid_return = "mesecraft_bucket:bucket_water"
 
 	if minetest.get_modpath("mobs") and mobs and mobs.mod == "redo" then
 		fluid = "group:food_milk"
@@ -183,7 +183,7 @@ minetest.after(0, function()
 			"group:food_barley", "group:food_barley", "group:food_wheat",
 			"group:food_wheat", "group:food_bowl", fluid
 		},
-		replacements = {{fluid_return, "bucket:bucket_empty"}}
+		replacements = {{fluid_return, "mesecraft_bucket:bucket_empty"}}
 	})
 
 	minetest.register_craft({
@@ -193,7 +193,7 @@ minetest.after(0, function()
 			"group:food_oats", "group:food_oats", "group:food_oats",
 			"group:food_oats", "group:food_bowl", fluid
 		},
-		replacements = {{fluid_return, "bucket:bucket_empty"}}
+		replacements = {{fluid_return, "mesecraft_bucket:bucket_empty"}}
 	})
 end)
 
@@ -215,7 +215,7 @@ minetest.register_craft({
 	},
 	replacements = {
 		{"farming:baking_tray", "farming:baking_tray"},
-		{"mobs:bucket_milk", "bucket:bucket_empty"}
+		{"mobs:bucket_milk", "mesecraft_bucket:bucket_empty"}
 	}
 })
 

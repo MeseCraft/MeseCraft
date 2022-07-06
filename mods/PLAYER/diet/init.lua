@@ -201,8 +201,8 @@ if minetest.get_modpath("mobs") ~= nil then
 		overwrite("mobs:chicken_cooked", 6)
 		overwrite("mobs:chicken_raw", 2, "", 3)
 		overwrite("mobs:chicken_egg_fried", 2)
-		if minetest.get_modpath("bucket") then 
-			overwrite("mobs:bucket_milk", 3, "bucket:bucket_empty")
+		if minetest.get_modpath("mesecraft_bucket") then 
+			overwrite("mobs:bucket_milk", 3, "mesecraft_bucket:bucket_empty")
 		end
 	else
 		overwrite("mobs:meat", 6)
@@ -399,8 +399,8 @@ if minetest.get_modpath("ethereal") then
 	overwrite("ethereal:mushroom_soup_cooked", 6, "ethereal:bowl")
 	overwrite("ethereal:hearty_stew", 6, "ethereal:bowl", 3)
 	overwrite("ethereal:hearty_stew_cooked", 10, "ethereal:bowl")
-	if minetest.get_modpath("bucket") then
-		overwrite("ethereal:bucket_cactus", 2, "bucket:bucket_empty")
+	if minetest.get_modpath("mesecraft_bucket") then
+		overwrite("ethereal:bucket_cactus", 2, "mesecraft_bucket:bucket_empty")
 	end
 	overwrite("ethereal:fish_raw", 2)
 	overwrite("ethereal:fish_cooked", 5)
@@ -458,8 +458,8 @@ if minetest.get_modpath("kpgmobs") ~= nil then
 	overwrite("kpgmobs:meat", 6)
 	overwrite("kpgmobs:rat_cooked", 5)
 	overwrite("kpgmobs:med_cooked", 4)
-	if minetest.get_modpath("bucket") then
-	   overwrite("kpgmobs:bucket_milk", 4, "bucket:bucket_empty")
+	if minetest.get_modpath("mesecraft_bucket") then
+	   overwrite("kpgmobs:bucket_milk", 4, "mesecraft_bucket:bucket_empty")
 	end
 end
 

@@ -140,8 +140,8 @@ if minetest.get_modpath("mobs") ~= nil then
 		hbhunger.register_food("mobs:chicken_cooked", 6)
 		hbhunger.register_food("mobs:chicken_raw", 2, "", 3)
 		hbhunger.register_food("mobs:chicken_egg_fried", 2)
-		if minetest.get_modpath("bucket") then 
-			hbhunger.register_food("mobs:bucket_milk", 3, "bucket:bucket_empty")
+		if minetest.get_modpath("mesecraft_bucket") then 
+			hbhunger.register_food("mobs:bucket_milk", 3, "mesecraft_bucket:bucket_empty")
 		end
 	else
 		hbhunger.register_food("mobs:meat", 6)
@@ -337,8 +337,8 @@ if minetest.get_modpath("ethereal") then
    hbhunger.register_food("ethereal:mushroom_soup_cooked", 6, "ethereal:bowl")
    hbhunger.register_food("ethereal:hearty_stew", 6, "ethereal:bowl", 3)
    hbhunger.register_food("ethereal:hearty_stew_cooked", 10, "ethereal:bowl")
-   if minetest.get_modpath("bucket") then
-  	hbhunger.register_food("ethereal:bucket_cactus", 2, "bucket:bucket_empty")
+   if minetest.get_modpath("mesecraft_bucket") then
+  	hbhunger.register_food("ethereal:bucket_cactus", 2, "mesecraft_bucket:bucket_empty")
    end
    hbhunger.register_food("ethereal:fish_raw", 2)
    hbhunger.register_food("ethereal:fish_cooked", 5)
@@ -385,7 +385,7 @@ if minetest.get_modpath("kpgmobs") ~= nil then
 	hbhunger.register_food("kpgmobs:rat_cooked", 5)
 	hbhunger.register_food("kpgmobs:med_cooked", 4)
   	if minetest.get_modpath("bucket") then
-	   hbhunger.register_food("kpgmobs:bucket_milk", 4, "bucket:bucket_empty")
+	   hbhunger.register_food("kpgmobs:bucket_milk", 4, "mesecraft_bucket:bucket_empty")
 	end
 end
 

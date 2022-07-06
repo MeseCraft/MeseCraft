@@ -33,11 +33,11 @@ minetest.register_craft({
 	recipe = {
 		"vessels:drinking_glass", "group:food_mint",
 		"group:food_mint", "group:food_mint",
-		"farming:juicer", "bucket:bucket_water"
+		"farming:juicer", "mesecraft_bucket:bucket_water"
 	},
 	replacements = {
 		{"group:food_juicer", "farming:juicer"},
-		{"bucket:bucket_water", "bucket:bucket_empty"}
+		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}
 	}
 })
 

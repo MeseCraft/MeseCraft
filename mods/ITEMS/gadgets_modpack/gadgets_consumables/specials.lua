@@ -14,7 +14,7 @@ minetest.register_craft({
     recipe = {
 		{"vessels:glass_bottle", "vessels:glass_bottle", ""},
 		{"vessels:glass_bottle", "vessels:glass_bottle", ""},
-		{"", "bucket:bucket_water", ""}
+		{"", "mesecraft_bucket:bucket_water", ""}
 	},
-	replacements = {{ "bucket:bucket_water", "bucket:bucket_empty"}},
+	replacements = {{ "mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}},
 })

@@ -185,7 +185,7 @@ if minetest.get_modpath("dynamic_liquid") then
 
 end
 
-if minetest.get_modpath("bucket") then
+if minetest.get_modpath("mesecraft_bucket") then
 	bucket.register_liquid(
 		"oil:oil_source",
 		"oil:oil_flowing",
@@ -198,7 +198,7 @@ if minetest.get_modpath("bucket") then
 		type = "fuel",
 		recipe = "oil:oil_bucket",
 		burntime = 370, -- same as coalblock
-		replacements = {{"oil:oil_bucket", "bucket:bucket_empty"}},
+		replacements = {{"oil:oil_bucket", "mesecraft_bucket:bucket_empty"}},
 	})
 	
 	if minetest.get_modpath("basic_materials") then
@@ -207,7 +207,7 @@ if minetest.get_modpath("bucket") then
 			output = "basic_materials:paraffin",
 			recipe = "oil:oil_bucket",
 			cooktime = 5,
-			replacements = {{"oil:oil_bucket", "bucket:bucket_empty"}},
+			replacements = {{"oil:oil_bucket", "mesecraft_bucket:bucket_empty"}},
 		})
 	end
 end

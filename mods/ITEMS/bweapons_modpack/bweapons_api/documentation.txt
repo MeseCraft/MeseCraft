@@ -122,7 +122,7 @@ bweapons.register_weapon({
             {'',                              'technic:red_energy_crystal', 'default:copper_ingot'}
         }
     },                                                                  --Recipes to be registered for this weapon. Table may contain multiple recipes
-    replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},    --Replacements for recipe items
+    replacements = {{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}},    --Replacements for recipe items
 })
 
 

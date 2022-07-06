@@ -18,7 +18,7 @@ local function fill_chest(pos)
 	-- medium value items
 	if math.random(0,3) < 1 then
 		inv:add_item("main", "fire:flint_and_steel "..math.random(0,1))
-		inv:add_item("main", "bucket:bucket_empty "..math.random(0,1))
+		inv:add_item("main", "mesecraft_bucket:bucket_empty "..math.random(0,1))
 	end
 end
 

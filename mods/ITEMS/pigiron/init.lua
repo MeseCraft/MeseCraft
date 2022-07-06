@@ -60,11 +60,11 @@ minetest.register_craft({
 	output = "pigiron:rusted_iron_block 8",
 	recipe = {
 		{"pigiron:iron_block", "pigiron:iron_block", "pigiron:iron_block"},
-		{"pigiron:iron_block", "bucket:bucket_water", "pigiron:iron_block"},
+		{"pigiron:iron_block", "mesecraft_bucket:bucket_water", "pigiron:iron_block"},
 		{"pigiron:iron_block", "pigiron:iron_block", "pigiron:iron_block"},
 	},
 	replacements = {
-		{"bucket:bucket_water", "bucket:bucket_empty"}
+		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}
 	}
 })
 

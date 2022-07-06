@@ -74,11 +74,11 @@ minetest.register_craft( {
 	type = "shapeless",
 	output = "basic_materials:terracotta_base 8",
 	recipe = {
-		"bucket:bucket_water",
+		"mesecraft_bucket:bucket_water",
 		"default:clay_lump",
 		"default:gravel",
 	},
-	replacements = { {"bucket:bucket_water", "bucket:bucket_empty"}, },
+	replacements = { {"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}, },
 })
 
 minetest.register_craft({
@@ -89,9 +89,9 @@ minetest.register_craft({
 		"dye:dark_grey",
 		"dye:dark_grey",
 		"dye:dark_grey",
-		"bucket:bucket_water"
+		"mesecraft_bucket:bucket_water"
 	},
-	replacements = {{'bucket:bucket_water', 'bucket:bucket_empty'},},
+	replacements = {{'mesecraft_bucket:bucket_water', 'mesecraft_bucket:bucket_empty'},},
 })
 
 minetest.register_craft({

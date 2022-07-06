@@ -144,7 +144,7 @@ craftguide.group_stereotypes = {
 	coal = "default:coal_lump",
 	vessel = "vessels:glass_bottle",
 	flower = "flowers:dandelion_yellow",
-	water_bucket = "bucket:bucket_water",
+	water_bucket = "mesecraft_bucket:bucket_water",
 	mesecon_conductor_craftable = "mesecons:wire_00000000_off",
 }
 

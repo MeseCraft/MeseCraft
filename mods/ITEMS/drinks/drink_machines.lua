@@ -4,7 +4,7 @@ minetest.register_craft({
       output = 'drinks:juice_press',
       recipe = {
          {'default:stick', 'default:steel_ingot', 'default:stick'},
-         {'default:stick', 'bucket:bucket_empty', 'default:stick'},
+         {'default:stick', 'mesecraft_bucket:bucket_empty', 'default:stick'},
          {'stairs:slab_wood', 'stairs:slab_wood', 'vessels:drinking_glass'},
          }
 })
@@ -143,7 +143,7 @@ minetest.register_node('drinks:juice_press', {
                   meta:set_string('infotext', 'You need more fruit.')
                   meta:set_string('formspec', press_error_formspec)
                end
-            elseif vessel == 'bucket:bucket_empty' then
+            elseif vessel == 'mesecraft_bucket:bucket_empty' then
                if instack:get_count() >= 16 then
                   meta:set_string('container', 'jbu_')
                   meta:set_string('fruitnumber', 16)
@@ -281,7 +281,7 @@ minetest.register_node('drinks:juice_press', {
    end,
    allow_metadata_inventory_put = function(pos, listname, index, stack, player)
       if listname == 'dst' then
-         if stack:get_name() == ('bucket:bucket_empty') then
+         if stack:get_name() == ('mesecraft_bucket:bucket_empty') then
             return 1
          elseif stack:get_name() == ('vessels:drinking_glass') then
             return 1
@@ -484,7 +484,7 @@ minetest.register_node('drinks:liquid_barrel', {
             local inputstack = stack:get_name()
             local inputcount = stack:get_count()
             local valid = string.sub(inputstack, 1, 7)
-            if valid == 'vessels' or valid == 'bucket:' then
+            if valid == 'vessels' or valid == 'mesecraft_bucket:' then
                return inputcount
             else
                return 0
@@ -601,7 +601,7 @@ minetest.register_node('drinks:liquid_silo', {
             local inputstack = stack:get_name()
             local inputcount = stack:get_count()
             local valid = string.sub(inputstack, 1, 7)
-            if valid == 'vessels' or valid == 'bucket:' then
+            if valid == 'vessels' or valid == 'mesecraft_bucket:' then
                return inputcount
             else
                return 0

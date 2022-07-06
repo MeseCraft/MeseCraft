@@ -6,7 +6,7 @@ if df_caverns.config.enable_underworld then
 	})
 end
 
-if df_caverns.config.enable_oil_sea and minetest.get_modpath("bucket") then
+if df_caverns.config.enable_oil_sea and minetest.get_modpath("mesecraft_bucket") then
 	dungeon_loot.register({
 		{name = "oil:oil_bucket", chance = 0.5, count = {1, 3}, y = {-32768, df_caverns.config.ymax}},
 	})
@@ -48,7 +48,7 @@ if minetest.get_modpath("bones_loot") and df_caverns.config.enable_underworld th
 bones_loot.register_loot({
 	{name = "binoculars:binoculars", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "boats:boat", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "mesecraft_bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "fire:flint_and_steel", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "flowers:tulip_black", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "flowers:dandelion_white", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
