@@ -553,7 +553,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							if target_node.name == "air" then
 								bones_loot.place_bones(target_pos, "underworld_warrior", math.random(3, 10), nil, true)
 								break
-							elseif target_node.name == "bones:bones" then
+							elseif target_node.name == "mesecraft_bones:bones" then
 								-- don't stack bones on bones, it looks silly
 								break
 							end

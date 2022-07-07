@@ -28,7 +28,7 @@ mobs:register_mob("halloween_holiday_pack:grim_reaper", {
 	reach = 3,
 	drops = {
 		{name = "farming:hoe_steel", chance = 2, min = 1, max = 1,},
-		{name = "bones:bones", chance = 1, min = 1, max = 1,},
+		{name = "mesecraft_bones:bones", chance = 1, min = 1, max = 1,},
                 {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
                 {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
                 {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
@@ -69,4 +69,4 @@ mobs:register_egg("halloween_holiday_pack:grim_reaper", "Grim Reaper Spawn Egg",
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for Death.
-mobs:spawn_specific("halloween_holiday_pack:grim_reaper", {"bones:bones"}, {"air"}, 0, 5, 120, 1000, 1, -30912, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:grim_reaper", {"mesecraft_bones:bones"}, {"air"}, 0, 5, 120, 1000, 1, -30912, 30912, false)

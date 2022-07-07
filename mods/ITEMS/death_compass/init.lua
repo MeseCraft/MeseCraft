@@ -267,9 +267,9 @@ if not automatic then
 	minetest.register_craft({
 		output = 'death_compass:inactive',
 		recipe = {
-			{'', 'bones:bones', ''},
-			{'bones:bones', 'default:mese_crystal_fragment', 'bones:bones'},
-			{'', 'bones:bones', ''}
+			{'', 'mesecraft_bones:bones', ''},
+			{'mesecraft_bones:bones', 'default:mese_crystal_fragment', 'mesecraft_bones:bones'},
+			{'', 'mesecraft_bones:bones', ''}
 		}
 	})
 	

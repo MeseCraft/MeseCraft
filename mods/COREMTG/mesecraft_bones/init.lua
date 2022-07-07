@@ -229,7 +229,7 @@ minetest.register_on_dieplayer(function(player)
 			end
 			player_inv:set_list(list_name, {})
 		end
-		drop(pos, ItemStack("bones:bones"))
+		drop(pos, ItemStack("mesecraft_bones:bones"))
 		minetest.log("action", player_name .. " dies at " .. pos_string ..
 			". Inventory dropped")
 		if bones_position_message then

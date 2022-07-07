@@ -36,8 +36,8 @@ mobs:register_mob("mobs_creatures:murderous_ghost", {
 	view_range = 12,
 	drops = {
 	},
-	stay_near = {nodes = "bones:bones", chance = 4}, -- Will search for its bones and attempt to bury itself. (restless ghost just follows players)
-	follow = "bones:bones",	-- Will follow players holding bones.
+	stay_near = {nodes = "mesecraft_bones:bones", chance = 4}, -- Will search for its bones and attempt to bury itself. (restless ghost just follows players)
+	follow = "mesecraft_bones:bones",	-- Will follow players holding bones.
 	lava_damage = 0,
 	water_damage = 0,
 	light_damage = 0,
@@ -57,7 +57,7 @@ mobs:register_mob("mobs_creatures:murderous_ghost", {
 	do_custom = function(self, pos)	-- ghosts will stay to haunt if there is no proper burial (gravestone) or if bones are still present.
 		local checkpos = self.object:getpos()
 		local gravecheck = minetest.find_node_near(checkpos, 8, {"group:gravestone"})
-		local bonecheck = minetest.find_node_near(checkpos, 8 ,{"bones:bones"})
+		local bonecheck = minetest.find_node_near(checkpos, 8 ,{"mesecraft_bones:bones"})
 		if gravecheck == nil then				-- ghost stays to haunt
 			return
 		elseif bonecheck == nil and gravecheck ~= nil then	-- ghost can pass on
@@ -107,6 +107,6 @@ mobs:register_mob("mobs_creatures:murderous_ghost", {
 mobs:register_egg("mobs_creatures:murderous_ghost", "Murderous Ghost Spawn Egg", "wool_black.png", 1)
 
 --Spawn Functions
-mobs:spawn_specific("mobs_creatures:murderous_ghost", {"bones:bones"}, {"air"}, 0, 7, 240, 300, 2, -30912, -500)
+mobs:spawn_specific("mobs_creatures:murderous_ghost", {"mesecraft_bones:bones"}, {"air"}, 0, 7, 240, 300, 2, -30912, -500)
 
 

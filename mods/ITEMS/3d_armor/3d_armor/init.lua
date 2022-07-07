@@ -353,7 +353,7 @@ if armor.config.drop == true or armor.config.destroy == true then
 				local meta = nil
 				local maxp = vector.add(pos, 16)
 				local minp = vector.subtract(pos, 16)
-				local bones = minetest.find_nodes_in_area(minp, maxp, {"bones:bones"})
+				local bones = minetest.find_nodes_in_area(minp, maxp, {"mesecraft_bones:bones"})
 				for _, p in pairs(bones) do
 					local m = minetest.get_meta(p)
 					if m:get_string("owner") == name then

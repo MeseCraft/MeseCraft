@@ -5,7 +5,7 @@ minetest.register_craftitem("mobs_creatures:bone", {
 if minetest.get_modpath("bones") then
 	minetest.register_craft({
 		output = "mobs_creatures:bone 2",
-               	recipe = {{ "bones:bones" }},
+               	recipe = {{ "mesecraft_bones:bones" }},
        	})
 end
 

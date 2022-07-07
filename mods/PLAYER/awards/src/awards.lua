@@ -799,7 +799,7 @@ if minetest.get_modpath("bones") then
 	})
 	awards.register_on_death(function(player,data)
 		local pos = player:get_pos()
-		if pos and minetest.find_node_near(pos, 5, "bones:bones") ~= nil then
+		if pos and minetest.find_node_near(pos, 5, "mesecraft_bones:bones") ~= nil then
 			return "award_the_stack"
 		end
 		return nil
