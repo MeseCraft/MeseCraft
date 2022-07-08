@@ -83,7 +83,7 @@ armor.config = {
 	init_times = 10,
 	bones_delay = 1,
 	update_time = 1,
-	drop = minetest.get_modpath("bones") ~= nil,
+	drop = minetest.get_modpath("mesecraft_bones") ~= nil,
 	destroy = false,
 	level_multiplier = 1,
 	heal_multiplier = 1,

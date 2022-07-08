@@ -1,0 +1,19 @@
+
+add changes
+git add .
+
+commit changes to branch
+git commit
+
+push changes to repo
+git push
+
+Switch working branch in git:
+git checkout <branch-name> 
+
+merges changes from master into current working branch.
+git merge master 
+
+updates local files from git 
+git pull
+
