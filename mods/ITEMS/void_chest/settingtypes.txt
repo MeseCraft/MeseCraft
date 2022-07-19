@@ -1,0 +1,8 @@
+# VOID CHEST SETTINGS
+
+# VOID CHEST:
+# on low performance servers the particles can cause a drop in performance.
+
+# Default: true
+void_chest.show_particles (Show Particles) bool true
+
