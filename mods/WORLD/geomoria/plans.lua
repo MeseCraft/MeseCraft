@@ -18,8 +18,8 @@ local p = {
   {act = 'fill', node = 'air', line = 'default:stone_block', treasure = 1, coords = {1, 78, 21, 38, 1, 78}},
   {act = 'fill', node = 'default:stone_block', coords = {1, 78, 50, 1, 1, 78}},
   {act = 'fill', node = 'air', coords = {5, 70, 50, 1, 5, 70}},
-  {act = 'stair', node = 'stairs:stair_stone', depth = 3, height = 4, param2 = 2, coords = {1, 2, 21, 30, 25, 30}},
-  {act = 'stair', node = 'stairs:stair_stone', depth = 3, height = 4, param2 = 0, coords = {77, 2, 21, 30, 25, 30}},
+  {act = 'stair', node = 'moreblocks:stair_stone', depth = 3, height = 4, param2 = 2, coords = {1, 2, 21, 30, 25, 30}},
+  {act = 'stair', node = 'moreblocks:stair_stone', depth = 3, height = 4, param2 = 0, coords = {77, 2, 21, 30, 25, 30}},
 }
 
 for _, item in pairs(geomoria_mod.default_exits) do
@@ -89,12 +89,12 @@ p = {
 
   {act = 'fill', node = 'air', coords = {20, 51, 41, 5, 61, 9}},
   {act = 'fill', node = 'air', coords = {11, 9, 41, 5, 11, 59}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 2, coords = {16, 2, 21, 20, 36, 20}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {1, 10, 41, 10, 39, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {39, 2, 41, 10, 69, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 2, coords = {16, 2, 21, 20, 36, 20}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {1, 10, 41, 10, 39, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {39, 2, 41, 10, 69, 10}},
 
   {act = 'fill', node = 'air', coords = {71, 8, 51, 3, 39, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', depth = 2, param2 = 2, coords = {69, 2, 41, 10, 51, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', depth = 2, param2 = 2, coords = {69, 2, 41, 10, 51, 10}},
   {act = 'fill', node = 'air', coords = {69, 2, 51, 3, 13, 38}},
   {act = 'fill', node = 'air', coords = {61, 8, 51, 3, 13, 2}},
   {act = 'fill', node = 'air', coords = {61, 2, 31, 20, 13, 2}},
@@ -159,18 +159,18 @@ p = {
   {act = 'fill', node = 'air', coords = {73, 2, 21, 3, 34, 12}},
   {act = 'fill', node = 'air', coords = {3, 16, 21, 3, 59, 2}},
   {act = 'fill', node = 'air', coords = {11, 25, 31, 4, 13, 11}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {33, 10, 21, 10, 14, 1}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {33, 10, 21, 10, 14, 1}},
   {act = 'fill', node = 'air', coords = {61, 14, 31, 4, 56, 19}},
   {act = 'ladder', node = 'default:ladder_steel', param2 = 4, coords = {63, 1, 21, 10, 74, 1}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {73, 2, 21, 10, 49, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {6, 10, 21, 10, 57, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {73, 2, 21, 10, 49, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {6, 10, 21, 10, 57, 2}},
   {act = 'fill', node = 'air', coords = {16, 2, 31, 4, 24, 35}},
   {act = 'fill', node = 'air', treasure = 1, coords = {61, 2, 31, 4, 22, 34}},
   {act = 'fill', node = 'air', treasure = 3, coords = {36, 25, 31, 4, 22, 2}},
   {act = 'fill', node = 'air', coords = {3, 3, 21, 3, 57, 2}},
   {act = 'fill', node = 'default:stone', coords = {61, 2, 31, 4, 55, 1}},
   {act = 'fill', node = 'default:stone', coords = {36, 1, 31, 4, 22, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {67, 2, 31, 10, 46, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {67, 2, 31, 10, 46, 10}},
 
   {act = 'fill', node = 'air', coords = {55, 10, 41, 4, 37, 10}},
   {act = 'fill', node = 'air', coords = {13, 53, 41, 6, 16, 15}},
@@ -186,7 +186,7 @@ p = {
   {act = 'fill', node = 'air', treasure = 8, coords = {56, 9, 41, 4, 11, 5}},
   {act = 'fill', node = 'air', coords = {67, 2, 41, 3, 25, 21}},
   {act = 'fill', node = 'air', coords = {65, 4, 41, 3, 22, 3}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {67, 10, 41, 10, 11, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {67, 10, 41, 10, 11, 2}},
   {act = 'fill', node = 'air', coords = {65, 2, 41, 3, 41, 2}},
   {act = 'fill', node = 'air', coords = {65, 2, 41, 3, 11, 2}},
 
@@ -203,9 +203,9 @@ for x = 9, 69, 15 do
     table.insert(p, {act = 'fill', node = 'air', treasure = 20, coords = {x - 6, 5, 51, 3, z - 2, 5}})
     table.insert(p, {act = 'fill', node = 'air', treasure = 20, coords = {x + 3, 5, 51, 3, z - 2, 5}})
     table.insert(p, {act = 'fill', node = 'air', coords = {x - 1, 1, 51, 2, z, 1}})
-    table.insert(p, {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 3, coords = {x - 1, 1, 51, 1, z, 1}})
+    table.insert(p, {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {x - 1, 1, 51, 1, z, 1}})
     table.insert(p, {act = 'fill', node = 'air', coords = {x + 2, 1, 51, 2, z, 1}})
-    table.insert(p, {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {x + 2, 1, 51, 1, z, 1}})
+    table.insert(p, {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {x + 2, 1, 51, 1, z, 1}})
   end
 end
 
@@ -283,17 +283,17 @@ p = {
   {act = 'fill', node = 'air', coords = {58, 2, 31, 3, 23, 40}},
   {act = 'fill', node = 'air', coords = {50, 8, 31, 3, 39, 2}},
   {act = 'fill', node = 'air', coords = {63, 2, 31, 3, 58, 3}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 65, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {12, 10, 21, 10, 9, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {50, 10, 21, 10, 9, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {65, 10, 21, 10, 59, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {32, 2, 21, 10, 61, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 65, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {12, 10, 21, 10, 9, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {50, 10, 21, 10, 9, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {65, 10, 21, 10, 59, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {32, 2, 21, 10, 61, 10}},
   {act = 'ladder', node = 'default:ladder_steel', param2 = 3, coords = {4, 1, 21, 10, 25, 1}},
   {act = 'fill', node = 'air', coords = {59, 1, 21, 3, 9, 2}},
 
   {act = 'fill', node = 'air', coords = {63, 2, 41, 3, 17, 31}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {63, 2, 31, 10, 48, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {63, 2, 31, 10, 7, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {63, 2, 31, 10, 48, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {63, 2, 31, 10, 7, 10}},
 
   {act = 'fill', node = 'default:stone', coords = {20, 2, 30, 1, 17, 6}},
   {act = 'fill', node = 'default:stone', coords = {39, 2, 30, 1, 17, 6}},
@@ -387,9 +387,9 @@ p = {
   {act = 'fill', node = 'default:water_source', coords = {19, 2, 11, 10, 54, 2}},
   {act = 'fill', node = 'default:water_source', coords = {19, 2, 11, 10, 69, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {61, 10, 11, 10, 59, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {39, 2, 11, 10, 1, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {39, 10, 11, 10, 19, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {61, 10, 11, 10, 59, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {39, 2, 11, 10, 1, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {39, 10, 11, 10, 19, 2}},
   {act = 'fill', node = 'air', coords = {39, 2, 11, 3, 11, 14}},
   {act = 'fill', node = 'default:stone', coords = {61, 1, 21, 6, 59, 2}},
 
@@ -458,8 +458,8 @@ p = {
   {act = 'fill', node = 'air', treasure = 1, coords = {65, 10, 31, 5, 50, 10}},
   {act = 'fill', node = 'default:stone', coords = {57, 1, 31, 3, 39, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {61, 10, 21, 10, 19, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {41, 10, 21, 10, 69, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {61, 10, 21, 10, 19, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {41, 10, 21, 10, 69, 2}},
 }
 
 for _, item in pairs(geomoria_mod.default_exits) do
@@ -511,8 +511,8 @@ p = {
   {act = 'fill', node = 'air', coords = {75, 5, 21, 3, 39, 2}},
   {act = 'fill', node = 'air', coords = {75, 5, 21, 3, 59, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {61, 10, 21, 10, 75, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {9, 10, 21, 10, 3, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {61, 10, 21, 10, 75, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {9, 10, 21, 10, 3, 2}},
   {act = 'fill', node = 'default:dirt', coords = {5, 70, 29, 2, 5, 70}},
   {act = 'fill', node = geomoria_mod.treasure_chest, random = 200, coords = {5, 70, 29, 1, 5, 70}},
   {act = 'fill', node = 'air', coords = {5, 70, 31, 7, 5, 70}},
@@ -520,8 +520,8 @@ p = {
   {act = 'fill', node = 'air', coords = {71, 6, 31, 3, 75, 2}},
   {act = 'fill', node = 'air', coords = {3, 6, 31, 3, 3, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {75, 2, 31, 10, 65, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {3, 2, 31, 10, 5, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {75, 2, 31, 10, 65, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {3, 2, 31, 10, 5, 10}},
 
   {act = 'fill', node = 'default:dirt', coords = {5, 70, 39, 2, 5, 70}},
   {act = 'fill', node = geomoria_mod.treasure_chest, random = 200, coords = {5, 70, 39, 1, 5, 70}},
@@ -579,28 +579,28 @@ p = {
   {act = 'fill', node = 'air', coords = {13, 2, 31, 3, 59, 2}},
   {act = 'fill', node = 'air', coords = {13, 2, 31, 3, 19, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {59, 2, 21, 10, 67, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {59, 2, 21, 10, 3, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {19, 2, 21, 10, 3, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {67, 10, 21, 10, 19, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {67, 10, 21, 10, 59, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 59, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 19, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {19, 2, 21, 10, 67, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {59, 2, 21, 10, 67, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {59, 2, 21, 10, 3, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {19, 2, 21, 10, 3, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {67, 10, 21, 10, 19, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {67, 10, 21, 10, 59, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 59, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {3, 10, 21, 10, 19, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {19, 2, 21, 10, 67, 10}},
 
   {act = 'fill', node = 'air', coords = {65, 2, 39, 3, 29, 22}},
   {act = 'fill', node = 'air', coords = {13, 2, 39, 3, 29, 22}},
   {act = 'fill', node = 'air', coords = {29, 22, 39, 3, 65, 2}},
   {act = 'fill', node = 'air', coords = {29, 22, 39, 3, 13, 2}},
 
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {65, 2, 31, 8, 51, 8}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {65, 2, 31, 8, 21, 8}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 2, coords = {13, 2, 31, 8, 51, 8}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 0, coords = {13, 2, 31, 8, 21, 8}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {51, 8, 31, 8, 65, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {21, 8, 31, 8, 65, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 3, coords = {51, 8, 31, 8, 13, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', param2 = 1, coords = {21, 8, 31, 8, 13, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {65, 2, 31, 8, 51, 8}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {65, 2, 31, 8, 21, 8}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 2, coords = {13, 2, 31, 8, 51, 8}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 0, coords = {13, 2, 31, 8, 21, 8}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {51, 8, 31, 8, 65, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {21, 8, 31, 8, 65, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 3, coords = {51, 8, 31, 8, 13, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', param2 = 1, coords = {21, 8, 31, 8, 13, 2}},
 }
 
 for _, item in pairs(geomoria_mod.default_exits) do
@@ -653,41 +653,41 @@ p = {
   {act = 'fill', node = 'air', coords = {16, 8, 21, 3, 1, 8}},
   {act = 'fill', node = 'air', coords = {56, 8, 21, 3, 1, 8}},
 
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 3, coords = {0, 1, 21, 1, 59, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 3, coords = {0, 1, 21, 1, 60, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {79, 1, 21, 1, 59, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {79, 1, 21, 1, 60, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {0, 1, 21, 1, 59, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {0, 1, 21, 1, 60, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 59, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 60, 1}},
 
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 3, coords = {0, 1, 21, 1, 19, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 3, coords = {0, 1, 21, 1, 20, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {79, 1, 21, 1, 19, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {79, 1, 21, 1, 20, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {0, 1, 21, 1, 19, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {0, 1, 21, 1, 20, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 19, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 20, 1}},
 
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 0, coords = {39, 1, 21, 1, 79, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 0, coords = {40, 1, 21, 1, 79, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 2, coords = {39, 1, 21, 1, 0, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 2, coords = {40, 1, 21, 1, 0, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 0, coords = {39, 1, 21, 1, 79, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 0, coords = {40, 1, 21, 1, 79, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 2, coords = {39, 1, 21, 1, 0, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 2, coords = {40, 1, 21, 1, 0, 1}},
 
   {act = 'fill', node = 'air', coords = {37, 1, 21, 2, 71, 2}},
   {act = 'fill', node = 'air', coords = {42, 1, 21, 2, 71, 2}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {37, 1, 21, 1, 71, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {37, 1, 21, 1, 72, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 3, coords = {42, 1, 21, 1, 71, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 3, coords = {42, 1, 21, 1, 72, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {37, 1, 21, 1, 71, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {37, 1, 21, 1, 72, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {42, 1, 21, 1, 71, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {42, 1, 21, 1, 72, 1}},
 
   {act = 'fill', node = 'air', coords = {37, 1, 21, 2, 7, 2}},
   {act = 'fill', node = 'air', coords = {42, 1, 21, 2, 7, 2}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {37, 1, 21, 1, 7, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {37, 1, 21, 1, 8, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 3, coords = {42, 1, 21, 1, 7, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 3, coords = {42, 1, 21, 1, 8, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {37, 1, 21, 1, 7, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {37, 1, 21, 1, 8, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {42, 1, 21, 1, 7, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {42, 1, 21, 1, 8, 1}},
 
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {79, 1, 21, 1, 39, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {79, 1, 21, 1, 40, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 39, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {79, 1, 21, 1, 40, 1}},
 
   {act = 'fill', node = 'air', coords = {9, 1, 21, 2, 39, 2}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {9, 1, 21, 1, 39, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 1, coords = {9, 1, 21, 1, 40, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {9, 1, 21, 1, 39, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {9, 1, 21, 1, 40, 1}},
 
   {act = 'fill', node = 'default:stone', coords = {28, 1, 21, 2, 26, 1}},
   {act = 'fill', node = 'air', coords = {27, 3, 31, 3, 26, 3}},
@@ -711,14 +711,14 @@ for _, o in pairs({0, 43}) do
     for _, y in pairs({57, 17}) do
       local i = {act = 'fill', node = 'air', coords = {x, 1, 21, 2, y + 5, 1}}
       table.insert(p, i)
-      i = {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 0, coords = {x, 1, 21, 1, y + 5, 1}}
+      i = {act = 'fill', node = 'doors:door_steel_a', param2 = 0, coords = {x, 1, 21, 1, y + 5, 1}}
       table.insert(p, i)
       i = {act = 'fill', node = 'air', coords = {x - 1, 3, 21, 3, y + 6, 3}}
       table.insert(p, i)
 
       i = {act = 'fill', node = 'air', coords = {x, 1, 21, 2, y, 1}}
       table.insert(p, i)
-      i = {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 2, coords = {x, 1, 21, 1, y, 1}}
+      i = {act = 'fill', node = 'doors:door_steel_a', param2 = 2, coords = {x, 1, 21, 1, y, 1}}
       table.insert(p, i)
       i = {act = 'fill', node = 'air', coords = {x - 1, 3, 21, 3, y - 3, 3}}
       table.insert(p, i)
@@ -747,13 +747,13 @@ geomoria_mod.stair_height = {
   {act = 'fill', node = 'default:stone', coords = {29, 25, 39, 27, 26, 5}},
   {act = 'fill', node = 'default:stone', coords = {26, 5, 59, 21, 26, 28}},
   {act = 'fill', node = 'air', coords = {27, 3, 0, 4, 47, 6}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, depth = 3, param2 = 1, coords = {30, 20, 0, 20, 50, 3}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, depth = 3, param2 = 1, coords = {30, 20, 0, 20, 50, 3}},
   {act = 'fill', node = 'air', coords = {47, 6, 20, 4, 50, 3}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, depth = 3, param2 = 2, coords = {50, 3, 20, 20, 30, 20}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, depth = 3, param2 = 2, coords = {50, 3, 20, 20, 30, 20}},
   {act = 'fill', node = 'air', coords = {50, 3, 40, 4, 27, 6}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, depth = 3, param2 = 3, coords = {30, 20, 40, 20, 27, 3}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, depth = 3, param2 = 3, coords = {30, 20, 40, 20, 27, 3}},
   {act = 'fill', node = 'air', coords = {27, 6, 60, 4, 27, 3}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, depth = 3, param2 = 0, coords = {27, 3, 60, 21, 30, 20}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, depth = 3, param2 = 0, coords = {27, 3, 60, 21, 30, 20}},
 }
 
 geomoria_mod.stair_base = table.copy(geomoria_mod.stair_height)
@@ -763,9 +763,9 @@ p = {
   {act = 'fill', node = 'default:stone', coords = {35, 40, 31, 20, 35, 40}},
   {act = 'fill', node = 'default:stone_block', coords = {35, 40, 50, 1, 35, 40}},
 
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 3, coords = {50, 10, 41, 10, 10, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 0, coords = {10, 2, 41, 10, 25, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 3, coords = {20, 10, 41, 10, 55, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 3, coords = {50, 10, 41, 10, 10, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 0, coords = {10, 2, 41, 10, 25, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 3, coords = {20, 10, 41, 10, 55, 2}},
   {act = 'fill', node = 'air', coords = {55, 15, 41, 5, 20, 50}},
   {act = 'fill', node = 'air', coords = {60, 5, 46, 1, 25, 40}},
   {act = 'fill', node = 'air', coords = {60, 2, 41, 3, 15, 5}},
@@ -796,7 +796,7 @@ p = {
   {act = 'fill', node = 'air', coords = {10, 2, 51, 3, 35, 30}},
   {act = 'fill', node = 'air', coords = {18, 2, 51, 3, 55, 10}},
   {act = 'fill', node = 'air', coords = {14, 2, 51, 3, 55, 10}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 2, coords = {14, 2, 51, 10, 45, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 2, coords = {14, 2, 51, 10, 45, 10}},
 
   {act = 'fill', node = 'air', coords = {14, 2, 61, 3, 22, 23}},
   {act = 'fill', node = 'air', coords = {14, 61, 61, 5, 4, 18}},
@@ -814,14 +814,14 @@ p = {
   {act = 'fill', node = 'air', coords = {57, 12, 31, 3, 39, 2}},
   {act = 'fill', node = 'air', coords = {57, 2, 31, 3, 11, 28}},
   {act = 'fill', node = 'air', coords = {35, 10, 31, 3, 70, 9}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 2, coords = {30, 2, 31, 10, 65, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 2, coords = {30, 2, 31, 10, 65, 10}},
   {act = 'fill', node = 'air', coords = {30, 5, 31, 3, 75, 2}},
   {act = 'fill', node = 'air', coords = {45, 8, 31, 3, 75, 2}},
 
   {act = 'fill', node = 'air', coords = {57, 6, 21, 6, 1, 78}},
   {act = 'fill', node = 'air', coords = {63, 9, 21, 3, 58, 2}},
   {act = 'fill', node = 'air', coords = {72, 7, 21, 3, 56, 8}},
-  {act = 'stair', node = 'stairs:stair_stone', depth = 2, height = 4, param2 = 3, coords = {69, 10, 21, 10, 39, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', depth = 2, height = 4, param2 = 3, coords = {69, 10, 21, 10, 39, 2}},
   {act = 'sphere', node = 'air', coords = {10, 20, 11, 20, 2, 20}},
   {act = 'fill', node = 'default:stone', coords = {10, 20, 11, 10, 2, 20}},
   {act = 'fill', node = 'default:stone_block', coords = {10, 20, 20, 1, 2, 20}},
@@ -830,15 +830,15 @@ p = {
   {act = 'fill', node = 'air', coords = {37, 16, 21, 5, 55, 10}},
   {act = 'fill', node = 'air', coords = {51, 2, 21, 3, 53, 2}},
   {act = 'fill', node = 'air', coords = {35, 2, 21, 3, 48, 9}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 0, coords = {51, 2, 21, 10, 65, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 0, coords = {51, 2, 21, 10, 65, 10}},
   {act = 'fill', node = 'air', coords = {39, 2, 21, 3, 65, 14}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 0, coords = {65, 2, 21, 10, 60, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 0, coords = {65, 2, 21, 10, 60, 10}},
 
-  {act = 'fill', node = 'stairs:stair_stone', param2 = 0, coords = {51, 2, 20, 1, 53, 1}},
+  {act = 'fill', node = 'moreblocks:stair_stone', param2 = 0, coords = {51, 2, 20, 1, 53, 1}},
 
   {act = 'fill', node = 'air', coords = {5, 4, 26, 3, 5, 6}},
   {act = 'fill', node = 'air', coords = {45, 12, 31, 3, 11, 2}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 5, param2 = 1, coords = {40, 5, 26, 5, 11, 2}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 5, param2 = 1, coords = {40, 5, 26, 5, 11, 2}},
   {act = 'fill', node = 'air', coords = {5, 35, 26, 3, 11, 2}},
   {act = 'fill', node = 'default:stone', coords = {9, 22, 25, 1, 11, 2}},
 
@@ -849,7 +849,7 @@ p = {
   {act = 'fill', node = 'air', coords = {73, 6, 21, 3, 19, 2}},
   {act = 'fill', node = 'air', coords = {74, 5, 21, 4, 42, 13}},
   {act = 'fill', node = 'air', coords = {73, 1, 21, 2, 48, 1}},
-  {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {73, 1, 21, 1, 48, 1}},
+  {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {73, 1, 21, 1, 48, 1}},
 
   {act = 'fill', node = 'air', coords = {29, 10, 21, 3, 11, 2}},
   {act = 'fill', node = 'air', coords = {39, 2, 21, 3, 1, 12}},
@@ -864,7 +864,7 @@ p = {
   {act = 'fill', node = 'air', coords = {15, 4, 21, 3, 49, 2}},
   {act = 'fill', node = 'default:stone_block', coords = {5, 5, 21, 1, 30, 40}},
   {act = 'fill', node = 'default:water_source', coords = {6, 3, 21, 1, 31, 38}},
-  {act = 'stair', node = 'stairs:stair_stone', height = 4, param2 = 2, coords = {70, 2, 31, 10, 60, 10}},
+  {act = 'stair', node = 'moreblocks:stair_stone', height = 4, param2 = 2, coords = {70, 2, 31, 10, 60, 10}},
 }
 
 for y = 2, 78, 3 do
@@ -876,19 +876,19 @@ end
 for _, y in pairs({1, 7, 13, 22, 28, 34, 40, 46, 52}) do
   table.insert(p, {act = 'fill', node = 'air', coords = {65, 5, 21, 3, y, 5}})
   table.insert(p, {act = 'fill', node = 'air', coords = {70, 1, 21, 2, y + 2, 1}})
-  table.insert(p, {act = 'fill', node = 'lib_doors:stone_door_centered_with_window', param2 = 3, coords = {70, 1, 21, 1, y + 2, 1}})
+  table.insert(p, {act = 'fill', node = 'doors:door_steel_a', param2 = 3, coords = {70, 1, 21, 1, y + 2, 1}})
 end
 
 for _, y in pairs({1, 7, 13, 22, 28}) do
   table.insert(p, {act = 'fill', node = 'air', coords = {74, 5, 21, 3, y, 5}})
   table.insert(p, {act = 'fill', node = 'air', coords = {73, 1, 21, 2, y + 2, 1}})
-  table.insert(p, {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {73, 1, 21, 1, y + 2, 1}})
+  table.insert(p, {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {73, 1, 21, 1, y + 2, 1}})
 end
 
 for _, y in pairs({24, 30, 36, 42, 48, 59, 65, 71}) do
   table.insert(p, {act = 'fill', node = 'air', coords = {22, 5, 21, 3, y, 5}})
   table.insert(p, {act = 'fill', node = 'air', coords = {21, 1, 21, 2, y + 2, 1}})
-  table.insert(p, {act = 'fill', node = 'lib_doors:stone_door_centered_with_window_right', param2 = 1, coords = {21, 1, 21, 1, y + 2, 1}})
+  table.insert(p, {act = 'fill', node = 'doors:door_steel_a', param2 = 1, coords = {21, 1, 21, 1, y + 2, 1}})
 end
 
 for _, item in pairs(geomoria_mod.default_exits) do

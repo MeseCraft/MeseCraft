@@ -1,6 +1,0 @@
-default
-stairs
-lib_node_shapes?
-lib_doors?
-doors?
-mobs_goblins?
