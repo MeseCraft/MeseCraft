@@ -1,5 +1,0 @@
-default
-stairs?
-farming?
-lucky_block?
-toolranks?

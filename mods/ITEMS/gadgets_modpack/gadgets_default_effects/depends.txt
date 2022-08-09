@@ -1,2 +1,0 @@
-gadgets_api
-player_monoids
