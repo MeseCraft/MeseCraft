@@ -5,5 +5,3 @@ dofile(minetest.get_modpath("parties") .. "/callbacks.lua")
 dofile(minetest.get_modpath("parties") .. "/chatcmdbuilder.lua")
 dofile(minetest.get_modpath("parties") .. "/commands.lua")
 dofile(minetest.get_modpath("parties") .. "/player_manager.lua")
-
-minetest.log("action", "[PARTIES] Mod initialised, running version " .. version)
