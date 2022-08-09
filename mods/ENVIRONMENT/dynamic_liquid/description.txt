@@ -1,4 +1,0 @@
-Flowing dynamic liquids and ocean-maintenance springs. v0.5
-
-Github: https://github.com/FaceDeer/dynamic_liquid/
-Forum: https://forum.minetest.net/viewtopic.php?t=16485
