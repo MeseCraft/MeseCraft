@@ -95,7 +95,6 @@ function playereffects.register_effect_type(effect_type_id, description, icon, g
 	effect_type.repeat_interval = repeat_interval
 
 	playereffects.effect_types[effect_type_id] = effect_type
-	minetest.log("action", "[playereffects] Effect type "..effect_type_id.." registered!")
 end
 
 function playereffects.apply_effect_type(effect_type_id, duration, player, repeat_interval_time_left)

@@ -163,7 +163,6 @@ do
 	local filepath = minetest.get_worldpath().."/mana.mt"
 	local file = io.open(filepath, "r")
 	if file then
-		minetest.log("action", "[mana] mana.mt opened.")
 		local string = file:read()
 		io.close(file)
 		if(string ~= nil) then
@@ -184,7 +183,6 @@ function mana.save_to_file()
 	if file then
 		file:write(savestring)
 		io.close(file)
-		minetest.log("action", "[mana] Wrote mana data into "..filepath..".")
 	else
 		minetest.log("error", "[mana] Failed to write mana data into "..filepath..".")
 	end
@@ -207,7 +205,6 @@ minetest.register_on_leaveplayer(function(player)
 end)
 
 minetest.register_on_shutdown(function()
-	minetest.log("action", "[mana] Server shuts down. Rescuing data into mana.mt")
 	mana.save_to_file()
 end)
 
