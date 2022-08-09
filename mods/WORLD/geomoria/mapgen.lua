@@ -184,7 +184,6 @@ local function generate(p_minp, p_maxp, seed)
   end
 
   if write then
-    duanes_collision_avoidance = true
 
     vm:set_data(data)
     vm:set_param2_data(p2data)
