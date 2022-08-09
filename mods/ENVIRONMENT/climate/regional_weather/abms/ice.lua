@@ -9,6 +9,7 @@ local S = regional_weather.i18n
 
 minetest.register_node(BLOCK_NAME, {
 	description = S("Thin Ice"),
+	drawtype = "glasslike",
 	tiles = {"(default_ice.png^[colorize:#ffffff:50)^[opacity:200"},
 	paramtype = "light",
 	groups = {
@@ -20,7 +21,7 @@ minetest.register_node(BLOCK_NAME, {
 	},
 	freezemelt = "default:river_water_source",
 	sounds = default.node_sound_glass_defaults(),
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drop = "",
 	on_destruct = function(pos)
 		-- asynchronous to avoid destruction loop

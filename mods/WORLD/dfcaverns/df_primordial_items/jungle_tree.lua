@@ -234,7 +234,7 @@ minetest.register_node("df_primordial_items:jungletree_sapling", {
 	walkable = false,
 	is_ground_content = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	on_construct = function(pos)
 		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then

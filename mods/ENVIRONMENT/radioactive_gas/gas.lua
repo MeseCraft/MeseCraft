@@ -11,13 +11,13 @@ minetest.register_node("radioactive_gas:gas", {
 	drowning = 1,
 	post_effect_color = {a = 20, r = 20, g = 250, b = 20},
 	tiles = {"radioactive_gas.png"},
-	alpha = 0.1,
+	use_texture_alpha = "blend",
 	paramtype = "light",
 	groups = {
     not_in_creative_inventory = 1,
     not_blocking_trains = 1,
     cools_lava = 1,
-    radioactive = 4
+    radioactive = 4,
   },
 	drop = {},
 	sunlight_propagates = true

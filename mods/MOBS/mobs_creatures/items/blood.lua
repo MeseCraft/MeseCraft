@@ -1,22 +1,22 @@
 --Blood Bucket and Blood Source items originally from "horror" mod by D00M3D.
 minetest.register_node("mobs_creatures:blood_flowing", {
         description = "blood_source",
-        inventory_image = minetest.inventorycube("mobs_creatures_items_blood_source.png"),
+        inventory_image = minetest.inventorycube("mobs_creatures_items_blood_source.png^[opacity:190"),
         drawtype = "flowingliquid",
-        tiles = {"mobs_creatures_items_blood_source.png"},
+        tiles = {"mobs_creatures_items_blood_source.png^[opacity:190"},
         special_tiles = {
                 {
-                        image="mobs_creatures_items_blood_animate.png",
+                        image="mobs_creatures_items_blood_animate.png^[opacity:190",
                         backface_culling=false,
                         animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}
                 },
                 {
-                        image="mobs_creatures_items_blood_animate.png",
+                        image="mobs_creatures_items_blood_animate.png^[opacity:190",
                         backface_culling=true,
                         animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}
                 },
         },
-        alpha = 190,
+        use_texture_alpha = "blend",
         paramtype = "light",
         paramtype2 = "flowingliquid",
         walkable = false,
@@ -37,20 +37,20 @@ minetest.register_node("mobs_creatures:blood_flowing", {
 
 minetest.register_node("mobs_creatures:blood_source", {
         description = "Blood Source",
-        inventory_image = minetest.inventorycube("mobs_creatures_items_blood_source.png"),
+        inventory_image = minetest.inventorycube("mobs_creatures_items_blood_source.png^[opacity:190"),
         drawtype = "liquid",
         tiles = {
-                {name="mobs_creatures_items_blood_animate.png", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}}
+                {name="mobs_creatures_items_blood_animate.png^[opacity:190", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}}
         },
         special_tiles = {
                 -- New-style water source material (mostly unused)
                 {
-                        name="mobs_creatures_items_blood_animate.png",
+                        name="mobs_creatures_items_blood_animate.png^[opacity:190",
                         animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1},
                         backface_culling = false,
                 }
         },
-        alpha = 190,
+        use_texture_alpha = "blend",
         paramtype = "light",
         walkable = false,
         pointable = false,

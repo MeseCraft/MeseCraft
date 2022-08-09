@@ -12,7 +12,7 @@ minetest.register_node("df_mapitems:salt_crystal", {
 	mesh = "underch_crystal.obj",
 	light_source = 6,
 	sounds = df_mapitems.sounds.glass,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	sunlight_propagates = true,
 	is_ground_content = false,
 	on_place = df_mapitems.place_against_surface,

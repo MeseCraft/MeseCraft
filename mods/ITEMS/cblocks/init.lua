@@ -118,7 +118,7 @@ minetest.register_node("cblocks:glass_" .. colours[i][1], {
 	drawtype = "glasslike",
 	paramtype = "light",
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	is_ground_content = false,
 	groups = {cracky = 3, oddly_breakable_by_hand = 3},
 	sounds = default.node_sound_glass_defaults(),

@@ -19,7 +19,7 @@ minetest.register_node("df_primordial_items:fungal_grass_1", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -38,7 +38,7 @@ minetest.register_node("df_primordial_items:fungal_grass_2", {
 	walkable = false,
 	place_param2 = 3,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -59,7 +59,7 @@ minetest.register_node("df_primordial_items:glow_orb", {
 	walkable = false,
 	light_source = 9,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -78,7 +78,7 @@ minetest.register_node("df_primordial_items:glow_orb_stalks", {
 	walkable = false,
 	light_source = 6,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -110,7 +110,7 @@ minetest.register_node("df_primordial_items:glow_pods", {
 	walkable = false,
 	light_source = 6,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
