@@ -20,7 +20,7 @@ slimes.add_slime = function(string, aquatic)
 		tiles = {"slime_goo_block.png^[colorize:"..slimes.colors[string].."^[colorize:#0000:25"},
 		description = proper_name.." Goo Block",
 		drawtype = "allfaces_optional",
-		use_texture_alpha = true,
+		use_texture_alpha = "blend",
 		groups = {slippery = 2, crumbly=3, oddly_breakable_by_hand = 1, fall_damage_add_percent=-80, bouncy=90},
 		sounds = default.node_sound_snow_defaults(),
 	})

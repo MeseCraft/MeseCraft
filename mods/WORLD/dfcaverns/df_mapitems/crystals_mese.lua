@@ -11,7 +11,7 @@ minetest.register_node("df_mapitems:glow_mese", {
 	is_ground_content = false,
 	light_source = 13,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
@@ -36,7 +36,7 @@ minetest.register_node("df_mapitems:mese_crystal", {
 	light_source = 12,
 	is_ground_content = false,
 	sounds = df_mapitems.sounds.glass,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	sunlight_propagates = true,
 	on_place = df_mapitems.place_against_surface,
 })

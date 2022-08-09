@@ -38,7 +38,7 @@ minetest.register_node("mine_gas:gas", {
 	drowning = 1,
 	post_effect_color = {a = 20, r = 20, g = 20, b = 250},
 	tiles = {"mine_gas.png^[opacity:28"},
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	groups = {not_in_creative_inventory=1, ropes_can_extend_into=1},
 	paramtype = "light",
 	drop = {},

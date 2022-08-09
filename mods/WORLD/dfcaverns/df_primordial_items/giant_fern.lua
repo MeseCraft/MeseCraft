@@ -162,7 +162,7 @@ minetest.register_node("df_primordial_items:giant_fern_leaves", {
 	walkable = false,
 	waving = 2,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	after_place_node = df_primordial_items.after_place_leaves,
 	drop = {
@@ -280,7 +280,7 @@ minetest.register_node("df_primordial_items:fern_sapling", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	on_construct = function(pos)
 		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then

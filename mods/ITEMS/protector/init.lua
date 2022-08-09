@@ -765,7 +765,7 @@ minetest.register_entity("protector:display", {
 local x = protector_radius
 minetest.register_node("protector:display_node", {
 	tiles = {"protector_display.png"},
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	walkable = false,
 	drawtype = "nodebox",
 	node_box = {

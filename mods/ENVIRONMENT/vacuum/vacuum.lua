@@ -9,7 +9,7 @@ minetest.register_node("vacuum:vacuum", {
 	drawtype = "glasslike",
 	drowning = 1,
 	tiles = {"transparent_pixel.png"},
-	alpha = 0.1,
+	use_texture_alpha = "blend",
 	groups = {not_in_creative_inventory=1, not_blocking_trains=1, cools_lava=1},
 	paramtype = "light",
 	drop = {},

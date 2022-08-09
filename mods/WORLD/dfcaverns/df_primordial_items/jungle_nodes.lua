@@ -19,7 +19,7 @@ minetest.register_node("df_primordial_items:fern_1", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -39,7 +39,7 @@ minetest.register_node("df_primordial_items:fern_2", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -75,7 +75,7 @@ minetest.register_node("df_primordial_items:glow_plant_1", {
 		},
 	},
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -96,7 +96,7 @@ minetest.register_node("df_primordial_items:glow_plant_2", {
 	drop = "df_primordial_items:glowtato",
 	light_source = 6,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -117,7 +117,7 @@ minetest.register_node("df_primordial_items:glow_plant_3", {
 	walkable = false,
 	light_source = 6,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -140,7 +140,7 @@ minetest.register_node("df_primordial_items:jungle_grass_1", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -160,7 +160,7 @@ minetest.register_node("df_primordial_items:jungle_grass_2", {
 	walkable = false,
 	place_param2 = 3,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -180,7 +180,7 @@ minetest.register_node("df_primordial_items:jungle_grass_3", {
 	walkable = false,
 	place_param2 = 3,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -202,7 +202,7 @@ minetest.register_node("df_primordial_items:jungle_ivy", {
 	--paramtype2 = "wallmouinted",
 	--drawtype = "signlike",
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
@@ -229,7 +229,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_1", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -247,7 +247,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_2", {
 	is_ground_content = false,
 	walkable = false,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 
@@ -363,7 +363,7 @@ minetest.register_node("df_primordial_items:jungle_roots_1", {
 	paramtype = "light",
 	drawtype = "plantlike",
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	walkable = false,
 	climbable = true,
@@ -381,7 +381,7 @@ minetest.register_node("df_primordial_items:jungle_roots_2", {
 	paramtype = "light",
 	drawtype = "plantlike",
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	is_ground_content = false,
 	sunlight_propagates = true,
 	walkable = false,
@@ -406,7 +406,7 @@ minetest.register_node("df_primordial_items:jungle_thorns", {
 	is_ground_content = false,
 	place_param2 = 3,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	damage_per_second = 1,
 })

@@ -45,7 +45,7 @@ minetest.register_node("df_primordial_items:glow_orb_hanging", {
 	walkable = false,
 	light_source = 6,
 	sounds = df_primordial_items.sounds.leaves,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 })
 

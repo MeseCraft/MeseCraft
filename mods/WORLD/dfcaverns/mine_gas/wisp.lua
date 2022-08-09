@@ -31,7 +31,7 @@ minetest.register_node("mine_gas:gas_wisp", {
 		},
 	}},
 	light_source = 10,
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	groups = {not_in_creative_inventory=0},
 	paramtype = "light",
 	paramtype2 = "meshoptions",

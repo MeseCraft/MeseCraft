@@ -10,7 +10,7 @@ minetest.register_node("df_underworld_items:glow_amethyst", {
 	sounds = default.node_sound_glass_defaults(),
 	light_source = 6,
 	paramtype = "light",
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
 })
