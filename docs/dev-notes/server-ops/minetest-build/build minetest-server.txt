@@ -1,0 +1,23 @@
+From: https://github.com/minetest/minetest/tree/master
+
+
+# install dependencies
+sudo apt install g++ make libc6-dev cmake libpng-dev libjpeg-dev libxi-dev libgl1-mesa-dev libsqlite3-dev libogg-dev libvorbis-dev libopenal-dev libcurl4-gnutls-dev libfreetype6-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libluajit-5.1-dev
+
+
+# git minetest
+git clone --depth 1 https://github.com/minetest/minetest.git
+
+
+# git irrlicht-mt build
+git clone --depth 1 https://github.com/minetest/irrlicht.git lib/irrlichtmt
+
+
+# compile minetest
+sudo cmake . -DRUN_IN_PLACE=TRUE -DBUILD_SERVER=TRUE -DBUILD_CLIENT=FALSE
+
+# then build the binary
+sudo make install
+
+# git MeseCraft and set game in minetest.conf
+
