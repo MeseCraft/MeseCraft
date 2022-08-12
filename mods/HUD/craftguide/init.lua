@@ -1359,7 +1359,16 @@ core.clear_craft = function(def)
 		fuel_cache[def] = nil
 
 	elseif is_table(def) then
-		return -- TODO
+        for item_name, item_recipes in pairs(recipes_cache) do
+			for recipe_index, recipe in pairs(item_recipes) do
+				for ingredient_index, ingredient in pairs(recipe.items) do
+					if (recipe.type == def.type) and (ingredient == def.recipe) then
+						table.remove(recipes_cache[item_name], recipe_index)
+						break
+					end
+				end
+			end
+		end
 	end
 end
 
