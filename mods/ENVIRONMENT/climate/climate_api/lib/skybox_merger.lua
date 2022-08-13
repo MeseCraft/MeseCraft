@@ -109,4 +109,8 @@ minetest.register_on_leaveplayer(function(player)
 	layers[playername] = nil
 end)
 
+minetest.register_on_joinplayer(function(ObjectRef)
+	skybox.update(ObjectRef:get_player_name())
+end)
+
 return skybox

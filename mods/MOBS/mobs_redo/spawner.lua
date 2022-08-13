@@ -23,9 +23,9 @@ minetest.register_node("mobs:spawner", {
 
 		-- text entry formspec
 		meta:set_string("formspec",
-			"size[9,3.5]"
+			"size[10,3.5]"
 			.. "label[0.15,0.5;" .. minetest.formspec_escape(head) .. "]"
-			.. "field[1,2.5;7.5,0.8;text;" .. S("Command:")
+			.. "field[1,2.5;8.5,0.8;text;" .. S("Command:")
 			.. ";${command}]")
 
 		meta:set_string("infotext", S("Spawner Not Active (enter settings)"))
@@ -162,10 +162,17 @@ minetest.register_abm({
 			end
 		end
 
+		-- set medium mob usually spawns in (defaults to air)
+		local reg = minetest.registered_entities[mob].fly_in
+
+		if not reg or type(reg) == "string" then
+			reg = {(reg or "air")}
+		end
+
 		-- find air blocks within 5 nodes of spawner
 		local air = minetest.find_nodes_in_area(
 			{x = pos.x - 5, y = pos.y + yof, z = pos.z - 5},
-			{x = pos.x + 5, y = pos.y + yof, z = pos.z + 5}, {"air"})
+			{x = pos.x + 5, y = pos.y + yof, z = pos.z + 5}, reg)
 
 		-- spawn in random air block
 		if air and #air > 0 then

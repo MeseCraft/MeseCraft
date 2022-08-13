@@ -1,0 +1,1 @@
+An API for registering various loot containers

@@ -53,7 +53,7 @@ local function clean()
 				for j = 1, #objs do
 					local obj = objs[j]
 					if not obj:is_player() then
-						local entname = obj.name
+						local entname = obj:get_luaentity().name
 						if not minetest.registered_entities[entname] then
 							obj:remove()
 						end

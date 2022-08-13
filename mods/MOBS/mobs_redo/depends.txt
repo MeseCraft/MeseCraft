@@ -1,4 +1,4 @@
-default
+default?
 tnt?
 dye?
 farming?
@@ -7,3 +7,5 @@ intllib?
 lucky_block?
 cmi?
 toolranks?
+pathfinder?
+player_api?

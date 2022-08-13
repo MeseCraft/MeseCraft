@@ -13,6 +13,9 @@ mobs_griefing (Griefing Mobs) bool true
 #    If false then Mobs no longer spawn inside player protected areas
 mobs_spawn_protected (Spawn Mobs in protected areas) bool true
 
+#    If false then Monsters no longer spawn inside player protected areas
+mobs_spawn_monster_protected (Spawn Monsters in protected areas) bool true
+
 #    If true Mobs will be removed once a map chunk is out of view
 remove_far_mobs (Remove far Mobs) bool true
 
@@ -36,3 +39,9 @@ mob_active_limit (Mob Active Limit) float 0
 
 #    Enables area check when spawning mobs
 mob_area_spawn (Mob Area Spawn) bool false
+
+#    Enable peaceful player attack prevention
+enable_peaceful_player (Mobs do not attack peaceful player without reason) bool false
+
+#    Enable mobs smooth rotation
+mob_smooth_rotate (Smooth rotation for mobs) bool true
