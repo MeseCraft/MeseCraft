@@ -145,7 +145,7 @@ function xpanes.register_pane(name, def)
 		groups = groups,
 		drop = "xpanes:" .. name .. "_flat",
 		sounds = def.sounds,
-		use_texture_alpha = def.use_texture_alpha or "opaque",
+		use_texture_alpha = def.use_texture_alpha or "clip",
 		node_box = {
 			type = "connected",
 			fixed = {{-1/32, -1/2, -1/32, 1/32, 1/2, 1/32}},
@@ -168,6 +168,7 @@ xpanes.register_pane("pane", {
 	textures = {"default_glass.png", "", "xpanes_edge.png"},
 	inventory_image = "default_glass.png",
 	wield_image = "default_glass.png",
+	use_texture_alpha = "clip",
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
 	recipe = {
