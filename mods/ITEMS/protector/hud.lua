@@ -1,13 +1,13 @@
 
 local S = protector.intllib
-local radius = (tonumber(minetest.setting_get("protector_radius")) or 5)
+local radius = (tonumber(minetest.settings:get("protector_radius")) or 5)
 
 -- radius limiter (minetest cannot handle node volume of more than 4096000)
 if radius > 22 then radius = 22 end
 
 local hud = {}
 local hud_timer = 0
-local hud_interval = (tonumber(minetest.setting_get("protector_hud_interval")) or 5)
+local hud_interval = (tonumber(minetest.settings:get("protector_hud_interval")) or 5)
 
 if hud_interval > 0 then
 minetest.register_globalstep(function(dtime)

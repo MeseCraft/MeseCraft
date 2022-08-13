@@ -56,7 +56,7 @@ for i in ipairs (butter_list) do
 		end,
 		on_timer = function(pos, elapsed)
 			if minetest.get_node_light(pos) < 11 then
-				minetest.set_node(pos, {name = "butterflies:hidden_butterfly_"..name})
+				minetest.set_node(pos, {name = "mesecraft_butterflies:hidden_butterfly_"..name})
 			end
 			minetest.get_node_timer(pos):start(30)
 		end

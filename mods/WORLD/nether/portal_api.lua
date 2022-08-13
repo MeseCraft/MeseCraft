@@ -2007,8 +2007,7 @@ local wormhole_nodedef_default = {
 		a = 160, r = 128, g = 0, b = 80
 	},
 	sunlight_propagates = true,
-	use_texture_alpha = minetest.features.use_texture_alpha_string_modes
-		and "blend" or true,
+	use_texture_alpha = "blend",
 	walkable = false,
 	diggable = false,
 	pointable = false,
