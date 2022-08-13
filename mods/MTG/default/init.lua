@@ -18,9 +18,12 @@ default.get_translator = S
 -- This section should be updated before release and older checks can be dropped
 -- when newer ones are introduced.
 if ItemStack("").add_wear_by_uses == nil then
-	error("\nThis version of Minetest Game is incompatible with your engine version "..
-		"(which is too old). You should download a version of Minetest Game that "..
-		"matches the installed engine version.\n")
+	minetest.log("error","\nThis version of Mesecraft plays better on a newer Minetest engine version"..
+	"(Yours is too old). You should download a version of Minetest Game that "..
+	"matches the installed engine version.\n")
+	-- error("\nThis version of Minetest Game is incompatible with your engine version "..
+	-- 	"(which is too old). You should download a version of Minetest Game that "..
+	-- 	"matches the installed engine version.\n")
 end
 
 -- GUI related stuff
