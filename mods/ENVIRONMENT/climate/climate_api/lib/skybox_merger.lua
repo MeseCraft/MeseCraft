@@ -70,6 +70,9 @@ local function set_skybox(playername, sky)
 	player:set_moon(sky.moon_data)
 	player:set_sun(sky.sun_data)
 	player:set_stars(sky.star_data)
+	local density = sky.cloud_data.density --or .5
+	player:set_lighting({ shadows = { intensity = 0.7 * (1 - density) } })
+
 end
 
 function skybox.update(playername)
