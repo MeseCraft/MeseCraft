@@ -30,12 +30,12 @@ function sfinv.get_nav_fs(player, context, nav, current_idx)
 	-- Only show tabs if there is more than one page
 	if #nav > 1 then
 		return "tabheader[0,0;sfinv_nav_tabs;" .. table.concat(nav, ",") ..
-				";" .. current_idx .. ";true;false]"
+				";" .. current_idx .. ";true;false]"..
+				"image[-.5,-.3;11,.1;sfinv_underline.png]"
 	else
 		return ""
 	end
 end
-
 local theme_inv = [[
 		image[0,5.2;1,1;gui_hb_bg.png]
 		image[1,5.2;1,1;gui_hb_bg.png]
@@ -52,6 +52,7 @@ local theme_inv = [[
 function sfinv.make_formspec(player, context, content, show_inv, size)
 	local tmp = {
 		size or "size[8,9.1]",
+		"background9[-2,-2;12,13.1;sfinv_bg.png;false;64,96]",
 		sfinv.get_nav_fs(player, context, context.nav_titles, context.nav_idx),
 		show_inv and theme_inv or "",
 		content

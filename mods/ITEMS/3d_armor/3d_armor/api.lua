@@ -34,7 +34,8 @@ armor = {
 	elements = {"head", "torso", "legs", "feet"},
 	physics = {"jump", "speed", "gravity"},
 	attributes = {"heal", "fire", "water"},
-	formspec = "image[2.5,0;2,4;armor_preview]"..
+	formspec = "model[2.5,0;2,4;armor_preview]" ..
+	-- "image[2.5,0;2,4;armor_preview]"..
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
@@ -525,7 +526,20 @@ armor.get_armor_formspec = function(self, name, listring)
 		formspec = formspec.."listring[current_player;main]"..
 			"listring[detached:"..name.."_armor;armor]"
 	end
-	formspec = formspec:gsub("armor_preview", armor.textures[name].preview)
+	-- formspec = formspec:gsub("armor_preview", armor.textures[name].preview)
+	local player = minetest.get_player_by_name(name)
+	local anim = player:get_local_animation()
+	local player_model = table.concat({
+		"player_model_"..name,
+		player:get_properties().mesh,
+		table.concat(player:get_properties().textures,","),
+		table.concat({0,-150},","),
+		"false",
+		"true",
+		table.concat({anim.x,anim.y},","),
+		"30"
+	},";")
+	formspec = formspec:gsub("armor_preview",player_model)
 	formspec = formspec:gsub("armor_level", armor.def[name].level)
 	for _, attr in pairs(self.attributes) do
 		formspec = formspec:gsub("armor_attr_"..attr, armor.def[name][attr])

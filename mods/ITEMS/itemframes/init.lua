@@ -2,7 +2,7 @@
 screwdriver = screwdriver or {}
 
 local tmp = {}
-local max_objs = tonumber(minetest.setting_get("max_objects_per_block")) or 49
+local max_objs = tonumber(minetest.settings:get("max_objects_per_block")) or 49
 
 -- item entity
 

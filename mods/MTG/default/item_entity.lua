@@ -19,6 +19,7 @@ local item = {
 		self.object:remove()
 		minetest.sound_play("default_item_smoke", {
 			pos = p,
+			gain = 1.0,
 			max_hear_distance = 8,
 		}, true)
 		minetest.add_particlespawner({
@@ -74,5 +75,5 @@ local item = {
 }
 
 -- set defined item as new __builtin:item, with the old one as fallback table
-setmetatable(item, builtin_item)
+setmetatable(item, { __index = builtin_item })
 minetest.register_entity(":__builtin:item", item)

@@ -42,6 +42,8 @@ functions needed for the mob to work properly which contains the following:
                    randomly turn while walking or standing.
    'jump'          when true allows your mob to jump updwards.
    'jump_height'   holds the height your mob can jump, 0 to disable jumping.
+   'can_leap'      when true obstacles like fences or pits wont stop a mob
+                   from trying to jump out.
    'stepheight'    height of a block that your mob can easily walk up onto,
                    defaults to 1.1.
    'fly'           when true allows your mob to fly around instead of walking.
@@ -56,6 +58,8 @@ functions needed for the mob to work properly which contains the following:
    'view_range'    how many nodes in distance the mob can see a player.
    'damage'        how many health points the mob does to a player or another
                    mob when melee attacking.
+   'damage_group'  group in which damage is dealt, dedaults to "fleshy".
+   'damage_texture_modifier' applies texture modifier on hit e.g "^[brighten"
    'knock_back'    when true has mobs falling backwards when hit, the greater
                    the damage the more they move back.
    'fear_height'   is how high a cliff or edge has to be before the mob stops
@@ -66,7 +70,10 @@ functions needed for the mob to work properly which contains the following:
                    water.
    'air_damage'    holds damage per second inflicted to mob when standing in air.
    'lava_damage'   holds the damage per second inflicted to mobs when standing
-                   in lava or fire or an ignition source.
+                   in lava.
+   'fire_damage'   holds the damage per second inflicted to mobs when standing
+                   in fire.
+
    'light_damage'  holds the damage per second inflicted to mobs when light
                    level is between the min and max values below
    'light_damage_min' minimum light value when mob is affected (default: 14)
@@ -76,7 +83,7 @@ functions needed for the mob to work properly which contains the following:
    'floats'        when set to 1 mob will float in water, 0 has them sink.
    'follow'        mobs follow player when holding any of the items which appear
                    on this table, the same items can be fed to a mob to tame or
-                   breed e.g. {"farming:wheat", "default:apple"}
+                   breed e.g. {"farming:wheat", "default:apple", "group:fish"}
 
    'reach'               is how far the mob can attack player when standing
                          nearby, default is 3 nodes.
@@ -118,6 +125,8 @@ functions needed for the mob to work properly which contains the following:
                          continue chasing.
    'arrow'               holds the pre-defined arrow object to shoot when
                          attacking.
+   'arrow_override'      function that allows tweaking of arrow entity from
+                         inside mob definition (self) passed to function.
    'dogshoot_switch'     allows switching between attack types by using timers
                          (1 for shoot, 2 for dogfight)
    'dogshoot_count_max'  contains how many seconds before switching from
@@ -131,6 +140,8 @@ functions needed for the mob to work properly which contains the following:
                          e.g. {"player", "mobs_animal:chicken"}.
    'runaway_from'        contains a table with mob names to run away from, add
                          "player" to list to runaway from player also.
+   'ignore_invisibility' When true mob will still be able to see and attack
+                         player even if invisible (invisibility mod only).
    'blood_amount'        contains the number of blood droplets to appear when
                          mob is hit.
    'blood_texture'       has the texture name to use for droplets e.g.
@@ -214,6 +225,9 @@ functions needed for the mob to work properly which contains the following:
       'fly_start'    when a mob is flying.
       'fly_end'
       'fly_speed'
+      'jump_start'   when a mob is jumping
+      'jump_end'
+      'jump_speed'
       'punch_start'  when a mob melee attacks.
       'punch_end'
       'punch_speed'
@@ -406,7 +420,7 @@ the mobs:spawn, so it is recommended to use the above instead.
 mobs:register_spawn(name, nodes, max_light, min_light, chance,
    active_object_count, max_height, day_toggle)
 
-mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,
+mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, interval,
    chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 
 A simpler way to handle mob spawns has been added with the mobs:spawn(def)
@@ -460,6 +474,8 @@ This function registers a arrow for mobs with the attack type shoot.
        'visual'       same is in minetest.register_entity()
        'visual_size'  same is in minetest.register_entity()
        'textures'     same is in minetest.register_entity()
+       'physical'     same is in minetest.register_entity() [default: false]
+       'collide_with_objects'       same as above
        'velocity'     the velocity of the arrow
        'drop'         if set to true any arrows hitting a node will drop as item
        'hit_player'   a function that is called when the arrow hits a player;
@@ -680,6 +696,12 @@ space to spawn mob [name], if so then a new position is returned for use,
 otherwise nil is returned.
 
 
+mobs:is_node_dangerous(mob_object, nodename)
+
+This function returns true if the node name given is harmful to the mob (mob_object),
+it is mainly used when a mob is near a node it has to avoid.
+
+
 External Settings for "minetest.conf"
 ------------------------------------
 
@@ -690,6 +712,8 @@ External Settings for "minetest.conf"
                             is false)
    'mobs_spawn_protected'   if set to false then mobs will not spawn in protected
                             areas (default is true)
+   'mobs_spawn_monster_protected'   if set to false then monsters will not spawn in
+                            protected areas (default is true)
    'remove_far_mobs'        if true then untamed mobs that are outside players
                              visual range will be removed (default is true)
    'mobname'                can change specific mob chance rate (0 to disable) and
@@ -713,6 +737,7 @@ External Settings for "minetest.conf"
    'mob_area_spawn'         When true will check surrounding area the size of the
                             mob for obstructions before spawning, otherwise it
                             defaults to checking the height of the mob only.
+   'mob_smooth_rotate'      Enables smooth rotation when mobs turn by default.
 
 Players can override the spawn chance for each mob registered by adding a line
 to their minetest.conf file with a new value, the lower the value the more each

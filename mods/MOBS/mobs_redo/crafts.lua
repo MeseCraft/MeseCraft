@@ -5,14 +5,13 @@ local S = mobs.intllib
 minetest.register_craftitem("mobs:nametag", {
 	description = S("Name Tag"),
 	inventory_image = "mobs_nametag.png",
-	groups = {flammable = 2}
+	groups = {flammable = 2, nametag = 1}
 })
 
 if minetest.get_modpath("dye") and minetest.get_modpath("farming") then
 	minetest.register_craft({
-		type = "shapeless",
 		output = "mobs:nametag",
-		recipe = {"default:paper", "dye:black", "farming:string"}
+		recipe = {{"default:paper", "dye:black", "farming:string"}}
 	})
 end
 
@@ -20,7 +19,7 @@ end
 minetest.register_craftitem("mobs:leather", {
 	description = S("Leather"),
 	inventory_image = "mobs_leather.png",
-	groups = {flammable = 2}
+	groups = {flammable = 2, leather = 1}
 })
 
 -- raw meat
@@ -115,11 +114,27 @@ minetest.register_craft({
 	}
 })
 
+-- level 2 protection rune
+minetest.register_craftitem("mobs:protector2", {
+	description = S("Mob Protection Rune (Level 2)"),
+	inventory_image = "mobs_protector2.png",
+	groups = {flammable = 2}
+})
+
+minetest.register_craft({
+	output = "mobs:protector2",
+	recipe = {
+		{"mobs:protector", "default:mese_crystal", "mobs:protector"},
+		{"default:mese_crystal", "default:diamondblock", "default:mese_crystal"},
+		{"mobs:protector", "default:mese_crystal", "mobs:protector"}
+	}
+})
+
 -- saddle
 minetest.register_craftitem("mobs:saddle", {
 	description = S("Saddle"),
 	inventory_image = "mobs_saddle.png",
-	groups = {flammable = 2}
+	groups = {flammable = 2, saddle = 1}
 })
 
 minetest.register_craft({
@@ -133,7 +148,7 @@ minetest.register_craft({
 
 
 -- make sure we can register fences
-if default.register_fence then
+if minetest.get_modpath("default") and default.register_fence then
 
 -- mob fence (looks like normal fence but collision is 2 high)
 default.register_fence("mobs:fence_wood", {
@@ -149,6 +164,7 @@ default.register_fence("mobs:fence_wood", {
 		}
 	}
 })
+end
 
 -- mob fence top (has enlarged collisionbox to stop mobs getting over)
 minetest.register_node("mobs:fence_top", {
@@ -180,8 +196,6 @@ minetest.register_craft({
 		{"", "default:fence_wood", ""}
 	}
 })
-
-end
 
 
 -- items that can be used as fuel
@@ -283,12 +297,18 @@ minetest.register_tool(":mobs:mob_reset_stick", {
 
 			tex_obj = obj
 
+			-- get base texture
+			local bt = tex_obj:get_luaentity().base_texture[1]
+
+			if type(bt) ~= "string" then
+				bt = ""
+			end
+
 			local name = user:get_player_name()
-			local tex = ""
 
 			minetest.show_formspec(name, "mobs_texture", "size[8,4]"
 			.. "field[0.5,1;7.5,0;name;"
-			.. minetest.formspec_escape(S("Enter texture:")) .. ";" .. tex .. "]"
+			.. minetest.formspec_escape(S("Enter texture:")) .. ";" .. bt .. "]"
 			.. "button_exit[2.5,3.5;3,1;mob_texture_change;"
 			.. minetest.formspec_escape(S("Change")) .. "]")
 		end
@@ -339,17 +359,17 @@ minetest.register_node("mobs:meatblock", {
 	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
 	paramtype2 = "facedir",
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = default and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20),
+	on_use = minetest.item_eat(20)
 })
 
 minetest.register_craft({
 	output = "mobs:meatblock",
-	type = "shapeless",
+--	type = "shapeless",
 	recipe = {
-		"group:food_meat", "group:food_meat", "group:food_meat",
-		"group:food_meat", "group:food_meat", "group:food_meat",
-		"group:food_meat", "group:food_meat", "group:food_meat"
+		{"group:food_meat", "group:food_meat", "group:food_meat"},
+		{"group:food_meat", "group:food_meat", "group:food_meat"},
+		{"group:food_meat", "group:food_meat", "group:food_meat"}
 	}
 })

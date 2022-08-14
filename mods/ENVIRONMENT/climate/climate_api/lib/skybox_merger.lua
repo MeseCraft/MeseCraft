@@ -70,6 +70,11 @@ local function set_skybox(playername, sky)
 	player:set_moon(sky.moon_data)
 	player:set_sun(sky.sun_data)
 	player:set_stars(sky.star_data)
+	if minetest.features.get_sky_as_table then
+		local density = sky.cloud_data.density --or .5
+		player:set_lighting({ shadows = { intensity = 0.7 * (1 - density) } })
+	end
+
 end
 
 function skybox.update(playername)
@@ -104,6 +109,10 @@ end
 minetest.register_on_leaveplayer(function(player)
 	local playername = player:get_player_name()
 	layers[playername] = nil
+end)
+
+minetest.register_on_joinplayer(function(ObjectRef)
+	skybox.update(ObjectRef:get_player_name())
 end)
 
 return skybox

@@ -16,7 +16,7 @@ end
 function default.node_sound_stone_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_hard_footstep", gain = 0.3}
+			{name = "default_hard_footstep", gain = 0.2}
 	table.dug = table.dug or
 			{name = "default_hard_footstep", gain = 1.0}
 	default.node_sound_defaults(table)
@@ -26,7 +26,9 @@ end
 function default.node_sound_dirt_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_dirt_footstep", gain = 0.4}
+			{name = "default_dirt_footstep", gain = 0.25}
+	table.dig = table.dig or
+			{name = "default_dig_crumbly", gain = 0.4}
 	table.dug = table.dug or
 			{name = "default_dirt_footstep", gain = 1.0}
 	table.place = table.place or
@@ -38,9 +40,9 @@ end
 function default.node_sound_sand_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_sand_footstep", gain = 0.12}
+			{name = "default_sand_footstep", gain = 0.05}
 	table.dug = table.dug or
-			{name = "default_sand_footstep", gain = 0.24}
+			{name = "default_sand_footstep", gain = 0.15}
 	table.place = table.place or
 			{name = "default_place_node", gain = 1.0}
 	default.node_sound_defaults(table)
@@ -50,9 +52,11 @@ end
 function default.node_sound_gravel_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_gravel_footstep", gain = 0.4}
+			{name = "default_gravel_footstep", gain = 0.25}
+	table.dig = table.dig or
+			{name = "default_gravel_dig", gain = 0.35}
 	table.dug = table.dug or
-			{name = "default_gravel_footstep", gain = 1.0}
+			{name = "default_gravel_dug", gain = 1.0}
 	table.place = table.place or
 			{name = "default_place_node", gain = 1.0}
 	default.node_sound_defaults(table)
@@ -62,7 +66,9 @@ end
 function default.node_sound_wood_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_wood_footstep", gain = 0.3}
+			{name = "default_wood_footstep", gain = 0.15}
+	table.dig = table.dig or
+			{name = "default_dig_choppy", gain = 0.4}
 	table.dug = table.dug or
 			{name = "default_wood_footstep", gain = 1.0}
 	default.node_sound_defaults(table)
@@ -93,10 +99,22 @@ function default.node_sound_glass_defaults(table)
 	return table
 end
 
+function default.node_sound_ice_defaults(table)
+	table = table or {}
+	table.footstep = table.footstep or
+			{name = "default_ice_footstep", gain = 0.15}
+	table.dig = table.dig or
+			{name = "default_ice_dig", gain = 0.5}
+	table.dug = table.dug or
+			{name = "default_ice_dug", gain = 0.5}
+	default.node_sound_defaults(table)
+	return table
+end
+
 function default.node_sound_metal_defaults(table)
 	table = table or {}
 	table.footstep = table.footstep or
-			{name = "default_metal_footstep", gain = 0.4}
+			{name = "default_metal_footstep", gain = 0.2}
 	table.dig = table.dig or
 			{name = "default_dig_metal", gain = 0.5}
 	table.dug = table.dug or
@@ -141,7 +159,7 @@ default.cool_lava = function(pos, node)
 		minetest.set_node(pos, {name = "default:stone"})
 	end
 	minetest.sound_play("default_cool_lava",
-		{pos = pos, max_hear_distance = 16, gain = 0.25}, true)
+		{pos = pos, max_hear_distance = 16, gain = 0.2}, true)
 end
 
 if minetest.settings:get_bool("enable_lavacooling") ~= false then
@@ -421,6 +439,52 @@ function default.register_fence_rail(name, def)
 	minetest.register_node(name, def)
 end
 
+--
+-- Mese post registration helper
+--
+
+function default.register_mesepost(name, def)
+	minetest.register_craft({
+		output = name .. " 4",
+		recipe = {
+			{'', 'default:glass', ''},
+			{'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},
+			{'', def.material, ''},
+		}
+	})
+
+	local post_texture = def.texture .. "^default_mese_post_light_side.png^[makealpha:0,0,0"
+	local post_texture_dark = def.texture .. "^default_mese_post_light_side_dark.png^[makealpha:0,0,0"
+	-- Allow almost everything to be overridden
+	local default_fields = {
+		wield_image = post_texture,
+		drawtype = "nodebox",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-2 / 16, -8 / 16, -2 / 16, 2 / 16, 8 / 16, 2 / 16},
+			},
+		},
+		paramtype = "light",
+		tiles = {def.texture, def.texture, post_texture_dark, post_texture_dark, post_texture, post_texture},
+		use_texture_alpha = "opaque",
+		light_source = default.LIGHT_MAX,
+		sunlight_propagates = true,
+		is_ground_content = false,
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		sounds = default.node_sound_wood_defaults(),
+	}
+	for k, v in pairs(default_fields) do
+		if def[k] == nil then
+			def[k] = v
+		end
+	end
+
+	def.texture = nil
+	def.material = nil
+
+	minetest.register_node(name, def)
+end
 
 --
 -- Leafdecay
@@ -651,6 +715,47 @@ function default.register_craft_metadata_copy(ingredient, result)
 	end)
 end
 
+--
+-- Log API / helpers
+--
+
+local log_non_player_actions = minetest.settings:get_bool("log_non_player_actions", false)
+
+local is_pos = function(v)
+	return type(v) == "table" and
+		type(v.x) == "number" and type(v.y) == "number" and type(v.z) == "number"
+end
+
+function default.log_player_action(player, ...)
+	local msg = player:get_player_name()
+	if player.is_fake_player or not player:is_player() then
+		if not log_non_player_actions then
+			return
+		end
+		msg = msg .. "(" .. (type(player.is_fake_player) == "string"
+			and player.is_fake_player or "*") .. ")"
+	end
+	for _, v in ipairs({...}) do
+		-- translate pos
+		local part = is_pos(v) and minetest.pos_to_string(v) or v
+		-- no leading spaces before punctuation marks
+		msg = msg .. (string.match(part, "^[;,.]") and "" or " ") .. part
+	end
+	minetest.log("action",  msg)
+end
+
+function default.set_inventory_action_loggers(def, name)
+	def.on_metadata_inventory_move = function(pos, from_list, from_index,
+			to_list, to_index, count, player)
+		default.log_player_action(player, "moves stuff in", name, "at", pos)
+	end
+	def.on_metadata_inventory_put = function(pos, listname, index, stack, player)
+		default.log_player_action(player, "moves", stack:get_name(), "to", name, "at", pos)
+	end
+	def.on_metadata_inventory_take = function(pos, listname, index, stack, player)
+		default.log_player_action(player, "takes", stack:get_name(), "from", name, "at", pos)
+	end
+end
 
 --
 -- NOTICE: This method is not an official part of the API yet.
