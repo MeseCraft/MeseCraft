@@ -1,9 +1,0 @@
-default
-vessels
-doors?
-wool?
-mesecons?
-pipeworks?
-monitoring?
-mesecons_random?
-technic?

@@ -1,1 +1,0 @@
-Adds asteroid layers and height-based skybox switches to create space environments. 

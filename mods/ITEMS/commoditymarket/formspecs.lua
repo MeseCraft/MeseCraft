@@ -1,8 +1,11 @@
 local S = minetest.get_translator(minetest.get_current_modname())
 
 local mcl_formspec_itemslots
-if mcl_formspec then
-	mcl_formspec_itemslots = mcl_formspec.get_itemslot_bg
+
+if minetest.get_modpath("mcl_init") then
+	if mcl_formspec then
+		mcl_formspec_itemslots = mcl_formspec.get_itemslot_bg
+	end
 end
 
 local truncate_item_names_to = 30

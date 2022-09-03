@@ -1,9 +1,0 @@
-default
-mesecraft_bucket
-doors
-stairs
-xpanes
-fire?
-oresplus?
-moreblocks?
-mesecons_doors?

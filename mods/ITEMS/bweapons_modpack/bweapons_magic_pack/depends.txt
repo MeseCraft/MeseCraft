@@ -1,3 +1,0 @@
-bweapons_api
-default
-magic_materials

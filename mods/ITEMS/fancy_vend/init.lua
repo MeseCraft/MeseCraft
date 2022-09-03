@@ -27,7 +27,7 @@ display_node_def.drop = ""
 display_node_def.pointable = false
 display_node_def.groups.not_in_creative_inventory = 1
 display_node_def.description = "Fancy Vendor Display Node (you hacker you!)"
-if pipeworks then
+if minetest.get_modpath("pipeworks") then
     display_node_def.digiline = {
         wire = {
             rules = pipeworks.digilines_rules
@@ -1406,7 +1406,7 @@ local vendor_template = {
     end,
 }
 
-if pipeworks then
+if minetest.get_modpath("pipeworks") then
     vendor_template.digiline = {
         receptor = {},
         effector = {
@@ -1569,7 +1569,7 @@ minetest.register_craft({
 -- Vendor Upgrade System --
 ---------------------------
 
-local old_vendor_mods = string.split((minetest.setting_get("fancy_vend_old_vendor_mods") or ""), ",")
+local old_vendor_mods = string.split((minetest.settings:get("fancy_vend_old_vendor_mods") or ""), ",")
 local old_vendor_mods_table = {}
 
 for i in pairs(old_vendor_mods) do

@@ -1,4 +1,0 @@
-default
-lucky_block?
-stairs?
-moreblocks?

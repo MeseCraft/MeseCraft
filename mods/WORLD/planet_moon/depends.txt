@@ -1,6 +1,0 @@
-default
-vacuum?
-technic_worldgen?
-bedrock?
-nether?
-radiant_damage?

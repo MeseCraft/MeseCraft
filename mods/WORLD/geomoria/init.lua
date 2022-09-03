@@ -11,22 +11,22 @@ geomoria_mod.plans_keys = {}
 geomoria_mod.geomoria_depth = -1
 
 
-geomoria_mod.generate_ores = minetest.setting_getbool('geomoria_generate_ores')
+geomoria_mod.generate_ores = minetest.settings:get_bool('geomoria_generate_ores')
 if geomoria_mod.generate_ores == nil then
   geomoria_mod.generate_ores = false
 end
 
-geomoria_mod.add_fissures = minetest.setting_getbool('geomoria_add_fissures')
+geomoria_mod.add_fissures = minetest.settings:get_bool('geomoria_add_fissures')
 if geomoria_mod.add_fissures == nil then
   geomoria_mod.add_fissures = true
 end
 
-geomoria_mod.cheap_lighting = minetest.setting_getbool('geomoria_cheap_lighting')
+geomoria_mod.cheap_lighting = minetest.settings:get_bool('geomoria_cheap_lighting')
 if geomoria_mod.cheap_lighting == nil then
   geomoria_mod.cheap_lighting = false
 end
 
-geomoria_mod.damage_level = minetest.setting_getbool('geomoria_damage_level')
+geomoria_mod.damage_level = minetest.settings:get_bool('geomoria_damage_level')
 geomoria_mod.damage_level = (geomoria_mod.damage_level or 5)
 
 

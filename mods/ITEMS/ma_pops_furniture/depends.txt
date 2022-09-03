@@ -1,7 +1,0 @@
-default
-fire
-wool
-ethereal?
-mobs_mc?
-farming
-unifieddyes?

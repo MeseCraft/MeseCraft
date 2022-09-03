@@ -1,1 +1,0 @@
-Part of lootchests_modpack, providing lootchests for minetest_game, as well as integration with some mods

@@ -1,5 +1,0 @@
-default
-digilines
-mesecons_luacontroller
-mesecons_microcontroller?
-mesecons_lamp?

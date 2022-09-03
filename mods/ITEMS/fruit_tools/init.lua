@@ -703,8 +703,10 @@ if minetest.get_modpath("mobs") then
     fruit_tools:register_throwing_food("fruit_tools", "farming:raspberries", "raspberry", 4, true, plant_whole)
     fruit_tools:register_throwing_food("fruit_tools", "farming:melon_slice", "melon", 8, true, plant_whole)
 
-    fruit_tools:register_throwing_food("fruit_tools", "ethereal:orange", nil, nil, false, nil)
-    fruit_tools:register_throwing_food("fruit_tools", "ethereal:strawberry", nil, nil, false, nil)
+	if minetest.get_modpath("etheral") then
+		fruit_tools:register_throwing_food("fruit_tools", "ethereal:orange", nil, nil, false, nil)
+		fruit_tools:register_throwing_food("fruit_tools", "ethereal:strawberry", nil, nil, false, nil)
+	end
 end
 
 -- Add toolranks support if found

@@ -1,4 +1,0 @@
-default?
-3d_armor?
-player_monoids?
-pova?
