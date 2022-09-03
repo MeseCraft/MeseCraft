@@ -1,0 +1,25 @@
+# textdomain: df_dependencies
+
+
+### fireflies.lua ###
+
+Bug Net=Insekta Reto
+# textdomain: fireflies
+Firefly=Lampiro
+Firefly in a Bottle=Lampiro en Botelo
+Hidden Firefly=Kaŝita Lampiro
+
+### helper_functions.lua ###
+
+@1 Fence=
+@1 Fence Gate=
+@1 Fence Rail=
+@1 Mese Post Light=
+@1 Slab=
+@1 Stair=
+Double @1 Slab=
+
+### misc.lua ###
+
+Icecap=
+Nethercap=

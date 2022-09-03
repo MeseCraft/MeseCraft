@@ -1,0 +1,25 @@
+# textdomain: df_dependencies
+
+
+### fireflies.lua ###
+
+Bug Net=Rede de Insetos
+# textdomain: fireflies
+Firefly=Vaga-lume
+Firefly in a Bottle=Vaga-lume em uma garrafa
+Hidden Firefly=Vaga-lume escondido
+
+### helper_functions.lua ###
+
+@1 Fence=
+@1 Fence Gate=
+@1 Fence Rail=
+@1 Mese Post Light=
+@1 Slab=
+@1 Stair=
+Double @1 Slab=
+
+### misc.lua ###
+
+Icecap=
+Nethercap=

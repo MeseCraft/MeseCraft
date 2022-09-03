@@ -19,6 +19,10 @@ Dead Blood Thorn Stem=Gambo di spina del sangue morta
 
 ### doc.lua ###
 
+@1 have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=
+
+@1 wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living icecaps and is able to quickly freeze nearby water solid.=
+
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 A torchspine alternates between active and quiescent phases and emits dim light when active. They can be harvested for torches, and their embers sprout into new torchspines when placed on flammable surfaces.=Una torcia alterna le fasi attiva e quiescente ed emette una luce fioca quando è attiva. Possono essere raccolti per le torce e le loro braci germogliano in nuove spine delle torce quando vengono posizionate su superfici infiammabili.
 
@@ -57,12 +61,6 @@ Living extract from the cap of a yellow Spindlestem.=Estratto vivo dal cappello 
 
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Massive but squat, mature goblin cap mushrooms are the size of small cottages.=I funghi goblin sono grandi ma tozzi e maturi, hanno le dimensioni di piccoli cottage.
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Il legno del cappuccio inferiore, oltre ad essere una bella tonalità blu, conserva la strana capacità di drenaggio del calore dei tappi inferiori viventi ed è in grado di congelare rapidamente l'acqua solida vicina.
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=I cappucci inferiori hanno una biochimica insolita che consente loro di sopravvivere in qualche modo al calore ambientale, in violazione di tutte le leggi conosciute della termodinamica. Crescono in profondità nel sottosuolo in caverne gelide che dovrebbero a tutti gli effetti essere vulcaniche.
 
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin Caps. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is weak.=I Red Spindlestems sono un segno di depositi di ferro vicini - o forse Goblin Caps. I loro simbionti luminosi possono essere estratti come fonte di luce a lunga durata, anche se il bagliore è debole.
@@ -144,20 +142,12 @@ Goblin Cap Spawn=Prole di cappello di folletto
 Goblin Cap Stem=Gambo di cappello di folletto
 Goblin Cap Stem Planks=Assi di gambo di cappello di folletto
 
-### init.lua ###
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-@1 Slab=@1 Lastra
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-@1 Stair=@1 Scala
-
 ### nether_cap.lua ###
 
-Nether Cap=Cappello del Nether
-Nether Cap Gills=Lamelle di cappello del Nether
-Nether Cap Planks=Assi di cappello del Nether
-Nether Cap Spawn=Prole di cappello del Nether
-Nether Cap Stem=Gambo di cappello del Nether
+@1 Gills=Lamelle di @1
+@1 Planks=Assi di @1
+@1 Spawn=Prole di @1
+@1 Stem=Gambo di @1
 
 ### spindlestem.lua ###
 
@@ -207,3 +197,14 @@ Tunnel Tube=Tubo di galleria
 Tunnel Tube Fruiting Body=Corpo fruttifero del tubo di galleria
 Tunnel Tube Plies=Strati di tubo di galleria
 Tunnel Tube Spawn=Prole di tubo di galleria
+
+
+##### not used anymore #####
+
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Il legno del cappuccio inferiore, oltre ad essere una bella tonalità blu, conserva la strana capacità di drenaggio del calore dei tappi inferiori viventi ed è in grado di congelare rapidamente l'acqua solida vicina.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=I cappucci inferiori hanno una biochimica insolita che consente loro di sopravvivere in qualche modo al calore ambientale, in violazione di tutte le leggi conosciute della termodinamica. Crescono in profondità nel sottosuolo in caverne gelide che dovrebbero a tutti gli effetti essere vulcaniche.
+

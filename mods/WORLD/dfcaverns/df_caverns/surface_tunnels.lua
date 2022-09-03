@@ -15,6 +15,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local t_start = os.clock()
 
 	local vm, data, data_param2, area = mapgen_helper.mapgen_vm_data_param2()
+	local data_changed = false
 
 	local eminp = {x=minp.x, y=area.MinEdge.y, z=minp.z}
 	local emaxp = {x=maxp.x, y=area.MaxEdge.y, z=maxp.z}
@@ -51,9 +52,11 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local index2d = mapgen_helper.index2d(minp, maxp, x, z)
 				local humidity = humiditymap[index2d]
 				if previous_potential_floor_y <= maxp_y and previous_potential_floor_y >= minp_y then
+					data_changed = true
 					df_caverns.tunnel_floor(minp, maxp, area, previous_potential_floor_vi, nvals_cracks, data, data_param2, humidity > 30)
 				end
 				if y <= maxp_y and y >= minp_y then
+					data_changed = true
 					df_caverns.tunnel_ceiling(minp, maxp, area, vi, nvals_cracks, data, data_param2, humidity > 30)
 				end
 				previous_potential_floor_vi = nil
@@ -66,16 +69,18 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		
 	end
 	
-	--send data back to voxelmanip
-	vm:set_data(data)
-	vm:set_param2_data(data_param2)
-	--calc lighting
-	vm:set_lighting({day = 0, night = 0})
-	vm:calc_lighting()
+	if data_changed then
+		--send data back to voxelmanip
+		vm:set_data(data)
+		vm:set_param2_data(data_param2)
+		--calc lighting
+		vm:set_lighting({day = 0, night = 0})
+		vm:calc_lighting()
 	
-	vm:update_liquids()
-	--write it to world
-	vm:write_to_map()
+		vm:update_liquids()
+		--write it to world
+		vm:write_to_map()
+	end
 	
 	local time_taken = os.clock() - t_start -- how long this chunk took, in seconds
 	mapgen_helper.record_time("df_caverns surface tunnels", time_taken)

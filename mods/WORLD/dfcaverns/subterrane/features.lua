@@ -43,7 +43,7 @@ local stal_on_place = function(itemstack, placer, pointed_thing)
 
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = itemstack:get_name(), param2 = new_param2})
-	if not minetest.settings:get_bool("creative_mode", false) then
+	if not minetest.is_creative_enabled(placer:get_player_name()) then
 		itemstack:take_item()
 	end
 	return itemstack
@@ -267,7 +267,7 @@ function subterrane.giant_mushroom(vi, area, data, stem_material, cap_material, 
 	for j = -2, stem_height do -- going down to -2 to ensure the stem is flush with the ground
 		local vi = area:index(x, y+j, z)
 		if j >= 0 or area:containsi(vi) then -- since -2 puts us below the bounds we've already tested, add a contains check here.
-			data[vi] = stem_material
+			if mapgen_helper.buildable_to(data[vi]) or data[vi] == gill_material then data[vi] = stem_material end
 			if cap_radius > 3 then
 				local ai = area:index(x, y+j, z+1)
 				if mapgen_helper.buildable_to(data[ai]) or data[ai] == gill_material then data[ai] = stem_material end

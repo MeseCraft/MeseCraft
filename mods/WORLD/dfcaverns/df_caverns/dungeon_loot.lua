@@ -6,7 +6,7 @@ if df_caverns.config.enable_underworld then
 	})
 end
 
-if df_caverns.config.enable_oil_sea and minetest.get_modpath("mesecraft_bucket") then
+if df_caverns.config.enable_oil_sea and minetest.get_modpath("bucket") then
 	dungeon_loot.register({
 		{name = "oil:oil_bucket", chance = 0.5, count = {1, 3}, y = {-32768, df_caverns.config.ymax}},
 	})
@@ -45,18 +45,19 @@ end
 
 if minetest.get_modpath("bones_loot") and df_caverns.config.enable_underworld then
 
+if minetest.get_modpath("default") then
 bones_loot.register_loot({
 	{name = "binoculars:binoculars", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "boats:boat", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "mesecraft_bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "fire:flint_and_steel", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:tulip_black", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:dandelion_white", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:dandelion_yellow", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:rose", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:tulip", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:chrysanthemum_green", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "flowers:geranium", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:tulip_black", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:dandelion_white", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:dandelion_yellow", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:rose", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:tulip", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:chrysanthemum_green", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "flowers:geranium", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "map:mapping_kit", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "screwdriver:screwdriver", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
 	-- don't give the player tnt:tnt, they can craft that from this if tnt is enabled for them
@@ -105,10 +106,51 @@ bones_loot.register_loot({
 	{name = "default:ladder_steel",    chance = 0.2, count = {1,5}, types = {"underworld_warrior"}},
 	{name = "default:meselamp",        chance = 0.1, count = {1,2}, types = {"underworld_warrior"}},
 	{name = "default:mese_post_light", chance = 0.25, count = {1,5}, types = {"underworld_warrior"}},
+})
+end
 
+if minetest.get_modpath("mcl_core") then
+bones_loot.register_loot({
+	-- Taken from the ruined portal loot table in mcl
+	{name = "mcl_core:iron_nugget",            types = {"underworld_warrior"}, chance = 40/50, count ={9, 18}},
+	{name = "mcl_core:flint",                  types = {"underworld_warrior"}, chance = 40/50, count ={9, 18}},
+	{name = "mcl_core:obsidian",               types = {"underworld_warrior"}, chance = 40/50, count ={1,  2}},
+	{name = "mcl_fire:fire_charge",            types = {"underworld_warrior"}, chance = 40/50, count ={1,  1}},
+	{name = "mcl_fire:flint_and_steel",        types = {"underworld_warrior"}, chance = 40/50, count ={1,  1}},
+	{name = "mcl_core:gold_nugget",            types = {"underworld_warrior"}, chance = 15/50, count ={4, 24}},
+	{name = "mcl_core:apple_gold",             types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_tools:axe_gold",              types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_farming:hoe_gold",            types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_tools:pick_gold",             types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_tools:shovel_gold",           types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_tools:sword_gold",            types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_armor:helmet_gold",           types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_armor:chestplate_gold",       types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_armor:leggings_gold",         types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_armor:boots_gold",            types = {"underworld_warrior"}, chance = 15/50, count ={1, 1}},
+	{name = "mcl_potions:speckled_melon",      types = {"underworld_warrior"}, chance =  5/50, count ={4, 12}},
+	{name = "mcl_farming:carrot_item_gold",    types = {"underworld_warrior"}, chance =  5/50, count ={4, 12}},
+	{name = "mcl_core:gold_ingot",             types = {"underworld_warrior"}, chance =  5/50, count ={2,  8}},
+	{name = "mcl_clock:clock",                 types = {"underworld_warrior"}, chance =  5/50, count ={1,1}},
+	{name = "mesecons_pressureplates:pressure_plate_gold_off", types = {"underworld_warrior"}, chance =  5/50, count ={1,1}},
+	{name = "mobs_mc:gold_horse_armor",        types = {"underworld_warrior"}, chance =  5/50, count ={1,1}},
+	{name = "mcl_bells:bell",                  types = {"underworld_warrior"}, chance =  1/50, count ={1,1}},
+	{name = "mcl_core:apple_gold_enchanted",   types = {"underworld_warrior"}, chance =  1/50, count ={1,1}},
+})
+
+for flower_name, _ in pairs(mcl_flowers.registered_simple_flowers) do
+	bones_loot.register_loot({
+		{name = flower_name, chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
+	})
+
+end
+
+end
+
+bones_loot.register_loot({
 	{name = "ice_sprites:ice_sprite_bottle", chance = 0.025, count = {1, 1}, types = {"underworld_warrior"}},
 	{name = "df_underworld_items:glow_amethyst", chance = 0.25, count = {1, 2}, types = {"underworld_warrior"}},
-})  
+})
 
 if df_caverns.config.enable_lava_sea then
 	bones_loot.register_loot({name = "df_mapitems:mese_crystal", chance = 0.25, count = {1, 2}, types = {"underworld_warrior"}})

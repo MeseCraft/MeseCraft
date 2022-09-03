@@ -31,6 +31,7 @@ local trees = {
 	{name="nether_cap", delay_multiplier = 1},
 	{name="goblin_cap", delay_multiplier = 1},
 	{name="tower_cap", delay_multiplier = 1},
+	{name="blood_thorn", delay_multiplier = 1},
 }
 
 --Trees
@@ -42,10 +43,8 @@ for _, tree in pairs(trees) do
 	setting("float", tree.name.."_delay_multiplier", tree.delay_multiplier, tree.name.." growth delay multiplier")
 end
 
-setting("int", "blood_thorn_growth_interval", 12, "blood_thorn growth ABM interval")
-setting("int", "blood_thorn_growth_chance", 83, "blood_thorn growth ABM chance")
-
-if minetest.get_modpath("tnt") then
+-- TODO: mineclone settings
+if df_dependencies.tnt_boom then
 	df_trees.config.enable_tnt = minetest.settings:get_bool("enable_tnt")
 	if df_trees.config.enable_tnt == nil then
 		-- Default to enabled when in singleplayer

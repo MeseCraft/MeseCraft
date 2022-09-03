@@ -1,4 +1,4 @@
-local S = df_primordial_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_primordial_items:mushroom_trunk", {
 	description = S("Primordial Mushroom Trunk"),
@@ -7,9 +7,11 @@ minetest.register_node("df_primordial_items:mushroom_trunk", {
 	tiles = {"dfcaverns_mush_shaft_top.png", "dfcaverns_mush_shaft_top.png", "dfcaverns_mush_shaft_side.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
-	on_place = minetest.rotate_node
+	on_place = minetest.rotate_node,
+	_mcl_blast_resistance = 3,
+	_mcl_hardness = 3,
 })
 
 minetest.register_node("df_primordial_items:mushroom_cap", {
@@ -19,9 +21,11 @@ minetest.register_node("df_primordial_items:mushroom_cap", {
 	tiles = {"dfcaverns_mush_cap.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
-	on_place = minetest.rotate_node
+	on_place = minetest.rotate_node,
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_primordial_items:mushroom_gills", {
@@ -31,13 +35,14 @@ minetest.register_node("df_primordial_items:mushroom_gills", {
 	tiles = {"dfcaverns_mush_gills.png"},
 	inventory_image = "dfcaverns_mush_gills.png",
 	wield_image = "dfcaverns_mush_gills.png",
-	groups = {snappy = 3, flora = 1, flammable = 1, leaves = 1},
+	groups = {snappy = 3, flammable = 1, leaves = 1, leafdecay = 8,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30, compostability=30},
 	paramtype = "light",
 	drawtype = "plantlike",
 	waving = 2,
 	walkable = false,
+	climbable = true,
 	is_ground_content = false,
-	sounds = df_primordial_items.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
 	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	drop = {
@@ -53,7 +58,10 @@ minetest.register_node("df_primordial_items:mushroom_gills", {
 			}
 		}
 	},
-	after_place_node = df_primordial_items.after_place_leaves,
+	after_place_node = df_dependencies.after_place_leaves,
+	place_param2 = 1, -- Prevent leafdecay for placed nodes
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 })
 
 minetest.register_node("df_primordial_items:mushroom_gills_glowing", {
@@ -63,14 +71,15 @@ minetest.register_node("df_primordial_items:mushroom_gills_glowing", {
 	tiles = {"dfcaverns_mush_gills_glow.png"},
 	inventory_image = "dfcaverns_mush_gills_glow.png",
 	wield_image = "dfcaverns_mush_gills_glow.png",
-	groups = {snappy = 3, flora = 1, flammable = 1, leaves = 1},
+	groups = {snappy = 3, flammable = 1, leaves = 1, leafdecay = 8,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30, compostability=30},
 	paramtype = "light",
 	drawtype = "plantlike",
 	waving = 2,
 	walkable = false,
+	climbable = true,
 	is_ground_content = false,
 	light_source = 6,
-	sounds = df_primordial_items.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
 	use_texture_alpha = "clip",
 	sunlight_propagates = true,
 	drop = {
@@ -86,10 +95,13 @@ minetest.register_node("df_primordial_items:mushroom_gills_glowing", {
 			}
 		}
 	},
-	after_place_node = df_primordial_items.after_place_leaves,
+	after_place_node = df_dependencies.after_place_leaves,
+	place_param2 = 1, -- Prevent leafdecay for placed nodes
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 })
 
-df_primordial_items.register_leafdecay({
+df_dependencies.register_leafdecay({
 	trunks = {"df_primordial_items:mushroom_trunk", "df_primordial_items:mushroom_cap"},
 	leaves = {"df_primordial_items:mushroom_gills", "df_primordial_items:mushroom_gills_glowing"},
 	radius = 5,
@@ -102,8 +114,10 @@ minetest.register_node("df_primordial_items:primordial_mush_trunk_wood", {
 	paramtype2 = "facedir",
 	tiles = {"dfcaverns_mush_shaft_side.png^(dfcaverns_mush_gills.png^[multiply:#888888)"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = df_primordial_items.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=20},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 4,
+	_mcl_hardness = 3,
 })
 
 minetest.register_craft({
@@ -113,6 +127,8 @@ minetest.register_craft({
 	}
 })
 
+df_dependencies.register_all_stairs_and_fences("primordial_mush_trunk_wood", {burntime = 7})
+
 minetest.register_node("df_primordial_items:primordial_mush_cap_wood", {
 	description = S("Primordial Cap Wood"),
 	_doc_items_longdesc = df_primordial_items.doc.giant_mushroom_desc,
@@ -120,8 +136,10 @@ minetest.register_node("df_primordial_items:primordial_mush_cap_wood", {
 	paramtype2 = "facedir",
 	tiles = {"dfcaverns_mush_cap.png^dfcaverns_mush_gills.png"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = df_primordial_items.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=20},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 3,
+	_mcl_hardness = 2,
 })
 
 minetest.register_craft({
@@ -129,6 +147,44 @@ minetest.register_craft({
 	recipe = {
 		{"df_primordial_items:mushroom_cap"},
 	}
+})
+
+df_dependencies.register_all_stairs_and_fences("primordial_mush_cap_wood", {burntime=12})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:primordial_mush_cap_wood",
+	burntime = 12,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:primordial_mush_trunk_wood",
+	burntime = 7,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:mushroom_cap",
+	burntime = 40,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:mushroom_trunk",
+	burntime = 30,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:mushroom_gills",
+	burntime = 2,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:mushroom_gills_glowing",
+	burntime = 4,
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "df_primordial_items:mush_sapling",
+	burntime = 2,
 })
 
 ------
@@ -691,7 +747,7 @@ minetest.register_node("df_primordial_items:mush_sapling", {
 	tiles = {"dfcaverns_mush_sapling.png"},
 	inventory_image = "dfcaverns_mush_sapling.png",
 	wield_image = "dfcaverns_mush_sapling.png",
-	groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1, sapling = 1, light_sensitive_fungus = 11},
+	groups = {snappy = 3, attached_node = 1, flammable = 1, sapling = 1, light_sensitive_fungus = 11, dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30,dig_immediate=3},
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -701,16 +757,17 @@ minetest.register_node("df_primordial_items:mush_sapling", {
 	buildable_to = true,
 	walkable = false,
 	is_ground_content = false,
-	sounds = df_primordial_items.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
 	use_texture_alpha = "clip",
 	sunlight_propagates = true,
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_primordial_items.primordial_mushroom_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.tree_min_growth_delay,
+				df_trees.config.tree_max_growth_delay))
 		end
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.tree_min_growth_delay,
-			df_trees.config.tree_max_growth_delay))
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()
@@ -719,10 +776,13 @@ minetest.register_node("df_primordial_items:mush_sapling", {
 		if df_farming and df_farming.kill_if_sunlit(pos) then
 			return
 		end
-		local mushroom = df_primordial_items.get_primordial_mushroom()
-		local rotation = (math.random(1,4)-1)*90
-		minetest.set_node(pos, {name="air"}) -- clear sapling so mushroom can replace it
-		mapgen_helper.place_schematic(pos, mushroom, rotation)
+		df_primordial_items.spawn_primordial_mushroom(pos)
 	end,
 })
 
+df_primordial_items.spawn_primordial_mushroom = function(pos)
+	local mushroom = df_primordial_items.get_primordial_mushroom()
+	local rotation = (math.random(1,4)-1)*90
+	minetest.set_node(pos, {name="air"}) -- clear sapling so mushroom can replace it
+	mapgen_helper.place_schematic(pos, mushroom, rotation)
+end

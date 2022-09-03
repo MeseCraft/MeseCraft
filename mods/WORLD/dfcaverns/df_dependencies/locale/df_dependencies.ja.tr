@@ -1,0 +1,25 @@
+# textdomain: df_dependencies
+
+
+### fireflies.lua ###
+
+Bug Net=虫取り網
+# textdomain: fireflies
+Firefly=ホタル
+Firefly in a Bottle=ホタルの入った瓶
+Hidden Firefly=隠されたホタル
+
+### helper_functions.lua ###
+
+@1 Fence=
+@1 Fence Gate=
+@1 Fence Rail=
+@1 Mese Post Light=
+@1 Slab=
+@1 Stair=
+Double @1 Slab=
+
+### misc.lua ###
+
+Icecap=
+Nethercap=

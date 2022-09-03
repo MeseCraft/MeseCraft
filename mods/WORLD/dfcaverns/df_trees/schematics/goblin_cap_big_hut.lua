@@ -1,42 +1,37 @@
 local n1 = { name = "air", prob = 0 } -- external air
 local n2 = { name = "df_trees:goblin_cap" }
-local n3 = {name = "stairs:slab_goblin_cap_stem_wood", param2 = 2} -- porch top
+local n3 = {name = df_dependencies.node_name_slab_goblin_cap_stem_wood, param2 = 2} -- porch top
 local n4 = { name = "df_trees:goblin_cap_gills" }
 local n6 = { name = "df_trees:goblin_cap_stem", force_place=true } -- walls
 local n7 = { name = "df_trees:goblin_cap_stem_wood", force_place=true } -- internal floor
-local n8 = { name = "doors:door_wood_a", force_place=true }
-local n9 = { name = "doors:hidden", force_place=true }
-local n10 = { name = "default:furnace", param2 = 3, force_place=true }
+local n8 = { name = df_dependencies.node_name_door_wood_a or "air", force_place=true }
+local n9 = { name = df_dependencies.node_name_door_hidden or "air", force_place=true }
+local n10 = { name = df_dependencies.node_name_furnace, param2 = 3, force_place=true }
 local n11 = { name = "air", force_place=true } -- internal air
-local n12 = { name = "beds:bed_bottom", force_place=true }
+local n12 = { name = df_dependencies.node_name_bed_bottom or "air", force_place=true }
 local n13 = { name = "df_trees:goblin_cap_stem", prob = 198, force_place=true } -- possible window holes
-local n16 = { name = "default:chest", param2 = 3, force_place=true }
-local n17 = { name = "beds:bed_top", force_place=true }
-local n18 = { name = "default:torch_wall", param2 = 4, force_place=true }
+local n16 = { name = df_dependencies.node_name_chest, param2 = 3, force_place=true }
+local n17 = { name = df_dependencies.node_name_bed_top or "air", force_place=true }
+local n18 = { name = df_dependencies.node_name_torch_wall, param2 = 4, force_place=true }
 local n19 = { name = "df_trees:goblin_cap_stem" } -- base
 
-local n20 = {name = "stairs:stair_goblin_cap_stem_wood", param2 = 1 }
-local n21 = {name = "stairs:stair_goblin_cap_stem_wood", param2 = 3 }
-local n22 = {name = "stairs:slab_goblin_cap_stem_wood", param2 = 22}
-
-
+local n20 = {name = df_dependencies.node_name_stair_goblin_cap_stem_wood, param2 = 1 }
+local n21 = {name = df_dependencies.node_name_stair_goblin_cap_stem_wood, param2 = 3 }
+local n22 = {name = df_dependencies.node_name_slab_goblin_cap_stem_wood, param2 = 22}
 
 if minetest.get_modpath("vessels") then
 	n18 = { name = "df_trees:glowing_bottle_red", force_place=true}
 end
 
-if not minetest.get_modpath("doors") then
-	-- replace the door with air
-	n8 = n11
-	n9 = n11
-end
-if not minetest.get_modpath("beds") then
-	--replace the bed with air
-	n12 = n11
-	n17 = n11
+if not df_dependencies.node_name_stair_goblin_cap_stem_wood then
+	-- replace stairs with air
+	n3 = n1
+	n20 = n1
+	n21 = n1
+	n22 = n1
 end
 
-return {
+local schematic = {
 	yslice_prob = {},
 	size = {y = 9, x = 11, z = 11},
 	center_pos = {x=5, y=2, z=5},
@@ -251,3 +246,9 @@ return {
 		n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, 
 }
 }
+
+for index, node in ipairs(schematic.data) do
+	assert(node.name ~= nil, "undefined node name for index " .. tostring(index) .. " in goblin_cap_big_hut schematic data")
+end
+
+return schematic

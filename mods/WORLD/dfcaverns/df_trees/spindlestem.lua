@@ -1,12 +1,22 @@
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
-local vessels = minetest.get_modpath("vessels")
+local glass_bottle = df_dependencies.node_name_glass_bottle
 
 -- pre-declare
 local get_spindlestem_cap_type
 
 -- Copied from subterrane's features.lua
 -- Figured that was nicer than adding a dependency for just this little bit
+
+local function copy_pointed_thing(pointed_thing)
+	return {
+		type  = pointed_thing.type,
+		above = pointed_thing.above and vector.copy(pointed_thing.above),
+		under = pointed_thing.under and vector.copy(pointed_thing.under),
+		ref   = pointed_thing.ref,
+	}
+end
+
 local stem_on_place = function(itemstack, placer, pointed_thing)
 	local pt = pointed_thing
 	-- check if pointing at a node
@@ -43,8 +53,24 @@ local stem_on_place = function(itemstack, placer, pointed_thing)
 	end
 
 	-- add the node and remove 1 item from the itemstack
-	minetest.add_node(pt.above, {name = itemstack:get_name(), param2 = new_param2})
-	if not minetest.settings:get_bool("creative_mode", false) then
+	local newnode= {name = itemstack:get_name(), param2 = new_param2, param1=0}
+	local oldnode= minetest.get_node(pt.above)
+	minetest.add_node(pt.above, newnode)
+	
+	-- Run script hook
+	local take_item = true
+	for _, callback in ipairs(core.registered_on_placenodes) do
+		-- Deepcopy pos, node and pointed_thing because callback can modify them
+		local place_to_copy = vector.copy(pt.above)
+		local newnode_copy = {name=newnode.name, param1=newnode.param1, param2=newnode.param2}
+		local oldnode_copy = {name=oldnode.name, param1=oldnode.param1, param2=oldnode.param2}
+		local pointed_thing_copy = copy_pointed_thing(pointed_thing)
+		if callback(place_to_copy, newnode_copy, placer, oldnode_copy, itemstack, pointed_thing_copy) then
+			take_item = false
+		end
+	end
+	
+	if not minetest.is_creative_enabled(placer:get_player_name()) and take_item then
 		itemstack:take_item()
 	end
 	return itemstack
@@ -63,8 +89,8 @@ minetest.register_node("df_trees:spindlestem_stem", {
 	_doc_items_longdesc = df_trees.doc.spindlestem_desc,
 	_doc_items_usagehelp = df_trees.doc.spindlestem_usage,
 	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
 	tiles = {
 		"dfcaverns_tower_cap.png",
 	},
@@ -80,6 +106,8 @@ minetest.register_node("df_trees:spindlestem_stem", {
 		}
 	},
 	on_place = stem_on_place,
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_craft({
@@ -90,14 +118,15 @@ minetest.register_craft({
 
 local register_spindlestem_type = function(item_suffix, colour_name, colour_code, light_level, extract_color_group)
 	local cap_item = "df_trees:spindlestem_cap_"..item_suffix
+	local cap_item_harvested = "df_trees:spindlestem_cap_harvested_"..item_suffix
 	
-	minetest.register_node(cap_item, {
+	local cap_def = {
 		description = S("@1 Spindlestem Cap", colour_name),
 		is_ground_content = false,
 		_doc_items_longdesc = df_trees.doc["spindlestem_cap_"..item_suffix.."_desc"],
 		_doc_items_usagehelp = df_trees.doc["spindlestem_cap_"..item_suffix.."_usage"],
-		groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1},
-		sounds = df_trees.sounds.wood,
+		groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, spindlestem = 1, not_in_creative_inventory = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+		sounds = df_dependencies.sound_wood(),
 		tiles = {
 			"dfcaverns_tower_cap.png^[multiply:#"..colour_code,
 			"dfcaverns_spindlestem_cap.png^[multiply:#"..colour_code,
@@ -120,6 +149,8 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 				{-0.1875+disp, -0.3125, -0.1875+disp, 0.3125+disp, -0.1875, 0.3125+disp},
 			}
 		},
+		_mcl_blast_resistance = 2,
+		_mcl_hardness = 2,
 		
 		drop = {
             -- Maximum number of items to drop
@@ -127,19 +158,19 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
             -- Choose max_items randomly from this list
             items = {
                 {
-                    items = {cap_item, "df_trees:spindlestem_seedling"},  -- Items to drop
+                    items = {cap_item_harvested, "df_trees:spindlestem_seedling"},  -- Items to drop
                     rarity = 2,  -- Probability of dropping is 1 / rarity
                 },
                 {
-                    items = {cap_item, "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling"},  -- Items to drop
+                    items = {cap_item_harvested, "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling"},  -- Items to drop
                     rarity = 2,  -- Probability of dropping is 1 / rarity
                 },
                 {
-                    items = {cap_item, "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling"},  -- Items to drop
+                    items = {cap_item_harvested, "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling", "df_trees:spindlestem_seedling"},  -- Items to drop
                     rarity = 2,  -- Probability of dropping is 1 / rarity
                 },
                 {
-                    items = {cap_item},  -- Items to drop
+                    items = {cap_item_harvested},  -- Items to drop
                     rarity = 1,  -- Probability of dropping is 1 / rarity
                 },
             },
@@ -177,22 +208,34 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 				minetest.get_node_timer(pos):start(delay-elapsed)
 			end
 		end,
-	})
+	}
+	
+	local cap_def_harvested = {}
+	for key, val in pairs(cap_def) do
+		cap_def_harvested[key] = val
+	end
+	cap_def_harvested.groups = {}
+	for key, val in pairs(cap_def.groups) do
+		cap_def_harvested.groups[key] = val
+	end
+	cap_def_harvested.drop = nil -- harvested caps shouldn't drop spawn
+	cap_def_harvested.on_timer = nil -- harvested caps shouldn't grow, just in case a timer and node metadata are set up where it's placed
+	cap_def_harvested.groups.not_in_creative_inventory = nil
+		
+	minetest.register_node(cap_item, cap_def)
+	minetest.register_node(cap_item_harvested, cap_def_harvested)
 
 	minetest.register_craft({
 		type = "fuel",
-		recipe = cap_item,
+		recipe = cap_item_harvested,
 		burntime = 10,
 	})
-
-	local c_stem = minetest.get_content_id("df_trees:spindlestem_stem")
-	local c_cap = minetest.get_content_id(cap_item)
 	
-	if vessels and light_level > 0 then
-		local tex = "dfcaverns_vessels_glowing_liquid.png^[multiply:#"..colour_code.."^vessels_glass_bottle.png"
+	if glass_bottle and light_level > 0 then
+		local tex = "dfcaverns_vessels_glowing_liquid.png^[multiply:#"..colour_code.."^"..df_dependencies.texture_glass_bottle
 		local new_light = light_level + math.floor((minetest.LIGHT_MAX-light_level)/2)
 		
-		local groups = {vessel = 1, dig_immediate = 3, attached_node = 1}
+		local groups = {vessel = 1, dig_immediate = 3, attached_node = 1, material_glass = 1, destroy_by_lava_flow=1}
 		if extract_color_group then
 			groups[extract_color_group] = 1
 		end
@@ -213,23 +256,25 @@ local register_spindlestem_type = function(item_suffix, colour_name, colour_code
 				fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
 			},
 			groups = groups,
-			sounds = df_trees.sounds.glass,
+			sounds = df_dependencies.sound_glass(),
 			light_source = new_light,
+			_mcl_blast_resistance = 0.5,
+			_mcl_hardness = 0.5,
 		})
 		
 		minetest.register_craft( {
 			output = "df_trees:glowing_bottle_"..item_suffix.." 3",
 			type = "shapeless",
 			recipe = {
-				"vessels:glass_bottle",
-				"vessels:glass_bottle",
-				"vessels:glass_bottle",
-				cap_item,
+				glass_bottle,
+				glass_bottle,
+				glass_bottle,
+				cap_item_harvested,
 			}
 		})
 
 		minetest.register_craft( {
-			output = "vessels:glass_bottle",
+			output = glass_bottle,
 			type = "shapeless",
 			recipe = {
 				"df_trees:glowing_bottle_"..item_suffix,
@@ -245,7 +290,7 @@ minetest.register_node("df_trees:spindlestem_seedling", {
 	tiles = {
 		"dfcaverns_tower_cap.png",
 	},
-	groups = {snappy = 3, flammable = 2, plant = 1, attached_node = 1, light_sensitive_fungus = 11, digtron_on_place=1},
+	groups = {snappy = 3, flammable = 2, plant = 1, attached_node = 1, light_sensitive_fungus = 11, digtron_on_place=1, dig_immediate=3,dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -258,13 +303,14 @@ minetest.register_node("df_trees:spindlestem_seedling", {
 			{-0.0625 + 0.125, -0.5, -0.125 + 0.125, 0.125 + 0.125, -0.375, 0.0625 + 0.125},
 		}
 	},
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 	
 	on_place = stem_on_place,
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_trees.spindlestem_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(growth_delay())
 		end
-		minetest.get_node_timer(pos):start(growth_delay())
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()
@@ -274,24 +320,27 @@ minetest.register_node("df_trees:spindlestem_seedling", {
 		if df_farming and df_farming.kill_if_sunlit(pos) then
 			return
 		end
-
-		local cap_item = minetest.get_name_from_content_id(get_spindlestem_cap_type(pos))
-		local node = minetest.get_node(pos)
-		minetest.set_node(pos, {name=cap_item, param2 = node.param2})
-		local meta = minetest.get_meta(pos)
-		local disp = {x=3, y=3, z=3}
-		local nearby = minetest.find_nodes_in_area(vector.add(pos, disp), vector.subtract(pos, disp), {"group:spindlestem"})
-		local count = #nearby
-		local height = math.random(1,3)
-		if count > 10 then height = height + 2 end -- if there are a lot of nearby spindlestems, grow taller
-		if height > 0 then
-			local delay = growth_delay()
-			meta:set_int("spindlestem_to_grow", height)
-			meta:set_int("spindlestem_delay", delay)
-			minetest.get_node_timer(pos):start(delay)
-		end
+		df_trees.spawn_spindlestem(pos)
 	end,
 })
+
+df_trees.spawn_spindlestem = function(pos)
+	local cap_item = minetest.get_name_from_content_id(get_spindlestem_cap_type(pos))
+	local node = minetest.get_node(pos)
+	minetest.set_node(pos, {name=cap_item, param2 = node.param2})
+	local disp = {x=3, y=3, z=3}
+	local nearby = minetest.find_nodes_in_area(vector.add(pos, disp), vector.subtract(pos, disp), {"group:spindlestem"})
+	local count = #nearby
+	local height = math.random(1,3)
+	if count > 10 then height = height + 2 end -- if there are a lot of nearby spindlestems, grow taller
+	if height > 0 then
+		local delay = growth_delay()
+		local meta = minetest.get_meta(pos)
+		meta:set_int("spindlestem_to_grow", height)
+		meta:set_int("spindlestem_delay", delay)
+		minetest.get_node_timer(pos):start(delay)
+	end
+end
 
 register_spindlestem_type("white", S("White"), "FFFFFF", 0)
 register_spindlestem_type("red", S("Red"), "FFC3C3", 3, "color_red")
@@ -336,6 +385,10 @@ local c_green = minetest.get_content_id("df_trees:spindlestem_cap_green")
 local c_cyan = minetest.get_content_id("df_trees:spindlestem_cap_cyan")
 local c_golden = minetest.get_content_id("df_trees:spindlestem_cap_golden")
 
+local iron_nodes = df_dependencies.data_iron_containing_nodes
+local copper_nodes = df_dependencies.data_copper_containing_nodes
+local mese_nodes = df_dependencies.data_mese_containing_nodes
+
 get_spindlestem_cap_type = function(pos)
 	if minetest.find_node_near(pos, 15, "group:tower_cap") then
 		return c_white
@@ -344,9 +397,9 @@ get_spindlestem_cap_type = function(pos)
 		return c_red
 	end
 	
-	local iron = minetest.find_node_near(pos, 5, df_trees.iron_containing_nodes)
-	local copper = minetest.find_node_near(pos, 5, df_trees.copper_containing_nodes)
-	local mese = minetest.find_node_near(pos, 5, df_trees.mese_containing_nodes)
+	local iron = minetest.find_node_near(pos, 5, iron_nodes)
+	local copper = minetest.find_node_near(pos, 5, copper_nodes)
+	local mese = minetest.find_node_near(pos, 5, mese_nodes)
 	local possibilities = {}
 
 	if mese then table.insert(possibilities, c_golden) end

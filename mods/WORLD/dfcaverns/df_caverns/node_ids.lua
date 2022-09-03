@@ -1,13 +1,34 @@
 df_caverns.node_id = {}
 
-minetest.after(1, function() df_caverns.node_id = nil end) -- should only be used during initialization.
+minetest.after(0, function() df_caverns.node_id = nil end) -- should only be used during initialization.
+
+if df_dependencies.node_name_fireflies then
+	df_caverns.node_id.fireflies = minetest.get_content_id(df_dependencies.node_name_fireflies)
+end
+
+df_caverns.node_id.cobble = minetest.get_content_id(df_dependencies.node_name_cobble)
+df_caverns.node_id.desert_sand = minetest.get_content_id(df_dependencies.node_name_desert_sand)
+df_caverns.node_id.dirt = minetest.get_content_id(df_dependencies.node_name_dirt)
+df_caverns.node_id.gravel = minetest.get_content_id(df_dependencies.node_name_gravel)
+df_caverns.node_id.ice = minetest.get_content_id(df_dependencies.node_name_ice)
+df_caverns.node_id.lava = minetest.get_content_id(df_dependencies.node_name_lava_source)
+df_caverns.node_id.meseore = minetest.get_content_id(df_dependencies.node_name_stone_with_mese)
+df_caverns.node_id.mossycobble = minetest.get_content_id(df_dependencies.node_name_mossycobble)
+df_caverns.node_id.obsidian = minetest.get_content_id(df_dependencies.node_name_obsidian)
+df_caverns.node_id.sand = minetest.get_content_id(df_dependencies.node_name_sand)
+df_caverns.node_id.silver_sand = minetest.get_content_id(df_dependencies.node_name_silver_sand)
+df_caverns.node_id.snow = minetest.get_content_id(df_dependencies.node_name_snow)
+df_caverns.node_id.stone = minetest.get_content_id(df_dependencies.node_name_stone)
+df_caverns.node_id.stone_with_coal = minetest.get_content_id(df_dependencies.node_name_stone_with_coal)
+df_caverns.node_id.water = minetest.get_content_id(df_dependencies.node_name_water_source)
+
+if minetest.get_modpath("big_webs") then
+	df_caverns.node_id.big_webs = minetest.get_content_id("big_webs:webbing")
+	df_caverns.node_id.big_webs_egg = minetest.get_content_id("big_webs:web_egg")
+end
 
 if minetest.get_modpath("ice_sprites") then
 	df_caverns.node_id.sprite = minetest.get_content_id("ice_sprites:ice_sprite")
-end
-
-if minetest.get_modpath("fireflies") then
-	df_caverns.node_id.fireflies = minetest.get_content_id("fireflies:firefly")
 end
 
 if minetest.get_modpath("df_farming") then
@@ -15,22 +36,6 @@ if minetest.get_modpath("df_farming") then
 end
 
 df_caverns.node_id.air = minetest.get_content_id("air")
-
-df_caverns.node_id.cobble = minetest.get_content_id("default:cobble")
-df_caverns.node_id.desert_sand = minetest.get_content_id("default:desert_sand")
-df_caverns.node_id.dirt = minetest.get_content_id("default:dirt")
-df_caverns.node_id.gravel = minetest.get_content_id("default:gravel")
-df_caverns.node_id.ice = minetest.get_content_id("default:ice")
-df_caverns.node_id.lava = minetest.get_content_id("default:lava_source")
-df_caverns.node_id.meseore = minetest.get_content_id("default:stone_with_mese")
-df_caverns.node_id.mossycobble = minetest.get_content_id("default:mossycobble")
-df_caverns.node_id.obsidian = minetest.get_content_id("default:obsidian")
-df_caverns.node_id.sand = minetest.get_content_id("default:sand")
-df_caverns.node_id.silver_sand = minetest.get_content_id("default:silver_sand")
-df_caverns.node_id.snow = minetest.get_content_id("default:snow")
-df_caverns.node_id.stone = minetest.get_content_id("default:stone")
-df_caverns.node_id.stone_with_coal = minetest.get_content_id("default:stone_with_coal")
-df_caverns.node_id.water = minetest.get_content_id("default:water_source")
 
 df_caverns.node_id.cobble_fungus = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus")
 df_caverns.node_id.cobble_fungus_fine = minetest.get_content_id("df_mapitems:cobble_with_floor_fungus_fine")

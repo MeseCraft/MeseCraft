@@ -1,37 +1,43 @@
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
+
+local nethercap_name = df_dependencies.nethercap_name
 
 --stem
 minetest.register_node("df_trees:nether_cap_stem", {
-	description = S("Nether Cap Stem"),
+	description = S("@1 Stem", nethercap_name),
 	_doc_items_longdesc = df_trees.doc.nether_cap_desc,
 	_doc_items_usagehelp = df_trees.doc.nether_cap_usage,
 	tiles = {"dfcaverns_nether_cap_stem.png"},
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1, handy=1,axey=1, building_block=1, material_wood=1},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 0.7,
+	_mcl_hardness = 0.7,
 })
 
 --cap
 minetest.register_node("df_trees:nether_cap", {
-	description = S("Nether Cap"),
+	description = nethercap_name,
 	_doc_items_longdesc = df_trees.doc.nether_cap_desc,
 	_doc_items_usagehelp = df_trees.doc.nether_cap_usage,
 	tiles = {"dfcaverns_nether_cap.png"},
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = df_trees.sounds.nethercap_wood,
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1, handy=1,axey=1, building_block=1, material_wood=1},
+	sounds = df_dependencies.sound_wood({footstep = {name = df_dependencies.soundfile_snow_footstep, gain = 0.2},}),
+	_mcl_blast_resistance = 0.5,
+	_mcl_hardness = 0.5,
 })
 
 --gills
 minetest.register_node("df_trees:nether_cap_gills", {
-	description = S("Nether Cap Gills"),
+	description = S("@1 Gills", nethercap_name),
 	_doc_items_longdesc = df_trees.doc.nether_cap_desc,
 	_doc_items_usagehelp = df_trees.doc.nether_cap_usage,
 	tiles = {"dfcaverns_nether_cap_gills.png"},
 	is_ground_content = false,
 	light_source = 6,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1},
-	sounds = df_trees.sounds.leaves,
+	groups = {snappy = 3, leafdecay = 1, leaves = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, nether_cap = 1,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1},
+	sounds = df_dependencies.sound_leaves(),
 	drawtype = "plantlike",
 	paramtype = "light",
 	drop = {
@@ -46,10 +52,13 @@ minetest.register_node("df_trees:nether_cap_gills", {
 			}
 		}
 	},
-	after_place_node = df_trees.after_place_leaves,
+	after_place_node = df_dependencies.after_place_leaves,
+	place_param2 = 1, -- Prevent leafdecay for placed nodes
+	_mcl_blast_resistance = 0.1,
+	_mcl_hardness = 0.1,
 })
 
-df_trees.register_leafdecay({
+df_dependencies.register_leafdecay({
 	trunks = {"df_trees:nether_cap"}, -- don't need stem nodes here
 	leaves = {"df_trees:nether_cap_gills"},
 	radius = 1,	
@@ -71,22 +80,24 @@ minetest.register_craft({
 })
 
 minetest.register_node("df_trees:nether_cap_wood", {
-	description = S("Nether Cap Planks"),
+	description = S("@1 Planks", nethercap_name),
 	_doc_items_longdesc = df_trees.doc.nether_cap_desc,
 	_doc_items_usagehelp = df_trees.doc.nether_cap_usage,
 	paramtype2 = "facedir",
 	place_param2 = 0,
 	tiles = {"dfcaverns_nether_cap_wood.png"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, wood = 1, freezes_water = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, wood = 1, freezes_water = 1, handy=1,axey=1,building_block=1, material_wood=1},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 0.5,
+	_mcl_hardness = 0.5,
 })
 
-df_trees.register_all_stairs("nether_cap_wood")
+df_dependencies.register_all_stairs_and_fences("nether_cap_wood")
 
 -- sapling
 minetest.register_node("df_trees:nether_cap_sapling", {
-	description = S("Nether Cap Spawn"),
+	description = S("@1 Spawn", nethercap_name),
 	_doc_items_longdesc = df_trees.doc.nether_cap_desc,
 	_doc_items_usagehelp = df_trees.doc.nether_cap_usage,
 	drawtype = "plantlike",
@@ -104,18 +115,17 @@ minetest.register_node("df_trees:nether_cap_sapling", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3,
-		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = df_trees.sounds.leaves,
+		attached_node = 1, sapling = 1, light_sensitive_fungus = 11, dig_immediate=3,dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1},
+	sounds = df_dependencies.sound_leaves(),
+	_mcl_blast_resistance = 0.1,
+	_mcl_hardness = 0.1,
 
 	on_construct = function(pos)
-		local node_below_name = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-		if minetest.get_item_group(node_below_name, "cools_lava") == 0 or minetest.get_item_group(node_below_name, "nether_cap") > 0 then
-			return
+		if df_trees.nether_cap_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.nether_cap_delay_multiplier*df_trees.config.tree_min_growth_delay,
+				df_trees.config.nether_cap_delay_multiplier*df_trees.config.tree_max_growth_delay))
 		end
-
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.nether_cap_delay_multiplier*df_trees.config.tree_min_growth_delay,
-			df_trees.config.nether_cap_delay_multiplier*df_trees.config.tree_max_growth_delay))
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()
@@ -162,12 +172,12 @@ df_trees.spawn_nether_cap_vm = function(vi, area, data)
 	subterrane.giant_mushroom(vi, area, data, c_stem, c_cap, c_gills, stem_height, cap_radius)
 end
 
-local water = df_trees.node_names.water_source
-local river_water = df_trees.node_names.river_water_source
-local ice = df_trees.node_names.ice
-local water_flowing = df_trees.node_names.water_flowing
-local river_water_flowing = df_trees.node_names.river_water_flowing
-local snow = df_trees.node_names.snow
+local water = df_dependencies.node_name_water_source
+local river_water = df_dependencies.node_name_river_water_source
+local ice = df_dependencies.node_name_ice
+local water_flowing = df_dependencies.node_name_water_flowing
+local river_water_flowing = df_dependencies.node_name_river_water_flowing
+local snow = df_dependencies.node_name_snow
 
 minetest.register_abm{
 	label = "water freezing",

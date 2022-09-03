@@ -160,6 +160,20 @@ Quarry bushes can be found here.
 
 On the third cavern layer the dry barren caverns will sprout clusters of enormous hexagonal red crystals from their floors and ceilings, providing light. These crystals have no particular use but are rare and beautiful to look at.
 
+# Chasms
+
+![A chasm](./df_caverns/screenshots/chasm.jpg)
+
+Not all vast open spaces underground are the result of aeons of erosion by water or magma. The foundations of the world shift from time to time, causing deep faults to split open in the rock. Yawning chasms can be found oriented along the north-south axis, some of them stretching for kilometers both in length and depth. They cross through multiple cavern layers and are an environment in their own right. Chasms can be a convenient way of traveling long distances and also a convenient way of falling to your death.
+
+The great extent of chasms makes them hospitable to small flying creatures, and their narrowness makes the hospitable to creatures that feed on them - giant cave spider webs can be found strung across them here and there. A dubious salvation for anyone falling from above.
+
+# Pit caves
+
+![Looking up from the bottom of a pit](./df_caverns/screenshots/pit_cave.jpg)
+
+A pit cave is a type of cave which contains one or more significant vertical shafts rather than being predominantly a conventional horizontal cave passage. Pit caves typically form in limestone as a result of long-term erosion by water. Given the vast scope of the flowstone formations found throughout the upper layers of the world's caverns, correspondingly gigantic pits can also be found. They sometimes breach the surface of the world, and at their greatest extent can have a drop over two kilometers deep. Bring plenty of rope when exploring such abysses.
+
 # Sunless Sea
 
 ![Sunless river](./df_caverns/screenshots/sunless_river.jpg)
@@ -174,7 +188,7 @@ The distinguishing feature of the Sunless Sea is the vast expanse of water to be
 
 Below the surface of the water Snareweed can be found, a dangerous kelp-like growth that uses bioluminescence and reflective patches to lure cave fish close enough to snag with their barbs. Swimming through Snareweed is a painful experience. Deeper down are craggy towers of softly glowing Cave Coral.
 
-This is the last stop for the living world, however. Caverns continue to stretch below but nothing grows down there.
+This is the last stop for the living world. Caverns continue to stretch below but nothing grows below.
 
 # Lakes of Oil
 
@@ -200,9 +214,9 @@ The Magma Sea is not without its treasures, however. In the most infernal region
 
 ![There are older and fouler things than orcs in the deep places of the world](./df_caverns/screenshots/underworld.jpg)
 
-The foundations of the world lie at -3100 meters, under a default configuration. The diggable rock of the world ends at a rippling layer of invulnerable Slade, a material of unparalleled density. There is a cavern layer at the seam between rock and Slade, however, as if the earth itself was reluctant to touch the strange matter below. The crevices of the ceiling have strange glowing rocks in them, producing a surprisingly bright ambiance. Don't attempt to disturb those rocks.
+The foundations of the world lie at -3100 meters. The diggable rock of the world ends at a rippling layer of invulnerable Slade, a material of unparalleled density. There is a cavern layer at the seam between rock and Slade, however, as if the earth itself was reluctant to touch the strange matter below. The crevices of the ceiling have strange glowing rocks in them, producing a surprisingly bright ambiance. Don't attempt to disturb those rocks.
 
-There is no native life in the Underworld. It appears there once _was_, however. Occasional clusters of vacant buildings can be found, impossibly crafted from bricks of Slade and empty of any furnishings. Around those clusters of vacant buildings are fields filled with sealed pits lined with flawless Slade blocks. It is unclear whether these pits are as vacant as the buildings, though. The seals capping them are engraved with ancient words in lost tongues, but one phrase can be translated from the oldest known languages: "This Place is Not a Place of Honor."
+There is no native life in the Underworld. It appears there once _was_, however. Occasional clusters of vacant buildings can be found, impossibly crafted from bricks of Slade and empty of any furnishings. Around those clusters of vacant buildings are fields filled with sealed pits that are lined with flawless Slade blocks. It is unclear whether these pits are as vacant as the buildings, though. The seals capping them are engraved with ancient words in lost tongues, but one phrase can be translated from the oldest known languages: "This Place is Not a Place of Honor."
 
 Just as ominously, the ancient bones of long-dead warriors are scattered amidst the buildings. They contain loot for those willing to risk disturbing them. There are no traces of who - or what - they died fighting, but their ancient sentinels still lurk nearby to guard them.
 

@@ -1,4 +1,6 @@
-local S = df_underworld_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
+
+local lava_source = df_dependencies.node_name_lava_source
 
 minetest.register_node("df_underworld_items:pit_plasma", {
 	description = S("Glowing Pit Plasma"),
@@ -17,7 +19,7 @@ minetest.register_node("df_underworld_items:pit_plasma", {
 		},
 	},
 	
-	groups={pit_plasma=1, pit_plasma_resistant=1},
+	groups={pit_plasma=1, pit_plasma_resistant=1,destroys_items=1, set_on_fire=15, fire_damage=1, liquid=1},
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -36,6 +38,8 @@ minetest.register_node("df_underworld_items:pit_plasma", {
 	is_ground_content = false,
 	light_source = minetest.LIGHT_MAX,
 	paramtype = "light",
+	_mcl_blast_resistance = 3600000,
+	_mcl_hardness = -1,
 })
 
 minetest.register_node("df_underworld_items:pit_plasma_flowing", {
@@ -65,7 +69,7 @@ minetest.register_node("df_underworld_items:pit_plasma_flowing", {
 			},
 		},
 	},
-	groups={pit_plasma=1, pit_plasma_resistant=1},
+	groups={pit_plasma=1, pit_plasma_resistant=1, not_in_creative_inventory=1,destroys_items=1, set_on_fire=15, fire_damage=1, liquid=1},
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -85,6 +89,8 @@ minetest.register_node("df_underworld_items:pit_plasma_flowing", {
 	is_ground_content = false,
 	light_source = minetest.LIGHT_MAX,
 	paramtype = "light",
+	_mcl_blast_resistance = 3600000,
+	_mcl_hardness = -1,
 })
 
 if minetest.get_modpath("radiant_damage") and radiant_damage.override_radiant_damage then
@@ -127,6 +133,7 @@ if df_underworld_items.config.destructive_pit_plasma then
 	minetest.register_abm({
 		label = "glowing pit matter degradation",
 		nodenames = {"group:pit_plasma"},
+		neighbors = df_dependencies.abm_pit_plasma_neighbors,
 		interval = 2,
 		chance = 30,
 		catch_up = false,
@@ -143,7 +150,7 @@ if df_underworld_items.config.destructive_pit_plasma then
 								if math.random() < 0.66 then
 									minetest.set_node(test_pos, {name="df_underworld_items:glow_amethyst"})
 								else
-									minetest.set_node(test_pos, {name="default:lava_source"})
+									minetest.set_node(test_pos, {name=lava_source})
 								end
 							else
 								minetest.set_node(test_pos, {name="air"})
@@ -157,19 +164,18 @@ if df_underworld_items.config.destructive_pit_plasma then
 			end		
 		end,
 	})
-else
-	minetest.register_abm({
-		label = "glowing pit sparkle",
-		nodenames = {"group:pit_plasma"},
-		neighbors = {"air"},
-		interval = 2,
-		chance = 30,
-		catch_up = false,
-		action = function(pos)
-			local air_pos = minetest.find_node_near(pos, 1, "air")
-			if air_pos then
-				sparkle(air_pos)
-			end
-		end,
-	})
 end
+minetest.register_abm({
+	label = "glowing pit sparkle",
+	nodenames = {"group:pit_plasma"},
+	neighbors = {"air"},
+	interval = 2,
+	chance = 30,
+	catch_up = false,
+	action = function(pos)
+		local air_pos = minetest.find_node_near(pos, 1, "air")
+		if air_pos then
+			sparkle(air_pos)
+		end
+	end,
+})

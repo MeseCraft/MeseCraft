@@ -6,18 +6,16 @@ local modpath = minetest.get_modpath(modname)
 local S = minetest.get_translator(modname)
 
 local bones_loot_path = minetest.get_modpath("bones_loot")
+local bones_node = df_dependencies.node_name_bones
 local named_waypoints_path = minetest.get_modpath("named_waypoints")
 local name_generator_path = minetest.get_modpath("name_generator")
 
--- TEMP backwards compatibility for the change of name of the name_generator mod. Once it's updated in the contentDB, remove this and also the optional_depends
-local namegenerator = nil
-if not name_generator_path and minetest.get_modpath("namegen") and namegen and namegen.parse_lines and namegen.generate then
-	namegenerator = namegen
-elseif name_generator_path then
-	namegenerator = name_generator
-end
-
 local hunters_enabled = minetest.get_modpath("hunter_statue") and df_underworld_items.config.underworld_hunter_statues
+
+local log_location
+if mapgen_helper.log_location_enabled then
+	log_location = mapgen_helper.log_first_location
+end
 
 local name_pit = function() end
 local name_ruin = function() end
@@ -59,14 +57,14 @@ if named_waypoints_path then
 	end
 	named_waypoints.register_named_waypoints("puzzle_seals", seal_waypoint_def)
 
-	if namegenerator then
-		namegenerator.parse_lines(io.lines(modpath.."/underworld_names.cfg"))
+	if name_generator_path then
+		name_generator.parse_lines(io.lines(modpath.."/underworld_names.cfg"))
 		
 		name_pit = function()
-			return namegenerator.generate("glowing_pits")
+			return name_generator.generate("glowing_pits")
 		end
 		name_ruin = function()
-			return namegenerator.generate("underworld_ruins")
+			return name_generator.generate("underworld_ruins")
 		end
 		
 		local underworld_ruin_def = {
@@ -312,6 +310,8 @@ local get_pit = function(pos)
 	return {location = location, radius = radius, variance = variance, depth = depth}
 end
 
+df_caverns.get_nearest_glowing_pit = get_pit
+
 local perlin_pit = {
 	offset = 0,
 	scale = 1,
@@ -335,6 +335,13 @@ minetest.register_chatcommand("find_pit", {
 		end
 	end,
 })
+
+df_caverns.register_biome_check(function(pos, heat, humidity)
+	if pos.y > y_max or pos.y < y_min then
+		return
+	end
+	return "underworld"
+end)
 
 minetest.register_on_generated(function(minp, maxp, seed)
 
@@ -395,6 +402,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 					if distance < pit.radius -2.5 then
 						if y < median + floor_displace + wave - pit.depth or y < underside_height + plasma_depth_min then
 							data[vi] = c_pit_plasma
+							if log_location then log_location("underworld_pit", vector.new(x,y,z)) end
 						else
 							data[vi] = c_air
 						end
@@ -471,15 +479,40 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, oubliette_schematic, 0, {["df_underworld_items:slade_seal"] = "air"})
 						elseif building.building_type == "lamppost" then
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, lamppost_schematic)
+							local lamp_pos = vector.new(building.pos.x, building.pos.y+6, building.pos.z)
+							minetest.after(math.random()*10, function()
+								-- not all of these locations will get a lamp, but it's easier to just set four
+								-- timers than to worry about testing first.
+								minetest.get_node_timer({x=lamp_pos.x+1, y=lamp_pos.y, z=lamp_pos.z}):start(math.random()*30)
+								minetest.get_node_timer({x=lamp_pos.x-1, y=lamp_pos.y, z=lamp_pos.z}):start(math.random()*30)
+								minetest.get_node_timer({x=lamp_pos.x, y=lamp_pos.y, z=lamp_pos.z+1}):start(math.random()*30)
+								minetest.get_node_timer({x=lamp_pos.x, y=lamp_pos.y, z=lamp_pos.z-1}):start(math.random()*30)
+							end)
 						elseif building.building_type == "small building" then
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, small_building_schematic, building.rotation)
+							local pos = building.pos
+							minetest.after(1, function()
+								local puzzle_chest = minetest.find_node_near(pos, 4, {"df_underworld_items:puzzle_chest_closed"}, true)
+								if puzzle_chest then
+									local def = minetest.registered_nodes["df_underworld_items:puzzle_chest_closed"]
+									def.can_dig(puzzle_chest) -- initializes the inventory
+									local meta = minetest.get_meta(puzzle_chest)
+									local inv = meta:get_inventory()
+									for i = 1, math.random(1,8) do
+										local item = ItemStack(df_underworld_items.colour_items[math.random(1,#df_underworld_items.colour_items)])
+										--item:set_count(math.random(1,4))
+										inv:add_item("main", item)
+									end
+								end								
+							end)
 						elseif building.building_type == "medium building" then
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, medium_building_schematic, building.rotation)
-							if named_waypoints_path and namegenerator then
+							if name_generator_path then
 								if not next(named_waypoints.get_waypoints_in_area("underworld_ruins", vector.subtract(building.pos, 250), vector.add(building.pos, 250))) then
 									named_waypoints.add_waypoint("underworld_ruins", {x=building.pos.x, y=floor_height+1, z=building.pos.z}, {name=name_ruin()})
 								end
-							end							
+							end
+							if log_location then log_location("underworld_building", building.pos) end
 						elseif building.building_type == "small slab" then
 							mapgen_helper.place_schematic_on_data(data, data_param2, area, building.pos, small_slab_schematic, building.rotation)
 						else
@@ -507,6 +540,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			end
 			puzzle_seal = {x=minp.x+3, y=floor_height+1, z=minp.z+3}
 			minetest.log("info", "Puzzle seal generated at " .. minetest.pos_to_string(puzzle_seal))
+			if log_location then log_location("underworld_puzzle_seal", puzzle_seal) end
 		end
 	end
 
@@ -542,7 +576,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local ceiling_height =  math.floor(abs_cave * ceiling_mult + median + ceiling_displace + wave)
 			if floor_height < ceiling_height then
 				local zone = math.abs(nvals_zone[index2d])
-				if math.random() < zone then -- bones are more common in the built-up areas
+				if math.random() < zone/2 then -- bones are more common in the built-up areas
 					local floor_node = minetest.get_node({x=x, y=floor_height, z=z})
 					local floor_node_def = minetest.registered_nodes[floor_node.name]
 					if floor_node_def and not floor_node_def.buildable_to then
@@ -553,7 +587,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 							if target_node.name == "air" then
 								bones_loot.place_bones(target_pos, "underworld_warrior", math.random(3, 10), nil, true)
 								break
-							elseif target_node.name == "mesecraft_bones:bones" then
+							elseif target_node.name == bones_node then
 								-- don't stack bones on bones, it looks silly
 								break
 							end

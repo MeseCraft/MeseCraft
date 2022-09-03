@@ -1,0 +1,11 @@
+# textdomain: pit_caves
+
+
+### init.lua ###
+
+No pits near @1=
+Pit at @1, bottom @2=
+You need the server privilege to use this command.=
+
+find the pits near the player's map region, or in the map region containing pos if provided=
+

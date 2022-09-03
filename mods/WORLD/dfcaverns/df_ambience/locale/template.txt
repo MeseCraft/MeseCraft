@@ -1,0 +1,9 @@
+# textdomain: df_ambience
+
+
+### init.lua ###
+
+Muted, no new sounds will start playing once current sounds finish=
+
+Mutes or unmutes ambient sounds in deep caverns=
+Unmuted=

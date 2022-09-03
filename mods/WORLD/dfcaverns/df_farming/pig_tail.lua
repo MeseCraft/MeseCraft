@@ -1,4 +1,4 @@
-local S = df_farming.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local pig_tail_grow_time = df_farming.config.plant_growth_time * df_farming.config.pig_tail_delay_multiplier / 8
 
@@ -18,8 +18,8 @@ local register_pig_tail = function(number)
 		is_ground_content = false,
 		floodable = true,
 		buildable_to = true,
-		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = df_farming.sounds.leaves,
+		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11, fire_encouragement=60,fire_flammability=100, compostability=70, handy=1,shearsy=1,hoey=1, destroy_by_lava_flow=1,dig_by_piston=1},
+		sounds = df_dependencies.sound_leaves(),
         selection_box = {
             type = "fixed",
             fixed = {
@@ -35,11 +35,11 @@ local register_pig_tail = function(number)
 			max_items = 1,
 			items = {
 				{
-					items = {'df_farming:pig_tail_seed 2', 'df_farming:pig_tail_thread 2'},
+					items = {'df_farming:pig_tail_seed 2', 'df_farming:pig_tail_thread 3'},
 					rarity = 9-number,
 				},
 				{
-					items = {'df_farming:pig_tail_seed 1', 'df_farming:pig_tail_thread'},
+					items = {'df_farming:pig_tail_seed 1', 'df_farming:pig_tail_thread 2'},
 					rarity = 9-number,
 				},
 				{
@@ -48,6 +48,8 @@ local register_pig_tail = function(number)
 				},
 			},
 		},
+		_mcl_blast_resistance = 0.2,
+		_mcl_hardness = 0.2,
 	}
 	
 	if number < 8 then
@@ -95,18 +97,18 @@ minetest.register_craftitem("df_farming:pig_tail_thread", {
 	groups = {flammable = 1, thread = 1},
 })
 
-if minetest.get_modpath("wool") then
+if df_dependencies.node_name_wool_white then
 	minetest.register_craft({
-		output = df_farming.node_names.wool_white,
+		output = df_dependencies.node_name_wool_white,
 		recipe = {
 			{"group:thread", "group:thread"},
 			{"group:thread", "group:thread"},
 		}
 	})
 end
-if minetest.get_modpath("farming") then
+if df_dependencies.node_name_string then
 	minetest.register_craft({
-		output = "farming:string 2",
+		output = df_dependencies.node_name_string .. " 2",
 		recipe = {
 			{"group:thread"},
 			{"group:thread"},
@@ -135,9 +137,11 @@ if minetest.get_modpath("footprints") then
 				{-0.5, -0.5, -0.5, 0.5, -3 / 8, 0.5}
 			},
 		},
-		groups = {snappy = 3, flammable = 2, attached_node = 1},
+		groups = {snappy = 3, flammable = 2, attached_node = 1, handy=1, hoey=1, compostability=85, fire_encouragement=60, fire_flammability=20, fall_damage_add_percent=-30, destroy_by_lava_flow=1,dig_by_piston=1},
 		drop = "",
-		sounds = df_farming.sounds.leaves,
+		sounds = df_dependencies.sound_leaves(),
+		_mcl_blast_resistance = 0.2,
+		_mcl_hardness = 0.2,
 	})
 	
 	footprints.register_trample_node("df_farming:pig_tail_5", {

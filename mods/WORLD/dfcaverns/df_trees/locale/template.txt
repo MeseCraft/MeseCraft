@@ -19,6 +19,10 @@ Dead Blood Thorn Stem=
 
 ### doc.lua ###
 
+@1 have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=
+
+@1 wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living icecaps and is able to quickly freeze nearby water solid.=
+
 A torchspine alternates between active and quiescent phases and emits dim light when active. They can be harvested for torches, and their embers sprout into new torchspines when placed on flammable surfaces.=
 
 Aside from the artistic applications of its particularly dark color, black cap wood is a long-burning fuel source that's as good as coal for some applications. Black cap gills are oily and make for excellent torch fuel.=
@@ -43,10 +47,6 @@ Living extract from the cap of a red Spindlestem.=
 Living extract from the cap of a yellow Spindlestem.=
 
 Massive but squat, mature goblin cap mushrooms are the size of small cottages.=
-
-Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=
-
-Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=
 
 Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin Caps. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is weak.=
 
@@ -107,18 +107,12 @@ Goblin Cap Spawn=
 Goblin Cap Stem=
 Goblin Cap Stem Planks=
 
-### init.lua ###
-
-@1 Slab=
-@1 Stair=
-
 ### nether_cap.lua ###
 
-Nether Cap=
-Nether Cap Gills=
-Nether Cap Planks=
-Nether Cap Spawn=
-Nether Cap Stem=
+@1 Gills=
+@1 Planks=
+@1 Spawn=
+@1 Stem=
 
 ### spindlestem.lua ###
 

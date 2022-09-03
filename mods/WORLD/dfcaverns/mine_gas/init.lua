@@ -39,7 +39,7 @@ minetest.register_node("mine_gas:gas", {
 	post_effect_color = {a = 20, r = 20, g = 20, b = 250},
 	tiles = {"mine_gas.png^[opacity:28"},
 	use_texture_alpha = "blend",
-	groups = {not_in_creative_inventory=1, ropes_can_extend_into=1},
+	groups = {not_in_creative_inventory=1, ropes_can_extend_into=1, not_solid=1, not_opaque=1},
 	paramtype = "light",
 	drop = {},
 	sunlight_propagates = true,
@@ -50,11 +50,13 @@ minetest.register_node("mine_gas:gas_seep", {
 	description = S("Gas Seep"),
 	_doc_items_longdesc = seep_desc,
 	_doc_items_usagehelp = seep_usage,
-	tiles = {"default_stone.png^default_mineral_coal.png^[combine:16x80:0,-16=crack_anylength.png"},
-	groups = {cracky = 3},
-	drop = 'default:coal_lump',
-	sounds = default.node_sound_stone_defaults(),
+	tiles = {df_dependencies.texture_stone.."^"..df_dependencies.texture_mineral_coal.."^[combine:16x80:0,-16=crack_anylength.png"},
+	groups = {cracky = 3, pickaxey=1, building_block=1, material_stone=1},
+	drop = df_dependencies.node_name_coal_lump,
+	sounds = df_dependencies.sound_stone(),
 	is_ground_content = true,
+	_mcl_blast_resistance = 5,
+	_mcl_hardness = 3,
 })
 
 minetest.register_on_dignode(function(pos, oldnode, digger)
@@ -120,6 +122,8 @@ minetest.register_abm({
 	end,
 })
 
+local soundfile_cool_lava = df_dependencies.soundfile_cool_lava
+
 minetest.register_abm({
 	label = "mine_gas:gas snuffing torches",
 	nodenames = {"group:torch"},
@@ -136,24 +140,26 @@ minetest.register_abm({
 	        end
 			minetest.set_node(pos, {name="mine_gas:gas"})
 			minetest.sound_play(
-				"default_cool_lava",
+				soundfile_cool_lava,
 				{pos = pos, max_hear_distance = 16, gain = 0.1}
 			)
 		end	
 	end,
 })
 
-if minetest.get_modpath("tnt") then
+local tnt_boom = df_dependencies.tnt_boom
+
+if tnt_boom then
 	minetest.register_abm({
 		label = "mine_gas:gas ignition",
-		nodenames = {"group:torch", "group:igniter"},
+		nodenames = {"group:torch", "group:igniter", "group:fire"}, -- checking for ignition sources because there will be fewer than there are gas nodes
 		neighbors = {"mine_gas:gas"},
 		interval = 1.0,
 		chance = 1,
 		catch_up = true,
 		action = function(pos, node)
 			if minetest.find_node_near(pos, 1, "air") then
-				tnt.boom(pos, {radius=1, damage_radius=6})
+				tnt_boom(pos, {radius=1, damage_radius=6})
 				-- One in a hundred explosions will spawn a gas wisp
 				if math.random() < 0.01 then
 					minetest.set_node(pos, {name="mine_gas:gas_wisp"})
@@ -172,6 +178,7 @@ local orthogonal = {
 	{x=-1,y=0,z=0},
 }
 
+local stone_with_coal = df_dependencies.node_name_stone_with_coal
 minetest.register_lbm({
     label = "shut down gas seeps near lava",
     name = "mine_gas:shut_down_lava_adjacent",
@@ -180,7 +187,7 @@ minetest.register_lbm({
     action = function(pos, node)
 		minetest.after(math.random()*60, function()
 			if minetest.find_node_near(pos, 30, "group:lava") then
-				minetest.set_node(pos, {name="default:stone_with_coal"})
+				minetest.set_node(pos, {name=stone_with_coal})
 			end
 		end)
 	end,

@@ -1,2 +1,5 @@
 dfcaverns_fungus_footstep are from https://freesound.org/people/jakeh111/sounds/60853/ under CC-BY-SA 3.0 in 2008 by jakeh111
 dfcaverns_spore_tree_pitter_patter are from https://freesound.org/people/martinimeniscus/sounds/199332/ by martinimeniscus under the CC0 public domain license
+
+dfcaverns_torchspine_loop is from https://freesound.org/people/PegasusCZ/sounds/569332/ by PegasusCZ under the CC0 public domain license
+dfcaverns_torchspine_ignite is from https://freesound.org/people/deleted_user_4772965/sounds/256510/ by Patrick Hunt5 under the CC0 public domain license

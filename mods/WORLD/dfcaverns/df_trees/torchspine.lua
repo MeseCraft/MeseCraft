@@ -1,8 +1,22 @@
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
+
+local torchspine_min_delay = df_trees.config.blood_thorn_delay_multiplier*df_trees.config.tree_min_growth_delay
+local torchspine_max_delay = df_trees.config.blood_thorn_delay_multiplier*df_trees.config.tree_max_growth_delay
+
+local looped_node_sound_modpath = minetest.get_modpath("looped_node_sound")
 
 -- Rather than make this whole mod depend on subterrane just for this, I copied and pasted a chunk of stalactite code.
 local x_disp = 0.125
 local z_disp = 0.125
+
+local function copy_pointed_thing(pointed_thing)
+	return {
+		type  = pointed_thing.type,
+		above = pointed_thing.above and vector.copy(pointed_thing.above),
+		under = pointed_thing.under and vector.copy(pointed_thing.under),
+		ref   = pointed_thing.ref,
+	}
+end
 
 local stal_on_place = function(itemstack, placer, pointed_thing)
 	local pt = pointed_thing
@@ -40,8 +54,24 @@ local stal_on_place = function(itemstack, placer, pointed_thing)
 	end
 
 	-- add the node and remove 1 item from the itemstack
+	local newnode= {name = itemstack:get_name(), param2 = new_param2, param1=0}
+	local oldnode= minetest.get_node(pt.above)
 	minetest.add_node(pt.above, {name = itemstack:get_name(), param2 = new_param2})
-	if not minetest.settings:get_bool("creative_mode", false) then
+	
+	-- Run script hook
+	local take_item = true
+	for _, callback in ipairs(core.registered_on_placenodes) do
+		-- Deepcopy pos, node and pointed_thing because callback can modify them
+		local place_to_copy = vector.copy(pt.above)
+		local newnode_copy = {name=newnode.name, param1=newnode.param1, param2=newnode.param2}
+		local oldnode_copy = {name=oldnode.name, param1=oldnode.param1, param2=oldnode.param2}
+		local pointed_thing_copy = copy_pointed_thing(pointed_thing)
+		if callback(place_to_copy, newnode_copy, placer, oldnode_copy, itemstack, pointed_thing_copy) then
+			take_item = false
+		end
+	end
+	
+	if not minetest.is_creative_enabled(placer:get_player_name()) and take_item then
 		itemstack:take_item()
 	end
 	return itemstack
@@ -52,14 +82,57 @@ local stal_box_2 = {{-0.125+x_disp, -0.5, -0.125+z_disp, 0.125+x_disp, 0.5, 0.12
 local stal_box_3 = {{-0.25+x_disp, -0.5, -0.25+z_disp, 0.25+x_disp, 0.5, 0.25+z_disp}}
 local stal_box_4 = {{-0.375+x_disp, -0.5, -0.375+z_disp, 0.375+x_disp, 0.5, 0.375+z_disp}}
 
-local torch_node = df_trees.node_names.torch
+local torchspine_list = {"df_trees:torchspine_1","df_trees:torchspine_2","df_trees:torchspine_3","df_trees:torchspine_4"}
+local grow_torchspine = function(pos)
+	local param2 = minetest.get_node(pos).param2
+	
+	if param2 > 3 then
+		return -- tipped over, don't grow
+	end
+	
+	local node_above = minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z})
+	local node_above_def = minetest.registered_nodes[node_above.name]
+	if not node_above_def.buildable_to then
+		-- don't grow, but do continue cycling the torch state
+		minetest.swap_node(pos, {name = "df_trees:torchspine_1", param2 = param2})
+		minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+		return
+	end
+
+	local pos_base = vector.new(pos)
+	local height = 1
+	for i = 1,3 do
+		pos_base.y = pos_base.y-1
+		if minetest.get_item_group(minetest.get_node(pos_base).name, "df_trees_torchspine") > 0 then
+			height = height + 1
+		else
+			break
+		end
+	end
+	if height >= 4 then
+		-- don't grow, but do continue cycling the torch state
+		minetest.swap_node(pos, {name = "df_trees:torchspine_1", param2 = param2})
+		minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+		return
+	end
+
+	-- place a taller torchspine
+	pos.y = pos.y + 1
+	minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+	for i = 1, height+1 do
+		minetest.swap_node(pos, {name=torchspine_list[i], param2 = param2})
+		pos.y = pos.y - 1
+	end
+end
+
+local torch_node = df_dependencies.node_name_torch
 
 minetest.register_node("df_trees:torchspine_1", {
 	description = S("Torchspine Tip"),
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_0.5.png", "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, fall_damage_add_percent = 100},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, fall_damage_add_percent = 100, df_trees_torchspine = 1, pickaxey=1, building_block=1, material_stone=1},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -69,11 +142,27 @@ minetest.register_node("df_trees:torchspine_1", {
 		type = "fixed",
 		fixed = stal_box_1,
 	},
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
+
 	on_place = stal_on_place,
 	on_punch = function(pos, node, puncher)
 		if puncher:get_wielded_item():get_name() == torch_node then
 			minetest.swap_node(pos, {name = "df_trees:torchspine_1_lit", param2 = node.param2})
 		end
+	end,
+	
+	on_timer = function(pos)
+		local above_def = minetest.registered_nodes[minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name]
+		if above_def and above_def.buildable_to then
+			minetest.swap_node(pos, {name="df_trees:torchspine_1_lit", param2=minetest.get_node(pos).param2})
+			minetest.sound_play({pos = pos}, {name="dfcaverns_torchspine_ignite"}, true)
+		end
+		minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+	end,
+	
+	on_destruct = function(pos)
+		minetest.get_node_timer(pos):stop()
 	end,
 })
 
@@ -81,8 +170,8 @@ minetest.register_node("df_trees:torchspine_1_lit", {
 	description = S("Torchspine Tip"),
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
-	tiles = {df_trees.textures.gold_block, "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1_lit.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, torch = 1, fall_damage_add_percent = 150, smokey = 4},
+	tiles = {df_dependencies.texture_gold_block, "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1_lit.png"},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, torch = 1, fall_damage_add_percent = 150, smokey = 4, df_trees_torchspine = 1,pickaxey=1, building_block=1, material_stone=1,set_on_fire=3},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -93,15 +182,35 @@ minetest.register_node("df_trees:torchspine_1_lit", {
 		type = "fixed",
 		fixed = stal_box_1,
 	},
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
+
 	on_place = stal_on_place,
+	
+	on_timer = function(pos)
+		grow_torchspine(pos)
+	end,
+	
+	on_destruct = function(pos)
+		minetest.get_node_timer(pos):stop()
+	end,
 })
+
+if looped_node_sound_modpath then
+	looped_node_sound.register({
+		node_list = {"df_trees:torchspine_1_lit"},
+		sound = "dfcaverns_torchspine_loop",
+		max_gain = 0.5,
+		gain_per_node = 0.05,
+	})
+end
 
 minetest.register_node("df_trees:torchspine_2", {
 	description = S("Torchspine"),
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_2.5.png", "dfcaverns_torchspine_2.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, fall_damage_add_percent = 50},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, fall_damage_add_percent = 50, df_trees_torchspine = 1,pickaxey=1, building_block=1, material_stone=1},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -110,6 +219,9 @@ minetest.register_node("df_trees:torchspine_2", {
 		type = "fixed",
 		fixed = stal_box_2,
 	},
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
+
 	drop = {
             max_items = 1,
             items = {
@@ -127,7 +239,7 @@ minetest.register_node("df_trees:torchspine_3", {
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_2.5.png", "dfcaverns_torchspine_3.5.png", "dfcaverns_torchspine_3.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, df_trees_torchspine = 1,pickaxey=1, building_block=1, material_stone=1},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -136,6 +248,9 @@ minetest.register_node("df_trees:torchspine_3", {
 		type = "fixed",
 		fixed = stal_box_3,
 	},
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
+
 	drop = {
             max_items = 1,
             items = {
@@ -157,7 +272,7 @@ minetest.register_node("df_trees:torchspine_4", {
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_3.5.png", "dfcaverns_torchspine_4.5.png", "dfcaverns_torchspine_4.png"},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1, df_trees_torchspine = 1,pickaxey=1, building_block=1, material_stone=1},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -166,6 +281,9 @@ minetest.register_node("df_trees:torchspine_4", {
 		type = "fixed",
 		fixed = stal_box_4,
 	},
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
+
 	drop = {
             max_items = 1,
             items = {
@@ -186,7 +304,7 @@ minetest.register_node("df_trees:torchspine_ember", {
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_0.5.png",},
-	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1},
+	groups = {oddly_breakable_by_hand = 1, subterrane_stal_align = 1, flow_through = 1,pickaxey=1, building_block=1, material_stone=1,set_on_fire=1},
 	drawtype = "nodebox",
 	paramtype = "light",
 	light_source = 2,
@@ -200,7 +318,25 @@ minetest.register_node("df_trees:torchspine_ember", {
 			{-0.0625 + x_disp, -0.5, -0.125 + z_disp, 0.125 + x_disp, -0.375, 0.0625 + z_disp},
 		}
 	},
+	_mcl_blast_resistance = 10,
+	_mcl_hardness = 1,
+
 	on_place = stal_on_place,
+	
+	on_construct = function(pos)
+		if df_trees.torchspine_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+		end
+	end,
+	on_destruct = function(pos)
+		minetest.get_node_timer(pos):stop()
+	end,
+	
+	on_timer = function(pos)
+		minetest.swap_node(pos, {name="df_trees:torchspine_1", param2=minetest.get_node(pos).param2})
+		minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
+		minetest.sound_play({pos = pos}, {name="dfcaverns_torchspine_ignite"}, true)
+	end,
 })
 
 df_trees.spawn_torchspine = function(pos)
@@ -256,83 +392,20 @@ df_trees.spawn_torchspine_vm = function(vi, area, data, data_param2, height, lit
 		local index = vi + area.ystride*i
 		data[index] = list[height-i]
 		data_param2[index] = param2
-	end	
+	end
+	
+	local pos = area:position(vi)
+	pos.y = pos.y+height-1
+	local node = minetest.get_node(pos)
+	minetest.get_node_timer(pos):start(math.random()*3000)
 end
 
--- overriding node groups using override_item doesn't appear to work with ABMs:
--- https://github.com/minetest/minetest/issues/5518
-local coal_def = minetest.registered_nodes[df_trees.node_names.stone_with_coal]
-local coal_block_def = minetest.registered_nodes[df_trees.node_names.coalblock]
-if coal_def then
-	coal_def.groups.coal = 1
-	minetest.register_node(":"..df_trees.node_names.stone_with_coal, coal_def)
-end
-coal_block_def.groups.coal = 1
-minetest.register_node(":"..df_trees.node_names.coalblock, coal_block_def)
-
-minetest.register_abm{
-	label = "torchspine germinating",
-	nodenames = {"df_trees:torchspine_ember"},
-	neighbors = {"group:flammable", "group:coal"},
-	interval = 30,
-	chance = 10,
-	catch_up = true,
-	action = function(pos)
-		local below_name = minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name
-		if minetest.get_item_group(below_name, "flammable") > 0 or  minetest.get_item_group(below_name, "coal") > 0 then
-			minetest.swap_node(pos, {name="df_trees:torchspine_1", param2=minetest.get_node(pos).param2})
-		end
+minetest.register_lbm({
+    label = "Start timers for torchspine nodes that used to depend on the ABM",
+    name = "df_trees:start_torchspine_timers",
+    nodenames = {"df_trees:torchspine_ember", "df_trees:torchspine_1", "df_trees:torchspine_1_lit"},
+    run_at_every_load = false,
+    action = function(pos, node)
+		minetest.get_node_timer(pos):start(math.random(torchspine_min_delay, torchspine_max_delay))
 	end,
-}
-minetest.register_abm{
-	label = "torchspine lighting",
-	nodenames = {"df_trees:torchspine_1"},
-	interval = 30,
-	chance = 10,
-	catch_up = true,
-	action = function(pos)
-		local above_def = minetest.registered_nodes[minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name]
-		if above_def and above_def.buildable_to then
-			minetest.swap_node(pos, {name="df_trees:torchspine_1_lit", param2=minetest.get_node(pos).param2})
-		end
-	end,
-}
-local torchspine_list = {"df_trees:torchspine_1","df_trees:torchspine_2","df_trees:torchspine_3","df_trees:torchspine_4"}
-minetest.register_abm{
-	label = "torchspine growing",
-	nodenames = {"df_trees:torchspine_1_lit"},
-	interval = 37,
-	chance = 10,
-	catch_up = true,
-	action = function(pos)
-		local height = 0
-		local param2 = minetest.get_node(pos).param2
-		local dest_list = {{x=pos.x, y=pos.y+1, z=pos.z},pos,{x=pos.x, y=pos.y-1, z=pos.z},{x=pos.x, y=pos.y-2, z=pos.z},{x=pos.x, y=pos.y-3, z=pos.z}}
-		local source_list = {
-			minetest.get_node(dest_list[1]).name,
-			minetest.get_node(dest_list[2]).name,
-			minetest.get_node(dest_list[3]).name,
-			minetest.get_node(dest_list[4]).name,
-			minetest.get_node(dest_list[5]).name
-		}
-		local target_def = minetest.registered_nodes[source_list[1]]
-		if target_def and target_def.buildable_to then
-			for i = 2,4 do
-				if minetest.get_item_group(source_list[i+1], "flammable") > 0 or minetest.get_item_group(source_list[i+1], "coal") > 0 then
-					height = i
-					break
-				elseif source_list[i+1] ~= torchspine_list[i] then
-					height = 0
-					break
-				end				
-			end
-		end
-		if height == 0 then
-			minetest.swap_node(pos, {name="df_trees:torchspine_1", param2=param2})
-			return
-		end
-		for i = 1, height do
-			minetest.swap_node(dest_list[i], {name=torchspine_list[i], param2=param2})
-		end		
-	end,
-}
+})

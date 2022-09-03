@@ -4,7 +4,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
-local S = df_mapitems.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 df_mapitems.doc.cave_moss_desc = S("Cave moss is technically a form of mold, but fortunately a relatively benign one given its ubiquity. Its fibers form a tough but springy mat over the surface of any organic-rich soil that accumulates deep underground.")
 df_mapitems.doc.cave_moss_usage = S("Cave moss has no known uses aside from the faint glow it emits. It dies when exposed to bright light sources such as the Sun.")

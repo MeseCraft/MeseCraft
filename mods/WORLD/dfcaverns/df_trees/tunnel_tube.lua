@@ -6,7 +6,7 @@
 -- Max trunk height 	8
 -- depth 2-3
 
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_trees:tunnel_tube", {
 	description = S("Tunnel Tube"),
@@ -17,9 +17,11 @@ minetest.register_node("df_trees:tunnel_tube", {
 	drawtype = "nodebox",
 	is_ground_content = false,
 	paramtype = "light",
-	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
 	on_place = minetest.rotate_node,
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 	
 	node_box = {
 		type = "fixed",
@@ -43,8 +45,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_bottom", {
 	mesh = "tunnel_tube_slant.obj",
 	paramtype = "light",
 	drop = "df_trees:tunnel_tube",
-	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
 	on_place = minetest.rotate_node,
 	selection_box = {
 		type = "fixed",
@@ -60,7 +62,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_bottom", {
 			{-0.5, 0.0, -0.875, 0.5, 0.5, 0.125},
 		},
 	},
-
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_trees:tunnel_tube_slant_top", {
@@ -74,8 +77,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_top", {
 	mesh = "tunnel_tube_slant_2.obj",
 	paramtype = "light",
 	drop = "df_trees:tunnel_tube",
-	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
 	on_place = minetest.rotate_node,
 	selection_box = {
 		type = "fixed",
@@ -91,6 +94,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_top", {
 			{-0.5, 0.0, -0.375, 0.5, 0.5, 0.625},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_trees:tunnel_tube_slant_full", {
@@ -104,8 +109,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_full", {
 	mesh = "tunnel_tube_slant_full.obj",
 	paramtype = "light",
 	drop = "df_trees:tunnel_tube",
-	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 3, tree = 1, oddly_breakable_by_hand=1, flammable = 2, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
 	on_place = minetest.rotate_node,
 	selection_box = {
 		type = "fixed",
@@ -121,6 +126,8 @@ minetest.register_node("df_trees:tunnel_tube_slant_full", {
 			{-0.5, 0, -1.25, 0.5, 0.5, -0.25},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 --Wood
@@ -133,10 +140,10 @@ minetest.register_craft({
 
 -- Paper
 minetest.register_craft({
-	output = df_trees.node_names.paper .. " 3",
+	output = df_dependencies.node_name_paper .. " 3",
 	type = "shapeless",
-	recipe = {'df_trees:tunnel_tube', 'mesecraft_bucket:bucket_water'},
-	replacements = {{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_empty"}},
+	recipe = {'df_trees:tunnel_tube', 'bucket:bucket_water'},
+	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}},
 })
 
 minetest.register_node("df_trees:tunnel_tube_wood", {
@@ -147,11 +154,13 @@ minetest.register_node("df_trees:tunnel_tube_wood", {
 	place_param2 = 0,
 	tiles = {"dfcaverns_tunnel_tube_wood_top.png", "dfcaverns_tunnel_tube_wood_top.png", "dfcaverns_tunnel_tube_wood_side.png"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=20},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 10,
+	_mcl_hardness = 2,
 })
 
-df_trees.register_all_stairs("tunnel_tube_wood")
+df_dependencies.register_all_stairs_and_fences("tunnel_tube_wood", {burntime = 9})
 
 minetest.register_craft({
 	type = "fuel",
@@ -171,11 +180,42 @@ minetest.register_craft({
 
 -- TNT
 -----------------------------------------------------------------------------------------------------------
+
+local gunpowder = df_dependencies.node_name_gunpowder
+local tnt_ignite_sound = df_dependencies.soundfile_tnt_ignite
+local tnt_boom = df_dependencies.tnt_boom
+
 if df_trees.config.enable_tnt then
 
 	local tnt_radius = tonumber(minetest.settings:get("tnt_radius") or 3) * 2/3
 	local tnt_def = {radius = tnt_radius, damage_radius = tnt_radius * 2}
-	local torch_item = df_trees.node_names.torch
+	local torch_item = df_dependencies.node_name_torch
+	
+	local drop_items = {
+			max_items = 1,
+			items = {
+				{
+					items = {'df_trees:tunnel_tube_sapling'},
+					rarity = 2,
+				},
+			}
+		}
+	if gunpowder then
+		drop_items.max_items = 3
+		table.insert(drop_items.items, {
+					items = {'df_trees:tunnel_tube_sapling', gunpowder},
+					rarity = 2,
+				})
+		table.insert(drop_items.items, {
+					items = {'df_trees:tunnel_tube_sapling', gunpowder .. ' 2'},
+					rarity = 2,
+				})
+	end
+
+	local on_burn = function(pos)
+		minetest.swap_node(pos, {name = "df_trees:tunnel_tube_fruiting_body_burning"})
+		minetest.registered_nodes["df_trees:tunnel_tube_fruiting_body_burning"].on_construct(pos)
+	end
 	
 	minetest.register_node("df_trees:tunnel_tube_fruiting_body", {
 		description = S("Tunnel Tube Fruiting Body"),
@@ -184,26 +224,12 @@ if df_trees.config.enable_tnt then
 		tiles = {"dfcaverns_tunnel_tube.png^[multiply:#b09090"},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		groups = {choppy = 3, oddly_breakable_by_hand=1, flammable = 2, tnt = 1,},
-		sounds = df_trees.sounds.wood,
+		groups = {choppy = 3, oddly_breakable_by_hand=1, flammable = 2, tnt = 1, handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30},
+		sounds = df_dependencies.sound_wood(),
 		on_place = minetest.rotate_node,
-		drop = {
-			max_items = 3,
-			items = {
-				{
-					items = {'df_trees:tunnel_tube_sapling'},
-					rarity = 2,
-				},
-				{
-					items = {'df_trees:tunnel_tube_sapling', 'tnt:gunpowder'},
-					rarity = 2,
-				},
-				{
-					items = {'df_trees:tunnel_tube_sapling', 'tnt:gunpowder 2'},
-					rarity = 2,
-				},
-			},
-		},
+		drop = drop_items,
+		_mcl_blast_resistance = 12,
+		_mcl_hardness = 2,
 		
 		on_punch = function(pos, node, puncher)
 			if puncher:get_wielded_item():get_name() == torch_item then
@@ -213,25 +239,22 @@ if df_trees.config.enable_tnt then
 			end
 		end,
 		on_blast = function(pos, intensity)
+			minetest.swap_node(pos, {name="air"})
 			minetest.after(0.1, function()
-				tnt.boom(pos, tnt_def)
+				tnt_boom(pos, tnt_def)
 			end)
 		end,
 		mesecons = {effector =
 			{action_on =
 				function(pos)
-					tnt.boom(pos, tnt_def)
+					minetest.swap_node(pos, {name="air"})
+					tnt_boom(pos, tnt_def)
 				end
 			}
 		},
-		on_burn = function(pos)
-			minetest.swap_node(pos, {name = "df_trees:tunnel_tube_fruiting_body_burning"})
-			minetest.registered_nodes["df_trees:tunnel_tube_fruiting_body_burning"].on_construct(pos)
-		end,
-		on_ignite = function(pos, igniter)
-			minetest.swap_node(pos, {name = "df_trees:tunnel_tube_fruiting_body_burning"})
-			minetest.registered_nodes["df_trees:tunnel_tube_fruiting_body_burning"].on_construct(pos)
-		end,
+		on_burn = on_burn,
+		on_ignite = on_burn,
+		_on_burn = on_burn,
 	})
 	
 	minetest.register_node("df_trees:tunnel_tube_fruiting_body_burning", {
@@ -243,14 +266,21 @@ if df_trees.config.enable_tnt then
 		groups = {not_in_creative_inventory = 1,},
 		light_source = 5,
 		drop = "",
-		sounds = df_trees.sounds.wood,
+		sounds = df_dependencies.sound_wood(),
+		_mcl_blast_resistance = 0,
+		_mcl_hardness = 2,
 		on_timer = function(pos, elapsed)
-			tnt.boom(pos, tnt_def)
+			minetest.swap_node(pos, {name="air"})
+			tnt_boom(pos, tnt_def)
 		end,
-		-- unaffected by explosions
-		on_blast = function() end,
+		on_blast = function(pos)
+			minetest.swap_node(pos, {name="air"})
+			minetest.after(0.1, function()
+				tnt_boom(pos, tnt_def)
+			end)
+		end,
 		on_construct = function(pos)
-			minetest.sound_play("tnt_ignite", {pos = pos})
+			minetest.sound_play(tnt_ignite_sound, {pos = pos})
 			minetest.get_node_timer(pos):start(4)
 		end,
 	})
@@ -262,9 +292,11 @@ else
 		tiles = {"dfcaverns_tunnel_tube.png^[multiply:#b09090"},
 		paramtype2 = "facedir",
 		is_ground_content = false,
-		groups = {choppy = 3, oddly_breakable_by_hand=1, flammable = 2},
-		sounds = df_trees.sounds.wood,
+		groups = {choppy = 3, oddly_breakable_by_hand=1, flammable = 2,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30},
+		sounds = df_dependencies.sound_wood(),
 		on_place = minetest.rotate_node,
+		_mcl_blast_resistance = 12,
+		_mcl_hardness = 2,
 		
 		drop = {
 			max_items = 3,
@@ -306,17 +338,19 @@ minetest.register_node("df_trees:tunnel_tube_sapling", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
-		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = df_trees.sounds.leaves,
+		attached_node = 1, sapling = 1, light_sensitive_fungus = 11, dig_immediate=3,dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30},
+	sounds = df_dependencies.sound_leaves(),
+	_mcl_blast_resistance = 10,
+	_mcl_hardness = 0.2,
 
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_trees.tunnel_tube_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.tunnel_tube_delay_multiplier*df_trees.config.tree_min_growth_delay,
+				df_trees.config.tunnel_tube_delay_multiplier*df_trees.config.tree_max_growth_delay))
 		end
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.tunnel_tube_delay_multiplier*df_trees.config.tree_min_growth_delay,
-			df_trees.config.tunnel_tube_delay_multiplier*df_trees.config.tree_max_growth_delay))
 	end,
+
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()
 	end,

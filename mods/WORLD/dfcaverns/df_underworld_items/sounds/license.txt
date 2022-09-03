@@ -16,3 +16,8 @@ dfcaverns_seal_key.ogg - From https://freesound.org/people/megashroom/sounds/391
 dfcaverns_massive_digging.1.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0
 dfcaverns_massive_digging.2.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0
 dfcaverns_massive_digging.3.ogg - from https://freesound.org/people/OGsoundFX/sounds/423120/ by OGsoundFX under Creative Commons BY 3.0
+
+dfcaverns_drill - from https://freesound.org/people/Jagadamba/sounds/257021/ by Jagadamba under the CC-BY-A 3.0 license
+
+dfcaverns_puzzle_chest_open - from https://freesound.org/people/Garuda1982/sounds/560304/ by Garuda1982 under CC-BY-A 4.0
+dfcaverns_puzzle_chest_close - from https://freesound.org/people/Benboncan/sounds/74441/ by Benboncan under CC-BY-A 4.0

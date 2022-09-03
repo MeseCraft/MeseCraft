@@ -36,7 +36,7 @@ Some of the other cave decorations provide dim bioluminescent lighting in some c
 
 The "[doc](https://forum.minetest.net/viewtopic.php?f=9&t=15912&p=240152)" mod is supported to provide in-game documentation for all of the new items and nodes this mod adds.
 
-"[ropes](https://github.com/minetest-mods/ropes)" are very useful for navigating some of the large open spaces this mod provides.
+"[ropes](https://github.com/minetest-mods/ropes)" are very useful for navigating some of the large open spaces this mod provides. Some are large enough that a [glider](https://github.com/CBugDCoder/glider) may be well suited.
 
 "[radiant damage](https://github.com/FaceDeer/radiant_damage)" greatly increases the danger of the Magma Sea if heat radiance is enabled, as well as several of the rare crystals in the deeper layers that emit Mese radiation if that damage type is enabled.
 

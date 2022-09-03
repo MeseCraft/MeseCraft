@@ -1,28 +1,23 @@
-local outer_stair = "stairs:stair_outer_slade_brick"
-if stairs.register_stair_outer == nil then -- 0.4.16 compatibility
-	outer_stair = "df_underworld_items:slade_brick"
-end
-
 local n1 = { name = "ignore"}
 local n8 = { name = "air", force_place=true }
 
 local n3 = { name = "df_underworld_items:slade_brick", force_place=true }
 local n4 = { name = "df_underworld_items:slade_wall", force_place=true }
-local n5 = { name = outer_stair, param2 = 1, force_place=true }
-local n6 = { name = "stairs:stair_slade_brick", force_place=true }
-local n7 = { name = outer_stair, force_place=true }
-local n9 = { name = "stairs:slab_slade_brick", param2 = 23, force_place=true }
-local n10 = { name = "stairs:stair_slade_brick", param2 = 1, force_place=true }
-local n11 = { name = "stairs:stair_slade_brick", param2 = 3, force_place=true }
-local n14 = { name = "stairs:stair_slade_brick", param2 = 23, force_place=true }
-local n15 = { name = outer_stair, param2 = 2, force_place=true }
-local n16 = { name = "stairs:stair_slade_brick", param2 = 2, force_place=true }
-local n17 = { name = outer_stair, param2 = 3, force_place=true }
+local n5 = { name = df_dependencies.node_name_stair_outer_slade_brick, param2 = 1, force_place=true }
+local n6 = { name = df_dependencies.node_name_stair_slade_brick, force_place=true }
+local n7 = { name = df_dependencies.node_name_stair_outer_slade_brick, force_place=true }
+local n9 = { name = df_dependencies.node_name_slab_slade_brick, param2 = 23, force_place=true }
+local n10 = { name = df_dependencies.node_name_stair_slade_brick, param2 = 1, force_place=true }
+local n11 = { name = df_dependencies.node_name_stair_slade_brick, param2 = 3, force_place=true }
+local n14 = { name = df_dependencies.node_name_stair_slade_brick, param2 = 23, force_place=true }
+local n15 = { name = df_dependencies.node_name_stair_outer_slade_brick, param2 = 2, force_place=true }
+local n16 = { name = df_dependencies.node_name_stair_slade_brick, param2 = 2, force_place=true }
+local n17 = { name = df_dependencies.node_name_stair_outer_slade_brick, param2 = 3, force_place=true }
 
 -- foundation nodes
 local n2 = { name = "df_underworld_items:slade_brick", force_place=false, place_on_condition=mapgen_helper.buildable_to  }
 local n12 = { name = "df_underworld_items:slade_wall", force_place=false, place_on_condition=mapgen_helper.buildable_to  }
-local n13 = { name = "stairs:stair_slade_brick", param2 = 1, force_place=false, place_on_condition=mapgen_helper.buildable_to  }
+local n13 = { name = df_dependencies.node_name_stair_slade_brick, param2 = 1, force_place=false, place_on_condition=mapgen_helper.buildable_to  }
 
 
 return {

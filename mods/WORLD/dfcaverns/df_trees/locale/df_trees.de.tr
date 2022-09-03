@@ -24,6 +24,10 @@ Dead Blood Thorn Stem=
 
 ### doc.lua ###
 
+@1 have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=
+
+@1 wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living icecaps and is able to quickly freeze nearby water solid.=
+
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 A torchspine alternates between active and quiescent phases and emits dim light when active. They can be harvested for torches, and their embers sprout into new torchspines when placed on flammable surfaces.=Eine Fackel wechselt zwischen aktiver und ruhender Phase und gibt schwaches Licht ab, wenn sie aktiv ist. Sie können für Fackeln geerntet werden, und ihre Glut sprießt auf brennbaren Oberflächen zu neuen Fackelstacheln.
 
@@ -62,12 +66,6 @@ Living extract from the cap of a yellow Spindlestem.=Lebender Extrakt aus der Ka
 
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Massive but squat, mature goblin cap mushrooms are the size of small cottages.=Massive, aber gedrungene, reife Koboldkappenpilze haben die Größe kleiner Hütten.
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Netherkappenholz ist nicht nur ein wunderschöner blauer Farbton, sondern behält auch die seltsame Wärmeableitungsfähigkeit lebender Netherkappen bei und kann in der Nähe befindliche Wasserfeststoffe schnell einfrieren.
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=Netherkappen haben eine ungewöhnliche Biochemie, die es ihnen ermöglicht, unter Verstoß gegen alle bekannten Gesetze der Thermodynamik von Umgebungswärme zu leben. Sie wachsen tief unter der Erde in kalten, eisigen Höhlen, die auf jeden Fall vulkanisch sein sollten.
 
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Red Spindlestems are a sign of nearby iron deposits - or perhaps Goblin Caps. Their glowing symbiotes can be extracted as a long-lived light source, though the glow is weak.=Rote Spindelstämme sind ein Zeichen für nahegelegene Eisenvorkommen - oder vielleicht Goblin Caps. Ihre leuchtenden Symbioten können als langlebige Lichtquelle extrahiert werden, obwohl das Leuchten schwach ist.
@@ -153,22 +151,12 @@ Goblin Cap Stem=
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Goblin Cap Stem Planks=Goblin Cap Stem Planken
 
-### init.lua ###
-
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-@1 Slab=@1 Platte
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-@1 Stair=@1 Treppe
-
 ### nether_cap.lua ###
 
-Nether Cap=
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether Cap Gills=Nether Cap Kiemen
-#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
-Nether Cap Planks=Nether Cap Planken
-Nether Cap Spawn=
-Nether Cap Stem=
+@1 Gills=
+@1 Planks=
+@1 Spawn=
+@1 Stem=
 
 ### spindlestem.lua ###
 
@@ -231,3 +219,18 @@ Tunnel Tube Fruiting Body=Tunnelrohr-Fruchtkörper
 #WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
 Tunnel Tube Plies=Tunnelrohrlagen
 Tunnel Tube Spawn=
+
+
+##### not used anymore #####
+
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether cap wood, in addition to being a beautiful blue hue, retains the odd heat-draining ability of living nether caps and is able to quickly freeze nearby water solid.=Netherkappenholz ist nicht nur ein wunderschöner blauer Farbton, sondern behält auch die seltsame Wärmeableitungsfähigkeit lebender Netherkappen bei und kann in der Nähe befindliche Wasserfeststoffe schnell einfrieren.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether caps have an unusual biochemistry that allows them to somehow subsist on ambient heat, in violation of all known laws of thermodynamics. They grow deep underground in frigid, icy caverns that should by all rights be volcanic.=Netherkappen haben eine ungewöhnliche Biochemie, die es ihnen ermöglicht, unter Verstoß gegen alle bekannten Gesetze der Thermodynamik von Umgebungswärme zu leben. Sie wachsen tief unter der Erde in kalten, eisigen Höhlen, die auf jeden Fall vulkanisch sein sollten.
+
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether Cap Gills=Nether Cap Kiemen
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+Nether Cap Planks=Nether Cap Planken

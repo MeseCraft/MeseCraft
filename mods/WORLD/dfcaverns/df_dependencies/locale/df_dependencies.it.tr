@@ -1,0 +1,27 @@
+# textdomain: df_dependencies
+
+
+### fireflies.lua ###
+
+Bug Net=Retino
+# textdomain: fireflies
+Firefly=Lucciola
+Firefly in a Bottle=Lucciola imbottigliata
+Hidden Firefly=Lucciola nascosta
+
+### helper_functions.lua ###
+
+@1 Fence=
+@1 Fence Gate=
+@1 Fence Rail=
+@1 Mese Post Light=
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Slab=@1 Lastra
+#WARNING: AUTOTRANSLATED BY GOOGLE TRANSLATE
+@1 Stair=@1 Scala
+Double @1 Slab=
+
+### misc.lua ###
+
+Icecap=
+Nethercap=Cappello del Nether

@@ -18,12 +18,58 @@ local c_spongestone = df_caverns.node_id.spongestone
 local c_rock_rot = df_caverns.node_id.rock_rot
 local c_water = df_caverns.node_id.water
 local c_wet_flowstone = df_caverns.node_id.wet_flowstone
+local c_webs = df_caverns.node_id.big_webs
+local c_webs_egg = df_caverns.node_id.big_webs_egg
 
-df_caverns.data_param2 = {}
+df_caverns.data_param2 = {} -- shared among all mapgens to reduce memory clutter
+
+local get_biome_at_pos_list = {} -- a list of methods of the form function(pos, heat, humidity) to allow modpack-wide queries about what should grow where
+df_caverns.register_biome_check = function(func)
+	table.insert(get_biome_at_pos_list, func)
+end
+df_caverns.get_biome = function(pos)
+	local heat = minetest.get_heat(pos)
+	local humidity = minetest.get_humidity(pos)
+	for _, val in pairs(get_biome_at_pos_list) do
+		local biome = val(pos, heat, humidity)
+		if biome ~= nil then
+			return biome
+		end
+	end
+end
+
+-- for testing
+--local debug_timer = 0
+--minetest.register_globalstep(function(dtime)
+--	debug_timer = debug_timer + dtime
+--	if debug_timer > 5 then
+--		local singleplayer = minetest.get_player_by_name("singleplayer")
+--		if singleplayer then
+--			minetest.debug(df_caverns.get_biome(singleplayer:get_pos()))
+--		end
+--		debug_timer = debug_timer - 5
+--	end
+--end)
+
+-- prevent mapgen from using these nodes as a base for stalactites or stalagmites
+local dont_build_speleothems_on = {}
+for _, content_id in pairs(df_mapitems.wet_stalagmite_ids) do
+	dont_build_speleothems_on[content_id] = true
+end
+for _, content_id in pairs(df_mapitems.dry_stalagmite_ids) do
+	dont_build_speleothems_on[content_id] = true
+end
+if minetest.get_modpath("big_webs") then
+	dont_build_speleothems_on[c_webs] = true
+	dont_build_speleothems_on[c_webs_egg] = true
+end
 
 --------------------------------------------------
 
 df_caverns.stalagmites = function(abs_cracks, vert_rand, vi, area, data, data_param2, wet, reverse_sign)
+	if dont_build_speleothems_on[data[vi]] then
+		return
+	end
 	local flowstone
 	local stalagmite_ids
 	if wet then
@@ -118,13 +164,6 @@ df_caverns.glow_worm_cavern_ceiling = function(abs_cracks, vert_rand, vi, area, 
 	end
 end
 
-local content_in_list=function(content, list)
-	for i, v in ipairs(list) do
-		if content == v then return true end
-	end
-	return false
-end
-
 df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, data_param2, wet, dirt_node)
 	if maxp.y > -30 then
 		wet = false
@@ -135,7 +174,7 @@ df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, dat
 	local abs_cracks = math.abs(cracks)
 
 	if wet then
-		if abs_cracks < 0.05 and data[vi+ystride] == c_air and not content_in_list(data[vi], df_mapitems.wet_stalagmite_ids) then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
+		if abs_cracks < 0.05 and data[vi+ystride] == c_air and not dont_build_speleothems_on[data[vi]] then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
 			local param2 = abs_cracks*1000000 - math.floor(abs_cracks*1000000/4)*4
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalagmite(vi+ystride, area, data, data_param2, param2, height, df_mapitems.wet_stalagmite_ids)
@@ -144,7 +183,7 @@ df_caverns.tunnel_floor = function(minp, maxp, area, vi, nvals_cracks, data, dat
 			data[vi] = dirt_node		
 		end
 	else
-		if abs_cracks < 0.025 and data[vi+ystride] == c_air and not content_in_list(data[vi], df_mapitems.dry_stalagmite_ids) then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
+		if abs_cracks < 0.025 and data[vi+ystride] == c_air and not dont_build_speleothems_on[data[vi]] then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
 			local param2 = abs_cracks*1000000 - math.floor(abs_cracks*1000000/4)*4
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalagmite(vi+ystride, area, data, data_param2, param2, height, df_mapitems.dry_stalagmite_ids)
@@ -165,14 +204,14 @@ df_caverns.tunnel_ceiling = function(minp, maxp, area, vi, nvals_cracks, data, d
 	local abs_cracks = math.abs(cracks)
 	 
 	if wet then
-		if abs_cracks < 0.05 and data[vi-ystride] == c_air and not content_in_list(data[vi], df_mapitems.wet_stalagmite_ids) then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
+		if abs_cracks < 0.05 and data[vi-ystride] == c_air and not dont_build_speleothems_on[data[vi]] then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
 			local param2 = abs_cracks*1000000 - math.floor(abs_cracks*1000000/4)*4
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalactite(vi-ystride, area, data, data_param2, param2, height, df_mapitems.wet_stalagmite_ids)
 			data[vi] = c_wet_flowstone
 		end
 	else
-		if abs_cracks < 0.025 and data[vi-ystride] == c_air and not content_in_list(data[vi], df_mapitems.dry_stalagmite_ids) then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
+		if abs_cracks < 0.025 and data[vi-ystride] == c_air and not dont_build_speleothems_on[data[vi]] then -- make sure data[vi] is not already flowstone. Stalagmites from lower levels are acting as base for further stalagmites
 			local param2 = abs_cracks*1000000 - math.floor(abs_cracks*1000000/4)*4
 			local height = math.floor(abs_cracks * 100)
 			subterrane.stalactite(vi-ystride, area, data, data_param2, param2, height, df_mapitems.dry_stalagmite_ids)

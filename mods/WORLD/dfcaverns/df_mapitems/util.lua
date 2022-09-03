@@ -59,7 +59,7 @@ df_mapitems.place_against_surface = function(itemstack, placer, pointed_thing)
 	end
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(above_pos, {name = itemstack:get_name(), param2 = param2})
-	if not minetest.settings:get_bool("creative_mode", false) and not minetest.check_player_privs(placer, "creative") then
+	if not minetest.is_creative_enabled(placer:get_player_name()) then
 		itemstack:take_item()
 	end
 	return itemstack

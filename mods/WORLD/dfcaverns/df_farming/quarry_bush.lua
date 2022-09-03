@@ -1,4 +1,4 @@
-local S = df_farming.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local quarry_grow_time = df_farming.config.plant_growth_time * df_farming.config.quarry_bush_delay_multiplier / 5
 
@@ -18,14 +18,16 @@ local register_quarry_bush = function(number)
 		buildable_to = true,
 		is_ground_content = false,
 		floodable = true,
-		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11},
-		sounds = df_farming.sounds.leaves,
+		groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1, light_sensitive_fungus = 11, fire_encouragement=60,fire_flammability=100, compostability=50, handy=1,shearsy=1,hoey=1, destroy_by_lava_flow=1,dig_by_piston=1},
+		sounds = df_dependencies.sound_leaves(),
         selection_box = {
             type = "fixed",
             fixed = {
                 {-8/16, -8/16, -8/16, 8/16, -8/16 + (16/5)*number/16, 8/16},
             },
         },
+		_mcl_blast_resistance = 0.2,
+		_mcl_hardness = 0.2,
 
 		on_timer = function(pos, elapsed)
 			df_farming.grow_underground_plant(pos, name, elapsed)

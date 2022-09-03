@@ -1,4 +1,4 @@
-local S = df_underworld_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local invulnerable = df_underworld_items.config.invulnerable_slade and not minetest.settings:get_bool("creative_mode")
 
@@ -15,16 +15,20 @@ local add_immortality = function(slade_def)
 	return slade_def
 end
 
+local slade_groups = {cracky=3, stone=1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1,creative_breakable=1, building_block=1, material_stone=1}
+
 local slade_def = {
 	description = S("Slade"),
 	_doc_items_longdesc = df_underworld_items.doc.slade_desc,
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade.png"},
-	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	groups = slade_groups,
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = 8,
+	_mcl_hardness = 5,
 	on_blast = function(pos, intensity)
-		if intensity > 3.0 then
+		if intensity >= 1.0 then
 			minetest.set_node(pos, {name="df_underworld_items:slade_sand"})
 			minetest.check_for_falling(pos)
 		end
@@ -32,6 +36,8 @@ local slade_def = {
 }
 if invulnerable then
 	add_immortality(slade_def)
+	slade_def._mcl_blast_resistance = 8
+	slade_def._mcl_hardness = 5
 end
 minetest.register_node("df_underworld_items:slade", slade_def)
 
@@ -40,15 +46,23 @@ local slade_brick_def = {
 	_doc_items_longdesc = df_underworld_items.doc.slade_desc,
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade_brick.png"},
-	groups = { cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	groups = slade_groups,
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = 8,
+	_mcl_hardness = 5,
 }
 if invulnerable then
 	add_immortality(slade_brick_def)
 end
 minetest.register_node("df_underworld_items:slade_brick", slade_brick_def)
 
+-- can't use "wall=1" because MCL has special handling for nodes in that group that explodes if it tries handling this one.
+-- fortunately minetest_game walls also connect to group fence, so this should be fine.
+local slade_wall_groups = {fence=1}
+for key, val in pairs(slade_groups) do
+	slade_wall_groups[key]=val
+end
 local slade_wall_def = {
 	description = S("Slade Wall"),
 	drawtype = "nodebox",
@@ -66,14 +80,15 @@ local slade_wall_def = {
 	tiles = {"dfcaverns_slade_brick.png"},
 	walkable = true,
 	is_ground_content = false,
-	groups = { cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	groups = slade_wall_groups,
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	_mcl_blast_resistance = 8,
+	_mcl_hardness = 5,
 }
 if invulnerable then
 	add_immortality(slade_wall_def)
 end
 minetest.register_node("df_underworld_items:slade_wall", slade_wall_def)
-
 
 minetest.register_node("df_underworld_items:slade_sand", {
 	description = S("Slade Sand"),
@@ -81,10 +96,10 @@ minetest.register_node("df_underworld_items:slade_sand", {
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade_sand.png"},
 	is_ground_content = false,
-	groups = {crumbly = 3, level = 2, falling_node = 1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_gravel_defaults({
-		footstep = {name = "default_gravel_footstep", gain = 0.45},
-	}),
+	groups = {crumbly = 3, falling_node = 1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1,handy=1,shovely=3, sand=1, enderman_takable=1, building_block=1, material_sand=1, crush_after_fall=1, falling_node_damage=1},
+	sounds = df_dependencies.sound_gravel({footstep = {name = df_dependencies.soundfile_gravel_footstep, gain = 0.45},}),
+	_mcl_blast_resistance = 8,
+	_mcl_hardness = 3,
 })
 
 local slade_block_def = {
@@ -92,9 +107,11 @@ local slade_block_def = {
 	_doc_items_longdesc = df_underworld_items.doc.slade_desc,
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade_block.png"},
-	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	groups = slade_groups,
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = 1200,
+	_mcl_hardness = 50,
 }
 if invulnerable then
 	add_immortality(slade_block_def)
@@ -108,9 +125,11 @@ local slade_seal_def = {
 	_doc_items_longdesc = df_underworld_items.doc.slade_seal_desc,
 	_doc_items_usagehelp = df_underworld_items.doc.slade_usage,
 	tiles = {"dfcaverns_slade_block.png^dfcaverns_seal.png", "dfcaverns_slade_block.png"},
-	groups = {cracky=3, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	groups = slade_groups,
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = 1200,
+	_mcl_hardness = 50,
 }
 if invulnerable then
 	slade_seal_def.on_blast = function() end
@@ -118,7 +137,15 @@ if invulnerable then
 end
 minetest.register_node("df_underworld_items:slade_seal", slade_seal_def)
 
-
+minetest.register_craft({
+	type = "shapeless",
+	output = "df_underworld_items:slade_brick",
+	recipe = {
+		"df_underworld_items:slade_sand",
+		df_dependencies.node_name_bucket_lava,
+	},
+	replacements = {{df_dependencies.node_name_bucket_lava, df_dependencies.node_name_bucket_empty}},
+})
 
 minetest.register_abm{
 	label = "slade seal scratching",
@@ -140,32 +167,17 @@ minetest.register_abm{
 
 -- Register stair and slab
 
-if minetest.get_modpath("stairs") then
-	local stair_groups = {level = 3, mese_radiation_shield=1, pit_plasma_resistant=1, slade=1}
-	if invulnerable then
-		stair_groups.immortal = 1
-	end
-	stair_groups.cracky = 3
-	
-	stairs.register_stair_and_slab(
-		"slade_brick",
-		"df_underworld_items:slade_brick",
-		stair_groups,
-		{"dfcaverns_slade_brick.png"},
-		S("Slade Stair"),
-		S("Slade Slab"),
-		default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } })
-	)
-	
-	if invulnerable then
-		for name, def in pairs(minetest.registered_nodes) do
-			if name:sub(1,7) == "stairs:" and name:sub(-11) == "slade_brick" then
-				minetest.override_item(name, {can_dig = server_diggable_only})
-			end
+df_dependencies.register_stairs("slade_brick")
+
+if invulnerable then
+	for name, def in pairs(minetest.registered_nodes) do
+		if (name:sub(1,7) == "stairs:" and name:sub(-11) == "slade_block") or 
+			name:sub(1,11) == "mcl_stairs:" and name:sub(-11) == "slade_brick" then
+				minetest.override_item(name, {can_dig = server_diggable_only})			
 		end
 	end
-	
 end
+
 
 if minetest.get_modpath("mesecons_mvps") and df_underworld_items.config.invulnerable_slade then
 	mesecon.register_mvps_stopper("df_underworld_items:slade")

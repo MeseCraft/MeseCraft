@@ -1,3 +1,4 @@
 dfcaverns_invulnerable_slade (Slade cannot be damaged) bool true
 dfcaverns_destructive_pit_plasma (Pit plasma destroys adjacent nodes) bool true
 dfcaverns_underworld_hunter_statues (Enable hunter statues in the underworld) bool true
+dfcaverns_enable_slade_drill (Enable slade drills) bool true

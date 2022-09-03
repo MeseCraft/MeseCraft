@@ -1,4 +1,4 @@
-local S = df_mapitems.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_mapitems:cave_pearls", {
 	description = S("Cave Pearls"),
@@ -8,7 +8,7 @@ minetest.register_node("df_mapitems:cave_pearls", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	groups = {cracky = 2},
+	groups = {cracky = 2, pickaxey = 2,},
 	walkable = false,
 	is_ground_content = false,
 	climbable = true,
@@ -22,4 +22,6 @@ minetest.register_node("df_mapitems:cave_pearls", {
 		}
 	},
 	on_place = df_mapitems.place_against_surface,
+	_mcl_hardness = 1.5,
+	_mcl_blast_resistance = 6,
 })

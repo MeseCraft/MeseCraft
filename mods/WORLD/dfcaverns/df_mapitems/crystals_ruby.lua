@@ -1,4 +1,4 @@
-local S = df_mapitems.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_mapitems:glow_ruby_ore", {
 	description = S("Red Crystal Vein"),
@@ -6,8 +6,10 @@ minetest.register_node("df_mapitems:glow_ruby_ore", {
 	_doc_items_usagehelp = df_mapitems.doc.glow_ruby_ore_usage,
 	tiles = {"dfcaverns_glow_ruby_ore.png"},
 	is_ground_content = false,
-	groups = {cracky=2},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, pickaxey=3, material_stone=1},
+	sounds = df_dependencies.sound_glass(),
+	_mcl_blast_resistance = 1.5,
+	_mcl_hardness = 1.5,
 })
 
 minetest.register_node("df_mapitems:big_crystal", {
@@ -26,8 +28,8 @@ minetest.register_node("df_mapitems:big_crystal", {
 	is_ground_content = false,
 	sunlight_propagates = true,
 	light_source = 12,
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1, enderman_takable=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 3, 0.5},
@@ -36,6 +38,8 @@ minetest.register_node("df_mapitems:big_crystal", {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 3, 0.5},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_mapitems:med_crystal", {
@@ -54,8 +58,8 @@ minetest.register_node("df_mapitems:med_crystal", {
 	is_ground_content = false,
 	sunlight_propagates = true,
 	light_source = 12,
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 1.25, 0.25},
@@ -64,6 +68,8 @@ minetest.register_node("df_mapitems:med_crystal", {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 1.25, 0.25},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 
@@ -84,8 +90,8 @@ minetest.register_node("df_mapitems:big_crystal_30", {
 	is_ground_content = false,
 	light_source = 12,
 	drop = "df_mapitems:big_crystal",
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1, enderman_takable=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -117,6 +123,8 @@ minetest.register_node("df_mapitems:big_crystal_30", {
 --			{-0.25, 2.0, -1.625, 0.25, 2.5, -1.125},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_mapitems:med_crystal_30", {
@@ -136,8 +144,8 @@ minetest.register_node("df_mapitems:med_crystal_30", {
 	is_ground_content = false,
 	light_source = 12,
 	drop = "df_mapitems:med_crystal",
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -154,6 +162,8 @@ minetest.register_node("df_mapitems:med_crystal_30", {
 			{-0.25, 0.5, -0.9375, 0.25, 1.0, -0.4375},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_mapitems:big_crystal_30_45", {
@@ -173,8 +183,8 @@ minetest.register_node("df_mapitems:big_crystal_30_45", {
 	is_ground_content = false,
 	light_source = 12,
 	drop = "df_mapitems:big_crystal",
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1, enderman_takable=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -191,6 +201,8 @@ minetest.register_node("df_mapitems:big_crystal_30_45", {
 			{0.5, 1.5, -1.5, 1.5, 2.5, -0.5},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 
@@ -211,8 +223,8 @@ minetest.register_node("df_mapitems:med_crystal_30_45", {
 	is_ground_content = false,
 	light_source = 12,
 	drop = "df_mapitems:med_crystal",
-	groups = {cracky=2, dfcaverns_big_crystal = 1},
-	sounds = df_mapitems.sounds.glass,
+	groups = {cracky=2, dfcaverns_big_crystal = 1, pickaxey=5, material_stone=1},
+	sounds = df_dependencies.sound_glass(),
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -229,6 +241,8 @@ minetest.register_node("df_mapitems:med_crystal_30_45", {
 			{0.25, 0.5, -0.75, 0.75, 1.0, -0.25},
 		},
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_craft({
@@ -262,7 +276,7 @@ minetest.register_craft({
 	recipe = {'df_mapitems:med_crystal_30_45'},
 })
 
-local c_stone = df_mapitems.node_id.stone
+local c_stone = minetest.get_content_id(df_dependencies.node_name_stone)
 local c_air = minetest.get_content_id("air")
 local c_big_crystal = minetest.get_content_id("df_mapitems:big_crystal")
 local c_med_crystal = minetest.get_content_id("df_mapitems:med_crystal")

@@ -1,4 +1,4 @@
-local S = df_primordial_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 ---------------------------------------------------------------------------------------
 -- Glownode and stalk
@@ -12,9 +12,11 @@ minetest.register_node("df_primordial_items:glownode", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = false,
-	groups = {cracky = 3, oddly_breakable_by_hand = 3},
-	sounds = df_primordial_items.sounds.glass,
+	groups = {cracky = 3, oddly_breakable_by_hand = 3, handy=1, glass=1, building_block=1, material_glass=1},
+	sounds = df_dependencies.sound_glass(),
 	light_source = minetest.LIGHT_MAX,
+	_mcl_blast_resistance = 0.3,
+	_mcl_hardness = 0.3,
 })
 
 minetest.register_node("df_primordial_items:glownode_stalk", {
@@ -24,9 +26,11 @@ minetest.register_node("df_primordial_items:glownode_stalk", {
 	tiles = {"dfcaverns_mush_stalk_top.png", "dfcaverns_mush_stalk_top.png", "dfcaverns_mush_stalk_side.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = df_primordial_items.sounds.wood,
-	on_place = minetest.rotate_node
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, handy=1,axey=1,building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
+	on_place = minetest.rotate_node,
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_primordial_items:glow_orb_hanging", {
@@ -36,7 +40,7 @@ minetest.register_node("df_primordial_items:glow_orb_hanging", {
 	tiles = {"dfcaverns_mush_orb_vert.png"},
 	inventory_image = "dfcaverns_mush_orb_vert.png",
 	wield_image = "dfcaverns_mush_orb_vert.png",
-	groups = {snappy = 3, flora = 1, flammable = 1},
+	groups = {snappy = 3, flammable = 1, attached_node = 1, plant = 1, handy=1, swordy=1, hoey=1, destroy_by_lava_flow=1,dig_by_piston=1},
 	paramtype = "light",
 	paramtype2 = "degrotate",
 	drawtype = "plantlike",
@@ -44,9 +48,11 @@ minetest.register_node("df_primordial_items:glow_orb_hanging", {
 	is_ground_content = false,
 	walkable = false,
 	light_source = 6,
-	sounds = df_primordial_items.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
 	use_texture_alpha = "clip",
 	sunlight_propagates = true,
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 })
 
 local c_stalk = minetest.get_content_id("df_primordial_items:glownode_stalk")

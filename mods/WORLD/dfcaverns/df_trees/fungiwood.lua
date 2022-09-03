@@ -5,7 +5,7 @@
 -- Max trunk height 	8 
 -- depth 1-2
 
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_trees:fungiwood", {
 	description = S("Fungiwood Stem"),
@@ -14,8 +14,10 @@ minetest.register_node("df_trees:fungiwood", {
 	tiles = {"dfcaverns_fungiwood.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = df_trees.sounds.wood,
+	groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 3, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 
 	on_place = minetest.rotate_node
 })
@@ -36,11 +38,13 @@ minetest.register_node("df_trees:fungiwood_wood", {
 	place_param2 = 0,
 	tiles = {"dfcaverns_fungiwood_wood.png"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=20},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 3,
+	_mcl_hardness = 2,
 })
 
-df_trees.register_all_stairs("fungiwood_wood")
+df_dependencies.register_all_stairs_and_fences("fungiwood_wood", {burntime = 7})
 
 minetest.register_craft({
 	type = "fuel",
@@ -80,7 +84,7 @@ minetest.register_node("df_trees:fungiwood_shelf",{
 		}
 	},
 	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+	groups = {snappy = 3, leafdecay = 5, flammable = 2, leaves = 1,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30, compostability=30},
 	drop = {
 		max_items = 1,
 		items = {
@@ -88,12 +92,15 @@ minetest.register_node("df_trees:fungiwood_shelf",{
 			{items = {"df_trees:fungiwood_shelf"}}
 		}
 	},
-	sounds = df_trees.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
+	_mcl_blast_resistance = 0.5,
+	_mcl_hardness = 0.5,
 
-	after_place_node = df_trees.after_place_leaves,
+	after_place_node = df_dependencies.after_place_leaves,
+	place_param2 = 1, -- Prevent leafdecay for placed nodes
 })
 
-df_trees.register_leafdecay({
+df_dependencies.register_leafdecay({
 	trunks = {"df_trees:fungiwood"},
 	leaves = {"df_trees:fungiwood_shelf"},
 	radius = 5,
@@ -118,16 +125,17 @@ minetest.register_node("df_trees:fungiwood_sapling", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
-		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = df_trees.sounds.leaves,
+		attached_node = 1, sapling = 1, light_sensitive_fungus = 11, dig_immediate=3,dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30},
+	sounds = df_dependencies.sound_leaves(),
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_trees.fungiwood_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.fungiwood_delay_multiplier*df_trees.config.tree_min_growth_delay,
+				df_trees.config.fungiwood_delay_multiplier*df_trees.config.tree_max_growth_delay))
 		end
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.fungiwood_delay_multiplier*df_trees.config.tree_min_growth_delay,
-			df_trees.config.fungiwood_delay_multiplier*df_trees.config.tree_max_growth_delay))
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()

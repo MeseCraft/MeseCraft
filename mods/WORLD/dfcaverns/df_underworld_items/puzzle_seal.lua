@@ -1,6 +1,10 @@
-local S = df_underworld_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local named_waypoints_path = minetest.get_modpath("named_waypoints")
+
+-- override these to allow achievements to be recorded without requiring a dependency
+df_underworld_items.slade_breacher_triggered = function(pos, player) end
+df_underworld_items.puzzle_seal_solved = function(pos, player) end -- player can be nil
 
 local invulnerable = df_underworld_items.config.invulnerable_slade and not minetest.settings:get_bool("creative_mode")
 
@@ -11,11 +15,16 @@ if invulnerable then
 	end
 end
 
-local slade_groups = {stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1, cracky = 3, not_in_creative_inventory=1}
+local slade_mcl_blast_resistance = 1200
+local slade_mcl_hardness = 50
+local slade_groups = {stone=1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1, cracky = 3, not_in_creative_inventory=1,creative_breakable=1, building_block=1, material_stone=1}
 if invulnerable then
 	slade_groups.immortal = 1
+	slade_mcl_blast_resistance = 3600000
+	slade_mcl_hardness = -1
 end
 
+local lava_source = df_dependencies.node_name_lava_source
 
 -- Ensures that the node is functioning correctly
 local ensure_meta = function(pos)
@@ -39,33 +48,78 @@ local ensure_meta = function(pos)
 end
 
 local colour_groups = {
-	"color_black",	-- 0
-	"color_red",	-- 1
-	"color_orange",	-- 2
-	"color_yellow",	-- 3
-	"color_green",	-- 4
-	"color_blue",	-- 5
-	"color_violet",	-- 6
-	"color_white"}	-- 7
+	{"color_black", "basecolor_black", "excolor_black", "excolor_darkgrey", "color_dark_grey"},	-- 0
+	{"color_red", "basecolor_red", "excolor_red"},	-- 1
+	{"color_orange", "basecolor_orange", "excolor_orange"},	-- 2
+	{"color_yellow", "basecolor_yellow", "excolor_yellow"},	-- 3
+	{"color_green", "basecolor_green", "excolor_green", "excolor_lime", "color_dark_green"},	-- 4
+	{"color_blue", "basecolor_blue", "excolor_blue", "excolor_sky_blue"},	-- 5
+	{"color_violet", "excolor_violet",},	-- 6
+	{"color_white", "basecolor_white", "excolor_white", "excolor_lightgrey", "color_grey"},	-- 7
+}
 
-local test_key = function(pos)
+df_underworld_items.colour_items = {}
+
+local cull_colour_groups = function()
+	local culled_colour_groups = {}
+	for _, groups in ipairs(colour_groups) do
+		local new_set = {}
+		for _, colour_group in pairs(groups) do
+			for itemname, def in pairs(minetest.registered_items) do
+				if minetest.get_item_group(itemname, colour_group) ~= 0 then
+					table.insert(new_set, colour_group)
+					break
+				end
+			end
+		end
+		assert(#new_set > 0, "Unsolvable puzzle seals due to lack of any registered items belonging to one of " .. dump(groups))
+		table.insert(culled_colour_groups, new_set)
+	end
+	colour_groups = culled_colour_groups
+	
+	-- collect a list of all items with useful colour groups
+	-- to be used for treasure generation
+	local colour_item_set = {}
+	for itemname, def in pairs(minetest.registered_items) do
+		for _, groups in ipairs(colour_groups) do
+			for _, colour in ipairs(groups) do
+				if minetest.get_item_group(itemname, colour) ~= 0 then
+					colour_item_set[itemname] = true
+				end
+			end
+		end
+	end
+	for colour_item, _ in pairs(colour_item_set) do
+		table.insert(df_underworld_items.colour_items, colour_item)
+	end
+end
+minetest.after(0, cull_colour_groups)
+
+local item_represents_number = function(itemname, number)
+	for _, group in pairs(colour_groups[number+1]) do
+		if minetest.get_item_group(itemname, group) ~= 0 then
+			return true
+		end
+	end
+	return false
+end
+
+local test_key = function(pos, player)
     local meta = minetest.get_meta(pos)
 	if not meta:contains("key") then
 		return false
 	end
-		
+	
 	local keystring = meta:get_string("key")
 	local key = minetest.deserialize(keystring)
 	local inv = meta:get_inventory()
-	
 	for offset = 0, 7 do
 		local valid
 		for i = 0, 7 do
 			valid = true
 			local keyval = (i + offset) % 8 + 1
-			local key_group = colour_groups[key[keyval]+1]
 			local item = inv:get_stack("main", i+1)
-			if minetest.get_item_group(item:get_name(), key_group) == 0 then
+			if not item_represents_number(item:get_name(), key[keyval]) then
 				valid = false
 				break
 			end
@@ -73,6 +127,7 @@ local test_key = function(pos)
 		if valid then
 			local unlocked = meta:get_int("unlocked")
 			if unlocked == 0 then
+				df_underworld_items.puzzle_seal_solved(pos, player)
 				meta:set_int("unlocked", 1)
 			end
 			return true
@@ -93,6 +148,7 @@ end
 --This place is best shunned and left uninhabited.
 
 local formspec_prefix = "df_underworld_items_puzzle_seal:"
+local itemslot_bg = df_dependencies.get_itemslot_bg
 local get_formspec = function(pos, unlocked)
 	local formspec = 
 		"size[8,8]"
@@ -100,13 +156,21 @@ local get_formspec = function(pos, unlocked)
 		.."image[5.8,0;2.5,4;dfcaverns_puzzle_inscription_background.png^[transformR180^dfcaverns_puzzle_inscription_2.png]"
 		.."container[2.25,0]"
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;0.25,0.25;1,1;0]"
+		..itemslot_bg(0.25,0.25,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;1.25,0;1,1;1]"
+		..itemslot_bg(1.25,0,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;2.25,0.25;1,1;2]"
+		..itemslot_bg(2.25,0.25,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;2.5,1.25;1,1;3]"
+		..itemslot_bg(2.5,1.25,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;2.25,2.25;1,1;4]"
+		..itemslot_bg(2.25,2.25,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;1.25,2.5;1,1;5]"
+		..itemslot_bg(1.25,2.5,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;0.25,2.25;1,1;6]"
+		..itemslot_bg(0.25,2.25,1,1)
 		.."list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;0,1.25;1,1;7]"
+		..itemslot_bg(0,1.25,1,1)
 	if unlocked then
 		formspec = formspec .. "image_button[1.25,1.25;1,1;dfcaverns_seal.png;open;"..S("Turn").."]"
 	else
@@ -119,12 +183,15 @@ local get_formspec = function(pos, unlocked)
 --		.."box[0,0;1,5;#0A0000]box[0.1,0.1;0.8,4.8;#000000]box[0.1," .. 0.1 + 4.8*completion ..";0.8,".. 4.8*completion ..";#FFCC22]"
 --		.."container_end[]"
 		.."container[0,4]list[current_player;main;0,0;8,1;]listring[]"
-		.."list[current_player;main;0,1.25;8,3;8]container_end[]"
-	return formspec
+		..itemslot_bg(0,0,8,1)
+		.."list[current_player;main;0,1.25;8,3;8]"
+		..itemslot_bg(0,1.25,8,3)
+		.."container_end[]"
+		return formspec
 end
 local refresh_formspec = function(pos, player)
 	local player_name = player:get_player_name()
-	local unlocked = test_key(pos)
+	local unlocked = test_key(pos, player)
 	local formspec = get_formspec(pos, unlocked)
 	minetest.show_formspec(player_name, formspec_prefix..minetest.pos_to_string(pos), formspec)
 end
@@ -188,7 +255,7 @@ local puzzle_seal_def = {
 	paramtype2 = "facedir",
 	light_source = 8,
 	groups = slade_groups,
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.625, -0.625, -0.625, 0.625, 0.625, 0.625},
@@ -199,6 +266,8 @@ local puzzle_seal_def = {
 	},
 	is_ground_content = false,
 	can_dig = can_dig,
+	_mcl_blast_resistance = slade_mcl_blast_resistance,
+	_mcl_hardness = slade_mcl_hardness,
 	on_blast = function() end,
 	on_rotate = function() return false end,
 	on_construct = function(pos)
@@ -238,6 +307,8 @@ minetest.register_node("df_underworld_items:puzzle_seal", puzzle_seal_def)
 --------------------------------------------------------------------------------
 -- Once the seal is opened, it turns into this and digs its way down through the slade.
 
+local tnt_boom = df_dependencies.tnt_boom
+
 local digging_seal_def = {
 	description = S("Active Slade Breacher"),
 	_doc_items_longdesc = nil,
@@ -247,9 +318,9 @@ local digging_seal_def = {
 	tiles = {"dfcaverns_pit_plasma_static.png", "dfcaverns_pit_plasma_static.png^dfcaverns_seal.png", "dfcaverns_pit_plasma_static.png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	light_source = default.LIGHT_MAX,
-	groups = {immortal=1, stone=1, level=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1, not_in_creative_inventory=1},
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	light_source = minetest.LIGHT_MAX,
+	groups = {immortal=1, stone=1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1, not_in_creative_inventory=1,building_block=1, material_stone=1},
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.625, -0.625, -0.625, 0.625, 0.625, 0.625},
@@ -259,6 +330,8 @@ local digging_seal_def = {
 		fixed = {-0.625, -0.625, -0.625, 0.625, 0.625, 0.625},
 	},
 	is_ground_content = false,
+	_mcl_blast_resistance = 3600000,
+	_mcl_hardness = -1,
 	can_dig = can_dig,
 	on_blast = function() end,
 	on_rotate = function() return false end,
@@ -301,8 +374,15 @@ local digging_seal_def = {
 		})
 		
 		if minetest.get_item_group(below_node.name, "slade") == 0 then
-			tnt.boom({x=pos.x, y=pos.y-2, z=pos.z}, {radius=3})
-			minetest.set_node(pos, {name="default:lava_source"})
+			if df_underworld_items.config.enable_slade_drill then
+				minetest.set_node(pos, {name="air"})
+				if tnt_boom then
+					tnt_boom({x=pos.x, y=pos.y-2, z=pos.z}, {radius=3})
+				end
+				minetest.add_item(pos, "df_underworld_items:slade_drill")
+			else
+				minetest.set_node(pos, {name=lava_source})
+			end
 			return
 		end
 		
@@ -320,8 +400,10 @@ local digging_seal_def = {
 			minetest.place_schematic({x=pos.x-3, y=pos.y-2, z=pos.z-3}, df_underworld_items.seal_stair_schem, 270, {}, true)
 			node.param2 = 0
 		else
-			tnt.boom(pos, {radius=3})
-			minetest.set_node(pos, {name="default:lava_source"})
+			if tnt_boom then
+				tnt_boom(pos, {radius=3})
+			end
+			minetest.set_node(pos, {name=lava_source})
 			return
 		end
 		minetest.set_node(pos, {name="air"})
@@ -348,6 +430,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		minetest.set_node(pos, {name="df_underworld_items:digging_seal", param2 = math.random(1,4)-1})
 		minetest.get_node_timer(pos):start(4)
 		minetest.close_formspec(player:get_player_name(), formname)
+		df_underworld_items.slade_breacher_triggered(pos, player)
 	end
 end)
 
@@ -367,8 +450,10 @@ local inscription_block_def = {
 	},
 	paramtype2 = "facedir",
 	groups = slade_groups,
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = slade_mcl_blast_resistance,
+	_mcl_hardness = slade_mcl_hardness,
 	can_dig = can_dig,
 	on_blast = function() end,
 	on_rotate = function() return false end,
@@ -405,8 +490,10 @@ local capstone_def = {
 	paramtype2 = "facedir",
 	groups = slade_groups,
 	light_source = 8,
-	sounds = default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } }),
+	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	is_ground_content = false,
+	_mcl_blast_resistance = slade_mcl_blast_resistance,
+	_mcl_hardness = slade_mcl_hardness,
 	can_dig = can_dig,
 	on_blast = function() end,
 	on_rotate = function() return false end,
@@ -418,7 +505,6 @@ minetest.register_node("df_underworld_items:slade_capstone", capstone_def)
 -- Schematics
 
 local n1 = { name = "df_underworld_items:slade_block" }
-local n5 = { name = "default:meselamp" }
 local n6 = { name = "air", prob = 0 } -- ceiling pieces to leave in place
 local n8 = { name = "df_underworld_items:puzzle_seal" }
 local n3 = { name = "air"}
@@ -435,37 +521,32 @@ local n14 = { name = "df_underworld_items:inscription_block", param2 = 2 }
 local n15 = { name = "df_underworld_items:inscription_block", param2 = 3 }
 local n16 = { name = "df_underworld_items:slade_capstone"}
 
-if minetest.get_modpath("stairs") then
-	local stair_groups = {level = 3, mese_radiation_shield=1, pit_plasma_resistant=1, slade=1, cracky = 3}
-	if invulnerable then
-		stair_groups.immortal = 1
-	end
+df_dependencies.register_stairs("slade_block")
 
-	stairs.register_stair_and_slab(
-		"slade_block",
-		"df_underworld_items:slade_block",
-		stair_groups,
-		{"dfcaverns_slade_block.png"},
-		S("Slade Block Stair"),
-		S("Slade Block Slab"),
-		default.node_sound_stone_defaults({ footstep = { name = "bedrock2_step", gain = 1 } })
-	)
-	
-	if invulnerable then
-		for name, def in pairs(minetest.registered_nodes) do
-			if name:sub(1,7) == "stairs:" and name:sub(-11) == "slade_block" then
+if invulnerable then
+	for name, def in pairs(minetest.registered_nodes) do
+		if (name:sub(1,7) == "stairs:" and name:sub(-11) == "slade_block") or 
+			name:sub(1,11) == "mcl_stairs:" and name:sub(-11) == "slade_block" then
 				minetest.override_item(name, {can_dig = can_dig})
-			end
 		end
 	end
-	
-	n2 = { name = "stairs:stair_slade_block", param2 = 3 }
-	n4 = { name = "stairs:stair_slade_block", param2 = 1 }
-	n7 = { name = "stairs:stair_slade_block", param2 = 2 }
-	n9 = { name = "stairs:stair_slade_block" }
-	n10 = { name = "stairs:slab_slade_block", param2 = 21 }
-	n11 = { name = "stairs:slab_slade_block", param2 = 1 }
 end
+
+if df_dependencies.node_name_stair_slade_block then
+	n2 = { name = df_dependencies.node_name_stair_slade_block, param2 = 3 }
+	n4 = { name = df_dependencies.node_name_stair_slade_block, param2 = 1 }
+	n7 = { name = df_dependencies.node_name_stair_slade_block, param2 = 2 }
+	n9 = { name = df_dependencies.node_name_stair_slade_block }
+	n11 = { name = df_dependencies.node_name_slab_slade_block, param2 = 1 }
+	n10 = { name = df_dependencies.node_name_slab_slade_block, param2 = 21 }
+
+	if df_dependencies.node_name_slab_slade_block_top then	
+	-- Mineclone slabs don't support full rotation, this is how to flip them over
+		n10.name = df_dependencies.node_name_slab_slade_block_top
+		n10.param2 = 1
+	end
+end
+
 
 df_underworld_items.seal_temple_schem = {
 	size = {y = 6, x = 7, z = 7},

@@ -1,6 +1,6 @@
 if minetest.get_modpath("hunter_statue") and df_underworld_items.config.underworld_hunter_statues then
 
-	local S = df_underworld_items.S
+	local S = minetest.get_translator(minetest.get_current_modname())
 
 	hunter_statue.register_hunter_statue("df_underworld_items:hunter_statue", {
 		description = S("Guardian Statue"),
@@ -13,6 +13,9 @@ if minetest.get_modpath("hunter_statue") and df_underworld_items.config.underwor
 		tnt_vulnerable = true,
 		tnt_debris = "df_underworld_items:slade_sand",
 		groups = {hunter_statue = 1, falling_node = 1, immortal = 1},
+		hunters_allowed_here = function(pos)
+			return not minetest.find_node_near(pos, 6, "df_underworld_items:ancient_lantern_slade", true)
+		end,
 		other_overrides = {
 			can_dig = function(pos, player)
 				if player then

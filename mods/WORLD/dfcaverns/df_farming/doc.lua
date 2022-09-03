@@ -4,7 +4,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
-local S = df_farming.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 df_farming.doc.simple_meal_desc = S("A meal made from the admixture of two ingredients, it keeps well but are not a rich source of nutrients.")
 df_farming.doc.simple_meal_usage = nil

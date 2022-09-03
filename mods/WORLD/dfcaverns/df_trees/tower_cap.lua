@@ -1,4 +1,4 @@
-local S = df_trees.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 --stem
 minetest.register_node("df_trees:tower_cap_stem", {
@@ -7,8 +7,10 @@ minetest.register_node("df_trees:tower_cap_stem", {
 	_doc_items_usagehelp = df_trees.doc.tower_cap_usage,
 	tiles = {"dfcaverns_tower_cap.png"},
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, tower_cap = 1},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, tower_cap = 1, tower_cap_trunk = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 --cap
@@ -18,8 +20,10 @@ minetest.register_node("df_trees:tower_cap", {
 	_doc_items_usagehelp = df_trees.doc.tower_cap_usage,
 	tiles = {"dfcaverns_tower_cap.png"},
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, tower_cap = 1},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, tower_cap = 1, tower_cap_trunk = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 --gills
@@ -29,8 +33,8 @@ minetest.register_node("df_trees:tower_cap_gills", {
 	_doc_items_usagehelp = df_trees.doc.tower_cap_usage,
 	tiles = {"dfcaverns_tower_cap_gills.png"},
 	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, tower_cap = 1},
-	sounds = df_trees.sounds.leaves,
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, tower_cap = 1,handy=1, hoey=1, shearsy=1, swordy=1, deco_block=1, dig_by_piston=1, fire_encouragement=15, fire_flammability=30, compostability=30},
+	sounds = df_dependencies.sound_leaves(),
 	drawtype = "plantlike",
 	paramtype = "light",
 	drop = {
@@ -45,10 +49,12 @@ minetest.register_node("df_trees:tower_cap_gills", {
 			}
 		}
 	},
-	after_place_node = df_trees.after_place_leaves,
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
+	after_place_node = df_dependencies.after_place_leaves,
 })
 
-df_trees.register_leafdecay({
+df_dependencies.register_leafdecay({
 	trunks = {"df_trees:tower_cap"}, -- don't need stem nodes here
 	leaves = {"df_trees:tower_cap_gills"},
 	radius = 1,	
@@ -58,14 +64,7 @@ df_trees.register_leafdecay({
 minetest.register_craft({
 	output = 'df_trees:tower_cap_wood 4',
 	recipe = {
-		{'df_trees:tower_cap'},
-	}
-})
-
-minetest.register_craft({
-	output = 'df_trees:tower_cap_wood 4',
-	recipe = {
-		{'df_trees:tower_cap_stem'},
+		{'group:tower_cap_trunk'},
 	}
 })
 
@@ -77,11 +76,13 @@ minetest.register_node("df_trees:tower_cap_wood", {
 	place_param2 = 0,
 	tiles = {"dfcaverns_tower_cap_wood.png"},
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
-	sounds = df_trees.sounds.wood,
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1, handy=1,axey=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=20},
+	sounds = df_dependencies.sound_wood(),
+	_mcl_blast_resistance = 3,
+	_mcl_hardness = 2,
 })
 
-df_trees.register_all_stairs("tower_cap_wood")
+df_dependencies.register_all_stairs_and_fences("tower_cap_wood", {burntime = 7})
 
 minetest.register_craft({
 	type = "fuel",
@@ -129,16 +130,17 @@ minetest.register_node("df_trees:tower_cap_sapling", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
 	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2,
-		attached_node = 1, sapling = 1, light_sensitive_fungus = 11},
-	sounds = df_trees.sounds.leaves,
+		attached_node = 1, sapling = 1, light_sensitive_fungus = 11, dig_immediate=3,dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30},
+	sounds = df_dependencies.sound_leaves(),
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_trees.tower_cap_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.tower_cap_delay_multiplier*df_trees.config.tree_min_growth_delay,
+				df_trees.config.tower_cap_delay_multiplier*df_trees.config.tree_max_growth_delay))
 		end
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.tower_cap_delay_multiplier*df_trees.config.tree_min_growth_delay,
-			df_trees.config.tower_cap_delay_multiplier*df_trees.config.tree_max_growth_delay))
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()

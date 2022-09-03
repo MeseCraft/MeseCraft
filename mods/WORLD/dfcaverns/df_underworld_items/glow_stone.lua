@@ -1,4 +1,4 @@
-local S = df_underworld_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 local glowstone_def = {
 	_doc_items_longdesc = df_underworld_items.doc.glowstone_desc,
@@ -18,17 +18,21 @@ local glowstone_def = {
 		},
 	},
 	is_ground_content = false,
-	groups = {cracky=3},
-	sounds = default.node_sound_glass_defaults(),
+	groups = {cracky=3, pickaxey = 1, building_block = 1, material_stone =1},
+	sounds = df_dependencies.sound_glass(),
 	paramtype = "light",
-	--	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	drop = "",
 	sunlight_propagates = true,
+	_mcl_blast_resistance = 0.5,
+	_mcl_hardness = 0.5,
 }
-if minetest.get_modpath("tnt") then
+local tnt_boom = df_dependencies.tnt_boom
+if tnt_boom then
 	glowstone_def.on_dig = function(pos, node, digger)
-		tnt.boom(pos, {radius=3})
+		if minetest.node_dig(pos, node, digger) then
+			tnt_boom(pos, {radius=3})
+		end	
 	end
 end
 minetest.register_node("df_underworld_items:glowstone", glowstone_def)

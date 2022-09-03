@@ -1,0 +1,12 @@
+# textdomain: big_webs
+
+
+### init.lua ###
+
+Giant Cave Spider Web Generator=
+Giant Cave Spider Webbing=
+
+Thick ropes of sticky, springy silk, strung between cavern walls in hopes of catching bats and even larger beasts.=
+
+Webbing can be collected and re-strung elsewhere to aid in climbing. It absorbs all falling damage when you land on it.=
+

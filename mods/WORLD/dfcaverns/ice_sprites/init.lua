@@ -1,3 +1,5 @@
+ice_sprites = {}
+
 local modname = minetest.get_current_modname()
 local S = minetest.get_translator(modname)
 
@@ -6,10 +8,13 @@ local ice_sprite_usage
 local ice_sprite_bottle_desc
 local ice_sprite_bottle_usage
 
+local node_name_glass_bottle = df_dependencies.node_name_glass_bottle
+local node_name_firefly = df_dependencies.node_name_fireflies
+
 if minetest.get_modpath("doc") then
 	ice_sprite_desc = S("Ice sprites are mysterious glowing insect-like creatures that appear to be made partly of crystallized water.")
-	if minetest.get_modpath("vessels") then
-		if minetest.get_modpath("fireflies") then
+	if node_name_glass_bottle then
+		if node_name_firefly then
 			ice_sprite_usage = S("Ice sprites can be caught with nets and placed in bottles as sources of light and freezing cold.")
 		end
 		ice_sprite_bottle_desc = S("A bottle containing a captured ice sprite.")
@@ -46,6 +51,8 @@ minetest.register_node("ice_sprites:ice_sprite", {
 	},
 	light_source = 6,
 	floodable = true,
+	_mcl_blast_resistance = 0.1,
+	_mcl_hardness = 0.1,
 	on_place = function(itemstack, placer, pointed_thing)
 		local player_name = placer:get_player_name()
 		local pos = pointed_thing.above
@@ -79,9 +86,11 @@ minetest.register_node("ice_sprites:hidden_ice_sprite", {
 	pointable = false,
 	diggable = false,
 	buildable_to = true,
-	drop = "",
+	drop = "ice_sprites:ice_sprite",
 	groups = {not_in_creative_inventory = 1},
 	floodable = true,
+	_mcl_blast_resistance = 0.1,
+	_mcl_hardness = 0.1,
 	on_place = function(itemstack, placer, pointed_thing)
 		local player_name = placer:get_player_name()
 		local pos = pointed_thing.above
@@ -104,7 +113,12 @@ minetest.register_node("ice_sprites:hidden_ice_sprite", {
 })
 
 -- ice sprite in a bottle
-if minetest.get_modpath("vessels") then
+if node_name_glass_bottle then
+
+local glass_sounds
+if minetest.get_modpath("df_dependencies") then
+	glass_sounds = df_dependencies.sound_glass
+end
 
 minetest.register_node("ice_sprites:ice_sprite_bottle", {
 	description = S("Ice Sprite in a Bottle"),
@@ -127,12 +141,14 @@ minetest.register_node("ice_sprites:ice_sprite_bottle", {
 	light_source = 9,
 	is_ground_content = false,
 	walkable = false,
-	groups = {dig_immediate = 3, attached_node = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1},
+	groups = {dig_immediate = 3, attached_node = 1, puts_out_fire = 1, cools_lava = 1, freezes_water = 1, material_glass=1},
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
 	},
-	sounds = default.node_sound_glass_defaults(),
+	_mcl_blast_resistance = 0.5,
+	_mcl_hardness = 0.5,
+	sounds = glass_sounds(),
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		local lower_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
 		if minetest.is_protected(pos, player:get_player_name()) or
@@ -151,7 +167,7 @@ minetest.register_node("ice_sprites:ice_sprite_bottle", {
 		end
 
 		if ice_sprite_pos then
-			minetest.set_node(pos, {name = "vessels:glass_bottle"})
+			minetest.set_node(pos, {name = node_name_glass_bottle})
 			minetest.set_node(ice_sprite_pos, {name = "ice_sprites:ice_sprite"})
 			minetest.get_node_timer(ice_sprite_pos):start(1)
 		end
@@ -161,6 +177,6 @@ minetest.register_node("ice_sprites:ice_sprite_bottle", {
 minetest.register_craft( {
 	type = "shapeless",
 	output = "ice_sprites:ice_sprite_bottle",
-	recipe = {"ice_sprites:ice_sprite", "vessels:glass_bottle"}
+	recipe = {"ice_sprites:ice_sprite", node_name_glass_bottle}
 })
 end

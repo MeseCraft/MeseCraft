@@ -11,6 +11,10 @@ end
 
 local oil_sounds = {footstep = {name = "oil_oil_footstep", gain = 0.2}}
 
+local water_source = df_dependencies.node_name_water_source
+local water_flowing = df_dependencies.node_name_water_flowing
+local bucket_empty = df_dependencies.node_name_bucket_empty
+
 minetest.register_node("oil:oil_source", {
 	description = S("Oil"),
 	_doc_items_longdesc = oil_desc,
@@ -40,7 +44,7 @@ minetest.register_node("oil:oil_source", {
 			backface_culling = false,
 		},
 	},
-	use_texture_alpha = "blend",
+	alpha = 255,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
@@ -57,8 +61,10 @@ minetest.register_node("oil:oil_source", {
 	liquid_alternative_source = "oil:oil_source",
 	liquid_viscosity = 1,
 	post_effect_color = {a = 250, r = 0, g = 0, b = 0},
-	groups = {liquid = 3},
+	groups = {liquid = 1, dig_by_piston=1},
 	sounds = oil_sounds,
+	_mcl_blast_resistance      = 100,
+	_mcl_hardness              = -1,
 })
 
 minetest.register_node("oil:oil_flowing", {
@@ -89,7 +95,7 @@ minetest.register_node("oil:oil_flowing", {
 			},
 		},
 	},
-	use_texture_alpha = "blend",
+	alpha = 255,
 	paramtype = "light",
 	paramtype2 = "flowingliquid",
 	walkable = false,
@@ -107,8 +113,10 @@ minetest.register_node("oil:oil_flowing", {
 	liquid_alternative_source = "oil:oil_source",
 	liquid_viscosity = 1,
 	post_effect_color = {a = 250, r = 0, g = 0, b = 0},
-	groups = {liquid = 3, not_in_creative_inventory = 1},
+	groups = {liquid = 1, not_in_creative_inventory = 1, dig_by_piston=1},
 	sounds = oil_sounds,
+	_mcl_blast_resistance      = 100,
+	_mcl_hardness              = -1,
 })
 
 minetest.register_craft({
@@ -124,7 +132,7 @@ if minetest.get_modpath("dynamic_liquid") then
 	minetest.register_abm({
 		label = "oil:oil floats",
 		nodenames = {"oil:oil_source"},
-		neighbors = {"default:water_source"},
+		neighbors = {water_source},
 		interval = 1.0,
 		chance = 1,
 		catch_up = true,
@@ -132,7 +140,7 @@ if minetest.get_modpath("dynamic_liquid") then
 			local next_pos = {x=pos.x, y=pos.y+1, z=pos.z}
 			local next_node = minetest.get_node(next_pos)
 			local above_name = next_node.name
-			if above_name == "default:water_source" then
+			if above_name == water_source then
 				minetest.swap_node(next_pos, {name="oil:oil_source"})
 				minetest.swap_node(pos, next_node)
 			else
@@ -145,7 +153,7 @@ if minetest.get_modpath("dynamic_liquid") then
 					next_pos.z = next_pos.z + displacement
 				end
 				next_node = minetest.get_node(next_pos)
-				if next_node.name == "default:water_source" then
+				if next_node.name == water_source then
 					if above_name ~= "air" then
 						-- we're not on the surface, so try any lateral movement
 						minetest.swap_node(next_pos, {name="oil:oil_source"})
@@ -169,14 +177,14 @@ if minetest.get_modpath("dynamic_liquid") then
 	minetest.register_abm({
 		label = "oil:oil settles",
 		nodenames = {"oil:oil_source"},
-		neighbors = {"default:water_flowing"},
+		neighbors = {water_flowing},
 		interval = 1.0,
 		chance = 1,
 		catch_up = true,
 		action = function(pos, node)
 			local next_pos = {x=pos.x, y=pos.y-1, z=pos.z}
 			local next_node = minetest.get_node(next_pos)
-			if next_node.name == "default:water_flowing" then
+			if next_node.name == water_flowing then
 				minetest.swap_node(next_pos, {name="oil:oil_source"})
 				minetest.swap_node(pos, next_node)
 			end
@@ -185,8 +193,8 @@ if minetest.get_modpath("dynamic_liquid") then
 
 end
 
-if minetest.get_modpath("mesecraft_bucket") then
-	mesecraft_bucket.register_liquid(
+if df_dependencies.bucket_register_liquid then
+	df_dependencies.bucket_register_liquid(
 		"oil:oil_source",
 		"oil:oil_flowing",
 		"oil:oil_bucket",
@@ -198,7 +206,7 @@ if minetest.get_modpath("mesecraft_bucket") then
 		type = "fuel",
 		recipe = "oil:oil_bucket",
 		burntime = 370, -- same as coalblock
-		replacements = {{"oil:oil_bucket", "mesecraft_bucket:bucket_empty"}},
+		replacements = {{"oil:oil_bucket", bucket_empty}},
 	})
 	
 	if minetest.get_modpath("basic_materials") then
@@ -207,7 +215,7 @@ if minetest.get_modpath("mesecraft_bucket") then
 			output = "basic_materials:paraffin",
 			recipe = "oil:oil_bucket",
 			cooktime = 5,
-			replacements = {{"oil:oil_bucket", "mesecraft_bucket:bucket_empty"}},
+			replacements = {{"oil:oil_bucket", bucket_empty}},
 		})
 	end
 end

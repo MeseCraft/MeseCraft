@@ -1,12 +1,10 @@
 df_mapitems = {}
 
 local modname = minetest.get_current_modname()
-df_mapitems.S = minetest.get_translator(modname)
 local modpath = minetest.get_modpath(modname)
 
 --load companion lua files
 dofile(modpath.."/config.lua")
-dofile(modpath.."/dependencies.lua")
 dofile(modpath.."/doc.lua")
 dofile(modpath.."/aliases.lua")
 dofile(modpath.."/util.lua")

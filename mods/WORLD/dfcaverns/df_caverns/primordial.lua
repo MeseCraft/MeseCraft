@@ -4,6 +4,11 @@ end
 
 local c_air = df_caverns.node_id.air
 
+local log_location
+if mapgen_helper.log_location_enabled then
+	log_location = mapgen_helper.log_first_location
+end
+
 local perlin_cave_primordial = {
 	offset = 0,
 	scale = 1,
@@ -23,6 +28,16 @@ local perlin_wave_primordial = {
 }
 
 local giant_mycelium_timer_spread = tonumber(minetest.settings:get("dcaverns_giant_mycelium_timer_spread")) or 10
+
+df_caverns.register_biome_check(function(pos, heat, humidity)
+	if pos.y < df_caverns.config.primordial_min or pos.y > df_caverns.config.primordial_max then
+		return nil
+	end
+	if subterrane.get_cavern_value("primordial", pos) < 0 then
+		return "primordial jungle"
+	end
+	return "primordial fungus"
+end)
 
 -----------------------------------------------------------------------------------------
 -- Fungal biome
@@ -150,6 +165,16 @@ local jungle_cavern_floor = function(abs_cracks, humidity, vi, area, data, data_
 	local ystride = area.ystride
 	local humidityfactor = humidity/100
 	
+	if log_location then
+		local pos = area:position(vi)
+		log_location("primordial_jungle", pos)
+		if humidityfactor < 0.25 then
+			log_location("primordial_jungle_low_humidity", pos)
+		elseif humidityfactor > 0.75 then
+			log_location("primordial_jungle_high_humidity", pos)
+		end
+	end
+
 	data[vi] = c_jungle_dirt
 
 	local rand = math.random()
@@ -169,6 +194,7 @@ local jungle_cavern_floor = function(abs_cracks, humidity, vi, area, data, data_
 		local firefly_vi = vi + ystride * math.random(1, 5)
 		if data[firefly_vi] == c_air then
 			data[firefly_vi] = c_fireflies
+			minetest.get_node_timer(area:position(firefly_vi)):start(1)
 		end
 	end
 end
@@ -237,6 +263,7 @@ local jungle_warren_floor = function(abs_cracks, vi, area, data, data_param2)
 		local firefly_vi = vi + ystride * math.random(1, 5)
 		if data[firefly_vi] == c_air then
 			data[firefly_vi] = c_fireflies
+			minetest.get_node_timer(area:position(firefly_vi)):start(1)
 		end
 	end
 end
@@ -268,6 +295,7 @@ local decorate_primordial = function(minp, maxp, seed, vm, node_arrays, area, da
 			jungle_cavern_floor(abs_cracks, humidity, vi, area, data, data_param2)
 		else
 			mushroom_cavern_floor(abs_cracks, humidity, vi, area, data, data_param2)
+			if log_location then log_location("primordial_mushrooms", area:position(vi)) end
 		end
 	end
 	
@@ -327,8 +355,10 @@ local decorate_primordial = function(minp, maxp, seed, vm, node_arrays, area, da
 		
 		if jungle then
 			jungle_warren_floor(abs_cracks, vi, area, data, data_param2)
+			if log_location then log_location("primordial_jungle_warren", area:position(vi)) end
 		else
 			mushroom_warren_floor(abs_cracks, vi, area, data, data_param2)
+			if log_location then log_location("primordial_mushroom_warren", area:position(vi)) end
 		end
 	end
 
@@ -367,7 +397,7 @@ subterrane.register_layer({
 	columns = {
 		maximum_radius = 20,
 		minimum_radius = 5,
-		node = "default:stone", -- no flowstone below the Sunless Sea, replace with something else
+		node = df_dependencies.node_name_stone, -- no flowstone below the Sunless Sea, replace with something else
 		weight = 0.5,
 		maximum_count = 60,
 		minimum_count = 10,
@@ -411,7 +441,7 @@ minetest.register_ore({
 	random_factor = 0,
 })
 
--- Rather than make plants farmable, have them randomly respawn in jungle soil. You can only get them down there.
+-- Rather than make plants farmable, have them randomly respawn in jungle soil. You can only get them down there by foraging, not farming.
 minetest.register_abm({
 	label = "Primordial plant growth",
 	nodenames = {"df_primordial_items:dirt_with_jungle_grass"},

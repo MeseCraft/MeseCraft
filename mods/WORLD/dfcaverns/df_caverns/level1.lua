@@ -10,6 +10,8 @@ local c_spindlestem_white = df_caverns.node_id.spindlestem_white
 local tower_cap_shrublist
 local fungiwood_shrublist
 
+local chasms_path = minetest.get_modpath("chasms")
+
 if minetest.get_modpath("df_farming") then
 	tower_cap_shrublist = {
 		df_farming.spawn_plump_helmet_vm,
@@ -26,6 +28,11 @@ if minetest.get_modpath("df_farming") then
 	}
 end
 
+local log_location
+if mapgen_helper.log_location_enabled then
+	log_location = mapgen_helper.log_first_location
+end
+
 local subsea_level = df_caverns.config.level1_min - (df_caverns.config.level1_min - df_caverns.config.ymax) * 0.33
 local flooding_threshold = math.min(df_caverns.config.tunnel_flooding_threshold, df_caverns.config.cavern_threshold)
 
@@ -38,6 +45,13 @@ local get_biome = function(heat, humidity)
 		return "fungiwood"
 	end
 end
+
+df_caverns.register_biome_check(function(pos, heat, humidity)
+	if pos.y < df_caverns.config.level1_min or pos.y > df_caverns.config.ymax then
+		return nil
+	end
+	return get_biome(heat, humidity)	
+end)
 
 local tower_cap_cavern_floor = function(abs_cracks, vert_rand, vi, area, data, data_param2)
 	local ystride = area.ystride
@@ -116,15 +130,20 @@ local decorate_level_1 = function(minp, maxp, seed, vm, node_arrays, area, data)
 		if minp.y < subsea_level and area:get_y(vi) < subsea_level and flooded_caverns then
 			-- underwater floor
 			df_caverns.flooded_cavern_floor(abs_cracks, vert_rand, vi, area, data)
+			if log_location then log_location("level1_flooded_"..biome_name, area:position(vi)) end
 		elseif biome_name == "towercap" then
 			tower_cap_cavern_floor(abs_cracks, vert_rand, vi, area, data, data_param2)
+			if log_location then log_location("level1_towercap", area:position(vi)) end
 		elseif biome_name == "fungiwood"  then
 			fungiwood_cavern_floor(abs_cracks, vert_rand, vi, area, data, data_param2)
+			if log_location then log_location("level1_fungiwood", area:position(vi)) end
 		elseif biome_name == "barren" then
 			if flooded_caverns then
 				df_caverns.wet_cavern_floor(abs_cracks, vert_rand, vi, area, data, data_param2)
+				if log_location then log_location("level1_barren_wet", area:position(vi)) end
 			else
 				df_caverns.dry_cavern_floor(abs_cracks, vert_rand, vi, area, data, data_param2)
+				if log_location then log_location("level1_barren_dry", area:position(vi)) end
 			end
 		end		
 	end
@@ -213,6 +232,12 @@ local decorate_level_1 = function(minp, maxp, seed, vm, node_arrays, area, data)
 		local flooded_caverns = nvals_cave[vi] < 0 -- this indicates if we're in the "flooded" set of caves or not.
 		local ystride = area.ystride
 
+		if log_location then
+			local flood_name = ""
+			if flooded_caverns then flood_name = "_flooded" end
+			log_location("level1_warren_"..biome_name..flood_name, area:position(vi))
+		end
+
 		if not (flooded_caverns and minp.y < subsea_level and area:get_y(vi) < subsea_level) then
 			if flooded_caverns or biome_name ~= "barren" then		
 				-- we're in flooded areas or are not barren
@@ -272,6 +297,18 @@ local decorate_level_1 = function(minp, maxp, seed, vm, node_arrays, area, data)
 
 		if dry and data[vi] == c_wet_flowstone then
 			data[vi] = c_dry_flowstone
+		end
+		
+		if chasms_path then
+			local pos = area:position(vi)
+			if chasms.is_in_chasm_without_taper(pos) then
+				local flooded_caverns = nvals_cave[vi] < 0 -- this indicates if we're in the "flooded" set of caves or not.
+				if flooded_caverns and pos.y < subsea_level then
+					data[vi] = c_water
+				else
+					data[vi] = c_air
+				end
+			end
 		end
 	end
 

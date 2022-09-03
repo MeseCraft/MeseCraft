@@ -1,0 +1,5 @@
+chasms_params (Noise params for chasms) noise_params_3d 0, 1, (50, 1000, 3000), 94586, 2, 0.63, 2.0
+chasms_threshold (Noise threshold for chasms) float 0.9
+chasms_maxy (Maximum Y) int -50
+chasms_miny (Minimum Y) int -2500
+chasms_falloff (Taper range when approaching max or min) int 100

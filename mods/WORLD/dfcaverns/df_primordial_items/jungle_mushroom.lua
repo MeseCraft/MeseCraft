@@ -1,4 +1,4 @@
-local S = df_primordial_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 ------------------------------------------------------------------------------------------
 -- Big jungle mushroom
@@ -10,9 +10,11 @@ minetest.register_node("df_primordial_items:jungle_mushroom_trunk", {
 	tiles = {"dfcaverns_jungle_mushroom_stem.png", "dfcaverns_jungle_mushroom_stem.png", "dfcaverns_jungle_mushroom_stem_02.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, handy=1,axey=1, tree=1, flammable=2, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
-	on_place = minetest.rotate_node
+	on_place = minetest.rotate_node,
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 2,
 })
 
 minetest.register_node("df_primordial_items:jungle_mushroom_cap_1", {
@@ -22,7 +24,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_cap_1", {
 	tiles = {"dfcaverns_jungle_mushroom_top_02.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_mushroom_cap = 1},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_mushroom_cap = 1, handy=1,axey=1, tree=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5, compostability=30},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
 	on_place = minetest.rotate_node,
 	drop = {
@@ -37,6 +39,8 @@ minetest.register_node("df_primordial_items:jungle_mushroom_cap_1", {
 			}
 		}
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 1,
 })
 
 minetest.register_node("df_primordial_items:jungle_mushroom_cap_2", {
@@ -46,7 +50,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_cap_2", {
 	tiles = {"dfcaverns_jungle_mushroom_top_01.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_mushroom_cap = 1},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, primordial_mushroom_cap = 1, handy=1,axey=1, tree=1, building_block=1, material_wood=1, fire_encouragement=5, fire_flammability=5, compostability=30},
 	sounds = df_trees.node_sound_tree_soft_fungus_defaults(),
 	on_place = minetest.rotate_node,
 	drop = {
@@ -61,6 +65,8 @@ minetest.register_node("df_primordial_items:jungle_mushroom_cap_2", {
 			}
 		}
 	},
+	_mcl_blast_resistance = 2,
+	_mcl_hardness = 1,
 })
 
 minetest.register_craftitem("df_primordial_items:diced_mushroom", {
@@ -68,10 +74,11 @@ minetest.register_craftitem("df_primordial_items:diced_mushroom", {
 	_doc_items_longdesc = df_primordial_items.doc.big_mushroom_desc,
 	_doc_items_usagehelp = df_primordial_items.doc.big_mushroom_usage,
 	inventory_image = "dfcaverns_mush_diced_giant_mushroom.png",
-	groups = {food = 1, dfcaverns_cookable = 1},
+	groups = {food = 1, dfcaverns_cookable = 1, eatable=1, plant=1},
 	sound = {eat = {name = "df_farming_gummy_chew", gain = 1.0}},
 	on_use = minetest.item_eat(1),
 	_hunger_ng = {satiates = 1},
+	_mcl_saturation = 0.5,
 })
 
 minetest.register_craft({
@@ -80,7 +87,7 @@ minetest.register_craft({
 	recipe = { "group:primordial_mushroom_cap"},
 })
 
--- Note: no wood-making recipe for the trunk, it's pretty useless
+-- Note: no wood-making recipe for the trunk, it's deliberately pretty useless since the cap is edible
 minetest.register_craft({
 	type = "fuel",
 	recipe = "df_primordial_items:jungle_mushroom_trunk",
@@ -94,7 +101,7 @@ minetest.register_node("df_primordial_items:jungle_mushroom_sapling", {
 	tiles = {"dfcaverns_jungle_mushroom_02.png^[brighten"},
 	inventory_image = "dfcaverns_jungle_mushroom_02.png^[brighten",
 	wield_image = "dfcaverns_jungle_mushroom_02.png^[brighten",
-	groups = {snappy = 3, flora = 1, attached_node = 1, flammable = 1, light_sensitive_fungus = 13},
+	groups = {snappy = 3, attached_node = 1, flammable = 1, sapling = 1, light_sensitive_fungus = 13, dig_by_piston=1,destroy_by_lava_flow=1,deco_block=1, compostability=30,dig_immediate=3},
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -104,17 +111,18 @@ minetest.register_node("df_primordial_items:jungle_mushroom_sapling", {
 	buildable_to = true,
 	is_ground_content = false,
 	walkable = false,
-	sounds = df_primordial_items.sounds.leaves,
+	sounds = df_dependencies.sound_leaves(),
 	use_texture_alpha = "clip",
 	sunlight_propagates = true,
+	_mcl_blast_resistance = 0.2,
+	_mcl_hardness = 0.2,
 
 	on_construct = function(pos)
-		if minetest.get_item_group(minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name, "soil") == 0 then
-			return
+		if df_primordial_items.jungle_mushroom_growth_permitted(pos) then
+			minetest.get_node_timer(pos):start(math.random(
+				df_trees.config.tree_min_growth_delay,
+				df_trees.config.tree_max_growth_delay))
 		end
-		minetest.get_node_timer(pos):start(math.random(
-			df_trees.config.tree_min_growth_delay,
-			df_trees.config.tree_max_growth_delay))
 	end,
 	on_destruct = function(pos)
 		minetest.get_node_timer(pos):stop()
@@ -124,7 +132,6 @@ minetest.register_node("df_primordial_items:jungle_mushroom_sapling", {
 		if df_farming and df_farming.kill_if_sunlit(pos) then
 			return
 		end
-		minetest.set_node(pos, {name="air"})
 		df_primordial_items.spawn_jungle_mushroom(pos)
 	end,
 })
@@ -135,6 +142,7 @@ local c_cap_2 = minetest.get_content_id("df_primordial_items:jungle_mushroom_cap
 local c_air = minetest.get_content_id("air")
 
 df_primordial_items.spawn_jungle_mushroom = function(pos)
+	minetest.set_node(pos, {name="air"})
 	local x, y, z = pos.x, pos.y, pos.z
 	local stem_height = math.random(1,3)
 	local cap_radius = math.random(2,3)

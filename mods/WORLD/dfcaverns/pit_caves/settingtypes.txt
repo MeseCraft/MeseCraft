@@ -1,0 +1,6 @@
+pit_caves_min_bottom (Lower limit of bottoms of pits) int -2500
+pit_caves_max_bottom (Upper limit of bottoms of pits) int -500
+pit_caves_min_top (Lower limit of tops of pits) int -100
+pit_caves_max_top (Upper limit of tops of pits) int 100
+pit_caves_mapblock_spacing (Average number of map blocks between pits) int 16
+pit_caves_seal_ocean (Seal off pits that are under ocean water) bool true

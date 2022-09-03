@@ -1,0 +1,18 @@
+# textdomain: bones_loot
+
+
+### init.lua ###
+
+# textdomain: bones
+Bones=Ossos
+Someone's old bones=
+
+
+##### not used anymore #####
+
+@1's old bones=Ossos antigos de @1
+@1 died at @2.=@1 morreu em @2.
+@1 died at @2, and dropped their inventory.=@1 morreu em @2, e seu inventário foi derrubado.
+@1 died at @2, and bones were placed.=@1 morreu em @2, e os ossos foram colocados.
+@1's fresh bones=Ossos recentes de @1
+@1's bones=Ossos de @1

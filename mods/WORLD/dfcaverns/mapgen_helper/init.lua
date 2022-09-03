@@ -15,7 +15,7 @@ dofile(MP.."/lines.lua")
 dofile(MP.."/place_schematic.lua")
 dofile(MP.."/noise_manager.lua")
 dofile(MP.."/metrics.lua")
-
+dofile(MP.."/log_location.lua")
 
 local map_data = {}
 local map_param2_data = {}

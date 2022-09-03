@@ -1,4 +1,4 @@
-local S = df_underworld_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_node("df_underworld_items:glow_amethyst", {
 	description = S("Glowing Amethyst Block"),
@@ -6,13 +6,15 @@ minetest.register_node("df_underworld_items:glow_amethyst", {
 	_doc_items_usagehelp = df_underworld_items.doc.glow_amethyst_usage,
 	tiles = {"dfcaverns_glow_amethyst.png"},
 	is_ground_content = false,
-	groups = {cracky=3, pit_plasma_resistant=1},
-	sounds = default.node_sound_glass_defaults(),
+	groups = {cracky=3, pit_plasma_resistant=1, pickaxey = 4, building_block = 1,}, -- deliberately not in material_stone group to keep pit plasma ABM efficient
+	sounds = df_dependencies.sound_glass(),
 	light_source = 6,
 	paramtype = "light",
 	use_texture_alpha = "blend",
 	drawtype = "glasslike",
 	sunlight_propagates = true,
+	_mcl_blast_resistance = 6,
+	_mcl_hardness = 2,
 })
 
 if minetest.get_modpath("radiant_damage") and radiant_damage.override_radiant_damage and radiant_damage.config.enable_mese_damage then

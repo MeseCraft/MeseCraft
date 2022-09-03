@@ -4,15 +4,21 @@
 -- Depends default
 -- License: code MIT
 
-local c_stone = minetest.get_content_id("default:stone")
-local c_clay = minetest.get_content_id("default:clay")
-local c_desert_stone = minetest.get_content_id("default:desert_stone")
-local c_sandstone = minetest.get_content_id("default:sandstone")
+subterrane = {} --create a container for functions and constants
+
+local modpath = minetest.get_modpath(minetest.get_current_modname())
+
+dofile(modpath.."/dependencies.lua")
+
+local c_stone = minetest.get_content_id(subterrane.dependencies.stone)
+local c_clay = minetest.get_content_id(subterrane.dependencies.clay)
+local c_desert_stone = minetest.get_content_id(subterrane.dependencies.desert_stone)
+local c_sandstone = minetest.get_content_id(subterrane.dependencies.sandstone)
 
 local c_air = minetest.get_content_id("air")
-local c_water = minetest.get_content_id("default:water_source")
+local c_water = minetest.get_content_id(subterrane.dependencies.water)
 
-local c_obsidian = minetest.get_content_id("default:obsidian")
+local c_obsidian = minetest.get_content_id(subterrane.dependencies.obsidian)
 
 local c_cavern_air = c_air
 local c_warren_air = c_air
@@ -28,17 +34,12 @@ local c_lava_set -- will be populated with a set of nodes that count as lava
 -- Performance instrumentation
 local t_start = os.clock()
 
-subterrane = {} --create a container for functions and constants
-
 subterrane.registered_layers = {}
 
---grab a shorthand for the filepath of the mod
-local modpath = minetest.get_modpath(minetest.get_current_modname())
-
---load companion lua files
 dofile(modpath.."/defaults.lua")
 dofile(modpath.."/features.lua") -- some generic cave features useful for a variety of mapgens
 dofile(modpath.."/player_spawn.lua") -- Function for spawning a player in a giant cavern
+dofile(modpath.."/test_pos.lua") -- Function other mapgens can use to test if a position is inside a cavern
 dofile(modpath.."/legacy.lua") -- contains old node definitions and functions, will be removed at some point in the future.
 
 local disable_mapgen_caverns = function()
@@ -275,8 +276,6 @@ subterrane.register_layer = function(cave_layer_def)
 		error_out = true
 	end
 	if error_out then return end
-	
-	local cave_name = cave_layer_def.name
 
 	subterrane.set_defaults(cave_layer_def)
 	
@@ -286,21 +285,26 @@ subterrane.register_layer = function(cave_layer_def)
 	if cave_layer_def.name == nil then
 		cave_layer_def.name = tostring(YMIN) .. " to " .. tostring(YMAX)
 	end
-	
-	table.insert(subterrane.registered_layers, cave_layer_def)
+
+	local cave_name = cave_layer_def.name
+
+	if subterrane.registered_layers[cave_name] ~= nil then
+		minetest.log("warning", "[subterrane] cave layer def " .. tostring(cave_name) .. " has already been registered. Overriding with new definition.")
+	end
+	subterrane.registered_layers[cave_name] = cave_layer_def
 
 	local block_size = mapgen_helper.block_size
 	
 	if (YMAX+32+1)%block_size ~= 0 then
 		local boundary = YMAX -(YMAX+32+1)%block_size
 		minetest.log("warning", "[subterrane] The y_max setting "..tostring(YMAX)..
-			" for cavern layer " .. cave_layer_def.name .. " is not aligned with map chunk boundaries. Consider "..
+			" for cavern layer " .. cave_name .. " is not aligned with map chunk boundaries. Consider "..
 			tostring(boundary) .. " or " .. tostring(boundary+block_size) .. " for maximum mapgen efficiency.")
 	end
 	if (YMIN+32)%block_size ~= 0 then
 		local boundary = YMIN - (YMIN+32)%block_size
 		minetest.log("warning", "[subterrane] The y_min setting "..tostring(YMIN)..
-			" for cavern layer " .. cave_layer_def.name .. " is not aligned with map chunk boundaries. Consider "..
+			" for cavern layer " .. cave_name .. " is not aligned with map chunk boundaries. Consider "..
 			tostring(boundary) .. " or " .. tostring(boundary+block_size) .. " for maximum mapgen efficiency.")
 	end
 
@@ -402,7 +406,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	for vi, x, y, z in area:iterp_yxz(emin, emax) do
 		-- We're "over-generating" when carving out the empty space of the cave volume so that decorations
 		-- can slop over the boundaries of the mapblock without being cut off.
-		-- We only want to add vi to the various decoration node lists if we're actually whithin the mapblock.
+		-- We only want to add vi to the various decoration node lists if we're actually within the mapblock.
 		local is_within_current_mapblock = mapgen_helper.is_pos_within_box({x=x, y=y, z=z}, minp, maxp)
 		
 		if y < previous_y then
@@ -452,7 +456,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			end
 			
 			if column_value > 0 and cave_value - column_value * column_weight < cave_local_threshold then
-				if is_ground_content(data[vi]) then
+				-- only add column nodes if we're within the current mapblock because
+				-- otherwise we're adding column nodes that the decoration loop won't know about
+				if is_ground_content(data[vi]) and is_within_current_mapblock then
 					data[vi] = c_column -- add a column node
 				end
 				this_node_state = inside_column

@@ -1,0 +1,25 @@
+# textdomain: df_dependencies
+
+
+### fireflies.lua ###
+
+Bug Net=Jaring Serangga
+# textdomain: fireflies
+Firefly=Kunang-Kunang
+Firefly in a Bottle=Kunang-Kunang dalam Botol
+Hidden Firefly=Kunang-Kunang Tersembunyi
+
+### helper_functions.lua ###
+
+@1 Fence=
+@1 Fence Gate=
+@1 Fence Rail=
+@1 Mese Post Light=
+@1 Slab=
+@1 Stair=
+Double @1 Slab=
+
+### misc.lua ###
+
+Icecap=
+Nethercap=

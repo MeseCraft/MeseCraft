@@ -2,7 +2,7 @@ if not minetest.get_modpath("doc") then
 	return
 end
 
-local S = df_primordial_items.S
+local S = minetest.get_translator(minetest.get_current_modname())
 
 df_primordial_items.doc.big_mushroom_desc = S("Compared to the behemoths found elsewhere in the deep places of the world, the giant mushrooms of the primordial jungles are on the smaller side - often overwhelmed by the green plants that grow in the mysterious light below. Still, they can become substantial resources.")
 df_primordial_items.doc.big_mushroom_usage = S("The soft flesh of these large mushrooms is much less woody than other giant mushrooms, making it ill-suited to structural use. This makes it rather more nutritious, however.")

@@ -1,3 +1,4 @@
 mapgen_helper_record_time (Enable time-taken logging) bool false
 mapgen_helper_persist_recorded_time (Persist time-taken logging between server sessions) bool false
 mapgen_helper_record_time_resolution (Resolution of time-taken histogram) float 0.1
+mapgen_helper_log_locations (Enable location logging) bool false

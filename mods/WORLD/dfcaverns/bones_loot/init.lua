@@ -4,6 +4,75 @@ local dungeon_loot_path = minetest.get_modpath("dungeon_loot")
 
 bones_loot = {}
 
+local bones_formspec =
+	"size[8,9]"
+	.."list[current_name;main;0,0.3;8,4;]"
+	.."list[current_player;main;0,4.85;8,1;]"
+	.."list[current_player;main;0,6.08;8,3;8]"
+	.."listring[current_name;main]"
+	.."listring[current_player;main]"
+	..df_dependencies.get_itemslot_bg(0,0.3,8,4)
+	..df_dependencies.get_itemslot_bg(0,4.85,8,1)
+	..df_dependencies.get_itemslot_bg(0,6.08,8,3)
+if minetest.get_modpath("default") then
+	bones_formspec = bones_formspec .. default.get_hotbar_bg(0,4.85)
+end
+
+if minetest.get_modpath("bones") then
+	df_dependencies.node_name_bones = "bones:bones"
+else
+
+	local function drop_item_stack(pos, stack)
+		if not stack or stack:is_empty() then return end
+		local drop_offset = vector.new(math.random() - 0.5, 0, math.random() - 0.5)
+		minetest.add_item(vector.add(pos, drop_offset), stack)
+	end
+
+	minetest.register_node("bones_loot:bones", {
+		description = S("Bones"),
+		tiles = {
+			"bones_top.png^[transform2",
+			"bones_bottom.png",
+			"bones_side.png",
+			"bones_side.png",
+			"bones_rear.png",
+			"bones_front.png"
+		},
+		paramtype2 = "facedir",
+		groups = {oddly_diggable_by_hand=1, handy=1, container=2},
+		sounds = df_dependencies.sound_gravel(),
+		_mcl_hardness = 1.5,
+		_mcl_blast_resistance = 6,
+		can_dig = function(pos, player)
+			local inv = minetest.get_meta(pos):get_inventory()
+			return inv:is_empty("main")
+		end,
+	
+		on_construct = function(pos)
+			local meta = minetest.get_meta(pos)
+			meta:set_string("formspec", bones_formspec)
+			local inv = meta:get_inventory()
+			inv:set_size("main", 8*4)
+		end,
+
+		on_blast = function(pos, intensity)
+			local meta = minetest.get_meta(pos)
+			local inv = meta:get_inventory()
+			for i = 1, inv:get_size("main") do
+				drop_item_stack(pos, inv:get_stack("main", i))
+			end
+			meta:from_table()
+			minetest.remove_node(pos)
+			if math.random(1, math.floor((intensity or 1) * 2)) ~= 1 then return end
+			drop_item_stack(pos, "bones_loot:bones")
+		end
+	})
+
+	df_dependencies.node_name_bones = "bones_loot:bones"
+end
+
+local bones_node = df_dependencies.node_name_bones
+
 local local_loot = {}
 local local_loot_register = function(t)
 	if t.name ~= nil then
@@ -26,7 +95,7 @@ local clean_up_local_loot = function()
 end
 
 -- Uses same table format as dungeon_loot
--- eg, 	{name = "mesecraft_bucket:bucket_water", chance = 0.45, types = {"sandstone", "desert"}},
+-- eg, 	{name = "bucket:bucket_water", chance = 0.45, types = {"sandstone", "desert"}},
 -- if dungeon_loot is installed it uses dungeon_loot's registration function directly.
 if dungeon_loot_path then
 	bones_loot.register_loot = dungeon_loot.register
@@ -104,19 +173,8 @@ bones_loot.get_loot = function(pos, loot_type, max_stacks, exclusive_loot_type)
 	return items
 end
 
-local bones_formspec =
-	"size[8,9]" ..
-	"list[current_name;main;0,0.3;8,4;]" ..
-	"list[current_player;main;0,4.85;8,1;]" ..
-	"list[current_player;main;0,6.08;8,3;8]" ..
-	"listring[current_name;main]" ..
-	"listring[current_player;main]"
-if minetest.get_modpath("default") then
-	bones_formspec = bones_formspec .. default.get_hotbar_bg(0,4.85)
-end
-
 bones_loot.place_bones = function(pos, loot_type, max_stacks, infotext, exclusive_loot_type)
-	minetest.set_node(pos, {name="mesecraft_bones:bones", param2 = math.random(1,4)-1})
+	minetest.set_node(pos, {name=bones_node, param2 = math.random(1,4)-1})
 	local meta = minetest.get_meta(pos)
 	if infotext == nil then
 		infotext = S("Someone's old bones")
@@ -137,7 +195,7 @@ end
 minetest.register_lbm({
 	label = "Repair underworld bones formspec",
 	name = "bones_loot:repair_underworld_bones_formspec",
-	nodenames = {"mesecraft_bones:bones"},	
+	nodenames = {bones_node},	
 	action = function(pos, node)
 		local meta = minetest.get_meta(pos)
 		if not meta:get("formspec") then

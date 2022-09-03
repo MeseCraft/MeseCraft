@@ -5,7 +5,7 @@ Sounds and textures are under various licenses, see the license.txt file in the 
 License for Code
 ----------------
 
-Copyright (C) 2018 FaceDeer
+Copyright (C) 2021 FaceDeer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

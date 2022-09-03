@@ -1,11 +1,11 @@
-local worldpath = minetest.get_worldpath()
-
 if not minetest.settings:get_bool("mapgen_helper_record_time", false) then
 	mapgen_helper.record_time = function()
 		return
 	end
 	return
 end
+
+local worldpath = minetest.get_worldpath()
 
 local persist = minetest.settings:get_bool("mapgen_helper_persist_recorded_time", false)
 local filename = "mapgen_helper_metrics.lua"

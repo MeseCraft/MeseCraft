@@ -3,4 +3,6 @@
 
 ### init.lua ###
 
+# textdomain: bones
+Bones=
 Someone's old bones=

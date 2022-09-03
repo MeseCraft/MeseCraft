@@ -1,0 +1,180 @@
+# textdomain: df_achievements
+
+
+### dig.lua ###
+
+"Collect" Lightseam Stone=
+
+Attempt to collect a piece of Lightseam, a strange glowing mineral found deep underground.=
+
+Collect Castle Coral=
+Collect Cave Coral=
+Collect Cave Pearls=
+Collect Flawless Mese Crystal Block=
+Collect Giant Red Crystal=
+Collect Giant Webbing=
+Collect Glow Worms=
+Collect Glowing Amethyst=
+Collect Luminous Salt Crystal=
+
+Collect a block of glowing amethyst crystal from the Underworld.=
+
+Collect a flawless Mese crystal block from the Magma Sea.=
+
+Collect a luminous salt crystal from the dry caverns where Bloodthorns live.=
+
+Collect a piece of Castle Coral from the Sunless Sea.=
+Collect a piece of Cave Coral from the Sunless Sea.=
+Collect a piece of giant webbing found in a cave.=
+
+Collect one of the giant red crystals found in large barren caverns.=
+
+Collect some cave pearls from the wall of a cave.=
+Collect various different exotic items from various caverns.=
+Deep Prospector=
+Destroy a Gas Seep=
+
+Plug a crack that mine gas is seeping out of to make the caves just a little bit safer.=
+
+
+### dig.lua ###
+### food.lua ###
+### misc.lua ###
+
+=
+
+### farming.lua ###
+
+Fungal Arborist=
+Plant @1=
+Plant Black Cap=
+Plant Bloodthorn=
+Plant Cave Wheat=
+Plant Dimple Cup=
+Plant Fungiwood=
+Plant Goblin Cap=
+Plant Pig Tail=
+Plant Plump Helmet=
+Plant Primordial Fern=
+Plant Primordial Jungle Mushroom=
+Plant Primordial Jungle Tree=
+Plant Primordial Mushroom=
+Plant Primordial Mycelium=
+Plant Quarry Bush=
+Plant Spindlestem=
+Plant Spore Tree=
+Plant Sweet Pod=
+Plant Torchspine=
+Plant Tower Cap=
+Plant Tunnel Tube=
+Plant a @1 in a place where it can grow.=
+
+Plant one of every kind of 'tree' found in the caverns above the Sunless Sea.=
+
+Plant one of every kind of 'tree' found in the caverns beneath the surface.=
+
+Plant one of every kind of 'tree' from the Primordial caverns.=
+
+Plant one of every kind of small farmable plant found in the caverns beneath the surface.=
+
+Primordial Arborist=
+Underground Arborist=
+Underground Farmer=
+
+### food.lua ###
+
+Dwarven Gourmand=
+Eat @1=
+Eat Diced Mushroom=
+Eat a Glowtato=
+Eat a Primordial Fruit=
+
+Eat one of each of the various meals that can be cooked or crafted from underground ingredients.=
+
+Eat one of the strange fruits found only deep underground in the Primordial caverns.=
+
+It's a basic staple of the underground, but at least it's not Plump Helmet.=
+
+One of the many delights that can be crafted only from fungal growths found deep underground.=
+
+Slightly less prestigious than the Primordial Fruit, but still rare and exotic compared to surface world fare.=
+
+
+### misc.lua ###
+
+Activating a puzzle seal has produced a breach in the slade foundations of the world.=
+
+Capture an Ice Sprite=
+Decipher the code of the ancients. Do you dare turn the key?=
+Detonate Mine Gas=
+Get Attacked by an Underworld Guardian=
+Loot 100 Ancient Warrior Bones=
+Loot Ancient Warrior Bones=
+Punch Veinstone=
+Punch a vein to hear the heartbeat of the stone.=
+Repair 100 Ancient Lanterns=
+Repair an Ancient Lantern=
+Solve a Puzzle Seal=
+Trigger a Slade Breacher=
+
+You may not be able to build new ones, but at least you can get the old ones shining brightly again.=
+
+You've captured an ice sprite and placed it in a bottle. It dances and sparkles and sheds light through the frosted glass while making a faint tinkling sound. Pretty.=
+
+You've discovered something important about those mysterious slade statues in the Underworld.=
+
+
+### travel.lua ###
+
+Discover @1s=
+Discover All Fungal Cavern Types=
+Discover All Overworld Cavern Types=
+Discover All Underground Cavern Types=
+Discover Black Caps=
+Discover Bloodthorns=
+Discover Fungiwood=
+Discover Goblin Caps=
+Discover Spore Trees=
+Discover Tower Caps=
+Discover Tunnel Tubes=
+Discover a Deep Chasm=
+Discover a Deep Sinkhole=
+Discover a Glowing Pit=
+Discover a cavern containing oil deep underground.=
+Discover a cavern where @1s grow in the wild.=
+Discover a cavern where Black Caps grow in the wild.=
+Discover a cavern where Bloodthorns grow in the wild.=
+Discover a cavern where Fungiwoods grow in the wild.=
+Discover a cavern where Goblin Caps grow in the wild.=
+Discover a cavern where Spore Trees grow in the wild.=
+Discover a cavern where Tower Caps grow in the wild.=
+Discover a cavern where Tunnel Tubes grow in the wild.=
+Discover a deep natural sinkhole.=
+Discover a gigantic underground natural chasm.=
+
+Discover a glowing pit in the slade foundations of the world.=
+
+Discover all Primordial Cavern Types=
+Discover all major kinds of giant cavern environment.=
+
+Discover all of the major types of cavern below the foundations of the world.=
+
+Discover all of the major types of cavern environments between the Sunless Sea and the foundations of the world.=
+
+Discover examples of all of the fungal cavern biomes.=
+Discover the Magma Sea=
+Discover the Oil Sea=
+Discover the Primordial Fungus=
+Discover the Primordial Jungle=
+Discover the Sunless Sea=
+Discover the Underworld=
+
+Discover the ancient caverns at the foundations of the world.=
+
+Discover the fungus-ridden caverns below the foundations of the world.=
+
+Discover the giant caverns to which all water from the surface ultimately drain.=
+
+Discover the lost jungles below the foundations of the world.=
+
+Discover the sea of magma that volcanoes draw from.=

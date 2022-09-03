@@ -41,6 +41,8 @@ minetest.register_node("mine_gas:gas_wisp", {
 	drop = {},
 	sunlight_propagates = true,
 	on_blast = function() end, -- unaffected by explosions
+	_mcl_blast_resistance = 3600000,
+	_mcl_hardness = 0,
 })
 
 minetest.register_abm({
