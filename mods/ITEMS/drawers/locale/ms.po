@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-07 21:50+0100\n"
-"PO-Revision-Date: 2018-12-09 11:08+0000\n"
-"Last-Translator: Muhammad Nur Hidayat Yasuyoshi <mnh48mail@gmail.com>\n"
+"PO-Revision-Date: 2020-06-19 22:41+0000\n"
+"Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat "
+"Yasuyoshi <translation@mnh48.moe>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/minetest/"
 "mod-storage-drawers/ms/>\n"
 "Language: ms\n"
@@ -17,33 +18,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.1.1\n"
 
-#: lua/controller.lua
-msgid "Current State: "
-msgstr "Keadaan Semasa: "
-
-#: lua/controller.lua
-msgid "Stopped"
-msgstr "Berhenti"
-
-#: lua/controller.lua
-msgid "Running"
-msgstr "Berjalan"
-
-#: lua/controller.lua
-msgid "Jammed"
-msgstr "Tersekat"
-
-#: lua/controller.lua
-msgid "Drawer Controller"
-msgstr "Pengawal Laci"
-
-#: lua/visual.lua lua/api.lua
-msgid "Empty"
-msgstr "Kosong"
-
-#: lua/api.lua init.lua
+#: init.lua lua/api.lua
 msgid "Wooden"
 msgstr "Kayu"
 
@@ -65,7 +42,7 @@ msgstr "@1 (@2% penuh)"
 
 #: lua/helpers.lua
 msgid "@1 @2 (@3% full)"
-msgstr "@1 @2 (@3% penuh)"
+msgstr "@2 @1 (@3% penuh)"
 
 #: init.lua
 msgid "Acacia Wood"
@@ -108,7 +85,8 @@ msgid "Gold Drawer Upgrade (x3)"
 msgstr "Naik Taraf Laci - Emas (x3)"
 
 #: init.lua
-msgid "Obsidian Drawer Upgrade (x5)"
+#, fuzzy
+msgid "Obsidian Drawer Upgrade (x4)"
 msgstr "Naik Taraf Laci - Obsidia (x5)"
 
 #: init.lua
@@ -124,9 +102,66 @@ msgid "Emerald Drawer Upgrade (x13)"
 msgstr "Naik Taraf Laci - Zamrud (x13)"
 
 #: init.lua
+#, fuzzy
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr "Naik Taraf Laci - Zamrud (x13)"
+
+#: init.lua
 msgid "Wooden Trim"
 msgstr "Hiasan Kayu"
 
 #: init.lua
 msgid "Drawer Upgrade Template"
 msgstr "Templat Naik Taraf Laci"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Keadaan Semasa: "
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Berhenti"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Berjalan"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Tersekat"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Pengawal Laci"
+
+#: lua/api.lua lua/visual.lua
+msgid "Empty"
+msgstr "Kosong"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "Laci @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "Laci @1 (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "Laci @1 (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% penuh)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% penuh)"

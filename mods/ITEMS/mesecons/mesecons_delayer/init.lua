@@ -1,19 +1,7 @@
 -- Function that get the input/output rules of the delayer
-local delayer_get_output_rules = function(node)
-	local rules = {{x = 0, y = 0, z = 1}}
-	for i = 0, node.param2 do
-		rules = mesecon.rotate_rules_left(rules)
-	end
-	return rules
-end
+local delayer_get_output_rules = mesecon.horiz_rules_getter({{x = 1, y = 0, z = 0}})
 
-local delayer_get_input_rules = function(node)
-	local rules = {{x = 0, y = 0, z = -1}}
-	for i = 0, node.param2 do
-		rules = mesecon.rotate_rules_left(rules)
-	end
-	return rules
-end
+local delayer_get_input_rules = mesecon.horiz_rules_getter({{x = -1, y = 0, z = 0}})
 
 -- Functions that are called after the delay time
 
@@ -54,6 +42,7 @@ local boxes = {
 -- Delayer definition defaults
 local def = {
 	drawtype = "nodebox",
+	use_texture_alpha = minetest.features.use_texture_alpha_string_modes and "opaque" or nil,
 	walkable = true,
 	selection_box = {
 		type = "fixed",
@@ -68,7 +57,7 @@ local def = {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	delayer_time = delaytime[i],
-	sounds = default.node_sound_stone_defaults(),
+	sounds = mesecon.node_sound.stone,
 	on_blast = mesecon.on_blastnode,
 	drop = "mesecons_delayer:delayer_off_1",
 }
@@ -168,6 +157,6 @@ minetest.register_craft({
 	output = "mesecons_delayer:delayer_off_1",
 	recipe = {
 		{"mesecons_torch:mesecon_torch_on", "group:mesecon_conductor_craftable", "mesecons_torch:mesecon_torch_on"},
-		{"default:cobble","default:cobble", "default:cobble"},
+		{"mesecons_gamecompat:cobble","mesecons_gamecompat:cobble", "mesecons_gamecompat:cobble"},
 	}
 })

@@ -1,1 +1,0 @@
-Storage Drawers - A Mod adding simple storages for items and blocks, showing the item's inventory image in the front.

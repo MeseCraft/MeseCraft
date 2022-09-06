@@ -1,10 +1,9 @@
 Minetest Mod Storage Drawers
 ============================
-Version 0.4.3
 
 License of source code:
 -----------------------
-Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im>
+Copyright (C) 2017-2020 Linus Jahn <lnj@kaidan.im>
 Copyright (C) 2016 Mango Tango <mtango688@gmail.com>
 
 MIT License
@@ -104,6 +103,7 @@ Copyright (C) 2014 Justin Aquadro (MIT):
   textures/drawers_upgrade_emerald.png
   textures/drawers_upgrade_gold.png
   textures/drawers_upgrade_iron.png
+  textures/drawers_upgrade_mithril.png (colors adapted by Linus Jahn <lnj@kaidan.im>, 2020)
   textures/drawers_upgrade_obsidian.png
   textures/drawers_upgrade_steel.png
   textures/drawers_upgrade_slot_bg.png (extracted from gui/drawers_1.png by LNJ <git@lnj.li>)
@@ -114,4 +114,4 @@ Copyright (C) 2014 Justin Aquadro (MIT):
   textures/drawers_wood.png
 
 Everything not listed in here:
-Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im> (MIT)
+Copyright (C) 2017-2020 Linus Jahn <lnj@kaidan.im> (MIT)

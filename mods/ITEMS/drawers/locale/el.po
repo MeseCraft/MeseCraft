@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-06 00:47+0200\n"
+"PO-Revision-Date: 2020-09-29 13:40+0000\n"
+"Last-Translator: THANOS SIOURDAKIS <siourdakisthanos@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/minetest/mod-"
+"storage-drawers/el/>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3-dev\n"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Τρέχουσα κατάσταση: "
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Διακόπηκε"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Εκτέλεση"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Μπλοκαρισμένο"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Ελεγκτής συρταριού"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Κενό"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Ξύλινο"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Ξύλο ακακίας"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr ""
+
+#: init.lua
+msgid "Junglewood"
+msgstr ""
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Ξύλο πεύκου"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Ξύλο βελανιδιάς"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Ξύλο σημύδας"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Σκούρο ξύλο βελανιδιάς"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Ξύλο ερυθρελάτης"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Χαλύβδινη αναβάθμιση συρταριού (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Χρυσού αναβάθμιση συρταριού (x3)"
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x5)"
+msgstr "Οψιδιανή αναβάθμιση συρταριού (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Διαμαντένια Αναβάθμιση συρταριού (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Σιδερένια αναβάθμιση συρταριού (x2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Σμαραγδένια αναβάθμιση συρταριού (x13)"
+
+#: init.lua
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr ""
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr "Τρέχουσα κατάσταση: "
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr "Σταμάτησε"
+
+#: lua/controller.lua
+msgid "Running"
+msgstr "Εκτέλεση"
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr "Μπλοκαρισμένο"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Ελεγκτής συρταριού"
+
+#: lua/api.lua lua/visual.lua
+msgid "Empty"
+msgstr "Κενό"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "@1 συρτάρι"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@1 συρτάρια (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@1 συρτάρια (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% Πλήρης)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr ""

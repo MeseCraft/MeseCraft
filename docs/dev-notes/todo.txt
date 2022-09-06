@@ -95,3 +95,6 @@
 * Add support for other mobs for death messages.
 * Fix non-seamless lava sound loop.
 * CONTENT_IGNORE when replacing air for giant cave spiders
+* farming and ethereal: peppers, ginger, garlic, pineapples, oranges, and strawberries not in game anymore.
+* afk mod: if a dead player stays dead long enough to go afk, instead of zzzzz's dummy particles spawn.
+* drawers: can't take things out anymore. Numbers decrease while attempting. but not showing in inventory.

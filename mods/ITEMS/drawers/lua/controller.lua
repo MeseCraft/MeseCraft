@@ -1,7 +1,7 @@
 --[[
 Minetest Mod Storage Drawers - A Mod adding storage drawers
 
-Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im>
+Copyright (C) 2017-2020 Linus Jahn <lnj@kaidan.im>
 Copyright (C) 2018 isaiah658
 
 MIT License
@@ -46,30 +46,43 @@ local S, NS = dofile(MP.."/intllib.lua")
 local default_loaded = core.get_modpath("default") and default
 local mcl_loaded = core.get_modpath("mcl_core") and mcl_core
 local pipeworks_loaded = core.get_modpath("pipeworks") and pipeworks
+local digilines_loaded = core.get_modpath("digilines") and digilines
 
-local controller_interval = tonumber(core.settings:get("drawers_controller_interval")) or 1.0
-
-local function controller_formspec(pos, meta_current_state)
+local function controller_formspec(pos)
 	local formspec =
 		"size[8,8.5]"..
 		drawers.gui_bg..
 		drawers.gui_bg_img..
 		drawers.gui_slots..
-		"label[0,0;" .. S("Current State: ") .. meta_current_state .. "]" ..
+		"label[0,0;" .. S("Drawer Controller") .. "]" ..
 		"list[current_name;src;3.5,1.75;1,1;]"..
 		"list[current_player;main;0,4.25;8,1;]"..
 		"list[current_player;main;0,5.5;8,3;8]"..
 		"listring[current_player;main]"..
 		"listring[current_name;src]"..
 		"listring[current_player;main]"
+
+	if digilines_loaded and pipeworks_loaded then
+		formspec = formspec .. "field[1,3.5;4,1;digilineChannel;" .. S("Digiline Channel") .. ";${digilineChannel}]"
+		formspec = formspec .. "button_exit[5,3.2;2,1;saveChannel;" .. S("Save") .. "]"
+	end
+
 	return formspec
+end
+
+local function is_valid_drawer_index_slot(net_index, item_name)
+	return net_index and
+			net_index[item_name] and
+			net_index[item_name].drawer_pos and
+			net_index[item_name].drawer_pos.x and
+			net_index[item_name].drawer_pos.y and
+			net_index[item_name].drawer_pos.z and
+			net_index[item_name].visualid
 end
 
 local function controller_index_slot(pos, visualid)
 	return {
-		drawer_pos_x = pos.x,
-		drawer_pos_y = pos.y,
-		drawer_pos_z = pos.z,
+		drawer_pos = pos,
 		visualid = visualid
 	}
 end
@@ -145,22 +158,12 @@ local function add_drawer_to_inventory(controllerInventory, pos)
 			-- If we already indexed this item previously, check which drawer
 			-- has the most space and have that one be the one indexed
 			if controllerInventory[item_id] then
-				local indexed_drawer_meta = core.get_meta({
-					x = controllerInventory[item_id]["drawer_pos_x"],
-					y = controllerInventory[item_id]["drawer_pos_y"],
-					z = controllerInventory[item_id]["drawer_pos_z"]}
-				)
-				local indexed_drawer_meta_count = indexed_drawer_meta:get_int(
-					"count" .. controllerInventory[item_id]["visualid"])
-				local indexed_drawer_meta_max_count = indexed_drawer_meta:get_int(
-					"max_count" .. controllerInventory[item_id]["visualid"])
+				local content = drawers.drawer_get_content(controllerInventory[item_id].drawer_pos, controllerInventory[item_id].visualid)
+				local new_content = drawers.drawer_get_content(pos, slot_id)
 
-				local drawer_meta_count = meta:get_int("count" .. slot_id)
-				local drawer_meta_max_count = meta:get_int("max_count" .. slot_id)
-
-				-- If the already indexed drawer has less space, we override the table index for that item with the new drawer
-				if (indexed_drawer_meta_max_count - indexed_drawer_meta_count)
-				   < (drawer_meta_max_count - drawer_meta_count) then
+				-- If the already indexed drawer has less space, we override the
+				-- table index for that item with the new drawer
+				if (new_content.maxCount - new_content.count) > (content.maxCount - content.count) then
 					controllerInventory[item_id] = controller_index_slot(pos, slot_id)
 				end
 			else
@@ -216,171 +219,86 @@ local function index_drawers(pos)
 	return controllerInventory
 end
 
-local function controller_node_timer(pos, elapsed)
-	-- Inizialize metadata
+--[[
+	Returns a table of all stored itemstrings in the drawer network with their
+	drawer position and visualid.
+
+	It uses the cached data, if possible, but if the itemstring is not contained
+	the network is reindexed.
+]]
+local function controller_get_drawer_index(pos, itemstring)
 	local meta = core.get_meta(pos)
-	local meta_current_state = meta:get_string("current_state")
-	local meta_times_ran_while_jammed = meta:get_float("times_ran_while_jammed")
-	local meta_jammed_item_name = meta:get_string("jammed_item_name")
-	local inv = meta:get_inventory()
-	local src = inv:get_stack("src", 1)
-	local src_name = src:get_name()
-
-	--[[
-	There are four scenarios for the item slot in the controller.
-	1: No item is in the controller.
-	2: Item is not stackable.
-	3. Item is allowed and there is either an existing drawer for that item with room or an empty drawer.
-	4: Item is allowed, but there is no room.
-	
-	There are three different possibilities for "current_state".
-	1: "running" which means means it's operating normally.
-	2: "stopped" meaning the controller makes no attempt to put in the item possibly due to being unallowed for various reasons.
-	3: "jammed" meaning the item is allowed in to drawers, but there was no space to deposit it last time it ran.
-	]]
-
-	--[[
-	If current state is jammed, the item that jammed it is the same item in the
-	src inv slot, and the amount of times ran while jammed is 8 or higher, we
-	set the current state to stopped. Will possibly want to make an option in the
-	formspec to ignore this an continue running if the user plans on using the
-	system in a way that may cause frequent jams making it a hassle to manually
-	clear it each time
-	]]
-	if meta_current_state == "jammed" and meta_jammed_item_name == src_name and meta_times_ran_while_jammed >= 2 then
-		meta:set_string("current_state", "stopped")
-		meta:set_string("formspec", controller_formspec(pos, S("Stopped")))
-		return true
-	end
-
-	-- If current state is stopped, and the item that jammed it is the same
-	-- item in the src inv slot, we don't do anything
-	if meta_current_state == "stopped" and meta_jammed_item_name == src_name then
-		return true
-	end
-
-	-- If current state is stopped, and the item that jammed it is not the
-	-- same item in the src inv slot, we set the current state to running and
-	-- clear the jam counter.
-	if meta_current_state == "stopped" and meta_jammed_item_name ~= src_name then
-		meta:set_string("current_state", "running")
-		meta:set_string("formspec", controller_formspec(pos, S("Running")))
-		meta:set_float("times_ran_while_jammed", 0)
-	end
-
-	-- If no item is in the controller, nothing is searched and current_state
-	-- is set to running and no jams.
-	if inv:is_empty("src") then
-		meta:set_string("current_state", "running")
-		meta:set_string("formspec", controller_formspec(pos, S("Running")))
-		meta:set_float("times_ran_while_jammed", 0)
-		return true
-	end
-
-	-- If a non stackable item is in the controller, such as a written book,
-	-- set the current_state to stopped because they are not allowed in drawers
-	if src:get_stack_max() == 1 then
-		meta:set_string("current_state", "stopped")
-		meta:set_string("formspec", controller_formspec(pos, S("Stopped")))
-		meta:set_string("jammed_item_name", src_name)
-		meta:set_float("times_ran_while_jammed", 1)
-		return true
-	end
 
 	-- If the index has not been created, the item isn't in the index, the
 	-- item in the drawer is no longer the same item in the index, or the item
 	-- is in the index but it's full, run the index_drawers function.
-	local drawers_table_index = core.deserialize(meta:get_string("drawers_table_index"))
+	local drawer_net_index = core.deserialize(meta:get_string("drawers_table_index"))
 
 	-- If the index has not been created
-	if not drawers_table_index then
-		drawers_table_index = index_drawers(pos)
-		meta:set_string("drawers_table_index", core.serialize(drawers_table_index))
+	-- If the item isn't in the index (or the index is corrupted)
+	if not is_valid_drawer_index_slot(drawer_net_index, itemstring) then
+		drawer_net_index = index_drawers(pos)
+		meta:set_string("drawers_table_index", core.serialize(drawer_net_index))
 
-	-- If the item isn't in the index
-	elseif not drawers_table_index[src_name] then
-		drawers_table_index = index_drawers(pos)
-		meta:set_string("drawers_table_index", core.serialize(drawers_table_index))
-
-	-- If the item is in the index but either the name that was indexed is not
-	-- the same as what is currently in the drawer or the drawer is full
-	elseif drawers_table_index[src_name] then
-		local visualid = drawers_table_index[src_name]["visualid"]
-		local indexed_drawer_meta = core.get_meta({x = drawers_table_index[src_name]["drawer_pos_x"], y = drawers_table_index[src_name]["drawer_pos_y"], z = drawers_table_index[src_name]["drawer_pos_z"]})
-		local indexed_drawer_meta_name = indexed_drawer_meta:get_string("name" .. visualid)
-		local indexed_drawer_meta_count = indexed_drawer_meta:get_int("count" .. visualid)
-		local indexed_drawer_meta_max_count = indexed_drawer_meta:get_int("max_count" .. visualid)
-		if indexed_drawer_meta_name ~= src_name or indexed_drawer_meta_count >= indexed_drawer_meta_max_count then
-			drawers_table_index = index_drawers(pos)
-			meta:set_string("drawers_table_index", core.serialize(drawers_table_index))
-		end
-	end
-
-	-- This might not be needed, but my concern is if the above indexing takes
-	-- enough time, there could be a "race condition" where the item in the src
-	-- inventory is no longer the same item when we checked before or the
-	-- quantity of the items changed so I'm having it grab the item stack again
-	-- just in case.
-	-- If a race condition does occur, items could be lost or duplicated
-	src = inv:get_stack("src", 1)
-	src_name = src:get_name()
-	local src_count = src:get_count()
-	local src_stack_max = src:get_stack_max()
-
-	-- At this point, the item either was in the index or everything was reindexed so we check again
-	-- If there is a drawer with the item and it isn't full, we will put the items we can in to it
-	if drawers_table_index[src_name] then
-		local indexed_drawer_pos = {x = drawers_table_index[src_name]["drawer_pos_x"], y = drawers_table_index[src_name]["drawer_pos_y"], z = drawers_table_index[src_name]["drawer_pos_z"]}
-		local visualid = drawers_table_index[src_name]["visualid"]
-		local indexed_drawer_meta = core.get_meta(indexed_drawer_pos)
-		local indexed_drawer_meta_name = indexed_drawer_meta:get_string("name" .. visualid)
-		local indexed_drawer_meta_count = indexed_drawer_meta:get_int("count" .. visualid)
-		local indexed_drawer_meta_max_count = indexed_drawer_meta:get_int("max_count" .. visualid)
-		-- If the the item in the drawer is the same as the one we are trying to store, the drawer is not full, and the drawer entity is loaded, we will put the items in the drawer
-		if indexed_drawer_meta_name == src_name and indexed_drawer_meta_count < indexed_drawer_meta_max_count and drawers.drawer_visuals[core.serialize(indexed_drawer_pos)] then
-			local leftover = drawers.drawer_insert_object(indexed_drawer_pos, nil, src, nil)
-			inv:set_stack("src", 1, leftover)
-			-- Set the controller metadata
-			meta:set_string("current_state", "running")
-			meta:set_string("formspec", controller_formspec(pos, S("Running")))
-			meta:set_float("times_ran_while_jammed", 0)
-		else
-			meta:set_string("current_state", "jammed")
-			meta:set_string("formspec", controller_formspec(pos, S("Jammed")))
-			meta:set_string("jammed_item_name", src_name)
-			meta:set_float("times_ran_while_jammed", meta_times_ran_while_jammed + 1)
-		end
-	elseif drawers_table_index["empty"] then
-		local indexed_drawer_pos = {x = drawers_table_index["empty"]["drawer_pos_x"], y = drawers_table_index["empty"]["drawer_pos_y"], z = drawers_table_index["empty"]["drawer_pos_z"]}
-		local visualid = drawers_table_index["empty"]["visualid"]
-		local indexed_drawer_meta = core.get_meta(indexed_drawer_pos)
-		local indexed_drawer_meta_name = indexed_drawer_meta:get_string("name" .. visualid)
-		-- If the drawer is still empty and the drawer entity is loaded, we will put the items in the drawer
-		if indexed_drawer_meta_name == "" and drawers.drawer_visuals[core.serialize(indexed_drawer_pos)] then
-			local leftover = drawers.drawer_insert_object(indexed_drawer_pos, nil, src, nil)
-			inv:set_stack("src", 1, leftover)
-			-- Add the item to the drawers table index and set the empty one to nil
-			drawers_table_index["empty"]  = nil
-			drawers_table_index[src_name] = {drawer_pos_x = indexed_drawer_pos.x, drawer_pos_y = indexed_drawer_pos.y, drawer_pos_z = indexed_drawer_pos.z, visualid = visualid}
-			-- Set the controller metadata
-			meta:set_string("current_state", "running")
-			meta:set_string("formspec", controller_formspec(pos, S("Running")))
-			meta:set_float("times_ran_while_jammed", 0)
-			meta:set_string("drawers_table_index", core.serialize(drawers_table_index))
-		else
-			meta:set_string("current_state", "jammed")
-			meta:set_string("formspec", controller_formspec(pos, S("Jammed")))
-			meta:set_string("jammed_item_name", src_name)
-			meta:set_float("times_ran_while_jammed", meta_times_ran_while_jammed + 1)
-		end
+	-- There is a valid entry in the index: check that the entry is still up-to-date
 	else
-		meta:set_string("current_state", "jammed")
-		meta:set_string("formspec", controller_formspec(pos, S("Jammed")))
-		meta:set_string("jammed_item_name", src_name)
-		meta:set_float("times_ran_while_jammed", meta_times_ran_while_jammed + 1)
+		local content = drawers.drawer_get_content(
+			drawer_net_index[itemstring].drawer_pos,
+			drawer_net_index[itemstring].visualid)
+
+		if content.name ~= itemstring or content.count >= content.maxCount then
+			drawer_net_index = index_drawers(pos)
+			meta:set_string("drawers_table_index", core.serialize(drawer_net_index))
+		end
 	end
 
-	return true
+	return drawer_net_index
+end
+
+local function controller_insert_to_drawers(pos, stack)
+	-- Inizialize metadata
+	local meta = core.get_meta(pos)
+	local inv = meta:get_inventory()
+
+	local drawer_net_index = controller_get_drawer_index(pos, stack:get_name())
+
+	-- We check if there is a drawer with the item and it isn't full. We will
+	-- put the items we can into it.
+	if drawer_net_index[stack:get_name()] then
+		local drawer_pos = drawer_net_index[stack:get_name()]["drawer_pos"]
+		local visualid = drawer_net_index[stack:get_name()]["visualid"]
+		local content = drawers.drawer_get_content(drawer_pos, visualid)
+
+		-- If the the item in the drawer is the same as the one we are trying to
+		-- store, the drawer is not full, and the drawer entity is loaded, we
+		-- will put the items in the drawer
+		if content.name == stack:get_name() and
+				content.count < content.maxCount and
+				drawers.drawer_visuals[core.hash_node_position(drawer_pos)] then
+			return drawers.drawer_insert_object(drawer_pos, stack, visualid)
+		end
+	elseif drawer_net_index["empty"] then
+		local drawer_pos = drawer_net_index["empty"]["drawer_pos"]
+		local visualid = drawer_net_index["empty"]["visualid"]
+		local content = drawers.drawer_get_content(drawer_pos, visualid)
+
+		-- If the drawer is still empty and the drawer entity is loaded, we will
+		-- put the items in the drawer
+		if content.name == "" and drawers.drawer_visuals[core.hash_node_position(drawer_pos)] then
+			local leftover = drawers.drawer_insert_object(drawer_pos, stack, visualid)
+
+			-- Add the item to the drawers table index and set the empty one to nil
+			drawer_net_index["empty"] = nil
+			drawer_net_index[stack:get_name()] = controller_index_slot(drawer_pos, visualid)
+
+			-- Set the controller metadata
+			meta:set_string("drawers_table_index", core.serialize(drawer_net_index))
+
+			return leftover
+		end
+	end
+
+	return stack
 end
 
 local function controller_can_dig(pos, player)
@@ -391,15 +309,10 @@ end
 
 local function controller_on_construct(pos)
 	local meta = core.get_meta(pos)
-	meta:set_string("current_state", "running")
-	meta:set_float("times_ran_while_jammed", 0)
-	meta:set_string("jammed_item_name", "")
 	meta:set_string("drawers_table_index", "")
-	meta:set_string("formspec", controller_formspec(pos, S("Running")))
+	meta:set_string("formspec", controller_formspec(pos))
 
 	meta:get_inventory():set_size("src", 1)
-
-	core.get_node_timer(pos):start(controller_interval)
 end
 
 local function controller_on_blast(pos)
@@ -411,12 +324,29 @@ local function controller_on_blast(pos)
 end
 
 local function controller_allow_metadata_inventory_put(pos, listname, index, stack, player)
-	if core.is_protected(pos, player:get_player_name()) then
+	if (player and core.is_protected(pos, player:get_player_name())) or listname ~= "src" then
 		return 0
 	end
-	if listname == "src" then
-		return stack:get_count()
+
+	local drawer_net_index = controller_get_drawer_index(pos, stack:get_name())
+
+	if drawer_net_index[stack:get_name()] then
+		local drawer = drawer_net_index[stack:get_name()]
+
+		if drawers.drawer_get_content(drawer.drawer_pos, drawer.visualid).name == stack:get_name() then
+			return drawers.drawer_can_insert_stack(drawer.drawer_pos, stack, drawer["visualid"])
+		end
 	end
+
+	if drawer_net_index["empty"] then
+		local drawer = drawer_net_index["empty"]
+
+		if drawers.drawer_get_content(drawer.drawer_pos, drawer.visualid).name == "" then
+			return drawers.drawer_can_insert_stack(drawer.drawer_pos, stack, drawer.visualid)
+		end
+	end
+
+	return 0
 end
 
 local function controller_allow_metadata_inventory_move(pos, from_list, from_index, to_list, to_index, count, player)
@@ -431,6 +361,53 @@ local function controller_allow_metadata_inventory_take(pos, listname, index, st
 		return 0
 	end
 	return stack:get_count()
+end
+
+local function controller_on_metadata_inventory_put(pos, listname, index, stack, player)
+	if listname ~= "src" then
+		return
+	end
+
+	local inv = core.get_meta(pos):get_inventory()
+
+	local complete_stack = inv:get_stack("src", 1)
+	local leftover = controller_insert_to_drawers(pos, complete_stack)
+	inv:set_stack("src", 1, leftover)
+end
+
+local function controller_on_digiline_receive(pos, _, channel, msg)
+	local meta = core.get_meta(pos)
+
+	if channel ~= meta:get_string("digilineChannel") then
+		return
+	end
+
+	local item = ItemStack(msg)
+	local drawers_index = controller_get_drawer_index(pos, item:get_name())
+
+	if not drawers_index[item:get_name()] then
+		-- we can't do anything: the requested item doesn't exist
+		return
+	end
+
+	local taken_stack = drawers.drawer_take_item(
+		drawers_index[item:get_name()]["drawer_pos"], item)
+	local dir = core.facedir_to_dir(core.get_node(pos).param2)
+
+	-- prevent crash if taken_stack ended up with a nil value
+	if taken_stack then
+		pipeworks.tube_inject_item(pos, pos, dir, taken_stack:to_string())
+	end
+end
+
+local function controller_on_receive_fields(pos, formname, fields, sender)
+	if core.is_protected(pos, sender:get_player_name()) then
+		return
+	end
+	local meta = core.get_meta(pos)
+	if fields.saveChannel then
+		meta:set_string("digilineChannel", fields.digilineChannel)
+	end
 end
 
 -- Registers the drawer controller
@@ -485,7 +462,8 @@ local function register_controller()
 	def.can_dig = controller_can_dig
 	def.on_construct = controller_on_construct
 	def.on_blast = controller_on_blast
-	def.on_timer = controller_node_timer
+	def.on_receive_fields = controller_on_receive_fields
+	def.on_metadata_inventory_put = controller_on_metadata_inventory_put
 
 	def.allow_metadata_inventory_put = controller_allow_metadata_inventory_put
 	def.allow_metadata_inventory_move = controller_allow_metadata_inventory_move
@@ -497,11 +475,11 @@ local function register_controller()
 
 		def.tube = {}
 		def.tube.insert_object = function(pos, node, stack, tubedir)
-			return core.get_meta(pos):get_inventory():add_item("src", stack)
+			return controller_insert_to_drawers(pos, stack)
 		end
 
 		def.tube.can_insert = function(pos, node, stack, tubedir)
-			return core.get_meta(pos):get_inventory():room_for_item("src", stack)
+			return controller_allow_metadata_inventory_put(pos, "src", nil, stack, nil) > 0
 		end
 
 		def.tube.connect_sides = {
@@ -510,6 +488,15 @@ local function register_controller()
 
 		def.after_place_node = pipeworks.after_place
 		def.after_dig_node = pipeworks.after_dig
+	end
+
+	if digilines_loaded and pipeworks_loaded then
+		def.digiline = {
+			receptor = {},
+			effector = {
+				action = controller_on_digiline_receive
+			},
+		}
 	end
 
 	core.register_node("drawers:controller", def)
@@ -548,3 +535,4 @@ else
 		}
 	})
 end
+

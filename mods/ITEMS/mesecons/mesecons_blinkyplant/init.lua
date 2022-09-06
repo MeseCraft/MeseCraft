@@ -26,13 +26,13 @@ mesecon.register_node("mesecons_blinkyplant:blinky_plant", {
 	paramtype = "light",
 	is_ground_content = false,
 	walkable = false,
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = mesecon.node_sound.leaves,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, -0.5+0.7, 0.3},
 	},
 	on_timer = on_timer,
-	on_rightclick = function(pos, node, clicker)
+	on_rightclick = function(pos, _, clicker)
 		if minetest.is_protected(pos, clicker and clicker:get_player_name() or "") then
 			return
 		end

@@ -1,9 +1,7 @@
--- Freegamers: I removed all the additional woods and choose to just use a set of wooden drawers. The redunancy was unnecessary.
-
 --[[
 Minetest Mod Storage Drawers - A Mod adding storage drawers
 
-Copyright (C) 2017-2019 Linus Jahn <lnj@kaidan.im>
+Copyright (C) 2017-2020 Linus Jahn <lnj@kaidan.im>
 
 MIT License
 
@@ -37,6 +35,13 @@ drawers.WOOD_ITEMSTRING = "group:wood"
 if core.get_modpath("default") and default then
 	drawers.WOOD_SOUNDS = default.node_sound_wood_defaults()
 	drawers.CHEST_ITEMSTRING = "default:chest"
+elseif core.get_modpath("mcl_core") and mcl_core then -- MineClone 2
+	drawers.CHEST_ITEMSTRING = "mcl_chests:chest"
+	if core.get_modpath("mcl_sounds") and mcl_sounds then
+		drawers.WOOD_SOUNDS = mcl_sounds.node_sound_wood_defaults()
+	end
+else
+	drawers.CHEST_ITEMSTRING = "chest"
 end
 
 
@@ -83,7 +88,7 @@ if core.get_modpath("default") and default then
 			"drawers_wood.png"),
 		groups = {choppy = 3, oddly_breakable_by_hand = 2},
 		sounds = drawers.WOOD_SOUNDS,
-		drawer_stack_max_factor = 4 * 8, -- normal chest size
+		drawer_stack_max_factor = 32, -- 4 * 8 normal chest size
 		material = drawers.WOOD_ITEMSTRING
 	})
 end
@@ -109,9 +114,9 @@ if core.get_modpath("default") and default then
 	})
 
 	drawers.register_drawer_upgrade("drawers:upgrade_obsidian", {
-		description = S("Obsidian Drawer Upgrade (x5)"),
+		description = S("Obsidian Drawer Upgrade (x4)"),
 		inventory_image = "drawers_upgrade_obsidian.png",
-		groups = {drawer_upgrade = 400},
+		groups = {drawer_upgrade = 300},
 		recipe_item = "default:obsidian"
 	})
 
@@ -120,6 +125,15 @@ if core.get_modpath("default") and default then
 		inventory_image = "drawers_upgrade_diamond.png",
 		groups = {drawer_upgrade = 700},
 		recipe_item = "default:diamond"
+	})
+end
+
+if core.get_modpath("moreores") then
+	drawers.register_drawer_upgrade("drawers:upgrade_mithril", {
+		description = S("Mithril Drawer Upgrade (x13)"),
+		inventory_image = "drawers_upgrade_mithril.png",
+		groups = {drawer_upgrade = 1200},
+		recipe_item = "moreores:mithril_ingot"
 	})
 end
 
@@ -140,3 +154,4 @@ core.register_craft({
 		{"group:stick", "group:stick", "group:stick"}
 	}
 })
+

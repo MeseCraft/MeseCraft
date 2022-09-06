@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
+"PO-Revision-Date: 2021-02-08 23:50+0000\n"
+"Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/minetest/mod-"
+"storage-drawers/he/>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 4.5-dev\n"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "ריקה"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "מעץ"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "מגירה @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@1 מגירות (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@1 מגירות (2x2)"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (תפוסה של @1%)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (תפוסה של @3%)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "עץ שיטה"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "עץ אספן"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "עץ ג׳ונגל"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "עץ אורן"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "עץ אלון"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "עץ לבנה"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "עץ אלון כהה"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "עץ אשוח"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr ""
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x4)"
+msgstr ""
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr ""
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr ""
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr ""
+
+#~ msgid "Current State: "
+#~ msgstr "המצב הנוכחי: "
+
+#~ msgid "Stopped"
+#~ msgstr "הופסקה"
+
+#~ msgid "Running"
+#~ msgstr "פעילה"
+
+#~ msgid "Jammed"
+#~ msgstr "תקועה"

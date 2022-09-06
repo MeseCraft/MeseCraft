@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-07 21:50+0100\n"
-"PO-Revision-Date: 2018-10-22 18:37+0000\n"
-"Last-Translator: runs <runspect@yahoo.es>\n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
+"PO-Revision-Date: 2020-09-06 00:36+0000\n"
+"Last-Translator: H <joaquinfc@protonmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/minetest/mod-"
 "storage-drawers/es/>\n"
 "Language: es\n"
@@ -17,27 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
-
-#: lua/controller.lua
-msgid "Current State: "
-msgstr "Estado actual: "
-
-#: lua/controller.lua
-msgid "Stopped"
-msgstr "Detenido"
-
-#: lua/controller.lua
-msgid "Running"
-msgstr "Ejecutándose"
-
-#: lua/controller.lua
-msgid "Jammed"
-msgstr "Atascado"
-
-#: lua/controller.lua
-msgid "Drawer Controller"
-msgstr "Controlador de gaveta"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: lua/visual.lua lua/api.lua
 msgid "Empty"
@@ -49,23 +29,37 @@ msgstr "De Madera"
 
 #: lua/api.lua
 msgid "@1 Drawer"
-msgstr "@1 Gaveta"
+msgstr ""
 
 #: lua/api.lua
+#, fuzzy
 msgid "@1 Drawers (1x2)"
-msgstr "@1 Gavetas (1x2)"
+msgstr "Mejora para Gavetas de Hierro (x2)"
 
 #: lua/api.lua
+#, fuzzy
 msgid "@1 Drawers (2x2)"
-msgstr "@1 Gavetas (2x2)"
+msgstr "Mejora para Gavetas de Hierro (x2)"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Controlador de Gavetas"
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
 
 #: lua/helpers.lua
 msgid "@1 (@2% full)"
-msgstr "@1 (@2% lleno)"
+msgstr ""
 
 #: lua/helpers.lua
 msgid "@1 @2 (@3% full)"
-msgstr "@1 @2 (@3% lleno)"
+msgstr ""
 
 #: init.lua
 msgid "Acacia Wood"
@@ -101,34 +95,50 @@ msgstr "Madera de pícea"
 
 #: init.lua
 msgid "Steel Drawer Upgrade (x2)"
-msgstr ""
+msgstr "Mejora para Gavetas de Acero (x2)"
 
 #: init.lua
 msgid "Gold Drawer Upgrade (x3)"
-msgstr ""
+msgstr "Mejora para Gavetas de Oro (x3)"
 
 #: init.lua
-msgid "Obsidian Drawer Upgrade (x5)"
-msgstr ""
+#, fuzzy
+msgid "Obsidian Drawer Upgrade (x4)"
+msgstr "Mejora para Gavetas de Obsidiana (x5)"
 
 #: init.lua
 msgid "Diamond Drawer Upgrade (x8)"
-msgstr ""
+msgstr "Mejora para Gavetas de Diamante (x8)"
 
 #: init.lua
-#, fuzzy
 msgid "Iron Drawer Upgrade (x2)"
-msgstr "@1 Gavetas (1x2)"
+msgstr "Mejora para Gavetas de Hierro (x2)"
 
 #: init.lua
 msgid "Emerald Drawer Upgrade (x13)"
-msgstr ""
+msgstr "Mejora para Gavetas de Esmeralda (x13)"
 
 #: init.lua
 #, fuzzy
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr "Mejora para Gavetas de Esmeralda (x13)"
+
+#: init.lua
 msgid "Wooden Trim"
-msgstr "De Madera"
+msgstr "Recorte De Madera"
 
 #: init.lua
 msgid "Drawer Upgrade Template"
-msgstr ""
+msgstr "Plantilla de mejoras para gavetas"
+
+#~ msgid "Current State: "
+#~ msgstr "Estado actual: "
+
+#~ msgid "Stopped"
+#~ msgstr "Detenido"
+
+#~ msgid "Running"
+#~ msgstr "Ejecutándose"
+
+#~ msgid "Jammed"
+#~ msgstr "Atascado"

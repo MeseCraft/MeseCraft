@@ -7,38 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
 "PO-Revision-Date: 2019-03-15 09:03+0000\n"
 "Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/minetest/"
-"mod-storage-drawers/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/minetest/mod-"
+"storage-drawers/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.6-dev\n"
-
-#: lua/controller.lua
-msgid "Current State: "
-msgstr "Бягучы стан: "
-
-#: lua/controller.lua
-msgid "Stopped"
-msgstr "Спынены"
-
-#: lua/controller.lua
-msgid "Running"
-msgstr "Працуе"
-
-#: lua/controller.lua
-msgid "Jammed"
-msgstr "Затрыманы"
-
-#: lua/controller.lua
-msgid "Drawer Controller"
-msgstr "Кантролер шуфляды"
 
 #: lua/visual.lua lua/api.lua
 msgid "Empty"
@@ -59,6 +39,18 @@ msgstr "@1 шуфляды (1x2)"
 #: lua/api.lua
 msgid "@1 Drawers (2x2)"
 msgstr "@1 шуфляды (2x2)"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Кантролер шуфляды"
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
 
 #: lua/helpers.lua
 msgid "@1 (@2% full)"
@@ -109,7 +101,8 @@ msgid "Gold Drawer Upgrade (x3)"
 msgstr "Мадэрнізацыя залатой шуфляды (x3)"
 
 #: init.lua
-msgid "Obsidian Drawer Upgrade (x5)"
+#, fuzzy
+msgid "Obsidian Drawer Upgrade (x4)"
 msgstr "Мадэрнізацыя абсідыянавай шуфляды (x5)"
 
 #: init.lua
@@ -125,9 +118,26 @@ msgid "Emerald Drawer Upgrade (x13)"
 msgstr "Мадэрнізацыя смарагдавай шуфляды (x13)"
 
 #: init.lua
+#, fuzzy
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr "Мадэрнізацыя смарагдавай шуфляды (x13)"
+
+#: init.lua
 msgid "Wooden Trim"
 msgstr "Драўлянае аздабленне"
 
 #: init.lua
 msgid "Drawer Upgrade Template"
 msgstr "Шаблон мадэрнізацыі шуфляды"
+
+#~ msgid "Current State: "
+#~ msgstr "Бягучы стан: "
+
+#~ msgid "Stopped"
+#~ msgstr "Спынены"
+
+#~ msgid "Running"
+#~ msgstr "Працуе"
+
+#~ msgid "Jammed"
+#~ msgstr "Затрыманы"

@@ -1,7 +1,7 @@
 -- Modified, from minetest_game/mods/doors/init.lua
 local function on_rightclick(pos, dir, check_name, replace, replace_dir, params)
 	pos.y = pos.y + dir
-	if not minetest.get_node(pos).name == check_name then
+	if minetest.get_node(pos).name ~= check_name then
 		return
 	end
 	local p2 = minetest.get_node(pos).param2
@@ -22,11 +22,11 @@ end
 local function meseconify_door(name)
 	if minetest.registered_items[name .. "_b_1"] then
 		-- old style double-node doors
-		local function toggle_state1 (pos, node)
+		local function toggle_state1 (pos)
 			on_rightclick(pos, 1, name.."_t_1", name.."_b_2", name.."_t_2", {1,2,3,0})
 		end
 
-		local function toggle_state2 (pos, node)
+		local function toggle_state2 (pos)
 			on_rightclick(pos, 1, name.."_t_2", name.."_b_1", name.."_t_1", {3,0,1,2})
 		end
 
@@ -49,13 +49,13 @@ local function meseconify_door(name)
 		-- new style mesh node based doors
 		local override = {
 			mesecons = {effector = {
-				action_on = function(pos, node)
+				action_on = function(pos)
 					local door = doors.get(pos)
 					if door then
 						door:open()
 					end
 				end,
-				action_off = function(pos, node)
+				action_off = function(pos)
 					local door = doors.get(pos)
 					if door then
 						door:close()
@@ -66,6 +66,10 @@ local function meseconify_door(name)
 		}
 		minetest.override_item(name .. "_a", override)
 		minetest.override_item(name .. "_b", override)
+		if minetest.registered_items[name .. "_c"] then
+			minetest.override_item(name .. "_c", override)
+			minetest.override_item(name .. "_d", override)
+		end
 	end
 end
 
@@ -93,13 +97,13 @@ end
 if doors and doors.get then
 	local override = {
 		mesecons = {effector = {
-			action_on = function(pos, node)
+			action_on = function(pos)
 				local door = doors.get(pos)
 				if door then
 					door:open()
 				end
 			end,
-			action_off = function(pos, node)
+			action_off = function(pos)
 				local door = doors.get(pos)
 				if door then
 					door:close()

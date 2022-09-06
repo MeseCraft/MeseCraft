@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
+"PO-Revision-Date: 2019-08-03 04:11+0000\n"
+"Last-Translator: Wilker Santana da Silva <wilker@tutamail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"minetest/mod-storage-drawers/pt_BR/>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.8-dev\n"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "Vazio"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "Madeira"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "Armário @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "Armários @1 (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "Armários @1 (2x2)"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "Controlador de Armários"
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% cheio)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% cheio)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "Lenha de Acácia"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "Lenha de Álamo"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "Lenha da selva"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "Lenha de Pinheiro"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "Lenha de Carvalho"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "Lenha de Bétula"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "Lenha de Carvalho Escuro"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "Lenha de Abeto"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr "Melhoria de Armário de Aço (x2)"
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr "Melhoria de Armário de Ouro (x3)"
+
+#: init.lua
+#, fuzzy
+msgid "Obsidian Drawer Upgrade (x4)"
+msgstr "Melhoria de Armário de Obsidiana (x5)"
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr "Melhoria de Armário de Diamante (x8)"
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr "Melhoria de Armário de Ferro (x2)"
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr "Melhoria de Armário de Esmeralda (x13)"
+
+#: init.lua
+#, fuzzy
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr "Melhoria de Armário de Esmeralda (x13)"
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr "Guarnição de Madeira"
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr "Modelo de Melhoria de Armário"
+
+#~ msgid "Current State: "
+#~ msgstr "Estado atual: "
+
+#~ msgid "Stopped"
+#~ msgstr "Parado"
+
+#~ msgid "Running"
+#~ msgstr "Ativo"
+
+#~ msgid "Jammed"
+#~ msgstr "Obstruído"

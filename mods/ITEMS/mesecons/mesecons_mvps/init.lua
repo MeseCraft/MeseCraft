@@ -46,11 +46,9 @@ local function on_mvps_move(moved_nodes)
 	end
 end
 
-function mesecon.mvps_process_stack(stack)
-	-- update mesecons for placed nodes ( has to be done after all nodes have been added )
-	for _, n in ipairs(stack) do
-		mesecon.on_placenode(n.pos, minetest.get_node(n.pos))
-	end
+function mesecon.mvps_process_stack()
+	-- This function is kept for compatibility.
+	-- It used to call on_placenode on moved nodes, but that is now done automatically.
 end
 
 -- tests if the node can be pushed into, e.g. air, water, grass
@@ -65,28 +63,31 @@ end
 function mesecon.mvps_get_stack(pos, dir, maximum, all_pull_sticky)
 	-- determine the number of nodes to be pushed
 	local nodes = {}
-	local frontiers = {pos}
+	local pos_set = {}
+	local frontiers = mesecon.fifo_queue.new()
+	frontiers:add(vector.new(pos))
 
-	while #frontiers > 0 do
-		local np = frontiers[1]
-		local nn = minetest.get_node(np)
-
-		if not node_replaceable(nn.name) then
+	for np in frontiers:iter() do
+		local np_hash = minetest.hash_node_position(np)
+		local nn = not pos_set[np_hash] and minetest.get_node(np)
+		if nn and not node_replaceable(nn.name) then
+			pos_set[np_hash] = true
 			table.insert(nodes, {node = nn, pos = np})
 			if #nodes > maximum then return nil end
 
-			-- add connected nodes to frontiers, connected is a vector list
-			-- the vectors must be absolute positions
-			local connected = {}
+			-- add connected nodes to frontiers
 			if minetest.registered_nodes[nn.name]
 			and minetest.registered_nodes[nn.name].mvps_sticky then
-				connected = minetest.registered_nodes[nn.name].mvps_sticky(np, nn)
+				local connected = minetest.registered_nodes[nn.name].mvps_sticky(np, nn)
+				for _, cp in ipairs(connected) do
+					frontiers:add(cp)
+				end
 			end
 
-			table.insert(connected, vector.add(np, dir))
+			frontiers:add(vector.add(np, dir))
 
 			-- If adjacent node is sticky block and connects add that
-			-- position to the connected table
+			-- position
 			for _, r in ipairs(mesecon.rules.alldirs) do
 				local adjpos = vector.add(np, r)
 				local adjnode = minetest.get_node(adjpos)
@@ -98,36 +99,16 @@ function mesecon.mvps_get_stack(pos, dir, maximum, all_pull_sticky)
 					-- connects to this position?
 					for _, link in ipairs(sticksto) do
 						if vector.equals(link, np) then
-							table.insert(connected, adjpos)
+							frontiers:add(adjpos)
 						end
 					end
 				end
 			end
 
 			if all_pull_sticky then
-				table.insert(connected, vector.subtract(np, dir))
-			end
-
-			-- Make sure there are no duplicates in frontiers / nodes before
-			-- adding nodes in "connected" to frontiers
-			for _, cp in ipairs(connected) do
-				local duplicate = false
-				for _, rp in ipairs(nodes) do
-					if vector.equals(cp, rp.pos) then
-						duplicate = true
-					end
-				end
-				for _, fp in ipairs(frontiers) do
-					if vector.equals(cp, fp) then
-						duplicate = true
-					end
-				end
-				if not duplicate then
-					table.insert(frontiers, cp)
-				end
+				frontiers:add(vector.subtract(np, dir))
 			end
 		end
-		table.remove(frontiers, 1)
 	end
 
 	return nodes
@@ -239,6 +220,8 @@ function mesecon.mvps_push_or_pull(pos, stackdir, movedir, maximum, all_pull_sti
 		minetest.remove_node(n.pos)
 	end
 
+	local oldstack = mesecon.tablecopy(nodes)
+
 	-- update mesecons for removed nodes ( has to be done after all nodes have been removed )
 	for _, n in ipairs(nodes) do
 		mesecon.on_dignode(n.pos, n.node)
@@ -248,6 +231,12 @@ function mesecon.mvps_push_or_pull(pos, stackdir, movedir, maximum, all_pull_sti
 	for _, n in ipairs(nodes) do
 		local np = vector.add(n.pos, movedir)
 
+		-- Turn off conductors in transit
+		local conductor = mesecon.get_conductor(n.node.name)
+		if conductor and conductor.state ~= mesecon.state.off then
+			n.node.name = conductor.offstate or conductor.states[1]
+		end
+
 		minetest.set_node(np, n.node)
 		minetest.get_meta(np):from_table(n.meta)
 		if n.node_timer then
@@ -256,7 +245,6 @@ function mesecon.mvps_push_or_pull(pos, stackdir, movedir, maximum, all_pull_sti
 	end
 
 	local moved_nodes = {}
-	local oldstack = mesecon.tablecopy(nodes)
 	for i in ipairs(nodes) do
 		moved_nodes[i] = {}
 		moved_nodes[i].oldpos = nodes[i].pos
@@ -273,7 +261,6 @@ function mesecon.mvps_push_or_pull(pos, stackdir, movedir, maximum, all_pull_sti
 end
 
 function mesecon.mvps_move_objects(pos, dir, nodestack, movefactor)
-	local objects_to_move = {}
 	local dir_k
 	local dir_l
 	for k, v in pairs(dir) do
@@ -331,11 +318,6 @@ end
 -- TODO: load blocks instead, as with wires.
 mesecon.register_mvps_stopper("ignore")
 
-mesecon.register_mvps_stopper("doors:door_steel_b_1")
-mesecon.register_mvps_stopper("doors:door_steel_t_1")
-mesecon.register_mvps_stopper("doors:door_steel_b_2")
-mesecon.register_mvps_stopper("doors:door_steel_t_2")
-mesecon.register_mvps_stopper("default:chest_locked")
 mesecon.register_on_mvps_move(mesecon.move_hot_nodes)
 mesecon.register_on_mvps_move(function(moved_nodes)
 	for i = 1, #moved_nodes do

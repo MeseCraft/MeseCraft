@@ -14,7 +14,7 @@ local wire_getconnect = function (from_pos, self_pos)
 	if minetest.registered_nodes[node.name]
 	and minetest.registered_nodes[node.name].mesecons then
 		-- rules of node to possibly connect to
-		local rules = {}
+		local rules
 		if (minetest.registered_nodes[node.name].mesecon_wire) then
 			rules = mesecon.rules.default
 		else
@@ -73,7 +73,7 @@ local update_on_place_dig = function (pos, node)
 	end
 
 	-- Update nodes around it
-	local rules = {}
+	local rules
 	if minetest.registered_nodes[node.name]
 	and minetest.registered_nodes[node.name].mesecon_wire then
 		rules = mesecon.rules.default
@@ -195,10 +195,11 @@ local function register_wires()
 		}}
 
 		local groups_on = {dig_immediate = 3, mesecon_conductor_craftable = 1,
-			not_in_creative_inventory = 1}
+			not_in_creative_inventory = 1, not_in_craft_guide = 1}
 		local groups_off = {dig_immediate = 3, mesecon_conductor_craftable = 1}
 		if nodeid ~= "00000000" then
 			groups_off["not_in_creative_inventory"] = 1
+			groups_off["not_in_craft_guide"] = 1
 		end
 
 		mesecon.register_node(":mesecons:wire_"..nodeid, {
@@ -215,7 +216,7 @@ local function register_wires()
 			walkable = false,
 			drop = "mesecons:wire_00000000_off",
 			mesecon_wire = true,
-			sounds = default.node_sound_defaults(),
+			sounds = mesecon.node_sound.default,
 			on_rotate = false,
 		}, {tiles = tiles_off, mesecons = meseconspec_off, groups = groups_off},
 		{tiles = tiles_on, mesecons = meseconspec_on, groups = groups_on})
@@ -228,23 +229,31 @@ register_wires()
 -- ##############
 -- ## Crafting ##
 -- ##############
-minetest.register_craft({
-	type = "cooking",
-	output = "mesecons:wire_00000000_off 2",
-	recipe = "default:mese_crystal_fragment",
-	cooktime = 3,
-})
+-- (Resolve aliases to avoid bug with cooking/fuel recipes.)
 
-minetest.register_craft({
-	type = "cooking",
-	output = "mesecons:wire_00000000_off 18",
-	recipe = "default:mese_crystal",
-	cooktime = 15,
-})
+if minetest.registered_aliases["mesecons_gamecompat:mese_crystal_fragment"] then
+	minetest.register_craft({
+		type = "cooking",
+		output = "mesecons:wire_00000000_off 2",
+		recipe = minetest.registered_aliases["mesecons_gamecompat:mese_crystal_fragment"],
+		cooktime = 3,
+	})
+end
 
-minetest.register_craft({
-	type = "cooking",
-	output = "mesecons:wire_00000000_off 162",
-	recipe = "default:mese",
-	cooktime = 30,
-})
+if minetest.registered_aliases["mesecons_gamecompat:mese_crystal"] then
+	minetest.register_craft({
+		type = "cooking",
+		output = "mesecons:wire_00000000_off 18",
+		recipe = minetest.registered_aliases["mesecons_gamecompat:mese_crystal"],
+		cooktime = 15,
+	})
+end
+
+if minetest.registered_aliases["mesecons_gamecompat:mese"] then
+	minetest.register_craft({
+		type = "cooking",
+		output = "mesecons:wire_00000000_off 162",
+		recipe = minetest.registered_aliases["mesecons_gamecompat:mese"],
+		cooktime = 30,
+	})
+end

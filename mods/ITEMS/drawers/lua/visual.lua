@@ -78,7 +78,7 @@ core.register_entity("drawers:visual", {
 		end
 
 		local node = minetest.get_node(self.object:get_pos())
-		if not node.name:match("^drawers:") then
+		if core.get_item_group(node.name, "drawer") == 0 then
 			self.object:remove()
 			return
 		end
@@ -89,7 +89,7 @@ core.register_entity("drawers:visual", {
 		-- PLEASE contact me, if this is wrong
 		local vId = self.visualId
 		if vId == "" then vId = 1 end
-		local posstr = core.serialize(self.drawer_pos)
+		local posstr = core.hash_node_position(self.drawer_pos)
 		if not drawers.drawer_visuals[posstr] then
 			drawers.drawer_visuals[posstr] = {[vId] = self}
 		else
@@ -100,7 +100,7 @@ core.register_entity("drawers:visual", {
 		self.meta = core.get_meta(self.drawer_pos)
 
 		-- collisionbox
-		local node = core.get_node(self.drawer_pos)
+		node = core.get_node(self.drawer_pos)
 		local colbox
 		if self.drawerType ~= 2 then
 			if node.param2 == 1 or node.param2 == 3 then
@@ -170,7 +170,7 @@ core.register_entity("drawers:visual", {
 			local i = 0
 			local inv = clicker:get_inventory()
 
-			while i < inv:get_size("main") do
+			while i <= inv:get_size("main") do
 				-- set current stack to leftover of insertion
 				local leftover = self.try_insert_stack(
 					self,
@@ -210,7 +210,8 @@ core.register_entity("drawers:visual", {
 
 	on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, dir)
 		local node = minetest.get_node(self.object:get_pos())
-		if not node.name:match("^drawers:") then
+
+		if core.get_item_group(node.name, "drawer") == 0 then
 			self.object:remove()
 			return
 		end
@@ -221,7 +222,7 @@ core.register_entity("drawers:visual", {
 		end
 		local inv = puncher:get_inventory()
 		if inv == nil then
-			return	
+			return
 		end
 		local spaceChecker = ItemStack(self.itemName)
 		if add_stack then
@@ -231,7 +232,13 @@ core.register_entity("drawers:visual", {
 			return
 		end
 
-		stack = self:take_items(add_stack)
+		local stack
+		if add_stack then
+			stack = self:take_stack()
+		else
+			stack = self:take_items(1)
+		end
+
 		if stack ~= nil then
 			-- add removed stack to player's inventory
 			inv:add_item("main", stack)
@@ -241,17 +248,13 @@ core.register_entity("drawers:visual", {
 		end
 	end,
 
-	take_items = function(self, take_stack)
+	take_items = function(self, removeCount)
 		local meta = core.get_meta(self.drawer_pos)
 
 		if self.count <= 0 then
 			return
 		end
 
-		local removeCount = 1
-		if take_stack then
-			removeCount = ItemStack(self.itemName):get_stack_max()
-		end
 		if removeCount > self.count then
 			removeCount = self.count
 		end
@@ -270,57 +273,64 @@ core.register_entity("drawers:visual", {
 		return stack
 	end,
 
-	try_insert_stack = function(self, itemstack, insert_stack)
+	take_stack = function(self)
+		return self:take_items(ItemStack(self.itemName):get_stack_max())
+	end,
+
+	can_insert_stack = function(self, stack)
+		if stack:get_name() == "" or stack:get_count() <= 0 then
+			return 0
+		end
+
+		-- don't allow unstackable stacks
+		if self.itemName == "" and stack:get_stack_max() ~= 1 then
+			return stack:get_count()
+		end
+
+		if self.itemName ~= stack:get_name() then
+			return 0
+		end
+
+		if (self.count + stack:get_count()) <= self.maxCount then
+			return stack:get_count()
+		end
+		return self.maxCount - self.count
+	end,
+
+	try_insert_stack = function(self, itemstack, insert_all)
 		local stackCount = itemstack:get_count()
 		local stackName = itemstack:get_name()
 
-		-- if nothing to be added, return
-		if stackCount <= 0 then return itemstack end
-		-- if no itemstring, return
-		if stackName == "" then return itemstack end
+		local insertCount = self:can_insert_stack(itemstack)
 
-		-- only add one, if player holding sneak key
-		if not insert_stack then
-			stackCount = 1
-		end
-
-		-- if current itemstring is not empty
-		if self.itemName ~= "" then
-			-- check if same item
-			if stackName ~= self.itemName then return itemstack end
-		else -- is empty
-			self.itemName = stackName
-			self.count = 0
-
-			-- get new stack max
-			self.itemStackMax = ItemStack(self.itemName):get_stack_max()
-			self.maxCount = self.itemStackMax * self.stackMaxFactor
-		end
-
-		-- Don't add items stackable only to 1
-		if self.itemStackMax == 1 then
-			self.itemName = ""
+		if insertCount == 0 then
 			return itemstack
 		end
 
-		-- set new counts:
-		-- if new count is more than max_count
-		if (self.count + stackCount) > self.maxCount then
-			itemstack:set_count(self.count + stackCount - self.maxCount)
-			self.count = self.maxCount
-		else -- new count fits
-			self.count = self.count + stackCount
-			-- this is for only removing one
-			itemstack:set_count(itemstack:get_count() - stackCount)
+		-- only add one, if player holding sneak key
+		if not insert_all then
+			insertCount = 1
 		end
 
-		-- update infotext, texture
+		-- in case the drawer was empty, initialize count, itemName, maxCount
+		if self.itemName == "" then
+			self.count = 0
+			self.itemName = itemstack:get_name()
+			self.maxCount = itemstack:get_stack_max() * self.stackMaxFactor
+			self.itemStackMax = itemstack:get_stack_max()
+		end
+
+		-- update everything
+		self.count = self.count + insertCount
 		self:updateInfotext()
 		self:updateTexture()
-
 		self:saveMetaData()
 
-		if itemstack:get_count() == 0 then itemstack = ItemStack("") end
+		-- return leftover
+		itemstack:take_item(insertCount)
+		if itemstack:get_count() == 0 then
+			return ItemStack("")
+		end
 		return itemstack
 	end,
 
@@ -364,7 +374,7 @@ core.register_entity("drawers:visual", {
 		local dropPos = core.find_node_near(self.drawer_pos, 1, {"air"}, false)
 		-- if no pos found then drop on the top of the drawer
 		if not dropPos then
-			dropPos = self.pos
+			dropPos = self.object:get_pos()
 			dropPos.y = dropPos.y + 1
 		end
 		-- drop the item stack
@@ -434,7 +444,7 @@ core.register_lbm({
 		-- count the drawer visuals
 		local drawerType = core.registered_nodes[node.name].groups.drawer
 		local foundVisuals = 0
-		local objs = core.get_objects_inside_radius(pos, 0.54)
+		local objs = core.get_objects_inside_radius(pos, 0.56)
 		if objs then
 			for _, obj in pairs(objs) do
 				if obj and obj:get_luaentity() and

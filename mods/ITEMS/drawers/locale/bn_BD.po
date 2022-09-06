@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
+"PO-Revision-Date: 2020-05-10 12:32+0000\n"
+"Last-Translator: Oymate <dhruboadittya96@gmail.com>\n"
+"Language-Team: Bengali (Bangladesh) <https://hosted.weblate.org/projects/"
+"minetest/mod-storage-drawers/bn_BD/>\n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.1-dev\n"
+
+#: lua/visual.lua lua/api.lua
+msgid "Empty"
+msgstr "খালি"
+
+#: lua/api.lua init.lua
+msgid "Wooden"
+msgstr "কাঠের"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "@১ ড্রয়ার"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "@১ ড্রয়ার (১x২)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "@১ ড্রয়ার (২x২)"
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr "ড্রয়ার কন্ট্রোলার"
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (@2% পূর্ণ)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (@3% পূর্ণ)"
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "বাবলা কাঠ"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr "ভূর্জ কাঠ"
+
+#: init.lua
+msgid "Junglewood"
+msgstr "জংলিকাঠ"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr "পাইন কাঠ"
+
+#: init.lua
+msgid "Oak Wood"
+msgstr ""
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "ভূর্জ কাঠ"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr ""
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr ""
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr ""
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x4)"
+msgstr ""
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr ""
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr ""
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr ""
+
+#~ msgid "Current State: "
+#~ msgstr "বর্তমান অবস্থা: "
+
+#~ msgid "Stopped"
+#~ msgstr "বন্ধ"
+
+#~ msgid "Running"
+#~ msgstr "চলছে"
+
+#~ msgid "Jammed"
+#~ msgstr "জ্যামড"

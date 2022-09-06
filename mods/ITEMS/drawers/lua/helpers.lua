@@ -97,9 +97,10 @@ function drawers.spawn_visuals(pos)
 
 		local bdir = core.facedir_to_dir(node.param2)
 		local fdir = vector.new(-bdir.x, 0, -bdir.z)
-		local pos2 = vector.add(pos, vector.multiply(fdir, 0.438))
+		local pos2 = vector.add(pos, vector.multiply(fdir, 0.45))
 
 		local obj = core.add_entity(pos2, "drawers:visual")
+		if not obj then return end
 
 		if bdir.x < 0 then obj:set_yaw(0.5 * math.pi) end
 		if bdir.z < 0 then obj:set_yaw(math.pi) end
@@ -123,12 +124,12 @@ function drawers.spawn_visuals(pos)
 
 		drawers.last_visual_id = 1
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name1"))
-		local pos1 = vector.add(pos, vector.multiply(fdir1, 0.438))
+		local pos1 = vector.add(pos, vector.multiply(fdir1, 0.45))
 		objs[1] = core.add_entity(pos1, "drawers:visual")
 
 		drawers.last_visual_id = 2
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name2"))
-		local pos2 = vector.add(pos, vector.multiply(fdir2, 0.438))
+		local pos2 = vector.add(pos, vector.multiply(fdir2, 0.45))
 		objs[2] = core.add_entity(pos2, "drawers:visual")
 
 		for i,obj in pairs(objs) do
@@ -169,22 +170,22 @@ function drawers.spawn_visuals(pos)
 
 		drawers.last_visual_id = 1
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name1"))
-		local pos1 = vector.add(pos, vector.multiply(fdir1, 0.438))
+		local pos1 = vector.add(pos, vector.multiply(fdir1, 0.45))
 		objs[1] = core.add_entity(pos1, "drawers:visual")
 
 		drawers.last_visual_id = 2
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name2"))
-		local pos2 = vector.add(pos, vector.multiply(fdir2, 0.438))
+		local pos2 = vector.add(pos, vector.multiply(fdir2, 0.45))
 		objs[2] = core.add_entity(pos2, "drawers:visual")
 
 		drawers.last_visual_id = 3
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name3"))
-		local pos3 = vector.add(pos, vector.multiply(fdir3, 0.438))
+		local pos3 = vector.add(pos, vector.multiply(fdir3, 0.45))
 		objs[3] = core.add_entity(pos3, "drawers:visual")
 
 		drawers.last_visual_id = 4
 		drawers.last_texture = drawers.get_inv_image(core.get_meta(pos):get_string("name4"))
-		local pos4 = vector.add(pos, vector.multiply(fdir4, 0.438))
+		local pos4 = vector.add(pos, vector.multiply(fdir4, 0.45))
 		objs[4] = core.add_entity(pos4, "drawers:visual")
 
 
@@ -197,7 +198,7 @@ function drawers.spawn_visuals(pos)
 end
 
 function drawers.remove_visuals(pos)
-	local objs = core.get_objects_inside_radius(pos, 0.54)
+	local objs = core.get_objects_inside_radius(pos, 0.56)
 	if not objs then return end
 
 	for _, obj in pairs(objs) do
@@ -206,6 +207,26 @@ function drawers.remove_visuals(pos)
 			obj:remove()
 		end
 	end
+end
+
+--[[
+	Returns the visual object for the visualid of the drawer at pos.
+
+	visualid can be: "", "1", "2", ... or 1, 2, ...
+]]
+function drawers.get_visual(pos, visualid)
+	local drawer_visuals = drawers.drawer_visuals[core.hash_node_position(pos)]
+	if not drawer_visuals then
+		return nil
+	end
+
+	-- not a real index (starts with 1)
+	local index = tonumber(visualid)
+	if visualid == "" then
+		index = 1
+	end
+
+	return drawer_visuals[index]
 end
 
 function drawers.update_drawer_upgrades(pos)
@@ -235,7 +256,7 @@ function drawers.update_drawer_upgrades(pos)
 	stackMaxFactor = stackMaxFactor / drawerType
 
 	-- set the new stack max factor in all visuals
-	local drawer_visuals = drawers.drawer_visuals[core.serialize(pos)]
+	local drawer_visuals = drawers.drawer_visuals[core.hash_node_position(pos)]
 	if not drawer_visuals then return end
 
 	for _,visual in pairs(drawer_visuals) do

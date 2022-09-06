@@ -43,13 +43,16 @@ local rules = {
 ------------------
 -- These helpers are required to set the port states of the luacontroller
 
+-- Updates the real port states according to the signal change.
+-- Returns whether the real port states actually changed.
 local function update_real_port_states(pos, rule_name, new_state)
 	local meta = minetest.get_meta(pos)
 	if rule_name == nil then
 		meta:set_int("real_portstates", 1)
-		return
+		return true
 	end
-	local n = meta:get_int("real_portstates") - 1
+	local real_portstates = meta:get_int("real_portstates")
+	local n = real_portstates - 1
 	local L = {}
 	for i = 1, 4 do
 		L[i] = n % 2
@@ -60,18 +63,18 @@ local function update_real_port_states(pos, rule_name, new_state)
 	if rule_name.x == nil then
 		for _, rname in ipairs(rule_name) do
 			local port = pos_to_side[rname.x + (2 * rname.z) + 3]
-			L[port] = (newstate == "on") and 1 or 0
+			L[port] = (new_state == "on") and 1 or 0
 		end
 	else
 		local port = pos_to_side[rule_name.x + (2 * rule_name.z) + 3]
 		L[port] = (new_state == "on") and 1 or 0
 	end
-	meta:set_int("real_portstates",
-		1 +
-		1 * L[1] +
-		2 * L[2] +
-		4 * L[3] +
-		8 * L[4])
+	local new_portstates = 1 + 1 * L[1] + 2 * L[2] + 4 * L[3] + 8 * L[4]
+	if new_portstates ~= real_portstates then
+		meta:set_int("real_portstates", new_portstates)
+		return true
+	end
+	return false
 end
 
 
@@ -172,7 +175,7 @@ local function burn_controller(pos)
 	minetest.after(0.2, mesecon.receptor_off, pos, mesecon.rules.flat)
 end
 
-local function overheat(pos, meta)
+local function overheat(pos)
 	if mesecon.do_overheat(pos) then -- If too hot
 		burn_controller(pos)
 		return true
@@ -467,7 +470,12 @@ local safe_globals = {
 
 local function create_environment(pos, mem, event, itbl, send_warning)
 	-- Gather variables for the environment
-	local vports = minetest.registered_nodes[minetest.get_node(pos).name].virtual_portstates
+	local node_def = minetest.registered_nodes[minetest.get_node(pos).name]
+	if not node_def then return end
+
+	local vports = node_def.virtual_portstates
+	if not vports then return end
+
 	local vports_copy = {}
 	for k, v in pairs(vports) do vports_copy[k] = v end
 	local rports = get_real_port_states(pos)
@@ -612,9 +620,8 @@ local function run_inner(pos, code, event)
 	if overheat(pos) then return true, "" end
 	if ignore_event(event, meta) then return true, "" end
 
-	-- Load code & mem from meta
+	-- Load mem from meta
 	local mem  = load_memory(meta)
-	local code = meta:get_string("code")
 
 	-- 'Last warning' label.
 	local warning = ""
@@ -625,16 +632,19 @@ local function run_inner(pos, code, event)
 	-- Create environment
 	local itbl = {}
 	local env = create_environment(pos, mem, event, itbl, send_warning)
+	if not env then return false, "Env does not exist. Controller has been moved?" end
 
+	local success, msg
 	-- Create the sandbox and execute code
-	local f, msg = create_sandbox(code, env)
+	local f
+	f, msg = create_sandbox(code, env)
 	if not f then return false, msg end
 	-- Start string true sandboxing
 	local onetruestring = getmetatable("")
 	-- If a string sandbox is already up yet inconsistent, something is very wrong
 	assert(onetruestring.__index == string)
 	onetruestring.__index = env.string
-	local success, msg = pcall(f)
+	success, msg = pcall(f)
 	onetruestring.__index = string
 	-- End string true sandboxing
 	if not success then return false, msg end
@@ -748,7 +758,7 @@ local selection_box = {
 local digiline = {
 	receptor = {},
 	effector = {
-		action = function(pos, node, channel, msg)
+		action = function(pos, _, channel, msg)
 			msg = clean_and_weigh_digiline_message(msg)
 			run(pos, {type = "digiline", channel = channel, msg = msg})
 		end
@@ -766,7 +776,7 @@ local function set_program(pos, code)
 	return run(pos, {type="program"})
 end
 
-local function on_receive_fields(pos, form_name, fields, sender)
+local function on_receive_fields(pos, _, fields, sender)
 	if not fields.program then
 		return
 	end
@@ -825,8 +835,9 @@ for d = 0, 1 do
 		effector = {
 			rules = input_rules[cid],
 			action_change = function (pos, _, rule_name, new_state)
-				update_real_port_states(pos, rule_name, new_state)
-				run(pos, {type=new_state, pin=rule_name})
+				if update_real_port_states(pos, rule_name, new_state) then
+					run(pos, {type=new_state, pin=rule_name})
+				end
 			end,
 		},
 		receptor = {
@@ -860,7 +871,7 @@ for d = 0, 1 do
 		node_box = node_box,
 		on_construct = reset_meta,
 		on_receive_fields = on_receive_fields,
-		sounds = default.node_sound_stone_defaults(),
+		sounds = mesecon.node_sound.stone,
 		mesecons = mesecons,
 		digiline = digiline,
 		-- Virtual portstates are the ports that
@@ -871,7 +882,7 @@ for d = 0, 1 do
 			c = c == 1,
 			d = d == 1,
 		},
-		after_dig_node = function (pos, node)
+		after_dig_node = function (pos)
 			mesecon.do_cooldown(pos)
 			mesecon.receptor_off(pos, output_rules)
 		end,
@@ -909,7 +920,7 @@ minetest.register_node(BASENAME .. "_burnt", {
 	node_box = node_box,
 	on_construct = reset_meta,
 	on_receive_fields = on_receive_fields,
-	sounds = default.node_sound_stone_defaults(),
+	sounds = mesecon.node_sound.stone,
 	virtual_portstates = {a = false, b = false, c = false, d = false},
 	mesecons = {
 		effector = {

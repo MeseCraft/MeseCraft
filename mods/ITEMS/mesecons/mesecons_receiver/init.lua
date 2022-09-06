@@ -25,18 +25,10 @@ local up_rcvboxes = {
 	{6/16,  -8/16, 1/16,  8/16, -7/16, -1/16}, -- Plate extension (East)
 }
 
-local receiver_get_rules = function (node)
-	local rules = {	{x =  1, y = 0, z = 0},
-			{x = -2, y = 0, z = 0}}
-	if node.param2 == 2 then
-		rules = mesecon.rotate_rules_left(rules)
-	elseif node.param2 == 3 then
-		rules = mesecon.rotate_rules_right(mesecon.rotate_rules_right(rules))
-	elseif node.param2 == 0 then
-		rules = mesecon.rotate_rules_right(rules)
-	end
-	return rules
-end
+local receiver_get_rules = mesecon.horiz_rules_getter({
+	{x = 0, y = 0, z = 1},
+	{x = 0, y = 0, z = -2},
+})
 
 mesecon.register_node("mesecons_receiver:receiver", {
 	drawtype = "nodebox",
@@ -47,7 +39,7 @@ mesecon.register_node("mesecons_receiver:receiver", {
 	walkable = false,
 	on_rotate = false,
 	selection_box = {
-             	type = "fixed",
+		type = "fixed",
 		fixed = { -3/16, -8/16, -8/16, 3/16, 3/16, 8/16 }
 	},
 	node_box = {
@@ -56,7 +48,7 @@ mesecon.register_node("mesecons_receiver:receiver", {
 	},
 	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 	drop = "mesecons:wire_00000000_off",
-	sounds = default.node_sound_defaults(),
+	sounds = mesecon.node_sound.default,
 }, {
 	tiles = {
 		"receiver_top_off.png",
@@ -96,7 +88,7 @@ mesecon.register_node("mesecons_receiver:receiver_up", {
 	walkable = false,
 	on_rotate = false,
 	selection_box = {
-             	type = "fixed",
+		type = "fixed",
 		fixed = up_rcvboxes
 	},
 	node_box = {
@@ -105,7 +97,7 @@ mesecon.register_node("mesecons_receiver:receiver_up", {
 	},
 	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 	drop = "mesecons:wire_00000000_off",
-	sounds = default.node_sound_defaults(),
+	sounds = mesecon.node_sound.default,
 }, {
 	tiles = {"mesecons_wire_off.png"},
 	mesecons = {conductor = {
@@ -141,7 +133,7 @@ mesecon.register_node("mesecons_receiver:receiver_down", {
 	walkable = false,
 	on_rotate = false,
 	selection_box = {
-             	type = "fixed",
+		type = "fixed",
 		fixed = down_rcvboxes
 	},
 	node_box = {
@@ -150,7 +142,7 @@ mesecon.register_node("mesecons_receiver:receiver_down", {
 	},
 	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 	drop = "mesecons:wire_00000000_off",
-	sounds = default.node_sound_defaults(),
+	sounds = mesecon.node_sound.default,
 }, {
 	tiles = {"mesecons_wire_off.png"},
 	mesecons = {conductor = {
@@ -209,8 +201,10 @@ function mesecon.receiver_place(rcpt_pos)
 	local param2 = minetest.dir_to_facedir(minetest.facedir_to_dir(node.param2))
 
 	if string.find(nn.name, "mesecons:wire_") ~= nil then
-		minetest.set_node(pos, {name = rcvtype, param2 = param2})
-		mesecon.on_placenode(pos, nn)
+		local rcv_node = {name = rcvtype, param2 = param2}
+		minetest.set_node(pos, rcv_node)
+		mesecon.on_dignode(pos, nn)
+		mesecon.on_placenode(pos, rcv_node)
 	end
 end
 
@@ -220,6 +214,7 @@ function mesecon.receiver_remove(rcpt_pos, dugnode)
 	if string.find(nn.name, "mesecons_receiver:receiver_") ~= nil then
 		local node = {name = "mesecons:wire_00000000_off"}
 		minetest.set_node(pos, node)
+		mesecon.on_dignode(pos, nn)
 		mesecon.on_placenode(pos, node)
 	end
 end
@@ -257,7 +252,13 @@ minetest.register_on_placenode(function (pos, node)
 	end
 end)
 
-function mesecon.buttonlike_onrotate(pos, node)
-	minetest.after(0, mesecon.receiver_remove, pos, node)
-	minetest.after(0, mesecon.receiver_place, pos)
+function mesecon.buttonlike_onrotate(pos, node, _, _, new_param2)
+	local new_node = {name = node.name, param1 = node.param1, param2 = new_param2}
+	minetest.swap_node(pos, new_node)
+	mesecon.receiver_remove(pos, node)
+	mesecon.on_dignode(pos, node)
+	mesecon.on_placenode(pos, new_node)
+	mesecon.receiver_place(pos)
+	minetest.check_for_falling(pos)
+	return true
 end

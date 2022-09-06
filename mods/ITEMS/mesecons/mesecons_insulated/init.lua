@@ -1,13 +1,7 @@
-local screwdriver_exists = minetest.global_exists("screwdriver")
-
-local function insulated_wire_get_rules(node)
-	local rules = 	{{x = 1,  y = 0,  z = 0},
-			 {x =-1,  y = 0,  z = 0}}
-	if node.param2 == 1 or node.param2 == 3 then
-		return mesecon.rotate_rules_right(rules)
-	end
-	return rules
-end
+local insulated_wire_get_rules = mesecon.horiz_rules_getter({
+	{x = 1, y = 0, z = 0},
+	{x = -1, y = 0, z = 0},
+})
 
 minetest.register_node("mesecons_insulated:insulated_on", {
 	drawtype = "nodebox",
@@ -36,14 +30,14 @@ minetest.register_node("mesecons_insulated:insulated_on", {
 	},
 	groups = {dig_immediate = 3, not_in_creative_inventory = 1},
 	drop = "mesecons_insulated:insulated_off",
-	sounds = default.node_sound_defaults(),
+	sounds = mesecon.node_sound.default,
 	mesecons = {conductor = {
 		state = mesecon.state.on,
 		offstate = "mesecons_insulated:insulated_off",
 		rules = insulated_wire_get_rules
 	}},
 	on_blast = mesecon.on_blastnode,
-	on_rotate = screwdriver_exists and screwdriver.rotate_simple,
+	on_rotate = mesecon.on_rotate_horiz,
 })
 
 minetest.register_node("mesecons_insulated:insulated_off", {
@@ -72,21 +66,21 @@ minetest.register_node("mesecons_insulated:insulated_off", {
 		fixed = { -16/32-0.001, -17/32, -3/32, 16/32+0.001, -13/32, 3/32 }
 	},
 	groups = {dig_immediate = 3},
-	sounds = default.node_sound_defaults(),
+	sounds = mesecon.node_sound.default,
 	mesecons = {conductor = {
 		state = mesecon.state.off,
 		onstate = "mesecons_insulated:insulated_on",
 		rules = insulated_wire_get_rules
 	}},
 	on_blast = mesecon.on_blastnode,
-	on_rotate = screwdriver_exists and screwdriver.rotate_simple,
+	on_rotate = mesecon.on_rotate_horiz,
 })
 
 minetest.register_craft({
 	output = "mesecons_insulated:insulated_off 3",
 	recipe = {
 		{"mesecons_materials:fiber", "mesecons_materials:fiber", "mesecons_materials:fiber"},
-		{"mesecons:wire_00000000_off", "mesecons:wire_00000000_off", "mesecons:wire_00000000_off"},
+		{"group:mesecon_conductor_craftable", "group:mesecon_conductor_craftable", "group:mesecon_conductor_craftable"},
 		{"mesecons_materials:fiber", "mesecons_materials:fiber", "mesecons_materials:fiber"},
 	}
 })

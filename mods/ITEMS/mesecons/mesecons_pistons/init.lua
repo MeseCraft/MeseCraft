@@ -93,7 +93,6 @@ local piston_on = function(pos, node)
 	minetest.swap_node(pos, {param2 = node.param2, name = pistonspec.onname})
 	minetest.set_node(pusher_pos, {param2 = node.param2, name = pistonspec.pusher})
 	minetest.sound_play("piston_extend", { pos = pos, max_hear_distance = 20, gain = 0.3 }, true)
-	mesecon.mvps_process_stack(stack)
 	mesecon.mvps_move_objects(pusher_pos, dir, oldstack)
 end
 
@@ -108,7 +107,7 @@ local function piston_off(pos, node)
 	local dir = minetest.facedir_to_dir(node.param2)
 	local pullpos = vector.add(pos, vector.multiply(dir, -2))
 	local meta = minetest.get_meta(pos)
-	local success, stack, oldstack = mesecon.mvps_pull_single(pullpos, dir, max_pull, meta:get_string("owner"))
+	local success, _, oldstack = mesecon.mvps_pull_single(pullpos, dir, max_pull, meta:get_string("owner"))
 	if success then
 		mesecon.mvps_move_objects(pullpos, vector.multiply(dir, -1), oldstack, -1)
 	end
@@ -235,7 +234,7 @@ local function piston_rotate_pusher(pos, node, player, mode)
 	return piston_rotate_on(piston_pos, piston_node, player, mode)
 end
 
-local function piston_punch(pos, node, player)
+local function piston_punch(pos, _, player)
 	local player_name = player and player.get_player_name and player:get_player_name()
 	if mesecon.mvps_claim(pos, player_name) then
 		minetest.chat_send_player(player_name, "Reclaimed piston")
@@ -279,7 +278,7 @@ minetest.register_node("mesecons_pistons:piston_normal_off", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	after_place_node = piston_orientate,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 	mesecons = {effector={
 		action_on = piston_on,
 		rules = piston_get_rules,
@@ -309,7 +308,7 @@ minetest.register_node("mesecons_pistons:piston_normal_on", {
 	after_dig_node = piston_after_dig,
 	node_box = piston_on_box,
 	selection_box = piston_on_box,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 	mesecons = {effector={
 		action_off = piston_off,
 		rules = piston_get_rules,
@@ -339,7 +338,7 @@ minetest.register_node("mesecons_pistons:piston_pusher_normal", {
 	node_box = piston_pusher_box,
 	on_rotate = piston_rotate_pusher,
 	drop = "",
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 })
 
 -- Sticky ones
@@ -358,7 +357,7 @@ minetest.register_node("mesecons_pistons:piston_sticky_off", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	after_place_node = piston_orientate,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 	mesecons = {effector={
 		action_on = piston_on,
 		rules = piston_get_rules,
@@ -388,7 +387,7 @@ minetest.register_node("mesecons_pistons:piston_sticky_on", {
 	after_dig_node = piston_after_dig,
 	node_box = piston_on_box,
 	selection_box = piston_on_box,
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 	mesecons = {effector={
 		action_off = piston_off,
 		rules = piston_get_rules,
@@ -418,12 +417,12 @@ minetest.register_node("mesecons_pistons:piston_pusher_sticky", {
 	node_box = piston_pusher_box,
 	on_rotate = piston_rotate_pusher,
 	drop = "",
-	sounds = default.node_sound_wood_defaults(),
+	sounds = mesecon.node_sound.wood,
 })
 
 
 -- Register pushers as stoppers if they would be seperated from the piston
-local function piston_pusher_get_stopper(node, dir, stack, stackid)
+local function piston_pusher_get_stopper(node, _, stack, stackid)
 	if (stack[stackid + 1]
 	and stack[stackid + 1].node.name   == get_pistonspec(node.name, "pusher").onname
 	and stack[stackid + 1].node.param2 == node.param2)
@@ -435,32 +434,12 @@ local function piston_pusher_get_stopper(node, dir, stack, stackid)
 	return true
 end
 
-local function piston_pusher_up_down_get_stopper(node, dir, stack, stackid)
-	if (stack[stackid + 1]
-	and stack[stackid + 1].node.name   == get_pistonspec(node.name, "pusher").onname)
-	or (stack[stackid - 1]
-	and stack[stackid - 1].node.name   == get_pistonspec(node.name, "pusher").onname) then
-		return false
-	end
-	return true
-end
-
 mesecon.register_mvps_stopper("mesecons_pistons:piston_pusher_normal", piston_pusher_get_stopper)
 mesecon.register_mvps_stopper("mesecons_pistons:piston_pusher_sticky", piston_pusher_get_stopper)
 
 
 -- Register pistons as stoppers if they would be seperated from the stopper
-local piston_up_down_get_stopper = function (node, dir, stack, stackid)
-	if (stack[stackid + 1]
-	and stack[stackid + 1].node.name   == get_pistonspec(node.name, "onname").pusher)
-	or (stack[stackid - 1]
-	and stack[stackid - 1].node.name   == get_pistonspec(node.name, "onname").pusher) then
-		return false
-	end
-	return true
-end
-
-local function piston_get_stopper(node, dir, stack, stackid)
+local function piston_get_stopper(node, _, stack, stackid)
 	local pistonspec = get_pistonspec(node.name, "onname")
 	local dir = vector.multiply(minetest.facedir_to_dir(node.param2), -1)
 	local pusherpos = vector.add(stack[stackid].pos, dir)
@@ -484,9 +463,9 @@ mesecon.register_mvps_stopper("mesecons_pistons:piston_sticky_on", piston_get_st
 minetest.register_craft({
 	output = "mesecons_pistons:piston_normal_off 2",
 	recipe = {
-		{"group:wood",     "group:wood",                        "group:wood"},
-		{"default:cobble", "default:steel_ingot",               "default:cobble"},
-		{"default:cobble", "group:mesecon_conductor_craftable", "default:cobble"},
+		{"group:wood",             "group:wood",                        "group:wood"},
+		{"mesecons_gamecompat:cobble", "mesecons_gamecompat:steel_ingot",       "mesecons_gamecompat:cobble"},
+		{"mesecons_gamecompat:cobble", "group:mesecon_conductor_craftable", "mesecons_gamecompat:cobble"},
 	}
 })
 
@@ -500,4 +479,4 @@ minetest.register_craft({
 
 
 -- load legacy code
-dofile(minetest.get_modpath("mesecons_pistons")..DIR_DELIM.."legacy.lua")
+dofile(minetest.get_modpath("mesecons_pistons").."/legacy.lua")

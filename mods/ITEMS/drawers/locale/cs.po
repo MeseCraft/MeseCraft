@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-07 21:50+0100\n"
+"POT-Creation-Date: 2020-01-11 16:49+0100\n"
 "PO-Revision-Date: 2017-06-21 18:49+0000\n"
 "Last-Translator: Jakub Vaněk <vanek.jakub4@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/minetest/mod-"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: lua/controller.lua
 msgid "Current State: "
-msgstr ""
+msgstr "Aktuální stav: "
 
 #: lua/controller.lua
 msgid "Stopped"
-msgstr ""
+msgstr "Zastaveno"
 
 #: lua/controller.lua
 msgid "Running"
-msgstr ""
+msgstr "Spuštěno"
 
 #: lua/controller.lua
 msgid "Jammed"
-msgstr ""
+msgstr "Zaseknuto"
 
 #: lua/controller.lua
 msgid "Drawer Controller"
-msgstr ""
+msgstr "Ovládání Zásuvky"
 
 #: lua/visual.lua lua/api.lua
 msgid "Empty"
@@ -45,27 +45,7 @@ msgstr "Prázdný"
 
 #: lua/api.lua init.lua
 msgid "Wooden"
-msgstr "ze dřeva"
-
-#: lua/api.lua
-msgid "@1 Drawer"
-msgstr "Šuplík @1"
-
-#: lua/api.lua
-msgid "@1 Drawers (1x2)"
-msgstr "Šuplíky @1 (1x2)"
-
-#: lua/api.lua
-msgid "@1 Drawers (2x2)"
-msgstr "Šuplíky @1 (2x2)"
-
-#: lua/helpers.lua
-msgid "@1 (@2% full)"
-msgstr "@1 (z @2 % plný)"
-
-#: lua/helpers.lua
-msgid "@1 @2 (@3% full)"
-msgstr "@1 @2 (z @3 % plný)"
+msgstr "Dřevěný"
 
 #: init.lua
 msgid "Acacia Wood"
@@ -108,7 +88,8 @@ msgid "Gold Drawer Upgrade (x3)"
 msgstr "Zlaté vylepšení šuplíku (x3)"
 
 #: init.lua
-msgid "Obsidian Drawer Upgrade (x5)"
+#, fuzzy
+msgid "Obsidian Drawer Upgrade (x4)"
 msgstr "Obsidiánové vylepšení šuplíku (x5)"
 
 #: init.lua
@@ -125,9 +106,57 @@ msgstr "Emeraldové vylepšení šuplíku (x13)"
 
 #: init.lua
 #, fuzzy
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr "Emeraldové vylepšení šuplíku (x13)"
+
+#: init.lua
 msgid "Wooden Trim"
-msgstr "ze dřeva"
+msgstr "Dřevěný Ořez"
 
 #: init.lua
 msgid "Drawer Upgrade Template"
 msgstr "Šablona vylepšení šuplíku"
+
+#: lua/controller.lua
+msgid "Current State: "
+msgstr ""
+
+#: lua/controller.lua
+msgid "Stopped"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Running"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Jammed"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr ""
+
+#: lua/api.lua lua/visual.lua
+msgid "Empty"
+msgstr "Prázdný"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr "Šuplík @1"
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr "Šuplíky @1 (1x2)"
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr "Šuplíky @1 (2x2)"
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr "@1 (z @2 % plný)"
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr "@1 @2 (z @3 % plný)"

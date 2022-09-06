@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-27 18:43+0100\n"
+"PO-Revision-Date: 2019-07-18 17:04+0000\n"
+"Last-Translator: Elizabeth Sherrock <lizzyd710@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"minetest/mod-storage-drawers/zh_CMN-HANT/>\n"
+"Language: zh_CMN-HANT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.8-dev\n"
+
+#: lua/visual.lua lua/api.lua
+#, fuzzy
+msgid "Empty"
+msgstr "空的"
+
+#: lua/api.lua init.lua
+#, fuzzy
+msgid "Wooden"
+msgstr "木制"
+
+#: lua/api.lua
+msgid "@1 Drawer"
+msgstr ""
+
+#: lua/api.lua
+msgid "@1 Drawers (1x2)"
+msgstr ""
+
+#: lua/api.lua
+msgid "@1 Drawers (2x2)"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Drawer Controller"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Digiline Channel"
+msgstr ""
+
+#: lua/controller.lua
+msgid "Save"
+msgstr ""
+
+#: lua/helpers.lua
+msgid "@1 (@2% full)"
+msgstr ""
+
+#: lua/helpers.lua
+msgid "@1 @2 (@3% full)"
+msgstr ""
+
+#: init.lua
+msgid "Acacia Wood"
+msgstr "金合欢木"
+
+#: init.lua
+msgid "Aspen Wood"
+msgstr ""
+
+#: init.lua
+msgid "Junglewood"
+msgstr "丛林木"
+
+#: init.lua
+msgid "Pine Wood"
+msgstr ""
+
+#: init.lua
+msgid "Oak Wood"
+msgstr "橡木"
+
+#: init.lua
+msgid "Birch Wood"
+msgstr "白桦木"
+
+#: init.lua
+msgid "Dark Oak Wood"
+msgstr "深色橡木"
+
+#: init.lua
+msgid "Spruce Wood"
+msgstr "云杉木"
+
+#: init.lua
+msgid "Steel Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Gold Drawer Upgrade (x3)"
+msgstr ""
+
+#: init.lua
+msgid "Obsidian Drawer Upgrade (x4)"
+msgstr ""
+
+#: init.lua
+msgid "Diamond Drawer Upgrade (x8)"
+msgstr ""
+
+#: init.lua
+msgid "Iron Drawer Upgrade (x2)"
+msgstr ""
+
+#: init.lua
+msgid "Emerald Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Mithril Drawer Upgrade (x13)"
+msgstr ""
+
+#: init.lua
+msgid "Wooden Trim"
+msgstr ""
+
+#: init.lua
+msgid "Drawer Upgrade Template"
+msgstr ""
+
+#~ msgid "Current State: "
+#~ msgstr "当前状态： "
+
+#~ msgid "Stopped"
+#~ msgstr "已停止"
+
+#~ msgid "Running"
+#~ msgstr "正在运行"
