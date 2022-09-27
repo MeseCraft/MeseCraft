@@ -1,16 +1,9 @@
-local has_armor_mod = minetest.get_modpath("3d_armor")
-
-skybox.register = function(def)
-	print("[skybox] registering " .. def.name .. " from " .. def.miny .. " to " .. def.maxy)
-	table.insert(skybox.list, def)
-end
-
 
 local timer = 0
 local skybox_cache = {} -- playername -> skybox name
 
 -- returns the skybox or nil
-skybox.get_skybox_for_player = function(player)
+function skybox.get_skybox_for_player(player)
 	local pos = player:get_pos()
 
 	if not pos then
@@ -18,39 +11,55 @@ skybox.get_skybox_for_player = function(player)
 		return
 	end
 
+	-- newly selected skybox, if any
+	local newbox
+
 	for _,box in pairs(skybox.list) do
-		if pos.y > box.miny and pos.y < box.maxy then
+		-- potential candidate, compared against priority
+		local candidate
+
+		if type(box.match) == "function" then
+			-- custom matcher
+			if box.match(player, pos) then
+				-- box matched
+				candidate = box
+			end
+
+		-- compare heights
+		elseif pos.y > box.miny and pos.y < box.maxy then
 			-- height match found
-			return box
+			candidate = box
+		end
+
+		if not newbox and candidate then
+			-- no old skybox, apply directly
+			newbox = candidate
+
+		elseif newbox and candidate then
+			-- compare priority, if any. otherwise ignore new box
+			if newbox.priority and candidate.priority then
+				if candidate.priority > newbox.priority then
+					-- select new box
+					newbox = candidate
+				end
+			elseif not newbox.priority and candidate.priority then
+				-- candidate has priority, select it
+				newbox = candidate
+			end
 		end
 	end
+
+	return newbox
 end
 
--- sets the default skybox for the player
-skybox.set_default_skybox = function(player)
-	local name = player:get_player_name()
-
-	minetest.log("action", "[skybox] Restoring default skybox for player: " .. name)
-
-	skybox_cache[name] = ""
-
-	player:override_day_night_ratio(nil)
-	player:set_sky({r=0, g=0, b=0},"regular",{})
-	player:set_clouds({
-		thickness=16,
-		color={r=243, g=214, b=255, a=229},
-		ambient={r=0, g=0, b=0, a=255},
-		density=0.4,
-		height=120,
-		speed={y=-2,x=-1}
-	})
-
-	player:set_physics_override({gravity=1, jump=1})
-end
-
-skybox.update_skybox = function(player)
+function skybox.update_skybox(player)
 	local pos = player:get_pos()
 	local name = player:get_player_name()
+
+	if skybox.ignore_players[name] then
+		skybox_cache[name] = nil
+		return
+	end
 
 	if not pos then
 		-- yeah, it happens apparently :)
@@ -62,12 +71,7 @@ skybox.update_skybox = function(player)
 	local box = skybox.get_skybox_for_player(player)
 
 	if box then
-		if current_skybox == box.name then
-			-- already active
-			player:set_physics_override({gravity=box.gravity})
-			return
-
-		else
+		if current_skybox ~= box.name then
 			minetest.log("action", "[skybox] Setting skybox: " .. box.name .. " for player " .. name)
 
 			-- new skybox
@@ -78,36 +82,48 @@ skybox.update_skybox = function(player)
 				minetest.chat_send_player(name, box.message)
 			end
 
-			local sky_type = box.sky_type or "skybox"
-			local sky_color = box.sky_color or {r=0, g=0, b=0}
+			player:set_sky({
+				type = box.sky_type or "skybox",
+				base_color = box.sky_color or {r=0, g=0, b=0},
+				textures = box.textures,
+				sky_color = {
+					day_sky = "#000000",
+					day_horizon = "#000000",
+					dawn_sky = "#000000",
+					dawn_horizon = "#000000",
+					night_sky = "#000000",
+					night_horizon = "#000000",
+					indoors = "#000000",
+					fog_tint_type = "default",
+				}
+			})
 
-			player:set_sky(sky_color, sky_type, box.textures or {})
+			player:set_moon({ visible = false })
+			player:set_sun({ visible = false, sunrise_visible = false })
+			player:set_stars({ visible = false })
+
 			player:set_clouds(box.clouds or {density=0,speed=0})
-			player:set_physics_override({gravity=box.gravity})
+
 			if box.always_day then
 				player:override_day_night_ratio(1)
-			end
-			if box.always_night then
-				player:override_day_night_ratio(0)
 			end
 
 			return
 		end
+
+	else
+
+		-- set default skybox
+
+		if current_skybox == "" then
+			-- already in default
+			return
+		end
+
+		minetest.log("action", "[skybox] Setting default skybox for player " .. name)
+		skybox_cache[name] = ""
+		skybox.set_default_skybox(player)
 	end
-
-	-- set default skybox
-
-	if current_skybox == "" then
-		-- already in default
-		return
-	end
-
-	skybox.set_default_skybox(player)
-end
-
-if has_armor_mod then
-	-- update physics if armor changed
-	armor:register_on_update(skybox.update_skybox)
 end
 
 minetest.register_globalstep(function(dtime)
