@@ -97,7 +97,7 @@ function mailbox.rightclick(pos, node, clicker, itemstack, pointed_thing)
 	local player = clicker:get_player_name()
 	local owner = meta:get_string("owner")
 
-	minetest.show_formspec(player, "xdecor:mailbox", mailbox:formspec(pos,
+	minetest.show_formspec(player, "mesecraft_mailbox:mailbox", mailbox:formspec(pos,
 			       owner, (player == owner)))
 	return itemstack
 end
@@ -146,11 +146,11 @@ function mailbox.allow_move(pos)
 	return 0
 end
 
-xdecor.register("mailbox", {
+minetest.register_node("mesecraft_mailbox:mailbox", {
 	description = "Mailbox",
-	tiles = {"xdecor_mailbox_top.png", "xdecor_mailbox_bottom.png",
-		 "xdecor_mailbox_side.png", "xdecor_mailbox_side.png",
-		 "xdecor_mailbox.png", "xdecor_mailbox.png"},
+	tiles = {"mesecraft_mailbox_top.png", "mesecraft_mailbox_bottom.png",
+		 "mesecraft_mailbox_side.png", "mesecraft_mailbox_side.png",
+		 "mesecraft_mailbox.png", "mesecraft_mailbox.png"},
 	groups = {cracky=3, oddly_breakable_by_hand=1},
 	on_rotate = screwdriver.rotate_simple,
 	can_dig = mailbox.dig,
@@ -165,7 +165,7 @@ xdecor.register("mailbox", {
 -- Recipes
 
 minetest.register_craft({
-	output = "xdecor:mailbox",
+	output = "mesecraft_mailbox:mailbox",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
 		{"dye:red", "default:paper", "dye:red"},
