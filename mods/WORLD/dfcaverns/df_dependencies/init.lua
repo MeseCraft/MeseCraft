@@ -6,8 +6,8 @@ df_dependencies.mods_required = {}
 df_dependencies.select_required = function(def)
 	local ret
 	for _, dependency in ipairs(def) do
-		mod = dependency[1]
-		item = dependency[2]
+		local mod = dependency[1]
+		local item = dependency[2]
 		df_dependencies.mods_required[mod] = true
 		if minetest.get_modpath(mod) then
 			ret = item
@@ -20,8 +20,8 @@ end
 df_dependencies.select_optional = function(def)
 	local ret
 	for _, dependency in ipairs(def) do
-		mod = dependency[1]
-		item = dependency[2]
+		local mod = dependency[1]
+		local item = dependency[2]
 		df_dependencies.mods_required[mod] = true
 		if minetest.get_modpath(mod) then
 			ret = item

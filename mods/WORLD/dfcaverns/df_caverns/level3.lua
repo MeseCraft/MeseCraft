@@ -47,7 +47,12 @@ df_caverns.register_biome_check(function(pos, heat, humidity)
 	end
 	local biome = get_biome(heat, humidity)
 	if biome == "bloodnether" then
-		if subterrane.get_cavern_value("cavern layer 3", pos) < 0 then
+		local cavern_value = subterrane.get_cavern_value("cavern layer 3", pos)
+		if cavern_value == nil then
+			-- this shouldn't happen, the pos.y check above should prevent it.
+			return nil
+		end
+		if cavern_value < 0 then
 			return "nethercap"
 		end
 		return "bloodthorn"

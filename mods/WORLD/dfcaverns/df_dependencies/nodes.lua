@@ -80,8 +80,8 @@ df_dependencies.node_name_dirt_wet = select_required({"farming:soil_wet", "mcl_f
 --df_dependencies.node_name_mortar_pestle = select_optional({"farming:mortar_pestle"}) -- TODO where did this go?
 df_dependencies.node_name_string = select_required({"farming:string", "mcl_mobitems:string"})
 
-df_dependencies.node_name_bucket_empty = select_required({"mesecraft_bucket:bucket_empty", "mcl_buckets:bucket_empty"})
-df_dependencies.node_name_bucket_lava = select_required({"mesecraft_bucket:bucket_lava", "mcl_buckets:bucket_lava"})
+df_dependencies.node_name_bucket_empty = select_required({"bucket:bucket_empty", "mcl_buckets:bucket_empty"})
+df_dependencies.node_name_bucket_lava = select_required({"bucket:bucket_lava", "mcl_buckets:bucket_lava"})
 
 -- from "wool"
 
@@ -94,9 +94,9 @@ df_dependencies.node_name_fireflies = select_optional({"fireflies:firefly"})
 df_dependencies.node_name_glass_bottle = select_required({"vessels:glass_bottle", "mcl_potions:glass_bottle"})
 df_dependencies.node_name_shelf = select_optional({"vessels:shelf"})
 
--- from "mesecraft_beds"
-df_dependencies.node_name_bed_bottom = select_required({"mesecraft_beds:bed_red_bottom", "mcl_beds:bed_red_bottom"})
-df_dependencies.node_name_bed_top = select_required({"mesecraft_beds:bed_red_top", "mcl_beds:bed_red_top"})
+-- from "beds"
+df_dependencies.node_name_bed_bottom = select_required({"beds:bed_bottom", "mcl_beds:bed_red_bottom"})
+df_dependencies.node_name_bed_top = select_required({"beds:bed_top", "mcl_beds:bed_red_top"})
 
 -- from "doors"
 df_dependencies.node_name_door_wood_a = select_required({"doors:door_wood_a", "mcl_doors:wooden_door_b_1"})

@@ -111,7 +111,7 @@ minetest.register_craftitem("df_farming:sugar", {
 	_doc_items_longdesc = df_farming.doc.sweet_pod_sugar_desc,
 	_doc_items_usagehelp = df_farming.doc.sweet_pod_sugar_usage,
 	inventory_image = "dfcaverns_sugar.png",
-	groups = {dfcaverns_cookable = 1, sugar = 1},
+	groups = {dfcaverns_cookable = 1, sugar = 1, food_sugar = 1},
 })
 
 local recipe_registered = false

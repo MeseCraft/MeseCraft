@@ -6,10 +6,10 @@ minetest.register_node("mesecraft_television:television", {
 	light_source = 11,
 	groups = {cracky=3, oddly_breakable_by_hand=2},
 	on_rotate = screwdriver.rotate_simple,
-	tiles = {"mesecraft_television_left.png^[transformR270",
-		 "mesecraft_television_left.png^[transformR90",
-		 "mesecraft_television_left.png^[transformFX",
-		 "mesecraft_television_left.png", "mesecraft_television_back.png",
+	tiles = {"mesecraft_television_side.png^[transformR180",
+		 "mesecraft_television_side.png^[transformR90",
+		 "mesecraft_television_side.png^[transformFX",
+		 "mesecraft_television_side.png", "mesecraft_television_back.png",
 		{name="mesecraft_television_front_animated.png",
 		 animation = {type="vertical_frames", length=80.0}} }
 })

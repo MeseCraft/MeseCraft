@@ -17,6 +17,17 @@ if mapgen_helper.log_location_enabled then
 	log_location = mapgen_helper.log_first_location
 end
 
+-- Exposed as a global so that other mods can override it.
+df_caverns.populate_puzzle_chest = function(pos)
+	local meta = minetest.get_meta(pos)
+	local inv = meta:get_inventory()
+	for i = 1, math.random(1,8) do
+		local item = ItemStack(df_underworld_items.colour_items[math.random(1,#df_underworld_items.colour_items)])
+		--item:set_count(math.random(1,4))
+		inv:add_item("main", item)
+	end
+end
+
 local name_pit = function() end
 local name_ruin = function() end
 
@@ -80,8 +91,6 @@ if named_waypoints_path then
 		named_waypoints.register_named_waypoints("underworld_ruins", underworld_ruin_def)
 	end
 end
-
-
 
 local c_slade = df_caverns.node_id.slade
 local c_slade_block = df_caverns.node_id.slade_block
@@ -496,13 +505,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 								if puzzle_chest then
 									local def = minetest.registered_nodes["df_underworld_items:puzzle_chest_closed"]
 									def.can_dig(puzzle_chest) -- initializes the inventory
-									local meta = minetest.get_meta(puzzle_chest)
-									local inv = meta:get_inventory()
-									for i = 1, math.random(1,8) do
-										local item = ItemStack(df_underworld_items.colour_items[math.random(1,#df_underworld_items.colour_items)])
-										--item:set_count(math.random(1,4))
-										inv:add_item("main", item)
-									end
+									df_caverns.populate_puzzle_chest(puzzle_chest)
 								end								
 							end)
 						elseif building.building_type == "medium building" then

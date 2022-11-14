@@ -40,7 +40,7 @@ local slade_drill_def = {
 	light_source = minetest.LIGHT_MAX,
 	description = S("Slade Drill"),
 	inventory_image = "dfcaverns_slade_drill.png",
-	groups = {cracky=3, stone=1, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1,creative_breakable=1, material_stone=1},
+	groups = {cracky=3, slade=1, pit_plasma_resistant=1, mese_radiation_shield=1,creative_breakable=1, material_stone=1},
 	sounds = df_dependencies.sound_stone({ footstep = { name = "bedrock2_step", gain = 1 } }),
 	_mcl_blast_resistance = 8,
 	_mcl_hardness = 5,

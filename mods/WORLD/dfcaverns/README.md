@@ -28,6 +28,8 @@ Some of the other cave decorations provide dim bioluminescent lighting in some c
 
 [A more comprehensive guide can be found here.](guide.md)
 
+[APIs and player commands can be found here.](API.md)
+
 ## Synergies with other mods
 
 "[dynamic liquid](https://github.com/minetest-mods/dynamic_liquid)" is recommended to provide Dwarf Fortress-like fluid dynamics and to deal with water that might spill into caverns.

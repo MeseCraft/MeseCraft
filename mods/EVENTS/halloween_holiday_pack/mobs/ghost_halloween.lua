@@ -69,7 +69,7 @@ mobs:register_egg("halloween_holiday_pack:halloween_ghost", "Halloween Ghost Spa
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:halloween_ghost", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 500, 12, -30912, 30912, false)
+mobs:spawn_specific("halloween_holiday_pack:halloween_ghost", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 2 ,12, -30912, 30912, false)
 
 
 

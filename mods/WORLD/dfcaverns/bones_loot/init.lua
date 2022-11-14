@@ -95,7 +95,7 @@ local clean_up_local_loot = function()
 end
 
 -- Uses same table format as dungeon_loot
--- eg, 	{name = "mesecraft_bucket:bucket_water", chance = 0.45, types = {"sandstone", "desert"}},
+-- eg, 	{name = "bucket:bucket_water", chance = 0.45, types = {"sandstone", "desert"}},
 -- if dungeon_loot is installed it uses dungeon_loot's registration function directly.
 if dungeon_loot_path then
 	bones_loot.register_loot = dungeon_loot.register

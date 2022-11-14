@@ -49,7 +49,7 @@ if minetest.get_modpath("default") then
 bones_loot.register_loot({
 	{name = "binoculars:binoculars", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "boats:boat", chance = 0.05, count = {1,1}, types = {"underworld_warrior"}},
-	{name = "mesecraft_bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
+	{name = "bucket:bucket_empty", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "fire:flint_and_steel", chance = 0.3, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "flowers:tulip_black", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},
 	{name = "flowers:dandelion_white", chance = 0.1, count = {1,1}, types = {"underworld_warrior"}},

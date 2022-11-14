@@ -28,6 +28,7 @@ df_caverns.register_biome_check = function(func)
 	table.insert(get_biome_at_pos_list, func)
 end
 df_caverns.get_biome = function(pos)
+	pos = vector.round(pos)
 	local heat = minetest.get_heat(pos)
 	local humidity = minetest.get_humidity(pos)
 	for _, val in pairs(get_biome_at_pos_list) do
