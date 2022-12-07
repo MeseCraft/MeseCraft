@@ -126,7 +126,7 @@ minetest.register_ore({
 	ore_type = "scatter",
 	ore = "moreores:mineral_mithril",
 	wherein = "default:stone",
-	clust_scarcity = 128*128*128,
+	clust_scarcity = 64*64*64,
 	clust_num_ores = 1,
 	clust_size = 11,
 	y_min = -31000,

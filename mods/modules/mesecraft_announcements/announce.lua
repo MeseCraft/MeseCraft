@@ -1,16 +1,20 @@
-local config = dofile(minetest.get_modpath("announce") .. "/config.lua")
+-- This module has been forked from the original "annouce" mod by adminicos.
+-- https://forum.minetest.net/viewtopic.php?t=16823
+
+local config = dofile(minetest.get_modpath("mesecraft_announcements") .. "/config.lua")
 local announcement_index = 1
 
---- https://forum.minetest.net/viewtopic.php?f=47&t=17200
---- Parses colors, will return a string
--- @param msg The message to parse
+--- Parses colors, will return a string  --- https://forum.minetest.net/viewtopic.php?f=47&t=17200
 local function color(msg)
-    local messageParts = string.split("f" .. msg, "&") -- Split message from the character '&'
-    local coloredMsg = "" -- The message to be returned
 
-    -- Color list, copied from the Minecraft colors
-    -- See reference at http://ess.khhq.net/mc/ (Only the colors)
-    local colors = {
+	-- Split message from the character '&'
+	local messageParts = string.split("f" .. msg, "&")
+	
+	-- The message to be returned
+	local coloredMsg = ""
+
+	-- Color list, See reference at http://ess.khhq.net/mc/ (Only the colors)
+	local colors = {
         ["4"] = "#be0000",
         ["c"] = "#fe3f3f",
         ["6"] = "#d9a334",
