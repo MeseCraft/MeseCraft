@@ -1,0 +1,21 @@
+[TNT Settings]
+
+# The size of the default tnt blast.
+tnt_radius (Explosion radius) int 3
+# The number to multiply how much knock back on another TNT entity.
+tnt_revamped.tnt_entity_velocity_mul (TNT entity knockback velocity multiply) int 2
+# The number to multiply how much knock back on a player.
+tnt_revamped.player_velocity_mul (TNT entity knockback velocity multiply) int 10
+# The number to multiply how much knock back on a entity.
+tnt_revamped.entity_velocity_mul (TNT entity knockback velocity multiply) int 10
+# The explosion api to use.
+# Use default for the built-in explosions.
+# Use explosions for ryvnf's explosions mod.
+tnt_revamped.explosion (Explosion api) enum default explosions,default
+
+[In Water]
+
+# If true TNT blast will be able to damage nodes even if its in water.
+tnt_revamped.damage_nodes (Damage nodes) bool false
+# If true TNT blast will be able to damage entities even if its in water.
+tnt_revamped.damage_entities (Damage entities) bool false

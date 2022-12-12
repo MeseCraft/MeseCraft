@@ -1,0 +1,29 @@
+#    Make capes part of 3d Armor when enabled
+capes_add_to_3darmor (Add Capes to 3d Armor) bool true
+
+#    Disable the Example Cape "Someones Cape"
+example_cape (The Example Cape "Someones Cape" which grants fly_privs when worn and a 100% speed increase) bool true
+
+#    Enable Fly Animation
+fly_anim (Enable fly animation) bool true
+
+#    Enable Fall Animation
+fall_anim (Enable fall animation) bool true
+
+#    Terminal Velocity Speed kp/h
+fall_tv (Set terminal velocity speed - recommend not exceeding 100 kp/h) int 100
+
+#    Enable Swim Animation
+swim_anim (Enable swim animation) bool true
+
+#    Enable Swim Sneak - swim through 1x1 hole
+swim_sneak (Enable swim sneak) bool true
+
+#    Enable Climb Animation
+climb_anim (Enable climb animation) bool true
+
+#    Enable Crouch/Duck Animation
+crouch_anim (Enable crouch/duck animation) bool true
+
+#    Enable Crouch/Duck - through through 1.5 hole
+crouch_sneak (Enable crouch/duck animation) bool true

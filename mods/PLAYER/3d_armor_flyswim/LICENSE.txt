@@ -1,0 +1,9 @@
+[mod] 3d_armor_flyswim
+=======================
+Licence code LGPL v2.1
+"Headanim" code by LoneWolfHT MIT Licence                        
+Cape Textures - CC0                          
+Blender Model/B3Ds as per base MTG - CC BY-SA 3.0
+"3d_armor_trans.png" CC-BY-SA 3.0
+
+

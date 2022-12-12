@@ -1,0 +1,5 @@
+CC0 1.0 Universal (CC0 1.0) Public Domain Dedication for audio files (found in sounds folder)
+
+LGPLv2.1+ license for original code with changes by TenPlus1
+
+CC BY-SA 3.0 license for textures
