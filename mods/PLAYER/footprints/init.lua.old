@@ -42,7 +42,6 @@ minetest.register_on_leaveplayer(function(player)
 end)
 
 local trampleable_nodes = {}
-local trampled_nodes = {}
 local erosion = {}
 
 footprints.register_trample_node = function(trampleable_node_name, trample_def)
@@ -112,14 +111,12 @@ footprints.register_trample_node = function(trampleable_node_name, trample_def)
 			local hard_pack_probability = trample_def.hard_pack_probability or 0.1
 			local hard_pack_count = trample_def.hard_pack_count or 1
 			trampleable_nodes[trampled_node_name] = {name=hard_pack_node_name, probability=hard_pack_probability, count = hard_pack_count}
-			trampled_nodes[hard_pack_node_name] = true
 		end
 	end	
 
 	local probability = trample_def.probability or 1
 	local trample_count = trample_def.trample_count or 1
 	trampleable_nodes[trampleable_node_name] = {name=trampled_node_name, probability=probability, randomize_trampled_param2 = trample_def.randomize_trampled_param2, count = trample_count}
-	trampled_nodes[trampled_node_name] = true
 end
 
 footprints.register_erosion = function(source_node_name, destination_node_name)
@@ -495,21 +492,36 @@ minetest.register_globalstep(function(dtime)
 					z = pos_z_plus_half
 				}
 				local name_ground_cover = minetest.get_node(pos_ground_cover).name
+				
 				-- test ground cover first (snow, wheat)
 				local footprints_def = trampleable_nodes[name_ground_cover]
 				if footprints_def then
 					if math.random() <= footprints_def.probability then
-						if test_trample_count(footprints_def, pos_ground_cover) then
-							minetest.set_node(pos_ground_cover, {name = footprints_def.name, param2 = get_param2(footprints_def)})
+						local pos_ground_cover_plus = {
+							x = pos_x_plus_half,
+							y = math_floor(pos_y + 0.5),
+							z = pos_z_plus_half
+						}
+						if test_trample_count(footprints_def, pos_ground_cover_plus) then
+							minetest.set_node(pos_ground_cover_plus, {name = footprints_def.name, param2 = get_param2(footprints_def)})
 						end
 					end
-				elseif not trampled_nodes[name_ground_cover] then
-					local pos_ground = current_player_pos
+				else
+					local pos_ground = {
+						x = pos_x_plus_half,
+						y = math_floor(pos_y + 0.4),
+						z = pos_z_plus_half
+					}
 					local name_ground = minetest.get_node(pos_ground).name
 					footprints_def = trampleable_nodes[name_ground]
 					if footprints_def and math.random() <= footprints_def.probability then
-						if test_trample_count(footprints_def, pos_ground) then
-							minetest.set_node(pos_ground, {name = footprints_def.name, param2 = get_param2(footprints_def)})
+						local pos_groundpl = {
+							x = pos_x_plus_half,
+							y = math_floor(pos_y - 0.5),
+							z =pos_z_plus_half
+						}
+						if test_trample_count(footprints_def, pos_groundpl) then
+							minetest.set_node(pos_groundpl, {name = footprints_def.name, param2 = get_param2(footprints_def)})
 						end
 					end
 				end
