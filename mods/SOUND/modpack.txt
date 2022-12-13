@@ -1,2 +1,0 @@
-name = SOUND
-description = Meta-modpack containing sound and related mods for MeseCraft.

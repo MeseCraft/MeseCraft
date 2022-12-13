@@ -1,2 +1,0 @@
-name = EVENTS
-description = Meta-modpack containing event and holiday packs for MeseCraft.

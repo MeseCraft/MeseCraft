@@ -56,7 +56,7 @@ beds.register_bed("mesecraft_beds:bed_" ..color, {
 		top = {-0.5, -0.5, -0.5, 0.5, 0.0625, 0.5},
 	},
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.0625, 1.5},
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2, fall_damage_add_percent=-40, bouncy=85},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2, fall_damage_add_percent=-50, bouncy=90},
         sounds = { 
 		footstep = { name = "bouncy", gain = 0.8 },
                 dig = { name = "default_dig_oddly_breakable_by_hand", gain = 1.0 },
