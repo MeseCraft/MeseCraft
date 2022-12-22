@@ -15,7 +15,7 @@ Minetest engine version 5.1.1 is compatabile but not all mods and function compl
 
 Credits and Acknowledgements
 -------------------------
-This game has been primary designed and developed by Komodo. A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
+This game has been primary designed and developed by Komodo (Jeremy Weston). A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
 
 License
 --------------------------
