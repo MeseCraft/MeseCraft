@@ -8,12 +8,14 @@ The best game for Minetest. A survival game with new depth, mechanics, biomes, m
 
 Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
-A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
-
 Minetest Engine Compatability
 --------------------------
 Minetest engine version 5.2.0 or greater is currently recommended to run this game.
 Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
+
+Credits and Acknowledgements
+-------------------------
+This game has been primary designed and developed by Komodo. A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
 
 License
 --------------------------
