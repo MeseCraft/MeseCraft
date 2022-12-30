@@ -1,6 +1,4 @@
-The MIT License (MIT)
-
-Copyright (c) 2016 TenPlus1
+Copyright (c) 2022 (MeseCraft)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +17,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+Textures by TenPlus1 (CC0) unless listed below
+
+Missing gray, light gray, black and green textures re-coloured by Firefox.
+
+Textures by Timbits (CC-BY-SA 3.0)
+  baked_clay_lazarus.png
+  baked_clay_delphinium.png
+  baked_clay_mannagrass.png
+  baked_clay_thistle.png

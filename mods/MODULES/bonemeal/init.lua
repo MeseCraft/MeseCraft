@@ -70,12 +70,12 @@ if minetest.registered_nodes["flowers:tulip_black"] then
 	flowers[#flowers + 1] = "flowers:chrysanthemum_green"
 end
 
--- add additional bakedclay flowers if enabled
-if minetest.get_modpath("bakedclay") then
-	flowers[#flowers + 1] = "bakedclay:delphinium"
-	flowers[#flowers + 1] = "bakedclay:thistle"
-	flowers[#flowers + 1] = "bakedclay:lazarus"
-	flowers[#flowers + 1] = "bakedclay:mannagrass"
+-- add additional mesecraft_baked_clay flowers if enabled
+if minetest.get_modpath("mesecraft_baked_clay") then
+	flowers[#flowers + 1] = "mesecraft_baked_clay:delphinium"
+	flowers[#flowers + 1] = "mesecraft_baked_clay:thistle"
+	flowers[#flowers + 1] = "mesecraft_baked_clay:lazarus"
+	flowers[#flowers + 1] = "mesecraft_baked_clay:mannagrass"
 	flowers[#flowers + 1] = ""
 end
 
