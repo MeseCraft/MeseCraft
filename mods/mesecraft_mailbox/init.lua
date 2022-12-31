@@ -151,6 +151,7 @@ minetest.register_node("mesecraft_mailbox:mailbox", {
 	tiles = {"mesecraft_mailbox_top.png", "mesecraft_mailbox_top.png",
 		 "mesecraft_mailbox_side.png", "mesecraft_mailbox_side.png",
 		 "mesecraft_mailbox.png", "mesecraft_mailbox_bottom.png"},
+	sounds = default.node_sound_metal_defaults(),
 	groups = {cracky=3, oddly_breakable_by_hand=1},
 	on_rotate = screwdriver.rotate_simple,
 	can_dig = mailbox.dig,
