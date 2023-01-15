@@ -72,7 +72,7 @@ mobs:register_arrow("mobs_creatures:reptilian_acid_spit", {
    velocity = 7,
    glow = 5,
    tail = 1, -- enable tail
-   tail_texture = "mobs_creatures_poisonball_trail.png",
+   tail_texture = "mobs_creatures_arrow_poisonball_trail.png",
    hit_player = function(self, player)
       player:punch(self.object, 1.0, {
          full_punch_interval = 1.0,
