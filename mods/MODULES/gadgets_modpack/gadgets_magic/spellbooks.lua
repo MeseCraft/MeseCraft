@@ -3,6 +3,7 @@ gadgets.register_gadget({
     description = "Tome Of Speed",
     texture = "gadgets_magic_tome_speed.png",
     mana_per_use = 100,
+    light_source = 8,
     conflicting_effects = {"gadgets_default_effects_speed_2"},
     effect = {"gadgets_default_effects_speed_1"},
     duration = 60,
@@ -22,6 +23,7 @@ gadgets.register_gadget({
     description = "Tome Of Jump",
     texture = "gadgets_magic_tome_jump.png",
     mana_per_use = 100,
+    light_source = 7,
     conflicting_effects = {"gadgets_default_effects_jump_2"},
     effect = {"gadgets_default_effects_jump_1"},
     duration = 60,
@@ -41,6 +43,7 @@ gadgets.register_gadget({
     description = "Tome Of Gravity",
     texture = "gadgets_magic_tome_gravity.png",
     mana_per_use = 100,
+    light_source = 3,
     conflicting_effects = {"gadgets_default_effects_gravity_2"},
     effect = {"gadgets_default_effects_gravity_1"},
     duration = 60,
@@ -60,6 +63,7 @@ gadgets.register_gadget({
     description = "Tome Of Blink",
     texture = "gadgets_magic_tome_blink.png",
     mana_per_use = 150,
+    light_source = 5,
     use_sound = "gadgets_magic_blink",
     use_sound_gain = 1,
 
@@ -151,6 +155,7 @@ gadgets.register_gadget({
     description = "Tome Of Magical Bridge",
     texture = "gadgets_magic_tome_magic_bridge.png",
     mana_per_use = 100,
+    light_source = 7,
     use_sound = "gadgets_magic_spell_cast",
     use_sound_gain = 1,
 
@@ -222,6 +227,7 @@ gadgets.register_gadget({
     description = "Tome Of Magical Light",
     texture = "gadgets_magic_tome_light.png",
     mana_per_use = 100,
+    light_source = 11,
     use_sound = "gadgets_magic_spell_cast",
     use_sound_gain = 1,
 

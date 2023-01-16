@@ -335,6 +335,7 @@ function gadgets.register_gadget(def)
     --Creating a temporary setting definition to pass to a on_use function
     local tdef = {
         mana_per_use = def.mana_per_use,
+        light_source = def.light_source,
         ammo_type = def.ammo_type,
         ammo_per_use = ammo_per_use,
         reload_sound = def.reload_sound,
@@ -372,6 +373,7 @@ function gadgets.register_gadget(def)
             stack_max = stack_max,
             liquids_pointable = false,
             groups = tool_groups,
+            light_source = def.light_source,
             on_use = function(itemstack, user, pointed_thing)
                 local stack = gadgets_on_use(itemstack, user, pointed_thing, tdef)
                 return stack
@@ -386,6 +388,7 @@ function gadgets.register_gadget(def)
             groups = tool_groups,
             on_refill = on_refill,
             wear_represents = wear_represents,
+            light_source = def.light_source,
             on_use = function(itemstack, user, pointed_thing)
                 local stack = gadgets_on_use(itemstack, user, pointed_thing, tdef)
                 return stack
