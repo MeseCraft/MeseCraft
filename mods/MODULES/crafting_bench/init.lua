@@ -45,7 +45,13 @@ minetest.register_node("crafting_bench:workbench",{
 			'list[context;rec;4,1;3,3;]' ..
 			'label[7.5,0;'..S('Craft Output')..']' ..
 			'list[context;dst;8,1;1,4;]' ..
-			'list[current_player;main;1,6;8,4;]' )
+			'list[current_player;main;1,6;8,4;]' ..
+			'listring[context;dst]' ..
+			'listring[current_player;main]' ..
+			'listring[context;src]' ..
+			'listring[current_player;main]' ..
+			'listring[context;rec]' ..
+			'listring[current_player;main]' )
 		meta:set_string( 'infotext', S('Workbench'))
 		local inv = meta:get_inventory()
 		inv:set_size( 'src', 2 * 4 )
