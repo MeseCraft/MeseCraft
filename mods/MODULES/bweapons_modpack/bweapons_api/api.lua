@@ -381,6 +381,7 @@ function bweapons.register_weapon(def)
     minetest.register_tool(def.name, {
         description = def.description,
         inventory_image = def.texture,
+        light_source = def.light_source,
         wield_scale = 1,
         stack_max = 1,
         groups = tool_groups,

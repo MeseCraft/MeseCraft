@@ -41,6 +41,7 @@ magicmirror.mana_check = function(player, cost)
 -- REGISTER THE MIRROR TOOL
 minetest.register_tool("magic_mirror:magic_mirror", {
 	description = "" ..core.colorize("#35cdff","Magic Mirror\n") ..core.colorize("#FFFFFF", "Gaze deeply into the mirror to return home."),
+	light_source = 7,
 	range = 0,
 	stack_max = 1,
 	inventory_image = "magic_mirror.png",

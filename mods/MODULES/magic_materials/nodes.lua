@@ -4,6 +4,7 @@ minetest.register_node("magic_materials:stone_with_februm", {
     groups = {cracky = 1},
     drop = "magic_materials:februm_crystal",
     sounds = default.node_sound_stone_defaults(),
+    light_source = 2,
 })
 
 minetest.register_node("magic_materials:stone_with_egerum", {
@@ -28,6 +29,7 @@ minetest.register_node("magic_materials:februm_block", {
     is_ground_content = false,
     groups = {cracky = 1, level = 2},
     sounds = default.node_sound_stone_defaults(),
+    light_source = 3,
 })
 
 minetest.register_node("magic_materials:egerum_block", {

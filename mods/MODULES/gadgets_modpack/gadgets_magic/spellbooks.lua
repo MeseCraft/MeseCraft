@@ -227,7 +227,7 @@ gadgets.register_gadget({
     description = "Tome Of Magical Light",
     texture = "gadgets_magic_tome_light.png",
     mana_per_use = 100,
-    light_source = 11,
+    light_source = 13,
     use_sound = "gadgets_magic_spell_cast",
     use_sound_gain = 1,
 

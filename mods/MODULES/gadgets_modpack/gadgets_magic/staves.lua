@@ -21,6 +21,7 @@ gadgets.register_gadget({
     name = "gadgets_magic:staff_druid",
     description = "Druid's Staff",
     texture = "gadgets_magic_staff_druid.png",
+    light_source = 9,
 
     has_durability = true,
     uses = 64,
@@ -136,6 +137,7 @@ gadgets.register_gadget({
     name = "gadgets_magic:staff_earth",
     description = "Staff Of Earth",
     texture = "gadgets_magic_staff_earth.png",
+    light_source = 7,
 
     has_durability = true,
     uses = 64,
