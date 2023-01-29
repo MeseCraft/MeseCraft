@@ -23,7 +23,7 @@ local cave_frequency = 6  --about every 5 minutes, scary cave sounds
 local cave_volume = 0.9  
 local cave_frequent_frequency = 150  --drops of water dripping
 local cave_frequent_volume = 0.8
-local beach_frequency = 150  --seagulls
+local beach_frequency = 75  --seagulls
 local beach_volume = 0.4 
 local beach_frequent_frequency = max_frequency_all  --waves
 local beach_frequent_volume = 0.3 
@@ -159,7 +159,7 @@ local beach = {
 	fading = {},
 	started = {},
 	frequency = beach_frequency,
-	{name="seagull", length=4.5, gain=beach_volume}
+	{name="seagull", length=19.5, gain=beach_volume}
 }
 
 local beach_frequent = {

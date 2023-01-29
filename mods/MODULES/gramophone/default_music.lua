@@ -7,5 +7,5 @@ gramophone.register_disc("Brandenburg Concerto no. 2 - Andante", "Johann Sebasti
 gramophone.register_disc("Tiento de medio registro de bajo", "Sebastian Aguilera de Heredia", "#acffcf", "default_music_track5_tiento")
 gramophone.register_disc("Concerto No. 1 - Rondo", "Wolfgang Amadeus Mozart", "#dac744", "default_music_track6_rondo")
 gramophone.register_disc("Nocturne Op. 9 no. 2", "Frederic Chopin", "#86dd2a", "default_music_track7_nocturne")
-gramophone.register_disc("Canon and Gigue in D Major", "Johann Pachelbel", "#cb3f1b", "default_music_track8_canon")
+gramophone.register_disc("Piano Concerto No. 21", "Wolfgang Amadeus Mozart", "#cb3f1b", "default_music_track8_concerto21")
 gramophone.register_disc("String Quartet no. 2 - Minuetto ", "Juan Crisostomo de Arriaga", "#520559", "default_music_track9_minuetto")

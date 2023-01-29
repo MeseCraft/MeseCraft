@@ -88,10 +88,10 @@ Licenses apply as below.
     - License: CC-PD
     - Composer: Frederic Chopin
     - Performer: Frank Levy
-8. Canon and Gigue in D major (Flute quartet arr.) (https://musopen.org/music/2673/johann-pachelbel/canon-and-gigue-in-d-major-flute-quartet-arr/)
-    - License: CC-BY-NC
-    - Composer: Johann Pachelbel
-    - Performer: Steven David Tung
+8. Piano Concerto no. 21 in C major, K. 467 (https://https://musopen.org/music/2635-piano-concerto-no-21-in-c-major-k-467/#recordings/)
+    - License: CC-BY-3.0
+    - Composer: Wolfgang Amadeus Mozart
+    - Performer: Markus Staab
 9. String Quartet no. 2 in A major - III. Minuetto scherzo (https://musopen.org/music/3115/juan-crisostomo-de-arriaga/string-quartet-no-2-in-a-major/)
     - License: CC-PD
     - Composer: Juan Crisostomo de Arriaga
