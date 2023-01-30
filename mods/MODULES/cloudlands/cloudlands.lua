@@ -389,7 +389,8 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
 
 
   -- returns a position on the island which is suitable for a portal to be placed, or nil if none can be found
-  local function find_potential_portal_location_on_island(island_info)
+  -- player_name is optional, allowing a player to spawn a remote portal in their own protected areas.
+  local function find_potential_portal_location_on_island(island_info, player_name)
 
     local result = nil
 
@@ -428,15 +429,18 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
       end
       table.sort(positions, compareFn)
 
+      -- nether.volume_is_natural() was deprecated in favor of nether.volume_is_natural_and_unprotected()
+      local volume_is_natural_and_unprotected = nether.volume_is_natural_and_unprotected or nether.volume_is_natural
+
       -- Now the locations are sorted by how good they are, find the first/best that doesn't
       -- grief a player build.
-      -- Ancient Portalstone has is_ground_content set to true, so we won't have to worry about
-      -- old/broken portal frames interfering with the results of nether.volume_is_natural()
+      -- Ancient Portalstone has is_ground_content set to true, so we won't have to worry about old/broken
+      -- portal frames interfering with the results of nether.volume_is_natural_and_unprotected()
       for _, position in ipairs(positions) do
         -- Unfortunately, at this point we don't know the orientation of the portal, so use worst case
         local minp = {x = position.x - 2, y = position.y,     z = position.z - 2}
         local maxp = {x = position.x + 3, y = position.y + 4, z = position.z + 3}
-        if nether.volume_is_natural(minp, maxp) then
+        if volume_is_natural_and_unprotected(minp, maxp, player_name) then
           result = position
           break
         end
@@ -448,7 +452,8 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
 
 
   -- returns nil if no suitable location could be found, otherwise returns (portal_pos, island_info)
-  local function find_nearest_island_location_for_portal(surface_x, surface_z)
+  -- player_name is optional, allowing a player to spawn a remote portal in their own protected areas.
+  local function find_nearest_island_location_for_portal(surface_x, surface_z, player_name)
 
     local result = nil
 
@@ -457,7 +462,7 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
     if island == nil then island = cloudlands.find_nearest_island(surface_x, surface_z, 400) end
 
     if island ~= nil then
-      result = find_potential_portal_location_on_island(island)
+      result = find_potential_portal_location_on_island(island, player_name)
     end
 
     return result, island
@@ -535,7 +540,7 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
     fastHash = (37 * fastHash) + math_floor(core.depth)
     if (PORTAL_RARITY * 10000) < math_floor((math_abs(fastHash)) % 10000) then return false end
 
-    local portalPos = find_potential_portal_location_on_island(core)
+    local portalPos = find_potential_portal_location_on_island(core, nil)
 
     if portalPos ~= nil then
       local orientation = (fastHash % 2) * 90
@@ -594,9 +599,9 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
       return pos.y > math_max(40, island_bottom)
     end,
 
-    find_realm_anchorPos = function(surface_anchorPos)
+    find_realm_anchorPos = function(surface_anchorPos, player_name)
       -- Find the nearest island and obtain a suitable surface position on it
-      local destination_pos, island = find_nearest_island_location_for_portal(surface_anchorPos.x, surface_anchorPos.z)
+      local destination_pos, island = find_nearest_island_location_for_portal(surface_anchorPos.x, surface_anchorPos.z, player_name)
 
       if island ~= nil then
         -- Allow any existing or player-positioned portal on the island to be linked to
