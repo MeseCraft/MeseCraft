@@ -280,7 +280,7 @@ function thirsty.drink_handler(player, itemstack, node)
             --print("Filling a " .. item_name .. " to " .. thirsty.config.container_capacity[item_name])
             itemstack:set_wear(1) -- "looks full"
 	   -- Play a sound effect at the players position when filling container with water.
-           minetest.sound_play({name = "thirsty_fill_container", gain = 1.5}, {pos=player:getpos(), max_hear_distance = 8})
+           minetest.sound_play({name = "thirsty_fill_container", gain = 1.5}, {pos=player:get_pos(), max_hear_distance = 8})
         end
 
     elseif thirsty.config.container_capacity[item_name] then
@@ -293,7 +293,7 @@ function thirsty.drink_handler(player, itemstack, node)
                 local wear         = itemstack:get_wear()
                 local new_wear     = math.ceil(math.max(wear + wear_missing, 1))
 		-- play a drinking sound effect at the players position when they drink.
-	          minetest.sound_play({name = "thirsty_drink", gain = 1.5}, {pos=player:getpos(), max_hear_distance = 4})
+	          minetest.sound_play({name = "thirsty_drink", gain = 1.5}, {pos=player:get_pos(), max_hear_distance = 4})
                 if (new_wear > 65534) then
                     wear_missing = 65534 - wear
                     new_wear = 65534

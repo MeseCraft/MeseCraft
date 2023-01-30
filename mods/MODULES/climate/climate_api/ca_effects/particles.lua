@@ -165,7 +165,7 @@ local function parse_config(player, particles)
 
 		-- correct spawn coordinates to adjust for player movement
 		if config.adjust_for_velocity then
-			local velocity = player:get_player_velocity()
+			local velocity = player:get_velocity()
 			config.minpos = vector.add(config.minpos, velocity)
 			config.maxpos = vector.add(config.maxpos, velocity)
 		end

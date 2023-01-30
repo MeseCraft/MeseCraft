@@ -88,7 +88,7 @@ ropes.move_players_down = function(pos, radius)
 	local _,obj
 	for _,obj in pairs(all_objects) do
 		if obj:is_player() then
-			local obj_pos = obj:getpos()
+			local obj_pos = obj:get_pos()
 			if math.abs(obj_pos.x-pos.x) < 0.5 and math.abs(obj_pos.z-pos.z) < 0.5 then
 				obj:moveto({x=obj_pos.x, y=obj_pos.y-1, z=obj_pos.z}, true)
 			end

@@ -23,7 +23,7 @@ if minetest.get_modpath("bones") then
 else
 
 	local function drop_item_stack(pos, stack)
-		if not stack or stack:is_empty() then return end
+		if not stack or not stack.is_empty or stack:is_empty() then return end
 		local drop_offset = vector.new(math.random() - 0.5, 0, math.random() - 0.5)
 		minetest.add_item(vector.add(pos, drop_offset), stack)
 	end

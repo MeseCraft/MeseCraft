@@ -323,7 +323,7 @@ local get_ambience = function(player)
 	local player_is_descending = false
 	local player_is_moving_horiz = false
 	local standing_in_water = false]]
-	local pos = player:getpos()
+	local pos = player:get_pos()
 	local skylit = is_skylit(pos)
 	node_at_upper_body = minetest.registered_nodes[minetest.get_node(vector.add(pos, {x=0,y=1.2,z=0})).name]
 	
@@ -350,8 +350,8 @@ local get_ambience = function(player)
 		lacunarity = 2.0,
 		flags = "defaults"
 	})
-	temp = tempmap:get2d({x = math.floor(pos.x+0.5), y = math.floor(pos.z+0.5)}) - pos.y*(20 / 90)
-	humid = humidmap:get2d({x = math.floor(pos.x+0.5), y = math.floor(pos.z+0.5)})
+	temp = tempmap:get_2d({x = math.floor(pos.x+0.5), y = math.floor(pos.z+0.5)}) - pos.y*(20 / 90)
+	humid = humidmap:get_2d({x = math.floor(pos.x+0.5), y = math.floor(pos.z+0.5)})
 	
 	if node_at_upper_body and node_at_upper_body.liquidtype ~= "none" then
 		if music then
@@ -421,7 +421,7 @@ local get_ambience = function(player)
 --	minetest.chat_send_all("Found " .. nodename .. pos.y )
 	
 	
-	if player:getpos().y < 0 and not skylit then
+	if player:get_pos().y < 0 and not skylit then
 		if music then
 			return {cave=cave, cave_frequent=cave_frequent, music=music}
 		else

@@ -71,7 +71,7 @@ mobs:register_mob("mobs_creatures:sheep", {
 		if mobs:protect(self, clicker) then return end
 		if item:get_name() == "mobs:shears" and not self.gotten then
 			self.gotten = true
-			local pos = self.object:getpos()
+			local pos = self.object:get_pos()
 			minetest.sound_play("shears", {pos = pos})
 			pos.y = pos.y + 0.5
 			minetest.add_item(pos, ItemStack("wool:white "..math.random(1,3)))

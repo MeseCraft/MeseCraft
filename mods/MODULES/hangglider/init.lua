@@ -77,7 +77,7 @@ minetest.register_entity("hangglider:airstopper", { --A one-instant entity that 
 			if player:is_player() then
 				local pname = player:get_player_name()
 				canExist = true
-				if player:get_player_velocity().y < 0.5 and player:get_player_velocity().y > -0.5 then
+				if player:get_velocity().y < 0.5 and player:get_velocity().y > -0.5 then
 					--Let go when the player actually stops, as that's the whole point.
 					if hangglider.use[pname] then
 						if moveModelUp then
@@ -130,7 +130,7 @@ minetestd.physicsctl.register_physics_effect("hangglider",
 		return hangglider.use[player:get_player_name()]
 	end,
 	function(phys, player) -- blend
-		local vel_y = player:get_player_velocity().y
+		local vel_y = player:get_velocity().y
 		if debug then player:hud_change(hangglider.debug[pname].id, "text", vel_y..', '..player:get_physics_override().gravity..', '..tostring(hangglider.airbreak[pname])) end
 		phys.gravity = phys.gravity*((vel_y + 3)/20)
 		if vel_y < 0 and vel_y > -3 then
@@ -211,7 +211,7 @@ minetest.register_entity("hangglider:glider", {
 		if self.object:get_attach() then
 			local player = self.object:get_attach("parent")
 			if player then
-				local pos = player:getpos()
+				local pos = player:get_pos()
 				local pname = player:get_player_name()
 				if hangglider.use[pname] then
 					local mrn_name = minetest.registered_nodes[minetest.get_node(vector.new(pos.x, pos.y-0.5, pos.z)).name]
@@ -220,7 +220,7 @@ minetest.register_entity("hangglider:glider", {
 							canExist = true
 
 							if not minetestd then
-								step_v = player:get_player_velocity().y
+								step_v = player:get_velocity().y
 								if step_v < 0 and step_v > -3 then
 									apply_physics_override(player, {speed=math.abs(step_v/2) + 0.75})
 								elseif step_v <= -3 then --Cap our gliding movement speed.
@@ -231,7 +231,7 @@ minetest.register_entity("hangglider:glider", {
 								if debug then player:hud_change(hangglider.debug[pname].id, "text", step_v..', '..player:get_physics_override().gravity..', '..tostring(hangglider.airbreak[pname])) end
 								apply_physics_override(player, {gravity=((step_v + 3)/20)})
 							end
-							--[[local vel = player:get_player_velocity()
+							--[[local vel = player:get_velocity()
 							if debug then player:hud_change(hangglider.debug[pname].id, "text", vel.y..', '..grav..', '..tostring(hangglider.airbreak[pname])) end
 
 							player:set_physics_override({gravity = (vel.y + 2.0)/20})
@@ -333,7 +333,7 @@ minetest.register_tool("hangglider:hangglider", {
 			minetest.sound_play("bedsheet", {pos=pos, max_hear_distance = 8, gain = 1.0})
 			if HUD_Overlay then player:hud_change(hangglider.id[pname], "text", "glider_struts.png") end
 			local airbreak = false
-			local vel = player:get_player_velocity().y
+			local vel = player:get_velocity().y
 			--[[if vel < -1.5 then  -- engage mid-air, falling fast, so stop but ramp velocity more quickly
 				--hangglider.airbreak[pname] = true
 				airbreak = true

@@ -121,7 +121,7 @@ local function gadgets_on_use(itemstack, user, pointed_thing, def)
         mana.subtract(playername, def.mana_per_use)
     end
 
-    local playerpos = user:getpos()
+    local playerpos = user:get_pos()
     local dir = user:get_look_dir()
 
     if def.return_item then

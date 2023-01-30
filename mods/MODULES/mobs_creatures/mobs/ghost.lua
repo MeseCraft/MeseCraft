@@ -55,7 +55,7 @@ mobs:register_mob('mobs_creatures:ghost', {
                 punch_end = 79,
         },
 	do_custom = function(self, pos)	-- ghosts will stay to haunt if there is no proper burial (gravestone) or if bones are still present.
-		local checkpos = self.object:getpos()
+		local checkpos = self.object:get_pos()
 		local gravecheck = minetest.find_node_near(checkpos, 8, {"group:gravestone"})
 		local bonecheck = minetest.find_node_near(checkpos, 8 ,{"mesecraft_bones:bones"})
 		if gravecheck == nil then				-- ghost stays to haunt

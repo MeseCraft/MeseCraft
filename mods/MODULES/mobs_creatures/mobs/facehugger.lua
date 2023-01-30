@@ -45,7 +45,7 @@ mobs:register_mob("mobs_creatures:facehugger", {
       punch_end = 43,
    },
 --    do_custom = function(self)
---                 local pos = self.object:getpos()
+--                 local pos = self.object:get_pos()
 --                 local objs = minetest.get_objects_inside_radius(pos, 2)
 --                 for _, obj in pairs(objs) do
 --                         if obj:is_player() and obj:get_attach() == nil then

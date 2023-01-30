@@ -50,7 +50,7 @@ local function generate_effects(params)
 
 	override["climate_api:skybox"] = skybox
 
-	local movement = params.player:get_player_velocity()
+	local movement = params.player:get_velocity()
 	local movement_direction
 	if (vector.length(movement) < 0.1) then
 		movement_direction = vector.new(0, 0, 0)

@@ -79,7 +79,7 @@ mobs:register_mob("mobs_creatures:cow", {
                         clicker:set_wielded_item(tool)
 		-- Add bucket of milk and play a sound effect
                         if inv:room_for_item("main", {name = "mobs_creatures:milk_bucket"}) then
-		                local pos = self.object:getpos()
+		                local pos = self.object:get_pos()
                                 clicker:get_inventory():add_item("main", "mobs_creatures:milk_bucket")
                                 minetest.sound_play("mobs_creatures_cow_milk", {
                                 pos = pos,
