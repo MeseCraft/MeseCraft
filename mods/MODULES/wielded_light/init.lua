@@ -107,13 +107,7 @@ end
 
 -- Get the projected position of an entity based on its velocity, rounded to the nearest block
 local function entity_pos(obj, offset)
-	local velocity
-	if (minetest.features.direct_velocity_on_players or not obj:is_player()) and obj.get_velocity then
-		velocity = obj:get_velocity()
-	else
-		velocity = obj:get_player_velocity()
-	end
-
+	local velocity = obj:get_velocity()
 	return wielded_light.get_light_position(
 		vector.round(
 			vector.add(

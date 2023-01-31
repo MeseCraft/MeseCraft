@@ -63,7 +63,7 @@ function ccompass.set_target(stack, param)
 	if param.playername then
 		local player = minetest.get_player_by_name(param.playername)
 		minetest.chat_send_player(param.playername, "Calibration done to "..param.target_name.." "..param.target_pos_string)
-		minetest.sound_play({ name = "ccompass_calibrate", gain = 1 }, { pos = player:getpos(), max_hear_distance = 3 })
+		minetest.sound_play({ name = "ccompass_calibrate", gain = 1 }, { pos = player:get_pos(), max_hear_distance = 3 })
 	end
 end
 
@@ -98,14 +98,14 @@ local function teleport_above(playername, target, counter)
 			break
 		end
 	end
-	player:setpos(target)
+	player:set_pos(target)
 	return
 end
 
 -- get right image number for players compas
 local function get_compass_stack(player, stack)
 	local target = get_destination(player, stack)
-	local pos = player:getpos()
+	local pos = player:get_pos()
 	local dir = player:get_look_horizontal()
 	local angle_north = math.deg(math.atan2(target.x - pos.x, target.z - pos.z))
 	if angle_north < 0 then

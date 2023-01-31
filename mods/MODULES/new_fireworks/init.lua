@@ -129,7 +129,7 @@ end
 function rocket:on_activate(staticdata)
 	self.rdt = rdt
 	rdt = {}
-	minetest.sound_play("new_fireworks_rocket", {pos=self.object:getpos(),
+	minetest.sound_play("new_fireworks_rocket", {pos=self.object:get_pos(),
 											 max_hear_distance = 13,gain = 1,})
 	self.rocket_flytime = math.random(13,15)/10
 	self.object:setvelocity({x=0, y=9, z=0})
@@ -141,7 +141,7 @@ function rocket:on_step(dtime)
 	self.timer = self.timer + dtime
   self.rocket_firetime = self.rocket_firetime + dtime
   if self.rocket_firetime > 0.1 then
-    local pos = self.object:getpos()
+    local pos = self.object:get_pos()
     self.rocket_firetime = 0
     xrand = math.random(-15,15)/10
     zrand = math.random(-15,15)/10
@@ -160,12 +160,12 @@ function rocket:on_step(dtime)
   end
 	if self.timer > self.rocket_flytime then
 		if #self.rdt > 0 then
-			minetest.sound_play("new_fireworks_bang", {pos=self.object:getpos(),
+			minetest.sound_play("new_fireworks_bang", {pos=self.object:get_pos(),
 													 max_hear_distance = 90,gain = 3,})
 			for _,i in pairs(self.rdt) do
-				if i.figure == "ball" then partcl_gen(self.object:getpos(),ball_figure(0.1),4,4,i.color) end
-				if i.figure == "default" then partcl_gen(self.object:getpos(),default_figure(0.1),2,4,i.color) end
-				if i.figure == "custom" then partcl_gen(self.object:getpos(),custom_figure(i.form),7,7,i.color) end
+				if i.figure == "ball" then partcl_gen(self.object:get_pos(),ball_figure(0.1),4,4,i.color) end
+				if i.figure == "default" then partcl_gen(self.object:get_pos(),default_figure(0.1),2,4,i.color) end
+				if i.figure == "custom" then partcl_gen(self.object:get_pos(),custom_figure(i.form),7,7,i.color) end
 			end
 		end
 		self.object:remove()

@@ -93,7 +93,7 @@ function diet.item_eat(max, replace_with_item, poisen, heal)
 
 		-- Increase health
 		if minetest.get_modpath("hbhunger") and hbhunger then
-			minetest.sound_play({name = "hbhunger_eat_generic", gain = 1}, {pos=user:getpos(), max_hear_distance = 16})
+			minetest.sound_play({name = "hbhunger_eat_generic", gain = 1}, {pos=user:get_pos(), max_hear_distance = 16})
 
 			-- saturation
 			local h = tonumber(hbhunger.hunger[name])

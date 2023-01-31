@@ -65,7 +65,7 @@ mobs:register_mob("mobs_creatures:fire_imp", {
         },
         do_custom = function(self, dtime, nodef)
 	-- heats up water if it comes into contact with it and it evaporates.
-        local pos = self.object:getpos()
+        local pos = self.object:get_pos()
         if minetest.get_node(pos).name == "default:water_source" or minetest.get_node(pos).name == "default:water_flowing" or minetest.get_node(pos).name == "default:river_water_source" or minetest.get_node(pos).name == "default:river_water_flowing" or minetest.get_node(pos).name == "default:snow" or minetest.get_node(pos).name == "default:ice" then
                 minetest.add_particlespawner({
                         amount = 1,
@@ -111,7 +111,7 @@ mobs:register_arrow("mobs_creatures:fire_imp_fireball", {
          full_punch_interval = 1.0,
          damage_groups = {fleshy = 32},
       }, nil)
-       minetest.sound_play({name = "mobs_creatures_common_shoot_fireball_hit", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 12})
+       minetest.sound_play({name = "mobs_creatures_common_shoot_fireball_hit", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 12})
    end,
 
    hit_mob = function(self, player)

@@ -232,7 +232,7 @@ death_messages.messages.pushed = {
 minetest.register_globalstep(function(dtime)
 	for _,player in pairs(minetest.get_connected_players()) do
 		name = player:get_player_name()
-		if player:get_player_velocity().y < -13 then
+		if player:get_velocity().y < -13 then
 			death_messages.mightBeFalling[name] = 2.0
 		elseif death_messages.mightBeFalling[name] then
 			if death_messages.mightBeFalling[name] > 0 then
@@ -273,7 +273,7 @@ minetest.register_on_leaveplayer(death_messages.reset_watchers)
 
 minetest.register_on_dieplayer(function(player)
 	name = player:get_player_name()
-	local node = minetest.registered_nodes[minetest.get_node(player:getpos()).name]
+	local node = minetest.registered_nodes[minetest.get_node(player:get_pos()).name]
 	local message
 	--Death by entity
 	if death_messages.punched[name] and death_messages.punched[name] ~= name then

@@ -142,7 +142,7 @@ mobs:register_arrow("mobs_creatures:spiderweb_ball", {
     velocity = 12,
     -- direct hit
     hit_player = function(self, player)
-        local p = player:getpos()
+        local p = player:get_pos()
         explosion_web(p, "mobs_creatures:spiderweb")
     end,
     hit_mob = function(self, player)

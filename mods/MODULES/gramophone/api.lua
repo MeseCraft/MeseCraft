@@ -85,7 +85,7 @@ gramophone.on_punch = function(pos, node, clicker, pointed_thing)
 					player_inv:add_item("main", disc)
 				end
 			else
-				minetest.add_item(clicker:getpos(), disc:get_name())
+				minetest.add_item(clicker:get_pos(), disc:get_name())
 			end
 			-- Clear values
 			disc_obj:remove()

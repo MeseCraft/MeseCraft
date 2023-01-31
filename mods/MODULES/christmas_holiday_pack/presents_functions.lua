@@ -13,7 +13,7 @@ christmas_holiday_pack.open_present = function (color)
     		local player_name = user:get_player_name()
     		local player = minetest.get_player_by_name(player_name)
     		local inv = player:get_inventory()
-    		local pos = player:getpos()
+    		local pos = player:get_pos()
     		
     		-- Select random loot
     		local item_drops = {}

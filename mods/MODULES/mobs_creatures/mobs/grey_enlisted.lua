@@ -77,7 +77,7 @@ mobs:register_arrow("mobs_creatures:a_greys_energy_pistol", {
          full_punch_interval = 1.0,
          damage_groups = {fleshy = 20},
       }, nil)
-       minetest.sound_play({name = "mobs_creatures_common_shoot_plasmaball_hit", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 12})
+       minetest.sound_play({name = "mobs_creatures_common_shoot_plasmaball_hit", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 12})
    end,
 
    hit_mob = function(self, player)

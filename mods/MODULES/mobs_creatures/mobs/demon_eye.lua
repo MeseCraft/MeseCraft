@@ -44,7 +44,7 @@ mobs:register_mob("mobs_creatures:demon_eye", {
 	run_start = 0,		run_end = 40,
    },
    do_custom = function(self) -- Add downward particles of blood.
-                local apos = self.object:getpos()
+                local apos = self.object:get_pos()
                 minetest.add_particlespawner({
                        amount = 1.0, --amount
                        time = 1.0, --time

@@ -52,7 +52,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
 
 			-- Get the player name, current position, and bed position.
 			local name = user:get_player_name()
-			local firstpos = user:getpos()
+			local firstpos = user:get_pos()
                         local rec_pos = beds.spawn[name]
 
 			-- Teleporting departure effect.
@@ -80,7 +80,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
                         end
 
                         -- Teleportation effects on arrival location.
-                        local nextpos = user:getpos()
+                        local nextpos = user:get_pos()
                         minetest.sound_play("magic_mirror_teleport", {pos = nextpos, gain = 1.0})
                         for i=1,50 do
                                 minetest.add_particle({
@@ -99,7 +99,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
 	
 		-- User does not have enough mana, play sound effect
 		else
-			local firstpos = user:getpos()
+			local firstpos = user:get_pos()
 			minetest.sound_play("bweapons_magic_pack_reload", {pos = firstpos, gain = 0.25})
 		end -- end of "mana_check false" section.
 end}) -- end register tool function

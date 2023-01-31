@@ -68,7 +68,7 @@ mobs:register_arrow("mobs_creatures:a_devastator_energy_cannon", {
          full_punch_interval = 1.0,
          damage_groups = {fleshy = 100},
       }, nil)
-         minetest.sound_play({name = "mobs_creatures_common_shoot_plasmaball_hit", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 16})
+         minetest.sound_play({name = "mobs_creatures_common_shoot_plasmaball_hit", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 16})
    end,
 
    hit_mob = function(self, player)

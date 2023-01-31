@@ -62,7 +62,7 @@ mobs:register_mob("mobs_creatures:chicken", {
                         return
                 end
 
-                local pos = self.object:getpos()
+                local pos = self.object:get_pos()
 
                 minetest.add_item(pos, "mobs_creatures:egg")
 

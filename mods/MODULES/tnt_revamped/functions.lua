@@ -180,7 +180,7 @@ local function entity_physics(pos, radius, drops, in_water)
 
 		local damage = (4 / dist) * radius
 		if obj:is_player() then
-			local obj_vel = obj:get_player_velocity()
+			local obj_vel = obj:get_velocity()
 			obj:add_player_velocity(calc_velocity(pos, obj_pos,
 					obj_vel, radius * player_velocity_mul))
 

@@ -133,7 +133,7 @@ function spawnplayer(cave_layer_def, player, ydepth)
 			local choice = math.random(1, table.getn(options))
 			local spawnpoint = options[ choice ]
 			minetest.log("action", "[subterrane] spawning player " .. minetest.pos_to_string(spawnpoint))
-			player:setpos(spawnpoint)
+			player:set_pos(spawnpoint)
 			return true
 		end
 	end

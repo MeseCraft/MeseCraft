@@ -31,7 +31,7 @@ mobs:register_mob("mobs_creatures:skull", {
    jump = true,
    fly = true,
    do_custom = function(self)
-		local apos = self.object:getpos()
+		local apos = self.object:get_pos()
                 part = minetest.add_particlespawner({
                         8, --amount
                         0.3, --time

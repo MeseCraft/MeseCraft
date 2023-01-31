@@ -50,7 +50,7 @@ mobs:register_mob("mobs_creatures:wolf", {
 			-- 1/3 chance of getting tamed
 			if PseudoRandom(os.time()*10):next(1, 3) == 1 then
 				local yaw = self.object:get_yaw()
-				dog = minetest.add_entity(self.object:getpos(), "mobs_creatures:dog")
+				dog = minetest.add_entity(self.object:get_pos(), "mobs_creatures:dog")
 				dog:set_yaw(yaw)
 				ent = dog:get_luaentity()
 				ent.owner = clicker:get_player_name()
@@ -251,13 +251,13 @@ mobs:register_mob("mobs_creatures:dog", {
 		self._teleport_timer = self._teleport_timer - dtime
 		if self._teleport_timer <= 0 then
 			self._teleport_timer = teleport_check_interval
-			local mob_pos = self.object:getpos()
+			local mob_pos = self.object:get_pos()
 			local owner = minetest.get_player_by_name(self.owner)
 			if not owner then
 				-- No owner found, no teleportation
 				return
 			end
-			local owner_pos = owner:getpos()
+			local owner_pos = owner:get_pos()
 			local dist_from_owner = vector.distance(owner_pos, mob_pos)
 			if dist_from_owner > dist then
 				-- Check for nodes below air in a 5×1×5 area around the owner position
@@ -272,7 +272,7 @@ mobs:register_mob("mobs_creatures:dog", {
 					if minetest.registered_nodes[minetest.get_node(telepos).name].walkable == false and
 							minetest.registered_nodes[minetest.get_node(telepos_below).name].walkable == true then
 						-- Correct position found! Let's teleport.
-						self.object:setpos(telepos)
+						self.object:set_pos(telepos)
 						return
 					end
 				end

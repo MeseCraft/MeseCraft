@@ -635,9 +635,9 @@ if enable_grenade then
 			local player_pos = user:get_pos()
 			local obj = minetest.add_entity({x = player_pos.x, y = player_pos.y + 1.5, z = player_pos.z}, "torch_bomb:torch_grenade_entity")
 			local dir = user:get_look_dir()
-			obj:setvelocity(vector.multiply(dir, throw_velocity))
-			obj:setacceleration(gravity)
-			obj:setyaw(user:get_look_yaw()+math.pi)
+			obj:set_velocity(vector.multiply(dir, throw_velocity))
+			obj:set_acceleration(gravity)
+			obj:set_yaw(user:get_look_yaw()+math.pi)
 			local lua_entity = obj:get_luaentity()
 			lua_entity.player_name = user:get_player_name()
 			
@@ -648,7 +648,7 @@ if enable_grenade then
 				max_hear_distance = 32,
 			})
 			
-			if not minetest.setting_getbool("creative_mode") and not minetest.check_player_privs(user, "creative") then
+			if not minetest.settings:get_bool("creative_mode") and not minetest.check_player_privs(user, "creative") then
 				itemstack:set_count(itemstack:get_count() - 1)
 			end
 			

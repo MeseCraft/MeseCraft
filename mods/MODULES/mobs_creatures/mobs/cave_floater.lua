@@ -74,8 +74,8 @@ mobs:register_arrow("mobs_creatures:a_cave_floater_gasball", {
          full_punch_interval = 1.0,
          damage_groups = {fleshy = 10},
       }, nil)
-       minetest.sound_play({name = "mobs_creatures_common_shoot_poisonball_hit", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 12})
-       minetest.set_node(player:getpos(), {name = "mine_gas:gas"})
+       minetest.sound_play({name = "mobs_creatures_common_shoot_poisonball_hit", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 12})
+       minetest.set_node(player:get_pos(), {name = "mine_gas:gas"})
    end,
 
    hit_mob = function(self, player)

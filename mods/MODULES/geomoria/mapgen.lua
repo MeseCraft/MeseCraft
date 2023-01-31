@@ -114,14 +114,14 @@ local function generate(p_minp, p_maxp, seed)
       end
     end
 
-    damage_noise = damage_noise_map:get2dMap_flat({x=minp.x, y=minp.z}, damage_noise)
-    fissure_noise = fissure_noise_map:get3dMap_flat(minp, fissure_noise)
+    damage_noise = damage_noise_map:get_2d_map_flat({x=minp.x, y=minp.z}, damage_noise)
+    fissure_noise = fissure_noise_map:get_3d_map_flat(minp, fissure_noise)
   else
     heightmap = minetest.get_mapgen_object("heightmap")
     damage_noise = heightmap
     fissure_noise = heightmap
-    -- damage_noise = heightmap:get2dMap_flat({x=minp.x, y=minp.z}, damage_noise)
-    -- fissure_noise = heightmap:get3dMap_flat(minp, fissure_noise)
+    -- damage_noise = heightmap:get_2d_map_flat({x=minp.x, y=minp.z}, damage_noise)
+    -- fissure_noise = heightmap:get_3d_map_flat(minp, fissure_noise)
 
 	end
 

@@ -17,7 +17,7 @@ mobs:register_arrow("mobs_creatures:skeleton_archer_arrow", {
          full_punch_interval = 1.0,
          damage_groups = {fleshy = 10},
       }, nil)
-       minetest.sound_play({name = "mobs_creatures_common_shoot_arrow_hit", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 12})
+       minetest.sound_play({name = "mobs_creatures_common_shoot_arrow_hit", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 12})
    end,
 
    hit_mob = function(self, player)

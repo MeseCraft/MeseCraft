@@ -594,7 +594,7 @@ if ENABLE_PORTALS and minetest.get_modpath("nether") ~= nil and minetest.global_
       -- Hallelujah mountains start reaching the ground.
       if noise_heightMap == nil then cloudlands.init() end
       local largestCoreType  = cloudlands.coreTypes[1] -- the first island type is the biggest/thickest
-      local island_bottom = ALTITUDE - (largestCoreType.depthMax * 0.66) + round(noise_heightMap:get2d({x = pos.x, y = pos.z}))
+      local island_bottom = ALTITUDE - (largestCoreType.depthMax * 0.66) + round(noise_heightMap:get_2d({x = pos.x, y = pos.z}))
 
       return pos.y > math_max(40, island_bottom)
     end,
@@ -1357,7 +1357,7 @@ local function addCores(coreList, coreType, x1, z1, x2, z2)
         -- so rotate it a little to avoid it lining up with the world axis.
         local noiseX = ROTATE_COS * coreX - ROTATE_SIN * coreZ
         local noiseZ = ROTATE_SIN * coreX + ROTATE_COS * coreZ
-        local eddyField = noise_eddyField:get2d({x = noiseX, y = noiseZ})
+        local eddyField = noise_eddyField:get_2d({x = noiseX, y = noiseZ})
 
         if (math_abs(eddyField) < coreType.frequency) then
 
@@ -1366,8 +1366,8 @@ local function addCores(coreList, coreType, x1, z1, x2, z2)
             -- A 'nexus' is a made up name for a place where the eddyField is flat.
             -- There are often many 'field lines' leading out from a nexus.
             -- Like a saddle in the perlin noise the height "coreType.frequency"
-            local eddyField_orthA = noise_eddyField:get2d({x = noiseX + 2, y = noiseZ})
-            local eddyField_orthB = noise_eddyField:get2d({x = noiseX, y = noiseZ + 2})
+            local eddyField_orthA = noise_eddyField:get_2d({x = noiseX + 2, y = noiseZ})
+            local eddyField_orthB = noise_eddyField:get_2d({x = noiseX, y = noiseZ + 2})
             if math_abs(eddyField - eddyField_orthA) + math_abs(eddyField - eddyField_orthB) < 0.02 then
               nexusConditionMet = true
             end
@@ -1414,7 +1414,7 @@ local function addCores(coreList, coreType, x1, z1, x2, z2)
               if spaceConditionMet then
                 -- all conditions met, we've located a new island core
                 --minetest.log("Adding core "..x..","..y..","..z..","..radius)
-                local y = round(noise_heightMap:get2d({x = coreX, y = coreZ}))
+                local y = round(noise_heightMap:get_2d({x = coreX, y = coreZ}))
                 local newCore = {
                   x         = coreX,
                   y         = y,
@@ -1576,7 +1576,7 @@ cloudlands.get_height_at = function(x, z, coreList)
     if core.radius + core.depth > 80  then noise_weighting = 0.6  end
     if core.radius + core.depth > 120 then noise_weighting = 0.35 end
 
-    local surfaceNoise = noise_surfaceMap:get2d({x = x, y = z})
+    local surfaceNoise = noise_surfaceMap:get_2d({x = x, y = z})
     if DEBUG_GEOMETRIC then surfaceNoise = SURFACEMAP_OFFSET end
     local coreTop = ALTITUDE + core.y
     local surfaceHeight = coreTop + round(surfaceNoise * 3 * (core.thickness + 1) * horz_easing)
@@ -1590,7 +1590,7 @@ cloudlands.get_height_at = function(x, z, coreList)
       for y = math_max(coreTop, surfaceHeight), yBottom, -1 do
         local vert_easing = math_min(1, (y - coreBottom) / core.depth)
 
-        local densityNoise = noise_density:get3d({x = x, y = y - coreTop, z = z})
+        local densityNoise = noise_density:get_3d({x = x, y = y - coreTop, z = z})
         densityNoise = noise_weighting * densityNoise + (1 - noise_weighting) * DENSITY_OFFSET
         if DEBUG_GEOMETRIC then densityNoise = DENSITY_OFFSET end
 
@@ -1850,8 +1850,8 @@ local function addDetail_skyReef(decoration_list, core, data, area, minp, maxp)
       if distanceSquared < reefOuterRadiusSquared and distanceSquared > reefInnerRadiusSquared then
         pos.x = x
         local offsetEase = math_abs(distanceSquared - reefMiddleRadiusSquared) / reefHalfWidthSquared
-        local fineNoise = noise_skyReef:get2d(pos)
-        local reefNoise = (noiseOffset* offsetEase) + fineNoise + 0.2 * noise_surfaceMap:get2d(pos)
+        local fineNoise = noise_skyReef:get_2d(pos)
+        local reefNoise = (noiseOffset* offsetEase) + fineNoise + 0.2 * noise_surfaceMap:get_2d(pos)
 
         if (reefNoise > 0) then
           local distance = math_sqrt(distanceSquared)
@@ -2166,7 +2166,7 @@ local function addDetail_secrets(decoration_list, core, data, area, minp, maxp)
 
     local territoryX = math_floor(core.x / core.type.territorySize)
     local territoryZ = math_floor(core.z / core.type.territorySize)
-    local isPolarOutpost = (core.temperature <= 5) and (core.x % 3 == 0) and noise_surfaceMap:get2d({x = core.x, y = core.z - 8}) >= 0 --make sure steps aren't under a pond
+    local isPolarOutpost = (core.temperature <= 5) and (core.x % 3 == 0) and noise_surfaceMap:get_2d({x = core.x, y = core.z - 8}) >= 0 --make sure steps aren't under a pond
     local isAncientBurrow = core.humidity >= 60 and core.temperature >= 50
 
     -- only allow a checkerboard pattern of territories to help keep the secrets
@@ -2679,7 +2679,7 @@ local function renderCores(cores, minp, maxp, blockseed)
             end
           end
 
-          local surfaceNoise = noise_surfaceMap:get2d({x = x, y = z})
+          local surfaceNoise = noise_surfaceMap:get_2d({x = x, y = z})
           if DEBUG_GEOMETRIC then surfaceNoise = SURFACEMAP_OFFSET end
           local surface = round(surfaceNoise * 3 * (core.thickness + 1) * horz_easing) -- if you change this formular then update maxSufaceRise in on_generated()
           local coreBottom = math_floor(coreTop - (core.thickness + core.depth))
@@ -2697,7 +2697,7 @@ local function renderCores(cores, minp, maxp, blockseed)
             local vert_easing = math_min(1, (y - coreBottom) / core.depth)
 
             -- If you change the densityNoise calculation, remember to similarly update the copy of this calculation in the pond code
-            densityNoise = noise_density:get3d({x = x, y = y - coreTop, z = z}) -- TODO: Optimize this!!
+            densityNoise = noise_density:get_3d({x = x, y = y - coreTop, z = z}) -- TODO: Optimize this!!
             densityNoise = noise_weighting * densityNoise + (1 - noise_weighting) * DENSITY_OFFSET
 
             if DEBUG_GEOMETRIC then densityNoise = DENSITY_OFFSET end
@@ -2759,7 +2759,7 @@ local function renderCores(cores, minp, maxp, blockseed)
             if densityNoise == nil then
               -- Rare edge case. If the pond is at minp.y, then no land has been rendered, so
               -- densityNoise hasn't been calculated. Calculate it now.
-              densityNoise = noise_density:get3d({x = x, y = minp.y, z = z})
+              densityNoise = noise_density:get_3d({x = x, y = minp.y, z = z})
               densityNoise = noise_weighting * densityNoise + (1 - noise_weighting) * DENSITY_OFFSET
               if DEBUG_GEOMETRIC then densityNoise = DENSITY_OFFSET end
             end

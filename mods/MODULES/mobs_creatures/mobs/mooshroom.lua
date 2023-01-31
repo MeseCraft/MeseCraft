@@ -47,7 +47,7 @@ mobs:register_mob("mobs_creatures:mooshroom", {
                 local item = clicker:get_wielded_item()
                 -- Use shears to get mushrooms and turn mooshroom into cow
                 if item:get_name() == "mobs:shears" then
-                        local pos = self.object:getpos()
+                        local pos = self.object:get_pos()
                         minetest.sound_play("shears", {pos = pos})
                         minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, "flowers:mushroom_red" .. " 5")
 
@@ -62,7 +62,7 @@ mobs:register_mob("mobs_creatures:mooshroom", {
                         -- If room, add milk to inventory, otherwise drop as item
                         if inv:room_for_item("main", {name= "mobs_creatures:milk_bucket"}) then
                                 clicker:get_inventory():add_item("main", "mobs_creatures:milk_bucket")
-                                local pos = self.object:getpos()
+                                local pos = self.object:get_pos()
                                 minetest.sound_play("mobs_creatures_cow_milk", {
                                 pos = pos,
                                 gain = 1.0,
@@ -70,7 +70,7 @@ mobs:register_mob("mobs_creatures:mooshroom", {
                                 })
 
                         else
-                                local pos = self.object:getpos()
+                                local pos = self.object:get_pos()
                                 pos.y = pos.y + 0.5
                                 minetest.add_item(pos, {name = "mobs_creatures:milk_bucket"})
                                 minetest.sound_play("mobs_creatures_cow_milk", {
@@ -88,7 +88,7 @@ mobs:register_mob("mobs_creatures:mooshroom", {
                         if inv:room_for_item("main", {name="ethereal:hearty_stew"}) then
                                 clicker:get_inventory():add_item("main", "ethereal:hearty_stew")
                         else
-                                local pos = self.object:getpos()
+                                local pos = self.object:get_pos()
                                 pos.y = pos.y + 0.5
                                 minetest.add_item(pos, {name = "ethereal:hearty_stew"})
                         end

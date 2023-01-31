@@ -16,7 +16,7 @@ mobs:register_arrow("mobs_creatures:snowmans_snowball", {
 		 full_punch_interval = 1.0,
 		 damage_groups = {fleshy = 9},
 	      }, nil)
-	       minetest.sound_play({name = "default_snow_footstep", gain = 1.0}, {pos=player:getpos(), max_hear_distance = 8})
+	       minetest.sound_play({name = "default_snow_footstep", gain = 1.0}, {pos=player:get_pos(), max_hear_distance = 8})
 	   end,
 
 	   hit_mob = function(self, player)
@@ -108,7 +108,7 @@ mobs:register_mob("mobs_creatures:snowman", {
 		self._snowtimer = self._snowtimer + dtime
 		if self.health > 0 and self._snowtimer > snow_trail_frequency then
 			self._snowtimer = 0
-			local pos = self.object:getpos()
+			local pos = self.object:get_pos()
 			local below = {x=pos.x, y=pos.y-1, z=pos.z}
 			local def = minetest.registered_nodes[minetest.get_node(pos).name]
 			-- Node at snow golem's position must be replacable

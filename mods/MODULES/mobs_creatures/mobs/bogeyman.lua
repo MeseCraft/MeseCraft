@@ -52,7 +52,7 @@ mobs:register_mob("mobs_creatures:bogeyman", {
         },
 --particle spawner
    do_custom = function(self)
-   		local apos = self.object:getpos()
+   		local apos = self.object:get_pos()
 		minetest.add_particlespawner({
                         1, --amount
                         0.3, --time

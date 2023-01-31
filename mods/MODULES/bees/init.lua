@@ -121,8 +121,8 @@
         --wax flying all over the place
         minetest.add_particle({
           pos = {x=pos.x, y=pos.y, z=pos.z},
-          vel = {x=math.random(-4,4),y=math.random(8),z=math.random(-4,4)},
-          acc = {x=0,y=-6,z=0},
+          velocity = {x=math.random(-4,4),y=math.random(8),z=math.random(-4,4)},
+          acceleration = {x=0,y=-6,z=0},
           expirationtime = 2,
           size = math.random(1,3),
           collisiondetection = false,
@@ -457,8 +457,8 @@
     action = function(pos)
       minetest.add_particle({
         pos = {x=pos.x, y=pos.y, z=pos.z},
-        vel = {x=(math.random()-0.5)*5,y=(math.random()-0.5)*5,z=(math.random()-0.5)*5},
-        acc = {x=math.random()-0.5,y=math.random()-0.5,z=math.random()-0.5},
+        velocity = {x=(math.random()-0.5)*5,y=(math.random()-0.5)*5,z=(math.random()-0.5)*5},
+        acceleration = {x=math.random()-0.5,y=math.random()-0.5,z=math.random()-0.5},
         expirationtime = math.random(2.5),
         size = math.random(3),
         collisiondetection = true,

@@ -439,11 +439,11 @@ function bweapons.register_weapon(def)
                 mana.subtract(playername, def.mana_per_use)
             end
 
-            local playerpos = user:getpos()
+            local playerpos = user:get_pos()
             local dir = user:get_look_dir()
             local vel = {x = 0, y = 0, z = 0}
             if combine_velocity then
-                vel = user:get_player_velocity()
+                vel = user:get_velocity()
             end
 
             --Hitscan type, implemented in-place

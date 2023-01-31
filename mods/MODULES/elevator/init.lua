@@ -101,9 +101,9 @@ local VISUAL_INCREASE = 1.75
 local function create_box(motorhash, pos, target, sender)
     -- First create the box.
     local obj = minetest.add_entity(pos, "elevator:box")
-    obj:setpos(pos)
+    obj:set_pos(pos)
     -- Attach the player.
-    sender:setpos(pos)
+    sender:set_pos(pos)
     sender:set_attach(obj, "", {x=0, y=9, z=0}, {x=0, y=0, z=0})
     sender:set_eye_offset({x=0, y=-9, z=0},{x=0, y=-9, z=0})
     sender:set_properties({visual_size = {x=VISUAL_INCREASE, y=VISUAL_INCREASE}})
@@ -119,8 +119,8 @@ local function create_box(motorhash, pos, target, sender)
     obj:get_luaentity().halfway = {x=pos.x, y=(pos.y+target.y)/2, z=pos.z}
     obj:get_luaentity().vmult = (target.y < pos.y) and -1 or 1
     -- Set the speed.
-    obj:setvelocity({x=0, y=SPEED*obj:get_luaentity().vmult, z=0})
-    obj:setacceleration({x=0, y=ACCEL*obj:get_luaentity().vmult, z=0})
+    obj:set_velocity({x=0, y=SPEED*obj:get_luaentity().vmult, z=0})
+    obj:set_acceleration({x=0, y=ACCEL*obj:get_luaentity().vmult, z=0})
     -- Set the tables.
     boxes[motorhash] = obj
     riding[sender:get_player_name()] = {
@@ -140,7 +140,7 @@ local function teleport_player_from_elevator(player)
         end
         return minetest.registered_nodes[minetest.get_node(pos).name].walkable
     end
-    local pos = vector.round(player:getpos())
+    local pos = vector.round(player:get_pos())
     local node = minetest.get_node(pos)
     -- elevator_off is like a shaft, so the player would already be falling.
     if node.name == "elevator:elevator_on" then
@@ -149,7 +149,7 @@ local function teleport_player_from_elevator(player)
         local front_below = vector.subtract(front, {x=0, y=1, z=0})
         -- If the front isn't solid, it's ok to teleport the player.
         if not solid(front) and not solid(front_above) then
-            player:setpos(front)
+            player:set_pos(front)
         end
     end
 end
@@ -164,7 +164,7 @@ minetest.register_globalstep(function(dtime)
     -- Only count riders who are still logged in.
     local newriding = {}
     for _,p in ipairs(minetest.get_connected_players()) do
-        local pos = p:getpos()
+        local pos = p:get_pos()
         local name = p:get_player_name()
         newriding[name] = riding[name]
         -- If the player is indeed riding, update their position.
@@ -175,7 +175,7 @@ minetest.register_globalstep(function(dtime)
     riding = newriding
     for name,r in pairs(riding) do
         -- If the box is no longer loaded or existent, create another.
-        local ok = r.box and r.box.getpos and r.box:getpos() and r.box:get_luaentity() and r.box:get_luaentity().attached == name
+        local ok = r.box and r.box.get_pos and r.box:get_pos() and r.box:get_luaentity() and r.box:get_luaentity().attached == name
         if not ok then
             minetest.log("action", "[elevator] "..minetest.pos_to_string(r.pos).." created due to lost rider.")
             minetest.after(0, create_box, r.motor, r.pos, r.target, minetest.get_player_by_name(name))
@@ -188,7 +188,7 @@ minetest.register_globalstep(function(dtime)
         end
         lastboxes[motor] = lastboxes[motor] and math.min(lastboxes[motor], PTIMEOUT) or PTIMEOUT
         lastboxes[motor] = math.max(lastboxes[motor] - 1, 0)
-        local pos = obj:getpos()
+        local pos = obj:get_pos()
         if pos then
             for _,object in ipairs(minetest.get_objects_inside_radius(pos, 5)) do
                 if object.is_player and object:is_player() then
@@ -322,11 +322,11 @@ local function unbuild(pos, add)
         local motorhash = locate_motor(p2)
         build_motor(motorhash)
         -- If there's a box below this point, break it.
-        if boxes[motorhash] and boxes[motorhash]:getpos() and p2.y >= boxes[motorhash]:getpos().y then
+        if boxes[motorhash] and boxes[motorhash]:get_pos() and p2.y >= boxes[motorhash]:get_pos().y then
             boxes[motorhash] = nil
         end
         -- If the box does not exist, just clear it.
-        if boxes[motorhash] and not boxes[motorhash]:getpos() then
+        if boxes[motorhash] and not boxes[motorhash]:get_pos() then
             boxes[motorhash] = nil
         end
     end, table.copy(pos), add)
@@ -473,7 +473,7 @@ for _,mode in ipairs({"on", "off"}) do
             local meta = minetest.get_meta(pos)
             formspecs[sender:get_player_name()] = {pos}
             if on then
-                if vector.distance(sender:getpos(), pos) > 1 or minetest.get_node(sender:getpos()).name ~= nodename then
+                if vector.distance(sender:get_pos(), pos) > 1 or minetest.get_node(sender:get_pos()).name ~= nodename then
                     minetest.chat_send_player(sender:get_player_name(), "You are not inside the booth.")
                     return
                 end
@@ -568,7 +568,7 @@ minetest.register_on_player_receive_fields(function(sender, formname, fields)
         return true
     end
     -- Double check if it's ok to go.
-    if vector.distance(sender:getpos(), pos) > 1 then
+    if vector.distance(sender:get_pos(), pos) > 1 then
         return true
     end
     if fields.target then
@@ -780,9 +780,9 @@ local function detach(self, pos)
         armor:update_player_visuals(player)
     end
     if pos then
-        player:setpos(pos)
+        player:set_pos(pos)
 	minetest.after(0.1, function(pl, p)
-		pl:setpos(p)
+		pl:set_pos(p)
 	end, player, pos)
     end
     riding[self.attached] = nil
@@ -810,7 +810,7 @@ local box_entity = {
     end,
 
     on_step = function(self, dtime)
-        local pos = self.object:getpos()
+        local pos = self.object:get_pos()
         -- First, check if this box needs removed.
         -- If the motor has a box and it isn't this box.
         if boxes[self.motor] and boxes[self.motor] ~= self.object then
@@ -841,7 +841,7 @@ local box_entity = {
             return
         end
 
-        minetest.get_player_by_name(self.attached):setpos(pos)
+        minetest.get_player_by_name(self.attached):set_pos(pos)
         -- Ensure lastpos is set to something.
         self.lastpos = self.lastpos or pos
 

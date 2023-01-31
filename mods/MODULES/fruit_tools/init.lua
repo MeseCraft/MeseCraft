@@ -39,7 +39,7 @@ fruit_tools.path = minetest.get_modpath("fruit_tools")
 -- Sound effect function (unused as of now):
 local function play_sound_effect(player, name)
     if player then
-        local pos = player:getpos()
+        local pos = player:get_pos()
         if pos then
             minetest.sound_play({
                 pos = pos,
