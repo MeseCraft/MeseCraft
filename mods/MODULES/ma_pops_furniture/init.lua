@@ -2,7 +2,6 @@ ma_pops_furniture = {}
 
 dofile(minetest.get_modpath('ma_pops_furniture')..'/sit.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/functions.lua')
-dofile(minetest.get_modpath('ma_pops_furniture')..'/formspecs.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/crafts.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/nodes.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/freezer.lua')
