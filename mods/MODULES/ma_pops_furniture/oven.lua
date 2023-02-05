@@ -134,27 +134,37 @@ minetest.register_node("ma_pops_furniture:oven", {
 	end,
 
 	on_metadata_inventory_put = recalculate,
-    on_metadata_inventory_take = recalculate,
+	on_metadata_inventory_take = recalculate,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", oven_fs)
 		local inv = meta:get_inventory()
 		inv:set_size("input", 1)
-        inv:set_size("output", 1)
+		inv:set_size("output", 1)
 	end,
 	
 	on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "input", drops)
-        default.get_inventory_drops(pos, "output", drops)
+		default.get_inventory_drops(pos, "output", drops)
 		table.insert(drops, "ma_pops_furniture:oven")
 		minetest.remove_node(pos)
 		return drops
 	end,
 
 	allow_metadata_inventory_put = function(pos, list, index, stack, player)
-		return oven.recipes[stack:get_name()] and stack:get_count() or 0
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
+		return (list == "input" and oven.recipes[stack:get_name()]) and stack:get_count() or 0
+	end,
+
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
+		return stack:get_count()
 	end,
 })
 

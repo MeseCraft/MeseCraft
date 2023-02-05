@@ -11,7 +11,6 @@ local microwave_fs =
 	.."label[3,0.5;Microwave]"
 	.."listring[context;cook_slot]"
 	.."listring[current_player;main]"
- -- possibly add "fire" image?
 
 local function get_active_microwave_fs(item_percent)
     return "size[8,7]"
@@ -24,7 +23,6 @@ local function get_active_microwave_fs(item_percent)
         .."label[3,0.5;Microwave]"
          .."listring[context;cook_slot]"
          .."listring[current_player;main]"
-        -- possibly add "fire" image?
 end
 
 --x,y;w,h
@@ -144,11 +142,17 @@ minetest.register_node("ma_pops_furniture:microwave", {
 	end,
 
 	allow_metadata_inventory_put = function(pos, list, index, stack, player)
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
 		return microwave.recipes[stack:get_name()] and stack:get_count() or 0
 	end,
 
     --Only allow items to be taken if the microwave hasn't started yet
     allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+        if minetest.is_protected(pos, player:get_player_name()) then
+            return 0
+        end
         if not minetest.get_node_timer(pos):is_started() then
             return stack:get_count()
         else
