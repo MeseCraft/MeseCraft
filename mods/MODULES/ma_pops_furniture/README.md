@@ -20,12 +20,23 @@ Special thanks to GreenDimond for the code.
 Freezer Mod:   
 https://forum.minetest.net/viewtopic.php?f=9&t=14925
 
+Revamp for Mesecraft:
+Thanks to Andrew Martignoni III for the code to:
+ - add recipes for the oven and microwave (updated crafting recipes as well)
+ - add shift-click support to all chest and furnace-like nodes
+ - add protection support to all chest and furnace-like nodes
+ - fix bugs with sitting
+ - fix toaster
+ - add drinking from birdbath (with the thirsty mod)
+ - add intllib support
+
 Textures (c) 2016 Gabriel Pérez-Cerezo, WTFPL
 
 This mod is based on the default furnace, license for the code below:
 
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 Copyright (C) 2016 Gabriel Pérez-Cerezo <gabriel@gpcf.eu>
+Copyright (C) 2023 Andrew Martignoni III <andyiii@andy3ware.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -40,14 +51,6 @@ BillyS
 Noodlemire 
 
 For helping out with the microwave.
-
-=================================================================
-
-Each item used as tool and what it does:
-
-Hammer: Rotates and/or changes the type of sofa.
-
-Shears: "Trims" the hedges making it possible for different rotation and direction of hedge.
 
 ==================================================================
 License of source code and textures: WTFPL
