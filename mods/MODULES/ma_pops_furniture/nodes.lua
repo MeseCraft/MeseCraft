@@ -2,12 +2,12 @@
 minetest.register_node("ma_pops_furniture:bath_faucet", {
    description = "Bathroom Faucet",
    tiles = {
-		"mp_knob_top.png",
-		"mp_knob_bottom.png",
-		"mp_knob_right.png",
-		"mp_knob_left.png",
-		"mp_knob_back.png",
-		"mp_knob_front.png"
+		"ma_pops_furniture_knob_top.png",
+		"ma_pops_furniture_knob_bottom.png",
+		"ma_pops_furniture_knob_right.png",
+		"ma_pops_furniture_knob_left.png",
+		"ma_pops_furniture_knob_back.png",
+		"ma_pops_furniture_knob_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -29,12 +29,12 @@ minetest.register_node("ma_pops_furniture:bath_faucet", {
 minetest.register_node("ma_pops_furniture:toilet_paper_roll_dispenser", {
    description = "Toilet Paper Roll Dispenser",
    tiles = {
-		"mp_tp_top.png",
-		"mp_tp_bottom.png",
-		"mp_tp_right.png",
-		"mp_tp_left.png",
-		"mp_tp_back.png",
-		"mp_tp_front.png"
+		"ma_pops_furniture_tp_top.png",
+		"ma_pops_furniture_tp_bottom.png",
+		"ma_pops_furniture_tp_right.png",
+		"ma_pops_furniture_tp_left.png",
+		"ma_pops_furniture_tp_back.png",
+		"ma_pops_furniture_tp_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -116,12 +116,12 @@ minetest.register_node('ma_pops_furniture:toilet_close', {
 minetest.register_node("ma_pops_furniture:br_sink", {
    description = "Sink (Bathroom)",
    tiles = {
-		"mp_hw_top.png",
-		"mp_hw_bottom.png",
-		"mp_hw_right.png",
-		"mp_hw_left.png",
-		"mp_hw_back.png",
-		"mp_hw_front.png"
+		"ma_pops_furniture_hw_top.png",
+		"ma_pops_furniture_hw_bottom.png",
+		"ma_pops_furniture_hw_right.png",
+		"ma_pops_furniture_hw_left.png",
+		"ma_pops_furniture_hw_back.png",
+		"ma_pops_furniture_hw_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -139,12 +139,12 @@ minetest.register_node("ma_pops_furniture:br_sink", {
 minetest.register_node("ma_pops_furniture:mirror_closed", {
    description = "Mirror",
    tiles = {
-		"mp_mirror_top.png",
-		"mp_mirror_bottom.png",
-		"mp_mirror_right.png",
-		"mp_mirror_left.png",
+		"ma_pops_furniture_mirror_top.png",
+		"ma_pops_furniture_mirror_bottom.png",
+		"ma_pops_furniture_mirror_right.png",
+		"ma_pops_furniture_mirror_left.png",
 		"default_wood.png",
-		"mp_mirror_front.png"
+		"ma_pops_furniture_mirror_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -167,12 +167,12 @@ minetest.register_node("ma_pops_furniture:mirror_closed", {
 minetest.register_node("ma_pops_furniture:mirror", {
    description = "Mirror (Open)",
    tiles = {
-		"mp_mirror_open_top.png",
-		"mp_mirror_open_bottom.png",
-		"mp_mirror_open_right.png",
-		"mp_mirror_open_left.png",
-		"mp_mirror_front.png",
-		"mp_mirror_open_front.png"
+		"ma_pops_furniture_mirror_open_top.png",
+		"ma_pops_furniture_mirror_open_bottom.png",
+		"ma_pops_furniture_mirror_open_right.png",
+		"ma_pops_furniture_mirror_open_left.png",
+		"ma_pops_furniture_mirror_front.png",
+		"ma_pops_furniture_mirror_open_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -212,12 +212,12 @@ minetest.register_node("ma_pops_furniture:mirror", {
 minetest.register_node("ma_pops_furniture:shower_base", {
    description = "Shower Base",
    tiles = {
-		"mp_showbas_top.png",
-		"mp_showbas_top.png",
-		"mp_showbas_sides.png",
-		"mp_showbas_sides.png",
-		"mp_showbas_sides.png",
-		"mp_showbas_sides.png"
+		"ma_pops_furniture_showbas_top.png",
+		"ma_pops_furniture_showbas_top.png",
+		"ma_pops_furniture_showbas_sides.png",
+		"ma_pops_furniture_showbas_sides.png",
+		"ma_pops_furniture_showbas_sides.png",
+		"ma_pops_furniture_showbas_sides.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -239,12 +239,12 @@ minetest.register_node("ma_pops_furniture:shower_base", {
 minetest.register_node("ma_pops_furniture:shower_top", {
    description = "Shower Head",
    tiles = {
-		"mp_shk_top.png",
-		"mp_shk_bottom.png",
-		"mp_shk_right.png",
-		"mp_shk_left.png",
-		"mp_shk_back.png",
-		"mp_shk_front.png"
+		"ma_pops_furniture_shk_top.png",
+		"ma_pops_furniture_shk_bottom.png",
+		"ma_pops_furniture_shk_right.png",
+		"ma_pops_furniture_shk_left.png",
+		"ma_pops_furniture_shk_back.png",
+		"ma_pops_furniture_shk_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -268,12 +268,12 @@ minetest.register_node("ma_pops_furniture:shower_top", {
 minetest.register_node("ma_pops_furniture:dw", {
 	description= "Dishwasher",
 	tiles = {
-		"mp_dw_top.png",
-		"mp_dw_bottom.png",
-		"mp_dw_left.png",
-		"mp_dw_right.png",
-		"mp_dw_back.png",
-		"mp_dw_front.png"
+		"ma_pops_furniture_dw_top.png",
+		"ma_pops_furniture_dw_bottom.png",
+		"ma_pops_furniture_dw_left.png",
+		"ma_pops_furniture_dw_right.png",
+		"ma_pops_furniture_dw_back.png",
+		"ma_pops_furniture_dw_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -293,12 +293,12 @@ minetest.register_node("ma_pops_furniture:dw", {
 minetest.register_node("ma_pops_furniture:oven_overhead", {
 	description= "Oven Overhead",
 	tiles = {
-		"mp_camp_top.png",
-		"mp_camp_bottom.png",
-		"mp_camp_left.png",
-		"mp_camp_right.png",
-		"mp_camp_back.png",
-		"mp_camp_front.png"
+		"ma_pops_furniture_camp_top.png",
+		"ma_pops_furniture_camp_bottom.png",
+		"ma_pops_furniture_camp_left.png",
+		"ma_pops_furniture_camp_right.png",
+		"ma_pops_furniture_camp_back.png",
+		"ma_pops_furniture_camp_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -316,12 +316,12 @@ minetest.register_node("ma_pops_furniture:oven_overhead", {
 minetest.register_node("ma_pops_furniture:microwave", {
    description = "Microwave",
    tiles = {
-		"mp_mw_top.png",
-		"mp_mw_bottom.png",
-		"mp_mw_right.png",
-		"mp_mw_left.png",
-		"mp_mw_back.png",
-		"mp_mw_front.png"
+		"ma_pops_furniture_mw_top.png",
+		"ma_pops_furniture_mw_bottom.png",
+		"ma_pops_furniture_mw_right.png",
+		"ma_pops_furniture_mw_left.png",
+		"ma_pops_furniture_mw_back.png",
+		"ma_pops_furniture_mw_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -339,12 +339,12 @@ minetest.register_node("ma_pops_furniture:microwave", {
 minetest.register_node("ma_pops_furniture:coffee_maker", {
 	description = "Coffee Maker",
 	tiles = {
-		"mp_cof_top.png",
-		"mp_cof_bottom.png",
-		"mp_cof_right.png",
-		"mp_cof_left.png",
-		"mp_cof_back.png",
-		"mp_cof_front.png"
+		"ma_pops_furniture_cof_top.png",
+		"ma_pops_furniture_cof_bottom.png",
+		"ma_pops_furniture_cof_right.png",
+		"ma_pops_furniture_cof_left.png",
+		"ma_pops_furniture_cof_back.png",
+		"ma_pops_furniture_cof_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -365,12 +365,12 @@ minetest.register_node("ma_pops_furniture:coffee_maker", {
 minetest.register_node("ma_pops_furniture:toaster", {
    description = "Toaster",
    tiles = {
-		"mp_toas_top.png",
-		"mp_toas_bottom.png",
-		"mp_toas_right.png",
-		"mp_toas_left.png",
-		"mp_toas_back.png",
-		"mp_toas_front.png"
+		"ma_pops_furniture_toas_top.png",
+		"ma_pops_furniture_toas_bottom.png",
+		"ma_pops_furniture_toas_right.png",
+		"ma_pops_furniture_toas_left.png",
+		"ma_pops_furniture_toas_back.png",
+		"ma_pops_furniture_toas_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -388,12 +388,12 @@ minetest.register_node("ma_pops_furniture:toaster", {
 minetest.register_node("ma_pops_furniture:kitchen_faucet", {
    description = "Kitchen Faucet",
    tiles = {
-		"mp_grif_top.png",
-		"mp_grif_sides.png",
-		"mp_grif_sides.png",
-		"mp_grif_sides.png",
-		"mp_grif_sides.png",
-		"mp_grif_sides.png"
+		"ma_pops_furniture_grif_top.png",
+		"ma_pops_furniture_grif_sides.png",
+		"ma_pops_furniture_grif_sides.png",
+		"ma_pops_furniture_grif_sides.png",
+		"ma_pops_furniture_grif_sides.png",
+		"ma_pops_furniture_grif_sides.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -414,12 +414,12 @@ minetest.register_node("ma_pops_furniture:kitchen_faucet", {
 minetest.register_node("ma_pops_furniture:fridge", {
 	description= "Fridge",
 	tiles = {
-		"mp_fridge_top.png",
-		"mp_fridge_bottom.png",
-		"mp_fridge_right.png",
-		"mp_fridge_left.png",
-		"mp_fridge_back.png",
-		"mp_fridge_front.png"
+		"ma_pops_furniture_fridge_top.png",
+		"ma_pops_furniture_fridge_bottom.png",
+		"ma_pops_furniture_fridge_right.png",
+		"ma_pops_furniture_fridge_left.png",
+		"ma_pops_furniture_fridge_back.png",
+		"ma_pops_furniture_fridge_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -480,8 +480,8 @@ for i in ipairs (chair2_table) do
     local color = chair2_table[i][2]
     local hex = chair2_table[i][3]
 
-local cb = "^([combine:16x16:0,0=mp_cb.png^[mask:mp_mask.png)"
-local cf = "^([combine:16x16:0,0=mp_cf.png^[mask:mp_mask.png)"
+local cb = "^([combine:16x16:0,0=ma_pops_furniture_cb.png^[mask:ma_pops_furniture_mask.png)"
+local cf = "^([combine:16x16:0,0=ma_pops_furniture_cf.png^[mask:ma_pops_furniture_mask.png)"
 
 minetest.register_node("ma_pops_furniture:chair2_"..color, {
     description = name.." Arm Chair",

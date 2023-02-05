@@ -4,7 +4,7 @@
 local microwave_fs = 
 	"size[8,7]"
 	.."button[6.5,1.5;1.5,2;btn_start;START]"
-    .."image[6.5,.2;1.5,.5;mp_mw_bar.png^[transformR270]"
+    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[transformR270]"
 	.."list[current_player;main;0,3;8,1;]"
     .."list[current_player;main;0,4.25;8,3;8]"
 	.."list[context;cook_slot;3.5,1.25;1,1;]"
@@ -14,8 +14,8 @@ local microwave_fs =
 local function get_active_microwave_fs(item_percent)
     return "size[8,7]"
 	    .."button[6.5,1.5;1.5,2;button_start;START]"
-	    .."image[6.5,.2;1.5,.5;mp_mw_bar.png^[lowpart:"
-	    ..(item_percent)..":mp_mw_bar_on.png^[transformR270]"
+	    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[lowpart:"
+	    ..(item_percent)..":ma_pops_furniture_mw_bar_on.png^[transformR270]"
 	    .."list[current_player;main;0,3;8,1;]"
         .."list[current_player;main;0,4.25;8,3;8]"
 	    .."list[context;cook_slot;3.5,1.25;1,1;]"
@@ -69,7 +69,14 @@ end
 
 minetest.register_node("ma_pops_furniture:microwave", {
 	description = "Microwave",
-	tiles = {"mp_mw_top.png", "mp_mw_bottom.png", "mp_mw_right.png", "mp_mw_left.png", "mp_mw_back.png", "mp_mw_front.png"},
+	tiles = {
+		"ma_pops_furniture_mw_top.png",
+		"ma_pops_furniture_mw_bottom.png",
+		"ma_pops_furniture_mw_right.png",
+		"ma_pops_furniture_mw_left.png",
+		"ma_pops_furniture_mw_back.png",
+		"ma_pops_furniture_mw_front.png"
+	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2}, -- currently no pipeworks compat as I don't know how it works
 	sounds = default.node_sound_stone_defaults(),

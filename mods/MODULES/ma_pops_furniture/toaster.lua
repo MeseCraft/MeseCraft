@@ -4,12 +4,12 @@ local S = ma_pops_furniture.intllib
 minetest.register_node("ma_pops_furniture:toaster", {
 	description = S("Toaster"),
 	tiles = {
-		"mp_toas_top.png",
-		"mp_toas_bottom.png",
-		"mp_toas_right.png",
-		"mp_toas_left.png",
-		"mp_toas_back.png",
-		"mp_toas_front.png"
+		"ma_pops_furniture_toas_top.png",
+		"ma_pops_furniture_toas_bottom.png",
+		"ma_pops_furniture_toas_right.png",
+		"ma_pops_furniture_toas_left.png",
+		"ma_pops_furniture_toas_back.png",
+		"ma_pops_furniture_toas_front.png"
 	},
 	walkable = false,
 	groups = { snappy=3 },
@@ -60,7 +60,7 @@ if minetest.registered_items["farming:bread_slice"] then
 else
 	minetest.register_craftitem("ma_pops_furniture:breadslice", {
 		description = S("Slice of Bread"),
-		inventory_image = "mp_breadslice.png",
+		inventory_image = "ma_pops_furniture_breadslice.png",
 		groups = {flammable = 2},
 		on_use = breadslice_on_use,
 	})
@@ -71,7 +71,7 @@ if minetest.registered_items["farming:toast"] then
 else
 	minetest.register_craftitem("ma_pops_furniture:toast", {
 		description = S("Toast"),
-		inventory_image = "mp_toast.png",
+		inventory_image = "ma_pops_furniture_toast.png",
 		on_use = minetest.item_eat(3),
 		groups = {flammable = 2},
 	})
@@ -80,12 +80,12 @@ end
 minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 	description = S("Toaster with Breadslice"),
 	tiles = {
-		"mp_toas_top_bread.png",
-		"mp_toas_bottom.png",
-		"mp_toas_right_bread.png",
-		"mp_toas_left_bread.png",
-		"mp_toas_back_bread.png",
-		"mp_toas_front_bread.png"
+		"ma_pops_furniture_toas_top_bread.png",
+		"ma_pops_furniture_toas_bottom.png",
+		"ma_pops_furniture_toas_right_bread.png",
+		"ma_pops_furniture_toas_left_bread.png",
+		"ma_pops_furniture_toas_back_bread.png",
+		"ma_pops_furniture_toas_front_bread.png"
 	},
 	walkable = false,
 	groups = {not_in_creative_inventory=1},
@@ -119,12 +119,12 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 	description = S("Toaster Toasting Slice of Bread"),
 	tiles = {
-		"mp_toas_top_bread_on.png",
-		"mp_toas_bottom.png",
-		"mp_toas_right_bread.png",
-		"mp_toas_left_toast_side.png",
-		"mp_toas_back_side.png",
-		"mp_toas_front_side.png"
+		"ma_pops_furniture_toas_top_bread_on.png",
+		"ma_pops_furniture_toas_bottom.png",
+		"ma_pops_furniture_toas_right_bread.png",
+		"ma_pops_furniture_toas_left_toast_side.png",
+		"ma_pops_furniture_toas_back_side.png",
+		"ma_pops_furniture_toas_front_side.png"
 	},
 	walkable = false,
 	groups = {not_in_creative_inventory = 1 },
@@ -145,12 +145,12 @@ minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 minetest.register_node("ma_pops_furniture:toaster_with_toast", {
 	description = S("Toaster with Toast"),
 		tiles = {
-		"mp_toas_top_toast.png",
-		"mp_toas_bottom.png",
-		"mp_toas_right_toast.png",
-		"mp_toas_left_toast.png",
-		"mp_toas_back_toast.png",
-		"mp_toas_front_toast.png"
+		"ma_pops_furniture_toas_top_toast.png",
+		"ma_pops_furniture_toas_bottom.png",
+		"ma_pops_furniture_toas_right_toast.png",
+		"ma_pops_furniture_toas_left_toast.png",
+		"ma_pops_furniture_toas_back_toast.png",
+		"ma_pops_furniture_toas_front_toast.png"
 	},
 	walkable = false,
 	groups = { snappy=3, not_in_creative_inventory=1 },

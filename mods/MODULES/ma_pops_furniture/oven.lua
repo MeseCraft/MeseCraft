@@ -76,12 +76,12 @@ end
 minetest.register_node("ma_pops_furniture:oven", {
 	description = "Oven",
 	tiles = {
-		"mp_oven_top.png",
-		"mp_oven_bottom.png",
-		"mp_oven_right.png",
-		"mp_oven_left.png",
-		"mp_oven_back.png",
-		"mp_oven_front.png"
+		"ma_pops_furniture_oven_top.png",
+		"ma_pops_furniture_oven_bottom.png",
+		"ma_pops_furniture_oven_right.png",
+		"ma_pops_furniture_oven_left.png",
+		"ma_pops_furniture_oven_back.png",
+		"ma_pops_furniture_oven_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},

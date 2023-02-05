@@ -139,12 +139,12 @@ end
 minetest.register_node("ma_pops_furniture:freezer", {
 	description = "Freezer",
 	tiles = {
-		"mp_froz_top.png",
-		"mp_froz_bottom.png",
-		"mp_froz_right.png",
-		"mp_froz_left.png",
-		"mp_froz_back.png",
-		"mp_froz_front.png"
+		"ma_pops_furniture_froz_top.png",
+		"ma_pops_furniture_froz_bottom.png",
+		"ma_pops_furniture_froz_right.png",
+		"ma_pops_furniture_froz_left.png",
+		"ma_pops_furniture_froz_back.png",
+		"ma_pops_furniture_froz_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
