@@ -6,7 +6,10 @@ local oven_fs = "size[8,7]"
     .."label[3,0.5;Oven]"
     .."label[1.5,1;Uncooked Food]"
     .."label[4.5,1;Cooked Food]"
-    -- possibly add "fire" image?
+    .."listring[context;output]"
+    .."listring[current_player;main]"
+    .."listring[context;input]"
+    .."listring[current_player;main]"
 
 local function get_active_oven_fs(item_percent)
     return "size[8,7]"
@@ -18,7 +21,10 @@ local function get_active_oven_fs(item_percent)
         .."label[3,0.5;Oven]"
         .."label[1.5,1;Uncooked Food]"
         .."label[4.5,1;Cooked Food]"
-        -- possibly add "fire" image?
+        .."listring[context;output]"
+        .."listring[current_player;main]"
+        .."listring[context;input]"
+        .."listring[current_player;main]"
 end
 
 --x,y;w,h

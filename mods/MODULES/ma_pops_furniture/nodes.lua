@@ -191,8 +191,9 @@ minetest.register_node("ma_pops_furniture:mirror", {
 		meta:set_string('formspec',
 			'size [9,10]'..
 			'bgcolor[#080808BB;true]'..
-			'list[current_name;storage;3,1.5;3,3;]'..
-			'list[current_player;main;0.5,6.5;8,4;]')
+			'list[context;storage;3,1.5;3,3;]'..
+			'list[current_player;main;0.5,6.5;8,4;]'..
+			'listring[]')
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -436,8 +437,9 @@ minetest.register_node("ma_pops_furniture:fridge", {
 			default.gui_bg_img..
 			default.gui_slots..
 			'bgcolor[#080808BB;true]'..
-			'list[current_name;storage;1.5,1;6,4;]'..
-			'list[current_player;main;0.5,6;8,4;]')
+			'list[context;storage;1.5,1;6,4;]'..
+			'list[current_player;main;0.5,6;8,4;]'..
+			'listring[]')
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);

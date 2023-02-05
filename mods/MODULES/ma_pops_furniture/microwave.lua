@@ -9,6 +9,8 @@ local microwave_fs =
     .."list[current_player;main;0,4.25;8,3;8]"
 	.."list[context;cook_slot;3.5,1.25;1,1;]"
 	.."label[3,0.5;Microwave]"
+	.."listring[context;cook_slot]"
+	.."listring[current_player;main]"
  -- possibly add "fire" image?
 
 local function get_active_microwave_fs(item_percent)
@@ -20,6 +22,8 @@ local function get_active_microwave_fs(item_percent)
         .."list[current_player;main;0,4.25;8,3;8]"
 	    .."list[context;cook_slot;3.5,1.25;1,1;]"
         .."label[3,0.5;Microwave]"
+         .."listring[context;cook_slot]"
+         .."listring[current_player;main]"
         -- possibly add "fire" image?
 end
 
