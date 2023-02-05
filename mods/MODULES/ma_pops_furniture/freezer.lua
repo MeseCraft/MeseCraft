@@ -117,13 +117,24 @@ local function freezer_node_timer(pos, elapsed)
 	--
 
 	-- takes both regular and river water
-	if inv:contains_item("src", "mesecraft_bucket:bucket_water") or 
+	if inv:contains_item("src", "mesecraft_bucket:bucket_water") or
 	      inv:contains_item("src", "mesecraft_bucket:bucket_river_water") then
-		if inv:room_for_item("dst", "default:ice") then
+		if inv:room_for_item("dst", "default:ice") and
+			 inv:room_for_item("dst", "mesecraft_bucket:bucket_empty") then
 			inv:remove_item("src", "mesecraft_bucket:bucket_water")
 			inv:remove_item("src", "mesecraft_bucket:bucket_river_water")
 			inv:add_item("dst", "default:ice")
 			inv:add_item("dst", "mesecraft_bucket:bucket_empty")
+	      end
+	end
+
+	-- support for water source
+	if inv:contains_item("src", "default:water_source") or
+	      inv:contains_item("src", "default:river_water_source") then
+		if inv:room_for_item("dst", "default:ice") then
+			inv:remove_item("src", "default:water_source")
+			inv:remove_item("src", "default:river_water_source")
+			inv:add_item("dst", "default:ice")
 	      end
 	end
 	      
