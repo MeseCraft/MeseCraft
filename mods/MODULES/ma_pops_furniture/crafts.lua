@@ -75,9 +75,9 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'ma_pops_furniture:oven',
 	recipe = {
-	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
 	{'default:steel_ingot','default:furnace','default:steel_ingot',},
-	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
 	}
 })
 --added craft
@@ -94,7 +94,7 @@ minetest.register_craft({
 	output = 'ma_pops_furniture:microwave',
 	recipe = {
 	{'','','',},
-	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	{"default:steel_ingot", "default:mese", "default:steel_ingot"},
 	{'default:steel_ingot','default:furnace','default:steel_ingot',},
 	}
 })

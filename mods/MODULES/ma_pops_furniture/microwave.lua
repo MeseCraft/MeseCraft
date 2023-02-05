@@ -153,15 +153,6 @@ minetest.register_node("ma_pops_furniture:microwave", {
     end
 })
 
-minetest.register_craft({
-	output = "ma_pops_furniture:microwave",
-	recipe = {
-		{"default:steel_ingot", "default:mese_crystal", "default:steel_ingot"},
-		{"default:steel_ingot", "", "default:steel_ingot"},
-		{"default:steel_ingot", "default:mese_crystal", "default:steel_ingot"}
-	}
-})
-
 -- Recipe Registration
 microwave.register_recipe("default:ice", "default:water_source")
 -- No milk bucket as this doesn't support substitutes for now
@@ -170,4 +161,18 @@ microwave.register_recipe("mobs_mc:chicken_raw", "test:chicken_cooked")
 Recipe won't even be executed if there is no raw chicken in input ]]--
 microwave.register_recipe("mobs_mc:beef_raw", "test:beef_cooked")
 microwave.register_recipe("farming:coffee_cup", "farming:coffee_cup_hot") -- What a crutch there was...
+
+-- Added for MeseCraft
+microwave.register_recipe("mobs:meat_raw", "mobs:meat")
+microwave.register_recipe("mobs_creatures:pork_raw", "mobs_creatures:pork_cooked")
+microwave.register_recipe("mobs_creatures:mutton_raw", "mobs_creatures:mutton_cooked")
+microwave.register_recipe("mobs_creatures:rabbit_raw", "mobs_creatures:rabbit_cooked")
+microwave.register_recipe("mobs_creatures:chicken_raw", "mobs_creatures:chicken_cooked")
+microwave.register_recipe("mobs_creatures:snapper_raw", "mobs_creatures:snapper_cooked")
+microwave.register_recipe("mobs_creatures:salmon_raw", "mobs_creatures:salmon_cooked")
+microwave.register_recipe("mobs_creatures:clownfish_raw", "mobs_creatures:clownfish_cooked")
+microwave.register_recipe("mobs_creatures:cod_raw", "mobs_creatures:cod_cooked")
+microwave.register_recipe("farming:corn", "farming:corn_cob")
+microwave.register_recipe("farming:potato", "farming:baked_potato")
+
 -- Add needed recipes as you go, note that other mods can add more recipes too

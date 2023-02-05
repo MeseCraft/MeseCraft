@@ -160,4 +160,26 @@ oven.register_recipe("mobs_mc:chicken_raw", "test:chicken_cooked")
 Recipe won't even be executed if there is no raw chicken in input ]]--
 oven.register_recipe("mobs_mc:beef_raw", "test:beef_cooked")
 oven.register_recipe("farming:coffee_cup", "farming:coffee_cup_hot") -- What a crutch there was...
+
+-- Added for MeseCraft
+oven.register_recipe("mobs:meat_raw", "mobs:meat")
+oven.register_recipe("mobs_creatures:pork_raw", "mobs_creatures:pork_cooked")
+oven.register_recipe("mobs_creatures:mutton_raw", "mobs_creatures:mutton_cooked")
+oven.register_recipe("mobs_creatures:rabbit_raw", "mobs_creatures:rabbit_cooked")
+oven.register_recipe("mobs_creatures:chicken_raw", "mobs_creatures:chicken_cooked")
+oven.register_recipe("mobs_creatures:snapper_raw", "mobs_creatures:snapper_cooked")
+oven.register_recipe("mobs_creatures:salmon_raw", "mobs_creatures:salmon_cooked")
+oven.register_recipe("mobs_creatures:clownfish_raw", "mobs_creatures:clownfish_cooked")
+oven.register_recipe("mobs_creatures:cod_raw", "mobs_creatures:cod_cooked")
+oven.register_recipe("farming:flour", "farming:bread")
+oven.register_recipe("farming:rice_flour", "farming:rice_bread")
+oven.register_recipe("farming:flour_multigrain", "farming:bread_multigrain")
+oven.register_recipe("df_farming:cave_flour", "df_farming:cave_bread")
+oven.register_recipe("christmas_holiday_pack:gingerbread_dough", "christmas_holiday_pack:gingerbread")
+oven.register_recipe("farming:pumpkin_dough", "farming:pumpkin_bread")
+oven.register_recipe("default:clay_lump", "default:clay_brick")
+oven.register_recipe("default:clay", "mesecraft_baked_clay:natural")
+oven.register_recipe("farming:corn", "farming:corn_cob")
+oven.register_recipe("farming:potato", "farming:baked_potato")
+
 -- Add needed recipes as you go, note that other mods can add more recipes too
