@@ -15,13 +15,13 @@ minetest.register_node('ma_pops_furniture:toilet_open', {
 		type = 'fixed',
 		fixed = {
 			{-.35, -.5, -.35, .35, 0, .5}, -- Right, Bottom, Back, Left, Top, Front
-			{-.35, 0, .2, .35, .5, .5},
+			{-.35, 0, .15, .35, .5, .5},
 			}
 		},
 	collision_box = {
 		fixed = {
 			{-.35, -.5, -.35, .35, 0, .5}, -- Right, Bottom, Back, Left, Top, Front
-			{-.35, 0, .2, .35, .5, .5},
+			{-.35, 0, .15, .35, .5, .5},
 			}
 		},
 	on_rightclick = ma_pops_furniture.sit,
@@ -43,14 +43,14 @@ minetest.register_node('ma_pops_furniture:toilet_close', {
 	selection_box = {
 		type = 'fixed',
 		fixed = {
-			{-.35, -.5, -.35, .35, 0, .5}, -- Right, Bottom, Back, Left, Top, Front
-			{-.35, 0, .2, .35, .5, .5},
+			{-.35, -.5, -.35, .35, .1, .5}, -- Right, Bottom, Back, Left, Top, Front
+			{-.35, .1, .25, .35, .5, .5},
 			}
 		},
 	collision_box = {
 		fixed = {
-			{-.35, -.5, -.35, .35, 0, .5}, -- Right, Bottom, Back, Left, Top, Front
-			{-.35, 0, .2, .35, .5, .5},
+			{-.35, -.5, -.35, .35, .1, .5}, -- Right, Bottom, Back, Left, Top, Front
+			{-.35, .1, .25, .35, .5, .5},
 			}
 		},
 	on_rightclick = ma_pops_furniture.sit,
