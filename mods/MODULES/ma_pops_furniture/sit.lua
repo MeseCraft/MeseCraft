@@ -18,6 +18,21 @@ local set_player_fixed = function (player, is_fixed)
 	player:set_physics_override(ov)
 end
 
+if player_monoids then
+	local id = "ma_pops_furniture:sitting"
+	set_player_fixed = function (player, is_fixed)
+		if is_fixed then
+			player_monoids.speed:add_change(player, 0, id)
+			player_monoids.jump:add_change(player, 0, id)
+			player_monoids.gravity:add_change(player, 0, id)
+		else
+			player_monoids.speed:del_change(player, id)
+			player_monoids.jump:del_change(player, id)
+			player_monoids.gravity:del_change(player, id)
+		end
+	end
+end
+
 function ma_pops_furniture.sit(pos, node, clicker)
 	local meta = minetest.get_meta(pos)
 	local param2 = node.param2
