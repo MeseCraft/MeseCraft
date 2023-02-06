@@ -109,3 +109,12 @@ minetest.register_node("ma_pops_furniture:mirror", {
        },
    }
 })
+
+minetest.register_craft({
+	output = 'ma_pops_furniture:mirror_closed',
+	recipe = {
+	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	{'default:glass','default:glass','default:glass',},
+	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	}
+})

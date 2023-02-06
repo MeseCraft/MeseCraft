@@ -12,7 +12,7 @@ minetest.register_node("ma_pops_furniture:toaster", {
 		"ma_pops_furniture_toas_front.png"
 	},
 	walkable = false,
-	groups = { snappy=3 },
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -88,7 +88,7 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 		"ma_pops_furniture_toas_front_bread.png"
 	},
 	walkable = false,
-	groups = {not_in_creative_inventory=1},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory=1},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -127,7 +127,7 @@ minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 		"ma_pops_furniture_toas_front_side.png"
 	},
 	walkable = false,
-	groups = {not_in_creative_inventory = 1 },
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory = 1 },
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -153,7 +153,7 @@ minetest.register_node("ma_pops_furniture:toaster_with_toast", {
 		"ma_pops_furniture_toas_front_toast.png"
 	},
 	walkable = false,
-	groups = { snappy=3, not_in_creative_inventory=1 },
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory=1 },
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -181,7 +181,7 @@ minetest.register_craft({
 	recipe = {
 	{'','','',},
 	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
-	{'default:steel_ingot','mesecraft_bucket:bucket_lava','default:steel_ingot',},
+	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	}
 })
 	

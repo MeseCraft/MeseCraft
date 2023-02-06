@@ -1,13 +1,14 @@
 ma_pops_furniture = {}
 
 dofile(minetest.get_modpath('ma_pops_furniture')..'/sit.lua')
-dofile(minetest.get_modpath('ma_pops_furniture')..'/crafts.lua')
-dofile(minetest.get_modpath('ma_pops_furniture')..'/nodes.lua')
+dofile(minetest.get_modpath('ma_pops_furniture')..'/kitchen_bath.lua')
+dofile(minetest.get_modpath('ma_pops_furniture')..'/armchair.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/fridge.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/freezer.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/mirror.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/microwave.lua')
 dofile(minetest.get_modpath('ma_pops_furniture')..'/oven.lua')
+dofile(minetest.get_modpath('ma_pops_furniture')..'/toilet.lua')
 
 
 --GreenDimond's code from waffle mod

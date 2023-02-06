@@ -168,6 +168,47 @@ minetest.register_node("ma_pops_furniture:oven", {
 	end,
 })
 
+minetest.register_craft({
+	output = 'ma_pops_furniture:oven',
+	recipe = {
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
+	{'default:steel_ingot','default:furnace','default:steel_ingot',},
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
+	}
+})
+
+minetest.register_node("ma_pops_furniture:oven_overhead", {
+	description= "Oven Overhead",
+	tiles = {
+		"ma_pops_furniture_camp_top.png",
+		"ma_pops_furniture_camp_bottom.png",
+		"ma_pops_furniture_camp_left.png",
+		"ma_pops_furniture_camp_right.png",
+		"ma_pops_furniture_camp_back.png",
+		"ma_pops_furniture_camp_front.png"
+	},
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.4375, 0.4375, -0.4375, 0.4375, 0.5, 0.4375}, 
+			{-0.5, 0.25, -0.5, 0.5, 0.4375, 0.5}, 
+		}
+	}
+})
+
+minetest.register_craft({
+	output = 'ma_pops_furniture:oven_overhead',
+	recipe = {
+	{'default:steel_ingot','default:mese_crystal_fragment','default:steel_ingot',},
+	{'','','',},
+	{'','','',},
+	}
+})
+
 -- Recipe Registration
 oven.register_recipe("default:ice", "default:water_source")
 -- No milk bucket as this doesn't support substitutes for now

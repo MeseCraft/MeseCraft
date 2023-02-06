@@ -79,3 +79,12 @@ minetest.register_node("ma_pops_furniture:fridge", {
 		}
 	}
 })
+
+minetest.register_craft({
+	output = 'ma_pops_furniture:fridge',
+	recipe = {
+	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	{'default:steel_ingot','default:snow','default:steel_ingot',},
+	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
+	}
+})

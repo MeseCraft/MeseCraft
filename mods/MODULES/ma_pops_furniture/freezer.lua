@@ -230,6 +230,15 @@ minetest.register_node("ma_pops_furniture:freezer", {
 })
 	      
 minetest.register_craft({
+	output = 'ma_pops_furniture:freezer',
+	recipe = {
+	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
+	{'default:steel_ingot','default:ice','default:steel_ingot',},
+	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
+	}
+})
+
+minetest.register_craft({
       output = "default:snowblock 3",
       type = "shapeless",
       recipe = {
