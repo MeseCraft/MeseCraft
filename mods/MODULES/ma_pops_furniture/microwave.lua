@@ -1,3 +1,7 @@
+local S = ma_pops_furniture.intllib
+
+--Microwave--
+
 --microwave code by Wizzerine
 --item_percent code by Noodlemire
 
@@ -8,7 +12,7 @@ local microwave_fs =
 	.."list[current_player;main;0,3;8,1;]"
     .."list[current_player;main;0,4.25;8,3;8]"
 	.."list[context;cook_slot;3.5,1.25;1,1;]"
-	.."label[3,0.5;Microwave]"
+	.."label[3,0.5;"..S("Microwave").."]"
 	.."listring[context;cook_slot]"
 	.."listring[current_player;main]"
 
@@ -20,7 +24,7 @@ local function get_active_microwave_fs(item_percent)
 	    .."list[current_player;main;0,3;8,1;]"
         .."list[current_player;main;0,4.25;8,3;8]"
 	    .."list[context;cook_slot;3.5,1.25;1,1;]"
-        .."label[3,0.5;Microwave]"
+	   .."label[3,0.5;"..S("Microwave").."]"
          .."listring[context;cook_slot]"
          .."listring[current_player;main]"
 end
@@ -70,7 +74,7 @@ local function do_cook_all(pos)
 end
 
 minetest.register_node("ma_pops_furniture:microwave", {
-	description = "Microwave",
+	description = S("Microwave"),
 	tiles = {
 		"ma_pops_furniture_mw_top.png",
 		"ma_pops_furniture_mw_bottom.png",

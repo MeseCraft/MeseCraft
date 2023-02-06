@@ -1,3 +1,6 @@
+local S = ma_pops_furniture.intllib
+
+--Mirror (a.k.a. Medicine Cabinet)--
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	if minetest.is_protected(pos, player:get_player_name()) then
 		return 0
@@ -32,7 +35,7 @@ local formspec = 'size [9,10]'..
                  'listring[]'
 
 minetest.register_node("ma_pops_furniture:mirror_closed", {
-   description = "Mirror",
+   description = S("Mirror"),
    tiles = {
 		"ma_pops_furniture_mirror_top.png",
 		"ma_pops_furniture_mirror_bottom.png",
@@ -66,7 +69,7 @@ minetest.register_node("ma_pops_furniture:mirror_closed", {
 })
 
 minetest.register_node("ma_pops_furniture:mirror", {
-   description = "Mirror (Open)",
+   description = S("Mirror (Open)"),
    tiles = {
 		"ma_pops_furniture_mirror_open_top.png",
 		"ma_pops_furniture_mirror_open_bottom.png",

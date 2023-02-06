@@ -1,12 +1,7 @@
---
--- Freezer for mintest: a device which turns water (in buckets) into ice
--- And does a couple of other tricks, discovering which is left as a pleasant
--- surprise for the player.
---
+local S = ma_pops_furniture.intllib
 
--- enable extra popsicle types provided there are both vessels and fruits/veggies available
--- fruit + glass -> juice; juice @ freezer -> popsicle + empty glass
- 
+--Freezer--
+
 --
 -- Formspecs
 --
@@ -148,7 +143,7 @@ end
 --
 
 minetest.register_node("ma_pops_furniture:freezer", {
-	description = "Freezer",
+	description = S("Freezer"),
 	tiles = {
 		"ma_pops_furniture_froz_top.png",
 		"ma_pops_furniture_froz_bottom.png",

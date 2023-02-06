@@ -1,6 +1,10 @@
+local S = ma_pops_furniture.intllib
+
+--All manner of water using items, divided by room--
+
 --Bathroom--
 minetest.register_node("ma_pops_furniture:bath_faucet", {
-   description = "Bathroom Faucet",
+   description = S("Bathroom Faucet"),
    tiles = {
 		"ma_pops_furniture_knob_top.png",
 		"ma_pops_furniture_knob_bottom.png",
@@ -36,7 +40,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:br_sink", {
-   description = "Sink (Bathroom)",
+   description = S("Sink (Bathroom)"),
    tiles = {
 		"ma_pops_furniture_hw_top.png",
 		"ma_pops_furniture_hw_bottom.png",
@@ -68,7 +72,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:shower_base", {
-   description = "Shower Base",
+   description = S("Shower Base"),
    tiles = {
 		"ma_pops_furniture_showbas_top.png",
 		"ma_pops_furniture_showbas_top.png",
@@ -113,7 +117,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:shower_top", {
-   description = "Shower Head",
+   description = S("Shower Head"),
    tiles = {
 		"ma_pops_furniture_shk_top.png",
 		"ma_pops_furniture_shk_bottom.png",
@@ -142,7 +146,7 @@ minetest.register_node("ma_pops_furniture:shower_top", {
 
 --Kitchen/Dining Room--
 minetest.register_node("ma_pops_furniture:dw", {
-	description= "Dishwasher",
+	description= S("Dishwasher"),
 	tiles = {
 		"ma_pops_furniture_dw_top.png",
 		"ma_pops_furniture_dw_bottom.png",
@@ -176,7 +180,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:coffee_maker", {
-	description = "Coffee Maker",
+	description = S("Coffee Maker"),
 	tiles = {
 		"ma_pops_furniture_cof_top.png",
 		"ma_pops_furniture_cof_bottom.png",
@@ -211,7 +215,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:kitchen_faucet", {
-   description = "Kitchen Faucet",
+   description = S("Kitchen Faucet"),
    tiles = {
 		"ma_pops_furniture_grif_top.png",
 		"ma_pops_furniture_grif_sides.png",
@@ -247,7 +251,7 @@ minetest.register_craft({
 
 --Outside--
 minetest.register_node('ma_pops_furniture:birdbath', {
-	description = 'Birdbath',
+	description = S('Birdbath'),
 	drawtype = 'mesh',
 	mesh = 'FM_birdbath.obj',
 	tiles = {{name='default_stone.png'},{name='default_water_source_animated.png', animation={type='vertical_frames', aspect_w=16, aspect_h=16, length=2.0}}},

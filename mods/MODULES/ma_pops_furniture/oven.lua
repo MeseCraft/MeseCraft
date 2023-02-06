@@ -1,11 +1,14 @@
+local S = ma_pops_furniture.intllib
+
+--Oven with recipe API--
 local oven_fs = "size[8,7]"
     .."image[3.5,1.5;1,1;default_furnace_fire_bg.png]"
     .."list[current_player;main;0,3;8,4;]"
     .."list[context;input;2,1.5;1,1;]"
     .."list[context;output;5,1.5;1,1;]"
-    .."label[3,0.5;Oven]"
-    .."label[1.5,1;Uncooked Food]"
-    .."label[4.5,1;Cooked Food]"
+    .."label[3,0.5;"..S("Oven").."]"
+    .."label[1.5,1;"..S("Uncooked Food").."]"
+    .."label[4.5,1;"..S("Cooked Food").."]"
     .."listring[context;output]"
     .."listring[current_player;main]"
     .."listring[context;input]"
@@ -18,9 +21,9 @@ local function get_active_oven_fs(item_percent)
         .."list[current_player;main;0,3;8,4;]"
         .."list[context;input;2,1.5;1,1;]"
         .."list[context;output;5,1.5;1,1;]"
-        .."label[3,0.5;Oven]"
-        .."label[1.5,1;Uncooked Food]"
-        .."label[4.5,1;Cooked Food]"
+        .."label[3,0.5;"..S("Oven").."]"
+        .."label[1.5,1;"..S("Uncooked Food").."]"
+        .."label[4.5,1;"..S("Cooked Food").."]"
         .."listring[context;output]"
         .."listring[current_player;main]"
         .."listring[context;input]"
@@ -69,7 +72,7 @@ local function do_cook_single(pos)
 
     --If the uncooked food wasn't removed mid-cooking, then cook it.
     if not oven.recipes[food_uncooked:get_name()] then
-        minetest.chat_send_all("Oven cooked nothing because there was nothing to cook.")
+        -- Oven cooked nothing because there was nothing to cook
         minetest.get_node_timer(pos):stop()
         update_formspec(0, 3, meta)
     else
@@ -80,7 +83,7 @@ local function do_cook_single(pos)
 end
 
 minetest.register_node("ma_pops_furniture:oven", {
-	description = "Oven",
+	description = S("Oven"),
 	tiles = {
 		"ma_pops_furniture_oven_top.png",
 		"ma_pops_furniture_oven_bottom.png",
@@ -178,7 +181,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:oven_overhead", {
-	description= "Oven Overhead",
+	description= S("Oven Overhead"),
 	tiles = {
 		"ma_pops_furniture_camp_top.png",
 		"ma_pops_furniture_camp_bottom.png",

@@ -1,5 +1,8 @@
+local S = ma_pops_furniture.intllib
+
+--Toilet and Toilet Paper Dispenser--
 minetest.register_node('ma_pops_furniture:toilet_open', {
-	description = 'Toilet',
+	description = S('Toilet'),
 	drawtype = 'mesh',
 	mesh = 'FM_toilet_open.obj',
 	tiles = {{name='default_coral_skeleton.png'},{name='default_wood.png'}},
@@ -29,7 +32,7 @@ minetest.register_node('ma_pops_furniture:toilet_open', {
 })
 
 minetest.register_node('ma_pops_furniture:toilet_close', {
-	description = 'Toilet',
+	description = S('Toilet'),
 	drawtype = 'mesh',
 	mesh = 'FM_toilet_close.obj',
 	tiles = {{name='default_coral_skeleton.png'},{name='default_wood.png'}},
@@ -67,7 +70,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("ma_pops_furniture:toilet_paper_roll_dispenser", {
-   description = "Toilet Paper Roll Dispenser",
+   description = S("Toilet Paper Roll Dispenser"),
    tiles = {
 		"ma_pops_furniture_tp_top.png",
 		"ma_pops_furniture_tp_bottom.png",

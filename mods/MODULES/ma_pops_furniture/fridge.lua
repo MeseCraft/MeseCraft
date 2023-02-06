@@ -1,3 +1,6 @@
+local S = ma_pops_furniture.intllib
+
+--Refridgerator--
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
 	if minetest.is_protected(pos, player:get_player_name()) then
 		return 0
@@ -26,7 +29,7 @@ local function allow_metadata_inventory_take(pos, listname, index, stack, player
 end
 
 minetest.register_node("ma_pops_furniture:fridge", {
-	description= "Fridge",
+	description= S("Fridge"),
 	tiles = {
 		"ma_pops_furniture_fridge_top.png",
 		"ma_pops_furniture_fridge_bottom.png",
