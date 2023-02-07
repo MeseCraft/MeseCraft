@@ -261,6 +261,10 @@ minetest.register_node('ma_pops_furniture:birdbath', {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+if thirsty and thirsty.config and thirsty.config.node_drinkable then
+	thirsty.config.node_drinkable['ma_pops_furniture:birdbath'] = true
+end
+
 minetest.register_craft({
 	output = 'ma_pops_furniture:birdbath',
 	recipe = {
