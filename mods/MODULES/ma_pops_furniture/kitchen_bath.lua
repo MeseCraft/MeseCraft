@@ -268,8 +268,8 @@ end
 minetest.register_craft({
 	output = 'ma_pops_furniture:birdbath',
 	recipe = {
-	{'','','',},
-	{'default:steel_ingot','mesecraft_bucket:bucket_water','default:steel_ingot',},
-	{'','default:steel_ingot','',},
+	{'default:stone','mesecraft_bucket:bucket_water','default:stone',},
+	{'','default:stone','',},
+	{'default:stone','default:stone','default:stone',},
 	}
 })
