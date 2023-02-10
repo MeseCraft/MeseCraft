@@ -24,7 +24,10 @@ minetest.register_node('ma_pops_furniture:toilet_open', {
 			{-.35, 0, .15, .35, .5, .5},
 			}
 		},
+	drop = 'ma_pops_furniture:toilet_close',
 	on_rightclick = ma_pops_furniture.sit,
+	can_dig = ma_pops_furniture.cannot_dig_while_sitting,
+	on_blast = ma_pops_furniture.unsit_on_blast,
 	on_punch = function (pos, node, puncher)
 		node.name = "ma_pops_furniture:toilet_close"
 		minetest.set_node(pos, node)
@@ -54,6 +57,8 @@ minetest.register_node('ma_pops_furniture:toilet_close', {
 			}
 		},
 	on_rightclick = ma_pops_furniture.sit,
+	can_dig = ma_pops_furniture.cannot_dig_while_sitting,
+	on_blast = ma_pops_furniture.unsit_on_blast,
 	on_punch = function (pos, node, puncher)
 		node.name = "ma_pops_furniture:toilet_open"
 		minetest.set_node(pos, node)

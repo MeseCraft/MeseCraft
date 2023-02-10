@@ -36,6 +36,9 @@ minetest.register_node("ma_pops_furniture:chair2_"..color, {
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, armchair = 1, furniture = 1, fall_damage_add_percent=-80, bouncy=80},
 	sounds = {wood = {name="furn_bouncy", gain=0.8}},
     on_rightclick = ma_pops_furniture.sit,
+    can_dig = ma_pops_furniture.cannot_dig_while_sitting,
+    on_blast = ma_pops_furniture.unsit_on_blast,
+
     node_box = {
         type = "fixed",
         fixed = {
