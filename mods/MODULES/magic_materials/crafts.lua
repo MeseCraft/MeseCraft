@@ -162,7 +162,7 @@ minetest.register_craft({
         {"mesecraft_bucket:bucket_lava", "magic_materials:enchanted_rune", "mesecraft_bucket:bucket_lava"},
         {"default:mese_crystal", "mesecraft_bucket:bucket_lava", "default:mese_crystal"},
     },
-    replacements = {{ "mesecraft_bucket:bucket_lava", "mesecraft_bucket:bucket_empty"}}
+    replacements = {{ "mesecraft_bucket:bucket_lava", "mesecraft_bucket:bucket_empty 4"}},
 })
 
 minetest.register_craft({
