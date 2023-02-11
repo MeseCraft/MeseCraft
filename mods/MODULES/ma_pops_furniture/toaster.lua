@@ -2,7 +2,7 @@ local S = ma_pops_furniture.intllib
 
 --Toaster and Toast--
 minetest.register_node("ma_pops_furniture:toaster", {
-	description = S("Toaster"),
+	description = S("Toaster (empty)"),
 	tiles = {
 		"ma_pops_furniture_toas_top.png",
 		"ma_pops_furniture_toas_bottom.png",
@@ -16,46 +16,41 @@ minetest.register_node("ma_pops_furniture:toaster", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", S("Toaster (empty)"))
+	end,
 	drawtype = "nodebox",
 	node_box = {
-       type = "fixed",
-       fixed = {
-           {-0.375, -0.5, 0, 0.375, -0.0625, 0.3125},
-		   {-0.4375, -0.1875, 0.0625, -0.375, -0.125, 0.25},
-       },
-   },
-})
-
-minetest.override_item("farming:bread", {
-	description = S("Bread"),
-})
-
-local function breadslice_on_use(itemstack, user, pointed_thing)
-	local node, pos
-	if pointed_thing.under then
-		pos = pointed_thing.under
-		node = minetest.get_node(pos)
-	end
-
-	local pname = user:get_player_name()
-
-	if node and pos and (node.name == "ma_pops_furniture:toaster") then
-		if minetest.is_protected(pos, pname) then
-			minetest.record_protection_violation(pos, pname)
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0, 0.375, -0.0625, 0.3125},
+			{-0.4375, -0.1875, 0.0625, -0.375, -0.125, 0.25},
+		},
+	},
+	on_punch = function (pos, node, player, pointed_thing)
+		local pname = player and player:get_player_name()
+		if pname then
+			minetest.chat_send_player(pname, "Place bread slices in toaster")
+		end
+	end,
+	on_rightclick = function(pos, node, clicker, itemstack)
+		if itemstack:get_name() == "ma_pops_furniture:breadslice" or itemstack:get_name() == "farming:bread_slice" then
+			local pname = clicker and clicker:get_player_name()
+			if minetest.is_protected(pos, pname) then
+				minetest.record_protection_violation(pos, pname)
 			else
 				if itemstack:get_count() >= 2 then
 					itemstack:take_item(2)
 					minetest.set_node(pos, {name = "ma_pops_furniture:toaster_with_breadslice", param2 = node.param2})
-				return itemstack
+				end
 			end
 		end
-	else
-		return minetest.do_item_eat(2, nil, itemstack, user, pointed_thing)
-	end
-end
+		return itemstack
+	end,
+})
 
 if minetest.registered_items["farming:bread_slice"] then
-	minetest.override_item("farming:bread_slice", {on_use = breadslice_on_use })
 	minetest.register_alias("ma_pops_furniture:breadslice", "farming:bread_slice")
 else
 	minetest.register_craftitem("ma_pops_furniture:breadslice", {
@@ -78,7 +73,7 @@ else
 end
 
 minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
-	description = S("Toaster with Breadslice"),
+	description = S("Toaster (with bread)"),
 	tiles = {
 		"ma_pops_furniture_toas_top_bread.png",
 		"ma_pops_furniture_toas_bottom.png",
@@ -92,6 +87,10 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", S("Toaster (with bread)"))
+	end,
 	diggable = false,
 	drawtype = "nodebox",
 	node_box = {
@@ -117,7 +116,7 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 })
 
 minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
-	description = S("Toaster Toasting Slice of Bread"),
+	description = S("Toaster (toasting)"),
 	tiles = {
 		"ma_pops_furniture_toas_top_bread_on.png",
 		"ma_pops_furniture_toas_bottom.png",
@@ -131,6 +130,10 @@ minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", S("Toaster (toasting)"))
+	end,
 	diggable = false,
 	drawtype = "nodebox",
 	node_box = {
@@ -143,7 +146,7 @@ minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 })
 
 minetest.register_node("ma_pops_furniture:toaster_with_toast", {
-	description = S("Toaster with Toast"),
+	description = S("Toaster (with toast)"),
 		tiles = {
 		"ma_pops_furniture_toas_top_toast.png",
 		"ma_pops_furniture_toas_bottom.png",
@@ -157,6 +160,10 @@ minetest.register_node("ma_pops_furniture:toaster_with_toast", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	is_ground_content = false,
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", S("Toaster (with toast)"))
+	end,
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
