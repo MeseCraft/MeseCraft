@@ -320,7 +320,7 @@ minetest.register_node("christmas_holiday_pack:green_stocking", {
 			end
 			digger:set_attribute("has_placed_stocking", "false")
 			minetest.remove_node(pos)
-			inv:add_item("main", "christmas_holiday_pack:stocking")
+			inv:add_item("main", "christmas_holiday_pack:green_stocking")
 		end
 	end
 })
