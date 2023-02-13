@@ -21,9 +21,9 @@ minetest.register_craft({
 minetest.register_craft({
       output = 'drinks:liquid_silo',
       recipe = {
-         {'drinks:liquid_barrel'},
-         {'drinks:liquid_barrel'},
-         {'drinks:liquid_barrel'}
+         {'default:steel_ingot','drinks:liquid_barrel','default:steel_ingot'},
+         {'default:steel_ingot','drinks:liquid_barrel','default:steel_ingot'},
+         {'default:steel_ingot','','default:steel_ingot'}
       }
 })
 
