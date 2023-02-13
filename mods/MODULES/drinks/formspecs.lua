@@ -9,8 +9,12 @@ function drinks.liquid_storage_formspec(fruit_name, fullness, max)
       'label[4.5,2.25;Take liquid ->]'..
       'label[2,3.2;(This empties the container completely)]'..
       'button[0,3;2,1;purge;Purge]'..
-      'list[current_name;src;6.5,1;1,1;]'..
-      'list[current_name;dst;6.5,2;1,1;]'..
-      'list[current_player;main;0,4;8,5;]'
+      'list[context;src;6.5,1;1,1;]'..
+      'list[context;dst;6.5,2;1,1;]'..
+      'list[current_player;main;0,4;8,5;]'..
+      'listring[context;dst]'..
+      'listring[current_player;main]'..
+      'listring[context;src]'..
+      'listring[current_player;main]'
    return formspec
 end
