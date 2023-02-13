@@ -4,7 +4,7 @@ lootchests.loot_table["lootchests_magic_materials:rune_chest"] = {
     {"magic_materials:arcanite_crystal", 16},
     {"magic_materials:enchanted_page", 2},
     {"magic_materials:enchanted_rune", 2},
-    {"magic_materials:enchanted_tome", 1},
+    {"magic_materials:enchanted_book", 1},
     {"magic_materials:enchanted_staff", 1},
     {"magic_materials:magic_root", 16},
     {"magic_materials:magic_flower", 16},
