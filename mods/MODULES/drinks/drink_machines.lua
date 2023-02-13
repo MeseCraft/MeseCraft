@@ -445,7 +445,10 @@ minetest.register_node('drinks:liquid_barrel', {
       end
    end,
    on_receive_fields = function(pos, formname, fields, sender)
-      if fields['purge'] then
+      local name = sender and sender:get_player_name()
+      if minetest.is_protected(pos, name) then
+         minetest.record_protection_violation(pos, name)
+      elseif fields['purge'] then
          local meta = minetest.get_meta(pos)
          local fullness = 0
          local fruit_name = 'no'
@@ -562,7 +565,10 @@ minetest.register_node('drinks:liquid_silo', {
       end
    end,
    on_receive_fields = function(pos, formname, fields, sender)
-      if fields['purge'] then
+      local name = sender and sender:get_player_name()
+      if minetest.is_protected(pos, name) then
+         minetest.record_protection_violation(pos, name)
+      elseif fields['purge'] then
          local meta = minetest.get_meta(pos)
          local fullness = 0
          local fruit_name = 'no'
