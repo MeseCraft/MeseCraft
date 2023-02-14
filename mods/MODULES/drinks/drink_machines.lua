@@ -35,6 +35,13 @@ local press_error_formspec = drinks.juice_press_formspec('You need to add more f
 
 local press_missing_formspec = drinks.juice_press_formspec('You need to place a liquid container below the juice press.')
 
+local set_fullness = function(meta, fullness, ves_vol)
+   local fruit_name = meta:get_string('fruit_name')
+   meta:set_string('fullness', fullness)
+   meta:set_string('infotext', (math.floor((fullness/ves_vol)*100))..' % full of '..fruit_name..' juice.')
+   meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, ves_vol))
+end
+
 minetest.register_node('drinks:juice_press', {
    description = 'Juice Press',
    _doc_items_longdesc = "A machine for creating drinks out of various fruits and vegetables.",
@@ -159,9 +166,7 @@ minetest.register_node('drinks:juice_press', {
                return
             else
                local fullness = fullness + 2
-               meta_u:set_string('fullness', fullness)
-               meta_u:set_string('infotext', (math.floor((fullness/128)*100))..' % full of '..fruit..' juice.')
-               meta_u:set_string('formspec', drinks.liquid_storage_formspec(fruit, fullness, 128))
+               set_fullness(meta_u, fullness, 128)
                if instack:get_count() >= 2 then
                   timer:start(4)
                else
@@ -252,13 +257,6 @@ function drinks.drinks_liquid_sub(liq_vol, ves_typ, ves_vol, pos, able_to_fill, 
    local fruit_name = meta:get_string('fruit_name')
    local inv = meta:get_inventory()
    local fullness = fullness - (liq_vol*able_to_fill)
-   meta:set_string('fullness', fullness)
-   meta:set_string('infotext', (math.floor((fullness/ves_vol)*100))..' % full of '..fruit_name..' juice.')
-   if ves_vol == 128 then
-      meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, 128))
-   elseif ves_vol == 256 then
-      meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, 256))
-   end
    if ves_typ == 'jcu' or ves_typ == 'jbo' or ves_typ == 'jsb' or ves_typ == 'jbu' then
       inv:set_stack('dst', 1, 'drinks:'..ves_typ..'_'..fruit..' '..able_to_fill)
       inv:set_stack('src', 1, outputstack..' '..leftover_count)
@@ -280,15 +278,11 @@ end
 function drinks.drinks_liquid_add(liq_vol, ves_typ, ves_vol, pos, inputcount, leftover_count, inputstack)
    local meta = minetest.get_meta(pos)
    local fullness = tonumber(meta:get_string('fullness'))
-   local fruit = meta:get_string('fruit')
-   local fruit_name = meta:get_string('fruit_name')
    local inv = meta:get_inventory()
-   local fullness = fullness + (liq_vol*inputcount)
-   meta:set_string('fullness', fullness)
    inv:set_stack('src', 1, ves_typ..' '..inputcount)
    inv:set_stack('dst', 1, inputstack..' '..leftover_count)
-   meta:set_string('infotext', (math.floor((fullness/ves_vol)*100))..' % full of '..fruit_name..' juice.')
-   meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, ves_vol))
+   fullness = fullness + (liq_vol*inputcount)
+   set_fullness(meta, fullness, ves_vol)
 end
 
 function drinks.drinks_liquid_avail_add(liq_vol, ves_typ, ves_vol, pos, inputstack, inputcount)
@@ -324,6 +318,29 @@ local empty_container = function(pos, name, liq_vol)
    meta:set_string('fruit', 'empty')
    meta:set_string('infotext', 'Empty '..name)
    meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, liq_vol or 0))
+end
+
+local allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+   local meta = minetest.get_meta(pos)
+   local inputstack = stack:get_name()
+   local inputcount = stack:get_count()
+   if listname == 'src' then --adding liquid
+      local valid = string.sub(inputstack, 1, 8)
+      if valid == 'drinks:j' then
+         return inputcount
+      else
+         return 0
+      end
+   elseif listname == 'dst' then --removing liquid
+      --make sure there is liquid to take_item
+      local juice = meta:get_string('fruit')
+      if juice ~= 'empty' then
+         local vessel_def = drinks.longname[inputstack]
+         return vessel_def and inputcount or 0
+      else
+         return 0
+      end
+   end
 end
 
 minetest.register_node('drinks:liquid_barrel', {
@@ -396,28 +413,7 @@ minetest.register_node('drinks:liquid_barrel', {
          return false
       end
    end,
-   allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-      local meta = minetest.get_meta(pos)
-      if listname == 'src' then --adding liquid
-         local inputstack = stack:get_name()
-         local inputcount = stack:get_count()
-         local valid = string.sub(inputstack, 1, 8)
-         if valid == 'drinks:j' then
-            return inputcount
-         else
-            return 0
-         end
-      elseif listname == 'dst' then --removing liquid
-         --make sure there is a liquid to remove
-         local juice = meta:get_string('fruit')
-         if juice ~= 'empty' then
-            local vessel_def = drinks.longname[inputstack]
-            return vessel_def and inputcount or 0
-         else
-            return 0
-         end
-      end
-   end,
+   allow_metadata_inventory_put = allow_metadata_inventory_put,
 })
 
 minetest.register_node('drinks:liquid_silo', {
@@ -490,26 +486,5 @@ minetest.register_node('drinks:liquid_silo', {
          return false
       end
    end,
-   allow_metadata_inventory_put = function(pos, listname, index, stack, player)
-      local meta = minetest.get_meta(pos)
-      local inputstack = stack:get_name()
-      local inputcount = stack:get_count()
-      if listname == 'src' then --adding liquid
-         local valid = string.sub(inputstack, 1, 8)
-         if valid == 'drinks:j' then
-            return inputcount
-         else
-            return 0
-         end
-      elseif listname == 'dst' then --removing liquid
-         --make sure there is liquid to take_item
-         local juice = meta:get_string('fruit')
-         if juice ~= 'empty' then
-            local vessel_def = drinks.longname[inputstack]
-            return vessel_def and inputcount or 0
-         else
-            return 0
-         end
-      end
-   end,
+   allow_metadata_inventory_put = allow_metadata_inventory_put,
 })
