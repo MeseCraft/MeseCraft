@@ -19,14 +19,17 @@ function drinks.liquid_storage_formspec(fruit_name, fullness, max)
 end
 
 function drinks.juice_press_formspec(action_desc)
+   local cup_req = drinks.shortname.jcu.size
+   local bottle_req = drinks.shortname.jbo.size
+   local bucket_req = drinks.shortname.jbu.size
    return
       'size[8,7]'..
       'label[1.5,0;'..minetest.formspec_escape(action_desc)..']' ..
       'label[4.3,.75;Put fruit here ->]'..
       'label[3.5,1.75;Put container here ->]'..
-      'label[0.2,1.8;4 fruits to a glass,]'..
-      'label[0.2,2.1;8 fruits to a bottle,]'..
-      'label[0.2,2.4;16 fruits to a bucket.]'..
+      'label[0.2,1.8;'..cup_req..' fruits to a glass,]'..
+      'label[0.2,2.1;'..bottle_req..' fruits to a bottle,]'..
+      'label[0.2,2.4;'..bucket_req..' fruits to a bucket.]'..
       'button[1,1;2,1;press;Start Juicing]'..
       'list[context;src;6.5,.5;1,1;]'..
       'list[context;dst;6.5,1.5;1,1;]'..
