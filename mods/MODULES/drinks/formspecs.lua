@@ -1,6 +1,6 @@
 function drinks.liquid_storage_formspec(fruit_name, fullness, max)
-	local formspec =
-   'size[8,8]'..
+   return
+      'size[8,8]'..
       'label[0,0;Fill with the drink of your choice,]'..
       'label[0,.4;you can only add more of the same type of drink.]'..
       'label[4.5,1.2;Add liquid ->]'..
@@ -16,5 +16,23 @@ function drinks.liquid_storage_formspec(fruit_name, fullness, max)
       'listring[current_player;main]'..
       'listring[context;src]'..
       'listring[current_player;main]'
-   return formspec
+end
+
+function drinks.juice_press_formspec(action_desc)
+   return
+      'size[8,7]'..
+      'label[1.5,0;'..minetest.formspec_escape(action_desc)..']' ..
+      'label[4.3,.75;Put fruit here ->]'..
+      'label[3.5,1.75;Put container here ->]'..
+      'label[0.2,1.8;4 fruits to a glass,]'..
+      'label[0.2,2.1;8 fruits to a bottle,]'..
+      'label[0.2,2.4;16 fruits to a bucket.]'..
+      'button[1,1;2,1;press;Start Juicing]'..
+      'list[context;src;6.5,.5;1,1;]'..
+      'list[context;dst;6.5,1.5;1,1;]'..
+      'list[current_player;main;0,3;8,4;]'..
+      'listring[context;dst]'..
+      'listring[current_player;main]'..
+      'listring[context;src]'..
+      'listring[current_player;main]'
 end

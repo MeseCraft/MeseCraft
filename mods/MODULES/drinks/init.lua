@@ -62,8 +62,6 @@ longname = {
    ['vessels:glass_bottle'] = {size = 4, name = 'jbo'},
    ['vessels:steel_bottle'] = {size = 4, name = 'jsb'},
    ['mesecraft_bucket:bucket_empty'] = {size = 16, name = 'jbu'},
-   ['thirsty:steel_canteen'] = {size = 20, name = 'thirsty:steel_canteen'},
-   ['thirsty:bronze_canteen'] = {size = 30, name = 'thirsty:bronze_canteen'},
 },
 }
 
@@ -196,6 +194,6 @@ drinks.register_item = function( name, template, def )
 end
 
 local MP = minetest.get_modpath('drinks')
+dofile(MP..'/formspecs.lua')
 dofile(MP..'/drinks.lua')
 dofile(MP..'/drink_machines.lua')
-dofile(MP..'/formspecs.lua')

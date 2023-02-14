@@ -27,44 +27,11 @@ minetest.register_craft({
       }
 })
 
-local press_idle_formspec =
-   'size[8,7]'..
-   'label[1.5,0;Organic juice is just a squish away.]' ..
-   'label[4.3,.75;Put fruit here ->]'..
-   'label[3.5,1.75;Put container here ->]'..
-   'label[0.2,1.8;4 fruits to a glass,]'..
-   'label[0.2,2.1;8 fruits to a bottle,]'..
-   'label[0.2,2.4;16 fruits to a bucket.]'..
-   'button[1,1;2,1;press;Start Juicing]'..
-   'list[current_name;src;6.5,.5;1,1;]'..
-   'list[current_name;dst;6.5,1.5;1,1;]'..
-   'list[current_player;main;0,3;8,4;]'
+local press_idle_formspec = drinks.juice_press_formspec('Organic juice is just a squish away.')
 
-local press_running_formspec =
-   'size[8,7]'..
-   'label[1.5,0;Organic juice coming right up.]' ..
-   'label[4.3,.75;Put fruit here ->]'..
-   'label[3.5,1.75;Put container here ->]'..
-   'label[0.2,1.8;4 fruits to a glass,]'..
-   'label[0.2,2.1;8 fruits to a bottle,]'..
-   'label[0.2,2.4;16 fruits to a bucket.]'..
-   'button[1,1;2,1;press;Start Juicing]'..
-   'list[current_name;src;6.5,.5;1,1;]'..
-   'list[current_name;dst;6.5,1.5;1,1;]'..
-   'list[current_player;main;0,3;8,4;]'
+local press_running_formspec = drinks.juice_press_formspec('Organic juice coming right up.')
 
-local press_error_formspec =
-   'size[8,7]'..
-   'label[1.5,0;You need to add more fruit.]' ..
-   'label[4.3,.75;Put fruit here ->]'..
-   'label[3.5,1.75;Put container here ->]'..
-   'label[0.2,1.8;4 fruits to a glass,]'..
-   'label[0.2,2.1;8 fruits to a bottle,]'..
-   'label[0.2,2.4;16 fruits to a bucket.]'..
-   'button[1,1;2,1;press;Start Juicing]'..
-   'list[current_name;src;6.5,.5;1,1;]'..
-   'list[current_name;dst;6.5,1.5;1,1;]'..
-   'list[current_player;main;0,3;8,4;]'
+local press_error_formspec = drinks.juice_press_formspec('You need to add more fruit.')
 
 minetest.register_node('drinks:juice_press', {
    description = 'Juice Press',
@@ -87,7 +54,6 @@ minetest.register_node('drinks:juice_press', {
    on_construct = function(pos)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      inv:set_size('main', 8*4)
       inv:set_size('src', 1)
       inv:set_size('dst', 1)
       meta:set_string('infotext', 'Empty Juice Press')
@@ -317,10 +283,6 @@ function drinks.drinks_liquid_sub(liq_vol, ves_typ, ves_vol, pos, able_to_fill, 
    if ves_typ == 'jcu' or ves_typ == 'jbo' or ves_typ == 'jsb' or ves_typ == 'jbu' then
       inv:set_stack('dst', 1, 'drinks:'..ves_typ..'_'..fruit..' '..able_to_fill)
       inv:set_stack('src', 1, outputstack..' '..leftover_count)
-   elseif ves_typ == 'thirsty:bronze_canteen' then
-      inv:set_stack('dst', 1, {name="thirsty:bronze_canteen", count=1, wear=60, metadata=""})
-   elseif ves_typ == 'thirsty:steel_canteen' then
-      inv:set_stack('dst', 1, {name="thirsty:steel_canteen", count=1, wear=40, metadata=""})
    end
 end
 
@@ -379,6 +341,16 @@ function drinks.drinks_silo(pos, inputstack, inputcount)
    drinks.drinks_liquid_avail_add(drinks.shortname[vessel].size, drinks.shortname[vessel].name, 256, pos, inputstack, inputcount)
 end
 
+local empty_container(pos, name, liq_vol)
+   local meta = minetest.get_meta(pos)
+   local fullness = 0
+   local fruit_name = 'no'
+   meta:set_string('fullness', 0)
+   meta:set_string('fruit', 'empty')
+   meta:set_string('infotext', 'Empty '..name)
+   meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, liq_vol or 0))
+end
+
 minetest.register_node('drinks:liquid_barrel', {
    description = 'Barrel of Liquid',
    _doc_items_longdesc = "A node that provides a simple way to store juice.",
@@ -400,23 +372,9 @@ minetest.register_node('drinks:liquid_barrel', {
    on_construct = function(pos)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      inv:set_size('main', 8*4)
       inv:set_size('src', 1)
       inv:set_size('dst', 1)
-      meta:set_string('fullness', 0)
-      meta:set_string('fruit', 'empty')
-      meta:set_string('infotext', 'Empty Drink Barrel')
-      meta:set_string('formspec', 'size[8,8]'..
-      'label[0,0;Fill with the drink of your choice,]'..
-      'label[0,.4;you can only add more of the same type of drink.]'..
-      'label[4.5,1.2;Add liquid ->]'..
-      'label[.75,1.75;The barrel is empty]'..
-      'label[4.5,2.25;Take liquid ->]'..
-      'label[2,3.2;(This empties the barrel completely)]'..
-      'button[0,3;2,1;purge;Purge]'..
-      'list[current_name;src;6.5,1;1,1;]'..
-      'list[current_name;dst;6.5,2;1,1;]'..
-      'list[current_player;main;0,4;8,5;]')
+      empty_container(pos,'Drink Barrel', 128)
    end,
    on_metadata_inventory_put = function(pos, listname, index, stack, player)
       local meta = minetest.get_meta(pos)
@@ -449,13 +407,7 @@ minetest.register_node('drinks:liquid_barrel', {
       if minetest.is_protected(pos, name) then
          minetest.record_protection_violation(pos, name)
       elseif fields['purge'] then
-         local meta = minetest.get_meta(pos)
-         local fullness = 0
-         local fruit_name = 'no'
-         meta:set_string('fullness', 0)
-         meta:set_string('fruit', 'empty')
-         meta:set_string('infotext', 'Empty Drink Barrel')
-         meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, 128))
+         empty_container(pos, 'Drink Barrel', 128)
       end
    end,
    can_dig = function(pos)
@@ -520,23 +472,9 @@ minetest.register_node('drinks:liquid_silo', {
    on_construct = function(pos)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      inv:set_size('main', 8*4)
       inv:set_size('src', 1)
       inv:set_size('dst', 1)
-      meta:set_string('fullness', 0)
-      meta:set_string('fruit', 'empty')
-      meta:set_string('infotext', 'Empty Drink Silo')
-      meta:set_string('formspec', 'size[8,8]'..
-      'label[0,0;Fill with the drink of your choice,]'..
-      'label[0,.4;you can only add more of the same type of drink.]'..
-      'label[4.5,1.2;Add liquid ->]'..
-      'label[.75,1.75;The Silo is empty]'..
-      'label[4.5,2.25;Take liquid ->]'..
-      'label[2,3.2;(This empties the silo completely)]'..
-      'button[0,3;2,1;purge;Purge]'..
-      'list[current_name;src;6.5,1;1,1;]'..
-      'list[current_name;dst;6.5,2;1,1;]'..
-      'list[current_player;main;0,4;8,5;]')
+      empty_container(pos,'Drink Silo', 256)
    end,
    on_metadata_inventory_put = function(pos, listname, index, stack, player)
       local meta = minetest.get_meta(pos)
@@ -569,13 +507,7 @@ minetest.register_node('drinks:liquid_silo', {
       if minetest.is_protected(pos, name) then
          minetest.record_protection_violation(pos, name)
       elseif fields['purge'] then
-         local meta = minetest.get_meta(pos)
-         local fullness = 0
-         local fruit_name = 'no'
-         meta:set_string('fullness', 0)
-         meta:set_string('fruit', 'empty')
-         meta:set_string('infotext', 'Empty Drink Silo')
-         meta:set_string('formspec', drinks.liquid_storage_formspec(fruit_name, fullness, 256))
+         empty_container(pos, 'Drink Silo', 256)
       end
    end,
    can_dig = function(pos)
