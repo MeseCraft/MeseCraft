@@ -195,11 +195,7 @@ drinks.register_item = function( name, template, def )
    end
 end
 
-
-if minetest.get_modpath('thirsty') then
-   dofile(minetest.get_modpath('drinks')..'/drinks.lua')
-else
-   dofile(minetest.get_modpath('drinks')..'/drinks2.lua')
-end
-dofile(minetest.get_modpath('drinks')..'/drink_machines.lua')
-dofile(minetest.get_modpath('drinks')..'/formspecs.lua')
+local MP = minetest.get_modpath('drinks')
+dofile(MP..'/drinks.lua')
+dofile(MP..'/drink_machines.lua')
+dofile(MP..'/formspecs.lua')
