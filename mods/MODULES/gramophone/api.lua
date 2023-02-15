@@ -50,6 +50,11 @@ gramophone.stop_playback = function(meta, pos)
 end
 
 gramophone.on_punch = function(pos, node, clicker, pointed_thing)
+	local name = clicker and clicker:get_player_name()
+	if minetest.is_protected(pos, name) then
+		minetest.record_protection_violation(pos, name)
+		return
+	end
 	local itemstack = clicker:get_wielded_item()
 	-- Check if there is a disc
 	local objs = minetest.get_objects_inside_radius(pos, 0.5)
@@ -189,22 +194,7 @@ gramophone.register_player = function(name, def)
 		meta:set_string("gramophone:is_playing", "false")
 		meta:set_string("gramophone:sound_handler", "")
 		local inv = meta:get_inventory()
-    	inv:set_size("main", 1)
-	end,
-	on_dig = function(pos, node, digger)
-		-- Clear any object disc
-		local objs = minetest.get_objects_inside_radius(pos, 0.5)
-		for _,obj in pairs(objs) do
-			obj:remove()
-		end
-		-- Pop-up disc if existing
-		local meta = minetest.get_meta(pos)
-		local disc = meta:get_inventory():get_stack("main", 1)
-		if not disc:is_empty() then
-			minetest.add_item(pos, disc:get_name())
-		end
-		-- Remove node
-		minetest.remove_node(pos)
+		inv:set_size("main", 1)
 	end,
 	on_punch = gramophone.on_punch,
 	on_rightclick = gramophone.on_rightclick,
