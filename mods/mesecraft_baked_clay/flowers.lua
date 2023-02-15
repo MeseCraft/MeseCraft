@@ -95,7 +95,7 @@ minetest.register_decoration({
 	},
 	y_min = 1,
 	y_max = 90,
-	decoration = "bakedmesecraft_baked_clayclay:lazarus",
+	decoration = "mesecraft_baked_clay:lazarus",
 	spawn_by = "default:jungletree",
 	num_spawn_by = 1
 })
