@@ -1,3 +1,5 @@
+local S = drinks.get_translator
+
 --Craft Recipes
 
 minetest.register_craft({
@@ -28,13 +30,13 @@ minetest.register_craft({
   })
 
 local modes = {
-  idle = { form = 'Organic juice is just a squish away.', info = 'Ready for juicing' },
-  running = { form = 'Organic juice coming right up.', info = 'Juicing...' },
-  need = { form = 'You need to add more fruit.', info = 'You need more fruit.' },
-  missing = { form = 'You need to place a liquid container below the juice press.', info = 'Missing a container below.' },
-  mixing = { form = 'Mixing juices is not allowed.', info = "You can't mix juices." },
-  collect = { form = 'Organic juice is just a squish away.', info = 'Collect your juice.' },
-  full = { form = 'The container is full of juice', info = 'Container is full of juice.' },
+  idle = { form = S('Organic juice is just a squish away.'), info = S('Ready for juicing') },
+  running = { form = S('Organic juice coming right up.'), info = S('Juicing...') },
+  need = { form = S('You need to add more fruit.'), info = S('You need more fruit.') },
+  missing = { form = S('You need to place a liquid container below the juice press.'), info = S('Missing a container below.') },
+  mixing = { form = S('Mixing juices is not allowed.'), info = S("You can't mix juices.") },
+  collect = { form = S('Organic juice is just a squish away.'), info = S('Collect your juice.') },
+  full = { form = S('The container is full of juice'), info = S('Container is full of juice.') },
 }
 
 local set_mode = function(meta, mode)
@@ -81,13 +83,13 @@ local set_fullness = function(meta, fullness)
   meta:set_string('fullness', fullness)
   if fullness == 0 then
     meta:set_string('fruit', 'empty')
-    meta:set_string('infotext', 'Empty (no juice)')
+    meta:set_string('infotext', S('Empty (no juice)'))
     meta:set_string('formspec', drinks.liquid_storage_formspec('no', 0, capacity))
   else
     local juice = meta:get_string('fruit')
     local juice_def = drinks.drink_table[juice]
     local juice_desc = string.lower(juice_def and juice_def.desc or juice)
-    meta:set_string('infotext', (math.floor((fullness/capacity)*100))..' % full of '..juice_desc..' juice.')
+    meta:set_string('infotext', S('@1 % full of @2 juice.', math.floor((fullness/capacity)*100), juice_desc))
     meta:set_string('formspec', drinks.liquid_storage_formspec(juice_desc, fullness, capacity))
   end
 end
@@ -109,9 +111,9 @@ local find_container_under = function(pos)
 end
 
 minetest.register_node('drinks:juice_press', {
-    description = 'Juice Press',
-    _doc_items_longdesc = "A machine for creating drinks out of various fruits and vegetables.",
-    _doc_items_usagehelp = "Right-click the press to access inventory and begin juicing.",
+    description = S('Juice Press'),
+    _doc_items_longdesc = S('A machine for creating drinks out of various fruits and vegetables.'),
+    _doc_items_usagehelp = S('Right-click the press to access inventory and begin juicing.'),
     drawtype = 'mesh',
     mesh = 'drinks_press.obj',
     tiles = {name='drinks_press.png'},
@@ -369,9 +371,9 @@ local on_construct_for_volume = function(capacity)
 end
 
 minetest.register_node('drinks:liquid_barrel', {
-    description = 'Barrel of Liquid',
-    _doc_items_longdesc = "A node that provides a simple way to store juice.",
-    _doc_items_usagehelp = "Add or remove liquids from the barrel using buckets, bottles, or cups.",
+    description = S('Barrel of Liquid'),
+    _doc_items_longdesc = S('A node that provides a simple way to store juice.'),
+    _doc_items_usagehelp = S('Add or remove liquids from the barrel using buckets, bottles, or cups.'),
     drawtype = 'mesh',
     mesh = 'drinks_liquid_barrel.obj',
     tiles = {name='drinks_barrel.png'},
@@ -394,9 +396,9 @@ minetest.register_node('drinks:liquid_barrel', {
   })
 
 minetest.register_node('drinks:liquid_silo', {
-    description = 'Silo of Liquid',
-    _doc_items_longdesc = "A node that provides a simple way to store juice.",
-    _doc_items_usagehelp = "Add or remove liquids from the silo using buckets, bottles, or cups.",
+    description = S('Silo of Liquid'),
+    _doc_items_longdesc = S('A node that provides a simple way to store juice.'),
+    _doc_items_usagehelp = S('Add or remove liquids from the silo using buckets, bottles, or cups.'),
     drawtype = 'mesh',
     mesh = 'drinks_silo.obj',
     tiles = {name='drinks_silo.png'},

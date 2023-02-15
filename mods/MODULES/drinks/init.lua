@@ -1,25 +1,3 @@
-local slab_str = "stairs:slab_wood"
-
---Craft Recipes
-
-minetest.register_craft({
-    output = 'drinks:juice_press',
-    recipe = {
-      {'default:stick', 'default:steel_ingot', 'default:stick'},
-      {'default:stick', 'mesecraft_bucket:bucket_empty', 'default:stick'},
-      {slab_str, slab_str, 'vessels:drinking_glass'},
-    }
-  })
-
-minetest.register_craft({
-    output = 'drinks:liquid_barrel',
-    recipe = {
-      {'group:wood', 'group:wood', 'group:wood'},
-      {'group:wood', 'group:wood', 'group:wood'},
-      {slab_str, '', slab_str},
-    }
-  })
-
 drinks = {
   drink_table = {},
   juiceable = {},
@@ -37,6 +15,8 @@ drinks = {
   },
 }
 
+local S = minetest.get_translator(minetest.get_current_modname())
+drinks.get_translator = S
 
 -- Honestly not needed for default, but used as an example to add support to other mods.
 -- Basically to use this all you need to do is add the name of the fruit to make juiceable (see line 14 for example)
@@ -47,8 +27,8 @@ drinks = {
 if minetest.get_modpath('default') then
   drinks.juiceable['apple'] = true -- Name of fruit to make juiceable.
   drinks.juiceable['cactus'] = { amount = 2 }
-  drinks.drink_table['apple'] = { desc = 'Apple', color = '#ecff56'}
-  drinks.drink_table['cactus'] = { desc = 'Cactus', color = '#96F97B'}
+  drinks.drink_table['apple'] = { desc = S('Apple'), color = '#ecff56'}
+  drinks.drink_table['cactus'] = { desc = S('Cactus'), color = '#96F97B'}
 end
 
 if minetest.get_modpath('bushes_classic') then
@@ -57,11 +37,11 @@ if minetest.get_modpath('bushes_classic') then
   drinks.juiceable['gooseberry'] = true
   drinks.juiceable['raspberry'] = true
   drinks.juiceable['strawberry'] = true
-  drinks.drink_table['blackberry'] = { desc = 'Blackberry', color = '#581845'}
-  drinks.drink_table['blueberry'] = { desc = 'Blueberry', color = '#521dcb'}
-  drinks.drink_table['gooseberry'] = { desc = 'Gooseberry', color = '#9cf57c'}
-  drinks.drink_table['raspberry'] = { desc = 'Raspberry', color = '#C70039'}
-  drinks.drink_table['strawberry'] = { desc = 'Strawberry', color = '#ff3636'}
+  drinks.drink_table['blackberry'] = { desc = S('Blackberry'), color = '#581845'}
+  drinks.drink_table['blueberry'] = { desc = S('Blueberry'), color = '#521dcb'}
+  drinks.drink_table['gooseberry'] = { desc = S('Gooseberry'), color = '#9cf57c'}
+  drinks.drink_table['raspberry'] = { desc = S('Raspberry'), color = '#C70039'}
+  drinks.drink_table['strawberry'] = { desc = S('Strawberry'), color = '#ff3636'}
 end
 
 if minetest.get_modpath('farming_plus') then
@@ -74,15 +54,15 @@ if minetest.get_modpath('farming_plus') then
   drinks.juiceable['tomato_item'] = true
   drinks.juiceable['strawberry_item'] = true
   drinks.juiceable['raspberry_item'] = true
-  drinks.drink_table['banana'] = { desc = 'Banana', color = '#eced9f'}
-  drinks.drink_table['lemon'] = { desc = 'Lemon', color = '#feffaa'}
-  drinks.drink_table['melon'] = { desc = 'Melon', color = '#ef4646'}
-  drinks.drink_table['orange'] = { desc = 'Orange', color = '#ffc417'}
-  drinks.drink_table['peach'] = { desc = 'Peach', color = '#f2bc1e'}
-  drinks.drink_table['rhubarb'] = { desc = 'Rhubarb', color = '#fb8461'}
-  drinks.drink_table['tomato'] = { desc = 'Tomato', color = '#d03a0e'}
-  drinks.drink_table['strawberry'] = { desc = 'Strawberry', color = '#ff3636'}
-  drinks.drink_table['raspberry'] = { desc = 'Raspberry', color = '#C70039'}
+  drinks.drink_table['banana'] = { desc = S('Banana'), color = '#eced9f'}
+  drinks.drink_table['lemon'] = { desc = S('Lemon'), color = '#feffaa'}
+  drinks.drink_table['melon'] = { desc = S('Melon'), color = '#ef4646'}
+  drinks.drink_table['orange'] = { desc = S('Orange'), color = '#ffc417'}
+  drinks.drink_table['peach'] = { desc = S('Peach'), color = '#f2bc1e'}
+  drinks.drink_table['rhubarb'] = { desc = S('Rhubarb'), color = '#fb8461'}
+  drinks.drink_table['tomato'] = { desc = S('Tomato'), color = '#d03a0e'}
+  drinks.drink_table['strawberry'] = { desc = S('Strawberry'), color = '#ff3636'}
+  drinks.drink_table['raspberry'] = { desc = S('Raspberry'), color = '#C70039'}
 end
 
 if minetest.get_modpath('crops') then
@@ -90,9 +70,9 @@ if minetest.get_modpath('crops') then
   drinks.juiceable['melon_slice'] = { juice = 'melon' }
   drinks.juiceable['tomato'] = true
   drinks.juiceable['pumpkin'] = true
-  drinks.drink_table['melon'] = { desc = 'Melon', color = '#ef4646'}
-  drinks.drink_table['tomato'] = { desc = 'Tomato', color = '#d03a0e'}
-  drinks.drink_table['pumpkin'] = { desc = 'Pumpkin', color = '#ffc04c'}
+  drinks.drink_table['melon'] = { desc = S('Melon'), color = '#ef4646'}
+  drinks.drink_table['tomato'] = { desc = S('Tomato'), color = '#d03a0e'}
+  drinks.drink_table['pumpkin'] = { desc = S('Pumpkin'), color = '#ffc04c'}
 end
 
 if minetest.get_modpath('farming') then
@@ -107,15 +87,15 @@ if minetest.get_modpath('farming') then
   drinks.juiceable['rhubarb'] = true
   drinks.juiceable['pineapple'] = { amount = 5 }
   drinks.juiceable['pineapple_ring'] = { juice = 'pineapple' }
-  drinks.drink_table['melon'] = { desc = 'Melon', color = '#ef4646'}
-  drinks.drink_table['tomato'] = { desc = 'Tomato', color = '#990000'}
-  drinks.drink_table['carrot'] = { desc = 'Carrot', color = '#ed9121'}
-  drinks.drink_table['cucumber'] = { desc = 'Cucumber', color = '#73af59'}
-  drinks.drink_table['grapes'] = { desc = 'Grape', color = '#b20056'}
-  drinks.drink_table['pumpkin'] = { desc = 'Pumpkin', color = '#ffc04c'}
-  drinks.drink_table['raspberries'] = { desc = 'Raspberry', color = '#C70039'}
-  drinks.drink_table['rhubarb'] = { desc = 'Rhubarb', color = '#fb8461'}
-  drinks.drink_table['pineapple'] = { desc = 'Pineapple', color = '#DCD611'}
+  drinks.drink_table['melon'] = { desc = S('Melon'), color = '#ef4646'}
+  drinks.drink_table['tomato'] = { desc = S('Tomato'), color = '#990000'}
+  drinks.drink_table['carrot'] = { desc = S('Carrot'), color = '#ed9121'}
+  drinks.drink_table['cucumber'] = { desc = S('Cucumber'), color = '#73af59'}
+  drinks.drink_table['grapes'] = { desc = S('Grape'), color = '#b20056'}
+  drinks.drink_table['pumpkin'] = { desc = S('Pumpkin'), color = '#ffc04c'}
+  drinks.drink_table['raspberries'] = { desc = S('Raspberry'), color = '#C70039'}
+  drinks.drink_table['rhubarb'] = { desc = S('Rhubarb'), color = '#fb8461'}
+  drinks.drink_table['pineapple'] = { desc = S('Pineapple'), color = '#DCD611'}
   minetest.unregister_item('farming:pineapple_juice')
   minetest.register_alias('farming:pineapple_juice', 'drinks:jcu_pineapple')
   minetest.unregister_item('farming:carrot_juice')
@@ -129,10 +109,10 @@ if minetest.get_modpath('fruit') then
   drinks.juiceable['plum'] = true
   drinks.juiceable['peach'] = true
   drinks.juiceable['orange'] = true
-  drinks.drink_table['pear'] = { desc = 'Pear', color = '#ecff56'}
-  drinks.drink_table['plum'] = { desc = 'Plum', color = '#8e4585'}
-  drinks.drink_table['peach'] = { desc = 'Peach', color = '#f2bc1e'}
-  drinks.drink_table['orange'] = { desc = 'Orange', color = '#ffc417'}
+  drinks.drink_table['pear'] = { desc = S('Pear'), color = '#ecff56'}
+  drinks.drink_table['plum'] = { desc = S('Plum'), color = '#8e4585'}
+  drinks.drink_table['peach'] = { desc = S('Peach'), color = '#f2bc1e'}
+  drinks.drink_table['orange'] = { desc = S('Orange'), color = '#ffc417'}
 end
 
 if minetest.get_modpath('ethereal') then
@@ -140,10 +120,10 @@ if minetest.get_modpath('ethereal') then
   drinks.juiceable['coconut'] = true
   drinks.juiceable['orange'] = true
   drinks.juiceable['strawberry'] = true
-  drinks.drink_table['banana'] = { desc = 'Banana', color = '#eced9f'}
-  drinks.drink_table['coconut'] = { desc = 'Coconut', color = '#ffffff'}
-  drinks.drink_table['orange'] = { desc = 'Orange', color = '#ffc417'}
-  drinks.drink_table['strawberry'] = { desc = 'Strawberry', color = '#ff3636'}
+  drinks.drink_table['banana'] = { desc = S('Banana'), color = '#eced9f'}
+  drinks.drink_table['coconut'] = { desc = S('Coconut'), color = '#ffffff'}
+  drinks.drink_table['orange'] = { desc = S('Orange'), color = '#ffc417'}
+  drinks.drink_table['strawberry'] = { desc = S('Strawberry'), color = '#ff3636'}
 end
 
 -- replace craftitem to node definition

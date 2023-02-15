@@ -1,3 +1,4 @@
+local S = drinks.get_translator
 local do_drink = minetest.get_modpath('thirsty') and thirsty.drink or function(user,amt,max) end
 
 --Parse Table
@@ -9,7 +10,7 @@ for juice,juice_def in pairs (drinks.drink_table) do
 
   --Actual Node registration
   minetest.register_node('drinks:jbu_'..juice..'', {
-      description = 'Bucket of '..juice_desc..' Juice',
+      description = S('Bucket of @1 Juice',juice_desc),
       drawtype = "plantlike",
       tiles = {'mesecraft_bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)'},
       inventory_image = 'mesecraft_bucket.png^(drinks_bucket_contents.png^[colorize:'..color..':200)',
@@ -27,7 +28,7 @@ for juice,juice_def in pairs (drinks.drink_table) do
     })
 
   drinks.register_item('drinks:jcu_'..juice, 'vessels:drinking_glass', {
-      description = 'Cup of '..juice_desc..' Juice',
+      description = S('Cup of @1 Juice', juice_desc),
       groups = {drink = 1},
       juice_type = juice_desc,
       inventory_image = 'drinks_glass_contents.png^[colorize:'..color..':200^drinks_drinking_glass.png',
@@ -39,7 +40,7 @@ for juice,juice_def in pairs (drinks.drink_table) do
     })
 
   drinks.register_item('drinks:jbo_'..juice, 'vessels:glass_bottle', {
-      description = 'Bottle of '..juice_desc..' Juice',
+      description = S('Bottle of @1 Juice', juice_desc),
       groups = {drink = 1},
       juice_type = juice_desc,
       inventory_image = 'drinks_bottle_contents.png^[colorize:'..color..':200^drinks_glass_bottle.png',
@@ -51,7 +52,7 @@ for juice,juice_def in pairs (drinks.drink_table) do
     })
 
   drinks.register_item('drinks:jsb_'..juice, 'vessels:steel_bottle', {
-      description = 'Heavy Steel Bottle ('..juice_desc..' Juice)',
+      description = S('Heavy Steel Bottle of @1 Juice', juice_desc),
       groups = {drink = 1},
       juice_type = juice_desc,
       inventory_image = 'vessels_steel_bottle.png',
