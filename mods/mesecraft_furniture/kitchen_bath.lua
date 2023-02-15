@@ -1,17 +1,17 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --All manner of water using items, divided by room--
 
 --Bathroom--
-minetest.register_node("ma_pops_furniture:bath_faucet", {
+minetest.register_node("mesecraft_furniture:bath_faucet", {
    description = S("Bathroom Faucet"),
    tiles = {
-		"ma_pops_furniture_knob_top.png",
-		"ma_pops_furniture_knob_bottom.png",
-		"ma_pops_furniture_knob_right.png",
-		"ma_pops_furniture_knob_left.png",
-		"ma_pops_furniture_knob_back.png",
-		"ma_pops_furniture_knob_front.png"
+		"mesecraft_furniture_knob_top.png",
+		"mesecraft_furniture_knob_bottom.png",
+		"mesecraft_furniture_knob_right.png",
+		"mesecraft_furniture_knob_left.png",
+		"mesecraft_furniture_knob_back.png",
+		"mesecraft_furniture_knob_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -31,7 +31,7 @@ minetest.register_node("ma_pops_furniture:bath_faucet", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:bath_faucet',
+	output = 'mesecraft_furniture:bath_faucet',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:steel_ingot','','mesecraft_bucket:bucket_water',},
@@ -39,15 +39,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:br_sink", {
+minetest.register_node("mesecraft_furniture:br_sink", {
    description = S("Sink (Bathroom)"),
    tiles = {
-		"ma_pops_furniture_hw_top.png",
-		"ma_pops_furniture_hw_bottom.png",
-		"ma_pops_furniture_hw_right.png",
-		"ma_pops_furniture_hw_left.png",
-		"ma_pops_furniture_hw_back.png",
-		"ma_pops_furniture_hw_front.png"
+		"mesecraft_furniture_hw_top.png",
+		"mesecraft_furniture_hw_bottom.png",
+		"mesecraft_furniture_hw_right.png",
+		"mesecraft_furniture_hw_left.png",
+		"mesecraft_furniture_hw_back.png",
+		"mesecraft_furniture_hw_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -63,7 +63,7 @@ minetest.register_node("ma_pops_furniture:br_sink", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:br_sink',
+	output = 'mesecraft_furniture:br_sink',
 	recipe = {
 	{'default:steel_ingot','','default:steel_ingot',},
 	{'','default:steel_ingot','',},
@@ -71,15 +71,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:shower_base", {
+minetest.register_node("mesecraft_furniture:shower_base", {
    description = S("Shower Base"),
    tiles = {
-		"ma_pops_furniture_showbas_top.png",
-		"ma_pops_furniture_showbas_top.png",
-		"ma_pops_furniture_showbas_sides.png",
-		"ma_pops_furniture_showbas_sides.png",
-		"ma_pops_furniture_showbas_sides.png",
-		"ma_pops_furniture_showbas_sides.png"
+		"mesecraft_furniture_showbas_top.png",
+		"mesecraft_furniture_showbas_top.png",
+		"mesecraft_furniture_showbas_sides.png",
+		"mesecraft_furniture_showbas_sides.png",
+		"mesecraft_furniture_showbas_sides.png",
+		"mesecraft_furniture_showbas_sides.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -99,7 +99,7 @@ minetest.register_node("ma_pops_furniture:shower_base", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:shower_base',
+	output = 'mesecraft_furniture:shower_base',
 	recipe = {
 	{'','','',},
 	{'','','',},
@@ -108,7 +108,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:shower_top',
+	output = 'mesecraft_furniture:shower_top',
 	recipe = {
 	{'','default:steel_ingot','',},
 	{'default:steel_ingot','mesecraft_bucket:bucket_water','default:steel_ingot',},
@@ -116,15 +116,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:shower_top", {
+minetest.register_node("mesecraft_furniture:shower_top", {
    description = S("Shower Head"),
    tiles = {
-		"ma_pops_furniture_shk_top.png",
-		"ma_pops_furniture_shk_bottom.png",
-		"ma_pops_furniture_shk_right.png",
-		"ma_pops_furniture_shk_left.png",
-		"ma_pops_furniture_shk_back.png",
-		"ma_pops_furniture_shk_front.png"
+		"mesecraft_furniture_shk_top.png",
+		"mesecraft_furniture_shk_bottom.png",
+		"mesecraft_furniture_shk_right.png",
+		"mesecraft_furniture_shk_left.png",
+		"mesecraft_furniture_shk_back.png",
+		"mesecraft_furniture_shk_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -145,15 +145,15 @@ minetest.register_node("ma_pops_furniture:shower_top", {
 })
 
 --Kitchen/Dining Room--
-minetest.register_node("ma_pops_furniture:dw", {
+minetest.register_node("mesecraft_furniture:dw", {
 	description= S("Dishwasher"),
 	tiles = {
-		"ma_pops_furniture_dw_top.png",
-		"ma_pops_furniture_dw_bottom.png",
-		"ma_pops_furniture_dw_left.png",
-		"ma_pops_furniture_dw_right.png",
-		"ma_pops_furniture_dw_back.png",
-		"ma_pops_furniture_dw_front.png"
+		"mesecraft_furniture_dw_top.png",
+		"mesecraft_furniture_dw_bottom.png",
+		"mesecraft_furniture_dw_left.png",
+		"mesecraft_furniture_dw_right.png",
+		"mesecraft_furniture_dw_back.png",
+		"mesecraft_furniture_dw_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -171,7 +171,7 @@ minetest.register_node("ma_pops_furniture:dw", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:dw',
+	output = 'mesecraft_furniture:dw',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:steel_ingot','mesecraft_bucket:bucket_water','default:steel_ingot',},
@@ -179,15 +179,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:coffee_maker", {
+minetest.register_node("mesecraft_furniture:coffee_maker", {
 	description = S("Coffee Maker"),
 	tiles = {
-		"ma_pops_furniture_cof_top.png",
-		"ma_pops_furniture_cof_bottom.png",
-		"ma_pops_furniture_cof_right.png",
-		"ma_pops_furniture_cof_left.png",
-		"ma_pops_furniture_cof_back.png",
-		"ma_pops_furniture_cof_front.png"
+		"mesecraft_furniture_cof_top.png",
+		"mesecraft_furniture_cof_bottom.png",
+		"mesecraft_furniture_cof_right.png",
+		"mesecraft_furniture_cof_left.png",
+		"mesecraft_furniture_cof_back.png",
+		"mesecraft_furniture_cof_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -206,7 +206,7 @@ minetest.register_node("ma_pops_furniture:coffee_maker", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:coffee_maker',
+	output = 'mesecraft_furniture:coffee_maker',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:steel_ingot','default:copper_ingot','default:steel_ingot',},
@@ -214,15 +214,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:kitchen_faucet", {
+minetest.register_node("mesecraft_furniture:kitchen_faucet", {
    description = S("Kitchen Faucet"),
    tiles = {
-		"ma_pops_furniture_grif_top.png",
-		"ma_pops_furniture_grif_sides.png",
-		"ma_pops_furniture_grif_sides.png",
-		"ma_pops_furniture_grif_sides.png",
-		"ma_pops_furniture_grif_sides.png",
-		"ma_pops_furniture_grif_sides.png"
+		"mesecraft_furniture_grif_top.png",
+		"mesecraft_furniture_grif_sides.png",
+		"mesecraft_furniture_grif_sides.png",
+		"mesecraft_furniture_grif_sides.png",
+		"mesecraft_furniture_grif_sides.png",
+		"mesecraft_furniture_grif_sides.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -241,7 +241,7 @@ minetest.register_node("ma_pops_furniture:kitchen_faucet", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:kitchen_faucet',
+	output = 'mesecraft_furniture:kitchen_faucet',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:steel_ingot','','default:steel_ingot',},
@@ -250,7 +250,7 @@ minetest.register_craft({
 })
 
 --Outside--
-minetest.register_node('ma_pops_furniture:birdbath', {
+minetest.register_node('mesecraft_furniture:birdbath', {
 	description = S('Birdbath'),
 	drawtype = 'mesh',
 	mesh = 'FM_birdbath.obj',
@@ -262,11 +262,11 @@ minetest.register_node('ma_pops_furniture:birdbath', {
 })
 
 if thirsty and thirsty.config and thirsty.config.node_drinkable then
-	thirsty.config.node_drinkable['ma_pops_furniture:birdbath'] = true
+	thirsty.config.node_drinkable['mesecraft_furniture:birdbath'] = true
 end
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:birdbath',
+	output = 'mesecraft_furniture:birdbath',
 	recipe = {
 	{'default:stone','mesecraft_bucket:bucket_water','default:stone',},
 	{'','default:stone','',},

@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Microwave--
 
@@ -8,7 +8,7 @@ local S = ma_pops_furniture.intllib
 local microwave_fs = 
 	"size[8,7]"
 	.."button[6.5,1.5;1.5,2;btn_start;START]"
-    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[transformR270]"
+    .."image[6.5,.2;1.5,.5;mesecraft_furniture_mw_bar.png^[transformR270]"
 	.."list[current_player;main;0,3;8,1;]"
     .."list[current_player;main;0,4.25;8,3;8]"
 	.."list[context;cook_slot;3.5,1.25;1,1;]"
@@ -19,8 +19,8 @@ local microwave_fs =
 local function get_active_microwave_fs(item_percent)
     return "size[8,7]"
 	    .."button[6.5,1.5;1.5,2;button_start;START]"
-	    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[lowpart:"
-	    ..(item_percent)..":ma_pops_furniture_mw_bar_on.png^[transformR270]"
+	    .."image[6.5,.2;1.5,.5;mesecraft_furniture_mw_bar.png^[lowpart:"
+	    ..(item_percent)..":mesecraft_furniture_mw_bar_on.png^[transformR270]"
 	    .."list[current_player;main;0,3;8,1;]"
         .."list[current_player;main;0,4.25;8,3;8]"
 	    .."list[context;cook_slot;3.5,1.25;1,1;]"
@@ -32,8 +32,8 @@ end
 --x,y;w,h
 
 -- Adding recipe API so we don't end up hardcoding items
-ma_pops_furniture.microwave = {}
-local microwave = ma_pops_furniture.microwave
+mesecraft_furniture.microwave = {}
+local microwave = mesecraft_furniture.microwave
 microwave.recipes = {}
 function microwave.register_recipe(input, output) microwave.recipes[input] = output end
 
@@ -73,15 +73,15 @@ local function do_cook_all(pos)
 	inv:add_item("cook_slot", food_cooked) -- Put the cooked food in the slot
 end
 
-minetest.register_node("ma_pops_furniture:microwave", {
+minetest.register_node("mesecraft_furniture:microwave", {
 	description = S("Microwave"),
 	tiles = {
-		"ma_pops_furniture_mw_top.png",
-		"ma_pops_furniture_mw_bottom.png",
-		"ma_pops_furniture_mw_right.png",
-		"ma_pops_furniture_mw_left.png",
-		"ma_pops_furniture_mw_back.png",
-		"ma_pops_furniture_mw_front.png"
+		"mesecraft_furniture_mw_top.png",
+		"mesecraft_furniture_mw_bottom.png",
+		"mesecraft_furniture_mw_right.png",
+		"mesecraft_furniture_mw_left.png",
+		"mesecraft_furniture_mw_back.png",
+		"mesecraft_furniture_mw_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2}, -- currently no pipeworks compat as I don't know how it works
@@ -140,7 +140,7 @@ minetest.register_node("ma_pops_furniture:microwave", {
 	on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "cook_slot", drops)
-		table.insert(drops, "ma_pops_furniture:microwave")
+		table.insert(drops, "mesecraft_furniture:microwave")
 		minetest.remove_node(pos)
 		return drops
 	end,
@@ -166,7 +166,7 @@ minetest.register_node("ma_pops_furniture:microwave", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:microwave',
+	output = 'mesecraft_furniture:microwave',
 	recipe = {
 	{'','','',},
 	{"default:steel_ingot", "default:mese", "default:steel_ingot"},

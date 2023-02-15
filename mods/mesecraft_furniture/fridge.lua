@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Refridgerator--
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
@@ -28,15 +28,15 @@ local function allow_metadata_inventory_take(pos, listname, index, stack, player
 	return stack:get_count()
 end
 
-minetest.register_node("ma_pops_furniture:fridge", {
+minetest.register_node("mesecraft_furniture:fridge", {
 	description= S("Fridge"),
 	tiles = {
-		"ma_pops_furniture_fridge_top.png",
-		"ma_pops_furniture_fridge_bottom.png",
-		"ma_pops_furniture_fridge_right.png",
-		"ma_pops_furniture_fridge_left.png",
-		"ma_pops_furniture_fridge_back.png",
-		"ma_pops_furniture_fridge_front.png"
+		"mesecraft_furniture_fridge_top.png",
+		"mesecraft_furniture_fridge_bottom.png",
+		"mesecraft_furniture_fridge_right.png",
+		"mesecraft_furniture_fridge_left.png",
+		"mesecraft_furniture_fridge_back.png",
+		"mesecraft_furniture_fridge_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -64,7 +64,7 @@ minetest.register_node("ma_pops_furniture:fridge", {
 	on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "storage", drops)
-		drops[#drops+1] = "ma_pops_furniture:fridge"
+		drops[#drops+1] = "mesecraft_furniture:fridge"
 		minetest.remove_node(pos)
 		return drops
 	end,
@@ -84,7 +84,7 @@ minetest.register_node("ma_pops_furniture:fridge", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:fridge',
+	output = 'mesecraft_furniture:fridge',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:steel_ingot','default:snow','default:steel_ingot',},

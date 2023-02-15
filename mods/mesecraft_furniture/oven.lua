@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Oven with recipe API--
 local oven_fs = "size[8,7]"
@@ -33,8 +33,8 @@ end
 --x,y;w,h
 
 -- Adding recipe API so we don't end up hardcoding items
-ma_pops_furniture.oven = {}
-local oven = ma_pops_furniture.oven
+mesecraft_furniture.oven = {}
+local oven = mesecraft_furniture.oven
 oven.recipes = {}
 function oven.register_recipe(input, output) oven.recipes[input] = output end
 
@@ -82,15 +82,15 @@ local function do_cook_single(pos)
     end
 end
 
-minetest.register_node("ma_pops_furniture:oven", {
+minetest.register_node("mesecraft_furniture:oven", {
 	description = S("Oven"),
 	tiles = {
-		"ma_pops_furniture_oven_top.png",
-		"ma_pops_furniture_oven_bottom.png",
-		"ma_pops_furniture_oven_right.png",
-		"ma_pops_furniture_oven_left.png",
-		"ma_pops_furniture_oven_back.png",
-		"ma_pops_furniture_oven_front.png"
+		"mesecraft_furniture_oven_top.png",
+		"mesecraft_furniture_oven_bottom.png",
+		"mesecraft_furniture_oven_right.png",
+		"mesecraft_furniture_oven_left.png",
+		"mesecraft_furniture_oven_back.png",
+		"mesecraft_furniture_oven_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
@@ -151,7 +151,7 @@ minetest.register_node("ma_pops_furniture:oven", {
 		local drops = {}
 		default.get_inventory_drops(pos, "input", drops)
 		default.get_inventory_drops(pos, "output", drops)
-		table.insert(drops, "ma_pops_furniture:oven")
+		table.insert(drops, "mesecraft_furniture:oven")
 		minetest.remove_node(pos)
 		return drops
 	end,
@@ -172,7 +172,7 @@ minetest.register_node("ma_pops_furniture:oven", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:oven',
+	output = 'mesecraft_furniture:oven',
 	recipe = {
 	{'default:steel_ingot','default:mese','default:steel_ingot',},
 	{'default:steel_ingot','default:furnace','default:steel_ingot',},
@@ -180,15 +180,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:oven_overhead", {
+minetest.register_node("mesecraft_furniture:oven_overhead", {
 	description= S("Oven Overhead"),
 	tiles = {
-		"ma_pops_furniture_camp_top.png",
-		"ma_pops_furniture_camp_bottom.png",
-		"ma_pops_furniture_camp_left.png",
-		"ma_pops_furniture_camp_right.png",
-		"ma_pops_furniture_camp_back.png",
-		"ma_pops_furniture_camp_front.png"
+		"mesecraft_furniture_camp_top.png",
+		"mesecraft_furniture_camp_bottom.png",
+		"mesecraft_furniture_camp_left.png",
+		"mesecraft_furniture_camp_right.png",
+		"mesecraft_furniture_camp_back.png",
+		"mesecraft_furniture_camp_front.png"
 	},
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -204,7 +204,7 @@ minetest.register_node("ma_pops_furniture:oven_overhead", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:oven_overhead',
+	output = 'mesecraft_furniture:oven_overhead',
 	recipe = {
 	{'default:steel_ingot','default:mese_crystal_fragment','default:steel_ingot',},
 	{'','','',},

@@ -1,26 +1,11 @@
-# ma_pops_furniture
-
-A revamp of Ma and Pop's Furniture Mod
+# mesecraft_furniture
+Furniture for MeseCraft
 
 ================================================================
 
-Credits:
-Radio Mod Code (Mihobre)
-BlockMen (Lots and lots)    |For helping me alot with the code
-                            |Letting me experiment with his mod
-                            |Supporting me all the time
-                            |Encouraging me
-DanJohansen(Newgrounds)     |All music used
 
-Nathan.S		     Helped with a ton of the coding and models making this mod possible
 
-Toaster Code: 
-Special thanks to GreenDimond for the code. 
-
-Freezer Mod:   
-https://forum.minetest.net/viewtopic.php?f=9&t=14925
-
-Revamp for Mesecraft:
+## Revamp for Mesecraft. (2023-Feb)
 Thanks to Andrew Martignoni III for the code to:
  - add recipes for the oven and microwave (updated crafting recipes as well)
  - add shift-click support to all chest and furnace-like nodes
@@ -30,10 +15,19 @@ Thanks to Andrew Martignoni III for the code to:
  - add drinking from birdbath (with the thirsty mod)
  - add intllib support
 
+## Debugging and initial MeseCraft integration, MeseCraft namespacing for contentdb.
+Komodo
+
+### ma_pops_furniture credits
+Mihobre
+BlockMen (code contributions)
+Nathan.S (code contributions)
+GreenDiamond (toaster code)
+Freezer Mod (https://forum.minetest.net/viewtopic.php?f=9&t=14925)
+Wizzerine, BillyS, Noodlemire (Microwave code)
 Textures (c) 2016 Gabriel Pérez-Cerezo, WTFPL
 
-This mod is based on the default furnace, license for the code below:
-
+### furnance credits
 Copyright (C) 2011-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 Copyright (C) 2016 Gabriel Pérez-Cerezo <gabriel@gpcf.eu>
 Copyright (C) 2023 Andrew Martignoni III <andyiii@andy3ware.com>
@@ -43,14 +37,6 @@ it under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation; either version 2.1 of the License, or
 (at your option) any later version.
 
-================================================================
-
-Special thanks to:
-Wizzerine
-BillyS
-Noodlemire 
-
-For helping out with the microwave.
 
 ==================================================================
 License of source code and textures: WTFPL

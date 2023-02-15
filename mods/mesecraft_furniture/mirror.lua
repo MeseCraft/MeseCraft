@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Mirror (a.k.a. Medicine Cabinet)--
 local function allow_metadata_inventory_put(pos, listname, index, stack, player)
@@ -34,15 +34,15 @@ local formspec = 'size [9,10]'..
                  'list[current_player;main;0.5,5.5;8,4;]'..
                  'listring[]'
 
-minetest.register_node("ma_pops_furniture:mirror_closed", {
+minetest.register_node("mesecraft_furniture:mirror_closed", {
    description = S("Mirror"),
    tiles = {
-		"ma_pops_furniture_mirror_top.png",
-		"ma_pops_furniture_mirror_bottom.png",
-		"ma_pops_furniture_mirror_right.png",
-		"ma_pops_furniture_mirror_left.png",
+		"mesecraft_furniture_mirror_top.png",
+		"mesecraft_furniture_mirror_bottom.png",
+		"mesecraft_furniture_mirror_right.png",
+		"mesecraft_furniture_mirror_left.png",
 		"default_wood.png",
-		"ma_pops_furniture_mirror_front.png"
+		"mesecraft_furniture_mirror_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -54,7 +54,7 @@ minetest.register_node("ma_pops_furniture:mirror_closed", {
 		inv:set_size('storage', 3*3)
    end,
    on_punch = function(pos, node, puncher)
-		minetest.env:swap_node(pos, {name = "ma_pops_furniture:mirror", param2 = node.param2})
+		minetest.env:swap_node(pos, {name = "mesecraft_furniture:mirror", param2 = node.param2})
 		local meta = minetest.get_meta(pos);
 		meta:set_string('formspec',formspec)
 		end,
@@ -68,23 +68,23 @@ minetest.register_node("ma_pops_furniture:mirror_closed", {
    }
 })
 
-minetest.register_node("ma_pops_furniture:mirror", {
+minetest.register_node("mesecraft_furniture:mirror", {
    description = S("Mirror (Open)"),
    tiles = {
-		"ma_pops_furniture_mirror_open_top.png",
-		"ma_pops_furniture_mirror_open_bottom.png",
-		"ma_pops_furniture_mirror_open_right.png",
-		"ma_pops_furniture_mirror_open_left.png",
-		"ma_pops_furniture_mirror_front.png",
-		"ma_pops_furniture_mirror_open_front.png"
+		"mesecraft_furniture_mirror_open_top.png",
+		"mesecraft_furniture_mirror_open_bottom.png",
+		"mesecraft_furniture_mirror_open_right.png",
+		"mesecraft_furniture_mirror_open_left.png",
+		"mesecraft_furniture_mirror_front.png",
+		"mesecraft_furniture_mirror_open_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
    paramtype2 = "facedir",
-   drop = "ma_pops_furniture:mirror_closed",
+   drop = "mesecraft_furniture:mirror_closed",
    groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, not_in_creative_inventory = 1},
    on_punch = function(pos, node, puncher)
-		minetest.env:swap_node(pos, {name = "ma_pops_furniture:mirror_closed", param2 = node.param2})
+		minetest.env:swap_node(pos, {name = "mesecraft_furniture:mirror_closed", param2 = node.param2})
 		local meta = minetest.get_meta(pos);
 		meta:set_string('formspec',nil)
 		end,
@@ -96,7 +96,7 @@ minetest.register_node("ma_pops_furniture:mirror", {
    on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "storage", drops)
-		drops[#drops+1] = "ma_pops_furniture:mirror_closed"
+		drops[#drops+1] = "mesecraft_furniture:mirror_closed"
 		minetest.remove_node(pos)
 		return drops
    end,
@@ -114,7 +114,7 @@ minetest.register_node("ma_pops_furniture:mirror", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:mirror_closed',
+	output = 'mesecraft_furniture:mirror_closed',
 	recipe = {
 	{'default:steel_ingot','default:steel_ingot','default:steel_ingot',},
 	{'default:glass','default:glass','default:glass',},

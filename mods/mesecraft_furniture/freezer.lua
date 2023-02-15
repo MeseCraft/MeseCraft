@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Freezer--
 
@@ -142,15 +142,15 @@ end
 -- Node definitions
 --
 
-minetest.register_node("ma_pops_furniture:freezer", {
+minetest.register_node("mesecraft_furniture:freezer", {
 	description = S("Freezer"),
 	tiles = {
-		"ma_pops_furniture_froz_top.png",
-		"ma_pops_furniture_froz_bottom.png",
-		"ma_pops_furniture_froz_right.png",
-		"ma_pops_furniture_froz_left.png",
-		"ma_pops_furniture_froz_back.png",
-		"ma_pops_furniture_froz_front.png"
+		"mesecraft_furniture_froz_top.png",
+		"mesecraft_furniture_froz_bottom.png",
+		"mesecraft_furniture_froz_right.png",
+		"mesecraft_furniture_froz_left.png",
+		"mesecraft_furniture_froz_back.png",
+		"mesecraft_furniture_froz_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
@@ -214,7 +214,7 @@ minetest.register_node("ma_pops_furniture:freezer", {
 		local drops = {}
 		default.get_inventory_drops(pos, "src", drops)
 		default.get_inventory_drops(pos, "dst", drops)
-		drops[#drops+1] = "ma_pops_furniture:freezer"
+		drops[#drops+1] = "mesecraft_furniture:freezer"
 		minetest.remove_node(pos)
 		return drops
 	end,
@@ -225,7 +225,7 @@ minetest.register_node("ma_pops_furniture:freezer", {
 })
 	      
 minetest.register_craft({
-	output = 'ma_pops_furniture:freezer',
+	output = 'mesecraft_furniture:freezer',
 	recipe = {
 	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
 	{'default:steel_ingot','default:ice','default:steel_ingot',},

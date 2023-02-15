@@ -1,4 +1,4 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Arm Chairs of all colors--
 local chair2_table = { --name, color, colorize(hex or color name:intensity(1-255))
@@ -24,10 +24,10 @@ for i in ipairs (chair2_table) do
     local color = chair2_table[i][2]
     local hex = chair2_table[i][3]
 
-local cb = "^([combine:16x16:0,0=ma_pops_furniture_cb.png^[mask:ma_pops_furniture_mask.png)"
-local cf = "^([combine:16x16:0,0=ma_pops_furniture_cf.png^[mask:ma_pops_furniture_mask.png)"
+local cb = "^([combine:16x16:0,0=mesecraft_furniture_cb.png^[mask:mesecraft_furniture_mask.png)"
+local cf = "^([combine:16x16:0,0=mesecraft_furniture_cf.png^[mask:mesecraft_furniture_mask.png)"
 
-minetest.register_node("ma_pops_furniture:chair2_"..color, {
+minetest.register_node("mesecraft_furniture:chair2_"..color, {
     description = S(name.." Arm Chair"),
     tiles = {"wool_"..color..".png","wool_"..color..".png"..cb,"wool_"..color..".png"..cf,"wool_"..color..".png"..cf,"wool_"..color..".png"..cf,"wool_"..color..".png"..cf,},
     drawtype = "nodebox",
@@ -35,9 +35,9 @@ minetest.register_node("ma_pops_furniture:chair2_"..color, {
     paramtype2 = "facedir",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, armchair = 1, furniture = 1, fall_damage_add_percent=-80, bouncy=80},
 	sounds = {wood = {name="furn_bouncy", gain=0.8}},
-    on_rightclick = ma_pops_furniture.sit,
-    can_dig = ma_pops_furniture.cannot_dig_while_sitting,
-    on_blast = ma_pops_furniture.unsit_on_blast,
+    on_rightclick = mesecraft_furniture.sit,
+    can_dig = mesecraft_furniture.cannot_dig_while_sitting,
+    on_blast = mesecraft_furniture.unsit_on_blast,
 
     node_box = {
         type = "fixed",
@@ -56,7 +56,7 @@ minetest.register_node("ma_pops_furniture:chair2_"..color, {
 })
 
 minetest.register_craft({
-    output = 'ma_pops_furniture:chair2_'..color,
+    output = 'mesecraft_furniture:chair2_'..color,
     recipe = {
         {'wool:'..color, 'wool:'..color, 'wool:'..color, },
         {'wool:'..color, 'wool:'..color, 'wool:'..color, },
@@ -65,7 +65,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:chair2_'..color,
+	output = 'mesecraft_furniture:chair2_'..color,
 	type = "shapeless",
 	recipe = {'group:armchair', 'dye:'..color}
 })

@@ -1,15 +1,15 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Toaster and Toast--
-minetest.register_node("ma_pops_furniture:toaster", {
+minetest.register_node("mesecraft_furniture:toaster", {
 	description = S("Toaster (empty)"),
 	tiles = {
-		"ma_pops_furniture_toas_top.png",
-		"ma_pops_furniture_toas_bottom.png",
-		"ma_pops_furniture_toas_right.png",
-		"ma_pops_furniture_toas_left.png",
-		"ma_pops_furniture_toas_back.png",
-		"ma_pops_furniture_toas_front.png"
+		"mesecraft_furniture_toas_top.png",
+		"mesecraft_furniture_toas_bottom.png",
+		"mesecraft_furniture_toas_right.png",
+		"mesecraft_furniture_toas_left.png",
+		"mesecraft_furniture_toas_back.png",
+		"mesecraft_furniture_toas_front.png"
 	},
 	walkable = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1},
@@ -35,14 +35,14 @@ minetest.register_node("ma_pops_furniture:toaster", {
 		end
 	end,
 	on_rightclick = function(pos, node, clicker, itemstack)
-		if itemstack:get_name() == "ma_pops_furniture:breadslice" or itemstack:get_name() == "farming:bread_slice" then
+		if itemstack:get_name() == "mesecraft_furniture:breadslice" or itemstack:get_name() == "farming:bread_slice" then
 			local pname = clicker and clicker:get_player_name()
 			if minetest.is_protected(pos, pname) then
 				minetest.record_protection_violation(pos, pname)
 			else
 				if itemstack:get_count() >= 2 then
 					itemstack:take_item(2)
-					minetest.set_node(pos, {name = "ma_pops_furniture:toaster_with_breadslice", param2 = node.param2})
+					minetest.set_node(pos, {name = "mesecraft_furniture:toaster_with_breadslice", param2 = node.param2})
 				end
 			end
 		end
@@ -51,36 +51,36 @@ minetest.register_node("ma_pops_furniture:toaster", {
 })
 
 if minetest.registered_items["farming:bread_slice"] then
-	minetest.register_alias("ma_pops_furniture:breadslice", "farming:bread_slice")
+	minetest.register_alias("mesecraft_furniture:breadslice", "farming:bread_slice")
 else
-	minetest.register_craftitem("ma_pops_furniture:breadslice", {
+	minetest.register_craftitem("mesecraft_furniture:breadslice", {
 		description = S("Slice of Bread"),
-		inventory_image = "ma_pops_furniture_breadslice.png",
+		inventory_image = "mesecraft_furniture_breadslice.png",
 		groups = {flammable = 2},
 		on_use = breadslice_on_use,
 	})
 end
 
 if minetest.registered_items["farming:toast"] then
-	minetest.register_alias("ma_pops_furniture:toast", "farming:toast")
+	minetest.register_alias("mesecraft_furniture:toast", "farming:toast")
 else
-	minetest.register_craftitem("ma_pops_furniture:toast", {
+	minetest.register_craftitem("mesecraft_furniture:toast", {
 		description = S("Toast"),
-		inventory_image = "ma_pops_furniture_toast.png",
+		inventory_image = "mesecraft_furniture_toast.png",
 		on_use = minetest.item_eat(3),
 		groups = {flammable = 2},
 	})
 end
 
-minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
+minetest.register_node("mesecraft_furniture:toaster_with_breadslice", {
 	description = S("Toaster (with bread)"),
 	tiles = {
-		"ma_pops_furniture_toas_top_bread.png",
-		"ma_pops_furniture_toas_bottom.png",
-		"ma_pops_furniture_toas_right_bread.png",
-		"ma_pops_furniture_toas_left_bread.png",
-		"ma_pops_furniture_toas_back_bread.png",
-		"ma_pops_furniture_toas_front_bread.png"
+		"mesecraft_furniture_toas_top_bread.png",
+		"mesecraft_furniture_toas_bottom.png",
+		"mesecraft_furniture_toas_right_bread.png",
+		"mesecraft_furniture_toas_left_bread.png",
+		"mesecraft_furniture_toas_back_bread.png",
+		"mesecraft_furniture_toas_front_bread.png"
 	},
 	walkable = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory=1},
@@ -104,8 +104,8 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 	},
 	on_punch = function(pos, node, clicker, itemstack, pointed_thing)
 		local fdir = node.param2
-		minetest.set_node(pos, { name = "ma_pops_furniture:toaster_toasting_breadslice", param2 = fdir })
-		minetest.after(6, minetest.set_node, pos, { name = "ma_pops_furniture:toaster_with_toast", param2 = fdir })
+		minetest.set_node(pos, { name = "mesecraft_furniture:toaster_toasting_breadslice", param2 = fdir })
+		minetest.after(6, minetest.set_node, pos, { name = "mesecraft_furniture:toaster_with_toast", param2 = fdir })
 		minetest.sound_play("toaster", {
 			pos = pos,
 			gain = 1.0,
@@ -115,15 +115,15 @@ minetest.register_node("ma_pops_furniture:toaster_with_breadslice", {
 	end
 })
 
-minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
+minetest.register_node("mesecraft_furniture:toaster_toasting_breadslice", {
 	description = S("Toaster (toasting)"),
 	tiles = {
-		"ma_pops_furniture_toas_top_bread_on.png",
-		"ma_pops_furniture_toas_bottom.png",
-		"ma_pops_furniture_toas_right_bread.png",
-		"ma_pops_furniture_toas_left_toast_side.png",
-		"ma_pops_furniture_toas_back_side.png",
-		"ma_pops_furniture_toas_front_side.png"
+		"mesecraft_furniture_toas_top_bread_on.png",
+		"mesecraft_furniture_toas_bottom.png",
+		"mesecraft_furniture_toas_right_bread.png",
+		"mesecraft_furniture_toas_left_toast_side.png",
+		"mesecraft_furniture_toas_back_side.png",
+		"mesecraft_furniture_toas_front_side.png"
 	},
 	walkable = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory = 1 },
@@ -145,15 +145,15 @@ minetest.register_node("ma_pops_furniture:toaster_toasting_breadslice", {
 	},
 })
 
-minetest.register_node("ma_pops_furniture:toaster_with_toast", {
+minetest.register_node("mesecraft_furniture:toaster_with_toast", {
 	description = S("Toaster (with toast)"),
 		tiles = {
-		"ma_pops_furniture_toas_top_toast.png",
-		"ma_pops_furniture_toas_bottom.png",
-		"ma_pops_furniture_toas_right_toast.png",
-		"ma_pops_furniture_toas_left_toast.png",
-		"ma_pops_furniture_toas_back_toast.png",
-		"ma_pops_furniture_toas_front_toast.png"
+		"mesecraft_furniture_toas_top_toast.png",
+		"mesecraft_furniture_toas_bottom.png",
+		"mesecraft_furniture_toas_right_toast.png",
+		"mesecraft_furniture_toas_left_toast.png",
+		"mesecraft_furniture_toas_back_toast.png",
+		"mesecraft_furniture_toas_front_toast.png"
 	},
 	walkable = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1, not_in_creative_inventory=1 },
@@ -176,15 +176,15 @@ minetest.register_node("ma_pops_furniture:toaster_with_toast", {
 	},
 	on_punch = function (pos, node, player, pointed_thing)
 		local inv = player:get_inventory()
-		local left = inv:add_item("main", "ma_pops_furniture:toast 2")
+		local left = inv:add_item("main", "mesecraft_furniture:toast 2")
 		if left:is_empty() then
-			minetest.set_node(pos, {name = "ma_pops_furniture:toaster", param2 = node.param2})
+			minetest.set_node(pos, {name = "mesecraft_furniture:toaster", param2 = node.param2})
 		end
 	end
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:toaster',
+	output = 'mesecraft_furniture:toaster',
 	recipe = {
 	{'','','',},
 	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
@@ -195,7 +195,7 @@ minetest.register_craft({
 --Slice of Bread (only if not farming one used)
 if not minetest.registered_items["farming:bread_slice"] then
 	minetest.register_craft({
-		output = 'ma_pops_furniture:breadslice 2',
+		output = 'mesecraft_furniture:breadslice 2',
 		type = "shapeless",
 		recipe = {"farming:bread"}
 	})

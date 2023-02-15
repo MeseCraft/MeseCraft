@@ -1,7 +1,7 @@
-local S = ma_pops_furniture.intllib
+local S = mesecraft_furniture.intllib
 
 --Toilet and Toilet Paper Dispenser--
-minetest.register_node('ma_pops_furniture:toilet_open', {
+minetest.register_node('mesecraft_furniture:toilet_open', {
 	description = S('Toilet'),
 	drawtype = 'mesh',
 	mesh = 'FM_toilet_open.obj',
@@ -24,17 +24,17 @@ minetest.register_node('ma_pops_furniture:toilet_open', {
 			{-.35, 0, .15, .35, .5, .5},
 			}
 		},
-	drop = 'ma_pops_furniture:toilet_close',
-	on_rightclick = ma_pops_furniture.sit,
-	can_dig = ma_pops_furniture.cannot_dig_while_sitting,
-	on_blast = ma_pops_furniture.unsit_on_blast,
+	drop = 'mesecraft_furniture:toilet_close',
+	on_rightclick = mesecraft_furniture.sit,
+	can_dig = mesecraft_furniture.cannot_dig_while_sitting,
+	on_blast = mesecraft_furniture.unsit_on_blast,
 	on_punch = function (pos, node, puncher)
-		node.name = "ma_pops_furniture:toilet_close"
+		node.name = "mesecraft_furniture:toilet_close"
 		minetest.set_node(pos, node)
 	end,
 })
 
-minetest.register_node('ma_pops_furniture:toilet_close', {
+minetest.register_node('mesecraft_furniture:toilet_close', {
 	description = S('Toilet'),
 	drawtype = 'mesh',
 	mesh = 'FM_toilet_close.obj',
@@ -56,17 +56,17 @@ minetest.register_node('ma_pops_furniture:toilet_close', {
 			{-.35, .1, .25, .35, .5, .5},
 			}
 		},
-	on_rightclick = ma_pops_furniture.sit,
-	can_dig = ma_pops_furniture.cannot_dig_while_sitting,
-	on_blast = ma_pops_furniture.unsit_on_blast,
+	on_rightclick = mesecraft_furniture.sit,
+	can_dig = mesecraft_furniture.cannot_dig_while_sitting,
+	on_blast = mesecraft_furniture.unsit_on_blast,
 	on_punch = function (pos, node, puncher)
-		node.name = "ma_pops_furniture:toilet_open"
+		node.name = "mesecraft_furniture:toilet_open"
 		minetest.set_node(pos, node)
 	end,
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:toilet_close',
+	output = 'mesecraft_furniture:toilet_close',
 	recipe = {
 	{'','','default:steel_ingot',},
 	{'default:steel_ingot','stairs:slab_wood','default:steel_ingot',},
@@ -74,15 +74,15 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_node("ma_pops_furniture:toilet_paper_roll_dispenser", {
+minetest.register_node("mesecraft_furniture:toilet_paper_roll_dispenser", {
    description = S("Toilet Paper Roll Dispenser"),
    tiles = {
-		"ma_pops_furniture_tp_top.png",
-		"ma_pops_furniture_tp_bottom.png",
-		"ma_pops_furniture_tp_right.png",
-		"ma_pops_furniture_tp_left.png",
-		"ma_pops_furniture_tp_back.png",
-		"ma_pops_furniture_tp_front.png"
+		"mesecraft_furniture_tp_top.png",
+		"mesecraft_furniture_tp_bottom.png",
+		"mesecraft_furniture_tp_right.png",
+		"mesecraft_furniture_tp_left.png",
+		"mesecraft_furniture_tp_back.png",
+		"mesecraft_furniture_tp_front.png"
 	},
    drawtype = "nodebox",
    paramtype = "light",
@@ -99,7 +99,7 @@ minetest.register_node("ma_pops_furniture:toilet_paper_roll_dispenser", {
 })
 
 minetest.register_craft({
-	output = 'ma_pops_furniture:toilet_paper_roll_dispenser',
+	output = 'mesecraft_furniture:toilet_paper_roll_dispenser',
 	recipe = {
 	{'default:stone','default:stone','default:stone',},
 	{'default:paper','default:water_source','default:paper',},
