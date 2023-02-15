@@ -1,12 +1,7 @@
---
--- Freezer for mintest: a device which turns water (in buckets) into ice
--- And does a couple of other tricks, discovering which is left as a pleasant
--- surprise for the player.
---
+local S = ma_pops_furniture.intllib
 
--- enable extra popsicle types provided there are both vessels and fruits/veggies available
--- fruit + glass -> juice; juice @ freezer -> popsicle + empty glass
- 
+--Freezer--
+
 --
 -- Formspecs
 --
@@ -17,15 +12,15 @@ local function active_formspec(fuel_percent, item_percent)
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
-		"list[current_name;src;2.5,1;1,1;]"..
+		"list[context;src;2.5,1;1,1;]"..
 		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 		(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
-		"list[current_name;dst;4.75,0.96;3,2;]"..
+		"list[context;dst;4.75,0.96;3,2;]"..
 		"list[current_player;main;0,4.25;8,1;]"..
 		"list[current_player;main;0,5.5;8,3;8]"..
-		"listring[current_name;dst]"..
+		"listring[context;dst]"..
 		"listring[current_player;main]"..
-		"listring[current_name;src]"..
+		"listring[context;src]"..
 		"listring[current_player;main]"..
 		default.get_hotbar_bg(0, 4.25)
 	return formspec
@@ -36,14 +31,14 @@ local inactive_formspec =
 	default.gui_bg..
 	default.gui_bg_img..
 	default.gui_slots..
-	"list[current_name;src;2.5,1.5;1,1;]"..
+	"list[context;src;2.5,1.5;1,1;]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;3,2;]"..
+	"list[context;dst;4.75,0.96;3,2;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
-	"listring[current_name;dst]"..
+	"listring[context;dst]"..
 	"listring[current_player;main]"..
-	"listring[current_name;src]"..
+	"listring[context;src]"..
 	"listring[current_player;main]"..
 	default.get_hotbar_bg(0, 4.25)
 
@@ -117,13 +112,24 @@ local function freezer_node_timer(pos, elapsed)
 	--
 
 	-- takes both regular and river water
-	if inv:contains_item("src", "mesecraft_bucket:bucket_water") or 
+	if inv:contains_item("src", "mesecraft_bucket:bucket_water") or
 	      inv:contains_item("src", "mesecraft_bucket:bucket_river_water") then
-		if inv:room_for_item("dst", "default:ice") then
+		if inv:room_for_item("dst", "default:ice") and
+			 inv:room_for_item("dst", "mesecraft_bucket:bucket_empty") then
 			inv:remove_item("src", "mesecraft_bucket:bucket_water")
 			inv:remove_item("src", "mesecraft_bucket:bucket_river_water")
 			inv:add_item("dst", "default:ice")
 			inv:add_item("dst", "mesecraft_bucket:bucket_empty")
+	      end
+	end
+
+	-- support for water source
+	if inv:contains_item("src", "default:water_source") or
+	      inv:contains_item("src", "default:river_water_source") then
+		if inv:room_for_item("dst", "default:ice") then
+			inv:remove_item("src", "default:water_source")
+			inv:remove_item("src", "default:river_water_source")
+			inv:add_item("dst", "default:ice")
 	      end
 	end
 	      
@@ -137,14 +143,14 @@ end
 --
 
 minetest.register_node("ma_pops_furniture:freezer", {
-	description = "Freezer",
+	description = S("Freezer"),
 	tiles = {
-		"mp_froz_top.png",
-		"mp_froz_bottom.png",
-		"mp_froz_right.png",
-		"mp_froz_left.png",
-		"mp_froz_back.png",
-		"mp_froz_front.png"
+		"ma_pops_furniture_froz_top.png",
+		"ma_pops_furniture_froz_bottom.png",
+		"ma_pops_furniture_froz_right.png",
+		"ma_pops_furniture_froz_left.png",
+		"ma_pops_furniture_froz_back.png",
+		"ma_pops_furniture_froz_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
@@ -218,6 +224,15 @@ minetest.register_node("ma_pops_furniture:freezer", {
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
 })
 	      
+minetest.register_craft({
+	output = 'ma_pops_furniture:freezer',
+	recipe = {
+	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
+	{'default:steel_ingot','default:ice','default:steel_ingot',},
+	{'default:steel_ingot','default:mese_crystal','default:steel_ingot',},
+	}
+})
+
 minetest.register_craft({
       output = "default:snowblock 3",
       type = "shapeless",

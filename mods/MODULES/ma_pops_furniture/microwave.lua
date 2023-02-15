@@ -1,26 +1,32 @@
+local S = ma_pops_furniture.intllib
+
+--Microwave--
+
 --microwave code by Wizzerine
 --item_percent code by Noodlemire
 
 local microwave_fs = 
 	"size[8,7]"
 	.."button[6.5,1.5;1.5,2;btn_start;START]"
-    .."image[6.5,.2;1.5,.5;mp_mw_bar.png^[transformR270]"
+    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[transformR270]"
 	.."list[current_player;main;0,3;8,1;]"
     .."list[current_player;main;0,4.25;8,3;8]"
 	.."list[context;cook_slot;3.5,1.25;1,1;]"
-	.."label[3,0.5;Microwave]"
- -- possibly add "fire" image?
+	.."label[3,0.5;"..S("Microwave").."]"
+	.."listring[context;cook_slot]"
+	.."listring[current_player;main]"
 
 local function get_active_microwave_fs(item_percent)
     return "size[8,7]"
 	    .."button[6.5,1.5;1.5,2;button_start;START]"
-	    .."image[6.5,.2;1.5,.5;mp_mw_bar.png^[lowpart:"
-	    ..(item_percent)..":mp_mw_bar_on.png^[transformR270]"
+	    .."image[6.5,.2;1.5,.5;ma_pops_furniture_mw_bar.png^[lowpart:"
+	    ..(item_percent)..":ma_pops_furniture_mw_bar_on.png^[transformR270]"
 	    .."list[current_player;main;0,3;8,1;]"
         .."list[current_player;main;0,4.25;8,3;8]"
 	    .."list[context;cook_slot;3.5,1.25;1,1;]"
-        .."label[3,0.5;Microwave]"
-        -- possibly add "fire" image?
+	   .."label[3,0.5;"..S("Microwave").."]"
+         .."listring[context;cook_slot]"
+         .."listring[current_player;main]"
 end
 
 --x,y;w,h
@@ -68,8 +74,15 @@ local function do_cook_all(pos)
 end
 
 minetest.register_node("ma_pops_furniture:microwave", {
-	description = "Microwave",
-	tiles = {"mp_mw_top.png", "mp_mw_bottom.png", "mp_mw_right.png", "mp_mw_left.png", "mp_mw_back.png", "mp_mw_front.png"},
+	description = S("Microwave"),
+	tiles = {
+		"ma_pops_furniture_mw_top.png",
+		"ma_pops_furniture_mw_bottom.png",
+		"ma_pops_furniture_mw_right.png",
+		"ma_pops_furniture_mw_left.png",
+		"ma_pops_furniture_mw_back.png",
+		"ma_pops_furniture_mw_front.png"
+	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2}, -- currently no pipeworks compat as I don't know how it works
 	sounds = default.node_sound_stone_defaults(),
@@ -133,11 +146,17 @@ minetest.register_node("ma_pops_furniture:microwave", {
 	end,
 
 	allow_metadata_inventory_put = function(pos, list, index, stack, player)
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
 		return microwave.recipes[stack:get_name()] and stack:get_count() or 0
 	end,
 
     --Only allow items to be taken if the microwave hasn't started yet
     allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+        if minetest.is_protected(pos, player:get_player_name()) then
+            return 0
+        end
         if not minetest.get_node_timer(pos):is_started() then
             return stack:get_count()
         else
@@ -147,11 +166,11 @@ minetest.register_node("ma_pops_furniture:microwave", {
 })
 
 minetest.register_craft({
-	output = "ma_pops_furniture:microwave",
+	output = 'ma_pops_furniture:microwave',
 	recipe = {
-		{"default:steel_ingot", "default:mese_crystal", "default:steel_ingot"},
-		{"default:steel_ingot", "", "default:steel_ingot"},
-		{"default:steel_ingot", "default:mese_crystal", "default:steel_ingot"}
+	{'','','',},
+	{"default:steel_ingot", "default:mese", "default:steel_ingot"},
+	{'default:steel_ingot','default:furnace','default:steel_ingot',},
 	}
 })
 
@@ -163,4 +182,18 @@ microwave.register_recipe("mobs_mc:chicken_raw", "test:chicken_cooked")
 Recipe won't even be executed if there is no raw chicken in input ]]--
 microwave.register_recipe("mobs_mc:beef_raw", "test:beef_cooked")
 microwave.register_recipe("farming:coffee_cup", "farming:coffee_cup_hot") -- What a crutch there was...
+
+-- Added for MeseCraft
+microwave.register_recipe("mobs:meat_raw", "mobs:meat")
+microwave.register_recipe("mobs_creatures:pork_raw", "mobs_creatures:pork_cooked")
+microwave.register_recipe("mobs_creatures:mutton_raw", "mobs_creatures:mutton_cooked")
+microwave.register_recipe("mobs_creatures:rabbit_raw", "mobs_creatures:rabbit_cooked")
+microwave.register_recipe("mobs_creatures:chicken_raw", "mobs_creatures:chicken_cooked")
+microwave.register_recipe("mobs_creatures:snapper_raw", "mobs_creatures:snapper_cooked")
+microwave.register_recipe("mobs_creatures:salmon_raw", "mobs_creatures:salmon_cooked")
+microwave.register_recipe("mobs_creatures:clownfish_raw", "mobs_creatures:clownfish_cooked")
+microwave.register_recipe("mobs_creatures:cod_raw", "mobs_creatures:cod_cooked")
+microwave.register_recipe("farming:corn", "farming:corn_cob")
+microwave.register_recipe("farming:potato", "farming:baked_potato")
+
 -- Add needed recipes as you go, note that other mods can add more recipes too

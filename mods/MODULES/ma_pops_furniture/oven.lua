@@ -1,12 +1,18 @@
+local S = ma_pops_furniture.intllib
+
+--Oven with recipe API--
 local oven_fs = "size[8,7]"
     .."image[3.5,1.5;1,1;default_furnace_fire_bg.png]"
     .."list[current_player;main;0,3;8,4;]"
     .."list[context;input;2,1.5;1,1;]"
     .."list[context;output;5,1.5;1,1;]"
-    .."label[3,0.5;Oven]"
-    .."label[1.5,1;Uncooked Food]"
-    .."label[4.5,1;Cooked Food]"
-    -- possibly add "fire" image?
+    .."label[3,0.5;"..S("Oven").."]"
+    .."label[1.5,1;"..S("Uncooked Food").."]"
+    .."label[4.5,1;"..S("Cooked Food").."]"
+    .."listring[context;output]"
+    .."listring[current_player;main]"
+    .."listring[context;input]"
+    .."listring[current_player;main]"
 
 local function get_active_oven_fs(item_percent)
     return "size[8,7]"
@@ -15,10 +21,13 @@ local function get_active_oven_fs(item_percent)
         .."list[current_player;main;0,3;8,4;]"
         .."list[context;input;2,1.5;1,1;]"
         .."list[context;output;5,1.5;1,1;]"
-        .."label[3,0.5;Oven]"
-        .."label[1.5,1;Uncooked Food]"
-        .."label[4.5,1;Cooked Food]"
-        -- possibly add "fire" image?
+        .."label[3,0.5;"..S("Oven").."]"
+        .."label[1.5,1;"..S("Uncooked Food").."]"
+        .."label[4.5,1;"..S("Cooked Food").."]"
+        .."listring[context;output]"
+        .."listring[current_player;main]"
+        .."listring[context;input]"
+        .."listring[current_player;main]"
 end
 
 --x,y;w,h
@@ -63,7 +72,7 @@ local function do_cook_single(pos)
 
     --If the uncooked food wasn't removed mid-cooking, then cook it.
     if not oven.recipes[food_uncooked:get_name()] then
-        minetest.chat_send_all("Oven cooked nothing because there was nothing to cook.")
+        -- Oven cooked nothing because there was nothing to cook
         minetest.get_node_timer(pos):stop()
         update_formspec(0, 3, meta)
     else
@@ -74,14 +83,14 @@ local function do_cook_single(pos)
 end
 
 minetest.register_node("ma_pops_furniture:oven", {
-	description = "Oven",
+	description = S("Oven"),
 	tiles = {
-		"mp_oven_top.png",
-		"mp_oven_bottom.png",
-		"mp_oven_right.png",
-		"mp_oven_left.png",
-		"mp_oven_back.png",
-		"mp_oven_front.png"
+		"ma_pops_furniture_oven_top.png",
+		"ma_pops_furniture_oven_bottom.png",
+		"ma_pops_furniture_oven_right.png",
+		"ma_pops_furniture_oven_left.png",
+		"ma_pops_furniture_oven_back.png",
+		"ma_pops_furniture_oven_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
@@ -128,28 +137,79 @@ minetest.register_node("ma_pops_furniture:oven", {
 	end,
 
 	on_metadata_inventory_put = recalculate,
-    on_metadata_inventory_take = recalculate,
+	on_metadata_inventory_take = recalculate,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", oven_fs)
 		local inv = meta:get_inventory()
 		inv:set_size("input", 1)
-        inv:set_size("output", 1)
+		inv:set_size("output", 1)
 	end,
 	
 	on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "input", drops)
-        default.get_inventory_drops(pos, "output", drops)
+		default.get_inventory_drops(pos, "output", drops)
 		table.insert(drops, "ma_pops_furniture:oven")
 		minetest.remove_node(pos)
 		return drops
 	end,
 
 	allow_metadata_inventory_put = function(pos, list, index, stack, player)
-		return oven.recipes[stack:get_name()] and stack:get_count() or 0
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
+		return (list == "input" and oven.recipes[stack:get_name()]) and stack:get_count() or 0
 	end,
+
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		if minetest.is_protected(pos, player:get_player_name()) then
+			return 0
+		end
+		return stack:get_count()
+	end,
+})
+
+minetest.register_craft({
+	output = 'ma_pops_furniture:oven',
+	recipe = {
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
+	{'default:steel_ingot','default:furnace','default:steel_ingot',},
+	{'default:steel_ingot','default:mese','default:steel_ingot',},
+	}
+})
+
+minetest.register_node("ma_pops_furniture:oven_overhead", {
+	description= S("Oven Overhead"),
+	tiles = {
+		"ma_pops_furniture_camp_top.png",
+		"ma_pops_furniture_camp_bottom.png",
+		"ma_pops_furniture_camp_left.png",
+		"ma_pops_furniture_camp_right.png",
+		"ma_pops_furniture_camp_back.png",
+		"ma_pops_furniture_camp_front.png"
+	},
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.4375, 0.4375, -0.4375, 0.4375, 0.5, 0.4375}, 
+			{-0.5, 0.25, -0.5, 0.5, 0.4375, 0.5}, 
+		}
+	}
+})
+
+minetest.register_craft({
+	output = 'ma_pops_furniture:oven_overhead',
+	recipe = {
+	{'default:steel_ingot','default:mese_crystal_fragment','default:steel_ingot',},
+	{'','','',},
+	{'','','',},
+	}
 })
 
 -- Recipe Registration
@@ -160,4 +220,26 @@ oven.register_recipe("mobs_mc:chicken_raw", "test:chicken_cooked")
 Recipe won't even be executed if there is no raw chicken in input ]]--
 oven.register_recipe("mobs_mc:beef_raw", "test:beef_cooked")
 oven.register_recipe("farming:coffee_cup", "farming:coffee_cup_hot") -- What a crutch there was...
+
+-- Added for MeseCraft
+oven.register_recipe("mobs:meat_raw", "mobs:meat")
+oven.register_recipe("mobs_creatures:pork_raw", "mobs_creatures:pork_cooked")
+oven.register_recipe("mobs_creatures:mutton_raw", "mobs_creatures:mutton_cooked")
+oven.register_recipe("mobs_creatures:rabbit_raw", "mobs_creatures:rabbit_cooked")
+oven.register_recipe("mobs_creatures:chicken_raw", "mobs_creatures:chicken_cooked")
+oven.register_recipe("mobs_creatures:snapper_raw", "mobs_creatures:snapper_cooked")
+oven.register_recipe("mobs_creatures:salmon_raw", "mobs_creatures:salmon_cooked")
+oven.register_recipe("mobs_creatures:clownfish_raw", "mobs_creatures:clownfish_cooked")
+oven.register_recipe("mobs_creatures:cod_raw", "mobs_creatures:cod_cooked")
+oven.register_recipe("farming:flour", "farming:bread")
+oven.register_recipe("farming:rice_flour", "farming:rice_bread")
+oven.register_recipe("farming:flour_multigrain", "farming:bread_multigrain")
+oven.register_recipe("df_farming:cave_flour", "df_farming:cave_bread")
+oven.register_recipe("christmas_holiday_pack:gingerbread_dough", "christmas_holiday_pack:gingerbread")
+oven.register_recipe("farming:pumpkin_dough", "farming:pumpkin_bread")
+oven.register_recipe("default:clay_lump", "default:clay_brick")
+oven.register_recipe("default:clay", "mesecraft_baked_clay:natural")
+oven.register_recipe("farming:corn", "farming:corn_cob")
+oven.register_recipe("farming:potato", "farming:baked_potato")
+
 -- Add needed recipes as you go, note that other mods can add more recipes too
