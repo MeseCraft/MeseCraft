@@ -171,5 +171,6 @@ minetest.register_on_mods_loaded(function()
 
 local MP = minetest.get_modpath('drinks')
 dofile(MP..'/drinks.lua')
-dofile(MP..'/drink_machines.lua')
+dofile(MP..'/liquid_storage.lua')
+dofile(MP..'/juice_press.lua')
 dofile(MP..'/formspecs.lua')
