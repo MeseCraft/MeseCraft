@@ -98,6 +98,10 @@ local allow_metadata_inventory_move = function(pos, from_list, from_index, to_li
 	return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
 end
 
+local play_squish_sound = function(pos)
+  minetest.sound_play({name = "drinks_squish_fruit", gain = 1}, {pos=pos, max_hear_distance = 12}, true)
+end
+
 minetest.register_node('drinks:juice_press', {
     description = S('Juice Press'),
     _doc_items_longdesc = S('A machine for creating drinks out of various fruits and vegetables.'),
@@ -145,6 +149,7 @@ minetest.register_node('drinks:juice_press', {
               meta:set_string('container', container)
               meta:set_string('fruitnumber', required)
               set_mode(meta, modes.running)
+              play_squish_sound(pos)
               timer:start(required * 2)
             else
               set_mode(meta, modes.need)
@@ -165,6 +170,7 @@ minetest.register_node('drinks:juice_press', {
                   meta:set_float('amount', amount)
                   meta:set_int('fruitnumber', required)
                   set_mode(meta, modes.running)
+                  play_squish_sound(pos)
                   timer:start(required * 2)
                 else
                   set_mode(meta, modes.mixing)
@@ -212,6 +218,7 @@ minetest.register_node('drinks:juice_press', {
             fullness = fullness + add_vol
             drinks.set_fullness(meta_u, fullness)
             if instack:get_count() >= required then
+              play_squish_sound(pos)
               timer:start(required * 2)
             else
               set_mode(meta, modes.need)
