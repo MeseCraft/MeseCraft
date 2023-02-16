@@ -58,6 +58,7 @@ local get_fruit_def = function(item_name)
   local fruit_def = drinks.juiceable[fruit_item]
   fruit_def = type(fruit_def) == 'table' and fruit_def or (fruit_def and {})
   if fruit_def then
+    drinks.juiceable[fruit_item] = fruit_def
     if not fruit_def.juice then
       if string.find(fruit_item, '_') then
         local fruit, _ = fruit_item:match('([^_]+)_([^_]+)')
@@ -69,19 +70,14 @@ local get_fruit_def = function(item_name)
   return fruit_def
 end
 
-local get_juice_name = function(item_name)
-  local fruit_def = get_fruit_def(item_name)
-  return fruit_def and fruit_def.juice or get_fruit_item(item_name)
-end
-
 local set_fullness = function(meta, fullness)
   local capacity = meta:get_int('capacity')
   if capacity == 0 then
     capacity = 256
     meta:set_int('capacity', capacity)
   end
-  meta:set_string('fullness', fullness)
-  if fullness == 0 then
+  meta:set_int('fullness', math.floor(fullness))
+  if math.floor(fullness) <= 0 then
     meta:set_string('fruit', 'empty')
     meta:set_string('infotext', S('Empty (no juice)'))
     meta:set_string('formspec', drinks.liquid_storage_formspec('no', 0, capacity))
@@ -141,7 +137,8 @@ minetest.register_node('drinks:juice_press', {
         local inv = meta:get_inventory()
         local timer = minetest.get_node_timer(pos)
         local instack = inv:get_stack("src", 1)
-        local juice = get_juice_name(instack:get_name())
+        local fruit_def = get_fruit_def(instack:get_name())
+        local juice = fruit_def and fruit_def.juice or get_fruit_item(instack:get_name())
         if juice then
           meta:set_string('fruit', juice)
           local outstack = inv:get_stack("dst", 1)
@@ -149,7 +146,9 @@ minetest.register_node('drinks:juice_press', {
           local vessel_def = drinks.longname[vessel]
           local required = vessel_def and vessel_def.size or 2
           local container = (vessel_def and vessel_def.name or 'jcu')..'_'
+          local amount = fruit_def.amount or 1
           if vessel_def then
+            required = math.ceil(required / amount)
             if instack:get_count() >= required then
               meta:set_string('container', container)
               meta:set_string('fruitnumber', required)
@@ -158,14 +157,20 @@ minetest.register_node('drinks:juice_press', {
             else
               set_mode(meta, modes.need)
             end
-          elseif vessel == 'default:papyrus' then
+          elseif vessel == drinks.tube then
+            local yield = amount
+            required = 1
+            while yield < 2 or (yield - math.floor(yield)) > 0.1 * amount do
+              required = required + 1
+              yield = yield + amount
+            end
             if instack:get_count() >= required then
               local meta_u = find_container_under(pos)
               if meta_u then
                 local stored_juice = meta_u:get_string('fruit')
                 if juice == stored_juice or stored_juice == 'empty' then
-                  meta_u:set_string('fruit', juice)
                   meta:set_string('container', 'tube')
+                  meta:set_float('amount', amount)
                   meta:set_int('fruitnumber', required)
                   set_mode(meta, modes.running)
                   timer:start(required * 2)
@@ -189,20 +194,30 @@ minetest.register_node('drinks:juice_press', {
       local instack = inv:get_stack("src", 1)
       local juice = meta:get_string('fruit')
       local required = meta:get_int('fruitnumber')
+      local amount = meta:get_float('amount')
+      local add_vol = amount * required
       if container == 'tube' then
         local timer = minetest.get_node_timer(pos)
         local meta_u = find_container_under(pos)
         if meta_u then
+          local stored_juice = meta_u:get_string('fruit')
+          if juice == stored_juice or stored_juice == 'empty' then
+            meta_u:set_string('fruit', juice)
+          else
+            timer:stop()
+            set_mode(meta, modes.mixing)
+            return
+          end
           local fullness = meta_u:get_int('fullness')
           local capacity = meta_u:get_int('capacity')
           instack:take_item(required)
           inv:set_stack('src', 1, instack)
-          if fullness + 2 > capacity then
+          if fullness + add_vol > capacity then
             timer:stop()
             set_mode(meta, modes.full)
             return
           else
-            local fullness = fullness + 2
+            fullness = fullness + add_vol
             set_fullness(meta_u, fullness)
             if instack:get_count() >= required then
               timer:start(required * 2)
@@ -239,7 +254,7 @@ minetest.register_node('drinks:juice_press', {
         local vessel = stack:get_name()
         if drinks.longname[vessel] then
           return 1
-        elseif vessel == 'default:papyrus' then
+        elseif vessel == drinks.tube then
           return 1
         else
           return 0

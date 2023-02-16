@@ -13,6 +13,7 @@ drinks = {
     ['vessels:steel_bottle'] = {size = 4, name = 'jsb'},
     ['mesecraft_bucket:bucket_empty'] = {size = 16, name = 'jbu'},
   },
+  tube = 'default:papyrus',
 }
 
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -79,14 +80,15 @@ if minetest.get_modpath('farming') then
   drinks.juiceable['melon_8'] = { juice = 'melon', amount = 4 }
   drinks.juiceable['melon_slice'] = { juice = 'melon' }
   drinks.juiceable['tomato'] = true
-  drinks.juiceable['carrot'] = true
+  drinks.juiceable['carrot'] = { amount = 2 }
   drinks.juiceable['cucumber'] = true
   drinks.juiceable['grapes'] = true
-  drinks.juiceable['pumpkin'] = true
+  drinks.juiceable['pumpkin_8'] = { juice = 'pumpkin', amount = 4 }
+  drinks.juiceable['pumpkin_slice'] = { juice = 'pumpkin' }
   drinks.juiceable['raspberries'] = true
   drinks.juiceable['rhubarb'] = true
-  drinks.juiceable['pineapple'] = { amount = 5 }
-  drinks.juiceable['pineapple_ring'] = { juice = 'pineapple' }
+  drinks.juiceable['pineapple'] = { amount = 4 }
+  drinks.juiceable['pineapple_ring'] = { juice = 'pineapple', amount = 0.8 }
   drinks.drink_table['melon'] = { desc = S('Melon'), color = '#ef4646'}
   drinks.drink_table['tomato'] = { desc = S('Tomato'), color = '#990000'}
   drinks.drink_table['carrot'] = { desc = S('Carrot'), color = '#ed9121'}

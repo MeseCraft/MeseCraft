@@ -36,6 +36,7 @@ Take liquid=
 Purge=
 Put fruit here=
 Put container here=
+(Use @1 to drain into container below)=
 Start Juicing=
 Apple=
 Cactus=
