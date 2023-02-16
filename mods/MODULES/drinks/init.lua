@@ -104,6 +104,9 @@ if minetest.get_modpath('farming') then
   minetest.register_alias('farming:carrot_juice', 'drinks:jcu_carrot')
   minetest.unregister_item('farming:cactus_juice')
   minetest.register_alias('farming:cactus_juice', 'drinks:jcu_cactus')
+  minetest.unregister_item('farming:smoothie_raspberry')
+  minetest.register_alias('farming:smoothie_raspberry', 'drinks:jcu_raspberries')
+  minetest.clear_craft({ output='farming:smoothie_raspberry' })
 end
 
 if minetest.get_modpath('fruit') then

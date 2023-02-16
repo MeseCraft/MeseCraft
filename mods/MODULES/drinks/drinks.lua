@@ -23,7 +23,7 @@ for juice,juice_def in pairs (drinks.drink_table) do
         type = "fixed",
         fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
       },
-      groups = {vessel=1,dig_immediate=3,attached_node=1, drink = 1},
+      groups = {dig_immediate=3, attached_node=1, drink = 1},
       sounds = default.node_sound_defaults(),
     })
 
