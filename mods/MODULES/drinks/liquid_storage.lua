@@ -89,6 +89,9 @@ local liquid_avail_add = function(liq_vol, ves_typ, capacity, pos, inputstack, i
 end
 
 local allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+  if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  end
   local inputstack = stack:get_name()
   if listname == 'src' then --adding liquid
     local valid = string.sub(inputstack, 1, 8)
@@ -106,10 +109,18 @@ local allow_metadata_inventory_put = function(pos, listname, index, stack, playe
 end
 
 local allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-	local meta = minetest.get_meta(pos)
-	local inv = meta:get_inventory()
-	local stack = inv:get_stack(from_list, from_index)
-	return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
+  local meta = minetest.get_meta(pos)
+  local inv = meta:get_inventory()
+  local stack = inv:get_stack(from_list, from_index)
+  return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
+end
+
+local allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+  if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  else
+    return stack:get_count()
+  end
 end
 
 local on_metadata_inventory_put = function(pos, listname, index, stack, player)
@@ -137,10 +148,10 @@ local on_metadata_inventory_put = function(pos, listname, index, stack, player)
 end
 
 local on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-	local meta = minetest.get_meta(pos)
-	local inv = meta:get_inventory()
-	local stack = inv:get_stack(from_list, from_index)
-	return on_metadata_inventory_put(pos, to_list, to_index, stack, player)
+  local meta = minetest.get_meta(pos)
+  local inv = meta:get_inventory()
+  local stack = inv:get_stack(from_list, from_index)
+  return on_metadata_inventory_put(pos, to_list, to_index, stack, player)
 end
 
 local can_dig = function(pos)
@@ -191,6 +202,7 @@ minetest.register_node('drinks:liquid_barrel', {
     on_construct = on_construct_for_volume(128),
     allow_metadata_inventory_put = allow_metadata_inventory_put,
     allow_metadata_inventory_move = allow_metadata_inventory_move,
+    allow_metadata_inventory_take = allow_metadata_inventory_take,
     on_metadata_inventory_put = on_metadata_inventory_put,
     on_metadata_inventory_move = on_metadata_inventory_move,
     on_receive_fields = on_receive_fields,
@@ -218,6 +230,7 @@ minetest.register_node('drinks:liquid_silo', {
     on_construct = on_construct_for_volume(256),
     allow_metadata_inventory_put = allow_metadata_inventory_put,
     allow_metadata_inventory_move = allow_metadata_inventory_move,
+    allow_metadata_inventory_take = allow_metadata_inventory_take,
     on_metadata_inventory_put = on_metadata_inventory_put,
     on_metadata_inventory_move = on_metadata_inventory_move,
     on_receive_fields = on_receive_fields,

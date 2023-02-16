@@ -68,6 +68,9 @@ local find_container_under = function(pos)
 end
 
 local allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+  if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  end
   if listname == 'dst' then
     local meta = minetest.get_meta(pos)
     local inv = meta:get_inventory()
@@ -92,10 +95,18 @@ local allow_metadata_inventory_put = function(pos, listname, index, stack, playe
 end
 
 local allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-	local meta = minetest.get_meta(pos)
-	local inv = meta:get_inventory()
-	local stack = inv:get_stack(from_list, from_index)
-	return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
+  local meta = minetest.get_meta(pos)
+  local inv = meta:get_inventory()
+  local stack = inv:get_stack(from_list, from_index)
+  return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
+end
+
+local allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+  if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  else
+    return stack:get_count()
+  end
 end
 
 local play_squish_sound = function(pos)
@@ -245,4 +256,5 @@ minetest.register_node('drinks:juice_press', {
     end,
     allow_metadata_inventory_put = allow_metadata_inventory_put,
     allow_metadata_inventory_move = allow_metadata_inventory_move,
+    allow_metadata_inventory_take = allow_metadata_inventory_take,
   })
