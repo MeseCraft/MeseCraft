@@ -1,5 +1,24 @@
 local S = drinks.get_translator
-local do_drink = minetest.get_modpath('thirsty') and thirsty.drink or function(user,amt,max) end
+
+local get_size_factor = function(vessel)
+  local size = drinks.longname[vessel].size
+  return (size or 2) / 2
+end
+
+local drink_sound = nil
+local do_drink = function(user,amt,max) end
+local do_add_settings = function(item, replace_with_item, juice_def) end
+
+if minetest.get_modpath('thirsty') then
+  do_drink = thirsty.drink
+  drink_sound = 'thirsty_drink'
+end
+if minetest.get_modpath('hbhunger') then
+  do_add_settings = function(item, replace_with_item, juice_def)
+    local factor = get_size_factor(replace_with_item)
+    hbhunger.register_food(item, (juice_def.health or 1) * factor, replace_with_item, (juice_def.poison or 0) * factor, (juice_def.health or 0) * factor, juice_def.sound or drink_sound)
+  end
+end
 
 --Parse Table
 for juice,juice_def in pairs (drinks.drink_table) do
@@ -33,11 +52,13 @@ for juice,juice_def in pairs (drinks.drink_table) do
       juice_type = juice_desc,
       inventory_image = 'drinks_glass_contents.png^[colorize:'..color..':200^drinks_drinking_glass.png',
       on_use = function(itemstack, user, pointed_thing)
-        do_drink(user, drinks.longname['vessels:drinking_glass'].size * 2, 20)
-        local eat_func = minetest.item_eat(health, 'vessels:drinking_glass')
+        local factor = get_size_factor('vessels:drinking_glass')
+        do_drink(user, 2 * factor, 20)
+        local eat_func = minetest.item_eat(health * factor, 'vessels:drinking_glass')
         return eat_func(itemstack, user, pointed_thing)
       end,
     })
+  do_add_settings('drinks:jcu_'..juice, 'vessels:drinking_glass', juice_def)
 
   drinks.register_item('drinks:jbo_'..juice, 'vessels:glass_bottle', {
       description = S('Bottle of @1 Juice', juice_desc),
@@ -45,11 +66,13 @@ for juice,juice_def in pairs (drinks.drink_table) do
       juice_type = juice_desc,
       inventory_image = 'drinks_bottle_contents.png^[colorize:'..color..':200^drinks_glass_bottle.png',
       on_use = function(itemstack, user, pointed_thing)
-        do_drink(user, drinks.longname['vessels:glass_bottle'].size * 2, 20)
-        local eat_func = minetest.item_eat((health*2), 'vessels:glass_bottle')
+        local factor = get_size_factor('vessels:glass_bottle')
+        do_drink(user, 2 * factor, 20)
+        local eat_func = minetest.item_eat(health * factor, 'vessels:glass_bottle')
         return eat_func(itemstack, user, pointed_thing)
       end,
     })
+  do_add_settings('drinks:jbo_'..juice, 'vessels:glass_bottle', juice_def)
 
   drinks.register_item('drinks:jsb_'..juice, 'vessels:steel_bottle', {
       description = S('Heavy Steel Bottle of @1 Juice', juice_desc),
@@ -57,10 +80,12 @@ for juice,juice_def in pairs (drinks.drink_table) do
       juice_type = juice_desc,
       inventory_image = 'vessels_steel_bottle.png',
       on_use = function(itemstack, user, pointed_thing)
-        do_drink(user, drinks.longname['vessels:steel_bottle'].size * 2, 20)
-        local eat_func = minetest.item_eat((health*2), 'vessels:steel_bottle')
+        local factor = get_size_factor('vessels:steel_bottle')
+        do_drink(user, 2 * factor, 20)
+        local eat_func = minetest.item_eat(health * factor, 'vessels:steel_bottle')
         return eat_func(itemstack, user, pointed_thing)
       end,
     })
+  do_add_settings('drinks:jsb_'..juice, 'vessels:steel_bottle', juice_def)
 
 end
