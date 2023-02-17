@@ -20,10 +20,19 @@ local S = minetest.get_translator(minetest.get_current_modname())
 drinks.get_translator = S
 
 -- Honestly not needed for default, but used as an example to add support to other mods.
--- Basically to use this all you need to do is add the name of the fruit to make juiceable (see line 14 for example)
--- Add the new fruit to a table like I've done in line 16.
--- The table should follow this scheme: internal name, Displayed name, colorize code.
--- Check out the drinks.lua file for more info how how the colorize code is used.
+-- Basically to use this all you need to do is add the name of the fruit item (without mod name)
+-- to make juiceable (see below for example)
+-- Add the new fruit to a table like I've done after that below.
+-- The juiceable table, if specified, can have 'juice' (the juice identifier) and 'amount'
+-- (1 is approximately an apple, or half a cup of juice)
+-- The drink_table (indexed by juice identifier can have these properties:
+--   desc = display name of juice (uppercase, the code uses string.lower on it sometimes)
+--   color = hex color of the juice (required)
+--   health = amount of hunger/healing to perform
+--   poison = fills in the 'poisen' field in the hbhunger mod
+--   sound = fills in the 'sound' field in the hbhunger mod
+-- Check out the drinks.lua file for more info on how the colorize code is used.
+-- Check out the hbhunger mod for how the special values are used when registering food
 
 if minetest.get_modpath('default') then
   drinks.juiceable['apple'] = true -- Name of fruit to make juiceable.
