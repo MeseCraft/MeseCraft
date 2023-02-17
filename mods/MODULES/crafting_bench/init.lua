@@ -1,6 +1,4 @@
--- internationalization boilerplate
-local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+local S = minetest.get_translator(minetest.get_current_modname())
 
 minetest.register_alias("castle:workbench", "crafting_bench:workbench")
 
@@ -17,7 +15,7 @@ if crafting_rate == nil then crafting_rate = 5 end
 
 minetest.register_node("crafting_bench:workbench",{
 	description = S("Autocrafting Workbench"),
-	_doc_items_longdesc = string.format(S("A workbench that does work for you. Set a crafting recipe and provide raw materials and items will magically craft themselves once every %i seconds."), crafting_rate),
+	_doc_items_longdesc = S("A workbench that does work for you. Set a crafting recipe and provide raw materials and items will magically craft themselves once every @1 seconds.", crafting_rate),
 	_doc_items_usagehelp = usage_help,
 	tiles = {
 		"crafting_bench_workbench_top.png",
@@ -149,13 +147,6 @@ minetest.register_abm( {
 		end
 	end
 } )
-
-local function has_locked_chest_privilege(meta, player)
-	if player:get_player_name() ~= meta:get_string("owner") then
-		return false
-	end
-	return true
-end
 
 minetest.register_craft({
 	output = "crafting_bench:workbench",

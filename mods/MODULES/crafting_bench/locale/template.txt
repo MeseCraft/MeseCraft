@@ -1,0 +1,9 @@
+# textdomain: crafting_bench
+The inventory on the left is for raw materials, the inventory on the right holds finished products. The crafting grid in the center defines what recipe this workbench will make use of; place raw materials into it in the crafting pattern corresponding to what you want to build.=
+This workbench is compatible with hoppers. Hoppers will insert into the raw material inventory and remove items from the finished goods inventory.=
+Autocrafting Workbench=
+A workbench that does work for you. Set a crafting recipe and provide raw materials and items will magically craft themselves once every @1 seconds.=
+Source Material=
+Recipe to Use=
+Craft Output=
+Workbench=
