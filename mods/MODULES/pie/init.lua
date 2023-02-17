@@ -160,7 +160,7 @@ minetest.register_craft({
 register_pie("choc", "Chocolate Cake")
 
 minetest.register_craft({
-	output = "pie:choc_pie_0",
+	output = "pie:choc_0",
 	recipe = {
 		{"group:food_sugar", "group:food_milk", "group:food_sugar"},
 		{"group:food_chocolate", "group:food_egg", "group:food_chocolate"},
