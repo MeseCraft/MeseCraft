@@ -5,13 +5,13 @@ local get_size_factor = function(vessel)
   return (size or 2) / 2
 end
 
-local drink_sound = nil
+local drink_sound = 'drinks_drink_juice'
 local do_drink = function(user,amt,max) end
 local do_add_settings = function(item, replace_with_item, juice_def) end
 
 if minetest.get_modpath('thirsty') then
   do_drink = thirsty.drink
-  drink_sound = 'thirsty_drink'
+  drink_sound = drink_sound or 'thirsty_drink'
 end
 if minetest.get_modpath('hbhunger') then
   do_add_settings = function(item, replace_with_item, juice_def)
