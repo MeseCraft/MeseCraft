@@ -4,7 +4,9 @@ minetest.register_alias("castle:workbench", "crafting_bench:workbench")
 
 local usage_help = S("The inventory on the left is for raw materials, the inventory on the right holds finished products. The crafting grid in the center defines what recipe this workbench will make use of; place raw materials into it in the crafting pattern corresponding to what you want to build.")
 
-if minetest.get_modpath("hopper") and hopper ~= nil and hopper.add_container ~= nil then
+local has_hopper = minetest.get_modpath("hopper") and hopper ~= nil and hopper.add_container ~= nil
+
+if has_hopper then
   usage_help = usage_help .. "\n\n" .. S("This workbench is compatible with hoppers. Hoppers will insert into the raw material inventory and remove items from the finished goods inventory.")
 end
 
@@ -121,15 +123,6 @@ minetest.register_node("crafting_bench:workbench",{
       minetest.remove_node(pos)
       return drops
     end,
-    on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-      minetest.log("action", S("@1 moves stuff in workbench at @2", player:get_player_name(), minetest.pos_to_string(pos)))
-    end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-      minetest.log("action", S("@1 moves stuff to workbench at @2", player:get_player_name(), minetest.pos_to_string(pos)))
-    end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-      minetest.log("action", S("@1 takes stuff from workbench at @2", player:get_player_name(), minetest.pos_to_string(pos)))
-    end,
     allow_metadata_inventory_put = allow_metadata_inventory_put,
     allow_metadata_inventory_move = allow_metadata_inventory_move,
     allow_metadata_inventory_take = allow_metadata_inventory_take,
@@ -216,12 +209,12 @@ minetest.register_craft({
     recipe = {
       {"default:steel_ingot","default:steel_ingot","default:steel_ingot"},
       {"default:wood", "default:wood","default:steel_ingot"},
-      {"default:tree", "default:tree","default:steel_ingot"},
+      {"default:mese_crystal", "default:mese_crystal","default:steel_ingot"},
     }
   })
 
 -- Hopper compatibility
-if minetest.get_modpath("hopper") and hopper ~= nil and hopper.add_container ~= nil then
+if has_hopper then
   hopper:add_container({
       {"top", "crafting_bench:workbench", "dst"},
       {"side", "crafting_bench:workbench", "src"},
