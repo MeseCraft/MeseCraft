@@ -81,11 +81,11 @@ minetest.register_node("crafting_bench:workbench",{
     },
     paramtype2 = "facedir",
     paramtype = "light",
-    groups = {choppy=2,oddly_breakable_by_hand=2,flammable=2},
+    groups = {choppy=2, oddly_breakable_by_hand=2, flammable=2},
     sounds = default.node_sound_wood_defaults(),
     drawtype = "normal",
-    on_construct = function ( pos )
-      local meta = minetest.get_meta( pos )
+    on_construct = function(pos)
+      local meta = minetest.get_meta(pos)
       meta:set_string( 'formspec',
         'size[10,10;]' ..
         default.gui_bg ..
@@ -104,11 +104,11 @@ minetest.register_node("crafting_bench:workbench",{
         'listring[current_player;main]' ..
         'listring[context;rec]' ..
         'listring[current_player;main]' )
-      meta:set_string( 'infotext', S('Workbench'))
+      meta:set_string('infotext', S('Workbench'))
       local inv = meta:get_inventory()
-      inv:set_size( 'src', 2 * 4 )
-      inv:set_size( 'rec', 3 * 3 )
-      inv:set_size( 'dst', 1 * 4 )
+      inv:set_size('src', 2 * 4)
+      inv:set_size('rec', 3 * 3)
+      inv:set_size('dst', 1 * 4)
     end,
     can_dig = function(pos,player)
       local meta = minetest.get_meta(pos);
@@ -127,21 +127,23 @@ minetest.register_node("crafting_bench:workbench",{
     allow_metadata_inventory_move = allow_metadata_inventory_move,
     allow_metadata_inventory_take = allow_metadata_inventory_take,
   })
-local get_recipe = function ( inv )
-  local result, needed, input
-  needed = inv:get_list( 'rec' )
+local get_recipe = function(inv)
+  local needed = inv:get_list('rec')
+  local totalneed = {}
 
-  result, input = minetest.get_craft_result( {
+  local result, leftover = minetest.get_craft_result({
       method = 'normal',
       width = 3,
       items = needed
     })
 
-  local totalneed = {}
-
   if result.item:is_empty() then
     result = nil
   else
+    leftover = leftover or {}
+    for _, item in ipairs(result.replacements) do
+      table.insert(leftover, item)
+    end
     result = result.item
     for _, item in ipairs( needed ) do
       if item ~= nil and not item:is_empty() and not inv:contains_item( 'src', item ) then
@@ -149,11 +151,8 @@ local get_recipe = function ( inv )
         break
       end
       if item ~= nil and not item:is_empty() then
-        if totalneed[item:get_name()] == nil then
-          totalneed[item:get_name()] = 1
-        else
-          totalneed[item:get_name()] = totalneed[item:get_name()] + 1
-        end
+        local itemname = item:get_name()
+        totalneed[itemname] = (totalneed[itemname] or 0) + 1
       end
     end
     for name, number in pairs( totalneed ) do
@@ -175,33 +174,40 @@ local get_recipe = function ( inv )
     end
   end
 
-  return needed, input, result
+  return needed, leftover, result
 end
 
 minetest.register_abm( {
     nodenames = { 'crafting_bench:workbench' },
     interval = crafting_rate,
     chance = 1,
-    action = function ( pos, node )
-      local meta = minetest.get_meta( pos )
+    action = function (pos, node)
+      local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
-      local result, newinput, needed
-      if not inv:is_empty( 'src' ) then
+      if not inv:is_empty('src') and not inv:is_empty('rec') then
         -- Check for a valid recipe and sufficient resources to craft it
-        needed, newinput, result = get_recipe( inv )
-        if result ~= nil and inv:room_for_item( 'dst', result ) then
-          inv:add_item( 'dst', result )
-          for i, item in pairs( needed ) do
-            if item ~= nil and item ~= '' then
-              inv:remove_item( 'src', ItemStack( item ) )
+        local needed, replacements, result = get_recipe(inv)
+        replacements = replacements and replacements.items or replacements
+        if result ~= nil and inv:room_for_item('dst', result) then
+          inv:add_item('dst', result)
+          for i, item in pairs(needed) do
+            local replacement = replacements[i]
+            if item and not item:is_empty() then
+              inv:remove_item('src', ItemStack(item))
+              -- add identical replacements to src
+              if replacement and not replacement:is_empty() and replacement:get_name() == item:get_name() then
+                inv:add_item('src', replacement)
+                replacements[i] = nil
+              end
             end
-            if newinput[i] ~= nil and not newinput[i]:is_empty() then
-              inv:add_item( 'src', newinput[i] )
-            end
+          end
+          -- other replacements add to dst
+          for _, item in pairs(replacements) do
+            inv:add_item('dst', item)
           end
         end
       end
-    end
+    end,
     } )
 
 minetest.register_craft({
