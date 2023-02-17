@@ -12,17 +12,43 @@ end
 local crafting_rate = minetest.settings:get("crafting_bench_crafting_rate")
 if crafting_rate == nil then crafting_rate = 5 end
 
-local allow_metadata_inventory_put = function(pos, list, index, stack, player)
+local allow_metadata_inventory_put = function(pos, listname, index, stack, player)
   if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  end
+  if listname == 'rec' then
+    local meta = minetest.get_meta(pos)
+    local inv = meta:get_inventory()
+    inv:set_stack(listname, index, ItemStack(stack:get_name()))
     return 0
   end
   return stack:get_count()
 end
 
 local allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+  if minetest.is_protected(pos, player:get_player_name()) then
+    return 0
+  end
   local meta = minetest.get_meta(pos)
   local inv = meta:get_inventory()
   local stack = inv:get_stack(from_list, from_index)
+  if from_list == 'rec' and to_list == 'rec' then
+    local to_stack = inv:get_stack(to_list, to_index)
+    if to_stack:is_empty() then
+      return 1
+    else
+      inv:set_stack(from_list, from_index, ItemStack(to_stack:get_name()))
+      -- falls through and returns 0 after fixing 'to'
+    end
+  end
+  if to_list == 'rec' then
+    inv:set_stack(to_list, to_index, ItemStack(stack:get_name()))
+    return 0
+  end
+  if from_list == 'rec' then
+    inv:set_stack(from_list, from_index, ItemStack(""))
+    return 0
+  end
   return allow_metadata_inventory_put(pos, to_list, to_index, stack, player)
 end
 
@@ -30,9 +56,14 @@ local allow_metadata_inventory_take = function(pos, listname, index, stack, play
   if minetest.is_protected(pos, player:get_player_name()) then
     return 0
   end
+  if listname == 'rec' then
+    local meta = minetest.get_meta(pos)
+    local inv = meta:get_inventory()
+    inv:set_stack(listname, index, ItemStack(""))
+    return 0
+  end
   return stack:get_count()
 end
-
 
 minetest.register_node("crafting_bench:workbench",{
     description = S("Autocrafting Workbench"),
