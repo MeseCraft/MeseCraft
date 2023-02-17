@@ -59,7 +59,15 @@ minetest.register_node("crafting_bench:workbench",{
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
-		return inv:is_empty("main")
+		return inv:is_empty('src') and inv:is_empty('dst')
+	end,
+  on_blast = function(pos)
+		local drops = {}
+		default.get_inventory_drops(pos, 'src', drops)
+		default.get_inventory_drops(pos, 'dst', drops)
+		table.insert(drops, 'crafting_bench:workbench')
+		minetest.remove_node(pos)
+		return drops
 	end,
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		minetest.log("action", S("@1 moves stuff in workbench at @2", player:get_player_name(), minetest.pos_to_string(pos)))
