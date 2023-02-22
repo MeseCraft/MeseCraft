@@ -89,7 +89,6 @@
 * Add steel sounds to ingot stacks when walking on them.
 * Drinks mod makes eating noise, not drinking.
 * Fix duplicate portal bug.
-* Look at centeria bedrock implentation.
 * Slade block, puzzle seal. 
 * Staff of Earth for nether.
 * Add support for other mobs for death messages.

@@ -1,6 +1,6 @@
 
 
-local has_bedrock_mod = minetest.get_modpath("bedrock")
+local has_bedrock_mod = minetest.get_modpath("mesecraft_bedrock")
 
 -- http://dev.minetest.net/PerlinNoiseMap
 
@@ -20,7 +20,7 @@ local c_bedrock
 
 
 if has_bedrock_mod then
-	c_bedrock = minetest.get_content_id("bedrock:bedrock")
+	c_bedrock = minetest.get_content_id("mesecraft_bedrock:bedrock")
 end
 
 

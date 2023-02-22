@@ -1,4 +1,4 @@
-local has_bedrock_mod = minetest.get_modpath("bedrock")
+local has_bedrock_mod = minetest.get_modpath("mesecraft_bedrock")
 local has_vacuum_mod = minetest.get_modpath("vacuum")
 
 -- http://dev.minetest.net/PerlinNoiseMap
@@ -68,7 +68,7 @@ end
 local c_bedrock = c_base
 
 if has_bedrock_mod then
-	c_bedrock = minetest.get_content_id("bedrock:bedrock")
+	c_bedrock = minetest.get_content_id("mesecraft_bedrock:bedrock")
 end
 
 local y_start = planet_mars.y_start

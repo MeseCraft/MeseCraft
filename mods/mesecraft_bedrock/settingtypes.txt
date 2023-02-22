@@ -1,0 +1,4 @@
+# Sets the height (Y) at which the bedrock layer will be created.
+nextgen_bedrock_y (Bedrock height) int -30912
+# Sets the height (Y) at which the top bedrock layers start at.
+nextgen_bedrock_layers (Bedrock top layers start height) int -30910

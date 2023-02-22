@@ -131,6 +131,7 @@ local earth_staff_blacklist = {
     "wielded_light:12",
     "wielded_light:13",
     "wielded_light:14",
+    "mesecraft_bedrock:bedrock",
 }
 
 gadgets.register_gadget({
