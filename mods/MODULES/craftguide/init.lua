@@ -719,12 +719,18 @@ local function get_desc(name)
 	if sub(name, 1, 1) == "_" then
 		name = sub(name, 2)
 	end
+	local prefix = ''
+	if string.find(name, ' ') then
+		item, count = name:match('([^ ]+) ([^ ]+)')
+		name = item
+		prefix = count..' '
+	end
 
 	local def = reg_items[name]
 
-	return def and (match(def.description, "%)([%w%s]*)") or def.description) or
+	return prefix..(def and (match(def.description, "%)([%w%s]*)") or def.description) or
 	      (def and match(name, ":.*"):gsub("%W%l", upper):sub(2):gsub("_", " ") or
-	      S("Unknown Item (@1)", name))
+	      S("Unknown Item (@1)", name)))
 end
 
 local function get_tooltip(name, info)
