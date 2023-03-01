@@ -8,12 +8,12 @@ The best game for Minetest. A survival game with new depth, mechanics, biomes, m
 
 Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
-Development Schema
+MeseCraft Development Cycle
 -------------------------
-There are three main git branches of MeseCraft
-* main: stable branch, meant to be ran by players and servers. Focused on high stabiliy.
-* testing: beta branch, intended for testing new updates, finding bugs, and eliminating them before they are merged into the main branch.
-* unstable: alpha branch, intended to be used as a staging branch for new code, mods, and fixes. Changes and commits should go here.
+There are three main git branches of MeseCraft:
+* `main`: stable branch, meant to be ran by players and on servers. Focused on high stabiliy.
+* `testing`: beta branch, for testing new updates, finding bugs, and eliminating them before merging into the `main` branch.
+* `unstable`: alpha branch, a staging branch for additions to MeseCraft. For new code, updates, and fixes. Changes and commits should go here.
 
 Minetest Engine Compatability
 --------------------------
