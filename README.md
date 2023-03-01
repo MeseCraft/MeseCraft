@@ -1,4 +1,4 @@
-MeseCraft
+MeseCraft - A blocky survival game.
 ==========================
 Copyright (C) 2019-2023 MeseCraft, www.mesecraft.com
 
@@ -8,6 +8,13 @@ The best game for Minetest. A survival game with new depth, mechanics, biomes, m
 
 Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
+Development Schema
+-------------------------
+There are three main git branches of MeseCraft
+* main: stable branch, meant to be ran by players and servers. Focused on high stabiliy.
+* testing: beta branch, intended for testing new updates, finding bugs, and eliminating them before they are merged into the main branch.
+* unstable: alpha branch, intended to be used as a staging branch for new code, mods, and fixes. Changes and commits should go here.
+
 Minetest Engine Compatability
 --------------------------
 Minetest engine version 5.2.0 or greater is currently recommended to run this game.
@@ -15,7 +22,8 @@ Minetest engine version 5.1.1 is compatabile but not all mods and function compl
 
 Credits and Acknowledgements
 -------------------------
-This game has been primary designed and developed by Komodo (Jeremy Weston). A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
+By Komodo (Jeremy Weston) and the MeseCraft community and contributors.
+A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
 
 License
 --------------------------
