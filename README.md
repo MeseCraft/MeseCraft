@@ -8,22 +8,23 @@ The best game for Minetest. A survival game with new depth, mechanics, biomes, m
 
 Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
-MeseCraft Development Cycle
+Development Cycle
 -------------------------
 There are three main git branches of MeseCraft:
 * `main`: stable branch, meant to be ran by players and on servers. Focused on high stabiliy.
 * `testing`: beta branch, for testing new updates, finding bugs, and eliminating them before merging into the main branch.
 * `unstable`: alpha branch, a staging branch for additions to MeseCraft. For new code, updates, and fixes. Changes and commits should go here.
 
-Minetest Engine Compatability
+Minetest Engine Requirements
 --------------------------
 Minetest engine version 5.2.0 or greater is currently recommended to run this game.
 Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
 
 Credits and Acknowledgements
 -------------------------
-By Komodo (Jeremy Weston) and the MeseCraft community and contributors.
-A special thanks goes out to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
+Designed by Jeremy Weston (Komodo) <contact@jeremyweston.com>
+Thank you to everyone who has contributed to this project, mods, and the awesome MeseCraft community. Also, to the Minetest community, core developers, and modders. This game was built using the Minetest game engine, minetest_game, and the mods of many others.
+More credits coming soon.
 
 License
 --------------------------
