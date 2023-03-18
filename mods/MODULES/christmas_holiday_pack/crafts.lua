@@ -142,7 +142,7 @@ minetest.register_craft({
 minetest.register_craft({
         output = "christmas_holiday_pack:festive_garland_lights",
         type = "shapeless",
-        recipe = {"christmas_holiday_pack:festive_garland", "holiday_lights:lights_white"},
+        recipe = {"christmas_holiday_pack:festive_garland", "mesecraft_holiday_lights:lights_white"},
 })
 
 -- Red Garland

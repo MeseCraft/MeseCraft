@@ -1,6 +1,5 @@
 --------------------------------------------------------------------------------------------------------
 --Ambience Configuration for version .34
---Added Faraway & Ethereal by Amethystium
 
 --find out why wind stops while flying
 --add an extra node near feet to handle treading water as a special case, and don't have to use node under feet. which gets

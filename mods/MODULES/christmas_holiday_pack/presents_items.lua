@@ -42,9 +42,9 @@ christmas_holiday_pack.christmas_special_item_pool = {}
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:blueberries")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:ice")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "default:snow")
-	table.insert(christmas_holiday_pack.christmas_common_item_pool, "holiday_lights:lights_icy")
-	table.insert(christmas_holiday_pack.christmas_common_item_pool, "holiday_lights:lights_festive")
-	table.insert(christmas_holiday_pack.christmas_common_item_pool, "holiday_lights:lights_rainbow")
+	table.insert(christmas_holiday_pack.christmas_common_item_pool, "mesecraft_holiday_lights:lights_icy")
+	table.insert(christmas_holiday_pack.christmas_common_item_pool, "mesecraft_holiday_lights:lights_festive")
+	table.insert(christmas_holiday_pack.christmas_common_item_pool, "mesecraft_holiday_lights:lights_rainbow")
 
 
 -- Uncommon Item Pool

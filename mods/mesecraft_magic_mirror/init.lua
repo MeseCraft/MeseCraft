@@ -1,5 +1,5 @@
 -- MAGIC MIRROR
--- by FreeGamers.org
+-- by Komodo
 -- Based off of "Mirror of Returning" by Wuzzy and "Recall Mirror" by davidthecreator. Thank you!
 
 local magicmirror = {}
@@ -39,12 +39,12 @@ magicmirror.mana_check = function(player, cost)
                  end -- end function
 
 -- REGISTER THE MIRROR TOOL
-minetest.register_tool("magic_mirror:magic_mirror", {
+minetest.register_tool("mesecraft_magic_mirror:magic_mirror", {
 	description = "" ..core.colorize("#35cdff","Magic Mirror\n") ..core.colorize("#FFFFFF", "Gaze deeply into the mirror to return home."),
 	light_source = 7,
 	range = 0,
 	stack_max = 1,
-	inventory_image = "magic_mirror.png",
+	inventory_image = "mesecraft_magic_mirror.png",
 	on_use = function(itemstack,user)
 
 		-- If user has the mana cost he/she can teleport.
@@ -56,7 +56,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
                         local rec_pos = beds.spawn[name]
 
 			-- Teleporting departure effect.
-                        minetest.sound_play("magic_mirror_teleport", {pos = firstpos, gain = 0.8})
+                        minetest.sound_play("mesecraft_magic_mirror_teleport", {pos = firstpos, gain = 0.8})
                         for i=1,50 do
 	                        minetest.add_particle({
 	                                pos = firstpos,
@@ -66,7 +66,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
 	                                expirationtime = 3.0,
 	                                collisiondetection = false,
 	                                vertical = false,
-	                                texture = "magic_mirror_particle.png",
+	                                texture = "mesecraft_magic_mirror_particle.png",
 	                                animation = {type="vertical_frames", aspect_w=8, aspect_h=8, length = 0.50,},
 	                                glow = 30,
 	                        })
@@ -81,7 +81,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
 
                         -- Teleportation effects on arrival location.
                         local nextpos = user:get_pos()
-                        minetest.sound_play("magic_mirror_teleport", {pos = nextpos, gain = 1.0})
+                        minetest.sound_play("mesecraft_magic_mirror_teleport", {pos = nextpos, gain = 1.0})
                         for i=1,50 do
                                 minetest.add_particle({
                                         pos = nextpos,
@@ -91,7 +91,7 @@ minetest.register_tool("magic_mirror:magic_mirror", {
                                         expirationtime = 3.0,
                                         collisiondetection = false,
                                         vertical = false,
-                                        texture = "magic_mirror_particle.png",
+                                        texture = "mesecraft_magic_mirror_particle.png",
                                         animation = {type="vertical_frames", aspect_w=8, aspect_h=8, length = 0.2,},
                                         glow = 30,
                                 })

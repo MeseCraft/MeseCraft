@@ -17,7 +17,7 @@ lootchests.loot_table["lootchests_magic_materials:rune_chest"] = {
     {"magic_materials:axe_arcanite"},
     {"magic_materials:shovel_arcanite"},
     {"magic_materials:sword_arcanite"},
-    {"magic_mirror:magic_mirror"},
+    {"mesecraft_magic_mirror:mesecraft_magic_mirror"},
 }
 
 lootchests.loot_table["lootchests_magic_materials:rune_urn"] = {

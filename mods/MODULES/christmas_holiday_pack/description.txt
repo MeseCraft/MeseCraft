@@ -1,4 +1,4 @@
-Huge Christmas Content Pack by FreeGamers.org
+Huge Christmas Content Pack by Komodo
 
 Includes:
 - 8 colored ornaments
@@ -14,4 +14,4 @@ Includes:
 - A christmas bell that rings every hour.
 
 Optional dependencies:
-Recommends: holiday_lights by FreeGamers.org
+Recommends: mesecraft_holiday_lights by Komodo
