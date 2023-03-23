@@ -97,6 +97,7 @@ minetest.register_craft( {
 -- bar of dark chocolate (thanks to Ice Pandora for her deviantart.com chocolate tutorial)
 minetest.register_craftitem("farming:chocolate_dark", {
 	description = S("Bar of Dark Chocolate"),
+	groups = {food_chocolate = 1},
 	inventory_image = "farming_chocolate_dark.png",
 	on_use = minetest.item_eat(3)
 })
