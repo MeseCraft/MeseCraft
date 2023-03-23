@@ -719,15 +719,21 @@ local function get_desc(name)
 	if sub(name, 1, 1) == "_" then
 		name = sub(name, 2)
 	end
+	local prefix = ''
+	if string.find(name, ' ') then
+		item, count = name:match('([^ ]+) ([^ ]+)')
+		name = item
+		prefix = count..' '
+	end
 
 	local def = reg_items[name]
 
-	return def and (match(def.description, "%)([%w%s]*)") or def.description) or
+	return prefix..(def and (match(def.description, "%)([%w%s]*)") or def.description) or
 	      (def and match(name, ":.*"):gsub("%W%l", upper):sub(2):gsub("_", " ") or
-	      S("Unknown Item (@1)", name))
+	      S("Unknown Item (@1)", name)))
 end
 
-local function get_tooltip(name, info)
+local function get_tooltip(name, info, recipe_type)
 	local tooltip
 
 	if info.groups then
@@ -764,9 +770,9 @@ local function get_tooltip(name, info)
 	if info.replace then
 		local desc = clr("#ff0", get_desc(info.replace))
 
-		if info.cooktime then
+		if info.cooktime and not recipe_type or recipe_type == "cooking" then
 			tooltip = add(S("Replaced by @1 on smelting", desc))
-		elseif info.burntime then
+		elseif info.burntime and not recipe_type or recipe_type == "fuel" then
 			tooltip = add(S("Replaced by @1 on burning", desc))
 		else
 			tooltip = add(S("Replaced by @1 on crafting", desc))
@@ -959,7 +965,7 @@ local function get_grid_fs(data, fs, rcp, spacing)
 		}
 
 		if next(infos) then
-			fs[#fs + 1] = get_tooltip(item, infos)
+			fs[#fs + 1] = get_tooltip(item, infos, rcp.type)
 		end
 	end
 
