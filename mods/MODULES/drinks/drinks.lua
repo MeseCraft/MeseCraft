@@ -16,7 +16,7 @@ end
 if minetest.get_modpath('hbhunger') then
   do_add_settings = function(item, replace_with_item, juice_def)
     local factor = get_size_factor(replace_with_item)
-    hbhunger.register_food(item, (juice_def.health or 1) * factor, replace_with_item, (juice_def.poison or 0) * factor, (juice_def.health or 0) * factor, juice_def.sound or drink_sound)
+    hbhunger.register_food(item, (juice_def.health or 1) * factor, replace_with_item, juice_def.poison and (juice_def.poison * factor), (juice_def.health or 0) * factor, juice_def.sound or drink_sound)
   end
 end
 
