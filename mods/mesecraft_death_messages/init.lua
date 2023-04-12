@@ -1,36 +1,20 @@
 --[[
-death_messages - A Minetest mod which sends a chat message when a player dies.
 Copyright (C) 2016  EvergreenTree
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Code: GPLv3
 --]]
 
 -----------------------------------------------------------------------------------------------
-local title = "Death Messages"
-local version = "1.1"
-local mname = "death_messages"
------------------------------------------------------------------------------------------------
-dofile(minetest.get_modpath("death_messages").."/settings.txt")
+dofile(minetest.get_modpath("mesecraft_death_messages").."/settings.txt")
 -----------------------------------------------------------------------------------------------
 
-death_messages = {}
-death_messages.messages = {} -- Contains tables of messages for different ways to die.
-death_messages.punched = {} -- (key) was last punched by (value)
-death_messages.punchedWith = {} -- (key) was last punched with an item whose description is (value)
-death_messages.punched_forget = {} -- Forget who punched (key) after (value) seconds
-death_messages.mightBeFalling = {} -- (key) was falling fast enough to take damage (value) seconds ago.
-death_messages.mob_names = {
+mesecraft_death_messages = {}
+mesecraft_death_messages.messages = {} -- Contains tables of messages for different ways to die.
+mesecraft_death_messages.punched = {} -- (key) was last punched by (value)
+mesecraft_death_messages.punchedWith = {} -- (key) was last punched with an item whose description is (value)
+mesecraft_death_messages.punched_forget = {} -- Forget who punched (key) after (value) seconds
+mesecraft_death_messages.mightBeFalling = {} -- (key) was falling fast enough to take damage (value) seconds ago.
+mesecraft_death_messages.mob_names = {
+
 	--["mod:entity"]="an entity"
 	["mobs_monster:oerkki"]="the dreaded Oerkki",
 	["mobs_monster:fireball"] = "an angry dungeon_master",
@@ -54,43 +38,43 @@ minetest.register_on_punchplayer(function(player, hitter)
 	if hitter then
 		if hitter:is_player() then
 			if hitter:get_player_name() == name then return end -- Some mods like to have the player punch themself for some odd reason.
-			death_messages.punched[name] = hitter:get_player_name()
-			death_messages.punchedWith[name] = hitter:get_wielded_item():get_name()
-			if death_messages.punchedWith[name] == "" or not death_messages.punchedWith[name] then
-				death_messages.punchedWith[name] = "bare hands"
+			mesecraft_death_messages.punched[name] = hitter:get_player_name()
+			mesecraft_death_messages.punchedWith[name] = hitter:get_wielded_item():get_name()
+			if mesecraft_death_messages.punchedWith[name] == "" or not mesecraft_death_messages.punchedWith[name] then
+				mesecraft_death_messages.punchedWith[name] = "bare hands"
 			end
-			if minetest.registered_items[death_messages.punchedWith[name]] then
-				if minetest.registered_items[death_messages.punchedWith[name]].description then
-					death_messages.punchedWith[name] = minetest.registered_items[death_messages.punchedWith[name]].description
+			if minetest.registered_items[mesecraft_death_messages.punchedWith[name]] then
+				if minetest.registered_items[mesecraft_death_messages.punchedWith[name]].description then
+					mesecraft_death_messages.punchedWith[name] = minetest.registered_items[mesecraft_death_messages.punchedWith[name]].description
 				end
 			end
 		elseif hitter:get_luaentity() then
 			local entname = hitter:get_luaentity().name
 			if type(entname) ~= "string" then return end
-			if death_messages.mob_names[entname] then
-				death_messages.punched[name] = death_messages.mob_names[entname]
+			if mesecraft_death_messages.mob_names[entname] then
+				mesecraft_death_messages.punched[name] = mesecraft_death_messages.mob_names[entname]
 			else
 				if string.split(entname, ":")[2] then
 					if hitter:get_luaentity()._cmi_is_mob then
-						death_messages.punched[name] = "an angry "..(string.split(entname, ":")[2]):gsub("_", " ")
+						mesecraft_death_messages.punched[name] = "an angry "..(string.split(entname, ":")[2]):gsub("_", " ")
 					else
-						death_messages.punched[name] = string.split(entname, ":")[2]
+						mesecraft_death_messages.punched[name] = string.split(entname, ":")[2]
 					end
 				else
-					death_messages.punched[name] = entname
+					mesecraft_death_messages.punched[name] = entname
 				end
 			end
-			death_messages.punchedWith[name] = ""
+			mesecraft_death_messages.punchedWith[name] = ""
 		else
 			return
 		end
 	else
-		death_messages.punched[name] = nil
+		mesecraft_death_messages.punched[name] = nil
 	end
-	death_messages.punched_forget[name] = 2.5
+	mesecraft_death_messages.punched_forget[name] = 2.5
 end)
 -- Lava death messages
-death_messages.messages.lava = {
+mesecraft_death_messages.messages.lava = {
 	"(player) was melted.",
 	"(player) was incinerated.",
 	"(player) was sacrificed to a volcano god.",
@@ -104,7 +88,7 @@ death_messages.messages.lava = {
 }
 
 -- Drowning death messages
-death_messages.messages.water = {
+mesecraft_death_messages.messages.water = {
 	"(player) forgot to breathe.",
 	"(player) learned they aren't a fish.",
 	"(player) didn't float.",
@@ -117,7 +101,7 @@ death_messages.messages.water = {
 }
 
 -- Burning death messages
-death_messages.messages.fire = {
+mesecraft_death_messages.messages.fire = {
 	"(player) couldn't put the fire out.",
 	"(player) was burnt to a crisp.",
 	"(player) walked into the flames.",
@@ -131,7 +115,7 @@ death_messages.messages.fire = {
 }
 
 -- Other death messages
-death_messages.messages.other = {
+mesecraft_death_messages.messages.other = {
 	"(player) died.",
 	"(player) was slain.",
 	"(player) was eviscerated.",
@@ -152,7 +136,7 @@ death_messages.messages.other = {
 }
 
 -- Killed by a mob
-death_messages.messages.killed_mob = {
+mesecraft_death_messages.messages.killed_mob = {
 	"(player) was slain by (killer).",
 	"(player) was eviscerated by (killer).",
 	"(player) was murdered by (killer).",
@@ -187,7 +171,7 @@ death_messages.messages.killed_mob = {
 	"(player) tried to escape from (killer).",
 }
 -- ...killed by a player.
-death_messages.messages.killed_player = {
+mesecraft_death_messages.messages.killed_player = {
 	"(killer) destroyed (player) with their (weapon).",
 	"(killer)'s (weapon) became the bane of (player).",
 	"(killer) put an end to (player)'s miserable existence.",
@@ -196,7 +180,7 @@ death_messages.messages.killed_player = {
 	"(player) died by (killer)'s (weapon)",
 }
 -- Misc. node damage
-death_messages.messages.node = {
+mesecraft_death_messages.messages.node = {
 	"(player) wandered into a very uncomfortable place.",
 	"(player) got themselves into a sticky situation.",
 	"(player) shouldn't have touched that.",
@@ -204,7 +188,7 @@ death_messages.messages.node = {
 }
 
 -- Fall
-death_messages.messages.fall = {
+mesecraft_death_messages.messages.fall = {
 	"(player) became a pancake.",
 	"(player) fell to their doom.",
 	"(player) shattered into pieces.",
@@ -222,7 +206,7 @@ death_messages.messages.fall = {
 }
 
 -- Murder by fall
-death_messages.messages.pushed = {
+mesecraft_death_messages.messages.pushed = {
 	"(killer) pushed (player) to their doom.",
 	"(player) fell to their death at the hands of (killer).",
 	"(player) was pushed from a great height by (killer)",
@@ -233,90 +217,86 @@ minetest.register_globalstep(function(dtime)
 	for _,player in pairs(minetest.get_connected_players()) do
 		name = player:get_player_name()
 		if player:get_velocity().y < -13 then
-			death_messages.mightBeFalling[name] = 2.0
-		elseif death_messages.mightBeFalling[name] then
-			if death_messages.mightBeFalling[name] > 0 then
-				death_messages.mightBeFalling[name] = death_messages.mightBeFalling[name] - dtime
+			mesecraft_death_messages.mightBeFalling[name] = 2.0
+		elseif mesecraft_death_messages.mightBeFalling[name] then
+			if mesecraft_death_messages.mightBeFalling[name] > 0 then
+				mesecraft_death_messages.mightBeFalling[name] = mesecraft_death_messages.mightBeFalling[name] - dtime
 			else
-				death_messages.mightBeFalling[name] = nil
+				mesecraft_death_messages.mightBeFalling[name] = nil
 			end
 		end
-		if death_messages.punched_forget[name] then
-			if death_messages.punched_forget[name] > 0 then
-				death_messages.punched_forget[name] = death_messages.punched_forget[name] - dtime
+		if mesecraft_death_messages.punched_forget[name] then
+			if mesecraft_death_messages.punched_forget[name] > 0 then
+				mesecraft_death_messages.punched_forget[name] = mesecraft_death_messages.punched_forget[name] - dtime
 			else
-				death_messages.punched[name] = nil
-				death_messages.punchedWith[name] = nil
-				death_messages.punched_forget[name] = nil
+				mesecraft_death_messages.punched[name] = nil
+				mesecraft_death_messages.punchedWith[name] = nil
+				mesecraft_death_messages.punched_forget[name] = nil
 			end
 		end
 	end
 end)
 
-function death_messages.get_message(mtype)
+function mesecraft_death_messages.get_message(mtype)
 	if RANDOM_MESSAGES then
-		return death_messages.messages[mtype][math.random(1, #(death_messages.messages[mtype]))]
+		return mesecraft_death_messages.messages[mtype][math.random(1, #(mesecraft_death_messages.messages[mtype]))]
 	else
-		return death_messages.messages[1] -- 1 is the index for the non-random message
+		return mesecraft_death_messages.messages[1] -- 1 is the index for the non-random message
 	end
 end
 
-function death_messages.reset_watchers(player) 
+function mesecraft_death_messages.reset_watchers(player) 
 	name = player:get_player_name()
-	death_messages.punched[name] = nil
-	death_messages.punched_forget[name] = nil
-	death_messages.punchedWith[name] = nil
-	death_messages.mightBeFalling[name] = nil
+	mesecraft_death_messages.punched[name] = nil
+	mesecraft_death_messages.punched_forget[name] = nil
+	mesecraft_death_messages.punchedWith[name] = nil
+	mesecraft_death_messages.mightBeFalling[name] = nil
 end
 
-minetest.register_on_leaveplayer(death_messages.reset_watchers)
+minetest.register_on_leaveplayer(mesecraft_death_messages.reset_watchers)
 
 minetest.register_on_dieplayer(function(player)
 	name = player:get_player_name()
 	local node = minetest.registered_nodes[minetest.get_node(player:get_pos()).name]
 	local message
 	--Death by entity
-	if death_messages.punched[name] and death_messages.punched[name] ~= name then
+	if mesecraft_death_messages.punched[name] and mesecraft_death_messages.punched[name] ~= name then
 		
-		if death_messages.mightBeFalling[name] and death_messages.punched_forget[name] and (death_messages.mightBeFalling[name] > death_messages.punched_forget[name] - 0.5) then
-			message = death_messages.get_message("pushed")
-		elseif death_messages.punchedWith[name] and death_messages.punchedWith[name] ~= "" then
-			message = death_messages.get_message("killed_player")
-			message = string.gsub(message, "%(weapon%)", death_messages.punchedWith[name])
+		if mesecraft_death_messages.mightBeFalling[name] and mesecraft_death_messages.punched_forget[name] and (mesecraft_death_messages.mightBeFalling[name] > mesecraft_death_messages.punched_forget[name] - 0.5) then
+			message = mesecraft_death_messages.get_message("pushed")
+		elseif mesecraft_death_messages.punchedWith[name] and mesecraft_death_messages.punchedWith[name] ~= "" then
+			message = mesecraft_death_messages.get_message("killed_player")
+			message = string.gsub(message, "%(weapon%)", mesecraft_death_messages.punchedWith[name])
 		else
-			message = death_messages.get_message("killed_mob")
+			message = mesecraft_death_messages.get_message("killed_mob")
 		end
 		message = string.gsub(message, "%(player%)", name)
-		message = string.gsub(message, "%(killer%)", death_messages.punched[name])
+		message = string.gsub(message, "%(killer%)", mesecraft_death_messages.punched[name])
 		minetest.chat_send_all(minetest.colorize("#FF0000",(message)))
 	-- Death by drowning
 	elseif player:get_breath() == 0 then
-		message = death_messages.get_message("water")
+		message = mesecraft_death_messages.get_message("water")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by lava
 	elseif node.groups.lava then
-		message = death_messages.get_message("lava")
+		message = mesecraft_death_messages.get_message("lava")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by fall
-	elseif death_messages.mightBeFalling[name] then
-		message = death_messages.get_message("fall")
+	elseif mesecraft_death_messages.mightBeFalling[name] then
+		message = mesecraft_death_messages.get_message("fall")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by fire
 	elseif string.find(node.name, "fire") or string.find(node.name, "flame") or node.groups.igniter then
-		message = death_messages.get_message("fire")
+		message = mesecraft_death_messages.get_message("fire")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by node
 	elseif node.damage_per_second and node.damage_per_second > 1 then
-		message = death_messages.get_message("node")
+		message = mesecraft_death_messages.get_message("node")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	--Death by GNU GNU
 	else
-		message = death_messages.get_message("other")
+		message = mesecraft_death_messages.get_message("other")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	end
-	death_messages.reset_watchers(player) 
+	mesecraft_death_messages.reset_watchers(player) 
 end)
-
------------------------------------------------------------------------------------------------
-print("[Mod] "..title.." ["..version.."] ["..mname.."] Loaded...")
------------------------------------------------------------------------------------------------
