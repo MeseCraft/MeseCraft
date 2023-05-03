@@ -1,4 +1,0 @@
-default
-stairs?
-fire?
-walls?

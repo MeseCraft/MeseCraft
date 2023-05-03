@@ -1,1 +1,0 @@
-Music modpack with API for easy in-game music playback and custom track registration.
