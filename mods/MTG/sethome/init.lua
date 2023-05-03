@@ -29,7 +29,8 @@ sethome.set = function(name, pos)
 	if not player or not pos then
 		return false
 	end
-	player:set_attribute("sethome:home", minetest.pos_to_string(pos))
+	local player_meta = player:get_meta()
+	player_meta:set_string("sethome:home", minetest.pos_to_string(pos))
 
 	-- remove `name` from the old storage file
 	if not homepos[name] then
@@ -51,7 +52,11 @@ end
 
 sethome.get = function(name)
 	local player = minetest.get_player_by_name(name)
-	local pos = minetest.string_to_pos(player:get_attribute("sethome:home"))
+	if not player then
+		return false, S("This command can only be executed in-game!")
+	end
+	local player_meta = player:get_meta()
+	local pos = minetest.string_to_pos(player_meta:get_string("sethome:home"))
 	if pos then
 		return pos
 	end
@@ -84,6 +89,10 @@ minetest.register_chatcommand("home", {
 	description = S("Teleport you to your home point"),
 	privs = {home = true},
 	func = function(name)
+		local player = minetest.get_player_by_name(name)
+		if not player then
+			return false, S("This command can only be executed in-game!")
+		end
 		if sethome.go(name) then
 			return true, S("Teleported to home!")
 		end
