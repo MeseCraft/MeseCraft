@@ -1,4 +1,3 @@
---- Next Generation Bedrock
 local bedrock = {}
 
 bedrock.layer = -30912 -- This is the location of the bottom layer.
@@ -63,3 +62,4 @@ minetest.register_ore({
 if minetest.get_modpath("mesecons_mvps") ~= nil then
 	mesecon.register_mvps_stopper("mesecraft_bedrock:bedrock")
 end
+minetest.log("info", "MeseCraft Bedrock loaded successfully!")

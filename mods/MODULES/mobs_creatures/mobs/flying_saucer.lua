@@ -48,7 +48,7 @@ mobs:register_mob("mobs_creatures:flying_saucer", {
 })
 
 --Spawn Paramters, on the Moon, above surface, in vacuum.
-mobs:spawn_specific("mobs_creatures:flying_saucer", {"vacuum:vacuum"}, {"vacuum:vacuum"}, 0, 8, 480, 12000, 1, 3320, 3330, false)
+mobs:spawn_specific("mobs_creatures:flying_saucer", {"vacuum:vacuum"}, {"vacuum:vacuum"}, 0, 8, 480, 12000, 1, 2315, 2330, false)
 
 -- Register Spawn Egg.
 mobs:register_egg("mobs_creatures:flying_saucer", "Flying Saucer Spawn Egg", "default_steel_block.png", 1)

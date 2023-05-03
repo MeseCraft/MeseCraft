@@ -1,0 +1,11 @@
+## Credits, acknowledgements, and licensing for mesecraft_ambience.
+
+asset = mesecraft_beach_soundscape.ogg
+title = Ambience, Seaside Waves, Close, A
+author = InspectorJ
+license = Creative Commons Attribution 4.0 International (CC BY 4.0)
+source = https://freesound.org/people/InspectorJ/sounds/400632/
+accessed = 2023-05-03
+
+asset = mesecraft_woods_soundscape.ogg
+title = 

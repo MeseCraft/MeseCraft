@@ -1,15 +1,12 @@
-To Do:
-
+--find out why wind stops while flying
+--add an extra node near feet to handle treading water as a special case, and don't have to use node under feet. which gets
+	--invoked when staning on a ledge near water.
+--reduce redundant code (stopplay and add ambience to list)
 -add random_volume parameter to night normal, day normal, & cave normal sounds to create feeling of distance.
-
 m-get constant birds more quiet during the day
 m-bats seem way too frequent now?
 m-when playing multiplayer seems to increase frequency of music & normal sounds to the point where they are obnoxious
-m-which songs should go with which environments?   Dark songs in caves or night, light sounds during day.
-m-may be drowning out some of the normal sound effects like walking on stone.
-l-what about other weird bubble 
 l-put in wind/ wind in trees during day and night
 
 ambience_soundscape_ocean.ogg - foongaz - https://freesound.org/people/foongaz/sounds/253287/
 ambience_soundscape_night.ogg - felix.blume - https://freesound.org/people/felix.blume/sounds/410357/
-

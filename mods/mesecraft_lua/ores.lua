@@ -12,8 +12,8 @@ minetest.register_ore({
 	clust_scarcity = clust_scarcity,
 	clust_num_ores = clust_num_ores,
 	clust_size     = clust_size,
-	y_max          = planet_moon.maxy - 100,
-	y_min          = planet_moon.miny,
+	y_max          = mesecraft_lua.maxy - 100,
+	y_min          = mesecraft_lua.miny,
 })
 
 if has_technic_mod then
@@ -24,8 +24,8 @@ if has_technic_mod then
 		clust_scarcity = clust_scarcity,
 		clust_num_ores = clust_num_ores,
 		clust_size     = clust_size,
-		y_max          = planet_moon.maxy - 100,
-		y_min          = planet_moon.miny,
+		y_max          = mesecraft_lua.maxy - 100,
+		y_min          = mesecraft_lua.miny,
 	})
 
 	minetest.register_ore({
@@ -35,8 +35,8 @@ if has_technic_mod then
 		clust_scarcity = clust_scarcity,
 		clust_num_ores = clust_num_ores,
 		clust_size     = clust_size,
-		y_max          = planet_moon.maxy - 100,
-		y_min          = planet_moon.miny,
+		y_max          = mesecraft_lua.maxy - 100,
+		y_min          = mesecraft_lua.miny,
 	})
 
 	minetest.register_ore({
@@ -46,8 +46,8 @@ if has_technic_mod then
 		clust_scarcity = clust_scarcity,
 		clust_num_ores = clust_num_ores,
 		clust_size     = clust_size,
-		y_max          = planet_moon.maxy - 100,
-		y_min          = planet_moon.miny,
+		y_max          = mesecraft_lua.maxy - 100,
+		y_min          = mesecraft_lua.miny,
 	})
 
 	minetest.register_ore({
@@ -57,8 +57,8 @@ if has_technic_mod then
 		clust_scarcity = clust_scarcity,
 		clust_num_ores = clust_num_ores,
 		clust_size     = clust_size,
-		y_max          = planet_moon.maxy - 100,
-		y_min          = planet_moon.miny,
+		y_max          = mesecraft_lua.maxy - 100,
+		y_min          = mesecraft_lua.miny,
 	})
 
 	minetest.register_ore({
@@ -68,20 +68,20 @@ if has_technic_mod then
 		clust_scarcity = clust_scarcity,
 		clust_num_ores = clust_num_ores,
 		clust_size     = clust_size,
-		y_max          = planet_moon.maxy - 100,
-		y_min          = planet_moon.miny,
+		y_max          = mesecraft_lua.maxy - 100,
+		y_min          = mesecraft_lua.miny,
 	})
 end
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "planet_moon:radioactive_stone",
+	ore            = "mesecraft_lua:radioactive_stone",
 	wherein        = "default:stone",
 	clust_scarcity = 8 * 8 * 8,
 	clust_num_ores = 9,
 	clust_size     = 3,
-	y_max          = planet_moon.maxy,
-	y_min          = planet_moon.miny,
+	y_max          = mesecraft_lua.maxy,
+	y_min          = mesecraft_lua.miny,
 })
 
 

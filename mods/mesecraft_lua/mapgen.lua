@@ -29,12 +29,12 @@ local base_perlin_map = {}
 
 minetest.register_on_generated(function(minp, maxp, seed)
 
-	if minp.y < planet_moon.miny or minp.y > planet_moon.maxy then
+	if minp.y < mesecraft_lua.miny or minp.y > mesecraft_lua.maxy then
 		return
 	end
 
 	-- solid layer
-	local is_solid = minp.y < planet_moon.maxsolidy
+	local is_solid = minp.y < mesecraft_lua.maxsolidy
 
 	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
 	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
@@ -53,7 +53,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 		local index = area:index(x,y,z)
 
-		if y >= planet_moon.miny and y < (planet_moon.miny + 10) and has_bedrock_mod then
+		if y >= mesecraft_lua.miny and y < (mesecraft_lua.miny + 10) and has_bedrock_mod then
 			data[index] = c_bedrock
 
 		else

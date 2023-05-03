@@ -1,15 +1,10 @@
---------------------------------------------------------------------------------------------------------
---Ambience Configuration for version .34
-
---find out why wind stops while flying
---add an extra node near feet to handle treading water as a special case, and don't have to use node under feet. which gets
-	--invoked when staning on a ledge near water.
---reduce redundant code (stopplay and add ambience to list)
-
+-- 
 local max_frequency_all = 8000 --the larger you make this number the less frequent ALL sounds will happen recommended values between 100-2000.
 
---for frequencies below use a number between 0 and max_frequency_all
---for volumes below, use a number between 0.0 and 1, the larger the number the louder the sounds
+
+-- Soundscape configurations
+	--for frequencies, use a number between 0 and max_frequency_all
+	--for volumes, use a number between 0.0 and 1, the larger the number the louder the sounds
 local night_frequency = 85  --crickets
 local night_volume = 0.4
 local night_frequent_frequency = 160  --owls, wolves, crows
@@ -39,10 +34,11 @@ local lava_volume = 1 --lava
 local flowing_water_volume = 0.4  --waterfall
 local splashing_water_volume = 0.4
 local pos, minp, maxp, temp, humid, nodes, height, minheight, grad, yint, desert_in_range, node_at_upper_body
---End of Config
-----------------------------------------------------------------------------------------------------
+
+
+-- Variable declarations
 local ambiences
-local counter=0--*****************
+local counter=0
 local SOUNDVOLUME = 0.5
 local sound_vol = 1
 local last_x_pos = 0
@@ -55,7 +51,7 @@ local node_3_under_feet
 
 
 
-
+-- Soundscape definitions
 local night = {
 	name = "night",
 	handler = {},
@@ -262,13 +258,12 @@ local lava2 = {
 	{name="earth01a", length=15, gain=lava_volume}
 }
 
-
-local play_music = false
-
+-- Function to check if it is daytime.
 local is_daytime = function()
 	return (minetest.get_timeofday() > 0.2 and  minetest.get_timeofday() < 0.8)
 end
 
+-- Function to get the nodes that are within a range
 local nodes_in_range = function(pos, search_distance, node_name)
 	minp = {x=pos.x-search_distance,y=pos.y-search_distance, z=pos.z-search_distance}
 	maxp = {x=pos.x+search_distance,y=pos.y+search_distance, z=pos.z+search_distance}
@@ -277,15 +272,15 @@ local nodes_in_range = function(pos, search_distance, node_name)
 	return #nodes
 end
 
+-- Function to find the nodes in an area.
 local nodes_in_coords = function(minp, maxp, node_name)
 	nodes = minetest.find_nodes_in_area(minp, maxp, node_name)
 	--minetest.chat_send_all("Found (" .. node_name .. ": " .. #nodes .. ")")
 	return #nodes
 end
 
+-- Function to determine if there are at least this many nodes in a grid area.
 local atleast_nodes_in_grid = function(minp, maxp, node_name, threshold)
-	--counter = counter +1
---	minetest.chat_send_all("counter: (" .. counter .. ")")
 	height = maxp.y
 	minheight = minp.y
 	local totalnodes = 0
@@ -294,7 +289,6 @@ local atleast_nodes_in_grid = function(minp, maxp, node_name, threshold)
 		minp.y = height
 		maxp.y = height
 		nodes = minetest.find_nodes_in_area(minp, maxp, node_name)
-	--	minetest.chat_send_all("z+Found (" .. node_name .. ": " .. #nodes .. ")")
 		height = height - 1
 		if #nodes >= threshold then
 			return true
@@ -308,15 +302,16 @@ local atleast_nodes_in_grid = function(minp, maxp, node_name, threshold)
 	return false
 end
 
+
 local humidmap = nil
 local tempmap = nil
+
+-- Function to determine the node light level in a postision.
 local function is_skylit(pos)
-	if minetest.get_modpath("minetest_systemd") then
-		return (minetestd.utils.get_natural_light(pos) > 0)
-	else
-		return (minetest.get_node_light(pos, 0.5) ~= minetest.get_node_light(pos, 0))
-	end
+	minetest.get_node_light(pos, 0.5) ~= minetest.get_node_light(pos, 0))
 end
+
+-- Function to get the ambience of a player.
 local get_ambience = function(player)
 	--[[local player_is_climbing = false
 	local player_is_descending = false
@@ -415,10 +410,6 @@ local get_ambience = function(player)
 			return {desert_frequent=desert_frequent}
 		end
 	end	
---	pos.y = pos.y-2 
---	nodename = minetest.env:get_node(pos).name
---	minetest.chat_send_all("Found " .. nodename .. pos.y )
-	
 	
 	if player:get_pos().y < 0 and not skylit then
 		if music then
@@ -532,7 +523,7 @@ minetest.register_on_leaveplayer(function(player)
 	end
 end)
 
--- stops all sounds that are not in still_playing
+-- Function to stop all sounds that are not in still_playing
 local stop_sound = function(still_playing, player, dtime)
 	local ambience_player_name = player:get_player_name()
 	local lists = {
@@ -552,16 +543,13 @@ local stop_sound = function(still_playing, player, dtime)
 	}
 	for _,list in pairs(lists) do
 		if still_playing[list.name] == nil then
-			--minetest.log('line 556')
 			if list.handler[ambience_player_name] ~= nil then
-				--minetest.log('line 558')
 				fade_out_sound(list, ambience_player_name, dtime)
 			end
 			list.started[ambience_player_name] = nil
 		elseif list.handler[ambience_player_name] and list.fading[ambience_player_name] --Un-fade the sound if it started to fade out for some reason
 			and list.fading[ambience_player_name] > 0 --Don't rescue sounds that are too far gone
 		then
-			--minetest.chat_send_all("reamplifying "..list.name.." to "..list[1].gain)
 			minetest.sound_fade(list.handler[ambience_player_name], (list[1].gain/4), list[1].gain)
 			list.fading[ambience_player_name] = nil
 		end
@@ -585,21 +573,8 @@ minetest.register_globalstep(function(dtime)
 			end
 		end
 		stop_sound(ambiences, player)
-		--minetest.log("ambiences is "..dump(ambiences))
 		for _,ambience in pairs(ambiences) do
-			--minetest.log("max_frequency_all is "..dump(max_frequency_all))
-			--minetest.log("ambience is "..dump(ambience))
 			if math.random(1, max_frequency_all) <= ambience.frequency then			
-				--				if(played_on_start) then
-				--				--	minetest.chat_send_all("playedOnStart "  )
-				--				else
-				--				--	minetest.chat_send_all("FALSEplayedOnStart "  )
-				--				end
-				--	minetest.chat_send_all("ambience: " ..ambience )
-				--	if ambience.on_start ~= nil and played_on_start_flying == false then
-				--		played_on_start_flying = true
-				--		minetest.sound_play(ambience.on_start, {to_player=player:get_player_name()})					
-				--	end
 				local is_music =false
 				if ambience.is_music ~= nil then
 					is_music = true
@@ -610,15 +585,12 @@ minetest.register_globalstep(function(dtime)
 	end
 end
 )
-minetest.register_chatcommand("svol", {
-	params = "<svol>",
-	description = "set volume of ambiance, default 0.5 normal volume.",
+minetest.register_chatcommand("soundscapes", {
+	params = "<soundscapes>",
+	description = "set volume of soundscapes, default 0.5 normal volume.",
 	privs = {server=true},
 	func = function(name, param)
 		SOUNDVOLUME = param
-	--	local player = minetest.env:get_player_by_name(name)
-	--	ambiences = get_ambience(player)
-	--	stop_sound({}, player)
-		minetest.chat_send_player(name, "Sound volume set.")
+		minetest.chat_send_player(name, "Soundscape volume set.")
 	end,
 })
