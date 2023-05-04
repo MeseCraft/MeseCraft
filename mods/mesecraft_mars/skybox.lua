@@ -1,7 +1,7 @@
 local has_skybox_mod = minetest.get_modpath("skybox")
-local min_y = planet_mars.y_start
-local cave_end_y = planet_mars.y_start + (planet_mars.y_height * 0.97)
-local max_y = planet_mars.y_start + planet_mars.y_skybox_height
+local min_y = mesecraft_mars.y_start
+local cave_end_y = mesecraft_mars.y_start + (mesecraft_mars.y_height * 0.97)
+local max_y = mesecraft_mars.y_start + mesecraft_mars.y_skybox_height
 
 if has_skybox_mod then
 	skybox.register({
@@ -16,7 +16,7 @@ if has_skybox_mod then
 			color={r=124, g=124, b=124},
 			ambient={r=0, g=0, b=0, a=255},
 			density=0.3,
-			height=planet_mars.y_start + planet_mars.y_skybox_height - 800,
+			height=mesecraft_mars.y_start + mesecraft_mars.y_skybox_height - 800,
 			speed={y=-2,x=-2}
 			},
 		sky_type = "plain",

@@ -1,5 +1,4 @@
-
-minetest.register_node("planet_mars:airlight", {
+minetest.register_node("mesecraft_mars:airlight", {
 	description = "Air (without light now)",
 	inventory_image = "air.png",
 	wield_image = "air.png",

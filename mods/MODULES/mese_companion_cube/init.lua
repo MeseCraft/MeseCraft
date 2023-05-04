@@ -1,8 +1,8 @@
--- Nodebox and textures from NodeBox Editor Abuse Mod by Napiophelios under WTFPL
+-- Nodebox and textures from NodeBox Editor Abuse Mod by Napiophelios under WTFPLompan
 -- Simplified by FreeGamers.org, added mesecon compatibility.
 
 -- Register the Mese Companion Cube node into the game.
-minetest.register_node("mese_companion_cube:mese_companion_cube", {
+minetest.register_node("mesecraft_companion_cube:mese_companion_cube", {
 	description = "Mese Companion Cube",
     	tiles = {"mese_companion_cube.png"},
 	drawtype = "nodebox",
@@ -197,7 +197,7 @@ minetest.register_node("mese_companion_cube:mese_companion_cube", {
 })
 -- Register the recipe for the Mese Companion Cube.
 minetest.register_craft({
-        output = 'mese_companion_cube:mese_companion_cube',
+        output = 'mesecraft_companion_cube:mese_companion_cube',
         recipe = {
                 {'default:steel_ingot', 'default:mese_crystal', 'default:steel_ingot'},
                 {'default:mese_crystal', 'default:mese_crystal', 'default:mese_crystal'},

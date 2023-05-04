@@ -58,7 +58,7 @@ local c_dirt_with_snow = minetest.get_content_id("default:dirt_with_snow")
 local c_permafrost = minetest.get_content_id("default:permafrost")
 
 local c_air = minetest.get_content_id("air")
-local c_airlight = minetest.get_content_id("planet_mars:airlight")
+local c_airlight = minetest.get_content_id("mesecraft_mars:airlight")
 local c_vacuum = c_air
 
 if has_vacuum_mod then
@@ -71,8 +71,8 @@ if has_bedrock_mod then
 	c_bedrock = minetest.get_content_id("mesecraft_bedrock:bedrock")
 end
 
-local y_start = planet_mars.y_start
-local y_height = planet_mars.y_height
+local y_start = mesecraft_mars.y_start
+local y_height = mesecraft_mars.y_height
 
 -- perlin noise
 local height_perlin

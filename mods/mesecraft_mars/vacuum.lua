@@ -1,7 +1,7 @@
 local has_vacuum_mod = minetest.get_modpath("vacuum")
 
-local y_start = planet_mars.y_start
-local y_height = planet_mars.y_height
+local y_start = mesecraft_mars.y_start
+local y_height = mesecraft_mars.y_height
 
 
 if has_vacuum_mod then
