@@ -308,7 +308,7 @@ local tempmap = nil
 
 -- Function to determine the node light level in a postision.
 local function is_skylit(pos)
-	minetest.get_node_light(pos, 0.5) ~= minetest.get_node_light(pos, 0))
+	return (minetest.get_node_light(pos, 0.5) ~= minetest.get_node_light(pos, 0))
 end
 
 -- Function to get the ambience of a player.
