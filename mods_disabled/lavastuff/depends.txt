@@ -1,8 +1,0 @@
-default
-bucket
-fire?
-stairs?
-mobs_monster?
-3d_armor?
-toolranks?
-moreblocks?

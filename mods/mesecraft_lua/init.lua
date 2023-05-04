@@ -14,5 +14,5 @@ dofile(modpath.."/mapgen.lua")
 -- Nether mod check for portal API for moon portals.
 local has_nether_mod = minetest.get_modpath("nether")
 if has_nether_mod then
-	dofile(MP.."/nether_portal.lua")
+	dofile(modpath.."/nether_portal.lua")
 end

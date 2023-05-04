@@ -1,5 +1,0 @@
-#Cooktime limit
-lavastuff_cook_limit (Tools will not smelt items if their cooking time is too long) int 15
-
-#Enable lightup
-lavastuff_enable_tool_fire (Tools light up the area around a player upon rightclicking) bool true
