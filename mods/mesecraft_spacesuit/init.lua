@@ -1,10 +1,10 @@
 
-spacesuit = {
-	armor_use = tonumber(minetest.settings:get("spacesuit.armor_use")) or 70,
+mesecraft_spacesuit = {
+	armor_use = tonumber(minetest.settings:get("mesecraft_spacesuit.armor_use")) or 70,
 }
 
 
-local MP = minetest.get_modpath("spacesuit")
+local MP = minetest.get_modpath("mesecraft_spacesuit")
 
 dofile(MP.."/suit.lua")
 dofile(MP.."/crafts.lua")
