@@ -1,4 +1,4 @@
--- gauges: Adds health/breath bars above players
+-- mesecraft_gauges: Adds health/breath bars above players
 --
 -- Copyright © 2014-2020 4aiman, Hugo Locurcio and contributors - MIT License
 -- See `LICENSE.md` included in the source distribution for details.
@@ -11,7 +11,7 @@ then return end
 -- on every step
 local vector_distance = vector.distance
 
-minetest.register_entity("gauges:hp_bar", {
+minetest.register_entity("mesecraft_gauges:hp_bar", {
 	visual = "sprite",
 	visual_size = {x=1, y=1/16, z=1},
 	-- The texture is changed later in the code
@@ -49,7 +49,7 @@ minetest.register_entity("gauges:hp_bar", {
 
 local function add_gauge(player)
 	if player and minetest.is_player(player) then
-		local entity = minetest.add_entity(player:get_pos(), "gauges:hp_bar")
+		local entity = minetest.add_entity(player:get_pos(), "mesecraft_gauges:hp_bar")
 		-- check for minetest_game 0.4.*
 		local height = minetest.get_modpath("player_api") and 19 or 9
 

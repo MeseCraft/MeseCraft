@@ -1,5 +1,5 @@
 -- table for quick colors.
-toolranks = {
+mesecraft_toolranks = {
 	colors = {
 		grey = minetest.get_color_escape_sequence("#9d9d9d"),
 		green = minetest.get_color_escape_sequence("#1eff00"),
@@ -9,14 +9,14 @@ toolranks = {
 }
 
 -- function to create our description of the tool.
-function toolranks.create_description(name, uses, level)
-	return toolranks.colors.green .. (name or "") .. "\n"
-		.. toolranks.colors.gold .. "Level: " .. (level or 1) .. "\n"
-		.. toolranks.colors.grey .. "Used: " .. (uses or 0) .. " times"
+function mesecraft_toolranks.create_description(name, uses, level)
+	return mesecraft_toolranks.colors.green .. (name or "") .. "\n"
+		.. mesecraft_toolranks.colors.gold .. "Level: " .. (level or 1) .. "\n"
+		.. mesecraft_toolranks.colors.grey .. "Used: " .. (uses or 0) .. " times"
 end
 
 -- function to calculate levels (+150 uses per level)
-function toolranks.get_level(uses)
+function mesecraft_toolranks.get_level(uses)
   if uses < 50 then
     return 1
   else
@@ -25,7 +25,7 @@ function toolranks.get_level(uses)
 end
 
 -- function to run after a tool is used.
-function toolranks.new_afteruse(itemstack, user, node, digparams)
+function mesecraft_toolranks.new_afteruse(itemstack, user, node, digparams)
 
 	-- Get tool metadata and number of times used
 	local itemmeta = itemstack:get_meta()
@@ -50,7 +50,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 	if itemstack:get_wear() > 60100 then
 
 		minetest.chat_send_player(name,
-			toolranks.colors.gold .. "Your tool is almost broken!")
+			mesecraft_toolranks.colors.gold .. "Your tool is almost broken!")
 
 		minetest.sound_play("default_tool_breaks", {
 			to_player = name,
@@ -58,16 +58,16 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 		})
 	end
 
-	local level = toolranks.get_level(dugnodes)
+	local level = mesecraft_toolranks.get_level(dugnodes)
 
 	-- Alert player when tool has leveled up
 	if lastlevel < level then
 
 		minetest.chat_send_player(name, "Your "
-			.. toolranks.colors.green .. itemdesc
-			.. toolranks.colors.white .. " just leveled up!")
+			.. mesecraft_toolranks.colors.green .. itemdesc
+			.. mesecraft_toolranks.colors.white .. " just leveled up!")
 
-		minetest.sound_play("toolranks_levelup", {
+		minetest.sound_play("mesecraft_toolranks_levelup", {
 			to_player = name,
 			gain = 1.0,
 		})
@@ -75,7 +75,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
 		itemmeta:set_string("lastlevel", level)
 	end
 
-	local newdesc = toolranks.create_description(itemdesc, dugnodes, level)
+	local newdesc = mesecraft_toolranks.create_description(itemdesc, dugnodes, level)
 
 	-- Set new meta
 	itemmeta:set_string("description", newdesc)
@@ -98,8 +98,8 @@ local function add_tool(name, desc, afteruse)
 
 	minetest.override_item(name, {
 		original_description = desc,
-		description = toolranks.create_description(desc, 0, 1),
-		after_use = afteruse and toolranks.new_afteruse
+		description = mesecraft_toolranks.create_description(desc, 0, 1),
+		after_use = afteruse and mesecraft_toolranks.new_afteruse
 	})
 end
 
