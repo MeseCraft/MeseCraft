@@ -1,18 +1,18 @@
-void_chest = {
-	show_particles = (minetest.settings:get("void_chest.show_particles") ~= "false")
+mesecraft_void_chest = {
+	show_particles = (minetest.settings:get("mesecraft_void_chest.show_particles") ~= "false")
 }
 
 -- Register the void chest.
-minetest.register_node("void_chest:void_chest", {
+minetest.register_node("mesecraft_void_chest:void_chest", {
 	description = "" ..core.colorize("#660099","Void Chest\n") ..core.colorize("#FFFFFF", "Use the power of the void to store your items."),
-	tiles = {"void_chest_top.png", "void_chest_top.png", "void_chest_side.png",
-		"void_chest_side.png", "void_chest_side.png", "void_chest_front.png"},
+	tiles = {"mesecraft_void_chest_top.png", "mesecraft_void_chest_top.png", "mesecraft_void_chest_side.png",
+		"mesecraft_void_chest_side.png", "mesecraft_void_chest_side.png", "mesecraft_void_chest_front.png"},
 	paramtype2 = "facedir",
 	groups = {snappy=2, choppy=2, oddly_breakable_by_hand=2,},
 	legacy_facedir_simple = true,
 	sounds = default.node_sound_wood_defaults(),
 	on_construct = function(pos)
-		if void_chest.show_particles then
+		if mesecraft_void_chest.show_particles then
 			local timer = minetest.get_node_timer(pos)
 			timer:start(.1) -- in seconds
 		end
@@ -22,10 +22,10 @@ minetest.register_node("void_chest:void_chest", {
 				default.gui_bg ..
 				default.gui_bg_img ..
 				default.gui_slots ..
-				"list[current_player;void_chest:void_chest;0,0.3;8,4;]"..
+				"list[current_player;mesecraft_void_chest:void_chest;0,0.3;8,4;]"..
 				"list[current_player;main;0,4.85;8,1;]" ..
 				"list[current_player;main;0,6.08;8,3;8]" ..
-				"listring[current_player;void_chest:void_chest]" ..
+				"listring[current_player;mesecraft_void_chest:void_chest]" ..
 				"listring[current_player;main]" ..
 				default.get_hotbar_bg(0,4.85))
 
@@ -44,7 +44,7 @@ minetest.register_node("void_chest:void_chest", {
 				" takes stuff from void chest at "..minetest.pos_to_string(pos))
 	end,
 	on_timer = function(pos)
-		if void_chest.show_particles then
+		if mesecraft_void_chest.show_particles then
 			-- Particles for the void effect, implemented by MisterE, thanks! 
 			for i=1,2 do -- number of particles spawned every on_timer
 				local spin_speed = math.random(80,175)/1000 --controls how fast a particular particle spins
@@ -65,7 +65,7 @@ minetest.register_node("void_chest:void_chest", {
 					collisiondetection = true,
 					collision_removal = true,
 					vertical = false,
-					texture = "void_chest_void_particle.png",
+					texture = "mesecraft_void_chest_void_particle.png",
 						animation = {
 							type = "vertical_frames",
 							aspect_w = 16,
@@ -85,7 +85,7 @@ minetest.register_node("void_chest:void_chest", {
 -- If the "magic_materials" mod is present we use a more accurate recipe.
 if minetest.get_modpath("magic_materials") then
 	minetest.register_craft({
-		output = 'void_chest:void_chest',
+		output = 'mesecraft_void_chest:void_chest',
 		recipe = {
 			{'default:steelblock','magic_materials:void_rune','default:steelblock'},
 			{'magic_materials:void_rune','default:chest_locked','magic_materials:void_rune'},
@@ -94,7 +94,7 @@ if minetest.get_modpath("magic_materials") then
 	})
 else -- Else we use a recipe using "default" to avoid a hard dependency.
 	minetest.register_craft({
-		output = 'void_chest:void_chest',
+		output = 'mesecraft_void_chest:void_chest',
 		recipe = {
 			{'default:steelblock','default:obsidian_block','default:steelblock'},
 			{'default:obsidian_block','default:chest_locked','default:obsidian_block'},
@@ -105,6 +105,6 @@ end
 -- Create a detached void chest inventory when players connect.
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
-	inv:set_size("void_chest:void_chest", 8*4)
+	inv:set_size("mesecraft_void_chest:void_chest", 8*4)
 end)
 

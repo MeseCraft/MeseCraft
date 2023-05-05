@@ -1,23 +1,23 @@
-diet = {
+mesecraft_diet = {
 	players = {}
 }
 
-function diet.__init()
-	local file = io.open(minetest.get_worldpath().."/diet.txt", "r")
+function mesecraft_diet.__init()
+	local file = io.open(minetest.get_worldpath().."/mesecraft_diet.txt", "r")
 	if file then
 		local table = minetest.deserialize(file:read("*all"))
 		if type(table) == "table" then
-			diet.players = table.players
+			mesecraft_diet.players = table.players
 			return
 		end
 	end
 end
 
-function diet.save()
-	local file = io.open(minetest.get_worldpath().."/diet.txt", "w")
+function mesecraft_diet.save()
+	local file = io.open(minetest.get_worldpath().."/mesecraft_diet.txt", "w")
 	if file then
 		file:write(minetest.serialize({
-			players = diet.players
+			players = mesecraft_diet.players
 		}))
 		file:close()
 	end
@@ -37,12 +37,12 @@ local function poisenp(tick, time, time_left, player)
 
 end
 
-function diet.item_eat(max, replace_with_item, poisen, heal)
+function mesecraft_diet.item_eat(max, replace_with_item, poisen, heal)
 	return function(itemstack, user, pointed_thing)
 
 		-- Process player data
 		local name = user:get_player_name()
-		local player = diet.__player(name)
+		local player = mesecraft_diet.__player(name)
 		local item = itemstack:get_name()
 
 		-- Get type
@@ -139,9 +139,9 @@ function diet.item_eat(max, replace_with_item, poisen, heal)
 		end
 
 		-- Register
-		diet.__register_eat(player,item,ftype)
+		mesecraft_diet.__register_eat(player,item,ftype)
 
-		diet.save()
+		mesecraft_diet.save()
 
 		-- Remove item
 		itemstack:add_item(replace_with_item)
@@ -150,23 +150,23 @@ function diet.item_eat(max, replace_with_item, poisen, heal)
 	end
 end	
 
-function diet.__player(name)
+function mesecraft_diet.__player(name)
 	if name == "" then
 		return nil
 	end
-	if diet.players[name] then
-		return diet.players[name]
+	if mesecraft_diet.players[name] then
+		return mesecraft_diet.players[name]
 	end
 	
-	diet.players[name] = {
+	mesecraft_diet.players[name] = {
 		name = name,
 		eaten = {}
 	}
-	diet.save()
-	return diet.players[name]
+	mesecraft_diet.save()
+	return mesecraft_diet.players[name]
 end
 
-function diet.__register_eat(player,food,type)
+function mesecraft_diet.__register_eat(player,food,type)
 	table.insert(player.eaten,{food,type})
 	
 	while (#player.eaten > 10) do
@@ -179,10 +179,10 @@ local function overwrite(name, hunger_change, replace_with_item, poisen, heal)
 	if not tab then
 		return
 	end
-	tab.on_use = diet.item_eat(hunger_change, replace_with_item, poisen, heal)
+	tab.on_use = mesecraft_diet.item_eat(hunger_change, replace_with_item, poisen, heal)
 end
 
-diet.__init()
+mesecraft_diet.__init()
 
 overwrite("default:apple", 2)
 if minetest.get_modpath("farming") ~= nil then

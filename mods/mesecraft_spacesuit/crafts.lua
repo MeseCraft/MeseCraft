@@ -1,7 +1,7 @@
 
 
 minetest.register_craft({
-	output = "spacesuit:helmet",
+	output = "mesecraft_spacesuit:helmet",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
 		{"default:steel_ingot", "default:glass", "default:steel_ingot"},
@@ -10,7 +10,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "spacesuit:chestplate",
+	output = "mesecraft_spacesuit:chestplate",
 	recipe = {
 		{"default:steel_ingot", "default:mese", "default:steel_ingot"},
 		{"default:steel_ingot", "wool:white", "default:steel_ingot"},
@@ -19,7 +19,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "spacesuit:pants",
+	output = "mesecraft_spacesuit:pants",
 	recipe = {
 		{"default:steel_ingot", "wool:white", "default:steel_ingot"},
 		{"default:steel_ingot", "wool:white", "default:steel_ingot"},
@@ -28,7 +28,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "spacesuit:boots",
+	output = "mesecraft_spacesuit:boots",
 	recipe = {
 		{"default:steel_ingot", "wool:white", "default:steel_ingot"},
 		{"default:steel_ingot", "wool:white", "default:steel_ingot"},

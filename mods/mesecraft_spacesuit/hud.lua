@@ -19,14 +19,14 @@ local setup_hud = function(player)
 	      x = -100,
 	      y = -100
 	    },
-	    text = "spacesuit_overlay.png"
+	    text = "mesecraft_spacesuit_overlay.png"
 	})
 
 	hud_data.o2_bg = player:hud_add({
 		hud_elem_type = "image",
 		position = HUD_POSITION,
 		offset = O2_BAR_OFFSET,
-		text = "spacesuit_o2_levels_bg.png",
+		text = "mesecraft_spacesuit_o2_levels_bg.png",
 		alignment = HUD_ALIGNMENT,
 		scale = {x = -80, y = 1}
 	})
@@ -35,7 +35,7 @@ local setup_hud = function(player)
 		hud_elem_type = "image",
 		position = HUD_POSITION,
 		offset = O2_BAR_OFFSET,
-		text = "spacesuit_o2_levels_fg_green.png",
+		text = "mesecraft_spacesuit_o2_levels_fg_green.png",
 		alignment = HUD_ALIGNMENT,
 		scale = {x = 0, y = 1}
 	})
@@ -107,13 +107,13 @@ local update_hud = function(player, has_full_suit, armor_list)
 	local max_wear = 0
 	for _,item in pairs(armor_list) do
 		-- wear:0 == full, wear:65535 == empty
-		if item:get_name() == "spacesuit:helmet" then
+		if item:get_name() == "mesecraft_spacesuit:helmet" then
 			max_wear = math.max(max_wear, item:get_wear())
-		elseif item:get_name() == "spacesuit:chestplate" then
+		elseif item:get_name() == "mesecraft_spacesuit:chestplate" then
 			max_wear = math.max(max_wear, item:get_wear())
-		elseif item:get_name() == "spacesuit:pants" then
+		elseif item:get_name() == "mesecraft_spacesuit:pants" then
 			max_wear = math.max(max_wear, item:get_wear())
-		elseif item:get_name() == "spacesuit:boots" then
+		elseif item:get_name() == "mesecraft_spacesuit:boots" then
 			max_wear = math.max(max_wear, item:get_wear())
 		end
 	end
@@ -128,17 +128,17 @@ local update_hud = function(player, has_full_suit, armor_list)
 	if factor_full > 0.3 then
 		-- green
 		color = get_color(0,255,0)
-		player:hud_change(hud_data.o2_fg, "text", "spacesuit_o2_levels_fg_green.png")
+		player:hud_change(hud_data.o2_fg, "text", "mesecraft_spacesuit_o2_levels_fg_green.png")
 
 	elseif factor_full > 0.1 then
 		-- yellow
 		color = get_color(255,255,0)
-		player:hud_change(hud_data.o2_fg, "text", "spacesuit_o2_levels_fg_yellow.png")
+		player:hud_change(hud_data.o2_fg, "text", "mesecraft_spacesuit_o2_levels_fg_yellow.png")
 
 	else
 		-- red
 		color = get_color(255,0,0)
-		player:hud_change(hud_data.o2_fg, "text", "spacesuit_o2_levels_fg_red.png")
+		player:hud_change(hud_data.o2_fg, "text", "mesecraft_spacesuit_o2_levels_fg_red.png")
 
 	end
 
@@ -153,7 +153,7 @@ minetest.register_on_leaveplayer(function(player)
 	hud[playername] = nil
 end)
 
-spacesuit.set_player_wearing = function(player, has_full_suit, has_helmet, armor_list)
+mesecraft_spacesuit.set_player_wearing = function(player, has_full_suit, has_helmet, armor_list)
 	local playername = player:get_player_name()
 	local hud_data = hud[playername]
 
