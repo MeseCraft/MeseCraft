@@ -63,7 +63,7 @@ if minetest.get_modpath("moreblocks") then
           		"mesecraft_christmas", "frosting_block", "mesecraft_christmas:frosting_block", {
                         description = "Frosting",
                         groups = {snappy = 3},
-                        tiles = {"mesecraft_christmas__nodes_frosting_block.png"},
+                        tiles = {"mesecraft_christmas_nodes_frosting_block.png"},
                         sounds = default.node_sound_stone_defaults(),
         })
 end
@@ -85,9 +85,9 @@ end
 	-- Christmas Reef
 	minetest.register_node("mesecraft_christmas:reef", {
 	        description = "Christmas Reef",
-	        tiles = {"mesecraft_christmas_nodes_christmas_reef.png"},
-	        inventory_image = "mesecraft_christmas_nodes_christmas_reef.png",
-	        wield_image = "mesecraft_christmas_nodes_christmas_reef.png",
+	        tiles = {"mesecraft_christmas_nodes_reef.png"},
+	        inventory_image = "mesecraft_christmas_nodes_reef.png",
+	        wield_image = "mesecraft_christmas_nodes_reef.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -162,7 +162,7 @@ end
 	-- Festive Garland
 	minetest.register_node("mesecraft_christmas:festive_garland", {
 		description = "Festive Garland",
-		tiles = {"mesecraft_christmas_nodes_.png"},
+		tiles = {"mesecraft_christmas_nodes_garland.png"},
 		inventory_image = "mesecraft_christmas_nodes_garland.png",
 		wield_image = "mesecraft_christmas_nodes_garland.png",
 		sunlight_propagates = true,

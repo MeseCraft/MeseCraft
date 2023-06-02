@@ -86,7 +86,7 @@ mesecraft_christmas.restore_bell_data();
 minetest.register_node("mesecraft_christmas:christmas_bell", {
     description = "Bell",
     node_placement_prediction = "",
-	tiles = {"mesecraft_christmas_nodes_christmas_bell.png"},
+	tiles = {"mesecraft_christmas_nodes_bell.png"},
 	paramtype = "light",
 	is_ground_content = true,
     inventory_image = 'mesecraft_christmas_nodes_bell.png',

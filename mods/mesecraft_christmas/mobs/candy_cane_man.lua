@@ -23,7 +23,7 @@ mobs:register_mob("mesecraft_christmas:candy_cane_man", {
 		jump = "default_glass_footstep",
 		death = "default_break_glass",
 	},
-        blood_texture = "mesecraft_christmas_candy_cane_block.png",
+        blood_texture = "mesecraft_christmas_nodes_candy_cane_block.png",
 	walk_velocity = 1,
 	run_velocity = 2,
 	jump_height = 1,
@@ -73,7 +73,7 @@ mobs:register_mob("mesecraft_christmas:candy_cane_man", {
             minsize = 1,
             maxsize = 2,
             collisiondetection = false,
-            texture="mesecraft_christmas_candy_cane_block.png"
+            texture="mesecraft_christmas_nodes_candy_cane_block.png"
         })
         self.object:remove()
 	end,
@@ -87,7 +87,7 @@ mobs:register_mob("mesecraft_christmas:candy_cane_man", {
 })
 
 -- Register Spawn Egg
-mobs:register_egg("mesecraft_christmas:candy_cane_man", "Candy Cane Man Spawn Egg", "mesecraft_christmas_candy_cane_block.png", 1)
+mobs:register_egg("mesecraft_christmas:candy_cane_man", "Candy Cane Man Spawn Egg", "mesecraft_christmas_nodes_candy_cane_block.png", 1)
 
 -- Spawning Parameters
 mobs:spawn_specific("mesecraft_christmas:candy_cane_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)

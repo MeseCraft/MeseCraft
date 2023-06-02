@@ -16,7 +16,7 @@ mobs:register_mob("mesecraft_christmas:gingerbread_man", {
 	textures = {
 		{"mesecraft_christmas_gingerbread_man.png"},
 	},
-	blood_texture = "mesecraft_christmas_gingerbread_block.png",
+	blood_texture = "mesecraft_christmas_nodes_gingerbread_block.png",
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mesecraft_mobs_dirt_man_random",
@@ -75,7 +75,7 @@ mobs:register_mob("mesecraft_christmas:gingerbread_man", {
             minsize = 1,
             maxsize = 3,
             collisiondetection = false,
-            texture="mesecraft_christmas_gingerbread_block.png"
+            texture="mesecraft_christmas_nodes_gingerbread_block.png"
         })
         self.object:remove()
     end,
@@ -89,7 +89,7 @@ mobs:register_mob("mesecraft_christmas:gingerbread_man", {
 })
 
 -- Register Spawn Egg
-mobs:register_egg("mesecraft_christmas:gingerbread_man", "Gingerbread Man Spawn Egg", "mesecraft_christmas_gingerbread_block.png", 1)
+mobs:register_egg("mesecraft_christmas:gingerbread_man", "Gingerbread Man Spawn Egg", "mesecraft_christmas_nodes_gingerbread_block.png", 1)
 
 -- Register Spawn Parameters
 mobs:spawn_specific("mesecraft_christmas:gingerbread_man", {"default:snowblock", "default:dirt_with_snow", "default:snow", "default:ice"}, {"air"}, 0, 7, 60, 5000, 2, -500, 100, false)
