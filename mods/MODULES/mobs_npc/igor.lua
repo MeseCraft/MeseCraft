@@ -112,7 +112,7 @@ mobs:register_mob("mobs_npc:igor", {
 	end,
 })
 -- register spawn egg
-mobs:register_egg("mobs_npc:igor", S("Igor"), "mobs_meat_raw.png", 1)
+mobs:register_egg("mobs_npc:igor", S("Igor"), "mesecraft_mobs_items_meat.png", 1)
 
 -- compatibility
 mobs:alias_mob("mobs:igor", "mobs_npc:igor")

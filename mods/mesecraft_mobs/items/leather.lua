@@ -1,7 +1,7 @@
 -- leather (from mobs_redo)
 minetest.register_craftitem("mesecraft_mobs:leather", {
 	description = "Leather",
-	inventory_image = "mesecraft_mobs_itesm_leather.png",
+	inventory_image = "mesecraft_mobs_items_leather.png",
 	groups = {flammable = 2, leather = 1}
 })
 

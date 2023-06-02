@@ -62,7 +62,7 @@ mobs:register_mob('mesecraft_mobs:reptilian_elite', {
 mobs:spawn_specific("mesecraft_mobs:reptilian_elite",{"default:gravel"},{"vacuum:vacuum"},0,7,960,4000,2,3000,3300,false)
 
 --Spawn Eggs
-mobs:register_egg("mesecraft_mobs:reptilian_elite", "Reptilian Elite Spawn Egg", "mobs_meat_raw.png", 1)
+mobs:register_egg("mesecraft_mobs:reptilian_elite", "Reptilian Elite Spawn Egg", "mesecraft_mobs_items_meat.png", 1)
 
 --REPTILIAN ACID SPIT PROJECTILE
 mobs:register_arrow("mesecraft_mobs:reptilian_acid_spit", {
