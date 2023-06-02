@@ -72,7 +72,7 @@ christmas_holiday_pack.christmas_special_item_pool = {}
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "farming:blueberry_pie")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "gramophone:vinyl_disc10")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "gramophone:vinyl_disc11")
-        table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "gnu:moognu_rainbow")
+        table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "mesecraft_rainbow_block:mesecraft_rainbow_block")
 
 -- Special Item Pool
         table.insert(christmas_holiday_pack.christmas_special_item_pool, "christmas_holiday_pack:christmas_bell")
