@@ -3,7 +3,7 @@
 -- Candy base
 minetest.register_craftitem("halloween_holiday_pack:caramelized_sugar", {
     description = "Caramelized Sugar",
-    inventory_image = "mobs_creatures_items_halloween_caramelized_sugar.png",
+    inventory_image = "mesecraft_mobs_items_halloween_caramelized_sugar.png",
 })
 
 minetest.register_craft({
@@ -16,7 +16,7 @@ minetest.register_craft({
 -- Candies
 minetest.register_craftitem("halloween_holiday_pack:candycorn", {
     description = "Candycorn",
-    inventory_image = "mobs_creatures_items_halloween_candycorn.png",
+    inventory_image = "mesecraft_mobs_items_halloween_candycorn.png",
     on_use = minetest.item_eat(3),
 })
 
@@ -28,7 +28,7 @@ minetest.register_craft({
 
 minetest.register_craftitem("halloween_holiday_pack:halloween_chocolate", {
     description = "Halloween Chocolate",
-    inventory_image = "mobs_creatures_items_halloween_chocolate.png",
+    inventory_image = "mesecraft_mobs_items_halloween_chocolate.png",
     on_use = minetest.item_eat(5),
 })
 
@@ -40,7 +40,7 @@ minetest.register_craft({
 
 minetest.register_craftitem("halloween_holiday_pack:lolipop", {
 	description = "Lolipop",
-	inventory_image = "mobs_creatures_items_halloween_lolipop.png",
+	inventory_image = "mesecraft_mobs_items_halloween_lolipop.png",
 	on_use = minetest.item_eat(2),
 })
 
@@ -55,7 +55,7 @@ minetest.register_craft({
 
 minetest.register_craftitem("halloween_holiday_pack:caramel_apple", {
 	description = "Caramel Apple",
-	inventory_image = "mobs_creatures_items_halloween_caramel_apple.png",
+	inventory_image = "mesecraft_mobs_items_halloween_caramel_apple.png",
 	on_use = minetest.item_eat(4),
 })
 

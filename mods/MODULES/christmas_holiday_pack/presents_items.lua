@@ -2,7 +2,7 @@
 -- Description: Adds Christmas presents that give random items.
 -- Note: Make sure this runs after presents_functions.lua
 -- Instructions: Uses item tables to determine what is common, rare, and special.
--- farming, pie, dye, default, mobs_creatures, holiday lights, 
+-- farming, pie, dye, default, mesecraft_mobs, holiday lights, 
 
 christmas_holiday_pack.christmas_common_item_pool = {}
 christmas_holiday_pack.christmas_uncommon_item_pool = {}
@@ -21,7 +21,7 @@ christmas_holiday_pack.christmas_special_item_pool = {}
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:sugar_cookie")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:eggnog_glass")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:hot_chocolate_glass")
-	table.insert(christmas_holiday_pack.christmas_common_item_pool, "mobs_creatures:milk_glass")
+	table.insert(christmas_holiday_pack.christmas_common_item_pool, "mesecraft_mobs:milk_glass")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:candy_cane_block")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:gingerbread_block")
 	table.insert(christmas_holiday_pack.christmas_common_item_pool, "christmas_holiday_pack:icicles")
@@ -59,7 +59,7 @@ christmas_holiday_pack.christmas_special_item_pool = {}
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:sugar_cookie_star")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:sugar_cookie_tree")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:sugar_cookie_bell")
-        table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "mobs_creatures:milk_bucket")
+        table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "mesecraft_mobs:milk_bucket")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:peppermint_seeds")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:ginger")
         table.insert(christmas_holiday_pack.christmas_uncommon_item_pool, "christmas_holiday_pack:green_candy_cane_block")

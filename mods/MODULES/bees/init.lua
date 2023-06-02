@@ -7,7 +7,7 @@
 -- REMOVE BACKWARDS COMPATIBLITY
 -- ADDED LOCATIONAL SOUND EFFECTS.
 -- TODO: ADD HONEY LIQUID / BUCKET, maybe a honey/bee biomes.
--- TODO: Giant Bee Mob for mobs_Creatures.
+-- TODO: Giant Bee Mob for mesecraft_mobs.
 -- TODO: Add honey dripping particles from wild hives.
 -- TODO: Right click wild hive with jar to get honey, spawns angry bee.
 -- TODO: Right click wild hive with sheer to get honey comb, spawns angry bee.

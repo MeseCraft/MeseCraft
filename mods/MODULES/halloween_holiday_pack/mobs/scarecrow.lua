@@ -13,12 +13,12 @@ mobs:register_mob('halloween_holiday_pack:scarecrow', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"mobs_creatures_scarecrow.png"},
+                {"mesecraft_mobs_scarecrow.png"},
         },
 	blood_texture = "farming_wheat.png",
 	makes_footstep_sound = true,
 	sounds = {
-                random = "mobs_creatures_sand_man_random",
+                random = "mesecraft_mobs_sand_man_random",
                 attack = "default_dig_crumbly",
                 damage = "default_dig_snappy",
 		jump = "default_dirt_footstep",

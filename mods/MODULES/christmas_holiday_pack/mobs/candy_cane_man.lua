@@ -18,7 +18,7 @@ mobs:register_mob("christmas_holiday_pack:candy_cane_man", {
         },
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_creatures_stone_man_random",
+		random = "mesecraft_mobs_stone_man_random",
 		damage = "default_break_glass",
 		jump = "default_glass_footstep",
 		death = "default_break_glass",

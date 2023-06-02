@@ -15,36 +15,6 @@ if minetest.get_modpath("dye") and minetest.get_modpath("farming") then
 	})
 end
 
--- leather
-minetest.register_craftitem("mobs:leather", {
-	description = S("Leather"),
-	inventory_image = "mobs_leather.png",
-	groups = {flammable = 2, leather = 1}
-})
-
--- raw meat
-minetest.register_craftitem("mobs:meat_raw", {
-	description = S("Raw Meat"),
-	inventory_image = "mobs_meat_raw.png",
-	on_use = minetest.item_eat(3),
-	groups = {food_meat_raw = 1, flammable = 2}
-})
-
--- cooked meat
-minetest.register_craftitem("mobs:meat", {
-	description = S("Meat"),
-	inventory_image = "mobs_meat.png",
-	on_use = minetest.item_eat(8),
-	groups = {food_meat = 1, flammable = 2}
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs:meat",
-	recipe = "mobs:meat_raw",
-	cooktime = 5
-})
-
 -- lasso
 minetest.register_tool("mobs:lasso", {
 	description = S("Lasso (right-click animal to put in inventory)"),
@@ -140,9 +110,9 @@ minetest.register_craftitem("mobs:saddle", {
 minetest.register_craft({
 	output = "mobs:saddle",
 	recipe = {
-		{"mobs:leather", "mobs:leather", "mobs:leather"},
-		{"mobs:leather", "default:steel_ingot", "mobs:leather"},
-		{"mobs:leather", "default:steel_ingot", "mobs:leather"}
+		{"mesecraft_mobs:leather", "mesecraft_mobs:leather", "mesecraft_mobs:leather"},
+		{"mesecraft_mobs:leather", "default:steel_ingot", "mesecraft_mobs:leather"},
+		{"mesecraft_mobs:leather", "default:steel_ingot", "mesecraft_mobs:leather"}
 	}
 })
 
@@ -217,11 +187,6 @@ minetest.register_craft({
 	burntime = 8
 })
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "mobs:leather",
-	burntime = 4
-})
 
 minetest.register_craft({
 	type = "fuel",
@@ -351,25 +316,3 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		tex_obj = nil
 	end
 end)
-
-
--- Meat Block (thanks to painterlypack.net for allowing me to use these textures)
-minetest.register_node("mobs:meatblock", {
-	description = S("Meat Block"),
-	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
-})
-
-minetest.register_craft({
-	output = "mobs:meatblock",
---	type = "shapeless",
-	recipe = {
-		{"group:food_meat", "group:food_meat", "group:food_meat"},
-		{"group:food_meat", "group:food_meat", "group:food_meat"},
-		{"group:food_meat", "group:food_meat", "group:food_meat"}
-	}
-})

@@ -12,16 +12,16 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"mobs_creatures_vampire.png"},
+                {"mesecraft_mobs_vampire.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
 	sounds = {
-		random ="mobs_creatures_zombie_random",
-		warcry = "mobs_creatures_zombie_warcry",
-		attack = "mobs_creatures_zombie_attack",
-		damage = "mobs_creatures_zombie_damage",
-		death = "mobs_creatures_zombie_death",
+		random ="mesecraft_mobs_zombie_random",
+		warcry = "mesecraft_mobs_zombie_warcry",
+		attack = "mesecraft_mobs_zombie_attack",
+		damage = "mesecraft_mobs_zombie_damage",
+		death = "mesecraft_mobs_zombie_death",
 	},
 	walk_velocity = 1,
 	run_velocity = 2.75,
@@ -30,8 +30,8 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 	suffocation = false,
 	view_range = 16,
 	drops = {
-	{name = "mobs_creatures:bucket_blood", chance = 50, min = 1, max = 1},
-	{name = "mobs_creatures:bone", chance = 2, min = 0, max = 1},
+	{name = "mesecraft_mobs:bucket_blood", chance = 50, min = 1, max = 1},
+	{name = "mesecraft_mobs:bone", chance = 2, min = 0, max = 1},
         {name = "farming:garlic", chance = 25, min = 1, max = 1},
         {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
         {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
@@ -67,7 +67,7 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 		                self.health = math.min(self.object:get_hp()+math.random(1,6),50) --Regenerate Health
 	end,
 	on_die = function(self,pos)
-			        minetest.add_entity(pos, "mobs_creatures:bat")
+			        minetest.add_entity(pos, "mesecraft_mobs:bat")
 	end,
 	-- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	do_custom = function(self)

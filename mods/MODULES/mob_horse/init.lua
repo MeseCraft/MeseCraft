@@ -56,7 +56,7 @@ mobs:register_mob("mob_horse:horse", {
 	},
 	makes_footstep_sound = true,
 	drops = {
-		{name = "mobs:leather", chance = 1, min = 0, max = 2}
+		{name = "mesecraft_mobs:leather", chance = 1, min = 0, max = 2}
 	},
 
 	do_custom = function(self, dtime)

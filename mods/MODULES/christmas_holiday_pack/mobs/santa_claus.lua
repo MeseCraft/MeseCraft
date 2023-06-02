@@ -95,9 +95,9 @@ christmas_holiday_pack.santa = {
 	names = { "Santa Claus" },
 	items = {
                 --{item for sale, price, chance of appearing in trader's inventory}
-		{"christmas_holiday_pack:present_01 1", "mobs_creatures:milk_glass 1", 1},
-		{"christmas_holiday_pack:present_02 1", "mobs_creatures:milk_glass 1", 1},
-		{"christmas_holiday_pack:present_03 1", "mobs_creatures:milk_glass 1", 1},
+		{"christmas_holiday_pack:present_01 1", "mesecraft_mobs:milk_glass 1", 1},
+		{"christmas_holiday_pack:present_02 1", "mesecraft_mobs:milk_glass 1", 1},
+		{"christmas_holiday_pack:present_03 1", "mesecraft_mobs:milk_glass 1", 1},
 		{"christmas_holiday_pack:present_04 1", "christmas_holiday_pack:sugar_cookie 1", 1},
 		{"christmas_holiday_pack:present_05 1", "christmas_holiday_pack:sugar_cookie_bell 1", 1},
 		{"christmas_holiday_pack:present_06 1", "christmas_holiday_pack:sugar_cookie_star 1", 1},

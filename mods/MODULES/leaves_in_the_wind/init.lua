@@ -25,7 +25,7 @@ minetest.register_abm({
 			 -- If these aren't floats, for some reason, particles will end up in the corners of nodes.
 			-- Implement fix from CupnPlateGames -- https://github.com/MeseCraft/MeseCraft/issues/62
 			 local leaf_texture = minetest.registered_nodes[node.name].tiles[1] or "default_leaves.png"
-			 if type(leaf_texture) == "table" then
+			if type(leaf_texture) == "table" then
 				 leaf_texture = leaf_texture.name
 			 end
 			 texture = "(single_leaf_texture_mask"..math.random(1,2)..".png^[mask:"..

@@ -18,7 +18,7 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
         },
 	makes_footstep_sound = true,
         sounds = {
-                random = "mobs_creatures_dirt_man_random",
+                random = "mesecraft_mobs_dirt_man_random",
                 attack = "default_dig_snappy",
                 damage = "default_dig_choppy",
                 death = "default_place_node_hard",

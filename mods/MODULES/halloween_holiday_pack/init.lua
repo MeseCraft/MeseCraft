@@ -10,7 +10,7 @@ if minetest.get_modpath("mobs") then
 	dofile(path .. "/mobs/scarecrow.lua")
 	dofile(path .. "/mobs/werewolf.lua")
 	dofile(path .. "/mobs/witch.lua")
-	dofile(path .. "/mobs/vampire.lua") --(dies into mobs_creatures:bat)
+	dofile(path .. "/mobs/vampire.lua") --(dies into mesecraft_mobs:bat)
 	dofile(path .. "/mobs/zombie_halloween.lua")
 end
 

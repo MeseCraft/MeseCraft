@@ -12,7 +12,7 @@ mobs:register_mob("halloween_holiday_pack:witch", {
 	visual = "mesh",
 	mesh = "mobs_character.b3d",
 	textures = {
-		{"mobs_creatures_witch.png"},
+		{"mesecraft_mobs_witch.png"},
 	},
 	makes_footstep_sound = true,
 	damage = 6,
@@ -45,11 +45,11 @@ mobs:register_mob("halloween_holiday_pack:witch", {
                 {name = "bweapons_magic_pack:staff_void", chance = 100, min = 1, max = 1},
 	},
 	sounds = {
-		random = "mobs_creatures_witch_random",
-		death = "mobs_creatures_witch_death",
-		damage = "mobs_creatures_witch_damage",
-		shoot_attack = "mobs_creatures_witch_shoot_attack",
-		attack = "mobs_creatures_witch_attack",
+		random = "mesecraft_mobs_witch_random",
+		death = "mesecraft_mobs_witch_death",
+		damage = "mesecraft_mobs_witch_damage",
+		shoot_attack = "mesecraft_mobs_witch_shoot_attack",
+		attack = "mesecraft_mobs_witch_attack",
 		distance = 16,
 	},
         animation = {
@@ -81,7 +81,7 @@ mobs:register_mob("halloween_holiday_pack:witch", {
 mobs:register_arrow(":halloween_holiday_pack:witch_curse", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
-	textures = {"mobs_creatures_witch_arrow.png"},
+	textures = {"mesecraft_mobs_witch_arrow.png"},
 	velocity = 10,
 
 	-- direct hit, no fire... just plenty of pain
@@ -106,7 +106,7 @@ mobs:register_arrow(":halloween_holiday_pack:witch_curse", {
 })
 
 -- spawn egg
-mobs:register_egg("halloween_holiday_pack:witch", "Witch Spawn Egg", "mobs_creatures_witch_arrow.png", 1)
+mobs:register_egg("halloween_holiday_pack:witch", "Witch Spawn Egg", "mesecraft_mobs_witch_arrow.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for the witch.

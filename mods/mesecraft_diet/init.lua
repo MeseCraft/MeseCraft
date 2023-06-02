@@ -192,8 +192,8 @@ end
 if minetest.get_modpath("mobs") ~= nil then
 	if mobs.mod ~= nil and mobs.mod == "redo" then
 		overwrite("mobs:cheese", 4)
-		overwrite("mobs:meat", 8)
-		overwrite("mobs:meat_raw", 4)
+		overwrite("mobs_creautres:meat_cooked", 8)
+		overwrite("mesecraft_mobs:meat", 4)
 		overwrite("mobs:rat_cooked", 4)
 		overwrite("mobs:honey", 2)
 		overwrite("mobs:pork_raw", 3, "", 3)
@@ -205,8 +205,8 @@ if minetest.get_modpath("mobs") ~= nil then
 			overwrite("mobs:bucket_milk", 3, "mesecraft_bucket:bucket_empty")
 		end
 	else
-		overwrite("mobs:meat", 6)
-		overwrite("mobs:meat_raw", 3)
+		overwrite("mesecraft_mobs:meat_cooked", 6)
+		overwrite("mesecraft_mobs:meat", 3)
 		overwrite("mobs:rat_cooked", 5)
 	end
 end
@@ -453,43 +453,7 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
    overwrite("farming:porridge", 6)
 end
 
-if minetest.get_modpath("kpgmobs") ~= nil then
-	overwrite("kpgmobs:uley", 3)
-	overwrite("kpgmobs:meat", 6)
-	overwrite("kpgmobs:rat_cooked", 5)
-	overwrite("kpgmobs:med_cooked", 4)
-	if minetest.get_modpath("mesecraft_bucket") then
-	   overwrite("kpgmobs:bucket_milk", 4, "mesecraft_bucket:bucket_empty")
-	end
-end
 
-if minetest.get_modpath("jkfarming") ~= nil then
-	overwrite("jkfarming:carrot", 3)
-	overwrite("jkfarming:corn", 3)
-	overwrite("jkfarming:melon_part", 2)
-	overwrite("jkfarming:cake", 3)
-end
-
-if minetest.get_modpath("jkanimals") ~= nil then
-	overwrite("jkanimals:meat", 6)
-end
-
-if minetest.get_modpath("jkwine") ~= nil then
-	overwrite("jkwine:grapes", 2)
-	overwrite("jkwine:winebottle", 1)
-end
-
-if minetest.get_modpath("cooking") ~= nil then
-	overwrite("cooking:meat_beef_cooked", 4)
-	overwrite("cooking:fish_bluewhite_cooked", 3)
-	overwrite("cooking:fish_clownfish_cooked", 1)
-	overwrite("cooking:meat_chicken_cooked", 2)
-	overwrite("cooking:meat_cooked", 2)
-	overwrite("cooking:meat_pork_cooked", 3)
-	overwrite("cooking:meat_toxic_cooked", -3)
-	overwrite("cooking:meat_venison_cooked", 3)
-	overwrite("cooking:meat_undead_cooked", 1)
-end
 
 -- ferns mod of plantlife_modpack
 if minetest.get_modpath("ferns") ~= nil then
@@ -510,61 +474,3 @@ if minetest.get_modpath("crops") ~= nil then
 	overwrite("crops:vegetable_stew", 8, "crops:clay_bowl")
 	overwrite("crops:uncooked_vegetable_stew", 2, "crops:clay_bowl")
 end
-
--- nsspf
-if minetest.get_modpath("nsspf") ~= nil then
-	overwrite("nsspf:boletus_edulis", 2)
-	overwrite("nsspf:cooked_boletus_edulis", 16)
-	overwrite("nsspf:cantharellus_cibarius", 1)
-	overwrite("nsspf:cooked_cantharellus_cibarius", 8)
-	overwrite("nsspf:suillus_grevillei", 1)
-	overwrite("nsspf:cooked_suillus_grevillei", 10)
-	overwrite("nsspf:morchella_conica", 2)
-	overwrite("nsspf:cooked_morchella_conica", 8)
-	overwrite("nsspf:russula_xerampelina", -8)
-	overwrite("nsspf:cooked_russula_xerampelina", 6)
-	overwrite("nsspf:boletus_pinophilus", 2)
-	overwrite("nsspf:cooked_boletus_pinophilus", 16)
-	overwrite("nsspf:boletus_satanas", -20)
-	overwrite("nsspf:cooked_boletus_satanas", -16)
-	overwrite("nsspf:amanita_phalloides", -20)
-	overwrite("nsspf:cooked_amanita_phalloides", -20)
-	overwrite("nsspf:amanita_muscaria", -20)
-	overwrite("nsspf:cooked_amanita_muscaria", -18)
-	overwrite("nsspf:fistulina_hepatica", 4)
-	overwrite("nsspf:cooked_fistulina_hepatica", 14)
-	overwrite("nsspf:armillaria_mellea", 2)
-	overwrite("nsspf:fomes_fomentarius", -1)
-	overwrite("nsspf:cooked_armillaria_mellea", 12)
-	overwrite("nsspf:mycena_chlorophos", -2)
-	overwrite("nsspf:cooked_mycena_chlorophos", -4)
-	overwrite("nsspf:mycena_chlorophos_light", -2)
-	overwrite("nsspf:panellus_pusillus", -2)
-	overwrite("nsspf:cooked_panellus_pusillus", -4)
-	overwrite("nsspf:panellus_pusillus_light", -2)
-	overwrite("nsspf:macrolepiota_procera", 3)
-	overwrite("nsspf:cooked_macrolepiota_procera", 16)
-	overwrite("nsspf:psilocybe_cubensis", -7)
-	overwrite("nsspf:cooked_psilocybe_cubensis", 2)
-	overwrite("nsspf:lycoperdon_pyriforme", 8)
-	overwrite("nsspf:cooked_lycoperdon_pyriforme", 12)
-	overwrite("nsspf:gyromitra_esculenta", -20)
-	overwrite("nsspf:cooked_gyromitra_esculenta", -16)
-	overwrite("nsspf:coprinus_atramentarius", -13)
-	overwrite("nsspf:cooked_coprinus_atramentarius", 6)
-	overwrite("nsspf:lentinus_strigosus", 1)
-	overwrite("nsspf:cooked_lentinus_strigosus", 16)
-	overwrite("nsspf:ganoderma_lucidum", 14)
-	overwrite("nsspf:cooked_ganoderma_lucidum", 4)
-	overwrite("nsspf:marasmius_haematocephalus", -1)
-	overwrite("nsspf:cooked_marasmius_haematocephalus", -19)
-	overwrite("nsspf:clitocybula_azurea", -6)
-	overwrite("nsspf:cooked_clitocybula_azurea", 10)
-	overwrite("nsspf:clitocybe_glacialis", 1)
-	overwrite("nsspf:cooked_clitocybe_glacialis", 10)
-	overwrite("nsspf:hygrophorus_goetzii", -4)
-	overwrite("nsspf:cooked_hygrophorus_goetzii", 8)
-	overwrite("nsspf:plectania_nannfeldtii", -20)
-	overwrite("nsspf:cooked_plectania_nannfeldtii", -20)
-end
-

@@ -22,10 +22,10 @@ mobs:register_mob("halloween_holiday_pack:pumpboom", {
     walk_velocity = 1.5,
     run_velocity = 2.5,
     sounds = {
-                random = "mobs_creatures_dirt_golem_random",
+                random = "mesecraft_mobs_dirt_golem_random",
                 attack = "tnt_ignite",
-                death = "mobs_creatures_boomer_death",
-                damage = "mobs_creatures_boomer_damage",
+                death = "mesecraft_mobs_boomer_death",
+                damage = "mesecraft_mobs_boomer_damage",
                 fuse = "tnt_ignite",
                 explode = "tnt_explode",
                 distance = 16,

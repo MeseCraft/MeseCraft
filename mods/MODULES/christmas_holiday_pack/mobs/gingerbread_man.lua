@@ -19,7 +19,7 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
 	blood_texture = "christmas_holiday_pack_gingerbread_block.png",
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_creatures_dirt_man_random",
+		random = "mesecraft_mobs_dirt_man_random",
 		damage = "default_dirt_footstep",
 		attack = "default_dirt_footstep",
 		jump = "default_dirt_footstep",
