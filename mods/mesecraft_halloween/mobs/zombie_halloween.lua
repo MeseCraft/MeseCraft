@@ -1,4 +1,4 @@
-mobs:register_mob('halloween_holiday_pack:halloween_zombie', {
+mobs:register_mob('mesecraft_halloween:halloween_zombie', {
 		type = "monster",
 		passive = false,
 		attack_type = "dogfight",
@@ -12,10 +12,10 @@ mobs:register_mob('halloween_holiday_pack:halloween_zombie', {
 	        visual = "mesh",
 	        mesh = "mobs_character.b3d",
 	        textures = {
-	                {"mesecraft_mobs_zombie_halloween_1.png"},
-	                {"mesecraft_mobs_zombie_halloween_2.png"},
-	                {"mesecraft_mobs_zombie_halloween_3.png"},
-	                {"mesecraft_mobs_zombie_halloween_4.png"},
+	                {"mesecraft_halloween_zombie_halloween_1.png"},
+	                {"mesecraft_halloween_zombie_halloween_2.png"},
+	                {"mesecraft_halloween_zombie_halloween_3.png"},
+	                {"mesecraft_halloween_zombie_halloween_4.png"},
 	        },
 		blood_texture = "mobs_blood.png",
 		makes_footstep_sound = true,
@@ -35,15 +35,15 @@ mobs:register_mob('halloween_holiday_pack:halloween_zombie', {
 		drops = {
 		{name = "mesecraft_mobs:rotten_flesh", chance = 1, min = 1, max = 1},
 		{name = "mesecraft_mobs:bone", chance = 2, min = 1, max = 1},
-                {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
                 {name = "church_grave:grave", chance = 50, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_dark_unicorn", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_unicorn", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_dino", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_dino_pink", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_dark_unicorn", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_unicorn", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_dino", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_dino_pink", chance = 100, min = 1, max = 1},
 		},
 		lava_damage = 5,
 		water_damage = 2,
@@ -70,8 +70,8 @@ mobs:register_mob('halloween_holiday_pack:halloween_zombie', {
 	    end,
 	})
 --Spawn Eggs
-mobs:register_egg("halloween_holiday_pack:halloween_zombie", "Halloween Zombie Spawn Egg", "wool_red.png", 1)
+mobs:register_egg("mesecraft_halloween:halloween_zombie", "Halloween Zombie Spawn Egg", "wool_red.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:halloween_zombie", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 1000, 4, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:halloween_zombie", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 1000, 4, -30912, 30912, false)

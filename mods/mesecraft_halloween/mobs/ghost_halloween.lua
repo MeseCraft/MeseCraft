@@ -1,4 +1,4 @@
-mobs:register_mob('halloween_holiday_pack:halloween_ghost', {
+mobs:register_mob('mesecraft_halloween:halloween_ghost', {
 	type = "animal",
 	passive = false,
 	attack_type = "dogfight",
@@ -32,12 +32,11 @@ mobs:register_mob('halloween_holiday_pack:halloween_ghost', {
 	suffocation = false,
 	view_range = 16,
 	drops = {
-	{name = "halloween_holiday_pack:suit_ghost", chance = 100, min = 1, max = 1},
-        {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
-        {name = "church_grave:grave", chance = 75, min = 1, max = 1},
+	{name = "mesecraft_halloween:suit_ghost", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
 	},
 	lava_damage = 0,
 	water_damage = 0,
@@ -65,11 +64,11 @@ mobs:register_mob('halloween_holiday_pack:halloween_ghost', {
 })
 
 --Spawn Eggs
-mobs:register_egg("halloween_holiday_pack:halloween_ghost", "Halloween Ghost Spawn Egg", "wool_white.png", 1)
+mobs:register_egg("mesecraft_halloween:halloween_ghost", "Halloween Ghost Spawn Egg", "wool_white.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:halloween_ghost", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 2 ,12, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:halloween_ghost", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 2 ,12, -30912, 30912, false)
 
 
 

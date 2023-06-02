@@ -4,7 +4,7 @@
 --todo: drops
 
 --Witch for halloween event (Oct 20 - Nov 3).
-mobs:register_mob("halloween_holiday_pack:witch", {
+mobs:register_mob("mesecraft_halloween:witch", {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
@@ -12,7 +12,7 @@ mobs:register_mob("halloween_holiday_pack:witch", {
 	visual = "mesh",
 	mesh = "mobs_character.b3d",
 	textures = {
-		{"mesecraft_mobs_witch.png"},
+		{"mesecraft_halloween_witch.png"},
 	},
 	makes_footstep_sound = true,
 	damage = 6,
@@ -24,24 +24,24 @@ mobs:register_mob("halloween_holiday_pack:witch", {
 	suffocation = false,
 	knockback = true,
 	attack_type = "dogshoot",
-	arrow = "halloween_holiday_pack:witch_curse",
+	arrow = "mesecraft_halloween:witch_curse",
 	shoot_interval = 2,
 	dogshoot_switch = 2,
 	dogshoot_count = 0,
 	dogshoot_count_max =5,
 	shoot_offset = 1.5,
 	drops = {
-                {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
                 {name = "magic_materials:magic_flower", chance = 10, min = 1, max = 1},
                 {name = "magic_materials:magic_mushroom", chance = 10, min = 1, max = 2},
                 {name = "magic_materials:magic_root", chance = 10, min = 1, max = 2},
 		{name = "gadgets_consumables:potion_mana_regen_02", chance = 10, min = 1, max = 1},
                 {name = "gadgets_consumables:potion_gravity_02", chance = 10, min = 1, max = 1},
-                {name = "halloween_holiday_pack:mask_cat", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_harry", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:mask_cat", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_harry", chance = 100, min = 1, max = 1},
                 {name = "bweapons_magic_pack:staff_void", chance = 100, min = 1, max = 1},
 	},
 	sounds = {
@@ -78,10 +78,10 @@ mobs:register_mob("halloween_holiday_pack:witch", {
 	    end,
 })
 -- Witch's Arrow
-mobs:register_arrow(":halloween_holiday_pack:witch_curse", {
+mobs:register_arrow(":mesecraft_halloween:witch_curse", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
-	textures = {"mesecraft_mobs_witch_arrow.png"},
+	textures = {"mesecraft_halloween_witch_arrow.png"},
 	velocity = 10,
 
 	-- direct hit, no fire... just plenty of pain
@@ -106,8 +106,8 @@ mobs:register_arrow(":halloween_holiday_pack:witch_curse", {
 })
 
 -- spawn egg
-mobs:register_egg("halloween_holiday_pack:witch", "Witch Spawn Egg", "mesecraft_mobs_witch_arrow.png", 1)
+mobs:register_egg("mesecraft_halloween:witch", "Witch Spawn Egg", "mesecraft_halloween_witch_arrow.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for the witch.
-mobs:spawn_specific("halloween_holiday_pack:witch", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 120, 1000, 2, -30912, 30192, false)
+mobs:spawn_specific("mesecraft_halloween:witch", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 120, 1000, 2, -30912, 30192, false)

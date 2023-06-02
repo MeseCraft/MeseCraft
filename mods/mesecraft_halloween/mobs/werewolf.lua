@@ -2,7 +2,7 @@
 -- hit sounds by robinhood76 - https://freesound.org/people/Robinhood76/sounds/161488/
 -- Warcry sound by missozzy - https://freesound.org/people/missozzy/sounds/169985/
 -- todo spawn a villager/npc when killed?
-mobs:register_mob('halloween_holiday_pack:werewolf', {
+mobs:register_mob('mesecraft_halloween:werewolf', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -17,7 +17,7 @@ mobs:register_mob('halloween_holiday_pack:werewolf', {
         mesh = "mobs_character.b3d",
 	visual_size = {x=1.5, y=1.5},
         textures = {
-                {"mesecraft_mobs_werewolf.png"},
+                {"mesecraft_halloween_werewolf.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
@@ -37,12 +37,12 @@ mobs:register_mob('halloween_holiday_pack:werewolf', {
 	drops = {
 	{name = "mobs_creautures:meat", chance = 1, min = 1, max = 1},
 	{name = "mesecraft_mobs:bone", chance = 2, min = 1, max = 1},
-        {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},	
+        {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},	
         {name = "clothing:pants_blue", chance = 50, min = 1, max = 1},
-        {name = "halloween_holiday_pack:suit_wearwolf", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:suit_wearwolf", chance = 100, min = 1, max = 1},
 	},
 	lava_damage = 5,
 	water_damage = 2,
@@ -69,8 +69,8 @@ mobs:register_mob('halloween_holiday_pack:werewolf', {
 	    end,
 })
 --Spawn Eggs
-mobs:register_egg("halloween_holiday_pack:werewolf", "Werewolf Spawn Egg", "mobs_meat_raw.png", 1)
+mobs:register_egg("mesecraft_halloween:werewolf", "Werewolf Spawn Egg", "mesecraft_mobs_items_meat.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:werewolf", {"group:flora", "group:leaves"}, {"air"}, 0, 4, 240, 2000, 1, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:werewolf", {"group:flora", "group:leaves"}, {"air"}, 0, 4, 240, 2000, 1, -30912, 30912, false)

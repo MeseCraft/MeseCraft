@@ -1,7 +1,6 @@
 -- Costumes
 costumes = {}
 
--- Original Skin Texture Credit: Original skin authors (whoever they may be)
 -- Function for registering suits
 function costumes.register(costume, nodename, def)
 	if not def then
@@ -35,7 +34,7 @@ function costumes.register(costume, nodename, def)
 		node_str = def.name
 	end
 
-	armor:register_armor("halloween_holiday_pack:"..node_str, {
+	armor:register_armor("mesecraft_halloween:"..node_str, {
 		description = costume,
 		inventory_image = "inv_"..grouptype.."_"..nodename..".png",
 		groups = armor_groups,
@@ -52,7 +51,7 @@ function costumes.register(costume, nodename, def)
 		override_prev = def.preview
 	end
 
-	minetest.override_item("halloween_holiday_pack:"..node_str, {
+	minetest.override_item("mesecraft_halloween:"..node_str, {
 		preview = override_prev
 	})
 end
@@ -92,5 +91,5 @@ costumes.register("Cat Mask", "cat", {
 	preview = "((([combine:16x32:-16,-12=halloween_mask_cat.png^[mask:mask_chest.png)^([combine:16x32:-36,-8=halloween_mask_cat.png^[mask:mask_head.png)^([combine:16x32:-44,-12=halloween_mask_cat.png^[mask:mask_arm.png^[transformFX)^([combine:16x32:-44,-12=halloween_mask_cat.png^[mask:mask_arm.png)^([combine:16x32:4,0=halloween_mask_cat.png^[mask:mask_leg.png^[transformFX)^([combine:16x32:4,0=halloween_mask_cat.png^[mask:mask_leg.png))^[resize:32x64)^[mask:mask_preview.png"
 })
 
-minetest.register_alias("halloween_holiday_pack:helmet_pumpkin_mask", "halloween_holiday_pack:mask_pumpkin")
-minetest.register_alias("halloween_holiday_pack:chestplate_halloween_hoodie", "halloween_holiday_pack:shirt_halloween_hoodie")
+minetest.register_alias("mesecraft_halloween:helmet_pumpkin_mask", "mesecraft_halloween:mask_pumpkin")
+minetest.register_alias("mesecraft_halloween:chestplate_halloween_hoodie", "mesecraft_halloween:shirt_halloween_hoodie")

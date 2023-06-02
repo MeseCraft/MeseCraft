@@ -2,7 +2,7 @@
 
 -- REGISTER MOB & ATTRIBUTES
 -- todo: add costume drops
-mobs:register_mob("halloween_holiday_pack:pumpboom", {
+mobs:register_mob("mesecraft_halloween:pumpboom", {
     type = "monster",
     hp_min = 10,
     hp_max = 10,
@@ -35,14 +35,14 @@ mobs:register_mob("halloween_holiday_pack:pumpboom", {
     drops = {
 		{name = "farming:pumpkin_slice", chance = 1, min = 1, max = 2},
 		{name = "candles:candle", chance = 1, min = 1, max = 1},
-		{name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-		{name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-		{name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-		{name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
+		{name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+		{name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+		{name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+		{name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
                 {name = "tnt:gunpowder", chance = 25, min = 0, max = 2,},
-                {name = "halloween_holiday_pack:mask_pumpkin", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:shirt_halloween_hoodie", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_pumpkin", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:mask_pumpkin", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:shirt_halloween_hoodie", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_pumpkin", chance = 100, min = 1, max = 1},
 	},
     armor = 200,
     drawtype = "front",
@@ -67,8 +67,8 @@ mobs:register_mob("halloween_holiday_pack:pumpboom", {
 })
 
 -- Register spawn egg
-mobs:register_egg("halloween_holiday_pack:pumpboom","Pumpboom Spawn Egg", "farming_pumpkin_side.png", 1)
+mobs:register_egg("mesecraft_halloween:pumpboom","Pumpboom Spawn Egg", "farming_pumpkin_side.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for the pumpboom.
-mobs:spawn_specific("halloween_holiday_pack:pumpboom", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 30, 1000, 8, -30912, 30192, false)
+mobs:spawn_specific("mesecraft_halloween:pumpboom", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 30, 1000, 8, -30912, 30192, false)

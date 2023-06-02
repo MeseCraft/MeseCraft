@@ -1,4 +1,4 @@
-mobs:register_mob('halloween_holiday_pack:vampire', {
+mobs:register_mob('mesecraft_halloween:vampire', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -12,7 +12,7 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"mesecraft_mobs_vampire.png"},
+                {"mesecraft_halloween_vampire.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
@@ -33,12 +33,12 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 	{name = "mesecraft_mobs:bucket_blood", chance = 50, min = 1, max = 1},
 	{name = "mesecraft_mobs:bone", chance = 2, min = 0, max = 1},
         {name = "farming:garlic", chance = 25, min = 1, max = 1},
-        {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
         {name = "clothing:cape_black", chance = 50, min = 1, max = 1},
-        {name = "halloween_holiday_pack:suit_vampire", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:suit_vampire", chance = 100, min = 1, max = 1},
 	},
 	lava_damage = 5,
 	water_damage = 2,
@@ -79,8 +79,8 @@ mobs:register_mob('halloween_holiday_pack:vampire', {
 })
 
 --Spawn Egg
-mobs:register_egg("halloween_holiday_pack:vampire", "Vampire Spawn Egg", "wool_black.png", 1)
+mobs:register_egg("mesecraft_halloween:vampire", "Vampire Spawn Egg", "wool_black.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:vampire", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 180, 5000, 3, -30192, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:vampire", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 180, 5000, 3, -30192, 30912, false)

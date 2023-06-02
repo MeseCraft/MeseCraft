@@ -1,4 +1,4 @@
-mobs:register_mob('halloween_holiday_pack:frankenstein', {
+mobs:register_mob('mesecraft_halloween:frankenstein', {
 	type = "animal",
 	passive = false,
 	attack_type = "dogfight",
@@ -13,7 +13,7 @@ mobs:register_mob('halloween_holiday_pack:frankenstein', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"mesecraft_mobs_frankenstein.png"},
+                {"mesecraft_halloween_frankenstein.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
@@ -37,12 +37,12 @@ mobs:register_mob('halloween_holiday_pack:frankenstein', {
         {name = "flowers:rose", chance = 10, min = 1, max = 1},
         {name = "default:book", chance = 10, min = 1, max = 1},
         {name = "church_grave:grave_fancy", chance = 25, min = 1, max = 1},
-        {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:suit_frank", chance = 100, min = 1, max = 1},
-        {name = "halloween_holiday_pack:suit_totoro", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:suit_frank", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:suit_totoro", chance = 100, min = 1, max = 1},
 	},
 	lava_damage = 5,
 	water_damage = 2,
@@ -70,8 +70,8 @@ mobs:register_mob('halloween_holiday_pack:frankenstein', {
 })
 
 --Spawn Eggs
-mobs:register_egg("halloween_holiday_pack:frankenstein", "Frankenstein Spawn Egg", "wool_green.png", 1)
+mobs:register_egg("mesecraft_halloween:frankenstein", "Frankenstein Spawn Egg", "wool_green.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
-mobs:spawn_specific("halloween_holiday_pack:frankenstein", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 3000, 1, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:frankenstein", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 3000, 1, -30912, 30912, false)
 

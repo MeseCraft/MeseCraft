@@ -1,4 +1,4 @@
-local path = minetest.get_modpath("halloween_holiday_pack")
+local path = minetest.get_modpath("mesecraft_halloween")
 
 -- Halloween Creatures
 -- Register mobs if mobs_redo is enabled

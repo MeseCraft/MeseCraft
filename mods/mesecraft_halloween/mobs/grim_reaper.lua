@@ -1,5 +1,5 @@
 -- Death (Grim Reaper)
-mobs:register_mob("halloween_holiday_pack:grim_reaper", {
+mobs:register_mob("mesecraft_halloween:grim_reaper", {
 	type = "monster",
 	hp_min = 100,
 	hp_max = 100,
@@ -8,7 +8,7 @@ mobs:register_mob("halloween_holiday_pack:grim_reaper", {
 	visual = "mesh",
 	mesh = "mobs_character.b3d",
 	textures = {
-		{"mesecraft_mobs_grim_reaper.png"},
+		{"mesecraft_halloween_grim_reaper.png"},
 	},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
@@ -29,12 +29,12 @@ mobs:register_mob("halloween_holiday_pack:grim_reaper", {
 	drops = {
 		{name = "farming:hoe_steel", chance = 2, min = 1, max = 1,},
 		{name = "mesecraft_bones:bones", chance = 1, min = 1, max = 1,},
-                {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-                {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
-		{name = "halloween_holiday_pack:suit_reaper", chance = 100, min = 1, max = 1},
-                {name = "halloween_holiday_pack:suit_skeleton", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+                {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
+		{name = "mesecraft_halloween:suit_reaper", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_skeleton", chance = 100, min = 1, max = 1},
 	},
         animation = {
                 speed_normal = 15,
@@ -65,8 +65,8 @@ mobs:register_mob("halloween_holiday_pack:grim_reaper", {
 	    end,
 })
 -- spawn eggs
-mobs:register_egg("halloween_holiday_pack:grim_reaper", "Grim Reaper Spawn Egg", "wool_black.png", 1)
+mobs:register_egg("mesecraft_halloween:grim_reaper", "Grim Reaper Spawn Egg", "wool_black.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for Death.
-mobs:spawn_specific("halloween_holiday_pack:grim_reaper", {"mesecraft_bones:bones"}, {"air"}, 0, 5, 120, 1000, 1, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:grim_reaper", {"mesecraft_bones:bones"}, {"air"}, 0, 5, 120, 1000, 1, -30912, 30912, false)

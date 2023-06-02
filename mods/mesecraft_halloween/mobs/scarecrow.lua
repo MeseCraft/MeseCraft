@@ -1,5 +1,5 @@
 -- add redshift, blue pants clothing?
-mobs:register_mob('halloween_holiday_pack:scarecrow', {
+mobs:register_mob('mesecraft_halloween:scarecrow', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -13,7 +13,7 @@ mobs:register_mob('halloween_holiday_pack:scarecrow', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"mesecraft_mobs_scarecrow.png"},
+                {"mesecraft_halloween_scarecrow.png"},
         },
 	blood_texture = "farming_wheat.png",
 	makes_footstep_sound = true,
@@ -34,12 +34,12 @@ mobs:register_mob('halloween_holiday_pack:scarecrow', {
         {name = "farming:seed_wheat", chance = 5, min = 1, max = 2},
 	{name = "farming:straw", chance = 1, min = 1, max = 1},
         {name = "default:stick", chance = 1, min = 1, max = 2},
-        {name = "halloween_holiday_pack:candycorn", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:caramel_apple", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:halloween_chocolate", chance = 4, min = 1, max = 2},
-        {name = "halloween_holiday_pack:lolipop", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:candycorn", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:caramel_apple", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
+        {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
         {name = "decoblocks:scarecrow", chance = 50, min = 1, max = 1},
-        {name = "halloween_holiday_pack:suit_killer", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:suit_killer", chance = 100, min = 1, max = 1},
 	},
 	lava_damage = 10,
 	water_damage = 5,
@@ -66,8 +66,8 @@ mobs:register_mob('halloween_holiday_pack:scarecrow', {
 	    end,
 })
 --Spawn Eggs
-mobs:register_egg("halloween_holiday_pack:scarecrow", "Scarecrow Spawn Egg", "farming_straw.png", 1)
+mobs:register_egg("mesecraft_halloween:scarecrow", "Scarecrow Spawn Egg", "farming_straw.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("halloween_holiday_pack:scarecrow", {"farming:wheat_6", "farming:wheat_7", "farming:wheat_8", "farming:oat_6", "farming:oat_7", "farming:oat_8","decoblocks:scarecrow"}, {"air"}, 0, 5, 60, 1000, 2, -30912, 30912, false)
+mobs:spawn_specific("mesecraft_halloween:scarecrow", {"farming:wheat_6", "farming:wheat_7", "farming:wheat_8", "farming:oat_6", "farming:oat_7", "farming:oat_8","decoblocks:scarecrow"}, {"air"}, 0, 5, 60, 1000, 2, -30912, 30912, false)
