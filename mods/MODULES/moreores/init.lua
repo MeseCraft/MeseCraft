@@ -315,7 +315,7 @@ local function add_tool(name, desc, afteruse)
 	minetest.override_item(name, {
 		original_description = desc,
 		description = mesecraft_toolranks.create_description(desc, 0, 1),
-		after_use = afteruse and toolranks.new_afteruse
+		after_use = afteruse and mesecraft_toolranks.new_afteruse
 	})
 end
 
