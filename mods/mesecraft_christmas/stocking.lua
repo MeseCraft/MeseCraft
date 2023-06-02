@@ -44,20 +44,20 @@ end
 -- REGISTER STUFFERS BELOW HERE
 --stuffer.register_stuff("modname:nodename", amount)
 stuffer.register_stuff("default:gold_ingot", 25)
-stuffer.register_stuff("christmas_holiday_pack:candy_cane", 25)
-stuffer.register_stuff("christmas_holiday_pack:candy_cane_pickaxe", 1)
-stuffer.register_stuff("christmas_holiday_pack:candy_cane_axe", 1)
-stuffer.register_stuff("christmas_holiday_pack:candy_cane_sword", 1)
-stuffer.register_stuff("christmas_holiday_pack:helmet_cane", 1)
-stuffer.register_stuff("christmas_holiday_pack:chestplate_cane", 1)
-stuffer.register_stuff("christmas_holiday_pack:leggings_cane", 1)
-stuffer.register_stuff("christmas_holiday_pack:boots_cane", 1)
-stuffer.register_stuff("christmas_holiday_pack:shield_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:candy_cane", 25)
+stuffer.register_stuff("mesecraft_christmas:candy_cane_pickaxe", 1)
+stuffer.register_stuff("mesecraft_christmas:candy_cane_axe", 1)
+stuffer.register_stuff("mesecraft_christmas:candy_cane_sword", 1)
+stuffer.register_stuff("mesecraft_christmas:helmet_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:chestplate_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:leggings_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:boots_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:shield_cane", 1)
 stuffer.register_stuff("farming:chocolate_dark", 25)
-stuffer.register_stuff("christmas_holiday_pack:peppermint_candies", 25)
-stuffer.register_stuff("christmas_holiday_pack:green_candy_cane", 25)
-stuffer.register_stuff("christmas_holiday_pack:green_peppermint_candies", 25)
-stuffer.register_stuff("christmas_holiday_pack:sugar_cookie_tree", 25)
+stuffer.register_stuff("mesecraft_christmas:peppermint_candies", 25)
+stuffer.register_stuff("mesecraft_christmas:green_candy_cane", 25)
+stuffer.register_stuff("mesecraft_christmas:green_peppermint_candies", 25)
+stuffer.register_stuff("mesecraft_christmas:sugar_cookie_tree", 25)
 
 
 -- REGISTER STUFFERS ABOVE HERE
@@ -65,8 +65,8 @@ function stocking.get_stocking_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
 	local formspec =
 		"size[9,9]"..
-		"background[-0.8,-0.4;10,10;christmas_holiday_pack_stocking_background.png]"..
-		"image_button_exit[7.75,1;1,1;christmas_holiday_pack_stocking_exit_button.png;exit;]"..
+		"background[-0.8,-0.4;10,10;mesecraft_christmas_stocking_background.png]"..
+		"image_button_exit[7.75,1;1,1;mesecraft_christmas_stocking_exit_button.png;exit;]"..
 		"listcolors[#D4393C;#d45658]"..
 		"list[nodemeta:".. spos .. ";main;-0.2,2;8,2;]"..
 		"list[current_player;main;-0.2,5;8,4;]" ..
@@ -123,12 +123,12 @@ check_fillable = function(pos)
 	end
 end,
 
-minetest.register_node("christmas_holiday_pack:stocking", {
+minetest.register_node("mesecraft_christmas:stocking", {
 	description = "Stocking",
 	drawtype = "signlike",
-	tiles = {"christmas_holiday_pack_stocking.png"},
-	inventory_image = "christmas_holiday_pack_stocking.png",
-	wield_image = "christmas_holiday_pack_stocking.png",
+	tiles = {"mesecraft_christmas_stocking.png"},
+	inventory_image = "mesecraft_christmas_stocking.png",
+	wield_image = "mesecraft_christmas_stocking.png",
 	walkable = false,
 	selection_box = {
 		type = "wallmounted",
@@ -219,17 +219,17 @@ minetest.register_node("christmas_holiday_pack:stocking", {
 			end
 			digger:set_attribute("has_placed_stocking", "false")
 			minetest.remove_node(pos)
-			inv:add_item("main", "christmas_holiday_pack:stocking")
+			inv:add_item("main", "mesecraft_christmas:stocking")
 		end
 	end
 })
 -- Green Stocking
-minetest.register_node("christmas_holiday_pack:green_stocking", {
+minetest.register_node("mesecraft_christmas:green_stocking", {
 	description = "Green Stocking",
 	drawtype = "signlike",
-	tiles = {"christmas_holiday_pack_green_stocking.png"},
-	inventory_image = "christmas_holiday_pack_green_stocking.png",
-	wield_image = "christmas_holiday_pack_green_stocking.png",
+	tiles = {"mesecraft_christmas_green_stocking.png"},
+	inventory_image = "mesecraft_christmas_green_stocking.png",
+	wield_image = "mesecraft_christmas_green_stocking.png",
 	walkable = false,
 	selection_box = {
 		type = "wallmounted",
@@ -320,7 +320,7 @@ minetest.register_node("christmas_holiday_pack:green_stocking", {
 			end
 			digger:set_attribute("has_placed_stocking", "false")
 			minetest.remove_node(pos)
-			inv:add_item("main", "christmas_holiday_pack:green_stocking")
+			inv:add_item("main", "mesecraft_christmas:green_stocking")
 		end
 	end
 })

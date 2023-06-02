@@ -1,4 +1,4 @@
-mobs:register_mob('christmas_holiday_pack:crampus_claus', {
+mobs:register_mob('mesecraft_christmas:crampus_claus', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -12,7 +12,7 @@ mobs:register_mob('christmas_holiday_pack:crampus_claus', {
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"christmas_holiday_pack_crampus_claus.png"},
+                {"mesecraft_christmas_crampus_claus.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
@@ -61,7 +61,7 @@ mobs:register_mob('christmas_holiday_pack:crampus_claus', {
 })
 
 --Spawn Eggs
-mobs:register_egg("christmas_holiday_pack:crampus_claus", "Crampus Claus Spawn Egg", "wool_brown.png", 1)
+mobs:register_egg("mesecraft_christmas:crampus_claus", "Crampus Claus Spawn Egg", "wool_brown.png", 1)
 
 --Spawn Functions
-mobs:spawn_specific("christmas_holiday_pack:crampus_claus", {"default:dirt_with_snow","default:snow","default:ice"}, {"air"}, 0, 7, 480, 1000, 2, -500 ,100)
+mobs:spawn_specific("mesecraft_christmas:crampus_claus", {"default:dirt_with_snow","default:snow","default:ice"}, {"air"}, 0, 7, 480, 1000, 2, -500 ,100)

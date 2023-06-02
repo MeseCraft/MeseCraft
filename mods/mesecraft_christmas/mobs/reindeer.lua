@@ -1,4 +1,4 @@
-	mobs:register_mob("christmas_holiday_pack:reindeer" , {
+	mobs:register_mob("mesecraft_christmas:reindeer" , {
 		type = "animal",
 		passive = false,
 		attack_type = "dogfight",
@@ -14,15 +14,15 @@
 		visual = "mesh",
 		mesh = "reindeer.b3d",
 		textures = {
-			{"reindeer.png"},
+			{"mesecraft_christmas_reindeer.png"},
 		},
 		makes_footstep_sound = true,
 		sounds = {
-			random = "reindeer_random",
-			damage = "christmas_holiday_pack_sleighbell",
-			jump = "christmas_holiday_pack_sleighbell",
-			attack = "christmas_holiday_pack_sleighbell",
-			death = "reindeer_random",
+			random = "mesecraft_christmas_reindeer_random",
+			damage = "mesecraft_christmas_sleighbell",
+			jump = "mesecraft_christmas_sleighbell",
+			attack = "mesecraft_christmas_sleighbell",
+			death = "mesecraft_christmas_reindeer_random",
 		},
 		walk_velocity = 0,
 		run_velocity = 0,
@@ -43,11 +43,11 @@
 			run_start = 150,
 			run_end = 170,
 		},
-		follow = "christmas_decor:candycane_edible",
+		follow = "mesecraft_christmas:candy_cane",
 		view_range = 15,
 		fear_height = 3,
 		on_rightclick = function(self, clicker)
-	                mobs_trader(self, clicker, entity, christmas_holiday_pack.reindeer)
+	                mobs_trader(self, clicker, entity, mesecraft_christmas.reindeer)
        		end,
                 on_spawn = function(self)
                         self.nametag = "Santa's Reindeer"
@@ -59,7 +59,7 @@
                 end,
 		do_custom = function(self)
 			if self.nametag == "Trader Rudolph" then
-				self.textures = "reindeer_rudolph.png"
+				self.textures = "mesecraft_christmas_reindeer_rudolph.png"
 			end
 			-- Remove mobs when its not Christmastime.
                         local date = os.date("*t")
@@ -82,7 +82,7 @@
 	                    minsize = 1,
 	                    maxsize = 3,
 	                    collisiondetection = false,
-	                    texture="christmas_holiday_pack_present_07.png"
+	                    texture="mesecraft_christmas_present_07.png"
 	                })
 	                self.object:remove()
 	                end,
@@ -90,23 +90,23 @@
 })
 
 -- REGISTER SPAWN EGG
-	mobs:register_egg("christmas_holiday_pack:reindeer","Christmas Reindeer", "wool_brown.png", 1)
+	mobs:register_egg("mesecraft_christmas:reindeer","Christmas Reindeer", "wool_brown.png", 1)
 
 -- Reindeer's Trading Table
-christmas_holiday_pack.reindeer = {
+mesecraft_christmas.reindeer = {
 
         names = { "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen", "Rudolph" },
         items = {
                 --{item for sale, price, chance of appearing in trader's inventory}
-                {"christmas_holiday_pack:present_01 1", "default:apple 1", 1},
-                {"christmas_holiday_pack:present_02 1", "default:apple 1", 1},
-                {"christmas_holiday_pack:present_03 1", "default:apple 1", 1},
-                {"christmas_holiday_pack:present_04 1", "farming:oat 1", 1},
-                {"christmas_holiday_pack:present_05 1", "farming:oat 1", 1},
-                {"christmas_holiday_pack:present_06 1", "farming:carrot 1", 1},
-                {"christmas_holiday_pack:present_07 1", "farming:carrot 1", 1},
+                {"mesecraft_christmas:present_01 1", "default:apple 1", 1},
+                {"mesecraft_christmas:present_02 1", "default:apple 1", 1},
+                {"mesecraft_christmas:present_03 1", "default:apple 1", 1},
+                {"mesecraft_christmas:present_04 1", "farming:oat 1", 1},
+                {"mesecraft_christmas:present_05 1", "farming:oat 1", 1},
+                {"mesecraft_christmas:present_06 1", "farming:carrot 1", 1},
+                {"mesecraft_christmas:present_07 1", "farming:carrot 1", 1},
                 }
         }
 
 -- Spawns on Solid blocks -- Santa's spawning parameters.
-mobs:spawn_specific("christmas_holiday_pack:reindeer", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
+mobs:spawn_specific("mesecraft_christmas:reindeer", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)

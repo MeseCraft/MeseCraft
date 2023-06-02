@@ -1,4 +1,4 @@
-mobs:register_mob("christmas_holiday_pack:santa_claus", {
+mobs:register_mob("mesecraft_christmas:santa_claus", {
 		type = "npc",
 		passive = false,
 		attack_type = "dogfight",
@@ -16,15 +16,15 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 		visual = "mesh",
 		mesh = "mobs_character.b3d",
 		textures = {
-			{"santa.png"},
+			{"mesecraft_christmas_santa.png"},
 		},
 		makes_footstep_sound = true,
 		sounds = {
-			random = "santa_random",
-			attack = "christmas_holiday_pack_sleighbell",
-			damage = "christmas_holiday_pack_sleighbell",
-			jump = "christmas_holiday_pack_sleighbell",
-			death = "santa_random",
+			random = "mesecraft_christmas_santa_random",
+			attack = "mesecraft_christmas_sleighbell",
+			damage = "mesecraft_christmas_sleighbell",
+			jump = "mesecraft_christmas_sleighbell",
+			death = "mesecraft_christmas_santa_random",
 		},
 		blood_amount = 0,
 		walk_velocity = 0,
@@ -51,7 +51,7 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 	                punch_end = 219,
 	        },
 		        on_rightclick = function(self, clicker)
-            		   mobs_trader(self, clicker, entity, christmas_holiday_pack.santa)
+            		   mobs_trader(self, clicker, entity, mesecraft_christmas.santa)
 		end,
 	        on_spawn = function(self)
 	                self.nametag = "Santa Claus"
@@ -76,7 +76,7 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 			            minsize = 1,
 			            maxsize = 3,
 			            collisiondetection = false,
-			            texture="christmas_holiday_pack_present_07.png"
+			            texture="mesecraft_christmas_present_07.png"
 			        })
 			        self.object:remove()
 	    	end,
@@ -90,22 +90,22 @@ mobs:register_mob("christmas_holiday_pack:santa_claus", {
 })
 
 -- Register Santa's Trading Table
-christmas_holiday_pack.santa = {
+mesecraft_christmas.santa = {
 
 	names = { "Santa Claus" },
 	items = {
                 --{item for sale, price, chance of appearing in trader's inventory}
-		{"christmas_holiday_pack:present_01 1", "mesecraft_mobs:milk_glass 1", 1},
-		{"christmas_holiday_pack:present_02 1", "mesecraft_mobs:milk_glass 1", 1},
-		{"christmas_holiday_pack:present_03 1", "mesecraft_mobs:milk_glass 1", 1},
-		{"christmas_holiday_pack:present_04 1", "christmas_holiday_pack:sugar_cookie 1", 1},
-		{"christmas_holiday_pack:present_05 1", "christmas_holiday_pack:sugar_cookie_bell 1", 1},
-		{"christmas_holiday_pack:present_06 1", "christmas_holiday_pack:sugar_cookie_star 1", 1},
-		{"christmas_holiday_pack:present_07 1", "christmas_holiday_pack:sugar_cookie_tree 1", 1},
+		{"mesecraft_christmas:present_01 1", "mesecraft_mobs:milk_glass 1", 1},
+		{"mesecraft_christmas:present_02 1", "mesecraft_mobs:milk_glass 1", 1},
+		{"mesecraft_christmas:present_03 1", "mesecraft_mobs:milk_glass 1", 1},
+		{"mesecraft_christmas:present_04 1", "mesecraft_christmas:sugar_cookie 1", 1},
+		{"mesecraft_christmas:present_05 1", "mesecraft_christmas:sugar_cookie_bell 1", 1},
+		{"mesecraft_christmas:present_06 1", "mesecraft_christmas:sugar_cookie_star 1", 1},
+		{"mesecraft_christmas:present_07 1", "mesecraft_christmas:sugar_cookie_tree 1", 1},
 		}
 	}
 -- Register Spawn Eggs
-mobs:register_egg("christmas_holiday_pack:santa_claus", "Santa Claus Spawn Egg", "wool_red.png", 1)
+mobs:register_egg("mesecraft_christmas:santa_claus", "Santa Claus Spawn Egg", "wool_red.png", 1)
 
 -- Spawns on Solid blocks -- Santa's spawning parameters. Autoremove (do_custom) if not christmas-time.
-mobs:spawn_specific("christmas_holiday_pack:santa_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
+mobs:spawn_specific("mesecraft_christmas:santa_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)

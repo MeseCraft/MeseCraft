@@ -1,7 +1,7 @@
-local path = minetest.get_modpath("christmas_holiday_pack")
+local path = minetest.get_modpath("mesecraft_christmas")
 
 -- Initialize our namespace.
-christmas_holiday_pack = {}
+mesecraft_christmas = {}
 
 -- Do these submodules.
 dofile(path .. "/bell.lua")

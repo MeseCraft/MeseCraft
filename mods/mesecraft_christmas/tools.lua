@@ -1,7 +1,7 @@
 --Register Candy Cane Pickaxe
-minetest.register_tool("christmas_holiday_pack:candy_cane_pickaxe", {
+minetest.register_tool("mesecraft_christmas:candy_cane_pickaxe", {
 	description = "Candy Cane Pickaxe",
-	inventory_image = "christmas_holiday_pack_candy_cane_pickaxe.png",
+	inventory_image = "mesecraft_christmas_candy_cane_pickaxe.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
 		max_drop_level=3,
@@ -13,9 +13,9 @@ minetest.register_tool("christmas_holiday_pack:candy_cane_pickaxe", {
 })
 
 --Register Candy Cane Axe
-minetest.register_tool("christmas_holiday_pack:candy_cane_axe", {
+minetest.register_tool("mesecraft_christmas:candy_cane_axe", {
 	description = "Candy Cane Axe",
-	inventory_image = "christmas_holiday_pack_candy_cane_axe.png",
+	inventory_image = "mesecraft_christmas_candy_cane_axe.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
 		max_drop_level=1,
@@ -27,9 +27,9 @@ minetest.register_tool("christmas_holiday_pack:candy_cane_axe", {
 })
 
 --Register Candy Cane Sword
-minetest.register_tool("christmas_holiday_pack:candy_cane_sword", {
+minetest.register_tool("mesecraft_christmas:candy_cane_sword", {
 	description = "Candy Cane Sword",
-	inventory_image = "christmas_holiday_pack_candy_cane_sword.png",
+	inventory_image = "mesecraft_christmas_candy_cane_sword.png",
 	tool_capabilities = {
 		full_punch_interval = 0.7,
 		max_drop_level=1,
@@ -50,7 +50,7 @@ if minetest.get_modpath("mesecraft_toolranks") then
 			after_use = afteruse and mesecraft_toolranks.new_afteruse
 		})
 	end
-	add_tool("christmas_holiday_pack:candy_cane_pickaxe", "Candy Cane Pickaxe", true)
-	add_tool("christmas_holiday_pack:candy_cane_axe", "Candy Cane Axe", true)
-	add_tool("christmas_holiday_pack:candy_cane_sword", "Candy Cane Sword", true)
+	add_tool("mesecraft_christmas:candy_cane_pickaxe", "Candy Cane Pickaxe", true)
+	add_tool("mesecraft_christmas:candy_cane_axe", "Candy Cane Axe", true)
+	add_tool("mesecraft_christmas:candy_cane_sword", "Candy Cane Sword", true)
 end

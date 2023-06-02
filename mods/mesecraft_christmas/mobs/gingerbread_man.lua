@@ -1,7 +1,7 @@
 -- Gingerbread Man by FreeGamers.org
 -- Register mob with Mobs API
 
-mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
+mobs:register_mob("mesecraft_christmas:gingerbread_man", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -14,9 +14,9 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
 	visual = "mesh",
         mesh = "mobs_character.b3d",
 	textures = {
-		{"christmas_holiday_pack_gingerbread_man.png"},
+		{"mesecraft_christmas_gingerbread_man.png"},
 	},
-	blood_texture = "christmas_holiday_pack_gingerbread_block.png",
+	blood_texture = "mesecraft_christmas_gingerbread_block.png",
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mesecraft_mobs_dirt_man_random",
@@ -30,11 +30,11 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
 	run_velocity = 3,
 	jump = true,
 	drops = {
-		{name = "christmas_holiday_pack:gingerbread_block", chance = 1, min = 1, max = 2},
-		{name = "christmas_holiday_pack:frosting_block", chance = 2, min = 1, max = 2},
-		{name = "christmas_holiday_pack:gingerbread_cookie", chance = 2, min = 1, max = 3},
-		{name = "christmas_holiday_pack:present_06", chance = 5, min = 1, max = 2},
-		{name = "christmas_holiday_pack:present_07", chance = 5, min = 1, max = 2},
+		{name = "mesecraft_christmas:gingerbread_block", chance = 1, min = 1, max = 2},
+		{name = "mesecraft_christmas:frosting_block", chance = 2, min = 1, max = 2},
+		{name = "mesecraft_christmas:gingerbread_cookie", chance = 2, min = 1, max = 3},
+		{name = "mesecraft_christmas:present_06", chance = 5, min = 1, max = 2},
+		{name = "mesecraft_christmas:present_07", chance = 5, min = 1, max = 2},
 	},
 	water_damage = 1,
 	lava_damage = 5,
@@ -75,7 +75,7 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
             minsize = 1,
             maxsize = 3,
             collisiondetection = false,
-            texture="christmas_holiday_pack_gingerbread_block.png"
+            texture="mesecraft_christmas_gingerbread_block.png"
         })
         self.object:remove()
     end,
@@ -89,9 +89,9 @@ mobs:register_mob("christmas_holiday_pack:gingerbread_man", {
 })
 
 -- Register Spawn Egg
-mobs:register_egg("christmas_holiday_pack:gingerbread_man", "Gingerbread Man Spawn Egg", "christmas_holiday_pack_gingerbread_block.png", 1)
+mobs:register_egg("mesecraft_christmas:gingerbread_man", "Gingerbread Man Spawn Egg", "mesecraft_christmas_gingerbread_block.png", 1)
 
 -- Register Spawn Parameters
-mobs:spawn_specific("christmas_holiday_pack:gingerbread_man", {"default:snowblock", "default:dirt_with_snow", "default:snow", "default:ice"}, {"air"}, 0, 7, 60, 5000, 2, -500, 100, false)
+mobs:spawn_specific("mesecraft_christmas:gingerbread_man", {"default:snowblock", "default:dirt_with_snow", "default:snow", "default:ice"}, {"air"}, 0, 7, 60, 5000, 2, -500, 100, false)
 
 

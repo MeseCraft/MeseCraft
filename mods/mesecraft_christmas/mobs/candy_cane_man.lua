@@ -1,30 +1,29 @@
 -- Candy Cane Man by FreeGamers.org
 
 -- REGISTER CANDY CANE MAN
-mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
+mobs:register_mob("mesecraft_christmas:candy_cane_man", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
 	reach = 2,
-	damage = 15,
-	hp_min = 30,
-	hp_max = 30,
-	armor = 100,
+	damage = 12,
+	hp_min = 20,
+	hp_max = 20,
+	armor = 50,
         collisionbox = {-0.4, -1, -0.4, 0.4, 0.8, 0.4},
         visual = "mesh",
         mesh = "mobs_character.b3d",
         textures = {
-                {"christmas_holiday_pack_christmas_tree_man.png"},
+                {"mesecraft_christmas_candy_cane_man.png"},
         },
 	makes_footstep_sound = true,
-        sounds = {
-                random = "mesecraft_mobs_dirt_man_random",
-                attack = "default_dig_snappy",
-                damage = "default_dig_choppy",
-                death = "default_place_node_hard",
-                jump = "default_wood_footstep",
-        },
-        blood_texture = "default_pine_needles.png",
+	sounds = {
+		random = "mesecraft_mobs_stone_man_random",
+		damage = "default_break_glass",
+		jump = "default_glass_footstep",
+		death = "default_break_glass",
+	},
+        blood_texture = "mesecraft_christmas_candy_cane_block.png",
 	walk_velocity = 1,
 	run_velocity = 2,
 	jump_height = 1,
@@ -32,11 +31,7 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
 	floats = 0,
 	view_range = 12,
 	drops = {
-		{name = "default:pine_needles", chance = 1, min = 0, max = 3},
-		{name = "christmas_holiday_pack:christmas_star", chance = 10, min = 0, max = 1},
-		{name = "default:pine_tree", chance = 2, min = 0, max = 2},
-		{name = "christmas_holiday_pack:present_06", chance = 5, min = 0, max = 2},
-		{name = "christmas_holiday_pack:present_07", chance = 5, min = 0, max = 2},
+		{name = "mesecraft_christmas:candy_cane_block", chance = 5, min = 0, max = 2},
 	},
 	water_damage = 0,
 	lava_damage = 5,
@@ -56,12 +51,12 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
                 punch_end = 219,
         },
 	immune_to = {
-		{"default:axe_wood", 0}, -- wooden axe doesnt hurt christmas tree man
-		{"default:axe_stone", 4}, -- axes deal more damage to christmas tree man.
-		{"default:axe_bronze", 5},
-		{"default:axe_steel", 5},
-		{"default:axe_mese", 6},
-		{"default:axe_diamond", 7},
+		{"default:pick_wood", 0}, -- wooden pick doesnt hurt diamond man
+		{"default:pick_stone", 4}, -- picks deal more damage to diamond man.
+		{"default:pick_bronze", 5},
+		{"default:pick_steel", 5},
+		{"default:pick_mese", 6},
+		{"default:pick_diamond", 7},
 	},
     on_die = function(self, pos) -- on die, spawn particles.
         minetest.add_particlespawner({
@@ -78,10 +73,10 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
             minsize = 1,
             maxsize = 2,
             collisiondetection = false,
-            texture="default_pine_needles.png"
+            texture="mesecraft_christmas_candy_cane_block.png"
         })
         self.object:remove()
-    end,
+	end,
 -- Remove the mob if it's not December.
     do_custom = function(self)
                 local date = os.date("*t")
@@ -92,8 +87,9 @@ mobs:register_mob("christmas_holiday_pack:christmas_tree_man", {
 })
 
 -- Register Spawn Egg
-mobs:register_egg("christmas_holiday_pack:christmas_tree_man", "Christmas Tree Man Spawn Egg", "default_pine_needles.png", 1)
+mobs:register_egg("mesecraft_christmas:candy_cane_man", "Candy Cane Man Spawn Egg", "mesecraft_christmas_candy_cane_block.png", 1)
 
 -- Spawning Parameters
-mobs:spawn_specific("christmas_holiday_pack:christmas_tree_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
+mobs:spawn_specific("mesecraft_christmas:candy_cane_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
+
 

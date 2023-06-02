@@ -2,35 +2,35 @@
 
 -- MAIN NODES
 	-- Candy Cane Block
-	minetest.register_node("christmas_holiday_pack:candy_cane_block", {
+	minetest.register_node("mesecraft_christmas:candy_cane_block", {
 		description = "Candy Cane Block",
-		tiles = {"christmas_holiday_pack_candy_cane_block.png", "christmas_holiday_pack_candy_cane_block.png", "christmas_holiday_pack_candy_cane_block.png", "christmas_holiday_pack_candy_cane_block.png", "christmas_holiday_pack_candy_cane_block.png^[transformFX", "christmas_holiday_pack_candy_cane_block.png^[transformFX"},
+		tiles = {"mesecraft_christmas_nodes_candy_cane_block.png", "mesecraft_christmas_nodes_candy_cane_block.png", "mesecraft_christmas_nodes_candy_cane_block.png", "mesecraft_christmas_nodes_candy_cane_block.png", "mesecraft_christmas_nodes_candy_cane_block.png^[transformFX", "mesecraft_christmas_nodes_candy_cane_block.png^[transformFX"},
 		paramtype2 = "facedir",
 		groups = {snappy = 3, oddly_breakable_by_hand = 3},
 		sounds = default.node_sound_glass_defaults(),
 	})
 
 	-- Green Candy Cane Block
-	minetest.register_node("christmas_holiday_pack:green_candy_cane_block", {
+	minetest.register_node("mesecraft_christmas:green_candy_cane_block", {
 	        description = "Green Candy Cane Block",
-	        tiles = {"christmas_holiday_pack_green_candy_cane_block.png", "christmas_holiday_pack_green_candy_cane_block.png", "christmas_holiday_pack_green_candy_cane_block.png", "christmas_holiday_pack_green_candy_cane_block.png", "christmas_holiday_pack_green_candy_cane_block.png^[transformFX", "christmas_holiday_pack_green_candy_cane_block.png^[transformFX"},
+	        tiles = {"mesecraft_christmas_nodes_green_candy_cane_block.png", "mesecraft_christmas_nodes_green_candy_cane_block.png", "mesecraft_christmas_nodes_green_candy_cane_block.png", "mesecraft_christmas_nodes_green_candy_cane_block.png", "mesecraft_christmas_nodes_green_candy_cane_block.png^[transformFX", "mesecraft_christmas_nodes_green_candy_cane_block.png^[transformFX"},
 	        paramtype2 = "facedir",
 	        groups = {snappy = 3, oddly_breakable_by_hand = 3},
 	        sounds = default.node_sound_glass_defaults(),
 	})
 
 	-- Gingerbread Block
-	minetest.register_node("christmas_holiday_pack:gingerbread_block", {
+	minetest.register_node("mesecraft_christmas:gingerbread_block", {
 	        description = "Gingerbread Block",
-	        tiles = {"christmas_holiday_pack_gingerbread_block.png", "christmas_holiday_pack_gingerbread_block.png", "christmas_holiday_pack_gingerbread_block.png", "christmas_holiday_pack_gingerbread_block.png", "christmas_holiday_pack_gingerbread_block.png^[transformFX", "christmas_holiday_pack_gingerbread_block.png^[transformFX"},
+	        tiles = {"mesecraft_christmas_nodes_gingerbread_block.png", "mesecraft_christmas_nodes_gingerbread_block.png", "mesecraft_christmas_nodes_gingerbread_block.png", "mesecraft_christmas_nodes_gingerbread_block.png", "mesecraft_christmas_nodes_gingerbread_block.png^[transformFX", "mesecraft_christmas_nodes_gingerbread_block.png^[transformFX"},
 	        paramtype2 = "facedir",
 	        groups = {snappy = 3, choppy = 2, oddly_breakable_by_hand = 2},
 	        sounds = default.node_sound_wood_defaults(),
 	})
 	-- Frosting Block
-	minetest.register_node("christmas_holiday_pack:frosting_block", {
+	minetest.register_node("mesecraft_christmas:frosting_block", {
 		description = "Frosting Block",
-		tiles = {"christmas_holiday_pack_frosting_block.png"},
+		tiles = {"mesecraft_christmas_nodes_frosting_block.png"},
 		paramtype2 = "facedir",
 		groups = {snappy = 3},
 		sounds = default.node_sound_leaves_defaults(),
@@ -39,31 +39,31 @@
 -- StairsPlus Registrations for Candy Cane Block,  Green Candy Cane Block, Gingerbread Block, Frosting Block.
 if minetest.get_modpath("moreblocks") then
         stairsplus:register_all(
-	                "christmas_holiday_pack", "candy_cane_block", "christmas_holiday_pack:candy_cane_block", {
+	                "mesecraft_christmas", "candy_cane_block", "mesecraft_christmas:candy_cane_block", {
                         description = "Candy Cane Block",
                         groups = {snappy = 3, oddly_breakable_by_hand = 3},
-                        tiles = {"christmas_holiday_pack_candy_cane_block.png"},
+                        tiles = {"mesecraft_christmas_nodes_candy_cane_block.png"},
                         sounds = default.node_sound_glass_defaults(),
         })
 	stairsplus:register_all(
-	                "christmas_holiday_pack", "green_candy_cane_block", "christmas_holiday_pack:green_candy_cane_block", {
+	                "mesecraft_christmas", "green_candy_cane_block", "mesecraft_christmas:green_candy_cane_block", {
                         description = "Green Candy Cane Block",
                         groups = {snappy = 3, oddly_breakable_by_hand = 3},
-                        tiles = {"christmas_holiday_pack_green_candy_cane_block.png"},
+                        tiles = {"mesecraft_christmas_nodes_green_candy_cane_block.png"},
                         sounds = default.node_sound_glass_defaults(),
         })
 	stairsplus:register_all(
-                        "christmas_holiday_pack", "gingerbread_block", "christmas_holiday_pack:gingerbread_block", {
+                        "mesecraft_christmas", "gingerbread_block", "mesecraft_christmas:gingerbread_block", {
                         description = "Gingerbread Block",
                         groups = {snappy = 3, choppy = 2, oddly_breakable_by_hand = 2},
-                        tiles = {"christmas_holiday_pack_gingerbread_block.png"},
+                        tiles = {"mesecraft_christmas_nodes_gingerbread_block.png"},
                         sounds = default.node_sound_wood_defaults(),
         })
         stairsplus:register_all(
-          		"christmas_holiday_pack", "frosting_block", "christmas_holiday_pack:frosting_block", {
+          		"mesecraft_christmas", "frosting_block", "mesecraft_christmas:frosting_block", {
                         description = "Frosting",
                         groups = {snappy = 3},
-                        tiles = {"christmas_holiday_pack_frosting_block.png"},
+                        tiles = {"mesecraft_christmas__nodes_frosting_block.png"},
                         sounds = default.node_sound_stone_defaults(),
         })
 end
@@ -71,9 +71,9 @@ end
 -- DECORATIVE NODES
 
 	-- Mistletoe
-	minetest.register_node("christmas_holiday_pack:mistletoe", {
+	minetest.register_node("mesecraft_christmas:mistletoe", {
 	        description = "Mistletoe",
-	        tiles = {"christmas_holiday_pack_mistletoe.png"},
+	        tiles = {"mesecraft_christmas_nodes_mistletoe.png"},
 	        drawtype = "plantlike",
 	        walkable = false,
 	        sunlight_propagates = true,
@@ -83,11 +83,11 @@ end
 	})
 
 	-- Christmas Reef
-	minetest.register_node("christmas_holiday_pack:reef", {
+	minetest.register_node("mesecraft_christmas:reef", {
 	        description = "Christmas Reef",
-	        tiles = {"christmas_holiday_pack_christmas_reef.png"},
-	        inventory_image = "christmas_holiday_pack_christmas_reef.png",
-	        wield_image = "christmas_holiday_pack_christmas_reef.png",
+	        tiles = {"mesecraft_christmas_nodes_christmas_reef.png"},
+	        inventory_image = "mesecraft_christmas_nodes_christmas_reef.png",
+	        wield_image = "mesecraft_christmas_nodes_christmas_reef.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -105,11 +105,11 @@ end
 	})
 
 	-- Icicles
-	minetest.register_node("christmas_holiday_pack:icicles", {
+	minetest.register_node("mesecraft_christmas:icicles", {
 	        description = "Icicles",
-	        tiles = {"christmas_holiday_pack_icicles.png"},
-	        inventory_image = "christmas_holiday_pack_icicles.png",
-	        wield_image = "christmas_holiday_pack_icicles.png",
+	        tiles = {"mesecraft_christmas_nodes_icicles.png"},
+	        inventory_image = "mesecraft_christmas_nodes_icicles.png",
+	        wield_image = "mesecraft_christmas_nodes_icicles.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -127,9 +127,9 @@ end
 	})
 
 	-- Christmas Tree Star
-	minetest.register_node("christmas_holiday_pack:christmas_star", {
+	minetest.register_node("mesecraft_christmas:christmas_star", {
 	        description = "Christmas Star",
-	        tiles = {"christmas_holiday_pack_christmas_star.png"},
+	        tiles = {"mesecraft_christmas_nodes_christmas_star.png"},
 	        drawtype = "plantlike",
 	        walkable = false,
 	        sunlight_propagates = true,
@@ -139,11 +139,11 @@ end
 	        sounds = default.node_sound_metal_defaults(),
 	})
 	-- Garland
-	minetest.register_node("christmas_holiday_pack:garland", {
+	minetest.register_node("mesecraft_christmas:garland", {
 		description = "Garland",
-		tiles = {"garland_green.png"},
-		inventory_image = "garland_green.png",
-		wield_image = "garland_green.png",
+		tiles = {"mesecraft_christmas_nodes_garland_green.png"},
+		inventory_image = "mesecraft_christmas_nodes_garland_green.png",
+		wield_image = "mesecraft_christmas_nodes_garland_green.png",
 		sunlight_propagates = true,
 		walkable = false,
 		climbable = false,
@@ -160,11 +160,11 @@ end
 		sounds = default.node_sound_leaves_defaults(),
 	})
 	-- Festive Garland
-	minetest.register_node("christmas_holiday_pack:festive_garland", {
+	minetest.register_node("mesecraft_christmas:festive_garland", {
 		description = "Festive Garland",
-		tiles = {"garland.png"},
-		inventory_image = "garland.png",
-		wield_image = "garland.png",
+		tiles = {"mesecraft_christmas_nodes_.png"},
+		inventory_image = "mesecraft_christmas_nodes_garland.png",
+		wield_image = "mesecraft_christmas_nodes_garland.png",
 		sunlight_propagates = true,
 		walkable = false,
 		climbable = false,
@@ -181,11 +181,11 @@ end
 		sounds = default.node_sound_leaves_defaults(),
 	})
 	-- Festive Garland with Lights
-	minetest.register_node("christmas_holiday_pack:festive_garland_lights", {
+	minetest.register_node("mesecraft_christmas:festive_garland_lights", {
 		description = "Festive Garland with Lights",
 		tiles = {
 			{
-				image = "garland_lights.png",
+				image = "mesecraft_christmas_nodes_garland_lights.png",
 				backface_culling = false,
 				animation = {
 					type = "vertical_frames",
@@ -195,8 +195,8 @@ end
 				},
 			}
 		},
-		inventory_image = "inv_garland_lights.png",
-		wield_image = "inv_garland_lights.png",
+		inventory_image = "mesecraft_christmas_nodes_garland_lights_inv.png",
+		wield_image = "mesecraft_christmas_nodes_garland_lights_inv.png",
 		sunlight_propagates = true,
 		walkable = false,
 		climbable = false,
@@ -214,11 +214,11 @@ end
 		sounds = default.node_sound_leaves_defaults(),
 	})
         -- Red Garland
-        minetest.register_node("christmas_holiday_pack:garland_red", {
+        minetest.register_node("mesecraft_christmas:garland_red", {
                 description = "Red Garland",
-                tiles = {"garland_red.png"},
-                inventory_image = "garland_red.png",
-                wield_image = "garland_red.png",
+                tiles = {"mesecraft_christmas_nodes_garland_red.png"},
+                inventory_image = "mesecraft_christmas_nodes_garland_red.png",
+                wield_image = "mesecraft_christmas_nodes_garland_red.png",
                 sunlight_propagates = true,
                 walkable = false,
                 climbable = false,
@@ -235,11 +235,11 @@ end
                 sounds = default.node_sound_leaves_defaults(),
         })
         -- Yellow Garland
-        minetest.register_node("christmas_holiday_pack:garland_yellow", {
+        minetest.register_node("mesecraft_christmas:garland_yellow", {
                 description = "Yellow Garland",
-                tiles = {"garland_yellow.png"},
-                inventory_image = "garland_yellow.png",
-                wield_image = "garland_yellow.png",
+                tiles = {"mesecraft_christmas_nodes_garland_yellow.png"},
+                inventory_image = "mesecraft_christmas_nodes_garland_yellow.png",
+                wield_image = "mesecraft_christmas_nodes_garland_yellow.png",
                 sunlight_propagates = true,
                 walkable = false,
                 climbable = false,
@@ -256,11 +256,11 @@ end
                 sounds = default.node_sound_leaves_defaults(),
         })
         -- White Garland
-        minetest.register_node("christmas_holiday_pack:garland_white", {
+        minetest.register_node("mesecraft_christmas:garland_white", {
                 description = "White Garland",
-                tiles = {"garland_white.png"},
-                inventory_image = "garland_white.png",
-                wield_image = "garland_white.png",
+                tiles = {"mesecraft_christmas_nodes_garland_white.png"},
+                inventory_image = "mesecraft_christmas_nodes_garland_white.png",
+                wield_image = "mesecraft_christmas_nodes_garland_white.png",
                 sunlight_propagates = true,
                 walkable = false,
                 climbable = false,
@@ -280,11 +280,11 @@ end
 	-- ORNAMENTS
 	        -- 
 	-- White Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_white", {
+	minetest.register_node("mesecraft_christmas:ornament_white", {
 	        description = "White Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_white.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_white.png",
-	        wield_image = "christmas_holiday_pack_ornament_white.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_white.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_white.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_white.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -301,11 +301,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Yellow Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_yellow", {
+	minetest.register_node("mesecraft_christmas:ornament_yellow", {
 	        description = "Yellow Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_yellow.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_yellow.png",
-	        wield_image = "christmas_holiday_pack_ornament_yellow.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_yellow.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_yellow.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_yellow.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -322,11 +322,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Red Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_red", {
+	minetest.register_node("mesecraft_christmas:ornament_red", {
 	        description = "Red Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_red.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_red.png",
-	        wield_image = "christmas_holiday_pack_ornament_red.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_red.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_red.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_red.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -343,11 +343,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Green Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_green", {
+	minetest.register_node("mesecraft_christmas:ornament_green", {
 	        description = "Green Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_green.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_green.png",
-	        wield_image = "christmas_holiday_pack_ornament_green.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_green.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_green.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_green.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -364,11 +364,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Blue Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_blue", {
+	minetest.register_node("mesecraft_christmas:ornament_blue", {
 	        description = "Blue Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_blue.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_blue.png",
-	        wield_image = "christmas_holiday_pack_ornament_blue.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_blue.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_blue.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_blue.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -385,11 +385,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Orange Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_orange", {
+	minetest.register_node("mesecraft_christmas:ornament_orange", {
 	        description = "Orange Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_orange.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_orange.png",
-	        wield_image = "christmas_holiday_pack_ornament_orange.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_orange.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_orange.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_orange.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -406,11 +406,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Purple Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_purple", {
+	minetest.register_node("mesecraft_christmas:ornament_purple", {
 	        description = "Purple Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_purple.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_purple.png",
-	        wield_image = "christmas_holiday_pack_ornament_purple.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_purple.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_purple.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_purple.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,
@@ -427,11 +427,11 @@ end
 	        sounds = default.node_sound_glass_defaults(),
 	})
 	-- Pink Ornament
-	minetest.register_node("christmas_holiday_pack:ornament_pink", {
+	minetest.register_node("mesecraft_christmas:ornament_pink", {
 	        description = "Pink Christmas Ornament",
-	        tiles = {"christmas_holiday_pack_ornament_pink.png"},
-	        inventory_image = "christmas_holiday_pack_ornament_pink.png",
-	        wield_image = "christmas_holiday_pack_ornament_pink.png",
+	        tiles = {"mesecraft_christmas_nodes_ornament_pink.png"},
+	        inventory_image = "mesecraft_christmas_nodes_ornament_pink.png",
+	        wield_image = "mesecraft_christmas_nodes_ornament_pink.png",
 	        sunlight_propagates = true,
 	        walkable = false,
 	        climbable = false,

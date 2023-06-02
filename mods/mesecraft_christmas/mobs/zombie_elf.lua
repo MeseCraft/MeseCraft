@@ -1,4 +1,4 @@
-mobs:register_mob('christmas_holiday_pack:zombie_elf', {
+mobs:register_mob('mesecraft_christmas:zombie_elf', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -13,15 +13,15 @@ mobs:register_mob('christmas_holiday_pack:zombie_elf', {
 	visual_size = { x=0.75, y=0.75},
         mesh = "mobs_character.b3d",
         textures = {
-                {"christmas_holiday_pack_zombie_elf.png"},
+                {"mesecraft_christmas_zombie_elf.png"},
         },
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
 	sounds = {
 		random ="mesecraft_mobs_fire_imp_random",
 		warcry = "mesecraft_mobs_fire_imp_warcry",
-		attack = "christmas_holiday_pack_sleighbell",
-		damage = "christmas_holiday_pack_sleighbell",
+		attack = "mesecraft_christmas_sleighbell",
+		damage = "mesecraft_christmas_sleighbell",
 		death = "mesecraft_mobs_fire_imp_death",
 	},
 	walk_velocity = 2,
@@ -31,10 +31,10 @@ mobs:register_mob('christmas_holiday_pack:zombie_elf', {
 	suffocation = true,
 	view_range = 16,
 	drops = {
-	{name = "christmas_holiday_pack:present_01", chance = 2, min = 1, max = 1},
-	{name = "christmas_holiday_pack:present_02", chance = 2, min = 1, max = 1},
-	{name = "christmas_holiday_pack:present_03", chance = 8, min = 1, max = 1},
-	{name = "christmas_holiday_pack:present_04", chance = 8, min = 1, max = 1},
+	{name = "mesecraft_christmas:present_01", chance = 2, min = 1, max = 1},
+	{name = "mesecraft_christmas:present_02", chance = 2, min = 1, max = 1},
+	{name = "mesecraft_christmas:present_03", chance = 8, min = 1, max = 1},
+	{name = "mesecraft_christmas:present_04", chance = 8, min = 1, max = 1},
 	},
 	lava_damage = 5,
 	water_damage = 2,
@@ -61,7 +61,7 @@ mobs:register_mob('christmas_holiday_pack:zombie_elf', {
 })
 
 --Spawn Eggs
-mobs:register_egg("christmas_holiday_pack:zombie_elf", "Zombie Elf Spawn Egg", "wool_green.png", 1)
+mobs:register_egg("mesecraft_christmas:zombie_elf", "Zombie Elf Spawn Egg", "wool_green.png", 1)
 
 --Spawn Functions
-mobs:spawn_specific("christmas_holiday_pack:zombie_elf", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 120, 500, 3, 2, 200)
+mobs:spawn_specific("mesecraft_christmas:zombie_elf", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 120, 500, 3, 2, 200)
