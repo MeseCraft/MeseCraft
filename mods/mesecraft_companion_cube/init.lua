@@ -6,7 +6,7 @@
 -- Register the Mese Companion Cube node into the game.
 minetest.register_node("mesecraft_companion_cube:mese_companion_cube", {
 	description = "Mese Companion Cube",
-    	tiles = {"mese_companion_cube.png"},
+    	tiles = {"mesecraft_companion_cube.png"},
 	drawtype = "nodebox",
 	paramtype = "light",
 	sunlight_propagates = true,
