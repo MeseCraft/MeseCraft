@@ -127,12 +127,12 @@ if minetest.get_modpath("farming") then
 		material = "pigiron:iron_ingot"
 	})
 
-	-- Toolranks support if farming redo active
+	-- mesecraft_toolranks support if farming redo active
 	if farming and farming.mod
-	and minetest.get_modpath("toolranks") then
+	and minetest.get_modpath("mesecraft_toolranks") then
 		minetest.override_item("farming:hoe_iron", {
 			original_description = "Iron Hoe",
-			description = toolranks.create_description("Iron Hoe")})
+			description = mesecraft_toolranks.create_description("Iron Hoe")})
 	end
 end
 
@@ -251,16 +251,16 @@ minetest.override_item("default:sword_bronze", {
 	},
 })
 
--- Add [toolranks] mod support if found
-if minetest.get_modpath("toolranks") then
+-- Add [mesecraft_toolranks] mod support if found
+if minetest.get_modpath("mesecraft_toolranks") then
 
 	-- Helper function
 	local function add_tool(name, desc, afteruse)
 
 		minetest.override_item(name, {
 			original_description = desc,
-			description = toolranks.create_description(desc, 0, 1),
-			after_use = afteruse and toolranks.new_afteruse
+			description = mesecraft_toolranks.create_description(desc, 0, 1),
+			after_use = afteruse and mesecraft_toolranks.new_afteruse
 		})
 	end
 

@@ -2833,7 +2833,7 @@ end
 
 
 -- is Took Ranks mod active?
-local tr = minetest.get_modpath("toolranks")
+local tr = minetest.get_modpath("mesecraft_toolranks")
 
 -- deal damage and effects when mob punched
 function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
@@ -2969,7 +2969,7 @@ function mob_class:on_punch(hitter, tflp, tool_capabilities, dir, damage)
 	end
 
 	if tr and weapon_def.original_description then
-		toolranks.new_afteruse(weapon, hitter, nil, {wear = wear})
+		mesecraft_toolranks.new_afteruse(weapon, hitter, nil, {wear = wear})
 	else
 		weapon:add_wear(wear)
 	end

@@ -308,7 +308,7 @@ minetest.register_alias("moreores:tin_ingot", "default:tin_ingot")
 minetest.register_alias("moreores:tin_block", "default:tinblock")
 minetest.register_alias("moreores:tin_lump", "default:tin_lump")
 
--- Toolranks Mod Support
+-- mesecraft_toolranks Mod Support
 
 local function add_tool(name, desc, afteruse)
 

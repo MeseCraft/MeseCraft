@@ -9,7 +9,7 @@ Adds a variety of fruit tools and other fruit-related items to Minetest.
 
 **Dependencies:** farming, default, bucket, vessels
 
-**Optional Dependencies:** mobs, 3d_armor, toolranks
+**Optional Dependencies:** mobs, 3d_armor, mesecraft_toolranks
 
 ## Tools:
 Fruit tools will occasionally drop the fruit they are made when used, this fuctionality can be adjusted in init.lua (See "Settings" section of this document).

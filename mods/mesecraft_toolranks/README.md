@@ -10,10 +10,10 @@ wear out.
 ## Are you a mod developer?
 Does one of your mods add new tools?
 If so, to support this mod, check if it is loaded with
-```minetest.get_modpath("toolranks")```
-and then replace all after_use definitions with toolranks.new_afteruse.
+```minetest.get_modpath("mesecraft_toolranks")```
+and then replace all after_use definitions with mesecraft_toolranks.new_afteruse.
 Optionaly, you can also replace tools description with
-```toolranks.create_description("Tool Name", 0, 1)```
+```mesecraft_toolranks.create_description("Tool Name", 0, 1)```
 and then set original_description to your tools name.
 
 ### This is a fork
