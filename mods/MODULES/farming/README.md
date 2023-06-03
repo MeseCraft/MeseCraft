@@ -33,7 +33,7 @@ options, onion soup added (thanks edcrypt), Added apple pie, added wild cotton t
 - 1.29 - Updating functions so requires Minetest 0.4.16 and above to run
 - 1.28 - Added chili peppers and bowl of chili, optimized code and fixed a few bugs, added porridge
 - 1.27 - Added meshoptions to api and wheat plants, added farming.rarity setting to spawn more/less crops on map, have separate cotton/string items (4x cotton = 1x wool, 2x cotton = 2x string)
-- 1.26 - Added support for [toolranks] mod when using hoe's
+- 1.26 - Added support for [mesecraft_toolranks] mod when using hoe's
 - 1.25 - Added check for farming.conf setting file to disable specific crops globally (inside mod folder) or world specific (inside world folder)
 - 1.24 - Added Hemp which can be crafted into fibre, paper, string, rope and oil.
 - 1.23 - Huge code tweak and tidy done and added barley seeds to be found in dry grass, barley can make flour for bread also.

@@ -36,7 +36,7 @@ Changelog:
 - 1.47- Mob damage changes, min and max light level for damage added, ignition sources checked for lava damage
 - 1.46- Mobs only drop rare items when killed by player (drops.min = 0 makes them rare), code tweak, pathfinding no longer sees through walkable nodes
 - 1.45- Added Fence Top to add on top of any fence to stop mobs escaping, new line_of_sight tweaked by Astrobe
-- 1.44- Added ToolRanks support for swords when attacking mobs
+- 1.44- Added mesecraft_toolranks support for swords when attacking mobs
 - 1.43- Better 0.4.16 compatibility, added general attack function and settings
 - 1.42- Added "all" option to immune_to table, tidied floating mobs to be less intensive
 - 1.41- Mob pathfinding has been updated thanks to Elkien3

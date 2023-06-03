@@ -1,5 +1,0 @@
-#Surface maximum height
-music_default_surface_ymax (Maximum height for surface layer) int 31000
-
-#Surface minimum height
-music_default_surface_ymin (Minimum height for surface layer) int -31000

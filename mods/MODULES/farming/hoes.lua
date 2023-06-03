@@ -1,6 +1,6 @@
 
 local S = farming.intllib
-local tr = minetest.get_modpath("toolranks")
+local tr = minetest.get_modpath("mesecraft_toolranks")
 
 -- Hoe registration function
 
@@ -124,7 +124,7 @@ function farming.hoe_on_use(itemstack, user, pointed_thing, uses)
 	end
 
 	if tr then
-		itemstack = toolranks.new_afteruse(itemstack, user, under, {wear = wear})
+		itemstack = mesecraft_toolranks.new_afteruse(itemstack, user, under, {wear = wear})
 	else
 		itemstack:add_wear(wear)
 	end
@@ -187,32 +187,32 @@ farming.register_hoe(":farming:hoe_diamond", {
 	groups = {not_in_creative_inventory = 1}
 })
 
--- Toolranks support
+-- mesecraft_toolranks support
 if tr then
 
 minetest.override_item("farming:hoe_wood", {
 	original_description = "Wood Hoe",
-	description = toolranks.create_description("Wood Hoe")})
+	description = mesecraft_toolranks.create_description("Wood Hoe")})
 
 minetest.override_item("farming:hoe_stone", {
 	original_description = "Stone Hoe",
-	description = toolranks.create_description("Stone Hoe")})
+	description = mesecraft_toolranks.create_description("Stone Hoe")})
 
 minetest.override_item("farming:hoe_steel", {
 	original_description = "Steel Hoe",
-	description = toolranks.create_description("Steel Hoe")})
+	description = mesecraft_toolranks.create_description("Steel Hoe")})
 
 minetest.override_item("farming:hoe_bronze", {
 	original_description = "Bronze Hoe",
-	description = toolranks.create_description("Bronze Hoe")})
+	description = mesecraft_toolranks.create_description("Bronze Hoe")})
 
 minetest.override_item("farming:hoe_mese", {
 	original_description = "Mese Hoe",
-	description = toolranks.create_description("Mese Hoe")})
+	description = mesecraft_toolranks.create_description("Mese Hoe")})
 
 minetest.override_item("farming:hoe_diamond", {
 	original_description = "Diamond Hoe",
-	description = toolranks.create_description("Diamond Hoe")})
+	description = mesecraft_toolranks.create_description("Diamond Hoe")})
 end
 
 
@@ -496,19 +496,19 @@ if minetest.get_modpath("moreores") then
 		material = "moreores:mithril_ingot"
 	})
 
-	-- Toolranks support
+	-- mesecraft_toolranks support
 	if tr then
 
 		local desc = S("%s Hoe"):format(S("Silver"))
 
 		minetest.override_item("moreores:hoe_silver", {
 			original_description = desc,
-			description = toolranks.create_description(desc)})
+			description = mesecraft_toolranks.create_description(desc)})
 
 		desc = S("%s Hoe"):format(S("Mithril"))
 
 		minetest.override_item("moreores:hoe_mithril", {
 			original_description = desc,
-			description = toolranks.create_description(desc)})
+			description = mesecraft_toolranks.create_description(desc)})
 	end
 end

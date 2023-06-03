@@ -33,7 +33,7 @@ function creative.init_creative_inventory(player)
 	minetest.create_detached_inventory("creative_" .. player_name, {
 		allow_move = function(inv, from_list, from_index, to_list, to_index, count, player2)
 			local name = player2 and player2:get_player_name() or ""
-			if not creative.is_enabled_for(name) or
+			if not minetest.is_creative_enabled(name) or
 					to_list == "main" then
 				return 0
 			end
@@ -44,7 +44,7 @@ function creative.init_creative_inventory(player)
 		end,
 		allow_take = function(inv, listname, index, stack, player2)
 			local name = player2 and player2:get_player_name() or ""
-			if not creative.is_enabled_for(name) then
+			if not minetest.is_creative_enabled(name) then
 				return 0
 			end
 			return -1
@@ -125,7 +125,7 @@ function creative.update_creative_inventory(player_name, tab_content)
 end
 
 -- Create the trash field
-local trash = minetest.create_detached_inventory("creative_trash", {
+local trash = minetest.create_detached_inventory("trash", {
 	-- Allow the stack to be placed and remove it in on_put()
 	-- This allows the creative inventory to restore the stack
 	allow_put = function(inv, listname, index, stack, player)
@@ -143,24 +143,25 @@ function creative.register_tab(name, title, items)
 	sfinv.register_page("creative:" .. name, {
 		title = title,
 		is_in_nav = function(self, player, context)
-			return creative.is_enabled_for(player:get_player_name())
+			return minetest.is_creative_enabled(player:get_player_name())
 		end,
 		get = function(self, player, context)
 			local player_name = player:get_player_name()
 			creative.update_creative_inventory(player_name, items)
 			local inv = player_inventory[player_name]
 			local pagenum = math.floor(inv.start_i / (4*8) + 1)
-			local pagemax = math.ceil(inv.size / (4*8))
+			local pagemax = math.max(math.ceil(inv.size / (4*8)), 1)
 			local esc = minetest.formspec_escape
 			return sfinv.make_formspec(player, context,
+				(inv.size == 0 and ("label[3,2;"..esc(S("No items to show.")).."]") or "") ..
 				"label[5.8,4.15;" .. minetest.colorize("#FFFF00", tostring(pagenum)) .. " / " .. tostring(pagemax) .. "]" ..
 				[[
 					image[4.08,4.2;0.8,0.8;creative_trash_icon.png]
 					listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]
-					list[detached:creative_trash;main;4.02,4.1;1,1;]
+					list[detached:trash;main;4.02,4.1;1,1;]
 					listring[]
 					image_button[5,4.05;0.8,0.8;creative_prev_icon.png;creative_prev;]
-					image_button[7.2,4.05;0.8,0.8;creative_next_icon.png;creative_next;]
+					image_button[7.25,4.05;0.8,0.8;creative_next_icon.png;creative_next;]
 					image_button[2.63,4.05;0.8,0.8;creative_search_icon.png;creative_search;]
 					image_button[3.25,4.05;0.8,0.8;creative_clear_icon.png;creative_clear;]
 				]] ..
@@ -191,10 +192,13 @@ function creative.register_tab(name, title, items)
 				inv.start_i = 0
 				inv.filter = ""
 				sfinv.set_player_inventory_formspec(player, context)
-			elseif fields.creative_search or
-					fields.key_enter_field == "creative_filter" then
+			elseif (fields.creative_search or
+					fields.key_enter_field == "creative_filter")
+					and fields.creative_filter then
 				inv.start_i = 0
-				inv.filter = fields.creative_filter:lower()
+				inv.filter = fields.creative_filter:sub(1, 128) -- truncate to a sane length
+						:gsub("[%z\1-\8\11-\31\127]", "") -- strip naughty control characters (keeps \t and \n)
+						:lower() -- search is case insensitive
 				sfinv.set_player_inventory_formspec(player, context)
 			elseif not fields.quit then
 				local start_i = inv.start_i or 0
@@ -248,7 +252,7 @@ creative.register_tab("craftitems", S("Items"), registered_craftitems)
 
 local old_homepage_name = sfinv.get_homepage_name
 function sfinv.get_homepage_name(player)
-	if creative.is_enabled_for(player:get_player_name()) then
+	if minetest.is_creative_enabled(player:get_player_name()) then
 		return "creative:all"
 	else
 		return old_homepage_name(player)

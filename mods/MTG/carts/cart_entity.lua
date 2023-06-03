@@ -29,15 +29,10 @@ function cart_entity:on_rightclick(clicker)
 	end
 	local player_name = clicker:get_player_name()
 	if self.driver and player_name == self.driver then
-		self.driver = nil
 		carts:manage_attachment(clicker, nil)
 	elseif not self.driver then
-		self.driver = player_name
 		carts:manage_attachment(clicker, self.object)
-
-		-- player_api does not update the animation
-		-- when the player is attached, reset to default animation
-		player_api.set_animation(clicker, "stand")
+		self.driver = player_name
 	end
 end
 
@@ -51,9 +46,7 @@ function cart_entity:on_activate(staticdata, dtime_s)
 		return
 	end
 	self.railtype = data.railtype
-	if data.old_dir then
-		self.old_dir = data.old_dir
-	end
+	self.old_dir = data.old_dir or self.old_dir
 end
 
 function cart_entity:get_staticdata()
@@ -66,8 +59,9 @@ end
 -- 0.5.x and later: When the driver leaves
 function cart_entity:on_detach_child(child)
 	if child and child:get_player_name() == self.driver then
-		self.driver = nil
+		-- Clean up eye height
 		carts:manage_attachment(child, nil)
+		self.driver = nil
 	end
 end
 
@@ -108,8 +102,7 @@ function cart_entity:on_punch(puncher, time_from_last_punch, tool_capabilities, 
 		end
 		-- Pick up cart
 		local inv = puncher:get_inventory()
-		if not (creative and creative.is_enabled_for
-				and creative.is_enabled_for(puncher:get_player_name()))
+		if not minetest.is_creative_enabled(puncher:get_player_name())
 				or not inv:contains_item("main", "carts:cart") then
 			local leftover = inv:add_item("main", "carts:cart")
 			-- If no room in inventory add a replacement cart to the world
@@ -135,7 +128,8 @@ function cart_entity:on_punch(puncher, time_from_last_punch, tool_capabilities, 
 	end
 
 	local punch_interval = 1
-	if tool_capabilities and tool_capabilities.full_punch_interval then
+	-- Faulty tool registrations may cause the interval to be set to 0 !
+	if tool_capabilities and (tool_capabilities.full_punch_interval or 0) > 0 then
 		punch_interval = tool_capabilities.full_punch_interval
 	end
 	time_from_last_punch = math.min(time_from_last_punch or punch_interval, punch_interval)
@@ -196,11 +190,11 @@ local function rail_on_step(self, dtime)
 	end
 
 	local pos = self.object:get_pos()
-	local cart_dir = carts:velocity_to_dir(vel)
-	local same_dir = vector.equals(cart_dir, self.old_dir)
+	local dir = carts:velocity_to_dir(vel)
+	local dir_changed = not vector.equals(dir, self.old_dir)
 	local update = {}
 
-	if self.old_pos and not self.punched and same_dir then
+	if self.old_pos and not self.punched and not dir_changed then
 		local flo_pos = vector.round(pos)
 		local flo_old = vector.round(self.old_pos)
 		if vector.equals(flo_pos, flo_old) then
@@ -220,7 +214,7 @@ local function rail_on_step(self, dtime)
 	end
 
 	local stop_wiggle = false
-	if self.old_pos and same_dir then
+	if self.old_pos and not dir_changed then
 		-- Detection for "skipping" nodes (perhaps use average dtime?)
 		-- It's sophisticated enough to take the acceleration in account
 		local acc = self.object:get_acceleration()
@@ -235,7 +229,7 @@ local function rail_on_step(self, dtime)
 			-- No rail found: set to the expected position
 			pos = new_pos
 			update.pos = true
-			cart_dir = new_dir
+			dir = new_dir
 		end
 	elseif self.old_pos and self.old_dir.y ~= 1 and not self.punched then
 		-- Stop wiggle
@@ -245,21 +239,27 @@ local function rail_on_step(self, dtime)
 	local railparams
 
 	-- dir:         New moving direction of the cart
-	-- switch_keys: Currently pressed L/R key, used to ignore the key on the next rail node
-	local dir, switch_keys = carts:get_rail_direction(
-		pos, cart_dir, ctrl, self.old_switch, self.railtype
+	-- switch_keys: Currently pressed L(1) or R(2) key,
+	--              used to ignore the key on the next rail node
+	local switch_keys
+	dir, switch_keys = carts:get_rail_direction(
+		pos, dir, ctrl, self.old_switch, self.railtype
 	)
-	local dir_changed = not vector.equals(dir, self.old_dir)
+	dir_changed = not vector.equals(dir, self.old_dir)
 
-	local new_acc = {x=0, y=0, z=0}
+	local acc = 0
 	if stop_wiggle or vector.equals(dir, {x=0, y=0, z=0}) then
+		dir = vector.new(self.old_dir)
 		vel = {x = 0, y = 0, z = 0}
 		local pos_r = vector.round(pos)
 		if not carts:is_rail(pos_r, self.railtype)
 				and self.old_pos then
 			pos = self.old_pos
 		elseif not stop_wiggle then
+			-- End of rail: Smooth out.
 			pos = pos_r
+			dir_changed = false
+			dir.y = 0
 		else
 			pos.y = math.floor(pos.y + 0.5)
 		end
@@ -286,7 +286,7 @@ local function rail_on_step(self, dtime)
 		end
 
 		-- Slow down or speed up..
-		local acc = dir.y * -4.0
+		acc = dir.y * -4.0
 
 		-- Get rail for corrected position
 		railparams = get_railparams(pos)
@@ -304,25 +304,22 @@ local function rail_on_step(self, dtime)
 				acc = acc - 0.4
 			end
 		end
-
-		new_acc = vector.multiply(dir, acc)
 	end
 
-	-- Limits
-	local max_vel = carts.speed_max
-	for _, v in pairs({"x","y","z"}) do
-		if math.abs(vel[v]) > max_vel then
-			vel[v] = carts:get_sign(vel[v]) * max_vel
-			new_acc[v] = 0
-			update.vel = true
-		end
+	-- Limit cart speed
+	local vel_len = vector.length(vel)
+	if vel_len > carts.speed_max then
+		vel = vector.multiply(vel, carts.speed_max / vel_len)
+		update.vel = true
+	end
+	if vel_len >= carts.speed_max and acc > 0 then
+		acc = 0
 	end
 
-	self.object:set_acceleration(new_acc)
+	self.object:set_acceleration(vector.multiply(dir, acc))
+
 	self.old_pos = vector.round(pos)
-	if not vector.equals(dir, {x=0, y=0, z=0}) and not stop_wiggle then
-		self.old_dir = vector.new(dir)
-	end
+	self.old_dir = vector.new(dir)
 	self.old_switch = switch_keys
 
 	if self.punched then
@@ -348,11 +345,11 @@ local function rail_on_step(self, dtime)
 	end
 
 	local yaw = 0
-	if self.old_dir.x < 0 then
+	if dir.x < 0 then
 		yaw = 0.5
-	elseif self.old_dir.x > 0 then
+	elseif dir.x > 0 then
 		yaw = 1.5
-	elseif self.old_dir.z < 0 then
+	elseif dir.z < 0 then
 		yaw = 1
 	end
 	self.object:set_yaw(yaw * math.pi)
@@ -390,7 +387,7 @@ minetest.register_entity("carts:cart", cart_entity)
 minetest.register_craftitem("carts:cart", {
 	description = S("Cart") .. "\n" .. S("(Sneak+Click to pick up)"),
 	inventory_image = minetest.inventorycube("carts_cart_top.png", "carts_cart_front.png", "carts_cart_side.png"),
-	wield_image = "carts_cart_side.png",
+	wield_image = "carts_cart_front.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		local under = pointed_thing.under
 		local node = minetest.get_node(under)
@@ -402,7 +399,7 @@ minetest.register_craftitem("carts:cart", {
 				pointed_thing) or itemstack
 		end
 
-		if not pointed_thing.type == "node" then
+		if pointed_thing.type ~= "node" then
 			return
 		end
 		if carts:is_rail(pointed_thing.under) then
@@ -416,8 +413,7 @@ minetest.register_craftitem("carts:cart", {
 		minetest.sound_play({name = "default_place_node_metal", gain = 0.5},
 			{pos = pointed_thing.above}, true)
 
-		if not (creative and creative.is_enabled_for
-				and creative.is_enabled_for(placer:get_player_name())) then
+		if not minetest.is_creative_enabled(placer:get_player_name()) then
 			itemstack:take_item()
 		end
 		return itemstack

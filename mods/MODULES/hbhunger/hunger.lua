@@ -131,8 +131,8 @@ end
 if minetest.get_modpath("mobs") ~= nil then
 	if mobs.mod ~= nil and mobs.mod == "redo" then
 		hbhunger.register_food("mobs:cheese", 4)
-		hbhunger.register_food("mobs:meat", 8)
-		hbhunger.register_food("mobs:meat_raw", 4)
+		hbhunger.register_food("mobs_creautres:meat_cooked", 8)
+		hbhunger.register_food("mobs_creautres:meat", 4)
 		hbhunger.register_food("mobs:rat_cooked", 4)
 		hbhunger.register_food("mobs:honey", 2)
 		hbhunger.register_food("mobs:pork_raw", 3, "", 3)
@@ -144,8 +144,8 @@ if minetest.get_modpath("mobs") ~= nil then
 			hbhunger.register_food("mobs:bucket_milk", 3, "mesecraft_bucket:bucket_empty")
 		end
 	else
-		hbhunger.register_food("mobs:meat", 6)
-		hbhunger.register_food("mobs:meat_raw", 3)
+		hbhunger.register_food("mesecraft_mobs:meat_cooked", 6)
+		hbhunger.register_food("mobs_creauters:meat", 3)
 		hbhunger.register_food("mobs:rat_cooked", 5)
 	end
 end
@@ -377,16 +377,6 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
    hbhunger.register_food("farming:rhubarb", 1)
    hbhunger.register_food("farming:rhubarb_pie", 6)
    hbhunger.register_food("farming:beans", 1)
-end
-
-if minetest.get_modpath("kpgmobs") ~= nil then
-	hbhunger.register_food("kpgmobs:uley", 3)
-	hbhunger.register_food("kpgmobs:meat", 6)
-	hbhunger.register_food("kpgmobs:rat_cooked", 5)
-	hbhunger.register_food("kpgmobs:med_cooked", 4)
-  	if minetest.get_modpath("bucket") then
-	   hbhunger.register_food("kpgmobs:bucket_milk", 4, "mesecraft_bucket:bucket_empty")
-	end
 end
 
 if minetest.get_modpath("jkfarming") ~= nil then

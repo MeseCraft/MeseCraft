@@ -566,7 +566,7 @@ minetest.register_craft({
 	output = "bonemeal:gelatin_powder 2",
 	recipe = {
 --MCMOB BONE
-		{"mobs_creatures:bone", "mobs_creatures:bone", "mobs_creatures:bone"},
+		{"mesecraft_mobs:bone", "mesecraft_mobs:bone", "mesecraft_mobs:bone"},
 		{"mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_water", "mesecraft_bucket:bucket_water"},
 		{"mesecraft_bucket:bucket_water", "default:torch", "mesecraft_bucket:bucket_water"},
 	},
@@ -580,7 +580,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "bonemeal:bonemeal",
 	type = "shapeless",
-	recipe = {"mobs_creatures:bone", "bonemeal:mulch", "farming:mortar_pestle"},
+	recipe = {"mesecraft_mobs:bone", "bonemeal:mulch", "farming:mortar_pestle"},
 	replacements = {
 		{"farming:mortar_pestle", "farming:mortar_pestle"},
 	},
@@ -615,7 +615,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "bonemeal:fertiliser",
 	recipe = {
-		"bonemeal:bonemeal", "bonemeal:mulch", "mobs_creatures:poop_turd",
+		"bonemeal:bonemeal", "bonemeal:mulch", "mesecraft_mobs:poop_turd",
 		"farming:mortar_pestle"
 	},
         replacements = {

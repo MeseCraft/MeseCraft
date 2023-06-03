@@ -308,18 +308,18 @@ minetest.register_alias("moreores:tin_ingot", "default:tin_ingot")
 minetest.register_alias("moreores:tin_block", "default:tinblock")
 minetest.register_alias("moreores:tin_lump", "default:tin_lump")
 
--- Toolranks Mod Support
+-- mesecraft_toolranks Mod Support
 
 local function add_tool(name, desc, afteruse)
 
 	minetest.override_item(name, {
 		original_description = desc,
-		description = toolranks.create_description(desc, 0, 1),
-		after_use = afteruse and toolranks.new_afteruse
+		description = mesecraft_toolranks.create_description(desc, 0, 1),
+		after_use = afteruse and mesecraft_toolranks.new_afteruse
 	})
 end
 
-if minetest.get_modpath("toolranks") then
+if minetest.get_modpath("mesecraft_toolranks") then
 
 	add_tool("moreores:pick_silver", S("%s Pickaxe"):format(S("Silver")), true)
 	add_tool("moreores:axe_silver", S("%s Axe"):format(S("Silver")), true)

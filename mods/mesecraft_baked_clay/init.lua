@@ -155,4 +155,4 @@ local path = minetest.get_modpath("mesecraft_baked_clay")
 -- add new flowers
 dofile(path .. "/flowers.lua")
 
-print ("[MOD] MeseCraft Baked Clay Loaded OK")
+minetest.log("info", "MeseCraft Flowers loaded successfully!")

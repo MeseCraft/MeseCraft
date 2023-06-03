@@ -4,7 +4,7 @@ local S = mobs.intllib
 -- Npc by TenPlus1
 
 mobs.npc_drops = {
-	"default:pick_steel", "mobs:meat", "default:sword_steel",
+	"default:pick_steel", "mesecraft_mobs:meat_cooked", "default:sword_steel",
 	"default:shovel_steel", "farming:bread", "mesecraft_bucket:bucket_water"
 }
 
@@ -44,7 +44,7 @@ mobs:register_mob("mobs_npc:npc", {
 	water_damage = 0,
 	lava_damage = 2,
 	light_damage = 0,
-	follow = {"farming:bread", "mobs:meat", "default:diamond"},
+	follow = {"farming:bread", "mesecraft_mobs:meat_cooked", "default:diamond"},
 	view_range = 15,
 	owner = "",
 	order = "follow",

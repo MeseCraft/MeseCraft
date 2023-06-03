@@ -4,7 +4,7 @@ local S = mobs.intllib
 -- Igor by TenPlus1
 
 mobs.igor_drops = {
-	"vessels:glass_bottle", "mobs:meat_raw", "default:sword_steel",
+	"vessels:glass_bottle", "mesecraft_mobs:meat", "default:sword_steel",
 	"farming:bread", "mesecraft_bucket:bucket_water"
 }
 
@@ -41,13 +41,13 @@ mobs:register_mob("mobs_npc:igor", {
 	fear_height = 2,
 	jump = true,
 	drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 2},
+		{name = "mesecraft_mobs:meat", chance = 1, min = 1, max = 2},
 		{name = "default:gold_lump", chance = 3, min = 1, max = 1},
 	},
 	water_damage = 1,
 	lava_damage = 3,
 	light_damage = 0,
-	follow = {"mobs:meat_raw", "default:diamond"},
+	follow = {"mesecraft_mobs:meat", "default:diamond"},
 	view_range = 15,
 	owner = "",
 	order = "follow",
@@ -112,7 +112,7 @@ mobs:register_mob("mobs_npc:igor", {
 	end,
 })
 -- register spawn egg
-mobs:register_egg("mobs_npc:igor", S("Igor"), "mobs_meat_raw.png", 1)
+mobs:register_egg("mobs_npc:igor", S("Igor"), "mesecraft_mobs_items_meat.png", 1)
 
 -- compatibility
 mobs:alias_mob("mobs:igor", "mobs_npc:igor")
