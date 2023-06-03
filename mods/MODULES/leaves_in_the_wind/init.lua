@@ -19,15 +19,19 @@ minetest.register_abm({
 		else
 			return
 		end
+		local leaf_texture = minetest.registered_nodes[node.name].tiles[1] or "default_leaves.png"
+		if type(leaf_texture) == "table" then
+			leaf_texture = leaf_texture.name
+		end
+		leaf_texture = "(single_leaf_texture_mask"..math.random(1,2)..".png^[mask:"..
+			-- Take this leaf's texture and mask it with the shape of a single leaf
+			leaf_texture ..
+			")^[transform"..math.random(0,7) --Flip it around for some randomness
 		--print(minetest.pos_to_string(npos))
 		local particle = { --Default leaf particle
 			pos = {x=npos.x+0.1,y=npos.y+0.25,z=npos.z+0.1},
 			 -- If these aren't floats, for some reason, particles will end up in the corners of nodes.
-			-- Implement fix from CupnPlateGames -- https://github.com/MeseCraft/MeseCraft/issues/62
-			texture = "(single_leaf_texture_mask"..math.random(1,2)..".png^[mask:"..
-			-- Take this leaf's texture and mask it with the shape of a single leaf
-			(minetest.registered_nodes[node.name].tiles[1] or "default_leaves.png").. 
-			")^[transform"..math.random(0,7), --Flip it around for some randomness
+			texture = leaf_texture,
 			velocity = {
 				x=math.sin((os.clock()%2000)/80)*0.25,
 				y = -0.6,
