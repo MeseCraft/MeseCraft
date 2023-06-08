@@ -59,7 +59,7 @@ nether.fogColor = {	           -- only used if climate_api is installed
 -- Settings
 nether.DEPTH_CEILING              =  -5000 -- The y location of the Nether's celing
 nether.DEPTH_FLOOR                = -11000 -- The y location of the Nether's floor
-nether.FASTTRAVEL_FACTOR          =      8 -- 10 could be better value for Minetest, since there's no sprint, but ex-Minecraft players will be mathing for 8
+nether.FASTTRAVEL_FACTOR          =      8 -- 10 could be better value for Minetest, since there's no sprint
 nether.PORTAL_BOOK_LOOT_WEIGHTING =    0.9 -- Likelyhood of finding the Book of Portals (guide) in dungeon chests. Set to 0 to disable.
 nether.NETHER_REALM_ENABLED       =   true -- Setting to false disables the Nether and Nether portal
 

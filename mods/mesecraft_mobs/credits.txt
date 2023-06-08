@@ -4,8 +4,8 @@ spider texture from lottmobs
 shark author: sapier, CC-BY-SA 3.0, texture modification by blerty2112.
 
 ## FIRE IMP ###
-texture: "De'Krath Imp" by The Crawler - https://www.planetminecraft.com/skin/dekrath-imp/
-sounds: "Tiny vicious creature" by Darsycho -  https://freesound.org/people/Darsycho/sounds/442183/
+texture: "De'Krath Imp" by The Crawler
+sounds: "Tiny vicious creature" by Darsycho
 
 
 BOOGYMAN - monster 2 skin by skip7777+, sounds by 

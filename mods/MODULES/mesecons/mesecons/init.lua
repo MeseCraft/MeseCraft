@@ -7,7 +7,7 @@
 --
 --
 --
--- This mod adds mesecons[=minecraft redstone] and different receptors/effectors to minetest.
+-- This mod adds mesecons and different receptors/effectors to minetest.
 -- See the documentation on the forum for additional information, especially about crafting
 --
 --

@@ -2462,7 +2462,7 @@ local function addDetail_secrets(decoration_list, core, data, area, minp, maxp)
 
             if posInBounds(pos) then
               data[area:index(pos.x, pos.y, pos.z)] = nodeId_bookshelf
-              if not isMineCloneBookshelf then -- mineclone bookshelves are decorational (like Minecraft) and don't contain anything
+              if not isMineCloneBookshelf then -- mineclone bookshelves are decorational and don't contain anything
                 invBookshelf = minetest.get_inventory({type = "node", pos = pos})
               end
             end
@@ -2502,7 +2502,6 @@ look for us here. McNish is attempting to strengthen the gliders.
 
             if book_itemstack ~= nil then
               if invBookshelf == nil then
-                -- mineclone bookshelves are decorational like Minecraft, put the book in the chest instead
                 -- (also testing for nil invBookshelf because it can happen. Weird race condition??)
                 if invChest ~= nil then invChest:add_item("main", book_itemstack) end
               else

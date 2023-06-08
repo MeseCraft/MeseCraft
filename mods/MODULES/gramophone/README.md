@@ -13,7 +13,7 @@ The Minetest mod
 
 This Minetest mod is based on Emile Berliner's flat discs (which are, of course, the most popular) and deviates from the usual, classic phonograph style of having an external horn. The design of this gramophone or phonograph is based on devices that don't have an external horn and seems to reproduce from something that resembles a speaker [2]. The decision, of course, is to avoid something that would look entirely out of place in Minetest's cubic design. It also doesn't record music (for now).
 
-This mod is highly inspired by the Jukebox [3] in Minecraft. However, the Minecraft device is too minimalist for my taste, and has lots to explain in terms of crafting recipe and operation. This gramophone mod attempts to be more realistic.
+This mod is highly inspired by the Jukebox. However, the Jukebox device is too minimalist for my taste, and has lots to explain in terms of crafting recipe and operation. This gramophone mod attempts to be more realistic.
 
 How to use
 ----------
@@ -101,4 +101,3 @@ References
 ----------
   - [1] https://en.wikipedia.org/wiki/Phonograph
   - [2] https://www.google.com/search?q=amberola+30&client=ubuntu&hs=5Wd&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjf0KXT3YzYAhWDON8KHZtTDREQ_AUICigB&biw=1366&bih=622
-  - [3] https://minecraft.gamepedia.com/Jukebox

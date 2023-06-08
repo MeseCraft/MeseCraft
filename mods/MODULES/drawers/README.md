@@ -45,8 +45,7 @@ alternatively you can also [email](mailto:git@lnj.li) me.
 
 ## Credits
 #### Thanks to:
-* Justin Aquadro ([@jaquadro](http://github.com/jaquadro)), developer of the
-	original Minecraft Mod (also licensed under MIT :smiley:) — Textures and Ideas
+* Justin Aquadro ([@jaquadro](http://github.com/jaquadro)) — Textures and Ideas
 * Mango Tango <<mtango688@gmail.com>> ([@mtango688](http://github.com/mtango688)),
 	creator of the Minetest Mod ["Caches"](https://github.com/mtango688/caches/)
 	— I reused some code by you. :)

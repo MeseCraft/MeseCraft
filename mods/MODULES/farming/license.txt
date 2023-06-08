@@ -103,7 +103,7 @@ Created by JoseTheCrafter and edited by TenPlus1 (CC BY 3.0):
   farming_tomato_7.png
   farming_tomato_8.png
 
-Created by GeMinecraft and edited by TenPlus1 (CC BY 3.0):
+edited by TenPlus1 (CC BY 3.0):
   farming_corn.png
   farming_corn_cob.png
   farming_corn_1.png

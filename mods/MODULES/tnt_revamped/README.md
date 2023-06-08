@@ -15,7 +15,7 @@ water flow code copied from TenPlus1's builtin_item mod [builtin_item](https://n
 
 4. TNT blinks on ignite.
 
-4. It is possible to make minecraft style TNT cannons with this mod.
+4. It is possible to make TNT cannons with this mod.
 
 5. TNT does not damage nodes if it blows up in water. (This can be changed in config)
 

@@ -38,7 +38,7 @@ craftguide.register_craft({
 })
 ```
 
-Recipes can be registered in a Minecraft-like way:
+Recipes can be registered:
 
 ```Lua
 craftguide.register_craft({

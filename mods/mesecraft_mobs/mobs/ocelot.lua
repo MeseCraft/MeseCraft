@@ -202,8 +202,6 @@ mobs:spawn({
 	min_height = 1,
 	max_height = 5,
 	on_spawn = function(self, pos)
-		--[[ Note: Minecraft has a 1/3 spawn failure rate.
-		In this mod it is emulated by reducing the spawn rate accordingly (see above). ]]
 		-- 1/7 chance to spawn 2 ocelot kittens
 		if pr:next(1,7) == 1 then
 			-- Turn object into a child

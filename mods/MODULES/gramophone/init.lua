@@ -1,7 +1,7 @@
 -- Gramophone mod by Zorman2000
 -- Compatible with Minetest 0.4.14 and later
 --
--- Similar to a Minecraft jukebox, but better :)
+-- Similar to a jukebox, but better :)
 -- Includes API for registering music discs and music players.
 -- Also, includes a disc shelf (caution: not lightweight in any sense!)
 

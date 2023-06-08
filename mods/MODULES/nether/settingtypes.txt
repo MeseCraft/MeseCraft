@@ -1,6 +1,6 @@
 # Travelling a short distance in the Nether can correspond to a much further distance on the surface.
 #
-# A factor of 10 might be a better value for Minetest, since there's no sprint, but ex-Minecraft players will be mathing for 8.
+# A factor of 10 might be a better value for Minetest, since there's no sprint.
 nether_fasttravel_factor (Nether fast-travel factor) int 8
 
 # The likelyhood of finding a Book containing all the portal plans in a dungeon chest. 

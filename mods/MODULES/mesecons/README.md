@@ -16,7 +16,7 @@ Mezzee-what?
 
 Mesecons is a mod for [Minetest](https://www.minetest.net/) that implements a ton of items related to digital circuitry, such as wires, buttons, lights, and even programmable controllers. Among other things, there are also pistons, solar panels, pressure plates, and note blocks.
 
-Mesecons has a similar goal to Redstone in Minecraft, but works in its own way, with different rules and mechanics.
+Mesecons works in its own way, with different rules and mechanics.
 
 OK, I want in.
 --------------
