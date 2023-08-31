@@ -94,10 +94,20 @@ end
 
 
 -- Helper function to inject toolranks in an item without overriding his after_use function (if any)
+mesecraft_toolranks.registered_tools = {}
 function mesecraft_toolranks.register_tool(name)
+	-- Check if tool is already registered to prevent appending multiple after_use callbacks
+	for _, registered_name in pairs(mesecraft_toolranks.registered_tools) do
+		if registered_name == name then
+			return false
+		end
+	end
+
+  -- Retrieve attributes from the original item
 	local original_definition = ItemStack(name):get_definition()
 	local original_after_use = original_definition.after_use
 
+	-- Set description & append after_use callback
 	minetest.override_item(name, {
 		original_description = original_definition.description,
 		description = mesecraft_toolranks.create_description(original_definition.description, 0, 1),
@@ -115,6 +125,10 @@ function mesecraft_toolranks.register_tool(name)
 			return mesecraft_toolranks.new_afteruse(itemstack, user, node, digparams)
 		end
 	})
+
+	-- Track list of registered tool names
+	table.insert(mesecraft_toolranks.registered_tools, name)
+	return true
 end
 
 -- Sword
