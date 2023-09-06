@@ -1,6 +1,7 @@
 -- Geomoria mapgen.lua
 -- Copyright Duane Robertson (duane@duanerobertson.com), 2017
 -- Distributed under the LGPLv2.1 (https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)
+-- Modified as part of the MeseCraft project
 
 
 local DEBUG
@@ -25,21 +26,56 @@ for _, i in pairs(ground_nodes_names) do
 end
 
 
--- This table looks up nodes that aren't already stored.
+local constructors = {}     -- content_id,constructor pairs
+-- This table caches name,content_id pairs the first time they're seen
+-- also populates constructors table
 local node = setmetatable({}, {
   __index = function(t, k)
     if not (t and k and type(t) == 'table') then
       return
     end
 
-    t[k] = minetest.get_content_id(k)
-    return t[k]
+    local cid = minetest.get_content_id(k)
+    local con = minetest.registered_nodes[k].on_construct
+    t[k] = cid
+    if con and type(con) == "function" then constructors[cid] = con end
+
+    return cid
   end
 })
 
 
 local data = {}
 local p2data = {}
+
+
+-- wrap data table with getter/setter
+-- intercept and record any nodes that need constructors called later
+local constructor_queue = {}
+local raw_data = {}
+local data_intercept = {
+  __index = function(t,k)
+    return raw_data[k]
+  end,
+  __newindex = function(t,k,v)
+    if constructors[v] then
+      constructor_queue[k] = v
+      end
+    raw_data[k]=v
+    return v
+  end
+}
+setmetatable(data, data_intercept)
+
+-- Runs constructors of any nodes built using the voxelmanip
+local run_constructors = function(queue, area)
+  for k,v in pairs(queue) do
+    if data[k] == v then  -- make sure the node hasn't been changed since k,v went in the queue
+      local pos = area:position(k)
+      constructors[v](pos)
+    end
+  end
+end
 
 
 local fissure_noise_map, damage_noise_map
@@ -65,7 +101,7 @@ local function generate(p_minp, p_maxp, seed)
     return
   end
 
-  vm:get_data(data)
+  vm:get_data(raw_data)
   p2data = vm:get_param2_data()
   local heightmap
   local area = VoxelArea:new({MinEdge = emin, MaxEdge = emax})
@@ -185,7 +221,7 @@ local function generate(p_minp, p_maxp, seed)
 
   if write then
 
-    vm:set_data(data)
+    vm:set_data(raw_data)
     vm:set_param2_data(p2data)
 
     if DEBUG then
@@ -196,6 +232,9 @@ local function generate(p_minp, p_maxp, seed)
     end
     vm:update_liquids()
     vm:write_to_map()
+
+	run_constructors(constructor_queue, area)
+	constructor_queue = {}
   end
 end
 
