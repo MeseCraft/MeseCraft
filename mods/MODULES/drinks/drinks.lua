@@ -13,7 +13,7 @@ if minetest.get_modpath('thirsty') then
   do_drink = thirsty.drink
   drink_sound = drink_sound or 'thirsty_drink'
 end
-if minetest.get_modpath('hbhunger') then
+if minetest.get_modpath('hbhunger') and minetest.settings:get_bool("enable_damage") then   -- even if it's present, hbhunger doesn't load if damage is disabled
   do_add_settings = function(item, replace_with_item, juice_def)
     local factor = get_size_factor(replace_with_item)
     hbhunger.register_food(item, (juice_def.health or 1) * factor, replace_with_item, juice_def.poison and (juice_def.poison * factor), (juice_def.health or 0) * factor, juice_def.sound or drink_sound)
