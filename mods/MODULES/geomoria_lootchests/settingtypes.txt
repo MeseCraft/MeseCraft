@@ -1,0 +1,7 @@
+#	Replace buggy default:chest left behind by Geomoria
+#	Use this on servers when updating to populate chests that lack an inventory
+#	(not chests with an empty inventory, buggy ones that have none at all)
+#	Runs every 10 seconds as an ABM
+#mesecraft_geomoria_loot_fix_buggy (Fills buggy chests with loot) bool true
+
+# not implemented yet -- todo...
