@@ -81,42 +81,13 @@ loot_table = {
 
 
 
-
---[[
-
-    {""},
-
-
-
-
-
---]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ----  End Configuration Section
 
 local log = function(msg)
     minetest.log('warning','geomoria_lootchests - '..msg)
-    if minetest.get_player_by_name('singleplayer') then 
-        minetest.chat_send_player("singleplayer", tostring(msg) )
-    end
+--    if minetest.get_player_by_name('singleplayer') then 
+--        minetest.chat_send_player("singleplayer", tostring(msg) )
+--    end
 end
 
 -- remove stuff if the relevant mod isn't loaded

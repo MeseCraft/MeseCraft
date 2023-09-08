@@ -10,78 +10,26 @@ chest_def.name = "geomoria_lootchests:chest"
 chest_def.description = "Loot Chest"
 chest_def.slot_spawn_chance = geomoria_lootchests.spawn_chance
 chest_def.slots = geomoria_lootchests.slots
-chest_def.spawn_in = {"default:diamondblock"}     --Spawn in which nodes, may be one itemstring or a list of them
-chest_def.spawn_on = {"default:diamondblock"}   --Spawn on which nodes, may be one itemstring or a list of them
-chest_def.spawn_in_rarity = 10000                                   --Spawn in rarity, approximate spacing between each node
-chest_def.spawn_on_rarity = 10000                                 --Spawn on rarity, spawns one out of defined value (if default is 1000 then on 1 out of 1000)
-
-    --Height limit
+chest_def.spawn_in = {"default:diamondblock"}     --Prevent Lootchest mod from spawning these randomly.
+chest_def.spawn_on = {"default:diamondblock"}     --We only want them where geomoria puts them.
+chest_def.spawn_in_rarity = 1000000
+chest_def.spawn_on_rarity = 1000000
 chest_def.ymax = -130                                               --Max Y limit
 chest_def.ymin = -180                                             --Min Y limit
 
 lootchests.register_lootchest(chest_def)
 
+-- Use the hook supplied by geomoria for this purpose
 function geomoria_mod.treasure_chest_hook(pos, min_x, max_x, min_z, max_z, data, area, node)
---  return node[treasure_chest]
 	return minetest.get_content_id("geomoria_lootchests:chest_marker")
 end
 
---[[
-{
-    --Spawning
-}
---]]
+
+-- optional.  see setting: geomoria_lootchests_fix_buggy 
+dofile(modpath .. "/fix_buggy.lua")
 
 
-
---[[ Geomoria, as designed, leaves behind a mess of buggy loot chests.
-The chests are created, along with everything else, using voxelmanip
-They never have their constructors run, and so they never initialize 
-the node inventory.  They present as a broken formspec, a great big grey
-rectangle where inventory slots should be.
-
-On servers that have been up for a while, it's not enough to just
-create new loot chests when new tunnels are generated.  The old, 
-buggy, left behind default:chest should also be replaced with lootchests.
---]]
-
-if minetest.settings:get("mesecraft_geomoria_loot_fix_buggy") then
-	local no_op = nil -- todo: actually work on this feature
-end
-
-
-
-
-
-minetest.register_chatcommand("test", {
-    params = "",
-    -- Short parameter description.  See the below note.
-
-    description = "",
-    -- General description of the command's purpose.
-
-    privs = {},
-    -- Required privileges to run. See `minetest.check_player_privs()` for
-    -- the format and see [Privileges] for an overview of privileges.
-
-    func = function(name, param)
-		minetest.chat_send_player("singleplayer", tostring(minetest.registered_nodes["geomoria_lootchests:chest_marker"]))
-	end,
-    -- Called when command is run.
-    -- * `name` is the name of the player who issued the command.
-    -- * `param` is a string with the full arguments to the command.
-    -- Returns a boolean for success and a string value.
-    -- The string is shown to the issuing player upon exit of `func` or,
-    -- if `func` returns `false` and no string, the help message is shown.
-})
-
-
-
-
-
-
-
-
+------------        EOF
 ------------		Debugging Code
 --[[
 
