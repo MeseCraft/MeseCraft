@@ -1,7 +1,3 @@
-
---[[
-	Original textures
-
 local S = farming.intllib
 
 -- corn
