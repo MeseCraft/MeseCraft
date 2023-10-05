@@ -17,10 +17,10 @@ end
 
 local svalues = {
 
-	sounds = minetest.settings:get_bool("mesecraft_zoom.sounds", false),
-	speed = get_setting("mesecraft_zoom.speed", 1),
-	button = minetest.settings:get_bool("mesecraft_zoom.button", true),
-	amount = get_setting("mesecraft_zoom.amount", 30),
+	sounds = minetest.settings:get_bool("cinematic_zoom.sounds", false),
+	speed = get_setting("cinematic_zoom.speed", 1),
+	button = minetest.settings:get_bool("cinematic_zoom.button", true),
+	amount = get_setting("cinematic_zoom.amount", 30),
 	fov = get_setting("fov", 72)
 
 }
@@ -31,7 +31,7 @@ if not svalues.button == true then
 	zoombutton = "sneak"
 end
 
-mesecraft_zoom = {
+cinematic_zoom = {
 
 	activated = {},
 	on_sneak = {},
@@ -49,12 +49,12 @@ end
 
 
 
-function mesecraft_zoom.set_bar_state(player, state)
-	mesecraft_zoom.activated[player:get_player_name()] = state
+function cinematic_zoom.set_bar_state(player, state)
+	cinematic_zoom.activated[player:get_player_name()] = state
 end
 
-function mesecraft_zoom.activate_on_sneak(player, bool)
-	mesecraft_zoom.on_sneak[player:get_player_name()] = bool
+function cinematic_zoom.activate_on_sneak(player, bool)
+	cinematic_zoom.on_sneak[player:get_player_name()] = bool
 end
 
 
@@ -124,7 +124,7 @@ minetest.register_globalstep(function(dtime)
 
 		--move bars
 		
-		if mesecraft_zoom.activated[name] == true then --if activated then animate one frame closing and zooming in
+		if cinematic_zoom.activated[name] == true then --if activated then animate one frame closing and zooming in
 
 			local ybottom = player:hud_get(bbars[name])["offset"].y
 			local ytop = player:hud_get(tbars[name])["offset"].y
@@ -134,7 +134,7 @@ minetest.register_globalstep(function(dtime)
 
 		end
 
-		if mesecraft_zoom.activated[name] == false and player:hud_get(tbars[name])["offset"].y > -200 then --if deactivated animate one frame opening and zooming up/out
+		if cinematic_zoom.activated[name] == false and player:hud_get(tbars[name])["offset"].y > -200 then --if deactivated animate one frame opening and zooming up/out
 
 			local ybottom = player:hud_get(bbars[name])["offset"].y
 			local ytop = player:hud_get(tbars[name])["offset"].y
@@ -146,7 +146,7 @@ minetest.register_globalstep(function(dtime)
 
 		--zoom fov
 
-		if mesecraft_zoom.activated[name] == true and fov > svalues.amount then --zoom in one frame
+		if cinematic_zoom.activated[name] == true and fov > svalues.amount then --zoom in one frame
 
 			if fov > svalues.amount then
 				fov_val = fov - (fov - svalues.amount) * (svalues.speed / 10)
@@ -156,7 +156,7 @@ minetest.register_globalstep(function(dtime)
 
 		end
 
-		if mesecraft_zoom.activated[name] == false and fov < default_fov - 0.01 then --zoom out one frame
+		if cinematic_zoom.activated[name] == false and fov < default_fov - 0.01 then --zoom out one frame
 
 			if fov < default_fov then
 				fov_val = fov + (default_fov - fov) * ((svalues.speed * 2) / 10)
@@ -172,28 +172,28 @@ end
 )
 
 
-mesecraft_controls.register_on_press(function(player, key) --on press play a sound (if enabled) and set bars/zoom to be on
+controls.register_on_press(function(player, key) --on press play a sound (if enabled) and set bars/zoom to be on
     if key == zoombutton then
 		if svalues.sounds == true then
-			minetest.sound_play("mesecraft_zoom_down", {
+			minetest.sound_play("cinematic_zoom_down", {
 				to_player = player:get_player_name(),
 				gain = 1,
 				pitch = 1,
 			})
 		end
-		mesecraft_zoom.set_bar_state(player, true)
+		cinematic_zoom.set_bar_state(player, true)
 	end
 end)
 
-mesecraft_controls.register_on_release(function(player, key) --on release play a sound (if enabled) and set bars/zoom to be off
+controls.register_on_release(function(player, key) --on release play a sound (if enabled) and set bars/zoom to be off
     if key == zoombutton then
 		if svalues.sounds == true then
-			minetest.sound_play("mesecraft_zoom_up", {
+			minetest.sound_play("cinematic_zoom_up", {
 				to_player = player:get_player_name(),
 				gain = 1,
 				pitch = 1,
 			})
 		end
-		mesecraft_zoom.set_bar_state(player, false)
+		cinematic_zoom.set_bar_state(player, false)
     end
 end)
