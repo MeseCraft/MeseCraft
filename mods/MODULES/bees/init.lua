@@ -97,6 +97,8 @@
       meta:set_string('formspec',
         'size[8,9]'..
         --input
+        'item_image[1,1;1,1;bees:frame_full]'..
+        'item_image[1,3;1,1;vessels:glass_bottle]'..
         'list[nodemeta:'..pos..';input;2,1;1,1;0]'..   -- filled frames in input[1], formspec index=0
         'list[nodemeta:'..pos..';input;2,3;1,1;1]'..   -- empty bottles in input[2], formspec index=1
         --output
