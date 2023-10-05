@@ -353,6 +353,11 @@
       if inv:contains_item('hive','bees:queen') then
         -- a colony lives here, and they don't want to be bothered
         puncher:set_hp(puncher:get_hp() - 1, {sting=true, ignore_armor=true})  -- todo, these reasons don't do anything
+        minetest.sound_play('bees', {
+          pos = pos,
+          gain = 1.0,  -- default
+          max_hear_distance = 32,  -- default, uses a Euclidean metric
+        })
       end
     end,
     -- default: minetest.node_punch
@@ -364,6 +369,11 @@
         -- there was still a colony in this hive,
         --    and now they're mad
         digger:set_hp(digger:get_hp() - 4, {sting=true, ignore_armor=true})  -- todo, these reasons don't do anything
+        minetest.sound_play('bees', {
+          pos = pos,
+          gain = 1.0,  -- default
+          max_hear_distance = 32,  -- default, uses a Euclidean metric
+        })
       end
       -- salvage some comb from the destroyed hive
       local comb_count = 0
