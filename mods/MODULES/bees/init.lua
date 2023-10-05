@@ -43,7 +43,7 @@
     local formspec =
       'size[8,9]'..
       'list[nodemeta:'..spos..';hive;3.5,1;1,1;0]'..     -- queen in hive[1], formspec index=0
-      'list[nodemeta:'..spos..';hive;0,3;8,1;1]'..       -- frames in hive[2] - hive[9], formspec index=1
+      'list[nodemeta:'..spos..';hive;0,3;8,1;1]'..       -- frames in hive[2] - hive[9], start at formspec index=1
       'list[current_player;main;0,5;8,4;]'..
       'listring[current_player;main]'..
       'listring[nodemeta:'.. spos .. ';hive]'
@@ -88,8 +88,6 @@
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
       local pos = pos.x..','..pos.y..','..pos.z
---      inv:set_size('frames_filled'  ,1)             --------------------------------------------------- old def
---      inv:set_size('bottles_empty'  ,1)
       inv:set_size('input' ,2)
       inv:set_size('frames_emptied' ,1)
       inv:set_size('bottles_full' ,1)
@@ -102,7 +100,7 @@
         'list[nodemeta:'..pos..';input;2,1;1,1;0]'..   -- filled frames in input[1], formspec index=0
         'list[nodemeta:'..pos..';input;2,3;1,1;1]'..   -- empty bottles in input[2], formspec index=1
         --output
-        'list[nodemeta:'..pos..';frames_emptied;5,0.5;1,1;]'..  ---------------------- TODO add item pics
+        'list[nodemeta:'..pos..';frames_emptied;5,0.5;1,1;]'..
         'list[nodemeta:'..pos..';wax;5,2;1,1;]'..
         'list[nodemeta:'..pos..';bottles_full;5,3.5;1,1;]'..
         --player inventory
@@ -211,10 +209,6 @@
       if minetest.is_protected(pos, player:get_player_name()) then 
         return 0 
       end
---[[
-      if (listname == 'bottles_empty' and stack:get_name() == 'vessels:glass_bottle') or (listname == 'frames_filled' and stack:get_name() == 'bees:frame_full') then
-        return stack:get_count()
---]]
       if (listname == 'input' and index == 1 and stack:get_name() == 'bees:frame_full') 
       or (listname == 'input' and index == 2 and stack:get_name() == 'vessels:glass_bottle')
       then return stack:get_count() end
@@ -352,27 +346,39 @@
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
     end,
-    can_dig = function(pos,player)
+    on_punch = function(pos, node, puncher, pointed_thing)
+      minetest.node_punch(pos, node, puncher, pointed_thing) -- default handler
       local meta = minetest.get_meta(pos)
-      local inv  = meta:get_inventory()
-      --if inv:is_empty('queen') and inv:is_empty('combs') then
-      if inv:is_empty('hive') then
-        return true
-      else
-        return false
+      local inv = meta:get_inventory()
+      if inv:contains_item('hive','bees:queen') then
+        -- a colony lives here, and they don't want to be bothered
+        puncher:set_hp(puncher:get_hp() - 1, {sting=true, ignore_armor=true})  -- todo, these reasons don't do anything
       end
     end,
-    --[[
-    after_dig_node = function(pos, oldnode, oldmetadata, user)
-      local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-      if 'bees:grafting_tool' == wielded:get_name() then 
-        local inv = user:get_inventory()
-        if inv then
-          inv:add_item('main', ItemStack('bees:queen'))      ----------------------------makes no sense, probably old code; this is what gives you your second queen for free
+    -- default: minetest.node_punch
+    can_dig = function(pos, player) return true end,
+    on_dig = function(pos, node, digger)
+      local meta = minetest.get_meta(pos)
+      local inv = meta:get_inventory()
+      if inv:contains_item('hive','bees:queen') then
+        -- there was still a colony in this hive,
+        --    and now they're mad
+        digger:set_hp(digger:get_hp() - 4, {sting=true, ignore_armor=true})  -- todo, these reasons don't do anything
+      end
+      -- salvage some comb from the destroyed hive
+      local comb_count = 0
+      for i=2,6 do
+        if inv:get_stack('hive',i):get_name() == 'bees:honeycomb' then
+          comb_count = comb_count+1
         end
       end
-    end
-    --]]
+      comb_count = math.random(0,comb_count) -- some comb destroyed with the hive
+      if comb_count > 0 then
+        minetest.item_drop(ItemStack('bees:honeycomb '..comb_count), nil, pos)
+      end
+      return minetest.node_dig(pos, node, digger)  -- call the default to remove node and clean up
+
+    end,
   })
 
   minetest.register_node('bees:hive_artificial', {
