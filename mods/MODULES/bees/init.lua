@@ -71,7 +71,7 @@
     paramtype2 = "facedir",
     drawtype = "nodebox",
     place_param2 = 0,
-    groups = {choppy=2,oddly_breakable_by_hand=2},
+    groups = {choppy=2,oddly_breakable_by_hand=2,tubedevice=1, tubedevice_receiver=1},
     sounds = default.node_sound_wood_defaults(),
     node_box = {
 	type = "fixed",
@@ -155,36 +155,31 @@
         timer:start(1) -- Try again in 1 second
       end
     end,
-    tube = {------------------------------------------------------------------- WTH is this?  pipeworks?  TODO
+    tube = { ---------------------------------------------------------------------------------------------------------------------------
+      input_inventory = {"frames_emptied", "bottles_full", "wax"},
+      connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1},
       insert_object = function(pos, node, stack, direction)
         local meta = minetest.get_meta(pos)
         local inv = meta:get_inventory()
         local timer = minetest.get_node_timer(pos)
+        local dest
         if stack:get_name() == "bees:frame_full" then
-          if inv:is_empty("frames_filled") then
-            timer:start(5)
-          end
-          return inv:add_item("frames_filled",stack)
+          dest = inv:get_stack('input',1)
+          stack = dest:add_item(stack)
+          inv:set_stack('input',1,dest)
         elseif stack:get_name() == "vessels:glass_bottle" then
-          if inv:is_empty("bottles_empty") then
-            timer:start(5)
-          end
-          return inv:add_item("bottles_empty",stack)
+          dest = inv:get_stack('input',2)
+          stack = dest:add_item(stack)
+          inv:set_stack('input',2,dest)
+        end
+        if    inv:contains_item('input','bees:frame_full')
+          and inv:contains_item('input','vessels:glass_bottle')
+          and not timer:is_started()
+          then
+          timer:start(5)
         end
         return stack
       end,
-      can_insert = function(pos,node,stack,direction)
-        local meta = minetest.get_meta(pos)
-        local inv = meta:get_inventory()
-        if stack:get_name() == "bees:frame_full" then
-          return inv:room_for_item("frames_filled",stack)
-        elseif stack:get_name() == "vessels:glass_bottle" then
-          return inv:room_for_item("bottles_empty",stack)
-        end
-        return false
-      end,
-      input_inventory = {"frames_emptied", "bottles_full", "wax"},
-      connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1}
     },
     on_metadata_inventory_put = function(pos, listname, index, stack, player)                         -----------------------------todo, might need to be looked at
       local timer = minetest.get_node_timer(pos)
@@ -411,7 +406,7 @@
     drawtype = 'nodebox',
     paramtype = 'light',
     paramtype2 = 'facedir',
-    groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
+    groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1,tubedevice=1, tubedevice_receiver=1},
     sounds = default.node_sound_wood_defaults(),
     node_box = {
       type = 'fixed',
@@ -472,11 +467,37 @@
             meta:set_string('infotext', 'Bees are busy making honey!')
           end
         else
-          meta:set_string('infotext', 'Hive does not have empty frame(s)!')
+          meta:set_string('infotext', 'Hive does not have empty frames!')
           timer:stop()
         end
       end
     end,
+      tube = { ---------------------------------------------------------------------------------------------------------------------------
+      input_inventory = {"hive"},
+      connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1},
+      can_remove = function(frompos, fromnode, stack, dir, frominvname, spos)
+        if stack:get_name() == 'bees:frame_full' then return 1 
+        else return 0
+        end
+      end,
+      insert_object = function(pos, node, stack, direction)
+        local meta = minetest.get_meta(pos)
+        local inv = meta:get_inventory()
+        local timer = minetest.get_node_timer(pos)
+        if stack:get_name() ~= 'bees:frame_empty' then return stack end
+        for i=2,9 do
+          if inv:get_stack('hive',i):is_empty() then
+            inv:set_stack('hive',i,stack:take_item(1))  -- if stack is empty, hive[i] will remain empty
+          end
+        end
+        if    inv:contains_item('hive','bees:queen') 
+          and inv:contains_item('hive','bees:frame_empty') 
+          and not timer:is_started()
+          then timer:start(30)
+        end
+        return stack
+      end,
+    },
     on_metadata_inventory_take = function(pos, listname, index, stack, player)
       if listname == 'hive' and index == 1 then    -- queen taken
         local timer = minetest.get_node_timer(pos)
