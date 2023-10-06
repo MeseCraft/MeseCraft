@@ -36,9 +36,6 @@
     inventory_image = 'bees_particle_bee.png',
     --stack_max = 8,
   })
-
-------------------------------DEV untested
-
   minetest.register_craftitem('bees:wax_in_water', {
     description = 'Wax in Water',
     inventory_image = 'bees_wax_in_water.png',

@@ -16,7 +16,7 @@
 --Bees by Bas080
 --Note: This branch was modified by clockgen in summer, 2019.
 --      Further modified by gd2shoe (2023)
---Version	2.2
+--Version	2.3
 --License	WTFPL
 
 --VARIABLES
@@ -155,7 +155,7 @@
         timer:start(1) -- Try again in 1 second
       end
     end,
-    tube = { ---------------------------------------------------------------------------------------------------------------------------
+    tube = {
       input_inventory = {"frames_emptied", "bottles_full", "wax"},
       connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1},
       insert_object = function(pos, node, stack, direction)
@@ -181,7 +181,7 @@
         return stack
       end,
     },
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)                         -----------------------------todo, might need to be looked at
+    on_metadata_inventory_put = function(pos, listname, index, stack, player)
       local timer = minetest.get_node_timer(pos)
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
@@ -198,7 +198,6 @@
           inv:set_stack('input',1,'')
         end
       end
-      --if inv:get_stack(listname, 1):get_count() == stack:get_count() then -- inv was empty -> start the timer
       if    inv:contains_item('input', 'bees:frame_full') 
         and inv:contains_item('input', 'vessels:glass_bottle') 
         and not timer:is_started()
@@ -365,7 +364,6 @@
         })
       end
     end,
-    -- default: minetest.node_punch
     can_dig = function(pos, player) return true end,
     on_dig = function(pos, node, digger)
       local meta = minetest.get_meta(pos)
@@ -442,37 +440,39 @@
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
       local timer = minetest.get_node_timer(pos)
-      if inv:contains_item('hive', 'bees:queen') then------------------------------see, this one tests for queen presense
-        if inv:contains_item('hive', 'bees:frame_empty') then
-          timer:start(30)
-          local rad  = 10
-          local minp = {x=pos.x-rad, y=pos.y-rad, z=pos.z-rad}
-          local maxp = {x=pos.x+rad, y=pos.y+rad, z=pos.z+rad}
-          local flowers = minetest.find_nodes_in_area(minp, maxp, 'group:flower')
-          local progress = meta:get_int('progress')
-          progress = progress + #flowers
-          meta:set_int('progress', progress)
-          if progress > 1000 then
-            local flower = flowers[math.random(#flowers)] 
-            bees.polinate_flower(flower, minetest.get_node(flower).name)
-            local stacks = inv:get_list('hive')
-            for k, v in pairs(stacks) do
-              if inv:get_stack('hive', k):get_name() == 'bees:frame_empty' then
-                meta:set_int('progress', 0)
-                inv:set_stack('hive',k,'bees:frame_full')
-                return
-              end
+      if not inv:contains_item('hive', 'bees:queen') then
+        meta:set_string('infotext', 'Needs a queen bee')
+        timer:stop()
+        return
+      end
+      if inv:contains_item('hive', 'bees:frame_empty') then
+        timer:start(30)
+        meta:set_string('infotext', 'Bees are busy making honey!')
+        local rad  = 10
+        local minp = {x=pos.x-rad, y=pos.y-rad, z=pos.z-rad}
+        local maxp = {x=pos.x+rad, y=pos.y+rad, z=pos.z+rad}
+        local flowers = minetest.find_nodes_in_area(minp, maxp, 'group:flower')
+        local progress = meta:get_int('progress')
+        progress = progress + #flowers
+        meta:set_int('progress', progress)
+        if progress > 1000 then
+          local flower = flowers[math.random(#flowers)] 
+          bees.polinate_flower(flower, minetest.get_node(flower).name)
+          local stacks = inv:get_list('hive')
+          for k, v in pairs(stacks) do
+            if inv:get_stack('hive', k):get_name() == 'bees:frame_empty' then
+              meta:set_int('progress', 0)
+              inv:set_stack('hive',k,'bees:frame_full')
+              return
             end
-          else
-            meta:set_string('infotext', 'Bees are busy making honey!')
           end
-        else
-          meta:set_string('infotext', 'Hive does not have empty frames!')
-          timer:stop()
         end
+      else
+        meta:set_string('infotext', 'Hive does not have empty frames!')
+        timer:stop()
       end
     end,
-      tube = { ---------------------------------------------------------------------------------------------------------------------------
+      tube = {
       input_inventory = {"hive"},
       connect_sides = {left=1, right=1, back=1, front=1, bottom=1, top=1},
       can_remove = function(frompos, fromnode, stack, dir, frominvname, spos)
@@ -523,39 +523,52 @@
       end
     end,
     on_metadata_inventory_put = function(pos, listname, index, stack, player)
+      if listname ~= 'hive' then return end
       local meta = minetest.get_meta(pos)
       local inv = meta:get_inventory()
       local timer = minetest.get_node_timer(pos)
-      --if listname == 'queen' or listname == 'frames' then
-      if listname == 'hive' then
-        if stack:get_name() == 'bees:frame_empty' then
-          -- shift-click nonsense 2 of 2
-          --    pull extra frames off the stack and spread them out
-          local istack = inv:get_stack('hive',index)
-          local count = istack:get_count() - 1
-          istack:set_count(1)
-          if index == 1 then    -- frames shift-clicked into queen spot
-            count = count + 1
-            istack:set_count(0)
-          end
-          inv:set_stack('hive',index,istack)
-          for i = 2,9 do
-            if count < 1 then break end
-            if inv:get_stack('hive',i):is_empty() then
-              inv:set_stack('hive',i,'bees:frame_empty 1')
-              count = count -1
-            end
-          end
-          if count > 1 then  -- the allow_metadata_inventory_put should not let this happen
-            minetest.log('error','Bees lost empty frames on put operation('..tostring(count)..')')
+      -- shift-click nonsense 2 of 2
+      --    pull extra frames off the stack and spread them out
+      if stack:get_name() == 'bees:frame_empty' then
+        local istack = inv:get_stack('hive',index)
+        local count = istack:get_count() - 1
+        istack:set_count(1)
+        if index == 1 then    -- frames shift-clicked into queen spot
+          count = count + 1
+          istack:set_count(0)
+        end
+        inv:set_stack('hive',index,istack)
+        for i = 2,9 do
+          if count < 1 then break end
+          if inv:get_stack('hive',i):is_empty() then
+            inv:set_stack('hive',i,'bees:frame_empty 1')
+            count = count -1
           end
         end
-        meta:set_string('queen', stack:get_name())                                      --- what's this doing?
-        meta:set_string('infotext','A queen bee is inserted. Add empty frames!');       -----------something here might be a preexisting bug
-        if inv:contains_item('hive', 'bees:frame_empty') then
-          timer:start(30)
-          meta:set_string('infotext','Bees are settling in!');
+        if count > 1 then  -- the allow_metadata_inventory_put should not let this happen
+          minetest.log('error','Bees lost empty frames on put operation('..tostring(count)..')')
         end
+      end
+      -- update infotext
+      if stack:get_name() == 'bees:queen' then
+        if inv:contains_item('hive','bees:frame_empty') then
+          meta:set_string('infotext','Bees are settling in!')
+        else
+          meta:set_string('infotext','A queen bee is inserted. Add empty frames!')
+        end
+      end
+      if stack:get_name() == 'bees:frame_empty' then
+        if inv:contains_item('hive', 'bees:queen') then
+          meta:set_string('infotext','Bees are adjusting to changes in the hive')
+        else
+          meta:set_string('infotext','Needs a queen')
+        end
+      end
+      -- timer
+      if    inv:contains_item('hive','bees:queen') 
+        and inv:contains_item('hive','bees:frame_empty') 
+        and not timer:is_started()
+        then timer:start(30)
       end
     end,
     allow_metadata_inventory_put = function(pos, listname, index, stack, player)

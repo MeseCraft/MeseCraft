@@ -60,10 +60,6 @@ minetest.register_craft({
 	}
 })
 
-
-
------------------- DEV untested
-
 minetest.register_craft({ 
 	type = "shapeless", 
 	output = "bees:honeycomb", 
