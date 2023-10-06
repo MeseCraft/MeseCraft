@@ -668,6 +668,7 @@ minetest.register_lbm({
       if inv:get_stack('queen',1):get_count() > 0 then 
         inv:set_stack('hive',1,'bees:queen 1')
         inv:set_stack('queen',1,'')
+        minetest.get_node_timer(pos):start(10)
       end
       for i = 1,5 do
         if inv:get_stack('combs',i):get_count() > 0 then
@@ -690,6 +691,8 @@ minetest.register_lbm({
       if inv:get_stack('queen',1):get_count() > 0 then 
         inv:set_stack('hive',1,'bees:queen 1')
         inv:set_stack('queen',1,'')
+        minetest.get_node_timer(pos):start(30)
+        meta:set_string('infotext','')
       end
       local stack
       for i = 1,8 do
@@ -720,6 +723,10 @@ minetest.register_lbm({
       if stack:get_name() == 'vessels:glass_bottle' then 
         inv:set_stack('input',2,stack)
         inv:set_stack('bottles_empty',1,'')
+      end
+      if    inv:contains_item('input','bees:frame_full')
+        and inv:contains_item('input','vessels:glass_bottle')
+      then minetest.get_node_timer(pos):start(5)
       end
     end,
 })
