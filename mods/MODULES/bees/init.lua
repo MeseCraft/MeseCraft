@@ -59,6 +59,11 @@
       minetest.set_node(spawn_pos, {name=flower})
     end
   end
+
+        ---------------------------------
+        --          EXTRACTOR          --
+        ---------------------------------
+
   minetest.register_node('bees:extractor', {
     description = 'Honey Extractor Machine',
     tiles = {"bees_extractor_top.png", "bees_extractor_bottom.png", "bees_extractor_side.png", "bees_extractor_side.png", "bees_extractor_side.png", "bees_extractor_front.png"},
@@ -84,7 +89,7 @@
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 	},
-    on_construct = function(pos, node)
+    on_construct = function(pos)
       local meta = minetest.get_meta(pos)
       local inv  = meta:get_inventory()
       local pos = pos.x..','..pos.y..','..pos.z
@@ -254,6 +259,11 @@
     buildable_to = true,
     pointable = false,
   })
+
+        ---------------------------------
+        --          HIVE WILD          --
+        ---------------------------------
+
   minetest.register_node('bees:hive_wild', {
     description = 'Wild Bee Hive',
     tiles = {"bees_hive_wild.png"}, --texture from church_candles.
@@ -390,6 +400,10 @@
 
     end,
   })
+
+        ---------------------------------------
+        --          HIVE ARTIFICIAL          --
+        ---------------------------------------
 
   minetest.register_node('bees:hive_artificial', {
     description = 'Bee Hive',
@@ -611,15 +625,35 @@
     end,
   })
 
+
 --LBMS
 
---[[      TODO
+  -- 10/5/23
+  -- merged inventory slots to make listring feasible
+  -- need lbms to move items out of old inventory lists and into new positions
+  -- inventory lists queen,combs,frames_filled,bottles_empty no longer exist
+  -- replaced with hive and input
+
 minetest.register_lbm({
     label = "Update legacy wild hives",
     name = "bees:update_wild_hive",
     nodenames = {"bees:hive_wild"},
     run_at_every_load = true,
     action = function(pos, node, dtime_s)
+      if node.name ~= "bees:hive_wild" then return end
+      minetest.registered_nodes[node.name].on_construct(pos)
+      local meta = minetest.get_meta(pos)
+      local inv = meta:get_inventory()
+      if inv:get_stack('queen',1):get_count() > 0 then 
+        inv:set_stack('hive',1,'bees:queen 1')
+        inv:set_stack('queen',1,'')
+      end
+      for i = 1,5 do
+        if inv:get_stack('combs',i):get_count() > 0 then
+          inv:set_stack('hive',i+1,'bees:honeycomb 1')
+          inv:set_stack('combs',i,'')
+        end
+      end
     end,
 })
 minetest.register_lbm({
@@ -628,6 +662,22 @@ minetest.register_lbm({
     nodenames = {"bees:hive_artificial"},
     run_at_every_load = true,
     action = function(pos, node, dtime_s)
+      if node.name ~= "bees:hive_artificial" then return end
+      minetest.registered_nodes[node.name].on_construct(pos)
+      local meta = minetest.get_meta(pos)
+      local inv = meta:get_inventory()
+      if inv:get_stack('queen',1):get_count() > 0 then 
+        inv:set_stack('hive',1,'bees:queen 1')
+        inv:set_stack('queen',1,'')
+      end
+      local stack
+      for i = 1,8 do
+        stack = inv:get_stack('frames',i)
+        if stack:get_count() > 0 then
+          inv:set_stack('hive',i+1,stack)
+          inv:set_stack('frames',i,'')
+        end
+      end
     end,
 })
 minetest.register_lbm({
@@ -636,9 +686,23 @@ minetest.register_lbm({
     nodenames = {"bees:extractor"},
     run_at_every_load = true,
     action = function(pos, node, dtime_s)
+      if node.name ~= "bees:extractor" then return end
+      minetest.registered_nodes[node.name].on_construct(pos)
+      local meta = minetest.get_meta(pos)
+      local inv = meta:get_inventory()
+      local stack = inv:get_stack('frames_filled',1)
+      if stack:get_name() == 'bees:frame_full' then 
+        inv:set_stack('input',1,stack)
+        inv:set_stack('frames_filled',1,'')
+      end
+      local stack = inv:get_stack('bottles_empty',1)
+      if stack:get_name() == 'vessels:glass_bottle' then 
+        inv:set_stack('input',2,stack)
+        inv:set_stack('bottles_empty',1,'')
+      end
     end,
 })
-]]
+
 
 -- Load other modules for the mod.
 local default_path = minetest.get_modpath("bees")
