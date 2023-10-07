@@ -119,7 +119,7 @@ minetest.register_node('drinks:juice_press', {
     _doc_items_usagehelp = S('Right-click the press to access inventory and begin juicing.'),
     drawtype = 'mesh',
     mesh = 'drinks_press.obj',
-    tiles = {name='drinks_press.png'},
+    tiles = {{name='drinks_press.png'}},
     groups = {choppy=2, dig_immediate=2,},
     paramtype = 'light',
     paramtype2 = 'facedir',
