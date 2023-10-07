@@ -1,6 +1,7 @@
 -- TODO: ADD GLOBAL VARIABLES FOR CONTROLLING HEIGHT SPAWNS VIA MINETEST SETTING OR MINETEST.CONF
 
 local path = minetest.get_modpath("mesecraft_mobs")
+S = minetest.get_translator("mesecraft_mobs")
 
 --staging area for new mobs that are incomplete
 dofile(path .. "/mobs/facehugger.lua")
