@@ -64,7 +64,8 @@ minetest.register_node("trash_can:trash_can_wooden",{
 			"size[8,9]" ..
 			"button[0,0;2,1;empty;Empty Trash]" ..
 			"list[context;trashlist;3,1;2,3;]" ..
-			"list[current_player;main;0,5;8,4;]"
+			"list[current_player;main;0,5;8,4;]" ..
+			"listring[]"
 		)
 		meta:set_string("infotext", "Trash Can")
 		local inv = meta:get_inventory()
@@ -112,4 +113,18 @@ minetest.register_craft({
 		{'group:wood', '', 'group:wood'},
 		{'group:wood', 'group:wood', 'group:wood'},
 	}
+})
+
+
+-- Update legacy cans
+minetest.register_lbm({
+    label = "update legacy cans",
+    name = "trash_can:update_legacy",
+    nodenames = {"trash_can:trash_can_wooden"},
+    run_at_every_load = true,
+    action = function(pos)
+    	if not "trash_can:trash_can_wooden" == minetest.get_node(pos).name
+    		then return end
+    	minetest.registered_nodes["trash_can:trash_can_wooden"].on_construct(pos)
+	end
 })
