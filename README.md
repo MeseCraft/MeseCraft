@@ -1,6 +1,9 @@
 MeseCraft - A blocky survival game.
 ==========================
-Copyright (C) 2019-2023 MeseCraft, www.mesecraft.com
+Copyright (C) 2019-2023 MeseCraft
+www.mesecraft.com
+<contact@mesecraft.com>
+
 
 Description
 -------------------------
@@ -22,9 +25,9 @@ Minetest engine version 5.1.1 is compatabile but not all mods and function compl
 
 Credits and Acknowledgements
 -------------------------
-Designed by Jeremy Weston <contact@mesecraft.com> and MeseCraft community contributors.
+Designed by Jeremy Weston and MeseCraft community contributors.
 
-Thank you to minetest and its community modders too!
+Thank you to the Minetest community.
 
 License
 --------------------------
