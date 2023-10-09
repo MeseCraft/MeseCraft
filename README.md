@@ -1,7 +1,9 @@
 MeseCraft - A blocky survival game.
 ==========================
 Copyright (C) 2019-2023 MeseCraft
+
 www.mesecraft.com
+
 <contact@mesecraft.com>
 
 
