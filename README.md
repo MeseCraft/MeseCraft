@@ -1,13 +1,12 @@
 MeseCraft - A blocky survival game.
 ==========================
 Copyright (C) 2019-2023 MeseCraft
-www.mesecraft.com
 <contact@mesecraft.com>
 
 
 Description
 -------------------------
-The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join our cause: https://www.mesecraft.com
+The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join us at: https://www.mesecraft.com
 
 Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
 
