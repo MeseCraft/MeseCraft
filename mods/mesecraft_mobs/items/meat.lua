@@ -1,3 +1,5 @@
+local S = minetest.get_translator("mesecraft_mobs")
+
 -- raw meat from mobs_redo
 minetest.register_craftitem("mesecraft_mobs:meat", {
 	description = S("Meat"),
