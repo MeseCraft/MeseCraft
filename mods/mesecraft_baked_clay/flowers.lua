@@ -1,5 +1,5 @@
 -- 5.x translation
-S = minetest.get_translator("mesecraft_baked_clay")
+local S = minetest.get_translator("mesecraft_baked_clay")
 
 local flowers = {
 	{"delphinium", "Blue Delphinium",
