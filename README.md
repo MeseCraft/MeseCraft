@@ -26,7 +26,7 @@ Credits and Acknowledgements
 -------------------------
 Designed by Jeremy Weston and MeseCraft community contributors.
 
-Thank you to the Minetest community.
+A special thanks to the Minetest community.
 
 License
 --------------------------
