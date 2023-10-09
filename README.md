@@ -22,7 +22,7 @@ Minetest engine version 5.1.1 is compatabile but not all mods and function compl
 
 Credits and Acknowledgements
 -------------------------
-Designed by Komodo <contact@mesecraft.com> and other contributers.
+Designed by Jeremy Weston <contact@mesecraft.com> and MeseCraft community contributors.
 
 Thank you to minetest and its community modders too!
 
