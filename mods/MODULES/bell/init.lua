@@ -1,4 +1,4 @@
-S = minetest.get_translator("bell")
+local S = minetest.get_translator("bell")
 
 -- bell_positions are saved through server restart
 -- bells ring every hour
