@@ -52,12 +52,15 @@ function drawers.gen_info_text(basename, count, factor, stack_max)
 end
 
 function drawers.get_inv_image(name)
-	local texture = "blank.png"
+	if name == '' then return 'blank.png' end
+	local texture = "bubble.png"
 	local def = core.registered_items[name]
-	if not def then return end
+	if not def then return texture end
 
 	if def.inventory_image and #def.inventory_image > 0 then
 		texture = def.inventory_image
+	elseif def.drawtype == 'mesh' then
+		return texture
 	else
 		if not def.tiles then return texture end
 		local tiles = table.copy(def.tiles)
@@ -70,9 +73,11 @@ function drawers.get_inv_image(name)
 
 		-- tiles: up, down, right, left, back, front
 		-- inventorycube: up, front, right
-		if #tiles <= 2 then
+		if #tiles < 1 then
+			core.log('warning','Drawers: No tiles for '..name..' using '..texture)
+		elseif #tiles < 3 then
 			texture = core.inventorycube(tiles[1], tiles[1], tiles[1])
-		elseif #tiles <= 5 then
+		elseif #tiles < 6 then
 			texture = core.inventorycube(tiles[1], tiles[3], tiles[3])
 		else -- full tileset
 			texture = core.inventorycube(tiles[1], tiles[6], tiles[3])
