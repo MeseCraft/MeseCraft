@@ -107,15 +107,4 @@ minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
 	inv:set_size("mesecraft_void_chest:void_chest", 8*4)
 
-	--migrate from void_chest:void_chest to mesecraft_void_chest:void_chest
-	local vcCount = inv:get_size('void_chest:void_chest') -- should be 8*4 or 0
-	local stack
-	if vcCount and vcCount>1 then
-		for i = 1,vcCount do
-			stack = inv:get_stack('void_chest:void_chest', i)
-			stack = inv:add_item('mesecraft_void_chest:void_chest', stack) -- function returns items that couldn't be added
-			inv:set_stack('void_chest:void_chest', i, stack)
-		end
-	end
 end)
-
