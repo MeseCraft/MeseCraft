@@ -178,67 +178,11 @@ local orthogonal = {
 	{x=-1,y=0,z=0},
 }
 
-LinkedEl = {}
-
-function LinkedEl.new(next, value)
-	local out = nil
-	if next then
-		out = {prev=next.prev, next=next, value=value}
-		next.prev = out
-		if out.prev then
-			out.prev.next = out
-		end
-	else
-		out = {prev=nil, next=nil, value=value}
-	end
-	return out
-end
-
-function LinkedEl.pluck(el)
-	if el.next then
-		el.next.prev = el.prev
-	end
-	if el.prev then
-		el.prev.next = el.next
-	end
-	el.next = nil
-	el.prev = nil
-end
-
-LList = {}
-
-function LList.push(q, value)
-	local el = LinkedEl.new(q.first, value)
-	if not q.first then
-		q.last = el
-	end
-	q.first = el
-	q.count = q.count + 1
-end
-
-function LList.remove(q, it, rev)
-	local out = nil
-	if rev then
-		out = it.prev
-	else
-		out = it.next
-	end
-	
-	if it == q.last then
-		q.last = it.prev
-	end
-	if it == q.first then
-		q.first = it.next
-	end
-	
-	LinkedEl.pluck(it)
-	q.count = q.count - 1
-	return out
-end
+local LList = lua_ext.LList
 
 local lava_positions = {first=nil, last=nil, count=0, cleaning=false}
 
-function pdist2(p1, p2)
+local function pdist2(p1, p2)
 	return (p2.x - p1.x)^2 + (p2.y - p1.y)^2 + (p2.z - p1.z)^2
 end
 
