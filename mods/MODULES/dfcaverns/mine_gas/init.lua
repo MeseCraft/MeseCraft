@@ -178,6 +178,98 @@ local orthogonal = {
 	{x=-1,y=0,z=0},
 }
 
+LinkedEl = {}
+
+function LinkedEl.new(next, value)
+	local out = nil
+	if next then
+		out = {prev=next.prev, next=next, value=value}
+		next.prev = out
+		if out.prev then
+			out.prev.next = out
+		end
+	else
+		out = {prev=nil, next=nil, value=value}
+	end
+	return out
+end
+
+function LinkedEl.pluck(el)
+	if el.next then
+		el.next.prev = el.prev
+	end
+	if el.prev then
+		el.prev.next = el.next
+	end
+	el.next = nil
+	el.prev = nil
+end
+
+LList = {}
+
+function LList.push(q, value)
+	local el = LinkedEl.new(q.first, value)
+	if not q.first then
+		q.last = el
+	end
+	q.first = el
+	q.count = q.count + 1
+end
+
+function LList.remove(q, it, rev)
+	local out = nil
+	if rev then
+		out = it.prev
+	else
+		out = it.next
+	end
+	
+	if it == q.last then
+		q.last = it.prev
+	end
+	if it == q.first then
+		q.first = it.next
+	end
+	
+	LinkedEl.pluck(it)
+	q.count = q.count - 1
+	return out
+end
+
+local lava_positions = {first=nil, last=nil, count=0, cleaning=false}
+
+function pdist2(p1, p2)
+	return (p2.x - p1.x)^2 + (p2.y - p1.y)^2 + (p2.z - p1.z)^2
+end
+
+local active_block_range2 = (16*minetest.settings:get("active_block_range") )^2
+minetest.register_lbm({
+    label = "track lava positions for mine_gas:shut_down_lava_adjacent",
+    name = "mine_gas:track_lava_positions",
+    nodenames = {"group:lava"},
+    run_at_every_load = true,
+    action = function(pos, node)
+		if lava_positions.count >= 500 and not lava_positions.cleaning then
+			lava_positions.cleaning = true
+			minetest.after(3, function()
+			local it = lava_positions.last
+			while it do
+				local dist2 = pdist2(pos, lava_positions.last.value)
+				if dist2 >= active_block_range2 or dist2 < 1 then
+					--clean up duplicates and positions which are too far from current node
+					it = LList.remove(lava_positions, it, true)
+				else
+					it = it.prev
+				end
+			end
+			LList.push(lava_positions, pos)
+			lava_positions.cleaning = false
+			end)
+		end
+		LList.push(lava_positions, pos)
+	end,
+})
+
 local stone_with_coal = df_dependencies.node_name_stone_with_coal
 minetest.register_lbm({
     label = "shut down gas seeps near lava",
@@ -185,11 +277,15 @@ minetest.register_lbm({
     nodenames = {"mine_gas:gas_seep"},
     run_at_every_load = true,
     action = function(pos, node)
-		minetest.after(math.random()*60, function()
-			if minetest.find_node_near(pos, 30, "group:lava") then
+		local it = lava_positions.first
+		while not it == nil do
+			local lava_pos = it.value
+			if pdist2(pos, lava_pos) < 900 then
 				minetest.set_node(pos, {name=stone_with_coal})
+				break
 			end
-		end)
+			it = it.next
+		end
 	end,
 })
 
