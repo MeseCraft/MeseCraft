@@ -10,6 +10,11 @@ local gas_usage
 local seep_desc
 local seep_usage
 
+mine_gas = {}
+
+mine_gas.min_lava_dist2 = 900 -- minimum distance between lava and a gas seep (squared)
+mine_gas.max_dist2 = 400 -- maximum distance between a gas node and a seep (squared)
+
 if minetest.get_modpath("doc") then
 	gas_desc = S("Gaseous hydrocarbons formed from the detritus of long dead plants and animals processed by heat and pressure deep within the earth.")
 	gas_usage = S("Gas is highly hazardous. Heavier than air, it pools in deep caverns and asphyxiates the unwary.")
@@ -68,6 +73,8 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 	local np = minetest.find_node_near(pos, 1,{"mine_gas:gas"})
 	if np ~= nil then
 		minetest.set_node(pos, {name = "mine_gas:gas"})
+		local gas_meta = minetest.get_meta(pos)
+		gas_meta:set_string("origin", minetest.serialize(pos) )
 		return
 	end
 end)
@@ -79,6 +86,10 @@ local directions = {
 	{x=0, y=0, z=-1},
 }
 
+local function pdist2(p1, p2)
+	return (p2.x - p1.x)^2 + (p2.y - p1.y)^2 + (p2.z - p1.z)^2
+end
+
 local gas_node = {name="mine_gas:gas"}
 minetest.register_abm({
     label = "mine_gas:gas movement",
@@ -88,32 +99,43 @@ minetest.register_abm({
     chance = 1,
     catch_up = true,
     action = function(pos, node)
+		local gas_meta = minetest.get_meta(pos)
+		local origin = gas_meta:get_string("origin")
+		-- delete gas node if it's too far from its source
+		if origin == "" or pdist2(pos, minetest.deserialize(origin) ) >= mine_gas.max_dist2 then
+			minetest.remove_node(pos)
+			return
+		end
 		local next_pos = {x=pos.x, y=pos.y+1, z=pos.z}
 		local next_node = minetest.get_node(next_pos)
 		if minetest.get_item_group(next_node.name, "liquid") > 0 then
-			minetest.swap_node(next_pos, gas_node)
-			minetest.swap_node(pos, next_node)
+			--minetest.swap_node(next_pos, node)
+			--minetest.swap_node(pos, next_node)
+			lua_ext.fullswap(pos, next_pos)
 		else
 			next_pos.y = pos.y-1
 			next_node = minetest.get_node(next_pos)
 			if next_node.name == "air" then
-				minetest.swap_node(next_pos, gas_node)
-				minetest.swap_node(pos, next_node)			
+				--minetest.swap_node(next_pos, node)
+				--minetest.swap_node(pos, next_node)
+				lua_ext.fullswap(pos, next_pos)
 			else
 				local dir = directions[math.random(1,4)]
-				local next_pos = vector.add(pos, dir)
-				local next_node = minetest.get_node(next_pos)
+				next_pos = vector.add(pos, dir)
+				next_node = minetest.get_node(next_pos)
 				if next_node.name == "air" or  minetest.get_item_group(next_node.name, "liquid") > 0 then
 					if next_node.name == "air" or math.random() < 0.5 then -- gas never "climbs" above air.
-						minetest.swap_node(next_pos, gas_node)
-						minetest.swap_node(pos, next_node)
+						--minetest.swap_node(next_pos, node)
+						--minetest.swap_node(pos, next_node)
+						lua_ext.fullswap(pos, next_pos)
 					else
 						-- this can get gas to rise up out of the surface of liquid, preventing it from forming a permanent hole.
 						next_pos.y = next_pos.y + 1
 						next_node = minetest.get_node(next_pos)
 						if next_node.name == "air" then
-							minetest.swap_node(next_pos, gas_node)
-							minetest.swap_node(pos, next_node)
+							--minetest.swap_node(next_pos, node)
+							--minetest.swap_node(pos, next_node)
+							lua_ext.fullswap(pos, next_pos)
 						end
 					end
 				end
@@ -159,6 +181,7 @@ if tnt_boom then
 		catch_up = true,
 		action = function(pos, node)
 			if minetest.find_node_near(pos, 1, "air") then
+				minetest.remove_node(pos)
 				tnt_boom(pos, {radius=1, damage_radius=6})
 				-- One in a hundred explosions will spawn a gas wisp
 				if math.random() < 0.01 then
@@ -182,10 +205,6 @@ local LList = lua_ext.LList
 
 local lava_positions = {first=nil, last=nil, count=0, cleaning=false}
 
-local function pdist2(p1, p2)
-	return (p2.x - p1.x)^2 + (p2.y - p1.y)^2 + (p2.z - p1.z)^2
-end
-
 local active_block_range2 = (16*minetest.settings:get("active_block_range") )^2
 minetest.register_lbm({
     label = "track lava positions for mine_gas:shut_down_lava_adjacent",
@@ -193,7 +212,7 @@ minetest.register_lbm({
     nodenames = {"group:lava"},
     run_at_every_load = true,
     action = function(pos, node)
-		if lava_positions.count >= 500 and not lava_positions.cleaning then
+		if lava_positions.count >= 1000 and not lava_positions.cleaning then
 			lava_positions.cleaning = true
 			minetest.after(3, function()
 			local it = lava_positions.last
@@ -224,7 +243,7 @@ minetest.register_lbm({
 		local it = lava_positions.first
 		while not it == nil do
 			local lava_pos = it.value
-			if pdist2(pos, lava_pos) < 900 then
+			if pdist2(pos, lava_pos) < mine_gas.min_lava_dist2 then
 				minetest.set_node(pos, {name=stone_with_coal})
 				break
 			end
@@ -244,6 +263,8 @@ minetest.register_abm({
 		local target_pos = vector.add(pos,orthogonal[math.random(1,6)])
 		if minetest.get_node(target_pos).name == "air" then
 			minetest.swap_node(target_pos, {name="mine_gas:gas"})
+			local gas_meta = minetest.get_meta(target_pos)
+			gas_meta:set_string("origin", minetest.serialize(target_pos) )
 			if math.random() < 0.5 then
 				minetest.sound_play(
 					"mine_gas_seep_hiss",
