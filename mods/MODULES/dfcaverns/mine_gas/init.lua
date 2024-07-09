@@ -212,12 +212,12 @@ minetest.register_lbm({
     nodenames = {"group:lava"},
     run_at_every_load = true,
     action = function(pos, node)
-		if lava_positions.count >= 1000 and not lava_positions.cleaning then
+		if lava_positions.count >= 500 and not lava_positions.cleaning then
 			lava_positions.cleaning = true
-			minetest.after(3, function()
+			minetest.after(10, function()
 			local it = lava_positions.last
 			while it do
-				local dist2 = pdist2(pos, lava_positions.last.value)
+				local dist2 = pdist2(pos, it.value)
 				if dist2 >= active_block_range2 or dist2 < 1 then
 					--clean up duplicates and positions which are too far from current node
 					it = LList.remove(lava_positions, it, true)
