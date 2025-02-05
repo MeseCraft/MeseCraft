@@ -4,12 +4,12 @@ bedrock.layer = -30912 -- This is the location of the bottom layer.
 bedrock.thickness = -30910 -- This is how many layers are on top of the bottom layer. NOTE: these layers are not just flat layers but are more randomized.
 bedrock.node = {name = "mesecraft_bedrock:bedrock"} -- This is the block used.
 
-local depth = tonumber(minetest.setting_get("mesecraft_bedrock_y"))
+local depth = tonumber(minetest.settings:get("mesecraft_bedrock_y"))
 if depth ~= nil then
 	bedrock.layer = depth
 end
 
-local layers = tonumber(minetest.setting_get("mesecraft_bedrock_layers"))
+local layers = tonumber(minetest.settings:get("mesecraft_bedrock_layers"))
 if layers ~= nil then
 	bedrock.thickness = layers
 end
