@@ -35,10 +35,11 @@ MeseCraft can easily be installed and played from Luanti.
 
 Credits
 -------------------------
-Game Design - Komodo (Jeremy Weston)
-MeseCraft players & community members.
-A special thanks to the Luanti community.
-Many various Minetest Modders
+* Game Design - Komodo (Jeremy Weston)
+* MeseCraft players & community members.
+* The Luanti community
+* Minetest Modders
+
 
 License
 --------------------------
