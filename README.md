@@ -6,9 +6,9 @@ Copyright (C) 2019-2025 MeseCraft
 
 Description
 -------------------------
-Mesecraft is the best game for Luanti. MeseCraft is a singleplayer and multiplayer blocky survival game. Explore, survive, and craft in a beautiful and dangerous world. Discover unique biomes, mobs, villages, items, caverns, magic, tech, and more. Craft a new adventure with MeseCraft!
+Mesecraft is the best game for Luanti. MeseCraft is a singleplayer and multiplayer blocky survival game. Explore, survive, and craft in a beautiful and dangerous world. Discover unique biomes, mobs, villages, items, caverns, magic, tech, and more. Craft a new adventure with MeseCraft! https://www.mesecraft.com.
 
-MeseCraft has a focus on being fun, featured, stable, and user-friendly. MeseCraft supports both singleplayer and multiplayer. There is active support and maintenance for the game. Please report bugs so that we can address them. Help is wanted for testing and development. Join our community of players and developers at https://www.mesecraft.com.
+MeseCraft has a focus on being fun, featured, stable, and user-friendly. The game is actively supported and maintained. Please report bugs so that they can be reviewed and fixed. Help is needed and welcome for additional development and progress. Join our community of players and developers at https://www.mesecraft.com.
 
 Branches
 -------------------------
