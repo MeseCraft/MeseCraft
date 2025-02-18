@@ -1,14 +1,14 @@
 MeseCraft - A blocky survival game.
 ==========================
-Copyright (C) 2019-2023 MeseCraft
+Copyright (C) 2019-2025 MeseCraft
 <contact@mesecraft.com>
 
 
 Description
 -------------------------
-The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join us at: https://www.mesecraft.com
+Mesecraft is the best game for Luanti (formerly known as Mintest). MeseCraft is survival game with new depth, mechanics, biomes, mobs and many essential additions. It has a focus on being fun, user-friendly, stable, and minimalist but featured. Join us at https://www.mesecraft.com.
 
-Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
+The game is designed to be a stable game intended for singleplayer mode or for an online server with many players. Although development has recently lulled, there is active support and maintenance for the game provided by Komodo (Jeremy Weston) and the MeseCraft and Luanti community contributers.
 
 Development Cycle
 -------------------------
@@ -24,8 +24,8 @@ Minetest engine version 5.1.1 is compatabile but not all mods and function compl
 
 Credits and Acknowledgements
 -------------------------
-Designed by Jeremy Weston and MeseCraft community contributors.
-
+Game Design - Jeremy Weston
+MeseCraft community contributors
 A special thanks to the Minetest community.
 
 License
