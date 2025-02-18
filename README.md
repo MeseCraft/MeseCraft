@@ -40,7 +40,6 @@ Credits
 * The Luanti community
 * Minetest Modders
 
-
 License
 --------------------------
 GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3
