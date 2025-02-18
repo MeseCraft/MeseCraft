@@ -21,6 +21,18 @@ Requirements
 --------------------------
 Luanti engine version 5.11.0 or greater is recommended to run this game. Luanti is freely available on most platforms. To download Luanti, see https://www.luanti.org/downloads/
 
+Installation
+-------------------------
+MeseCraft can easily be installed and played from Luanti.
+1. Open Luanti.
+2. Go to the "Content" tab.
+3. Press the "browse online content" button.
+4. Go to the "Games" tab.
+5. Search for "MeseCraft" by MeseCraft.
+6. When you find it, click on it.
+7. Click on the green "Install" button. Luanti will download and install the game.
+8. Finally, you can play MeseCraft from the "Start Game" tab in Luanti.
+
 Credits
 -------------------------
 Game Design - Komodo (Jeremy Weston)
