@@ -13,9 +13,9 @@ MeseCraft is designed to be stable for single-player and multi-player modes. The
 Development Cycle
 -------------------------
 There are three branches of MeseCraft:
-* `main`: The main version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience for players and server operators.
-* `testing`:  The beta version of MeseCraft. For testers and developers. It prioritizes testing  new developments so newly introduced bugs can be identified and fixed.
-* `unstable`: The alpha version of MeseCraft. For developers. New code and projects should go here.
+* `main`: The main version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
+* `testing`:  The beta version of MeseCraft. For testers and developers. It prioritizes testing  new developments so bugs can be identified and fixed.
+* `unstable`: The alpha version of MeseCraft. For developers. New code and projects should target here.
 
 Requirements
 --------------------------
