@@ -10,9 +10,10 @@ Mesecraft is the best game for Luanti. MeseCraft is a singleplayer and multiplay
 
 Requirements
 --------------------------
-Luanti engine version 5.11.0 or greater is recommended to run MeseCraft. Luanti is freely available on most platforms. To download Luanti, reference https://www.luanti.org/downloads/
+Luanti engine version 5.11.0 or greater is recommended to run MeseCraft.
+Luanti is freely available on most platforms. To download and install Luanti, reference https://www.luanti.org/downloads/
 
-Easy Installation
+Installation
 -------------------------
 MeseCraft can easily be installed and played from Luanti.
 1. Open Luanti.
