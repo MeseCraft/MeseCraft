@@ -8,20 +8,11 @@ Description
 -------------------------
 Mesecraft is the best game for Luanti. MeseCraft is a singleplayer and multiplayer blocky survival game. Explore, survive, and craft in a beautiful and dangerous world. Discover unique biomes, mobs, villages, items, caverns, magic, tech, and more. Craft a new adventure with MeseCraft! https://www.mesecraft.com.
 
-MeseCraft has a focus on being fun, featured, stable, and user-friendly. The game is actively supported and maintained. Please report bugs so that they can be reviewed and fixed. Help is needed and welcome for additional development and progress. Join our community of players and developers at https://www.mesecraft.com.
-
-Branches
--------------------------
-There are three branches of MeseCraft:
-* `main`: The main version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
-* `testing`:  The beta version of MeseCraft. For testers and developers. It prioritizes testing  new developments so bugs can be identified and fixed.
-* `unstable`: The alpha version of MeseCraft. For developers. New code and projects should target here.
-
 Requirements
 --------------------------
 Luanti engine version 5.11.0 or greater is recommended to run MeseCraft. Luanti is freely available on most platforms. To download Luanti, reference https://www.luanti.org/downloads/
 
-Installation
+Easy Installation
 -------------------------
 MeseCraft can easily be installed and played from Luanti.
 1. Open Luanti.
@@ -32,6 +23,17 @@ MeseCraft can easily be installed and played from Luanti.
 6. Find "MeseCraft" by MeseCraft. When you find it, click on it.
 7. Click on the green "Install" button. Luanti will download and install the game.
 8. Finally, you can play MeseCraft from the "Start Game" tab in Luanti.
+
+Development
+-------------------------
+MeseCraft has a focus on being fun, featured, stable, and user-friendly. The game is actively supported and maintained. Please report bugs so that they can be reviewed and fixed. Help is needed and welcome for additional development and progress. Join our community of players and developers at https://www.mesecraft.com.
+
+Branches
+-------------------------
+There are three branches of MeseCraft:
+* `main`: The main version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
+* `testing`:  The beta version of MeseCraft. For testers and developers. It prioritizes testing  new developments so bugs can be identified and fixed.
+* `unstable`: The alpha version of MeseCraft. For developers. New code and projects should target here.
 
 Credits
 -------------------------
